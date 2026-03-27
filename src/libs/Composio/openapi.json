@@ -305,6 +305,52 @@
               "https://www.googleapis.com/auth/gmail.modify"
             ]
           },
+          "scope_requirements": {
+            "type": "object",
+            "nullable": true,
+            "properties": {
+              "all_of": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "any_of": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "minItems": 1
+                        }
+                      },
+                      "required": [
+                        "any_of"
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            "required": [
+              "all_of"
+            ],
+            "description": "Structured scope requirements for the tool. Null means the tool is legacy and only exposes flat scopes.",
+            "example": {
+              "all_of": [
+                "read:user",
+                {
+                  "any_of": [
+                    "repo",
+                    "public_repo"
+                  ]
+                }
+              ]
+            }
+          },
           "tags": {
             "type": "array",
             "items": {
@@ -391,6 +437,7 @@
           "version",
           "output_parameters",
           "scopes",
+          "scope_requirements",
           "tags",
           "is_deprecated",
           "deprecated"

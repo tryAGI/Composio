@@ -1937,6 +1937,8 @@ namespace Composio
 
             typeof(global::Composio.JsonConverters.PostToolRouterSessionBySessionIdSearchResponseToolSchemasSchemaRefToolNullableJsonConverter),
 
+            typeof(global::Composio.JsonConverters.AnyOfJsonConverter<string, global::Composio.ToolScopeRequirementsAllOfItem>),
+
             typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.PostAuthConfigsRequestAuthConfigVariant1, global::Composio.PostAuthConfigsRequestAuthConfigVariant2>),
 
             typeof(global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>),
@@ -2263,6 +2265,10 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object?>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(object))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolScopeRequirements))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.AnyOf<string, global::Composio.ToolScopeRequirementsAllOfItem>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<string, global::Composio.ToolScopeRequirementsAllOfItem>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolScopeRequirementsAllOfItem))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolDeprecated))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolDeprecatedToolkit))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolsPaginated))]
@@ -3634,6 +3640,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.GetToolkitsChangelogResponseItemVersion>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsChangelogResponseItemVersion))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Composio.AnyOf<string, global::Composio.ToolScopeRequirementsAllOfItem>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Composio.Tool>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Composio.ToolRouterToolkitsListResponseItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<string, global::System.Collections.Generic.List<string>>))]
