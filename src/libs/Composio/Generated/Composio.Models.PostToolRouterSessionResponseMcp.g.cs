@@ -1,0 +1,61 @@
+
+#nullable enable
+
+namespace Composio
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public sealed partial class PostToolRouterSessionResponseMcp
+    {
+        /// <summary>
+        /// The type of the MCP server. Can be http
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.PostToolRouterSessionResponseMcpTypeJsonConverter))]
+        public global::Composio.PostToolRouterSessionResponseMcpType Type { get; set; }
+
+        /// <summary>
+        /// The URL of the MCP server<br/>
+        /// Example: https://app.composio.dev/tool_router/v3/trs_123456789/mcp
+        /// </summary>
+        /// <example>https://app.composio.dev/tool_router/v3/trs_123456789/mcp</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("url")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string Url { get; set; }
+
+        /// <summary>
+        /// Additional properties that are not explicitly defined in the schema
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PostToolRouterSessionResponseMcp" /> class.
+        /// </summary>
+        /// <param name="type">
+        /// The type of the MCP server. Can be http
+        /// </param>
+        /// <param name="url">
+        /// The URL of the MCP server<br/>
+        /// Example: https://app.composio.dev/tool_router/v3/trs_123456789/mcp
+        /// </param>
+#if NET7_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
+        public PostToolRouterSessionResponseMcp(
+            string url,
+            global::Composio.PostToolRouterSessionResponseMcpType type)
+        {
+            this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
+            this.Type = type;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PostToolRouterSessionResponseMcp" /> class.
+        /// </summary>
+        public PostToolRouterSessionResponseMcp()
+        {
+        }
+    }
+}

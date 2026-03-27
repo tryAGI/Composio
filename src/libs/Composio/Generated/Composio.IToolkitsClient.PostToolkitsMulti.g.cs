@@ -1,0 +1,49 @@
+#nullable enable
+
+namespace Composio
+{
+    public partial interface IToolkitsClient
+    {
+        /// <summary>
+        /// Fetch multiple toolkits<br/>
+        /// Retrieves a comprehensive list of toolkits of their latest versions that are available to the authenticated project. Toolkits represent integration points with external services and applications, each containing a collection of tools and triggers. This endpoint supports filtering by category and management type, as well as different sorting options. You can optionally specify a list of toolkit slugs to fetch specific toolkits.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Composio.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Composio.PostToolkitsMultiResponse> PostToolkitsMultiAsync(
+
+            global::Composio.PostToolkitsMultiRequest request,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Fetch multiple toolkits<br/>
+        /// Retrieves a comprehensive list of toolkits of their latest versions that are available to the authenticated project. Toolkits represent integration points with external services and applications, each containing a collection of tools and triggers. This endpoint supports filtering by category and management type, as well as different sorting options. You can optionally specify a list of toolkit slugs to fetch specific toolkits.
+        /// </summary>
+        /// <param name="toolkits">
+        /// Array of toolkit slug identifiers to retrieve<br/>
+        /// Example: [github, slack, gmail]
+        /// </param>
+        /// <param name="category">
+        /// Category ID or name to filter toolkits by<br/>
+        /// Example: productivity
+        /// </param>
+        /// <param name="managedBy">
+        /// Entity responsible for managing the toolkits
+        /// </param>
+        /// <param name="sortBy">
+        /// Determines how toolkits should be sorted in the response
+        /// </param>
+        /// <param name="limit"></param>
+        /// <param name="cursor"></param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        global::System.Threading.Tasks.Task<global::Composio.PostToolkitsMultiResponse> PostToolkitsMultiAsync(
+            global::System.Collections.Generic.IList<string>? toolkits = default,
+            string? category = default,
+            global::Composio.PostToolkitsMultiRequestManagedBy? managedBy = default,
+            global::Composio.PostToolkitsMultiRequestSortBy? sortBy = default,
+            double? limit = default,
+            string? cursor = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+    }
+}

@@ -1,0 +1,20 @@
+#nullable enable
+
+namespace Composio
+{
+    public partial interface IWebhooksClient
+    {
+        /// <summary>
+        /// List webhook subscriptions<br/>
+        /// Lists all webhook subscriptions for the authenticated project with pagination. Currently limited to one subscription per project.
+        /// </summary>
+        /// <param name="limit"></param>
+        /// <param name="cursor"></param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Composio.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Composio.GetWebhookSubscriptionsResponse> GetWebhookSubscriptionsAsync(
+            double? limit = default,
+            string? cursor = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+    }
+}

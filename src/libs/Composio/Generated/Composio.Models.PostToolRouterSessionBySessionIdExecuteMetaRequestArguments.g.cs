@@ -1,0 +1,20 @@
+
+#nullable enable
+
+namespace Composio
+{
+    /// <summary>
+    /// The arguments required by the meta tool<br/>
+    /// Default Value: {}<br/>
+    /// Example: {"toolkits":["github"],"reinitiate_all":false}
+    /// </summary>
+    public sealed partial class PostToolRouterSessionBySessionIdExecuteMetaRequestArguments
+    {
+
+        /// <summary>
+        /// Additional properties that are not explicitly defined in the schema
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+    }
+}

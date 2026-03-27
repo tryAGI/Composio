@@ -1,0 +1,60 @@
+#nullable enable
+
+namespace Composio.JsonConverters
+{
+    /// <inheritdoc />
+    public sealed class PostInternalActionExecutionLogsResponseDataItemStatusNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::Composio.PostInternalActionExecutionLogsResponseDataItemStatus?>
+    {
+        /// <inheritdoc />
+        public override global::Composio.PostInternalActionExecutionLogsResponseDataItemStatus? Read(
+            ref global::System.Text.Json.Utf8JsonReader reader,
+            global::System.Type typeToConvert,
+            global::System.Text.Json.JsonSerializerOptions options)
+        {
+            switch (reader.TokenType)
+            {
+                case global::System.Text.Json.JsonTokenType.String:
+                {
+                    var stringValue = reader.GetString();
+                    if (stringValue != null)
+                    {
+                        return global::Composio.PostInternalActionExecutionLogsResponseDataItemStatusExtensions.ToEnum(stringValue);
+                    }
+                    
+                    break;
+                }
+                case global::System.Text.Json.JsonTokenType.Number:
+                {
+                    var numValue = reader.GetInt32();
+                    return (global::Composio.PostInternalActionExecutionLogsResponseDataItemStatus)numValue;
+                }
+                case global::System.Text.Json.JsonTokenType.Null:
+                {
+                    return default(global::Composio.PostInternalActionExecutionLogsResponseDataItemStatus?);
+                }
+                default:
+                    throw new global::System.ArgumentOutOfRangeException(nameof(reader));
+            }
+
+            return default;
+        }
+
+        /// <inheritdoc />
+        public override void Write(
+            global::System.Text.Json.Utf8JsonWriter writer,
+            global::Composio.PostInternalActionExecutionLogsResponseDataItemStatus? value,
+            global::System.Text.Json.JsonSerializerOptions options)
+        {
+            writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
+
+            if (value == null)
+            {
+                writer.WriteNullValue();
+            }
+            else
+            {
+                writer.WriteStringValue(global::Composio.PostInternalActionExecutionLogsResponseDataItemStatusExtensions.ToValueString(value.Value));
+            }
+        }
+    }
+}

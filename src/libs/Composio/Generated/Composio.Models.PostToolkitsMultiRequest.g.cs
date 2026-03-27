@@ -1,0 +1,104 @@
+
+#nullable enable
+
+namespace Composio
+{
+    /// <summary>
+    /// Body parameters for filtering and sorting toolkits
+    /// </summary>
+    public sealed partial class PostToolkitsMultiRequest
+    {
+        /// <summary>
+        /// Array of toolkit slug identifiers to retrieve<br/>
+        /// Example: [github, slack, gmail]
+        /// </summary>
+        /// <example>[github, slack, gmail]</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("toolkits")]
+        public global::System.Collections.Generic.IList<string>? Toolkits { get; set; }
+
+        /// <summary>
+        /// Category ID or name to filter toolkits by<br/>
+        /// Example: productivity
+        /// </summary>
+        /// <example>productivity</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("category")]
+        public string? Category { get; set; }
+
+        /// <summary>
+        /// Entity responsible for managing the toolkits
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("managed_by")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.PostToolkitsMultiRequestManagedByJsonConverter))]
+        public global::Composio.PostToolkitsMultiRequestManagedBy? ManagedBy { get; set; }
+
+        /// <summary>
+        /// Determines how toolkits should be sorted in the response
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("sort_by")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.PostToolkitsMultiRequestSortByJsonConverter))]
+        public global::Composio.PostToolkitsMultiRequestSortBy? SortBy { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("limit")]
+        public double? Limit { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("cursor")]
+        public string? Cursor { get; set; }
+
+        /// <summary>
+        /// Additional properties that are not explicitly defined in the schema
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PostToolkitsMultiRequest" /> class.
+        /// </summary>
+        /// <param name="toolkits">
+        /// Array of toolkit slug identifiers to retrieve<br/>
+        /// Example: [github, slack, gmail]
+        /// </param>
+        /// <param name="category">
+        /// Category ID or name to filter toolkits by<br/>
+        /// Example: productivity
+        /// </param>
+        /// <param name="managedBy">
+        /// Entity responsible for managing the toolkits
+        /// </param>
+        /// <param name="sortBy">
+        /// Determines how toolkits should be sorted in the response
+        /// </param>
+        /// <param name="limit"></param>
+        /// <param name="cursor"></param>
+#if NET7_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
+        public PostToolkitsMultiRequest(
+            global::System.Collections.Generic.IList<string>? toolkits,
+            string? category,
+            global::Composio.PostToolkitsMultiRequestManagedBy? managedBy,
+            global::Composio.PostToolkitsMultiRequestSortBy? sortBy,
+            double? limit,
+            string? cursor)
+        {
+            this.Toolkits = toolkits;
+            this.Category = category;
+            this.ManagedBy = managedBy;
+            this.SortBy = sortBy;
+            this.Limit = limit;
+            this.Cursor = cursor;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PostToolkitsMultiRequest" /> class.
+        /// </summary>
+        public PostToolkitsMultiRequest()
+        {
+        }
+    }
+}
