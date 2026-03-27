@@ -97,6 +97,14 @@ namespace Composio
         public required global::System.Collections.Generic.IList<string> Scopes { get; set; }
 
         /// <summary>
+        /// Structured scope requirements for the tool. Null means the tool is legacy and only exposes flat scopes.<br/>
+        /// Example: {"all_of":["read:user",{"any_of":["repo","public_repo"]}]}
+        /// </summary>
+        /// <example>{"all_of":["read:user",{"any_of":["repo","public_repo"]}]}</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("scope_requirements")]
+        public global::Composio.ToolScopeRequirements? ScopeRequirements { get; set; }
+
+        /// <summary>
         /// List of tags associated with the tool for categorization and filtering<br/>
         /// Example: [ci-cd, github, automation, devops]
         /// </summary>
@@ -175,6 +183,10 @@ namespace Composio
         /// List of scopes associated with the tool<br/>
         /// Example: [https://www.googleapis.com/auth/gmail.modify]
         /// </param>
+        /// <param name="scopeRequirements">
+        /// Structured scope requirements for the tool. Null means the tool is legacy and only exposes flat scopes.<br/>
+        /// Example: {"all_of":["read:user",{"any_of":["repo","public_repo"]}]}
+        /// </param>
         /// <param name="tags">
         /// List of tags associated with the tool for categorization and filtering<br/>
         /// Example: [ci-cd, github, automation, devops]
@@ -205,6 +217,7 @@ namespace Composio
             global::System.Collections.Generic.IList<string> tags,
             bool isDeprecated,
             global::Composio.ToolDeprecated deprecated,
+            global::Composio.ToolScopeRequirements? scopeRequirements,
             string? humanDescription)
         {
             this.Slug = slug ?? throw new global::System.ArgumentNullException(nameof(slug));
@@ -220,6 +233,7 @@ namespace Composio
             this.Tags = tags ?? throw new global::System.ArgumentNullException(nameof(tags));
             this.IsDeprecated = isDeprecated;
             this.Deprecated = deprecated ?? throw new global::System.ArgumentNullException(nameof(deprecated));
+            this.ScopeRequirements = scopeRequirements;
             this.HumanDescription = humanDescription;
         }
 
