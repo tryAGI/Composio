@@ -50,6 +50,11 @@ namespace Composio
         public AuthenticationClient Authentication { get; }
 
         /// <summary>
+        /// CLI integration endpoints
+        /// </summary>
+        public CliClient Cli { get; }
+
+        /// <summary>
         /// 
         /// </summary>
         public CliAuthenticationClient CliAuthentication { get; }

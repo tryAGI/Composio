@@ -2664,6 +2664,200 @@
         }
       }
     },
+    "/api/v3/cli/codact_failures": {
+      "post": {
+        "summary": "Ingest CLI codact failures",
+        "description": "Accepts CLI-reported codact failures authenticated by user API key and stores them in ClickHouse for later analysis.",
+        "tags": [
+          "CLI"
+        ],
+        "operationId": "postCliCodactFailures",
+        "security": [
+          {
+            "UserApiKeyAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "description": "User API key used to authenticate the CLI codact failure.",
+              "example": "uak_abc123xyz456..."
+            },
+            "required": true,
+            "name": "x-user-api-key",
+            "in": "header"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "failure_type": {
+                    "type": "string",
+                    "enum": [
+                      "wrong_tool_slug",
+                      "wrong_tool_input_param"
+                    ],
+                    "description": "Type of codact failure being recorded.",
+                    "example": "wrong_tool_slug"
+                  },
+                  "tool_info": {
+                    "type": "object",
+                    "properties": {
+                      "toolkit": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "tool": {
+                        "type": "object",
+                        "properties": {
+                          "slug": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "version": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        },
+                        "required": [
+                          "slug",
+                          "version"
+                        ]
+                      }
+                    },
+                    "description": "Optional tool metadata when the failure can be tied to a toolkit or concrete tool version.",
+                    "example": {
+                      "toolkit": "github",
+                      "tool": {
+                        "slug": "GITHUB_CREATE_ISSUE",
+                        "version": "2026.03.23"
+                      }
+                    }
+                  },
+                  "ctx": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "nullable": true
+                    },
+                    "description": "Arbitrary failure context from the CLI.",
+                    "example": {
+                      "invalid_tool_slug": "GITHUB_MAKE_ISSUE",
+                      "candidate_tool_slugs": [
+                        "GITHUB_CREATE_ISSUE"
+                      ]
+                    }
+                  },
+                  "session": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "nullable": true
+                    },
+                    "description": "Arbitrary session payload from the CLI.",
+                    "example": {
+                      "id": "sess_123",
+                      "model": "gpt-5.2"
+                    }
+                  },
+                  "request_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200,
+                    "description": "Optional request identifier associated with the failure.",
+                    "example": "req_123"
+                  }
+                },
+                "required": [
+                  "failure_type",
+                  "ctx",
+                  "session"
+                ]
+              },
+              "example": {
+                "failure_type": "wrong_tool_slug",
+                "tool_info": {
+                  "toolkit": "github",
+                  "tool": {
+                    "slug": "GITHUB_CREATE_ISSUE",
+                    "version": "2026.03.23"
+                  }
+                },
+                "ctx": {
+                  "invalid_tool_slug": "GITHUB_MAKE_ISSUE"
+                },
+                "session": {
+                  "id": "sess_123",
+                  "source": "cli"
+                },
+                "request_id": "req_123"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "CLI codact failure accepted and stored.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "tracked": {
+                      "type": "boolean",
+                      "description": "Whether the codact failure row was accepted for storage.",
+                      "example": true
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "Unique identifier for the stored failure row.",
+                      "example": "5f6f7a1d-72d1-4f7c-bf3a-2fd7421bc123"
+                    }
+                  },
+                  "required": [
+                    "tracked",
+                    "id"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized. A valid user API key is required.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v3/cli/get-session": {
       "get": {
         "summary": "Get CLI session details by ID or code",

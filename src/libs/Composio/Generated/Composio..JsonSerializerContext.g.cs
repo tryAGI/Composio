@@ -37,6 +37,10 @@ namespace Composio
 
             typeof(global::Composio.JsonConverters.PostCliCreateSessionRequestScopeNullableJsonConverter),
 
+            typeof(global::Composio.JsonConverters.PostCliCodactFailuresRequestFailureTypeJsonConverter),
+
+            typeof(global::Composio.JsonConverters.PostCliCodactFailuresRequestFailureTypeNullableJsonConverter),
+
             typeof(global::Composio.JsonConverters.PostConnectedAccountsRequestConnectionStateVariant1AuthSchemeJsonConverter),
 
             typeof(global::Composio.JsonConverters.PostConnectedAccountsRequestConnectionStateVariant1AuthSchemeNullableJsonConverter),
@@ -2295,6 +2299,10 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchAuthConfigsByNanoidRequestVariant2ToolAccessConfig))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCliCreateSessionRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCliCreateSessionRequestScope))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCliCodactFailuresRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCliCodactFailuresRequestFailureType))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCliCodactFailuresRequestToolInfo))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCliCodactFailuresRequestToolInfoTool))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCliRealtimeAuthRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostConnectedAccountsRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostConnectedAccountsRequestAuthConfig))]
@@ -2758,6 +2766,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCliCreateSessionResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCliCreateSessionResponseStatus))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCliCreateSessionResponseScope))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCliCodactFailuresResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetCliGetSessionResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetCliGetSessionResponseStatus))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetCliGetSessionResponseAccount))]
