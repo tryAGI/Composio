@@ -59,11 +59,7 @@ public partial class Tests
 
         //// The tool returns toolkits like GitHub, Gmail, Slack with auth info.
         var result = await tool.InvokeAsync(
-            new AIFunctionArguments
-            {
-                ["search"] = null,
-                ["category"] = null,
-            },
+            new AIFunctionArguments { ["search"] = (string?)null },
             cancellationToken: CancellationToken.None);
 
         result.Should().NotBeNull();
@@ -78,7 +74,7 @@ public partial class Tests
         //// Create a tool that lists connected accounts:
         var tool = client.AsListConnectedAccountsTool();
 
-        tool.Name.Should().Be("ListConnectedAccounts");
+        tool.Name.Should().Be("ListComposioConnectedAccounts");
         tool.Description.Should().Contain("connected");
 
         //// The tool returns authenticated integration accounts.

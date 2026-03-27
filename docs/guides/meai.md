@@ -11,7 +11,7 @@ allowing any `IChatClient` to execute 250+ integrations, list tools, and manage 
 | `AsExecuteToolTool()` | `ExecuteComposioTool` | Executes any Composio tool by slug with arguments or natural language. |
 | `AsListToolsTool()` | `ListComposioTools` | Lists available tools with optional toolkit/search filtering. |
 | `AsListToolkitsTool()` | `ListComposioToolkits` | Lists available integrations (GitHub, Gmail, Slack, etc.). |
-| `AsListConnectedAccountsTool()` | `ListConnectedAccounts` | Lists authenticated user connections to external services. |
+| `AsListConnectedAccountsTool()` | `ListComposioConnectedAccounts` | Lists authenticated user connections to external services. |
 
 ## Usage
 
@@ -62,7 +62,7 @@ var tool = composio.AsListToolsTool();
 Lists available integrations (toolkits) like GitHub, Gmail, Slack.
 Optionally filter by search query or category.
 
-### ListConnectedAccounts
+### ListComposioConnectedAccounts
 
 Lists all authenticated integration accounts for the current project.
 Returns account IDs needed for executing tools.
