@@ -43,7 +43,14 @@ The generated client uses sub-client accessors:
 
 ## Spec Fixes
 
-The `generate.sh` applies these fixes:
-- Converts `apiKey` header auth → `http/bearer` and adds top-level `security` array
-- Removes extra security schemes (`UserApiKeyAuth`, `CookieAuth`, `OrgApiKeyAuth`)
-- Replaces 74-variant `anyOf` on `connection_data` with generic `object` to avoid CS7013 metadata length limit
+The `generate.sh` applies these fixes via `jq` (pre-generation) and `sed` (post-generation):
+
+**Pre-generation (`jq`):**
+1. **Auth scheme conversion:** Converts `apiKey` header auth → `http/bearer`; removes extra schemes (`UserApiKeyAuth`, `CookieAuth`, `OrgApiKeyAuth`); adds top-level `security` array
+2. **connection_data simplification:** Replaces 74-variant `anyOf` on `/api/v3/connected_accounts/link` `connection_data` with generic `object` to avoid CS7013 metadata length limit
+3. **Deprecated parameter dedup:** Removes deprecated camelCase query params from `GET /api/v3/trigger_instances/active` — spec has both snake_case (current) and camelCase (deprecated) versions that normalize to identical C# names, causing CS0100
+
+**Post-generation (`sed`):**
+4. **CS0618 pragma suppression:** Adds `#pragma warning disable CS0618` to 7 generated files where non-deprecated models reference `[Obsolete]`-marked types
+
+Uses `--exclude-deprecated-operations` flag.
