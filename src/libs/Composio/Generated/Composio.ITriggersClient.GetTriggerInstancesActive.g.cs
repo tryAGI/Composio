@@ -11,27 +11,27 @@ namespace Composio
         /// <param name="userIds">
         /// Array of user IDs to filter triggers by
         /// </param>
-        /// <param name="connectedAccountIds1">
+        /// <param name="connectedAccountIds">
         /// Array of connected account IDs to filter triggers by
         /// </param>
-        /// <param name="authConfigIds1">
+        /// <param name="authConfigIds">
         /// Array of auth config IDs to filter triggers by
         /// </param>
-        /// <param name="triggerIds1">
+        /// <param name="triggerIds">
         /// Array of trigger IDs to filter triggers by
         /// </param>
-        /// <param name="triggerNames1">
+        /// <param name="triggerNames">
         /// Array of trigger names to filter triggers by. Case-insensitive (internally normalized to uppercase).
         /// </param>
-        /// <param name="connectedAccountIds2"></param>
-        /// <param name="authConfigIds2"></param>
-        /// <param name="triggerIds2"></param>
-        /// <param name="showDisabled1">
+        /// <param name="connectedAccountIds"></param>
+        /// <param name="authConfigIds"></param>
+        /// <param name="triggerIds"></param>
+        /// <param name="showDisabled">
         /// When set to true, includes disabled triggers in the response.<br/>
         /// Default Value: false
         /// </param>
-        /// <param name="triggerNames2"></param>
-        /// <param name="showDisabled2">
+        /// <param name="triggerNames"></param>
+        /// <param name="showDisabled">
         /// DEPRECATED: Use show_disabled instead<br/>
         /// Default Value: false
         /// </param>
@@ -47,16 +47,16 @@ namespace Composio
         /// <exception cref="global::Composio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.GetTriggerInstancesActiveResponse> GetTriggerInstancesActiveAsync(
             global::System.Collections.Generic.IList<string>? userIds = default,
-            global::System.Collections.Generic.IList<string>? connectedAccountIds1 = default,
-            global::System.Collections.Generic.IList<string>? authConfigIds1 = default,
-            global::System.Collections.Generic.IList<string>? triggerIds1 = default,
-            global::System.Collections.Generic.IList<string>? triggerNames1 = default,
-            global::System.Collections.Generic.IList<string>? connectedAccountIds2 = default,
-            global::System.Collections.Generic.IList<string>? authConfigIds2 = default,
-            global::System.Collections.Generic.IList<string>? triggerIds2 = default,
-            bool? showDisabled1 = default,
-            global::System.Collections.Generic.IList<string>? triggerNames2 = default,
-            bool? showDisabled2 = default,
+            global::System.Collections.Generic.IList<string>? connectedAccountIds = default,
+            global::System.Collections.Generic.IList<string>? authConfigIds = default,
+            global::System.Collections.Generic.IList<string>? triggerIds = default,
+            global::System.Collections.Generic.IList<string>? triggerNames = default,
+            global::System.Collections.Generic.IList<string>? connectedAccountIds = default,
+            global::System.Collections.Generic.IList<string>? authConfigIds = default,
+            global::System.Collections.Generic.IList<string>? triggerIds = default,
+            bool? showDisabled = default,
+            global::System.Collections.Generic.IList<string>? triggerNames = default,
+            bool? showDisabled = default,
             global::System.Collections.Generic.IList<string>? deprecatedConnectedAccountUuids = default,
             global::System.Collections.Generic.IList<string>? deprecatedAuthConfigUuids = default,
             double? limit = default,
