@@ -55,6 +55,15 @@ namespace Composio
         };
 
         /// <summary>
+        /// CLI integration endpoints
+        /// </summary>
+        public CliClient Cli => new CliClient(HttpClient, authorizations: Authorizations)
+        {
+            ReadResponseAsString = ReadResponseAsString,
+            JsonSerializerContext = JsonSerializerContext,
+        };
+
+        /// <summary>
         /// 
         /// </summary>
         public CliAuthenticationClient CliAuthentication => new CliAuthenticationClient(HttpClient, authorizations: Authorizations)
