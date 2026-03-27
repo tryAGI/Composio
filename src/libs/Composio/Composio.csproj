@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <PropertyGroup Label="Nuget">
+    <PackageId>Composio</PackageId>
     <Description>C# SDK based on Composio OpenAPI specification.</Description>
     <PackageTags>api;client;sdk;dotnet;openapi;composio;ai-agents;tool-calling;integrations</PackageTags>
   </PropertyGroup>
