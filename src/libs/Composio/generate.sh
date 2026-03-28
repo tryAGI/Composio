@@ -41,6 +41,6 @@ CS0618_FILES=(
 for file in "${CS0618_FILES[@]}"; do
   filepath="Generated/$file"
   if [ -f "$filepath" ]; then
-    sed -i '' '1s/^/#pragma warning disable CS0618\n/' "$filepath"
+    printf '%s\n' '#pragma warning disable CS0618' "$(cat "$filepath")" > "$filepath"
   fi
 done
