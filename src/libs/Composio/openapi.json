@@ -42145,51 +42145,6 @@
           },
           {
             "schema": {
-              "type": "array",
-              "nullable": true,
-              "items": {
-                "type": "string",
-                "format": "connectedAccountId"
-              }
-            },
-            "required": false,
-            "description": "DEPRECATED: This parameter will be removed in a future version. Please use connected_account_ids instead.",
-            "deprecated": true,
-            "name": "connectedAccountIds",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "array",
-              "nullable": true,
-              "items": {
-                "type": "string",
-                "format": "authConfigId"
-              }
-            },
-            "required": false,
-            "description": "DEPRECATED: This parameter will be removed in a future version. Please use auth_config_ids instead.",
-            "deprecated": true,
-            "name": "authConfigIds",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "array",
-              "nullable": true,
-              "items": {
-                "type": "string",
-                "format": "triggerInstanceId"
-              }
-            },
-            "required": false,
-            "description": "DEPRECATED: This parameter will be removed in a future version. Please use trigger_ids instead.",
-            "deprecated": true,
-            "name": "triggerIds",
-            "in": "query"
-          },
-          {
-            "schema": {
               "type": "boolean",
               "nullable": true,
               "default": false,
@@ -42198,63 +42153,6 @@
             "required": false,
             "description": "When set to true, includes disabled triggers in the response.",
             "name": "show_disabled",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "array",
-              "nullable": true,
-              "items": {
-                "type": "string"
-              }
-            },
-            "required": false,
-            "description": "DEPRECATED: This parameter will be removed in a future version. Please use trigger_names instead.",
-            "deprecated": true,
-            "name": "triggerNames",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "boolean",
-              "nullable": true,
-              "default": false,
-              "description": "DEPRECATED: Use show_disabled instead"
-            },
-            "required": false,
-            "description": "DEPRECATED: This parameter will be removed in a future version. Please use show_disabled instead.",
-            "deprecated": true,
-            "name": "showDisabled",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "array",
-              "nullable": true,
-              "items": {
-                "type": "string"
-              },
-              "description": "Array of connected account UUIDs to filter triggers by"
-            },
-            "required": false,
-            "description": "DEPRECATED: This parameter will be removed in a future version. Please use connected_account_ids instead.",
-            "deprecated": true,
-            "name": "deprecatedConnectedAccountUuids",
-            "in": "query"
-          },
-          {
-            "schema": {
-              "type": "array",
-              "nullable": true,
-              "items": {
-                "type": "string"
-              },
-              "description": "Array of auth config UUIDs to filter triggers by"
-            },
-            "required": false,
-            "description": "DEPRECATED: This parameter will be removed in a future version. Please use auth_config_ids instead.",
-            "deprecated": true,
-            "name": "deprecatedAuthConfigUuids",
             "in": "query"
           },
           {

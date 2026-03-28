@@ -12,14 +12,7 @@ namespace Composio
             global::System.Collections.Generic.IList<string>? authConfigIds,
             global::System.Collections.Generic.IList<string>? triggerIds,
             global::System.Collections.Generic.IList<string>? triggerNames,
-            global::System.Collections.Generic.IList<string>? connectedAccountIds,
-            global::System.Collections.Generic.IList<string>? authConfigIds,
-            global::System.Collections.Generic.IList<string>? triggerIds,
             ref bool? showDisabled,
-            global::System.Collections.Generic.IList<string>? triggerNames,
-            ref bool? showDisabled,
-            global::System.Collections.Generic.IList<string>? deprecatedConnectedAccountUuids,
-            global::System.Collections.Generic.IList<string>? deprecatedAuthConfigUuids,
             ref double? limit,
             ref string? cursor);
         partial void PrepareGetTriggerInstancesActiveRequest(
@@ -30,14 +23,7 @@ namespace Composio
             global::System.Collections.Generic.IList<string>? authConfigIds,
             global::System.Collections.Generic.IList<string>? triggerIds,
             global::System.Collections.Generic.IList<string>? triggerNames,
-            global::System.Collections.Generic.IList<string>? connectedAccountIds,
-            global::System.Collections.Generic.IList<string>? authConfigIds,
-            global::System.Collections.Generic.IList<string>? triggerIds,
             bool? showDisabled,
-            global::System.Collections.Generic.IList<string>? triggerNames,
-            bool? showDisabled,
-            global::System.Collections.Generic.IList<string>? deprecatedConnectedAccountUuids,
-            global::System.Collections.Generic.IList<string>? deprecatedAuthConfigUuids,
             double? limit,
             string? cursor);
         partial void ProcessGetTriggerInstancesActiveResponse(
@@ -68,23 +54,9 @@ namespace Composio
         /// <param name="triggerNames">
         /// Array of trigger names to filter triggers by. Case-insensitive (internally normalized to uppercase).
         /// </param>
-        /// <param name="connectedAccountIds"></param>
-        /// <param name="authConfigIds"></param>
-        /// <param name="triggerIds"></param>
         /// <param name="showDisabled">
         /// When set to true, includes disabled triggers in the response.<br/>
         /// Default Value: false
-        /// </param>
-        /// <param name="triggerNames"></param>
-        /// <param name="showDisabled">
-        /// DEPRECATED: Use show_disabled instead<br/>
-        /// Default Value: false
-        /// </param>
-        /// <param name="deprecatedConnectedAccountUuids">
-        /// Array of connected account UUIDs to filter triggers by
-        /// </param>
-        /// <param name="deprecatedAuthConfigUuids">
-        /// Array of auth config UUIDs to filter triggers by
         /// </param>
         /// <param name="limit"></param>
         /// <param name="cursor"></param>
@@ -96,14 +68,7 @@ namespace Composio
             global::System.Collections.Generic.IList<string>? authConfigIds = default,
             global::System.Collections.Generic.IList<string>? triggerIds = default,
             global::System.Collections.Generic.IList<string>? triggerNames = default,
-            global::System.Collections.Generic.IList<string>? connectedAccountIds = default,
-            global::System.Collections.Generic.IList<string>? authConfigIds = default,
-            global::System.Collections.Generic.IList<string>? triggerIds = default,
             bool? showDisabled = default,
-            global::System.Collections.Generic.IList<string>? triggerNames = default,
-            bool? showDisabled = default,
-            global::System.Collections.Generic.IList<string>? deprecatedConnectedAccountUuids = default,
-            global::System.Collections.Generic.IList<string>? deprecatedAuthConfigUuids = default,
             double? limit = default,
             string? cursor = default,
             global::System.Threading.CancellationToken cancellationToken = default)
@@ -117,14 +82,7 @@ namespace Composio
                 authConfigIds: authConfigIds,
                 triggerIds: triggerIds,
                 triggerNames: triggerNames,
-                connectedAccountIds: connectedAccountIds,
-                authConfigIds: authConfigIds,
-                triggerIds: triggerIds,
                 showDisabled: ref showDisabled,
-                triggerNames: triggerNames,
-                showDisabled: ref showDisabled,
-                deprecatedConnectedAccountUuids: deprecatedConnectedAccountUuids,
-                deprecatedAuthConfigUuids: deprecatedAuthConfigUuids,
                 limit: ref limit,
                 cursor: ref cursor);
 
@@ -137,14 +95,7 @@ namespace Composio
                 .AddOptionalParameter("auth_config_ids", authConfigIds, delimiter: ",", explode: true)
                 .AddOptionalParameter("trigger_ids", triggerIds, delimiter: ",", explode: true)
                 .AddOptionalParameter("trigger_names", triggerNames, delimiter: ",", explode: true)
-                .AddOptionalParameter("connectedAccountIds", connectedAccountIds, delimiter: ",", explode: true)
-                .AddOptionalParameter("authConfigIds", authConfigIds, delimiter: ",", explode: true)
-                .AddOptionalParameter("triggerIds", triggerIds, delimiter: ",", explode: true)
                 .AddOptionalParameter("show_disabled", showDisabled?.ToString().ToLowerInvariant())
-                .AddOptionalParameter("triggerNames", triggerNames, delimiter: ",", explode: true)
-                .AddOptionalParameter("showDisabled", showDisabled?.ToString().ToLowerInvariant())
-                .AddOptionalParameter("deprecatedConnectedAccountUuids", deprecatedConnectedAccountUuids, delimiter: ",", explode: true)
-                .AddOptionalParameter("deprecatedAuthConfigUuids", deprecatedAuthConfigUuids, delimiter: ",", explode: true)
                 .AddOptionalParameter("limit", limit?.ToString())
                 .AddOptionalParameter("cursor", cursor) 
                 ; 
@@ -184,14 +135,7 @@ namespace Composio
                 authConfigIds: authConfigIds,
                 triggerIds: triggerIds,
                 triggerNames: triggerNames,
-                connectedAccountIds: connectedAccountIds,
-                authConfigIds: authConfigIds,
-                triggerIds: triggerIds,
                 showDisabled: showDisabled,
-                triggerNames: triggerNames,
-                showDisabled: showDisabled,
-                deprecatedConnectedAccountUuids: deprecatedConnectedAccountUuids,
-                deprecatedAuthConfigUuids: deprecatedAuthConfigUuids,
                 limit: limit,
                 cursor: cursor);
 
