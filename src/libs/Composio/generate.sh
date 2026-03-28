@@ -2,18 +2,22 @@ dotnet tool install --global autosdk.cli --prerelease
 rm -rf Generated
 curl -o openapi.json https://backend.composio.dev/api/v3/openapi.json
 
-# Fix auth: convert apiKey header auth to http/bearer and add top-level security
-# Fix connection_data: replace 74-variant anyOf with generic object to avoid CS7013 metadata length limit
-# Fix CS0100: remove deprecated duplicate query parameters on /api/v3/trigger_instances/active
-#   The spec has both snake_case (non-deprecated) and camelCase (deprecated) versions of the same params.
-#   AutoSDK normalizes both to the same C# parameter name, causing CS0100 duplicate parameter errors.
+# Fix 1: Convert apiKey header auth to http/bearer; remove extra schemes; add top-level security.
+# Fix 2: Replace 74-variant anyOf on connection_data with generic object to avoid CS7013 metadata length limit.
+# Fix 3: Remove deprecated duplicate query params on /api/v3/trigger_instances/active
+#         (snake_case + deprecated camelCase normalize to same C# name, causing CS0100).
 jq '
+  # Fix 1: auth conversion
   .components.securitySchemes.ApiKeyAuth = {"type": "http", "scheme": "bearer"} |
   del(.components.securitySchemes.UserApiKeyAuth) |
   del(.components.securitySchemes.CookieAuth) |
   del(.components.securitySchemes.OrgApiKeyAuth) |
   .security = [{"ApiKeyAuth": []}] |
+
+  # Fix 2: connection_data simplification
   (.paths["/api/v3/connected_accounts/link"].post.requestBody.content["application/json"].schema.properties.connection_data) = {"type": "object", "description": "Connection data for the linked account (provider-specific key-value pairs)"} |
+
+  # Fix 3: deprecated parameter dedup
   (.paths["/api/v3/trigger_instances/active"].get.parameters) |= [.[] | select(.deprecated != true)]
 ' openapi.json > fixed.json && mv fixed.json openapi.json
 
@@ -24,9 +28,8 @@ autosdk generate openapi.json \
   --output Generated \
   --exclude-deprecated-operations
 
-# Fix CS0618: generated code references [Obsolete] types from non-deprecated parent models.
-# AutoSDK marks deprecated schemas with [Obsolete], but non-deprecated models that reference them
-# produce CS0618 errors. Insert #pragma warning disable CS0618 at the top of affected files.
+# Fix 4: CS0618 pragma suppression — generated code references [Obsolete] types from
+#         non-deprecated parent models. Insert #pragma warning disable CS0618.
 CS0618_FILES=(
   "Composio.Models.GetMcpAppByAppKeyResponseItem.g.cs"
   "Composio.Models.GetMcpByIdResponse.g.cs"
