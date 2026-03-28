@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# OpenAPI spec: https://backend.composio.dev/api/v3/openapi.json
+
 dotnet tool install --global autosdk.cli --prerelease
 rm -rf Generated
 curl --fail --silent --show-error -L -o openapi.json https://backend.composio.dev/api/v3/openapi.json
