@@ -3,7 +3,7 @@ set -euo pipefail
 
 dotnet tool install --global autosdk.cli --prerelease
 rm -rf Generated
-curl --fail --silent --show-error -o openapi.json https://backend.composio.dev/api/v3/openapi.json
+curl --fail --silent --show-error -L -o openapi.json https://backend.composio.dev/api/v3/openapi.json
 
 # Fix 1: Replace 74-variant anyOf on connection_data with generic object to avoid CS7013 metadata length limit.
 # Fix 2: Remove deprecated duplicate query params on /api/v3/trigger_instances/active
