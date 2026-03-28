@@ -121,8 +121,28 @@
   "components": {
     "securitySchemes": {
       "ApiKeyAuth": {
-        "type": "http",
-        "scheme": "bearer"
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-api-key",
+        "description": "Project API key authentication"
+      },
+      "UserApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-user-api-key",
+        "description": "User API key authentication"
+      },
+      "CookieAuth": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "authToken",
+        "description": "Cookie-based session authentication"
+      },
+      "OrgApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-org-api-key",
+        "description": "Organization API key authentication"
       }
     },
     "schemas": {
@@ -51983,10 +52003,5 @@
         }
       }
     }
-  },
-  "security": [
-    {
-      "ApiKeyAuth": []
-    }
-  ]
+  }
 }
