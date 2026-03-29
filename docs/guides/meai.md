@@ -1,8 +1,9 @@
 # Microsoft.Extensions.AI Integration
 
-Composio provides `AIFunction` tools compatible with
-[Microsoft.Extensions.AI](https://www.nuget.org/packages/Microsoft.Extensions.AI),
-allowing any `IChatClient` to execute 250+ integrations, list tools, and manage connected accounts.
+!!! tip "Cross-SDK comparison"
+    See the [centralized MEAI documentation](https://tryagi.github.io/docs/meai/) for feature matrices and comparisons across all tryAGI SDKs.
+
+The Composio SDK provides `AIFunction` tool wrappers compatible with [Microsoft.Extensions.AI](https://learn.microsoft.com/en-us/dotnet/ai/microsoft-extensions-ai). These tools can be used with any `IChatClient` to give AI models access to Composio's 250+ tool integrations, toolkit management, and connected account management.
 
 ## Available Tools
 
