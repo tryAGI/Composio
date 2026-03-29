@@ -32,8 +32,8 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="PostConnectedAccountsRequestConnectionStateVariant7" /> class.
         /// </summary>
-        /// <param name="authScheme"></param>
         /// <param name="val"></param>
+        /// <param name="authScheme"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -41,8 +41,8 @@ namespace Composio
             global::Composio.OneOf<global::Composio.PostConnectedAccountsRequestConnectionStateVariant7ValVariant1, global::Composio.PostConnectedAccountsRequestConnectionStateVariant7ValVariant2, global::Composio.PostConnectedAccountsRequestConnectionStateVariant7ValVariant3, global::Composio.PostConnectedAccountsRequestConnectionStateVariant7ValVariant4, global::Composio.PostConnectedAccountsRequestConnectionStateVariant7ValVariant5, global::Composio.PostConnectedAccountsRequestConnectionStateVariant7ValVariant6> val,
             global::Composio.PostConnectedAccountsRequestConnectionStateVariant7AuthScheme authScheme)
         {
-            this.Val = val;
             this.AuthScheme = authScheme;
+            this.Val = val;
         }
 
         /// <summary>

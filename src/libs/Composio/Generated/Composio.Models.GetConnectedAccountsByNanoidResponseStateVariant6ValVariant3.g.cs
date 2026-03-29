@@ -163,6 +163,7 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="GetConnectedAccountsByNanoidResponseStateVariant6ValVariant3" /> class.
         /// </summary>
+        /// <param name="credentialsJson"></param>
         /// <param name="subdomain"></param>
         /// <param name="yourDomain"></param>
         /// <param name="region"></param>
@@ -186,7 +187,6 @@ namespace Composio
         /// <param name="serverLocation"></param>
         /// <param name="baseUrl"></param>
         /// <param name="status"></param>
-        /// <param name="credentialsJson"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -216,7 +216,6 @@ namespace Composio
             string? baseUrl,
             global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6ValVariant3Status status)
         {
-            this.CredentialsJson = credentialsJson ?? throw new global::System.ArgumentNullException(nameof(credentialsJson));
             this.Subdomain = subdomain;
             this.YourDomain = yourDomain;
             this.Region = region;
@@ -240,6 +239,7 @@ namespace Composio
             this.ServerLocation = serverLocation;
             this.BaseUrl = baseUrl;
             this.Status = status;
+            this.CredentialsJson = credentialsJson ?? throw new global::System.ArgumentNullException(nameof(credentialsJson));
         }
 
         /// <summary>

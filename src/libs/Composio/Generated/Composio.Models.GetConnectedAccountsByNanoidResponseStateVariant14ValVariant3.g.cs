@@ -203,6 +203,9 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="GetConnectedAccountsByNanoidResponseStateVariant14ValVariant3" /> class.
         /// </summary>
+        /// <param name="accessToken"></param>
+        /// <param name="clientId"></param>
+        /// <param name="clientSecret"></param>
         /// <param name="subdomain"></param>
         /// <param name="yourDomain"></param>
         /// <param name="region"></param>
@@ -226,10 +229,7 @@ namespace Composio
         /// <param name="serverLocation"></param>
         /// <param name="baseUrl"></param>
         /// <param name="status"></param>
-        /// <param name="accessToken"></param>
         /// <param name="tokenType"></param>
-        /// <param name="clientId"></param>
-        /// <param name="clientSecret"></param>
         /// <param name="expiresIn"></param>
         /// <param name="expiresAt"></param>
         /// <param name="scope"></param>
@@ -268,9 +268,6 @@ namespace Composio
             string? expiresAt,
             global::Composio.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? scope)
         {
-            this.AccessToken = accessToken ?? throw new global::System.ArgumentNullException(nameof(accessToken));
-            this.ClientId = clientId ?? throw new global::System.ArgumentNullException(nameof(clientId));
-            this.ClientSecret = clientSecret ?? throw new global::System.ArgumentNullException(nameof(clientSecret));
             this.Subdomain = subdomain;
             this.YourDomain = yourDomain;
             this.Region = region;
@@ -294,7 +291,10 @@ namespace Composio
             this.ServerLocation = serverLocation;
             this.BaseUrl = baseUrl;
             this.Status = status;
+            this.AccessToken = accessToken ?? throw new global::System.ArgumentNullException(nameof(accessToken));
             this.TokenType = tokenType;
+            this.ClientId = clientId ?? throw new global::System.ArgumentNullException(nameof(clientId));
+            this.ClientSecret = clientSecret ?? throw new global::System.ArgumentNullException(nameof(clientSecret));
             this.ExpiresIn = expiresIn;
             this.ExpiresAt = expiresAt;
             this.Scope = scope;

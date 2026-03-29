@@ -102,6 +102,17 @@ namespace Composio
         /// Human-readable name of the toolkit<br/>
         /// Example: GitHub
         /// </param>
+        /// <param name="isLocalToolkit">
+        /// DEPRECATED: This field is no longer meaningful and will always return false. It was previously used to indicate if a toolkit is specific to the current project.<br/>
+        /// Example: false
+        /// </param>
+        /// <param name="deprecated">
+        /// Deprecated toolkit ID<br/>
+        /// Example: {"toolkitId":"550e8400-e29b-41d4-a716-446655440000"}
+        /// </param>
+        /// <param name="meta">
+        /// Additional metadata about the toolkit
+        /// </param>
         /// <param name="authSchemes">
         /// List of authentication methods supported by this toolkit<br/>
         /// Example: [oauth2, api_key]
@@ -110,10 +121,6 @@ namespace Composio
         /// List of authentication methods that Composio manages for this toolkit<br/>
         /// Example: [oauth2]
         /// </param>
-        /// <param name="isLocalToolkit">
-        /// DEPRECATED: This field is no longer meaningful and will always return false. It was previously used to indicate if a toolkit is specific to the current project.<br/>
-        /// Example: false
-        /// </param>
         /// <param name="noAuth">
         /// When true, this toolkit can be used without authentication<br/>
         /// Example: false
@@ -121,13 +128,6 @@ namespace Composio
         /// <param name="authGuideUrl">
         /// URL to a guide page with authentication setup instructions for this toolkit<br/>
         /// Example: https://composio.dev/auth/github
-        /// </param>
-        /// <param name="deprecated">
-        /// Deprecated toolkit ID<br/>
-        /// Example: {"toolkitId":"550e8400-e29b-41d4-a716-446655440000"}
-        /// </param>
-        /// <param name="meta">
-        /// Additional metadata about the toolkit
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -145,13 +145,13 @@ namespace Composio
         {
             this.Slug = slug ?? throw new global::System.ArgumentNullException(nameof(slug));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
-            this.IsLocalToolkit = isLocalToolkit;
-            this.Deprecated = deprecated ?? throw new global::System.ArgumentNullException(nameof(deprecated));
-            this.Meta = meta ?? throw new global::System.ArgumentNullException(nameof(meta));
             this.AuthSchemes = authSchemes;
             this.ComposioManagedAuthSchemes = composioManagedAuthSchemes;
+            this.IsLocalToolkit = isLocalToolkit;
             this.NoAuth = noAuth;
             this.AuthGuideUrl = authGuideUrl;
+            this.Deprecated = deprecated ?? throw new global::System.ArgumentNullException(nameof(deprecated));
+            this.Meta = meta ?? throw new global::System.ArgumentNullException(nameof(meta));
         }
 
         /// <summary>

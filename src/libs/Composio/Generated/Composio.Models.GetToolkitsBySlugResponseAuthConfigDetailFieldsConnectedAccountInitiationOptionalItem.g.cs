@@ -66,10 +66,10 @@ namespace Composio
         /// </summary>
         /// <param name="name"></param>
         /// <param name="displayName"></param>
-        /// <param name="default"></param>
         /// <param name="type"></param>
         /// <param name="description"></param>
         /// <param name="required"></param>
+        /// <param name="default"></param>
         /// <param name="legacyTemplateName"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -85,10 +85,10 @@ namespace Composio
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.DisplayName = displayName ?? throw new global::System.ArgumentNullException(nameof(displayName));
+            this.Default = @default;
             this.Type = type ?? throw new global::System.ArgumentNullException(nameof(type));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
             this.Required = required;
-            this.Default = @default;
             this.LegacyTemplateName = legacyTemplateName;
         }
 

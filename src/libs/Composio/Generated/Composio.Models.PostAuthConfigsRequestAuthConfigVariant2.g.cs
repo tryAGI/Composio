@@ -78,11 +78,11 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="PostAuthConfigsRequestAuthConfigVariant2" /> class.
         /// </summary>
+        /// <param name="authScheme"></param>
         /// <param name="type"></param>
         /// <param name="name">
         /// The name of the integration
         /// </param>
-        /// <param name="authScheme"></param>
         /// <param name="credentials">
         /// Default Value: {}
         /// </param>
@@ -107,9 +107,9 @@ namespace Composio
             global::System.Collections.Generic.Dictionary<string, object?>? sharedCredentials,
             bool? isEnabledForToolRouter)
         {
-            this.AuthScheme = authScheme;
             this.Type = type;
             this.Name = name;
+            this.AuthScheme = authScheme;
             this.Credentials = credentials;
             this.ProxyConfig = proxyConfig;
             this.ToolAccessConfig = toolAccessConfig;

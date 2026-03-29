@@ -75,9 +75,6 @@ namespace Composio
         /// <param name="success">
         /// Whether all searches completed successfully. False if any query failed.
         /// </param>
-        /// <param name="error">
-        /// Error message if any searches failed, null if all succeeded. Format: "X out of Y searches failed, reasons: &lt;details&gt;"
-        /// </param>
         /// <param name="results">
         /// Per-query search results with tools, reasoning, and memory. One entry per query in request order.
         /// </param>
@@ -96,6 +93,9 @@ namespace Composio
         /// <param name="nextStepsGuidance">
         /// Combined workflow guidance covering connections, planner, and memory usage. Each element is a step instruction.
         /// </param>
+        /// <param name="error">
+        /// Error message if any searches failed, null if all succeeded. Format: "X out of Y searches failed, reasons: &lt;details&gt;"
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -110,13 +110,13 @@ namespace Composio
             string? error)
         {
             this.Success = success;
+            this.Error = error;
             this.Results = results ?? throw new global::System.ArgumentNullException(nameof(results));
             this.ToolkitConnectionStatuses = toolkitConnectionStatuses ?? throw new global::System.ArgumentNullException(nameof(toolkitConnectionStatuses));
             this.ToolSchemas = toolSchemas ?? throw new global::System.ArgumentNullException(nameof(toolSchemas));
             this.TimeInfo = timeInfo ?? throw new global::System.ArgumentNullException(nameof(timeInfo));
             this.Session = session ?? throw new global::System.ArgumentNullException(nameof(session));
             this.NextStepsGuidance = nextStepsGuidance ?? throw new global::System.ArgumentNullException(nameof(nextStepsGuidance));
-            this.Error = error;
         }
 
         /// <summary>

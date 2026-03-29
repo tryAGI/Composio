@@ -218,6 +218,10 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="GetConnectedAccountsByNanoidResponseStateVariant13ValVariant2" /> class.
         /// </summary>
+        /// <param name="clientId">
+        /// Dynamically registered client ID
+        /// </param>
+        /// <param name="redirectUrl"></param>
         /// <param name="subdomain"></param>
         /// <param name="yourDomain"></param>
         /// <param name="region"></param>
@@ -247,13 +251,9 @@ namespace Composio
         /// <param name="longRedirectUrl">
         /// Whether to return the redirect url without shortening
         /// </param>
-        /// <param name="clientId">
-        /// Dynamically registered client ID
-        /// </param>
         /// <param name="clientSecret">
         /// Dynamically registered client secret
         /// </param>
-        /// <param name="redirectUrl"></param>
         /// <param name="callbackUrl"></param>
         /// <param name="finalRedirectUri"></param>
         /// <param name="clientIdIssuedAt"></param>
@@ -297,8 +297,6 @@ namespace Composio
             double? clientSecretExpiresAt,
             string? codeVerifier)
         {
-            this.ClientId = clientId ?? throw new global::System.ArgumentNullException(nameof(clientId));
-            this.RedirectUrl = redirectUrl ?? throw new global::System.ArgumentNullException(nameof(redirectUrl));
             this.Subdomain = subdomain;
             this.YourDomain = yourDomain;
             this.Region = region;
@@ -324,7 +322,9 @@ namespace Composio
             this.Status = status;
             this.StatePrefix = statePrefix;
             this.LongRedirectUrl = longRedirectUrl;
+            this.ClientId = clientId ?? throw new global::System.ArgumentNullException(nameof(clientId));
             this.ClientSecret = clientSecret;
+            this.RedirectUrl = redirectUrl ?? throw new global::System.ArgumentNullException(nameof(redirectUrl));
             this.CallbackUrl = callbackUrl;
             this.FinalRedirectUri = finalRedirectUri;
             this.ClientIdIssuedAt = clientIdIssuedAt;

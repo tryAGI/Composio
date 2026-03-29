@@ -163,6 +163,8 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant4Val" /> class.
         /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
         /// <param name="subdomain"></param>
         /// <param name="yourDomain"></param>
         /// <param name="region"></param>
@@ -185,8 +187,6 @@ namespace Composio
         /// <param name="yourServer"></param>
         /// <param name="serverLocation"></param>
         /// <param name="baseUrl"></param>
-        /// <param name="username"></param>
-        /// <param name="password"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -216,8 +216,6 @@ namespace Composio
             string? serverLocation,
             string? baseUrl)
         {
-            this.Username = username ?? throw new global::System.ArgumentNullException(nameof(username));
-            this.Password = password ?? throw new global::System.ArgumentNullException(nameof(password));
             this.Subdomain = subdomain;
             this.YourDomain = yourDomain;
             this.Region = region;
@@ -240,6 +238,8 @@ namespace Composio
             this.YourServer = yourServer;
             this.ServerLocation = serverLocation;
             this.BaseUrl = baseUrl;
+            this.Username = username ?? throw new global::System.ArgumentNullException(nameof(username));
+            this.Password = password ?? throw new global::System.ArgumentNullException(nameof(password));
         }
 
         /// <summary>

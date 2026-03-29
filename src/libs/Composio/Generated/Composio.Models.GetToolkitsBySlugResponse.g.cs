@@ -125,13 +125,17 @@ namespace Composio
         /// Indicates if this toolkit is currently enabled and available for use<br/>
         /// Example: true
         /// </param>
-        /// <param name="composioManagedAuthSchemes">
-        /// List of authentication methods that Composio manages for this toolkit<br/>
-        /// Example: [oauth2]
-        /// </param>
         /// <param name="isLocalToolkit">
         /// DEPRECATED: This field is no longer meaningful and will always return false. It was previously used to indicate if a toolkit is specific to the current project.<br/>
         /// Example: false
+        /// </param>
+        /// <param name="meta">
+        /// Comprehensive metadata for the toolkit including dates, descriptions, and statistics
+        /// </param>
+        /// <param name="deprecated"></param>
+        /// <param name="composioManagedAuthSchemes">
+        /// List of authentication methods that Composio manages for this toolkit<br/>
+        /// Example: [oauth2]
         /// </param>
         /// <param name="authConfigDetails">
         /// Complete authentication configuration details for each supported auth method
@@ -144,9 +148,6 @@ namespace Composio
         /// If evaluation of base URL needs some connection info (like shopify), please create the connection and get the base URL from there<br/>
         /// Example: https://api.github.com
         /// </param>
-        /// <param name="meta">
-        /// Comprehensive metadata for the toolkit including dates, descriptions, and statistics
-        /// </param>
         /// <param name="getCurrentUserEndpoint">
         /// Endpoint to get the current user
         /// </param>
@@ -154,7 +155,6 @@ namespace Composio
         /// HTTP method to use when calling the get current user endpoint (e.g., GET, POST)<br/>
         /// Example: GET
         /// </param>
-        /// <param name="deprecated"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -175,15 +175,15 @@ namespace Composio
             this.Slug = slug ?? throw new global::System.ArgumentNullException(nameof(slug));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Enabled = enabled;
-            this.IsLocalToolkit = isLocalToolkit;
-            this.Meta = meta ?? throw new global::System.ArgumentNullException(nameof(meta));
-            this.Deprecated = deprecated ?? throw new global::System.ArgumentNullException(nameof(deprecated));
             this.ComposioManagedAuthSchemes = composioManagedAuthSchemes;
+            this.IsLocalToolkit = isLocalToolkit;
             this.AuthConfigDetails = authConfigDetails;
             this.AuthGuideUrl = authGuideUrl;
             this.BaseUrl = baseUrl;
+            this.Meta = meta ?? throw new global::System.ArgumentNullException(nameof(meta));
             this.GetCurrentUserEndpoint = getCurrentUserEndpoint;
             this.GetCurrentUserEndpointMethod = getCurrentUserEndpointMethod;
+            this.Deprecated = deprecated ?? throw new global::System.ArgumentNullException(nameof(deprecated));
         }
 
         /// <summary>

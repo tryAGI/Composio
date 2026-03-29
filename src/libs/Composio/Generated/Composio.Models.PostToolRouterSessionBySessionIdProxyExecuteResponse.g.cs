@@ -48,16 +48,16 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="PostToolRouterSessionBySessionIdProxyExecuteResponse" /> class.
         /// </summary>
+        /// <param name="status">
+        /// The HTTP status code returned from the proxied API<br/>
+        /// Example: 200
+        /// </param>
         /// <param name="data">
         /// The response data returned from the proxied API<br/>
         /// Example: {"id":"123","name":"Resource Name","created_at":"2023-01-01T00:00:00Z"}
         /// </param>
         /// <param name="binaryData">
         /// Binary body response data. Present when the response is a binary file.
-        /// </param>
-        /// <param name="status">
-        /// The HTTP status code returned from the proxied API<br/>
-        /// Example: 200
         /// </param>
         /// <param name="headers">
         /// The HTTP headers returned from the proxied API<br/>
@@ -72,9 +72,9 @@ namespace Composio
             global::Composio.PostToolRouterSessionBySessionIdProxyExecuteResponseBinaryData? binaryData,
             global::System.Collections.Generic.Dictionary<string, string>? headers)
         {
-            this.Status = status;
             this.Data = data;
             this.BinaryData = binaryData;
+            this.Status = status;
             this.Headers = headers;
         }
 

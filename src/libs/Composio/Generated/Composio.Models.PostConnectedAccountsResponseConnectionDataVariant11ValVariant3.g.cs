@@ -177,6 +177,9 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="PostConnectedAccountsResponseConnectionDataVariant11ValVariant3" /> class.
         /// </summary>
+        /// <param name="applicationId"></param>
+        /// <param name="installationId"></param>
+        /// <param name="privateKey"></param>
         /// <param name="subdomain"></param>
         /// <param name="yourDomain"></param>
         /// <param name="region"></param>
@@ -200,9 +203,6 @@ namespace Composio
         /// <param name="serverLocation"></param>
         /// <param name="baseUrl"></param>
         /// <param name="status"></param>
-        /// <param name="applicationId"></param>
-        /// <param name="installationId"></param>
-        /// <param name="privateKey"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -234,9 +234,6 @@ namespace Composio
             string? baseUrl,
             global::Composio.PostConnectedAccountsResponseConnectionDataVariant11ValVariant3Status status)
         {
-            this.ApplicationId = applicationId ?? throw new global::System.ArgumentNullException(nameof(applicationId));
-            this.InstallationId = installationId ?? throw new global::System.ArgumentNullException(nameof(installationId));
-            this.PrivateKey = privateKey ?? throw new global::System.ArgumentNullException(nameof(privateKey));
             this.Subdomain = subdomain;
             this.YourDomain = yourDomain;
             this.Region = region;
@@ -260,6 +257,9 @@ namespace Composio
             this.ServerLocation = serverLocation;
             this.BaseUrl = baseUrl;
             this.Status = status;
+            this.ApplicationId = applicationId ?? throw new global::System.ArgumentNullException(nameof(applicationId));
+            this.InstallationId = installationId ?? throw new global::System.ArgumentNullException(nameof(installationId));
+            this.PrivateKey = privateKey ?? throw new global::System.ArgumentNullException(nameof(privateKey));
         }
 
         /// <summary>

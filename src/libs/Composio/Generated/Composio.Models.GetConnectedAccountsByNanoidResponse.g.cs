@@ -140,17 +140,17 @@ namespace Composio
         /// <param name="data">
         /// This is deprecated, use `state` instead
         /// </param>
-        /// <param name="statusReason">
-        /// The reason the connection status changed. Possible reasons: Connection initiation did not complete within 10 minutes, Permanent auth error during token refresh, Max auth failures reached, OAuth callback failed during token exchange, Connection status updated by user, Auth config is disabled
-        /// </param>
         /// <param name="isDisabled">
         /// Whether the connection is disabled
         /// </param>
-        /// <param name="testRequestEndpoint">
-        /// The endpoint to make test request for verification
-        /// </param>
         /// <param name="params">
         /// The initialization data of the connection, including configuration parameters
+        /// </param>
+        /// <param name="statusReason">
+        /// The reason the connection status changed. Possible reasons: Connection initiation did not complete within 10 minutes, Permanent auth error during token refresh, Max auth failures reached, OAuth callback failed during token exchange, Connection status updated by user, Auth config is disabled
+        /// </param>
+        /// <param name="testRequestEndpoint">
+        /// The endpoint to make test request for verification
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -179,10 +179,10 @@ namespace Composio
             this.UpdatedAt = updatedAt ?? throw new global::System.ArgumentNullException(nameof(updatedAt));
             this.State = state;
             this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
-            this.IsDisabled = isDisabled;
-            this.Params = @params ?? throw new global::System.ArgumentNullException(nameof(@params));
             this.StatusReason = statusReason;
+            this.IsDisabled = isDisabled;
             this.TestRequestEndpoint = testRequestEndpoint;
+            this.Params = @params ?? throw new global::System.ArgumentNullException(nameof(@params));
         }
 
         /// <summary>

@@ -38,14 +38,14 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="PostToolRouterSessionBySessionIdSearchResponseToolSchemasSchemaRef" /> class.
         /// </summary>
-        /// <param name="tool">
-        /// Tool to call
-        /// </param>
         /// <param name="args">
         /// Arguments to pass to the tool
         /// </param>
         /// <param name="message">
         /// Instruction message for the LLM
+        /// </param>
+        /// <param name="tool">
+        /// Tool to call
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -55,9 +55,9 @@ namespace Composio
             string message,
             global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolSchemasSchemaRefTool tool)
         {
+            this.Tool = tool;
             this.Args = args ?? throw new global::System.ArgumentNullException(nameof(args));
             this.Message = message ?? throw new global::System.ArgumentNullException(nameof(message));
-            this.Tool = tool;
         }
 
         /// <summary>

@@ -122,10 +122,6 @@ namespace Composio
         /// Image URL for the toolkit's branding<br/>
         /// Example: https://assets.composio.dev/logos/github.png
         /// </param>
-        /// <param name="appUrl">
-        /// Link to the toolkit's main application or service website<br/>
-        /// Example: https://github.com
-        /// </param>
         /// <param name="categories">
         /// List of categories associated with this toolkit<br/>
         /// Example: [{"name":"Developer Tools","slug":"developer-tools"}, {"name":"Productivity","slug":"productivity"}]
@@ -146,6 +142,10 @@ namespace Composio
         /// Available versions of the toolkit<br/>
         /// Example: [20250905_00, 20250906_00]
         /// </param>
+        /// <param name="appUrl">
+        /// Link to the toolkit's main application or service website<br/>
+        /// Example: https://github.com
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -165,12 +165,12 @@ namespace Composio
             this.UpdatedAt = updatedAt ?? throw new global::System.ArgumentNullException(nameof(updatedAt));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
             this.Logo = logo ?? throw new global::System.ArgumentNullException(nameof(logo));
+            this.AppUrl = appUrl;
             this.Categories = categories ?? throw new global::System.ArgumentNullException(nameof(categories));
             this.TriggersCount = triggersCount;
             this.ToolsCount = toolsCount;
             this.Version = version ?? throw new global::System.ArgumentNullException(nameof(version));
             this.AvailableVersions = availableVersions ?? throw new global::System.ArgumentNullException(nameof(availableVersions));
-            this.AppUrl = appUrl;
         }
 
         /// <summary>

@@ -141,9 +141,6 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="GetTriggerInstancesActiveResponseItem" /> class.
         /// </summary>
-        /// <param name="uuid">
-        /// Unique identifier of the trigger instance
-        /// </param>
         /// <param name="id">
         /// Nano ID of the trigger instance
         /// </param>
@@ -159,9 +156,6 @@ namespace Composio
         /// <param name="userId">
         /// ID of the user this trigger is associated with
         /// </param>
-        /// <param name="triggerData">
-        /// Additional data associated with the trigger instance
-        /// </param>
         /// <param name="version">
         /// Version of the trigger instance
         /// </param>
@@ -174,9 +168,6 @@ namespace Composio
         /// <param name="updatedAt">
         /// ISO 8601 timestamp when the trigger instance was updated
         /// </param>
-        /// <param name="disabledAt">
-        /// ISO 8601 timestamp when the trigger instance was disabled, if applicable
-        /// </param>
         /// <param name="connectedAccountId2">
         /// DEPRECATED: This parameter will be removed in a future version. Please use connected_account_id instead.
         /// </param>
@@ -188,6 +179,15 @@ namespace Composio
         /// </param>
         /// <param name="triggerConfig2">
         /// DEPRECATED: This parameter will be removed in a future version. Please use trigger_config instead.
+        /// </param>
+        /// <param name="uuid">
+        /// Unique identifier of the trigger instance
+        /// </param>
+        /// <param name="triggerData">
+        /// Additional data associated with the trigger instance
+        /// </param>
+        /// <param name="disabledAt">
+        /// ISO 8601 timestamp when the trigger instance was disabled, if applicable
         /// </param>
         /// <param name="deprecated">
         /// Deprecated fields for the trigger instance
@@ -214,22 +214,22 @@ namespace Composio
             string? disabledAt,
             global::Composio.GetTriggerInstancesActiveResponseItemDeprecated? deprecated)
         {
+            this.Uuid = uuid;
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.ConnectedAccountId = connectedAccountId ?? throw new global::System.ArgumentNullException(nameof(connectedAccountId));
             this.TriggerName = triggerName ?? throw new global::System.ArgumentNullException(nameof(triggerName));
             this.ConnectedAccountUuid = connectedAccountUuid ?? throw new global::System.ArgumentNullException(nameof(connectedAccountUuid));
             this.UserId = userId ?? throw new global::System.ArgumentNullException(nameof(userId));
+            this.TriggerData = triggerData;
             this.Version = version ?? throw new global::System.ArgumentNullException(nameof(version));
             this.TriggerConfig = triggerConfig ?? throw new global::System.ArgumentNullException(nameof(triggerConfig));
             this.State = state ?? throw new global::System.ArgumentNullException(nameof(state));
             this.UpdatedAt = updatedAt ?? throw new global::System.ArgumentNullException(nameof(updatedAt));
+            this.DisabledAt = disabledAt;
             this.ConnectedAccountId2 = connectedAccountId2 ?? throw new global::System.ArgumentNullException(nameof(connectedAccountId2));
             this.TriggerName2 = triggerName2 ?? throw new global::System.ArgumentNullException(nameof(triggerName2));
             this.UpdatedAt2 = updatedAt2 ?? throw new global::System.ArgumentNullException(nameof(updatedAt2));
             this.TriggerConfig2 = triggerConfig2 ?? throw new global::System.ArgumentNullException(nameof(triggerConfig2));
-            this.Uuid = uuid;
-            this.TriggerData = triggerData;
-            this.DisabledAt = disabledAt;
             this.Deprecated = deprecated;
         }
 

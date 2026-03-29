@@ -72,12 +72,12 @@ namespace Composio
         /// <param name="fields">
         /// Field groups required for different authentication stages
         /// </param>
-        /// <param name="proxy">
-        /// Configuration for proxying authentication requests to external services
-        /// </param>
         /// <param name="name">
         /// Display name for this authentication method<br/>
         /// Example: OAuth 2.0
+        /// </param>
+        /// <param name="proxy">
+        /// Configuration for proxying authentication requests to external services
         /// </param>
         /// <param name="authHintUrl">
         /// URL to a page where users can obtain or configure credentials for this authentication method<br/>
@@ -95,8 +95,8 @@ namespace Composio
         {
             this.Mode = mode ?? throw new global::System.ArgumentNullException(nameof(mode));
             this.Fields = fields ?? throw new global::System.ArgumentNullException(nameof(fields));
-            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Proxy = proxy;
+            this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.AuthHintUrl = authHintUrl;
         }
 

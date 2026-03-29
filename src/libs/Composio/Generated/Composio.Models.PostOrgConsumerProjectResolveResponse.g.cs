@@ -71,11 +71,11 @@ namespace Composio
         /// <param name="orgId">
         /// Organization nano ID that owns the consumer project.
         /// </param>
-        /// <param name="projectType">
-        /// Resolved project type.
-        /// </param>
         /// <param name="consumerUserId">
         /// Derived internal Composio user ID for the authenticated user in this consumer org context.
+        /// </param>
+        /// <param name="projectType">
+        /// Resolved project type.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -92,8 +92,8 @@ namespace Composio
             this.ProjectNanoId = projectNanoId ?? throw new global::System.ArgumentNullException(nameof(projectNanoId));
             this.ProjectName = projectName ?? throw new global::System.ArgumentNullException(nameof(projectName));
             this.OrgId = orgId ?? throw new global::System.ArgumentNullException(nameof(orgId));
-            this.ConsumerUserId = consumerUserId ?? throw new global::System.ArgumentNullException(nameof(consumerUserId));
             this.ProjectType = projectType;
+            this.ConsumerUserId = consumerUserId ?? throw new global::System.ArgumentNullException(nameof(consumerUserId));
         }
 
         /// <summary>
