@@ -169,6 +169,7 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="PostConnectedAccountsResponseConnectionDataVariant4ValVariant3" /> class.
         /// </summary>
+        /// <param name="username"></param>
         /// <param name="subdomain"></param>
         /// <param name="yourDomain"></param>
         /// <param name="region"></param>
@@ -192,7 +193,6 @@ namespace Composio
         /// <param name="serverLocation"></param>
         /// <param name="baseUrl"></param>
         /// <param name="status"></param>
-        /// <param name="username"></param>
         /// <param name="password"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -224,7 +224,6 @@ namespace Composio
             global::Composio.PostConnectedAccountsResponseConnectionDataVariant4ValVariant3Status status,
             string? password)
         {
-            this.Username = username ?? throw new global::System.ArgumentNullException(nameof(username));
             this.Subdomain = subdomain;
             this.YourDomain = yourDomain;
             this.Region = region;
@@ -248,6 +247,7 @@ namespace Composio
             this.ServerLocation = serverLocation;
             this.BaseUrl = baseUrl;
             this.Status = status;
+            this.Username = username ?? throw new global::System.ArgumentNullException(nameof(username));
             this.Password = password;
         }
 

@@ -45,12 +45,12 @@ namespace Composio
         /// The data returned by the tool execution<br/>
         /// Example: {"message":"Hello, World!","status":"success"}
         /// </param>
-        /// <param name="error">
-        /// Error message if the execution failed, null otherwise
-        /// </param>
         /// <param name="logId">
         /// Unique identifier for the execution log<br/>
         /// Example: log_abc123xyz
+        /// </param>
+        /// <param name="error">
+        /// Error message if the execution failed, null otherwise
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -61,8 +61,8 @@ namespace Composio
             string? error)
         {
             this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
-            this.LogId = logId ?? throw new global::System.ArgumentNullException(nameof(logId));
             this.Error = error;
+            this.LogId = logId ?? throw new global::System.ArgumentNullException(nameof(logId));
         }
 
         /// <summary>

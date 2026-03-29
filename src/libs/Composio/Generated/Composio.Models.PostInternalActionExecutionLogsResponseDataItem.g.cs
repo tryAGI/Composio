@@ -105,8 +105,8 @@ namespace Composio
         /// <param name="status"></param>
         /// <param name="executionTime"></param>
         /// <param name="minimalResponse"></param>
-        /// <param name="metadata"></param>
         /// <param name="createdAt"></param>
+        /// <param name="metadata"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -132,8 +132,8 @@ namespace Composio
             this.Status = status;
             this.ExecutionTime = executionTime;
             this.MinimalResponse = minimalResponse ?? throw new global::System.ArgumentNullException(nameof(minimalResponse));
-            this.CreatedAt = createdAt;
             this.Metadata = metadata;
+            this.CreatedAt = createdAt;
         }
 
         /// <summary>

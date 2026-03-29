@@ -183,23 +183,23 @@ namespace Composio
         /// List of scopes associated with the tool<br/>
         /// Example: [https://www.googleapis.com/auth/gmail.modify]
         /// </param>
-        /// <param name="scopeRequirements">
-        /// Structured scope requirements for the tool. Null means the tool is legacy and only exposes flat scopes.<br/>
-        /// Example: {"all_of":["read:user",{"any_of":["repo","public_repo"]}]}
-        /// </param>
         /// <param name="tags">
         /// List of tags associated with the tool for categorization and filtering<br/>
         /// Example: [ci-cd, github, automation, devops]
-        /// </param>
-        /// <param name="humanDescription">
-        /// Human-friendly description of the tool, if available<br/>
-        /// Example: Create a new issue in a GitHub repository
         /// </param>
         /// <param name="isDeprecated">
         /// Indicates if this tool is deprecated and may be removed in the future<br/>
         /// Example: false
         /// </param>
         /// <param name="deprecated"></param>
+        /// <param name="scopeRequirements">
+        /// Structured scope requirements for the tool. Null means the tool is legacy and only exposes flat scopes.<br/>
+        /// Example: {"all_of":["read:user",{"any_of":["repo","public_repo"]}]}
+        /// </param>
+        /// <param name="humanDescription">
+        /// Human-friendly description of the tool, if available<br/>
+        /// Example: Create a new issue in a GitHub repository
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -230,11 +230,11 @@ namespace Composio
             this.Version = version ?? throw new global::System.ArgumentNullException(nameof(version));
             this.OutputParameters = outputParameters ?? throw new global::System.ArgumentNullException(nameof(outputParameters));
             this.Scopes = scopes ?? throw new global::System.ArgumentNullException(nameof(scopes));
+            this.ScopeRequirements = scopeRequirements;
             this.Tags = tags ?? throw new global::System.ArgumentNullException(nameof(tags));
+            this.HumanDescription = humanDescription;
             this.IsDeprecated = isDeprecated;
             this.Deprecated = deprecated ?? throw new global::System.ArgumentNullException(nameof(deprecated));
-            this.ScopeRequirements = scopeRequirements;
-            this.HumanDescription = humanDescription;
         }
 
         /// <summary>

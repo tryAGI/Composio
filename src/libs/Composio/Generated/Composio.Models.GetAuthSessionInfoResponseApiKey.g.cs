@@ -132,9 +132,6 @@ namespace Composio
         /// Date and time when the API key was last modified<br/>
         /// Example: 2023-05-01T10:00:00.000Z
         /// </param>
-        /// <param name="deletedAt">
-        /// Date and time when the API key was deleted (if applicable)
-        /// </param>
         /// <param name="key">
         /// The actual API key value (usually only shown once during creation)<br/>
         /// Example: sk_live_abc123xyz456
@@ -142,6 +139,9 @@ namespace Composio
         /// <param name="deleted">
         /// Flag indicating if the API key has been deleted<br/>
         /// Example: false
+        /// </param>
+        /// <param name="deletedAt">
+        /// Date and time when the API key was deleted (if applicable)
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -165,9 +165,9 @@ namespace Composio
             this.OrgMemberId = orgMemberId ?? throw new global::System.ArgumentNullException(nameof(orgMemberId));
             this.CreatedAt = createdAt ?? throw new global::System.ArgumentNullException(nameof(createdAt));
             this.UpdatedAt = updatedAt ?? throw new global::System.ArgumentNullException(nameof(updatedAt));
+            this.DeletedAt = deletedAt;
             this.Key = key ?? throw new global::System.ArgumentNullException(nameof(key));
             this.Deleted = deleted;
-            this.DeletedAt = deletedAt;
         }
 
         /// <summary>

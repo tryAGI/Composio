@@ -70,11 +70,11 @@ namespace Composio
         /// <param name="name"></param>
         /// <param name="description"></param>
         /// <param name="inputSchema"></param>
-        /// <param name="outputSchema"></param>
-        /// <param name="extendsToolkit"></param>
         /// <param name="originalSlug">
         /// Original tool slug as provided by the user
         /// </param>
+        /// <param name="outputSchema"></param>
+        /// <param name="extendsToolkit"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -91,9 +91,9 @@ namespace Composio
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
             this.InputSchema = inputSchema ?? throw new global::System.ArgumentNullException(nameof(inputSchema));
-            this.OriginalSlug = originalSlug ?? throw new global::System.ArgumentNullException(nameof(originalSlug));
             this.OutputSchema = outputSchema;
             this.ExtendsToolkit = extendsToolkit;
+            this.OriginalSlug = originalSlug ?? throw new global::System.ArgumentNullException(nameof(originalSlug));
         }
 
         /// <summary>

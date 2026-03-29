@@ -32,8 +32,8 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="GetConnectedAccountsByNanoidResponseStateVariant14" /> class.
         /// </summary>
-        /// <param name="authScheme"></param>
         /// <param name="val"></param>
+        /// <param name="authScheme"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -41,8 +41,8 @@ namespace Composio
             global::Composio.OneOf<global::Composio.GetConnectedAccountsByNanoidResponseStateVariant14ValVariant1, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant14ValVariant2, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant14ValVariant3, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant14ValVariant4, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant14ValVariant5, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant14ValVariant6> val,
             global::Composio.GetConnectedAccountsByNanoidResponseStateVariant14AuthScheme authScheme)
         {
-            this.Val = val;
             this.AuthScheme = authScheme;
+            this.Val = val;
         }
 
         /// <summary>

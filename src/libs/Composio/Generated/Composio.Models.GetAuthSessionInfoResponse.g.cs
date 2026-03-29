@@ -38,15 +38,15 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="GetAuthSessionInfoResponse" /> class.
         /// </summary>
+        /// <param name="orgMember">
+        /// Information about the authenticated user<br/>
+        /// Example: {"id":"550e8400-e29b-41d4-a716-446655440002","email":"user@example.com","name":"John Doe","role":"admin"}
+        /// </param>
         /// <param name="project">
         /// Details of the current active project (null if accessing with org-level credentials)
         /// </param>
         /// <param name="apiKey">
         /// Details of the API key used for authentication (null if using session auth)
-        /// </param>
-        /// <param name="orgMember">
-        /// Information about the authenticated user<br/>
-        /// Example: {"id":"550e8400-e29b-41d4-a716-446655440002","email":"user@example.com","name":"John Doe","role":"admin"}
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -56,9 +56,9 @@ namespace Composio
             global::Composio.GetAuthSessionInfoResponseProject? project,
             global::Composio.GetAuthSessionInfoResponseApiKey? apiKey)
         {
-            this.OrgMember = orgMember ?? throw new global::System.ArgumentNullException(nameof(orgMember));
             this.Project = project;
             this.ApiKey = apiKey;
+            this.OrgMember = orgMember ?? throw new global::System.ArgumentNullException(nameof(orgMember));
         }
 
         /// <summary>

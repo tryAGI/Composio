@@ -52,10 +52,10 @@ namespace Composio
         /// Initializes a new instance of the <see cref="GetConnectedAccountsResponse" /> class.
         /// </summary>
         /// <param name="items"></param>
-        /// <param name="nextCursor"></param>
         /// <param name="totalPages"></param>
         /// <param name="currentPage"></param>
         /// <param name="totalItems"></param>
+        /// <param name="nextCursor"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -67,10 +67,10 @@ namespace Composio
             string? nextCursor)
         {
             this.Items = items ?? throw new global::System.ArgumentNullException(nameof(items));
+            this.NextCursor = nextCursor;
             this.TotalPages = totalPages;
             this.CurrentPage = currentPage;
             this.TotalItems = totalItems;
-            this.NextCursor = nextCursor;
         }
 
         /// <summary>

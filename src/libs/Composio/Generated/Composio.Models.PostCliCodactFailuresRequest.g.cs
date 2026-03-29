@@ -65,10 +65,6 @@ namespace Composio
         /// Type of codact failure being recorded.<br/>
         /// Example: wrong_tool_slug
         /// </param>
-        /// <param name="toolInfo">
-        /// Optional tool metadata when the failure can be tied to a toolkit or concrete tool version.<br/>
-        /// Example: {"toolkit":"github","tool":{"slug":"GITHUB_CREATE_ISSUE","version":"2026.03.23"}}
-        /// </param>
         /// <param name="ctx">
         /// Arbitrary failure context from the CLI.<br/>
         /// Example: {"invalid_tool_slug":"GITHUB_MAKE_ISSUE","candidate_tool_slugs":["GITHUB_CREATE_ISSUE"]}
@@ -76,6 +72,10 @@ namespace Composio
         /// <param name="session">
         /// Arbitrary session payload from the CLI.<br/>
         /// Example: {"id":"sess_123","model":"gpt-5.2"}
+        /// </param>
+        /// <param name="toolInfo">
+        /// Optional tool metadata when the failure can be tied to a toolkit or concrete tool version.<br/>
+        /// Example: {"toolkit":"github","tool":{"slug":"GITHUB_CREATE_ISSUE","version":"2026.03.23"}}
         /// </param>
         /// <param name="requestId">
         /// Optional request identifier associated with the failure.<br/>
@@ -92,9 +92,9 @@ namespace Composio
             string? requestId)
         {
             this.FailureType = failureType;
+            this.ToolInfo = toolInfo;
             this.Ctx = ctx ?? throw new global::System.ArgumentNullException(nameof(ctx));
             this.Session = session ?? throw new global::System.ArgumentNullException(nameof(session));
-            this.ToolInfo = toolInfo;
             this.RequestId = requestId;
         }
 

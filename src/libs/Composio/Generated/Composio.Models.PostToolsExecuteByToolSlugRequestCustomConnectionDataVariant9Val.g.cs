@@ -170,6 +170,9 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant9Val" /> class.
         /// </summary>
+        /// <param name="applicationId"></param>
+        /// <param name="installationId"></param>
+        /// <param name="privateKey"></param>
         /// <param name="subdomain"></param>
         /// <param name="yourDomain"></param>
         /// <param name="region"></param>
@@ -192,9 +195,6 @@ namespace Composio
         /// <param name="yourServer"></param>
         /// <param name="serverLocation"></param>
         /// <param name="baseUrl"></param>
-        /// <param name="applicationId"></param>
-        /// <param name="installationId"></param>
-        /// <param name="privateKey"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -225,9 +225,6 @@ namespace Composio
             string? serverLocation,
             string? baseUrl)
         {
-            this.ApplicationId = applicationId ?? throw new global::System.ArgumentNullException(nameof(applicationId));
-            this.InstallationId = installationId ?? throw new global::System.ArgumentNullException(nameof(installationId));
-            this.PrivateKey = privateKey ?? throw new global::System.ArgumentNullException(nameof(privateKey));
             this.Subdomain = subdomain;
             this.YourDomain = yourDomain;
             this.Region = region;
@@ -250,6 +247,9 @@ namespace Composio
             this.YourServer = yourServer;
             this.ServerLocation = serverLocation;
             this.BaseUrl = baseUrl;
+            this.ApplicationId = applicationId ?? throw new global::System.ArgumentNullException(nameof(applicationId));
+            this.InstallationId = installationId ?? throw new global::System.ArgumentNullException(nameof(installationId));
+            this.PrivateKey = privateKey ?? throw new global::System.ArgumentNullException(nameof(privateKey));
         }
 
         /// <summary>

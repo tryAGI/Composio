@@ -76,10 +76,6 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="PostToolsExecuteProxyRequest" /> class.
         /// </summary>
-        /// <param name="connectedAccountId">
-        /// The ID of the connected account to use for authentication (if not provided, will use the default account for the project)<br/>
-        /// Example: ca_1a2b3c4d5e6f
-        /// </param>
         /// <param name="endpoint">
         /// The API endpoint to call (absolute URL or path relative to base URL of the connected account)<br/>
         /// Example: /api/v1/resources
@@ -87,6 +83,10 @@ namespace Composio
         /// <param name="method">
         /// The HTTP method to use for the request<br/>
         /// Example: GET
+        /// </param>
+        /// <param name="connectedAccountId">
+        /// The ID of the connected account to use for authentication (if not provided, will use the default account for the project)<br/>
+        /// Example: ca_1a2b3c4d5e6f
         /// </param>
         /// <param name="body">
         /// The request body (for POST, PUT, and PATCH requests)<br/>
@@ -110,9 +110,9 @@ namespace Composio
             global::Composio.AnyOf<global::Composio.PostToolsExecuteProxyRequestBinaryBodyVariant1, global::Composio.PostToolsExecuteProxyRequestBinaryBodyVariant2>? binaryBody,
             global::System.Collections.Generic.IList<global::Composio.PostToolsExecuteProxyRequestParameter>? parameters)
         {
+            this.ConnectedAccountId = connectedAccountId;
             this.Endpoint = endpoint ?? throw new global::System.ArgumentNullException(nameof(endpoint));
             this.Method = method;
-            this.ConnectedAccountId = connectedAccountId;
             this.Body = body;
             this.BinaryBody = binaryBody;
             this.Parameters = parameters;

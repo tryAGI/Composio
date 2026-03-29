@@ -225,6 +225,10 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="PostToolsExecuteProxyRequestCustomConnectionDataVariant2Val" /> class.
         /// </summary>
+        /// <param name="clientId">
+        /// Dynamically registered client ID
+        /// </param>
+        /// <param name="accessToken"></param>
         /// <param name="subdomain"></param>
         /// <param name="yourDomain"></param>
         /// <param name="region"></param>
@@ -253,13 +257,9 @@ namespace Composio
         /// <param name="longRedirectUrl">
         /// Whether to return the redirect url without shortening
         /// </param>
-        /// <param name="clientId">
-        /// Dynamically registered client ID
-        /// </param>
         /// <param name="clientSecret">
         /// Dynamically registered client secret
         /// </param>
-        /// <param name="accessToken"></param>
         /// <param name="idToken"></param>
         /// <param name="tokenType"></param>
         /// <param name="refreshToken"></param>
@@ -306,8 +306,6 @@ namespace Composio
             double? clientIdIssuedAt,
             double? clientSecretExpiresAt)
         {
-            this.ClientId = clientId ?? throw new global::System.ArgumentNullException(nameof(clientId));
-            this.AccessToken = accessToken ?? throw new global::System.ArgumentNullException(nameof(accessToken));
             this.Subdomain = subdomain;
             this.YourDomain = yourDomain;
             this.Region = region;
@@ -332,7 +330,9 @@ namespace Composio
             this.BaseUrl = baseUrl;
             this.StatePrefix = statePrefix;
             this.LongRedirectUrl = longRedirectUrl;
+            this.ClientId = clientId ?? throw new global::System.ArgumentNullException(nameof(clientId));
             this.ClientSecret = clientSecret;
+            this.AccessToken = accessToken ?? throw new global::System.ArgumentNullException(nameof(accessToken));
             this.IdToken = idToken;
             this.TokenType = tokenType;
             this.RefreshToken = refreshToken;

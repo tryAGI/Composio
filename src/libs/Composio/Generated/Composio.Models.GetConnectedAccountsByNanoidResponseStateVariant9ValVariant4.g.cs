@@ -170,6 +170,8 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="GetConnectedAccountsByNanoidResponseStateVariant9ValVariant4" /> class.
         /// </summary>
+        /// <param name="sessionId"></param>
+        /// <param name="devKey"></param>
         /// <param name="subdomain"></param>
         /// <param name="yourDomain"></param>
         /// <param name="region"></param>
@@ -193,8 +195,6 @@ namespace Composio
         /// <param name="serverLocation"></param>
         /// <param name="baseUrl"></param>
         /// <param name="status"></param>
-        /// <param name="sessionId"></param>
-        /// <param name="devKey"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -225,8 +225,6 @@ namespace Composio
             string? baseUrl,
             global::Composio.GetConnectedAccountsByNanoidResponseStateVariant9ValVariant4Status status)
         {
-            this.SessionId = sessionId ?? throw new global::System.ArgumentNullException(nameof(sessionId));
-            this.DevKey = devKey ?? throw new global::System.ArgumentNullException(nameof(devKey));
             this.Subdomain = subdomain;
             this.YourDomain = yourDomain;
             this.Region = region;
@@ -250,6 +248,8 @@ namespace Composio
             this.ServerLocation = serverLocation;
             this.BaseUrl = baseUrl;
             this.Status = status;
+            this.SessionId = sessionId ?? throw new global::System.ArgumentNullException(nameof(sessionId));
+            this.DevKey = devKey ?? throw new global::System.ArgumentNullException(nameof(devKey));
         }
 
         /// <summary>

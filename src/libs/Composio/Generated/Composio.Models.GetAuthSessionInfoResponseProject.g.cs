@@ -199,25 +199,9 @@ namespace Composio
         /// Date and time when the project was last modified<br/>
         /// Example: 2023-05-18T09:15:30.000Z
         /// </param>
-        /// <param name="webhookUrl">
-        /// Endpoint URL for trigger webhook notifications<br/>
-        /// Example: https://example.com/webhook
-        /// </param>
-        /// <param name="eventWebhookUrl">
-        /// Endpoint URL for event webhook notifications<br/>
-        /// Example: https://example.com/events
-        /// </param>
-        /// <param name="webhookSecret">
-        /// Secret used to verify webhook signatures<br/>
-        /// Example: whsec_a1b2c3d4e5f6g7h8i9j0
-        /// </param>
         /// <param name="triggersEnabled">
         /// Flag indicating if triggers are enabled for this project<br/>
         /// Example: true
-        /// </param>
-        /// <param name="lastSubscribedAt">
-        /// Date and time when the project last subscribed to updates<br/>
-        /// Example: 2023-05-17T10:00:00.000Z
         /// </param>
         /// <param name="deleted">
         /// Flag indicating if the project has been deleted<br/>
@@ -233,6 +217,22 @@ namespace Composio
         /// </param>
         /// <param name="org">
         /// Organization details
+        /// </param>
+        /// <param name="webhookUrl">
+        /// Endpoint URL for trigger webhook notifications<br/>
+        /// Example: https://example.com/webhook
+        /// </param>
+        /// <param name="eventWebhookUrl">
+        /// Endpoint URL for event webhook notifications<br/>
+        /// Example: https://example.com/events
+        /// </param>
+        /// <param name="webhookSecret">
+        /// Secret used to verify webhook signatures<br/>
+        /// Example: whsec_a1b2c3d4e5f6g7h8i9j0
+        /// </param>
+        /// <param name="lastSubscribedAt">
+        /// Date and time when the project last subscribed to updates<br/>
+        /// Example: 2023-05-17T10:00:00.000Z
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -264,15 +264,15 @@ namespace Composio
             this.NanoId = nanoId ?? throw new global::System.ArgumentNullException(nameof(nanoId));
             this.CreatedAt = createdAt ?? throw new global::System.ArgumentNullException(nameof(createdAt));
             this.UpdatedAt = updatedAt ?? throw new global::System.ArgumentNullException(nameof(updatedAt));
+            this.WebhookUrl = webhookUrl;
+            this.EventWebhookUrl = eventWebhookUrl;
+            this.WebhookSecret = webhookSecret;
             this.TriggersEnabled = triggersEnabled;
+            this.LastSubscribedAt = lastSubscribedAt;
             this.Deleted = deleted;
             this.IsNewWebhook = isNewWebhook;
             this.WebhookVersion = webhookVersion;
             this.Org = org ?? throw new global::System.ArgumentNullException(nameof(org));
-            this.WebhookUrl = webhookUrl;
-            this.EventWebhookUrl = eventWebhookUrl;
-            this.WebhookSecret = webhookSecret;
-            this.LastSubscribedAt = lastSubscribedAt;
         }
 
         /// <summary>

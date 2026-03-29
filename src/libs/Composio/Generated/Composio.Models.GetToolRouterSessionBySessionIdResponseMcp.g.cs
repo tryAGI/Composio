@@ -33,12 +33,12 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="GetToolRouterSessionBySessionIdResponseMcp" /> class.
         /// </summary>
-        /// <param name="type">
-        /// The type of the MCP server. Can be http
-        /// </param>
         /// <param name="url">
         /// The URL of the MCP server<br/>
         /// Example: https://app.composio.dev/tool_router/v3/trs_123456789/mcp
+        /// </param>
+        /// <param name="type">
+        /// The type of the MCP server. Can be http
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -47,8 +47,8 @@ namespace Composio
             string url,
             global::Composio.GetToolRouterSessionBySessionIdResponseMcpType type)
         {
-            this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
             this.Type = type;
+            this.Url = url ?? throw new global::System.ArgumentNullException(nameof(url));
         }
 
         /// <summary>

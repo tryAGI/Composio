@@ -175,14 +175,6 @@ namespace Composio
         /// ISO timestamp when the project was last updated<br/>
         /// Example: 2023-05-18T09:15:30.000Z
         /// </param>
-        /// <param name="triggersEnabled">
-        /// Whether triggers are enabled for this project<br/>
-        /// Example: true
-        /// </param>
-        /// <param name="lastSubscribedAt">
-        /// ISO timestamp when the project last subscribed to updates<br/>
-        /// Example: 2023-05-17T10:00:00.000Z
-        /// </param>
         /// <param name="webhookVersion">
         /// Payload format version for Pusher real-time events only. For webhook configuration, use GET /api/v3/webhook_subscriptions.<br/>
         /// Example: V2
@@ -193,6 +185,14 @@ namespace Composio
         /// </param>
         /// <param name="apiKeys">
         /// Array of API keys for the project, including their properties
+        /// </param>
+        /// <param name="triggersEnabled">
+        /// Whether triggers are enabled for this project<br/>
+        /// Example: true
+        /// </param>
+        /// <param name="lastSubscribedAt">
+        /// ISO timestamp when the project last subscribed to updates<br/>
+        /// Example: 2023-05-17T10:00:00.000Z
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -216,11 +216,11 @@ namespace Composio
             this.Email = email ?? throw new global::System.ArgumentNullException(nameof(email));
             this.CreatedAt = createdAt ?? throw new global::System.ArgumentNullException(nameof(createdAt));
             this.UpdatedAt = updatedAt ?? throw new global::System.ArgumentNullException(nameof(updatedAt));
+            this.TriggersEnabled = triggersEnabled;
+            this.LastSubscribedAt = lastSubscribedAt;
             this.WebhookVersion = webhookVersion;
             this.Deleted = deleted;
             this.ApiKeys = apiKeys ?? throw new global::System.ArgumentNullException(nameof(apiKeys));
-            this.TriggersEnabled = triggersEnabled;
-            this.LastSubscribedAt = lastSubscribedAt;
         }
 
         /// <summary>

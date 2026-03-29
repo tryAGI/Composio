@@ -167,6 +167,13 @@ namespace Composio
         /// <param name="name">
         /// The display name of the authentication configuration
         /// </param>
+        /// <param name="status">
+        /// Current status of the authentication configuration
+        /// </param>
+        /// <param name="noOfConnections">
+        /// The number of active connections using this auth config
+        /// </param>
+        /// <param name="toolAccessConfig"></param>
         /// <param name="authScheme">
         /// The authentication scheme used (e.g., OAuth2, API Key, etc.)
         /// </param>
@@ -177,9 +184,6 @@ namespace Composio
         /// The authentication credentials (tokens, keys, etc.) - may be partially hidden for security
         /// </param>
         /// <param name="proxyConfig"></param>
-        /// <param name="status">
-        /// Current status of the authentication configuration
-        /// </param>
         /// <param name="createdBy">
         /// The identifier of the user who created the auth config
         /// </param>
@@ -189,13 +193,9 @@ namespace Composio
         /// <param name="lastUpdatedAt">
         /// ISO 8601 date-time when the auth config was last updated
         /// </param>
-        /// <param name="noOfConnections">
-        /// The number of active connections using this auth config
-        /// </param>
         /// <param name="expectedInputFields">
         /// Fields expected during connection initialization
         /// </param>
-        /// <param name="toolAccessConfig"></param>
         /// <param name="sharedCredentials">
         /// [EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config
         /// </param>
@@ -230,17 +230,17 @@ namespace Composio
             this.Type = type;
             this.Toolkit = toolkit ?? throw new global::System.ArgumentNullException(nameof(toolkit));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
-            this.Status = status;
-            this.NoOfConnections = noOfConnections;
-            this.ToolAccessConfig = toolAccessConfig ?? throw new global::System.ArgumentNullException(nameof(toolAccessConfig));
             this.AuthScheme = authScheme;
             this.IsComposioManaged = isComposioManaged;
             this.Credentials = credentials;
             this.ProxyConfig = proxyConfig;
+            this.Status = status;
             this.CreatedBy = createdBy;
             this.CreatedAt = createdAt;
             this.LastUpdatedAt = lastUpdatedAt;
+            this.NoOfConnections = noOfConnections;
             this.ExpectedInputFields = expectedInputFields;
+            this.ToolAccessConfig = toolAccessConfig ?? throw new global::System.ArgumentNullException(nameof(toolAccessConfig));
             this.SharedCredentials = sharedCredentials;
             this.IsEnabledForToolRouter = isEnabledForToolRouter;
         }

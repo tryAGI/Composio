@@ -79,6 +79,9 @@ namespace Composio
         /// <param name="hasActiveConnection">
         /// Whether an active connection exists for this toolkit
         /// </param>
+        /// <param name="statusMessage">
+        /// Human-readable message about the connection status and next steps
+        /// </param>
         /// <param name="connectionDetails">
         /// Connection details including auth config and connected account IDs. Only present when has_active_connection is true.
         /// </param>
@@ -90,9 +93,6 @@ namespace Composio
         /// </param>
         /// <param name="accountSelection">
         /// When "required", the agent must specify which account to use. Present only when multiple accounts exist.
-        /// </param>
-        /// <param name="statusMessage">
-        /// Human-readable message about the connection status and next steps
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -110,11 +110,11 @@ namespace Composio
             this.Toolkit = toolkit ?? throw new global::System.ArgumentNullException(nameof(toolkit));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
             this.HasActiveConnection = hasActiveConnection;
-            this.StatusMessage = statusMessage ?? throw new global::System.ArgumentNullException(nameof(statusMessage));
             this.ConnectionDetails = connectionDetails;
             this.CurrentUserInfo = currentUserInfo;
             this.Accounts = accounts;
             this.AccountSelection = accountSelection;
+            this.StatusMessage = statusMessage ?? throw new global::System.ArgumentNullException(nameof(statusMessage));
         }
 
         /// <summary>

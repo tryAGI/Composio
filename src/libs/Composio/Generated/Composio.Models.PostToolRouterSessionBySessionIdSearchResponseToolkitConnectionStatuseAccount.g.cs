@@ -60,12 +60,6 @@ namespace Composio
         /// <param name="id">
         /// Unique identifier for this account
         /// </param>
-        /// <param name="alias">
-        /// User-assigned alias for this account
-        /// </param>
-        /// <param name="userInfo">
-        /// Information about the connected user (email, name, etc.)
-        /// </param>
         /// <param name="status">
         /// Connection status (e.g., "active")
         /// </param>
@@ -74,6 +68,12 @@ namespace Composio
         /// </param>
         /// <param name="isDefault">
         /// Whether this is the default account for the toolkit
+        /// </param>
+        /// <param name="alias">
+        /// User-assigned alias for this account
+        /// </param>
+        /// <param name="userInfo">
+        /// Information about the connected user (email, name, etc.)
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -87,11 +87,11 @@ namespace Composio
             global::System.Collections.Generic.Dictionary<string, object?>? userInfo)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
+            this.Alias = alias;
+            this.UserInfo = userInfo;
             this.Status = status ?? throw new global::System.ArgumentNullException(nameof(status));
             this.CreatedAt = createdAt ?? throw new global::System.ArgumentNullException(nameof(createdAt));
             this.IsDefault = isDefault;
-            this.Alias = alias;
-            this.UserInfo = userInfo;
         }
 
         /// <summary>

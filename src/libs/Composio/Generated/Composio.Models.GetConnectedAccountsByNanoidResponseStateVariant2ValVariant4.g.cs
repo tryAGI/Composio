@@ -219,6 +219,7 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="GetConnectedAccountsByNanoidResponseStateVariant2ValVariant4" /> class.
         /// </summary>
+        /// <param name="accessToken"></param>
         /// <param name="subdomain"></param>
         /// <param name="yourDomain"></param>
         /// <param name="region"></param>
@@ -248,7 +249,6 @@ namespace Composio
         /// <param name="longRedirectUrl">
         /// Whether to return the redirect url without shortening
         /// </param>
-        /// <param name="accessToken"></param>
         /// <param name="idToken"></param>
         /// <param name="tokenType"></param>
         /// <param name="refreshToken"></param>
@@ -296,7 +296,6 @@ namespace Composio
             string? webhookSignature,
             global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant4AuthedUser? authedUser)
         {
-            this.AccessToken = accessToken ?? throw new global::System.ArgumentNullException(nameof(accessToken));
             this.Subdomain = subdomain;
             this.YourDomain = yourDomain;
             this.Region = region;
@@ -322,6 +321,7 @@ namespace Composio
             this.Status = status;
             this.StatePrefix = statePrefix;
             this.LongRedirectUrl = longRedirectUrl;
+            this.AccessToken = accessToken ?? throw new global::System.ArgumentNullException(nameof(accessToken));
             this.IdToken = idToken;
             this.TokenType = tokenType;
             this.RefreshToken = refreshToken;

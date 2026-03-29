@@ -70,10 +70,10 @@ namespace Composio
         /// Initializes a new instance of the <see cref="PostOrgOwnerProjectNewRequestConfig" /> class.
         /// </summary>
         /// <param name="is2faEnabled"></param>
-        /// <param name="logoUrl"></param>
-        /// <param name="displayName"></param>
         /// <param name="maskSecretKeysInConnectedAccount"></param>
         /// <param name="logVisibilitySetting"></param>
+        /// <param name="logoUrl"></param>
+        /// <param name="displayName"></param>
         /// <param name="requireMcpApiKey"></param>
         /// <param name="isComposioLinkEnabledForManagedAuth">
         /// Whether to enable composio link for managed authentication. This key will be deprecated in the future. Please don't use this key.
@@ -93,10 +93,10 @@ namespace Composio
             double? signedUrlFileExpiryInSeconds)
         {
             this.Is2faEnabled = is2faEnabled;
-            this.MaskSecretKeysInConnectedAccount = maskSecretKeysInConnectedAccount;
-            this.LogVisibilitySetting = logVisibilitySetting;
             this.LogoUrl = logoUrl;
             this.DisplayName = displayName;
+            this.MaskSecretKeysInConnectedAccount = maskSecretKeysInConnectedAccount;
+            this.LogVisibilitySetting = logVisibilitySetting;
             this.RequireMcpApiKey = requireMcpApiKey;
             this.IsComposioLinkEnabledForManagedAuth = isComposioLinkEnabledForManagedAuth;
             this.SignedUrlFileExpiryInSeconds = signedUrlFileExpiryInSeconds;

@@ -187,6 +187,8 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant7Val" /> class.
         /// </summary>
+        /// <param name="oauthToken"></param>
+        /// <param name="oauthTokenSecret"></param>
         /// <param name="subdomain"></param>
         /// <param name="yourDomain"></param>
         /// <param name="region"></param>
@@ -209,8 +211,6 @@ namespace Composio
         /// <param name="yourServer"></param>
         /// <param name="serverLocation"></param>
         /// <param name="baseUrl"></param>
-        /// <param name="oauthToken"></param>
-        /// <param name="oauthTokenSecret"></param>
         /// <param name="oauthVerifier"></param>
         /// <param name="consumerKey"></param>
         /// <param name="redirectUrl"></param>
@@ -248,8 +248,6 @@ namespace Composio
             string? redirectUrl,
             string? callbackUrl)
         {
-            this.OauthToken = oauthToken ?? throw new global::System.ArgumentNullException(nameof(oauthToken));
-            this.OauthTokenSecret = oauthTokenSecret ?? throw new global::System.ArgumentNullException(nameof(oauthTokenSecret));
             this.Subdomain = subdomain;
             this.YourDomain = yourDomain;
             this.Region = region;
@@ -272,6 +270,8 @@ namespace Composio
             this.YourServer = yourServer;
             this.ServerLocation = serverLocation;
             this.BaseUrl = baseUrl;
+            this.OauthToken = oauthToken ?? throw new global::System.ArgumentNullException(nameof(oauthToken));
+            this.OauthTokenSecret = oauthTokenSecret ?? throw new global::System.ArgumentNullException(nameof(oauthTokenSecret));
             this.OauthVerifier = oauthVerifier;
             this.ConsumerKey = consumerKey;
             this.RedirectUrl = redirectUrl;

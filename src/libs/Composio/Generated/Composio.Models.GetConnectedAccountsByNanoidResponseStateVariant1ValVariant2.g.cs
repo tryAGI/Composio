@@ -190,6 +190,10 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="GetConnectedAccountsByNanoidResponseStateVariant1ValVariant2" /> class.
         /// </summary>
+        /// <param name="oauthToken"></param>
+        /// <param name="authUri"></param>
+        /// <param name="oauthTokenSecret"></param>
+        /// <param name="redirectUrl"></param>
         /// <param name="subdomain"></param>
         /// <param name="yourDomain"></param>
         /// <param name="region"></param>
@@ -213,10 +217,6 @@ namespace Composio
         /// <param name="serverLocation"></param>
         /// <param name="baseUrl"></param>
         /// <param name="status"></param>
-        /// <param name="oauthToken"></param>
-        /// <param name="authUri"></param>
-        /// <param name="oauthTokenSecret"></param>
-        /// <param name="redirectUrl"></param>
         /// <param name="callbackUrl"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -251,10 +251,6 @@ namespace Composio
             global::Composio.GetConnectedAccountsByNanoidResponseStateVariant1ValVariant2Status status,
             string? callbackUrl)
         {
-            this.OauthToken = oauthToken ?? throw new global::System.ArgumentNullException(nameof(oauthToken));
-            this.AuthUri = authUri ?? throw new global::System.ArgumentNullException(nameof(authUri));
-            this.OauthTokenSecret = oauthTokenSecret ?? throw new global::System.ArgumentNullException(nameof(oauthTokenSecret));
-            this.RedirectUrl = redirectUrl ?? throw new global::System.ArgumentNullException(nameof(redirectUrl));
             this.Subdomain = subdomain;
             this.YourDomain = yourDomain;
             this.Region = region;
@@ -278,6 +274,10 @@ namespace Composio
             this.ServerLocation = serverLocation;
             this.BaseUrl = baseUrl;
             this.Status = status;
+            this.OauthToken = oauthToken ?? throw new global::System.ArgumentNullException(nameof(oauthToken));
+            this.AuthUri = authUri ?? throw new global::System.ArgumentNullException(nameof(authUri));
+            this.OauthTokenSecret = oauthTokenSecret ?? throw new global::System.ArgumentNullException(nameof(oauthTokenSecret));
+            this.RedirectUrl = redirectUrl ?? throw new global::System.ArgumentNullException(nameof(redirectUrl));
             this.CallbackUrl = callbackUrl;
         }
 

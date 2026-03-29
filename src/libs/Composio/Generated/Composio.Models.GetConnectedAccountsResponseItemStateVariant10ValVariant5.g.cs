@@ -182,6 +182,8 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="GetConnectedAccountsResponseItemStateVariant10ValVariant5" /> class.
         /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
         /// <param name="subdomain"></param>
         /// <param name="yourDomain"></param>
         /// <param name="region"></param>
@@ -205,8 +207,6 @@ namespace Composio
         /// <param name="serverLocation"></param>
         /// <param name="baseUrl"></param>
         /// <param name="status"></param>
-        /// <param name="username"></param>
-        /// <param name="password"></param>
         /// <param name="error"></param>
         /// <param name="errorDescription"></param>
 #if NET7_0_OR_GREATER
@@ -241,8 +241,6 @@ namespace Composio
             string? error,
             string? errorDescription)
         {
-            this.Username = username ?? throw new global::System.ArgumentNullException(nameof(username));
-            this.Password = password ?? throw new global::System.ArgumentNullException(nameof(password));
             this.Subdomain = subdomain;
             this.YourDomain = yourDomain;
             this.Region = region;
@@ -266,6 +264,8 @@ namespace Composio
             this.ServerLocation = serverLocation;
             this.BaseUrl = baseUrl;
             this.Status = status;
+            this.Username = username ?? throw new global::System.ArgumentNullException(nameof(username));
+            this.Password = password ?? throw new global::System.ArgumentNullException(nameof(password));
             this.Error = error;
             this.ErrorDescription = errorDescription;
         }

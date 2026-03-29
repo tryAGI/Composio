@@ -38,8 +38,8 @@ namespace Composio
         /// Initializes a new instance of the <see cref="GetToolkitsBySlugResponseDeprecated" /> class.
         /// </summary>
         /// <param name="toolkitId"></param>
-        /// <param name="getCurrentUserEndpoint"></param>
         /// <param name="rawProxyInfoByAuthSchemes"></param>
+        /// <param name="getCurrentUserEndpoint"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -49,8 +49,8 @@ namespace Composio
             string? getCurrentUserEndpoint)
         {
             this.ToolkitId = toolkitId ?? throw new global::System.ArgumentNullException(nameof(toolkitId));
-            this.RawProxyInfoByAuthSchemes = rawProxyInfoByAuthSchemes ?? throw new global::System.ArgumentNullException(nameof(rawProxyInfoByAuthSchemes));
             this.GetCurrentUserEndpoint = getCurrentUserEndpoint;
+            this.RawProxyInfoByAuthSchemes = rawProxyInfoByAuthSchemes ?? throw new global::System.ArgumentNullException(nameof(rawProxyInfoByAuthSchemes));
         }
 
         /// <summary>

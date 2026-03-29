@@ -106,6 +106,15 @@ namespace Composio
         /// <param name="useCase">
         /// The use case that was searched
         /// </param>
+        /// <param name="primaryToolSlugs">
+        /// List of main tool slugs matching the search criteria
+        /// </param>
+        /// <param name="relatedToolSlugs">
+        /// List of related tool slugs that might be useful
+        /// </param>
+        /// <param name="toolkits">
+        /// List of unique toolkit slugs used by tools in this query
+        /// </param>
         /// <param name="executionGuidance">
         /// Guidance message about the search results, particularly when a cached plan is available
         /// </param>
@@ -120,15 +129,6 @@ namespace Composio
         /// </param>
         /// <param name="referenceWorkbenchSnippets">
         /// Reference Python code snippets for processing tool responses in the workbench (only present when cached plan is available)
-        /// </param>
-        /// <param name="primaryToolSlugs">
-        /// List of main tool slugs matching the search criteria
-        /// </param>
-        /// <param name="relatedToolSlugs">
-        /// List of related tool slugs that might be useful
-        /// </param>
-        /// <param name="toolkits">
-        /// List of unique toolkit slugs used by tools in this query
         /// </param>
         /// <param name="planId">
         /// ID of cached plan if available
@@ -159,14 +159,14 @@ namespace Composio
         {
             this.Index = index;
             this.UseCase = useCase ?? throw new global::System.ArgumentNullException(nameof(useCase));
-            this.PrimaryToolSlugs = primaryToolSlugs ?? throw new global::System.ArgumentNullException(nameof(primaryToolSlugs));
-            this.RelatedToolSlugs = relatedToolSlugs ?? throw new global::System.ArgumentNullException(nameof(relatedToolSlugs));
-            this.Toolkits = toolkits ?? throw new global::System.ArgumentNullException(nameof(toolkits));
             this.ExecutionGuidance = executionGuidance;
             this.Difficulty = difficulty;
             this.RecommendedPlanSteps = recommendedPlanSteps;
             this.KnownPitfalls = knownPitfalls;
             this.ReferenceWorkbenchSnippets = referenceWorkbenchSnippets;
+            this.PrimaryToolSlugs = primaryToolSlugs ?? throw new global::System.ArgumentNullException(nameof(primaryToolSlugs));
+            this.RelatedToolSlugs = relatedToolSlugs ?? throw new global::System.ArgumentNullException(nameof(relatedToolSlugs));
+            this.Toolkits = toolkits ?? throw new global::System.ArgumentNullException(nameof(toolkits));
             this.PlanId = planId;
             this.Error = error;
             this.Memory = memory;

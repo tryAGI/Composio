@@ -38,9 +38,9 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="PostToolsExecuteProxyRequestCustomConnectionDataVariant9" /> class.
         /// </summary>
-        /// <param name="authScheme"></param>
         /// <param name="toolkitSlug"></param>
         /// <param name="val"></param>
+        /// <param name="authScheme"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -49,9 +49,9 @@ namespace Composio
             global::Composio.PostToolsExecuteProxyRequestCustomConnectionDataVariant9Val val,
             global::Composio.PostToolsExecuteProxyRequestCustomConnectionDataVariant9AuthScheme authScheme)
         {
+            this.AuthScheme = authScheme;
             this.ToolkitSlug = toolkitSlug ?? throw new global::System.ArgumentNullException(nameof(toolkitSlug));
             this.Val = val ?? throw new global::System.ArgumentNullException(nameof(val));
-            this.AuthScheme = authScheme;
         }
 
         /// <summary>
