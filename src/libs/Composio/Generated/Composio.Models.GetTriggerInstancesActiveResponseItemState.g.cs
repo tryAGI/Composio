@@ -4,8 +4,9 @@
 namespace Composio
 {
     /// <summary>
-    /// State of the trigger instance
+    /// DEPRECATED: This field exposes internal state and will be removed in a future version.
     /// </summary>
+    [global::System.Obsolete("This model marked as deprecated.")]
     public sealed partial class GetTriggerInstancesActiveResponseItemState
     {
 

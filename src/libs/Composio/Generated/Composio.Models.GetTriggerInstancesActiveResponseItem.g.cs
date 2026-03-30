@@ -72,7 +72,7 @@ namespace Composio
         public required global::System.Collections.Generic.Dictionary<string, object?> TriggerConfig { get; set; }
 
         /// <summary>
-        /// State of the trigger instance
+        /// DEPRECATED: This field exposes internal state and will be removed in a future version.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("state")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -163,7 +163,7 @@ namespace Composio
         /// Configuration for the trigger
         /// </param>
         /// <param name="state">
-        /// State of the trigger instance
+        /// DEPRECATED: This field exposes internal state and will be removed in a future version.
         /// </param>
         /// <param name="updatedAt">
         /// ISO 8601 timestamp when the trigger instance was updated
