@@ -35521,7 +35521,8 @@
         "description": "Finds the authenticated organization's single CONSUMER project and provisions it if absent. This endpoint is idempotent and never returns consumer API keys.",
         "tags": [
           "Projects",
-          "Organization Management"
+          "Organization Management",
+          "x-internal"
         ],
         "operationId": "postOrgConsumerProjectResolve",
         "security": [
@@ -35653,7 +35654,8 @@
         "description": "Resolves the organization's single CONSUMER project and returns the distinct toolkit slugs for which the specified consumer user has an ACTIVE connection.",
         "tags": [
           "Organization Management",
-          "Connected Accounts"
+          "Connected Accounts",
+          "x-internal"
         ],
         "operationId": "getOrgConsumerConnectedToolkits",
         "security": [
@@ -50519,11 +50521,12 @@
           },
           {
             "schema": {
-              "type": "number",
-              "nullable": true
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 50
             },
             "required": false,
-            "description": "Number of items per page, max allowed is 1000",
+            "description": "Number of items per page, max allowed is 50",
             "name": "limit",
             "in": "query"
           },

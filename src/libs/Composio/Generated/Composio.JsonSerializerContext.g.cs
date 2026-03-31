@@ -2737,6 +2737,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetMcpServersByServerIdInstancesOrderBy), TypeInfoPropertyName = "GetMcpServersByServerIdInstancesOrderBy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetMcpServersByServerIdInstancesOrderDirection), TypeInfoPropertyName = "GetMcpServersByServerIdInstancesOrderDirection2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetMigrationGetNanoidType), TypeInfoPropertyName = "GetMigrationGetNanoidType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetAuthSessionInfoResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetAuthSessionInfoResponseProject))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetAuthSessionInfoResponseProjectWebhookVersion), TypeInfoPropertyName = "GetAuthSessionInfoResponseProjectWebhookVersion2")]

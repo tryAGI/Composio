@@ -30,7 +30,7 @@ namespace Composio
         /// <exception cref="global::Composio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.ToolRouterToolkitsListResponse> GetToolRouterSessionBySessionIdToolkitsAsync(
             string sessionId,
-            double? limit = default,
+            int? limit = default,
             string? cursor = default,
             global::System.Collections.Generic.IList<string>? toolkits = default,
             bool? isConnected = default,

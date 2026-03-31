@@ -8,7 +8,7 @@ namespace Composio
         partial void PrepareGetToolRouterSessionBySessionIdToolkitsArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string sessionId,
-            ref double? limit,
+            ref int? limit,
             ref string? cursor,
             global::System.Collections.Generic.IList<string>? toolkits,
             ref bool? isConnected,
@@ -17,7 +17,7 @@ namespace Composio
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string sessionId,
-            double? limit,
+            int? limit,
             string? cursor,
             global::System.Collections.Generic.IList<string>? toolkits,
             bool? isConnected,
@@ -57,7 +57,7 @@ namespace Composio
         /// <exception cref="global::Composio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Composio.ToolRouterToolkitsListResponse> GetToolRouterSessionBySessionIdToolkitsAsync(
             string sessionId,
-            double? limit = default,
+            int? limit = default,
             string? cursor = default,
             global::System.Collections.Generic.IList<string>? toolkits = default,
             bool? isConnected = default,
