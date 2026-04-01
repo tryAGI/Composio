@@ -433,6 +433,7 @@ namespace Composio
             object? connectionData = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::Composio.PostConnectedAccountsLinkRequest
             {
                 AuthConfigId = authConfigId,

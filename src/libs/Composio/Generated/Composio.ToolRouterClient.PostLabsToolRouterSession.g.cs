@@ -352,6 +352,7 @@ namespace Composio
             global::Composio.PostLabsToolRouterSessionRequestConfig? config = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+
             var __request = new global::Composio.PostLabsToolRouterSessionRequest
             {
                 UserId = userId,
