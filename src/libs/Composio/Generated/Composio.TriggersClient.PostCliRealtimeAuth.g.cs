@@ -311,7 +311,6 @@ namespace Composio
             string socketId,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Composio.PostCliRealtimeAuthRequest
             {
                 ChannelName = channelName,

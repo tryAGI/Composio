@@ -391,7 +391,6 @@ namespace Composio
             bool enabled,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Composio.PatchConnectedAccountsByNanoIdStatusRequest
             {
                 Enabled = enabled,

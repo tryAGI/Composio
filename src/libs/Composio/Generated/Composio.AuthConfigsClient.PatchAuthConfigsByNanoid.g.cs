@@ -347,7 +347,6 @@ namespace Composio
             string nanoid,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Composio.OneOf<global::Composio.PatchAuthConfigsByNanoidRequestVariant1, global::Composio.PatchAuthConfigsByNanoidRequestVariant2>
             {
             };

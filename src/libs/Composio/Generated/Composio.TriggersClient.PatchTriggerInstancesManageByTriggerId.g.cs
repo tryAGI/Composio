@@ -469,7 +469,6 @@ namespace Composio
             global::Composio.PatchTriggerInstancesManageByTriggerIdRequestStatus status,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Composio.PatchTriggerInstancesManageByTriggerIdRequest
             {
                 Status = status,
