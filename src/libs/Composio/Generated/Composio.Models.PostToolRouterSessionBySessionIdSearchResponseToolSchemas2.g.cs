@@ -35,7 +35,7 @@ namespace Composio
         public global::System.Collections.Generic.Dictionary<string, object?>? InputSchema { get; set; }
 
         /// <summary>
-        /// Output/response schema for the tool
+        /// Output/response schema for the tool. Only included when include_output_schemas is true.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("output_schema")]
         public global::System.Collections.Generic.Dictionary<string, object?>? OutputSchema { get; set; }
@@ -74,7 +74,7 @@ namespace Composio
         /// Input schema for the tool (only present when hasFullSchema is true)
         /// </param>
         /// <param name="outputSchema">
-        /// Output/response schema for the tool
+        /// Output/response schema for the tool. Only included when include_output_schemas is true.
         /// </param>
         /// <param name="hasFullSchema">
         /// Whether the full input_schema is included in this response

@@ -349,7 +349,6 @@ namespace Composio
             bool? includePayload = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Composio.PostInternalTriggerLogsRequest
             {
                 Time = time,

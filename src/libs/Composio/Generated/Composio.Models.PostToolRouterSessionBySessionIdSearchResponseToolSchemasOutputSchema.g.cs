@@ -4,7 +4,7 @@
 namespace Composio
 {
     /// <summary>
-    /// Output/response schema for the tool
+    /// Output/response schema for the tool. Only included when include_output_schemas is true.
     /// </summary>
     public sealed partial class PostToolRouterSessionBySessionIdSearchResponseToolSchemasOutputSchema
     {

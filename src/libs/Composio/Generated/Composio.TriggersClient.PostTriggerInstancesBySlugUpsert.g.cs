@@ -520,7 +520,6 @@ namespace Composio
             global::Composio.AnyOf<string, global::System.Collections.Generic.Dictionary<string, string>, object>? toolkitVersions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Composio.PostTriggerInstancesBySlugUpsertRequest
             {
                 ConnectedAccountId = connectedAccountId,

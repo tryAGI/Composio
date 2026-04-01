@@ -347,7 +347,6 @@ namespace Composio
             global::Composio.OneOf<global::Composio.PostAuthConfigsRequestAuthConfigVariant1, global::Composio.PostAuthConfigsRequestAuthConfigVariant2>? authConfig = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-
             var __request = new global::Composio.PostAuthConfigsRequest
             {
                 Toolkit = toolkit,

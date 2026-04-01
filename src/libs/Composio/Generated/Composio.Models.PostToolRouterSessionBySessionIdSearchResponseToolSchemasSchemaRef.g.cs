@@ -26,8 +26,7 @@ namespace Composio
         /// Instruction message for the LLM
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("message")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Message { get; set; }
+        public string? Message { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -41,23 +40,23 @@ namespace Composio
         /// <param name="args">
         /// Arguments to pass to the tool
         /// </param>
-        /// <param name="message">
-        /// Instruction message for the LLM
-        /// </param>
         /// <param name="tool">
         /// Tool to call
+        /// </param>
+        /// <param name="message">
+        /// Instruction message for the LLM
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PostToolRouterSessionBySessionIdSearchResponseToolSchemasSchemaRef(
             global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolSchemasSchemaRefArgs args,
-            string message,
-            global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolSchemasSchemaRefTool tool)
+            global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolSchemasSchemaRefTool tool,
+            string? message)
         {
             this.Tool = tool;
             this.Args = args ?? throw new global::System.ArgumentNullException(nameof(args));
-            this.Message = message ?? throw new global::System.ArgumentNullException(nameof(message));
+            this.Message = message;
         }
 
         /// <summary>
