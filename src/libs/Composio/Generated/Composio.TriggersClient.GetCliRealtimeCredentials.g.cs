@@ -90,13 +90,13 @@ namespace Composio
                     if (ReadResponseAsString)
                     {
                         __content_401 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_401 = global::Composio.Error.FromJson(__content_401, JsonSerializerContext);
+                        __value_401 = global::Composio.Error.FromJson(__content_401, JsonSerializerOptions);
                     }
                     else
                     {
                         __content_401 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_401 = global::Composio.Error.FromJson(__content_401, JsonSerializerContext);
+                        __value_401 = global::Composio.Error.FromJson(__content_401, JsonSerializerOptions);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -140,7 +140,7 @@ namespace Composio
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::Composio.GetCliRealtimeCredentialsResponse.FromJson(__content, JsonSerializerContext) ??
+                        global::Composio.GetCliRealtimeCredentialsResponse.FromJson(__content, JsonSerializerOptions) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -171,7 +171,7 @@ namespace Composio
                     ).ConfigureAwait(false);
 
                     return
-                        await global::Composio.GetCliRealtimeCredentialsResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                        await global::Composio.GetCliRealtimeCredentialsResponse.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)

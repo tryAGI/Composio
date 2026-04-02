@@ -70,7 +70,7 @@ namespace Composio
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
-            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
+            var __httpRequestContentBody = request.ToJson(JsonSerializerOptions);
             var __httpRequestContent = new global::System.Net.Http.StringContent(
                 content: __httpRequestContentBody,
                 encoding: global::System.Text.Encoding.UTF8,
@@ -107,13 +107,13 @@ namespace Composio
                     if (ReadResponseAsString)
                     {
                         __content_400 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_400 = global::Composio.Error.FromJson(__content_400, JsonSerializerContext);
+                        __value_400 = global::Composio.Error.FromJson(__content_400, JsonSerializerOptions);
                     }
                     else
                     {
                         __content_400 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_400 = global::Composio.Error.FromJson(__content_400, JsonSerializerContext);
+                        __value_400 = global::Composio.Error.FromJson(__content_400, JsonSerializerOptions);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -145,13 +145,13 @@ namespace Composio
                     if (ReadResponseAsString)
                     {
                         __content_401 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_401 = global::Composio.Error.FromJson(__content_401, JsonSerializerContext);
+                        __value_401 = global::Composio.Error.FromJson(__content_401, JsonSerializerOptions);
                     }
                     else
                     {
                         __content_401 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_401 = global::Composio.Error.FromJson(__content_401, JsonSerializerContext);
+                        __value_401 = global::Composio.Error.FromJson(__content_401, JsonSerializerOptions);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -183,13 +183,13 @@ namespace Composio
                     if (ReadResponseAsString)
                     {
                         __content_403 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_403 = global::Composio.Error.FromJson(__content_403, JsonSerializerContext);
+                        __value_403 = global::Composio.Error.FromJson(__content_403, JsonSerializerOptions);
                     }
                     else
                     {
                         __content_403 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_403 = global::Composio.Error.FromJson(__content_403, JsonSerializerContext);
+                        __value_403 = global::Composio.Error.FromJson(__content_403, JsonSerializerOptions);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -221,13 +221,13 @@ namespace Composio
                     if (ReadResponseAsString)
                     {
                         __content_404 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_404 = global::Composio.Error.FromJson(__content_404, JsonSerializerContext);
+                        __value_404 = global::Composio.Error.FromJson(__content_404, JsonSerializerOptions);
                     }
                     else
                     {
                         __content_404 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_404 = global::Composio.Error.FromJson(__content_404, JsonSerializerContext);
+                        __value_404 = global::Composio.Error.FromJson(__content_404, JsonSerializerOptions);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -259,13 +259,13 @@ namespace Composio
                     if (ReadResponseAsString)
                     {
                         __content_422 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_422 = global::Composio.Error.FromJson(__content_422, JsonSerializerContext);
+                        __value_422 = global::Composio.Error.FromJson(__content_422, JsonSerializerOptions);
                     }
                     else
                     {
                         __content_422 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_422 = global::Composio.Error.FromJson(__content_422, JsonSerializerContext);
+                        __value_422 = global::Composio.Error.FromJson(__content_422, JsonSerializerOptions);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -297,13 +297,13 @@ namespace Composio
                     if (ReadResponseAsString)
                     {
                         __content_429 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_429 = global::Composio.Error.FromJson(__content_429, JsonSerializerContext);
+                        __value_429 = global::Composio.Error.FromJson(__content_429, JsonSerializerOptions);
                     }
                     else
                     {
                         __content_429 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_429 = global::Composio.Error.FromJson(__content_429, JsonSerializerContext);
+                        __value_429 = global::Composio.Error.FromJson(__content_429, JsonSerializerOptions);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -335,13 +335,13 @@ namespace Composio
                     if (ReadResponseAsString)
                     {
                         __content_500 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_500 = global::Composio.Error.FromJson(__content_500, JsonSerializerContext);
+                        __value_500 = global::Composio.Error.FromJson(__content_500, JsonSerializerOptions);
                     }
                     else
                     {
                         __content_500 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_500 = global::Composio.Error.FromJson(__content_500, JsonSerializerContext);
+                        __value_500 = global::Composio.Error.FromJson(__content_500, JsonSerializerOptions);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -373,13 +373,13 @@ namespace Composio
                     if (ReadResponseAsString)
                     {
                         __content_501 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_501 = global::Composio.Error.FromJson(__content_501, JsonSerializerContext);
+                        __value_501 = global::Composio.Error.FromJson(__content_501, JsonSerializerOptions);
                     }
                     else
                     {
                         __content_501 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_501 = global::Composio.Error.FromJson(__content_501, JsonSerializerContext);
+                        __value_501 = global::Composio.Error.FromJson(__content_501, JsonSerializerOptions);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -411,13 +411,13 @@ namespace Composio
                     if (ReadResponseAsString)
                     {
                         __content_502 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_502 = global::Composio.Error.FromJson(__content_502, JsonSerializerContext);
+                        __value_502 = global::Composio.Error.FromJson(__content_502, JsonSerializerOptions);
                     }
                     else
                     {
                         __content_502 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_502 = global::Composio.Error.FromJson(__content_502, JsonSerializerContext);
+                        __value_502 = global::Composio.Error.FromJson(__content_502, JsonSerializerOptions);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -449,13 +449,13 @@ namespace Composio
                     if (ReadResponseAsString)
                     {
                         __content_504 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_504 = global::Composio.Error.FromJson(__content_504, JsonSerializerContext);
+                        __value_504 = global::Composio.Error.FromJson(__content_504, JsonSerializerOptions);
                     }
                     else
                     {
                         __content_504 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_504 = global::Composio.Error.FromJson(__content_504, JsonSerializerContext);
+                        __value_504 = global::Composio.Error.FromJson(__content_504, JsonSerializerOptions);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -499,7 +499,7 @@ namespace Composio
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::Composio.PostToolsExecuteProxyResponse.FromJson(__content, JsonSerializerContext) ??
+                        global::Composio.PostToolsExecuteProxyResponse.FromJson(__content, JsonSerializerOptions) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -530,7 +530,7 @@ namespace Composio
                     ).ConfigureAwait(false);
 
                     return
-                        await global::Composio.PostToolsExecuteProxyResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                        await global::Composio.PostToolsExecuteProxyResponse.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
