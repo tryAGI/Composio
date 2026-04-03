@@ -31,6 +31,13 @@ namespace Composio
         public global::Composio.AnyOf<string, global::System.Collections.Generic.IList<string>>? Scopes { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_scopes")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>))]
+        public global::Composio.AnyOf<string, global::System.Collections.Generic.IList<string>>? UserScopes { get; set; }
+
+        /// <summary>
         /// Use tool_access_config instead. This field will be deprecated in the future.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("restrict_to_following_tools")]
@@ -69,6 +76,7 @@ namespace Composio
         /// The display name of the authentication configuration
         /// </param>
         /// <param name="scopes"></param>
+        /// <param name="userScopes"></param>
         /// <param name="toolAccessConfig"></param>
         /// <param name="sharedCredentials">
         /// Shared credentials that will be inherited by connected accounts. For eg: this can be used to share the API key for a tool with all connected accounts using this auth config.
@@ -83,6 +91,7 @@ namespace Composio
             global::Composio.PatchAuthConfigsByNanoidRequestVariant2Type type,
             string? name,
             global::Composio.AnyOf<string, global::System.Collections.Generic.IList<string>>? scopes,
+            global::Composio.AnyOf<string, global::System.Collections.Generic.IList<string>>? userScopes,
             global::Composio.PatchAuthConfigsByNanoidRequestVariant2ToolAccessConfig? toolAccessConfig,
             global::System.Collections.Generic.Dictionary<string, object?>? sharedCredentials,
             bool? isEnabledForToolRouter)
@@ -90,6 +99,7 @@ namespace Composio
             this.Type = type;
             this.Name = name;
             this.Scopes = scopes;
+            this.UserScopes = userScopes;
             this.ToolAccessConfig = toolAccessConfig;
             this.SharedCredentials = sharedCredentials;
             this.IsEnabledForToolRouter = isEnabledForToolRouter;
