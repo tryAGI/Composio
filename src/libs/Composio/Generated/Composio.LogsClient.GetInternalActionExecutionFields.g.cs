@@ -101,7 +101,7 @@ namespace Composio
                     __response.EnsureSuccessStatusCode();
 
                     return
-                        global::Composio.GetInternalActionExecutionFieldsResponse.FromJson(__content, JsonSerializerOptions) ??
+                        global::Composio.GetInternalActionExecutionFieldsResponse.FromJson(__content, JsonSerializerContext) ??
                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
                 }
                 catch (global::System.Exception __ex)
@@ -131,7 +131,7 @@ namespace Composio
                     ).ConfigureAwait(false);
 
                     return
-                        await global::Composio.GetInternalActionExecutionFieldsResponse.FromJsonStreamAsync(__content, JsonSerializerOptions).ConfigureAwait(false) ??
+                        await global::Composio.GetInternalActionExecutionFieldsResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                         throw new global::System.InvalidOperationException("Response deserialization failed.");
                 }
                 catch (global::System.Exception __ex)
