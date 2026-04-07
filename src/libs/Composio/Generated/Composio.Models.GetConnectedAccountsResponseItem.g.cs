@@ -32,6 +32,18 @@ namespace Composio
         public required string Id { get; set; }
 
         /// <summary>
+        /// A short, token-friendly identifier for multi-account disambiguation, typically toolkit-prefixed with 1-2 words (e.g., "gmail_red-castle")
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("word_id")]
+        public string? WordId { get; set; }
+
+        /// <summary>
+        /// A user-defined alias for the connected account
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("alias")]
+        public string? Alias { get; set; }
+
+        /// <summary>
         /// This is deprecated, we will not be providing userId from this api anymore, you will only be able to read via userId not get it back
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_id")]
@@ -136,6 +148,12 @@ namespace Composio
         /// <param name="isDisabled">
         /// Whether the connection is disabled
         /// </param>
+        /// <param name="wordId">
+        /// A short, token-friendly identifier for multi-account disambiguation, typically toolkit-prefixed with 1-2 words (e.g., "gmail_red-castle")
+        /// </param>
+        /// <param name="alias">
+        /// A user-defined alias for the connected account
+        /// </param>
         /// <param name="statusReason">
         /// The reason the connection status changed. Possible reasons: Connection initiation did not complete within 10 minutes, Permanent auth error during token refresh, Max auth failures reached, OAuth callback failed during token exchange, Connection status updated by user, Auth config is disabled
         /// </param>
@@ -156,12 +174,16 @@ namespace Composio
             global::Composio.OneOf<global::Composio.GetConnectedAccountsResponseItemStateVariant1, global::Composio.GetConnectedAccountsResponseItemStateVariant2, global::Composio.GetConnectedAccountsResponseItemStateVariant3, global::Composio.GetConnectedAccountsResponseItemStateVariant4, global::Composio.GetConnectedAccountsResponseItemStateVariant5, global::Composio.GetConnectedAccountsResponseItemStateVariant6, global::Composio.GetConnectedAccountsResponseItemStateVariant7, global::Composio.GetConnectedAccountsResponseItemStateVariant8, global::Composio.GetConnectedAccountsResponseItemStateVariant9, global::Composio.GetConnectedAccountsResponseItemStateVariant10, global::Composio.GetConnectedAccountsResponseItemStateVariant11, global::Composio.GetConnectedAccountsResponseItemStateVariant12, global::Composio.GetConnectedAccountsResponseItemStateVariant13, global::Composio.GetConnectedAccountsResponseItemStateVariant14> state,
             global::System.Collections.Generic.Dictionary<string, object?> data,
             bool isDisabled,
+            string? wordId,
+            string? alias,
             string? statusReason,
             string? testRequestEndpoint)
         {
             this.Toolkit = toolkit ?? throw new global::System.ArgumentNullException(nameof(toolkit));
             this.AuthConfig = authConfig ?? throw new global::System.ArgumentNullException(nameof(authConfig));
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
+            this.WordId = wordId;
+            this.Alias = alias;
             this.UserId = userId ?? throw new global::System.ArgumentNullException(nameof(userId));
             this.Status = status;
             this.CreatedAt = createdAt ?? throw new global::System.ArgumentNullException(nameof(createdAt));
