@@ -34,11 +34,11 @@ namespace Composio
         /// </param>
         /// <param name="toolInfo">
         /// Optional tool metadata when the failure can be tied to a toolkit or concrete tool version.<br/>
-        /// Example: {"toolkit":"github","tool":{"slug":"GITHUB_CREATE_ISSUE","version":"2026.03.23"}}
+        /// Example: {"toolkit":"github","tool":{"slug":"GITHUB_CREATE_AN_ISSUE","version":"2026.03.23"}}
         /// </param>
         /// <param name="ctx">
         /// Arbitrary failure context from the CLI.<br/>
-        /// Example: {"invalid_tool_slug":"GITHUB_MAKE_ISSUE","candidate_tool_slugs":["GITHUB_CREATE_ISSUE"]}
+        /// Example: {"invalid_tool_slug":"GITHUB_MAKE_ISSUE","candidate_tool_slugs":["GITHUB_CREATE_AN_ISSUE"]}
         /// </param>
         /// <param name="session">
         /// Arbitrary session payload from the CLI.<br/>

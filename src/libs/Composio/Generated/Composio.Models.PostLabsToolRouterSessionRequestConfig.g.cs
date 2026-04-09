@@ -6,7 +6,7 @@ namespace Composio
     /// <summary>
     /// Session configuration including enabled toolkits and their auth configs<br/>
     /// Default Value: {}<br/>
-    /// Example: {"manually_manage_connections":false,"toolkits":[{"toolkit":"gmail","auth_config_id":"auth_config_123"},{"toolkit":"slack"}]}
+    /// Example: {"manually_manage_connections":false,"toolkits":[{"toolkit":"gmail","auth_config_id":"ac_1a2b3c4d5e6f"},{"toolkit":"slack"}]}
     /// </summary>
     public sealed partial class PostLabsToolRouterSessionRequestConfig
     {
@@ -22,9 +22,9 @@ namespace Composio
         /// <summary>
         /// Array of toolkit configurations with optional auth configs<br/>
         /// Default Value: []<br/>
-        /// Example: [{"toolkit":"gmail","auth_config_id":"auth_config_123"}, {"toolkit":"slack"}]
+        /// Example: [{"toolkit":"gmail","auth_config_id":"ac_1a2b3c4d5e6f"}, {"toolkit":"slack"}]
         /// </summary>
-        /// <example>[{"toolkit":"gmail","auth_config_id":"auth_config_123"}, {"toolkit":"slack"}]</example>
+        /// <example>[{"toolkit":"gmail","auth_config_id":"ac_1a2b3c4d5e6f"}, {"toolkit":"slack"}]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("toolkits")]
         public global::System.Collections.Generic.IList<global::Composio.PostLabsToolRouterSessionRequestConfigToolkit>? Toolkits { get; set; }
 
@@ -45,7 +45,7 @@ namespace Composio
         /// <param name="toolkits">
         /// Array of toolkit configurations with optional auth configs<br/>
         /// Default Value: []<br/>
-        /// Example: [{"toolkit":"gmail","auth_config_id":"auth_config_123"}, {"toolkit":"slack"}]
+        /// Example: [{"toolkit":"gmail","auth_config_id":"ac_1a2b3c4d5e6f"}, {"toolkit":"slack"}]
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

@@ -20,9 +20,9 @@ namespace Composio
         /// <summary>
         /// Session configuration including enabled toolkits and their auth configs<br/>
         /// Default Value: {}<br/>
-        /// Example: {"manually_manage_connections":false,"toolkits":[{"toolkit":"gmail","auth_config_id":"auth_config_123"},{"toolkit":"slack"}]}
+        /// Example: {"manually_manage_connections":false,"toolkits":[{"toolkit":"gmail","auth_config_id":"ac_1a2b3c4d5e6f"},{"toolkit":"slack"}]}
         /// </summary>
-        /// <example>{"manually_manage_connections":false,"toolkits":[{"toolkit":"gmail","auth_config_id":"auth_config_123"},{"toolkit":"slack"}]}</example>
+        /// <example>{"manually_manage_connections":false,"toolkits":[{"toolkit":"gmail","auth_config_id":"ac_1a2b3c4d5e6f"},{"toolkit":"slack"}]}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("config")]
         public global::Composio.PostLabsToolRouterSessionRequestConfig? Config { get; set; }
 
@@ -42,7 +42,7 @@ namespace Composio
         /// <param name="config">
         /// Session configuration including enabled toolkits and their auth configs<br/>
         /// Default Value: {}<br/>
-        /// Example: {"manually_manage_connections":false,"toolkits":[{"toolkit":"gmail","auth_config_id":"auth_config_123"},{"toolkit":"slack"}]}
+        /// Example: {"manually_manage_connections":false,"toolkits":[{"toolkit":"gmail","auth_config_id":"ac_1a2b3c4d5e6f"},{"toolkit":"slack"}]}
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

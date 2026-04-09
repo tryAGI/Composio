@@ -426,7 +426,7 @@ namespace Composio
         /// </param>
         /// <param name="toolSlug">
         /// The unique slug identifier of the tool to execute<br/>
-        /// Example: GITHUB_CREATE_ISSUE
+        /// Example: GITHUB_CREATE_AN_ISSUE
         /// </param>
         /// <param name="arguments">
         /// The arguments required by the tool<br/>

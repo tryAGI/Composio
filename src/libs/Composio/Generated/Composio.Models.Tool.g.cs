@@ -10,9 +10,9 @@ namespace Composio
     {
         /// <summary>
         /// Unique identifier for the tool<br/>
-        /// Example: github-actions
+        /// Example: GITHUB_CREATE_A_WORKFLOW_DISPATCH_EVENT
         /// </summary>
-        /// <example>github-actions</example>
+        /// <example>GITHUB_CREATE_A_WORKFLOW_DISPATCH_EVENT</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("slug")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Slug { get; set; }
@@ -148,7 +148,7 @@ namespace Composio
         /// </summary>
         /// <param name="slug">
         /// Unique identifier for the tool<br/>
-        /// Example: github-actions
+        /// Example: GITHUB_CREATE_A_WORKFLOW_DISPATCH_EVENT
         /// </param>
         /// <param name="name">
         /// Human-readable display name of the tool<br/>

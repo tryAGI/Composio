@@ -5,7 +5,7 @@ namespace Composio
 {
     /// <summary>
     /// Response schema for a refreshed connected account authentication<br/>
-    /// Example: {"id":"con_1a2b3c4d5e6f","status":"ACTIVE","redirect_url":"https://app.example.com/oauth/callback"}
+    /// Example: {"id":"ca_1a2b3c4d5e6f","status":"ACTIVE","redirect_url":"https://app.example.com/oauth/callback"}
     /// </summary>
     public sealed partial class PostConnectedAccountsByNanoidRefreshResponse
     {

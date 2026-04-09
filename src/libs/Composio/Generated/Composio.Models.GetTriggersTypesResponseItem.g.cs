@@ -10,9 +10,9 @@ namespace Composio
     {
         /// <summary>
         /// Unique identifier for the trigger type<br/>
-        /// Example: SLACK_NEW_MESSAGE
+        /// Example: SLACK_RECEIVE_MESSAGE
         /// </summary>
-        /// <example>SLACK_NEW_MESSAGE</example>
+        /// <example>SLACK_RECEIVE_MESSAGE</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("slug")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Slug { get; set; }
@@ -97,7 +97,7 @@ namespace Composio
         /// </summary>
         /// <param name="slug">
         /// Unique identifier for the trigger type<br/>
-        /// Example: SLACK_NEW_MESSAGE
+        /// Example: SLACK_RECEIVE_MESSAGE
         /// </param>
         /// <param name="name">
         /// Human-readable name of the trigger<br/>

@@ -32,6 +32,12 @@ namespace Composio
         public string? UserId { get; set; }
 
         /// <summary>
+        /// A human-readable alias for this connected account. Must be unique per entity and toolkit within the project.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("alias")]
+        public string? Alias { get; set; }
+
+        /// <summary>
         /// The URL to redirect to after connection completion
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("callback_url")]
@@ -68,6 +74,9 @@ namespace Composio
         /// The user id of the connected account<br/>
         /// Default Value: default
         /// </param>
+        /// <param name="alias">
+        /// A human-readable alias for this connected account. Must be unique per entity and toolkit within the project.
+        /// </param>
         /// <param name="callbackUrl">
         /// The URL to redirect to after connection completion
         /// </param>
@@ -77,10 +86,12 @@ namespace Composio
         public PostConnectedAccountsRequestConnection(
             global::Composio.OneOf<global::Composio.PostConnectedAccountsRequestConnectionStateVariant1, global::Composio.PostConnectedAccountsRequestConnectionStateVariant2, global::Composio.PostConnectedAccountsRequestConnectionStateVariant3, global::Composio.PostConnectedAccountsRequestConnectionStateVariant4, global::Composio.PostConnectedAccountsRequestConnectionStateVariant5, global::Composio.PostConnectedAccountsRequestConnectionStateVariant6, global::Composio.PostConnectedAccountsRequestConnectionStateVariant7, global::Composio.PostConnectedAccountsRequestConnectionStateVariant8, global::Composio.PostConnectedAccountsRequestConnectionStateVariant9, global::Composio.PostConnectedAccountsRequestConnectionStateVariant10, global::Composio.PostConnectedAccountsRequestConnectionStateVariant11, global::Composio.PostConnectedAccountsRequestConnectionStateVariant12, global::Composio.PostConnectedAccountsRequestConnectionStateVariant13, global::Composio.PostConnectedAccountsRequestConnectionStateVariant14>? state,
             string? userId,
+            string? alias,
             string? callbackUrl)
         {
             this.State = state;
             this.UserId = userId;
+            this.Alias = alias;
             this.CallbackUrl = callbackUrl;
         }
 
