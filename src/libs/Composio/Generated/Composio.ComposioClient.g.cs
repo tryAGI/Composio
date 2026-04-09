@@ -12,7 +12,7 @@ namespace Composio
         /// <summary>
         /// PRODUCTION API
         /// </summary>
-        public const string DefaultBaseUrl = "https://backend.composio.dev";
+        public const string DefaultBaseUrl = "https://backend.composio.dev/";
 
         private bool _disposeHttpClient = true;
 
@@ -37,7 +37,7 @@ namespace Composio
 
 
         /// <summary>
-        /// Authentication configuration management
+        /// Authentication configuration management.
         /// </summary>
         public AuthConfigsClient AuthConfigs => new AuthConfigsClient(HttpClient, authorizations: Authorizations)
         {
@@ -46,7 +46,7 @@ namespace Composio
         };
 
         /// <summary>
-        /// Authentication related endpoints
+        /// Authentication related endpoints.
         /// </summary>
         public AuthenticationClient Authentication => new AuthenticationClient(HttpClient, authorizations: Authorizations)
         {
@@ -55,7 +55,7 @@ namespace Composio
         };
 
         /// <summary>
-        /// CLI integration endpoints
+        /// CLI integration endpoints.
         /// </summary>
         public CliClient Cli => new CliClient(HttpClient, authorizations: Authorizations)
         {
@@ -73,7 +73,7 @@ namespace Composio
         };
 
         /// <summary>
-        /// Connected account management
+        /// Connected account management.
         /// </summary>
         public ConnectedAccountsClient ConnectedAccounts => new ConnectedAccountsClient(HttpClient, authorizations: Authorizations)
         {
@@ -82,7 +82,7 @@ namespace Composio
         };
 
         /// <summary>
-        /// File management
+        /// File management.
         /// </summary>
         public FilesClient Files => new FilesClient(HttpClient, authorizations: Authorizations)
         {
@@ -91,7 +91,7 @@ namespace Composio
         };
 
         /// <summary>
-        /// Logging and monitoring
+        /// Logging and monitoring.
         /// </summary>
         public LogsClient Logs => new LogsClient(HttpClient, authorizations: Authorizations)
         {
@@ -100,7 +100,7 @@ namespace Composio
         };
 
         /// <summary>
-        /// MCP server management
+        /// MCP server management.
         /// </summary>
         public McpClient Mcp => new McpClient(HttpClient, authorizations: Authorizations)
         {
@@ -109,7 +109,7 @@ namespace Composio
         };
 
         /// <summary>
-        /// Endpoints to help with migration from v1 to v3
+        /// Endpoints to help with migration from v1 to v3.
         /// </summary>
         public MigrationClient Migration => new MigrationClient(HttpClient, authorizations: Authorizations)
         {
@@ -118,7 +118,7 @@ namespace Composio
         };
 
         /// <summary>
-        /// Organization management
+        /// Organization management.
         /// </summary>
         public OrganizationClient Organization => new OrganizationClient(HttpClient, authorizations: Authorizations)
         {
@@ -145,7 +145,7 @@ namespace Composio
         };
 
         /// <summary>
-        /// (Labs) Tool router endpoints
+        /// (Labs) Tool router endpoints.
         /// </summary>
         public ToolRouterClient ToolRouter => new ToolRouterClient(HttpClient, authorizations: Authorizations)
         {
@@ -154,7 +154,7 @@ namespace Composio
         };
 
         /// <summary>
-        /// Toolkit and tool management
+        /// Toolkit and tool management.
         /// </summary>
         public ToolkitsClient Toolkits => new ToolkitsClient(HttpClient, authorizations: Authorizations)
         {
@@ -163,7 +163,7 @@ namespace Composio
         };
 
         /// <summary>
-        /// Tool execution endpoints
+        /// Tool execution endpoints.
         /// </summary>
         public ToolsClient Tools => new ToolsClient(HttpClient, authorizations: Authorizations)
         {
@@ -172,7 +172,7 @@ namespace Composio
         };
 
         /// <summary>
-        /// Trigger management and execution
+        /// Trigger management and execution.
         /// </summary>
         public TriggersClient Triggers => new TriggersClient(HttpClient, authorizations: Authorizations)
         {
@@ -181,7 +181,7 @@ namespace Composio
         };
 
         /// <summary>
-        /// Webhook configuration
+        /// Webhook configuration.
         /// </summary>
         public WebhooksClient Webhooks => new WebhooksClient(HttpClient, authorizations: Authorizations)
         {

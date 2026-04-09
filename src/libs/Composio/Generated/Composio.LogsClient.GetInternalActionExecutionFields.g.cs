@@ -5,6 +5,25 @@ namespace Composio
 {
     public partial class LogsClient
     {
+
+
+        private static readonly global::Composio.EndPointSecurityRequirement s_GetInternalActionExecutionFieldsSecurityRequirement0 =
+            new global::Composio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Composio.EndPointAuthorizationRequirement[]
+                {                    new global::Composio.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Composio.EndPointSecurityRequirement[] s_GetInternalActionExecutionFieldsSecurityRequirements =
+            new global::Composio.EndPointSecurityRequirement[]
+            {                s_GetInternalActionExecutionFieldsSecurityRequirement0,
+            };
         partial void PrepareGetInternalActionExecutionFieldsArguments(
             global::System.Net.Http.HttpClient httpClient);
         partial void PrepareGetInternalActionExecutionFieldsRequest(
@@ -32,9 +51,15 @@ namespace Composio
             PrepareGetInternalActionExecutionFieldsArguments(
                 httpClient: HttpClient);
 
+
+            var __authorizations = global::Composio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_GetInternalActionExecutionFieldsSecurityRequirements,
+                operationName: "GetInternalActionExecutionFieldsAsync");
+
             var __pathBuilder = new global::Composio.PathBuilder(
                 path: "/api/v3/internal/action_execution/fields",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -44,7 +69,7 @@ namespace Composio
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

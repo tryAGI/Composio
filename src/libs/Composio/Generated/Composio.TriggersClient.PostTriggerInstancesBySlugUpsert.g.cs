@@ -7,6 +7,25 @@ namespace Composio
 {
     public partial class TriggersClient
     {
+
+
+        private static readonly global::Composio.EndPointSecurityRequirement s_PostTriggerInstancesBySlugUpsertSecurityRequirement0 =
+            new global::Composio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Composio.EndPointAuthorizationRequirement[]
+                {                    new global::Composio.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Composio.EndPointSecurityRequirement[] s_PostTriggerInstancesBySlugUpsertSecurityRequirements =
+            new global::Composio.EndPointSecurityRequirement[]
+            {                s_PostTriggerInstancesBySlugUpsertSecurityRequirement0,
+            };
         partial void PreparePostTriggerInstancesBySlugUpsertArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string slug,
@@ -50,9 +69,15 @@ namespace Composio
                 slug: ref slug,
                 request: request);
 
+
+            var __authorizations = global::Composio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_PostTriggerInstancesBySlugUpsertSecurityRequirements,
+                operationName: "PostTriggerInstancesBySlugUpsertAsync");
+
             var __pathBuilder = new global::Composio.PathBuilder(
                 path: $"/api/v3/trigger_instances/{slug}/upsert",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Post,
@@ -62,7 +87,7 @@ namespace Composio
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

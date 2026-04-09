@@ -5,6 +5,25 @@ namespace Composio
 {
     public partial class TriggersClient
     {
+
+
+        private static readonly global::Composio.EndPointSecurityRequirement s_GetTriggersTypesBySlugSecurityRequirement0 =
+            new global::Composio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Composio.EndPointAuthorizationRequirement[]
+                {                    new global::Composio.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Composio.EndPointSecurityRequirement[] s_GetTriggersTypesBySlugSecurityRequirements =
+            new global::Composio.EndPointSecurityRequirement[]
+            {                s_GetTriggersTypesBySlugSecurityRequirement0,
+            };
         partial void PrepareGetTriggersTypesBySlugArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string slug,
@@ -46,12 +65,18 @@ namespace Composio
                 slug: ref slug,
                 toolkitVersions: ref toolkitVersions);
 
+
+            var __authorizations = global::Composio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_GetTriggersTypesBySlugSecurityRequirements,
+                operationName: "GetTriggersTypesBySlugAsync");
+
             var __pathBuilder = new global::Composio.PathBuilder(
                 path: $"/api/v3/triggers_types/{slug}",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
                 .AddOptionalParameter("toolkit_versions", toolkitVersions?.ToString()) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -61,7 +86,7 @@ namespace Composio
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

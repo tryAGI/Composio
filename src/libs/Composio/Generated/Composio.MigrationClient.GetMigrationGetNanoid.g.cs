@@ -5,6 +5,25 @@ namespace Composio
 {
     public partial class MigrationClient
     {
+
+
+        private static readonly global::Composio.EndPointSecurityRequirement s_GetMigrationGetNanoidSecurityRequirement0 =
+            new global::Composio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Composio.EndPointAuthorizationRequirement[]
+                {                    new global::Composio.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Composio.EndPointSecurityRequirement[] s_GetMigrationGetNanoidSecurityRequirements =
+            new global::Composio.EndPointSecurityRequirement[]
+            {                s_GetMigrationGetNanoidSecurityRequirement0,
+            };
         partial void PrepareGetMigrationGetNanoidArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref global::System.Guid uuid,
@@ -55,13 +74,19 @@ namespace Composio
                 type: ref type,
                 xApiKey: ref xApiKey);
 
+
+            var __authorizations = global::Composio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_GetMigrationGetNanoidSecurityRequirements,
+                operationName: "GetMigrationGetNanoidAsync");
+
             var __pathBuilder = new global::Composio.PathBuilder(
                 path: "/api/v3/migration/get-nanoid",
                 baseUri: HttpClient.BaseAddress); 
             __pathBuilder
                 .AddRequiredParameter("uuid", uuid.ToString()!)
                 .AddRequiredParameter("type", type.ToValueString()) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -71,7 +96,7 @@ namespace Composio
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
