@@ -42,9 +42,9 @@ namespace Composio
 
         /// <summary>
         /// List of auth config IDs to use for this MCP server.<br/>
-        /// Example: [auth_cfg_abc123def456, auth_cfg_xyz789]
+        /// Example: [ac_1a2b3c4d5e6f, ac_7g8h9i0j1k2l]
         /// </summary>
-        /// <example>[auth_cfg_abc123def456, auth_cfg_xyz789]</example>
+        /// <example>[ac_1a2b3c4d5e6f, ac_7g8h9i0j1k2l]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("auth_config_ids")]
         public global::System.Collections.Generic.IList<string>? AuthConfigIds { get; set; }
 
@@ -75,7 +75,7 @@ namespace Composio
         /// </param>
         /// <param name="authConfigIds">
         /// List of auth config IDs to use for this MCP server.<br/>
-        /// Example: [auth_cfg_abc123def456, auth_cfg_xyz789]
+        /// Example: [ac_1a2b3c4d5e6f, ac_7g8h9i0j1k2l]
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

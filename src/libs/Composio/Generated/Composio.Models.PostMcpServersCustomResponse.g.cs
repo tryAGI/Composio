@@ -28,18 +28,18 @@ namespace Composio
 
         /// <summary>
         /// ID references to the auth configurations used by this server<br/>
-        /// Example: [auth_cfg_abc123def456, auth_cfg_xyz789]
+        /// Example: [ac_1a2b3c4d5e6f, ac_7g8h9i0j1k2l]
         /// </summary>
-        /// <example>[auth_cfg_abc123def456, auth_cfg_xyz789]</example>
+        /// <example>[ac_1a2b3c4d5e6f, ac_7g8h9i0j1k2l]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("auth_config_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<string> AuthConfigIds { get; set; }
 
         /// <summary>
         /// List of tool identifiers that are enabled for this server<br/>
-        /// Example: [github-issues, jira-tickets, slack-messages, custom-api-tool]
+        /// Example: [GITHUB_CREATE_AN_ISSUE, JIRA_GET_ISSUE, SLACK_SEND_MESSAGE, GMAIL_SEND_EMAIL]
         /// </summary>
-        /// <example>[github-issues, jira-tickets, slack-messages, custom-api-tool]</example>
+        /// <example>[GITHUB_CREATE_AN_ISSUE, JIRA_GET_ISSUE, SLACK_SEND_MESSAGE, GMAIL_SEND_EMAIL]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("allowed_tools")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<string> AllowedTools { get; set; }
@@ -79,11 +79,11 @@ namespace Composio
         /// </param>
         /// <param name="authConfigIds">
         /// ID references to the auth configurations used by this server<br/>
-        /// Example: [auth_cfg_abc123def456, auth_cfg_xyz789]
+        /// Example: [ac_1a2b3c4d5e6f, ac_7g8h9i0j1k2l]
         /// </param>
         /// <param name="allowedTools">
         /// List of tool identifiers that are enabled for this server<br/>
-        /// Example: [github-issues, jira-tickets, slack-messages, custom-api-tool]
+        /// Example: [GITHUB_CREATE_AN_ISSUE, JIRA_GET_ISSUE, SLACK_SEND_MESSAGE, GMAIL_SEND_EMAIL]
         /// </param>
         /// <param name="mcpUrl">
         /// URL endpoint for establishing connection to this MCP server<br/>

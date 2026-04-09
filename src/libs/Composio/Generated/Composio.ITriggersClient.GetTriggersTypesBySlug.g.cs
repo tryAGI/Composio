@@ -10,7 +10,7 @@ namespace Composio
         /// </summary>
         /// <param name="slug">
         /// The unique slug identifier for the trigger type. Case-insensitive (internally normalized to uppercase).<br/>
-        /// Example: SLACK_NEW_MESSAGE
+        /// Example: SLACK_RECEIVE_MESSAGE
         /// </param>
         /// <param name="toolkitVersions"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

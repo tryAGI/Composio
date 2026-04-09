@@ -19,9 +19,9 @@ namespace Composio
 
         /// <summary>
         /// Specific auth configuration ID for this toolkit<br/>
-        /// Example: auth_config_123
+        /// Example: ac_1a2b3c4d5e6f
         /// </summary>
-        /// <example>auth_config_123</example>
+        /// <example>ac_1a2b3c4d5e6f</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("auth_config_id")]
         public string? AuthConfigId { get; set; }
 
@@ -40,7 +40,7 @@ namespace Composio
         /// </param>
         /// <param name="authConfigId">
         /// Specific auth configuration ID for this toolkit<br/>
-        /// Example: auth_config_123
+        /// Example: ac_1a2b3c4d5e6f
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

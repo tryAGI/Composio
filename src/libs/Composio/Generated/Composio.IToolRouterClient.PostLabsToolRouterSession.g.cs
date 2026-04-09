@@ -26,7 +26,7 @@ namespace Composio
         /// <param name="config">
         /// Session configuration including enabled toolkits and their auth configs<br/>
         /// Default Value: {}<br/>
-        /// Example: {"manually_manage_connections":false,"toolkits":[{"toolkit":"gmail","auth_config_id":"auth_config_123"},{"toolkit":"slack"}]}
+        /// Example: {"manually_manage_connections":false,"toolkits":[{"toolkit":"gmail","auth_config_id":"ac_1a2b3c4d5e6f"},{"toolkit":"slack"}]}
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>

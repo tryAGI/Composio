@@ -5,7 +5,7 @@ namespace Composio
 {
     /// <summary>
     /// Optional tool metadata when the failure can be tied to a toolkit or concrete tool version.<br/>
-    /// Example: {"toolkit":"github","tool":{"slug":"GITHUB_CREATE_ISSUE","version":"2026.03.23"}}
+    /// Example: {"toolkit":"github","tool":{"slug":"GITHUB_CREATE_AN_ISSUE","version":"2026.03.23"}}
     /// </summary>
     public sealed partial class PostCliCodactFailuresRequestToolInfo
     {

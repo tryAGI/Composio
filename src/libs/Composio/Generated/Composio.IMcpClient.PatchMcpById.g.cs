@@ -46,7 +46,7 @@ namespace Composio
         /// </param>
         /// <param name="authConfigIds">
         /// List of auth config IDs to use for this MCP server.<br/>
-        /// Example: [auth_cfg_abc123def456, auth_cfg_xyz789]
+        /// Example: [ac_1a2b3c4d5e6f, ac_7g8h9i0j1k2l]
         /// </param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>

@@ -8,12 +8,12 @@ namespace Composio
         partial void PreparePatchConnectedAccountsByNanoidArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string nanoid,
-            global::Composio.PatchConnectedAccountsByNanoidRequest request);
+            global::Composio.PatchConnectedAccountBody request);
         partial void PreparePatchConnectedAccountsByNanoidRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string nanoid,
-            global::Composio.PatchConnectedAccountsByNanoidRequest request);
+            global::Composio.PatchConnectedAccountBody request);
         partial void ProcessPatchConnectedAccountsByNanoidResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -25,7 +25,7 @@ namespace Composio
 
         /// <summary>
         /// Update a connected account<br/>
-        /// Updates mutable fields of a connected account. Currently supports updating the alias field. Alias must be unique within the same project, entity, and toolkit scope.
+        /// Update a connected account. Supports updating the alias and/or credentials. Only specified fields will be updated. Set a credential field to null to remove it. Alias must be unique within the same project, entity, and toolkit scope.
         /// </summary>
         /// <param name="nanoid"></param>
         /// <param name="request"></param>
@@ -34,7 +34,7 @@ namespace Composio
         public async global::System.Threading.Tasks.Task<global::Composio.PatchConnectedAccountsByNanoidResponse> PatchConnectedAccountsByNanoidAsync(
             string nanoid,
 
-            global::Composio.PatchConnectedAccountsByNanoidRequest request,
+            global::Composio.PatchConnectedAccountBody request,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             request = request ?? throw new global::System.ArgumentNullException(nameof(request));
@@ -100,7 +100,7 @@ namespace Composio
             ProcessPatchConnectedAccountsByNanoidResponse(
                 httpClient: HttpClient,
                 httpResponseMessage: __response);
-            // Bad request - Invalid nanoid format, invalid request body, or duplicate alias
+            // Bad request - Invalid nanoid, duplicate alias, or invalid credential values
             if ((int)__response.StatusCode == 400)
             {
                 string? __content_400 = null;
@@ -214,24 +214,24 @@ namespace Composio
                         h => h.Value),
                 };
             }
-            // Connected account not found - The specified account does not exist or has been deleted
+            // Not found - Connected account does not exist or was deleted
             if ((int)__response.StatusCode == 404)
             {
                 string? __content_404 = null;
                 global::System.Exception? __exception_404 = null;
-                string? __value_404 = null;
+                global::Composio.Error? __value_404 = null;
                 try
                 {
                     if (ReadResponseAsString)
                     {
                         __content_404 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
-                        __value_404 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_404, typeof(string), JsonSerializerContext);
+                        __value_404 = global::Composio.Error.FromJson(__content_404, JsonSerializerContext);
                     }
                     else
                     {
                         __content_404 = await __response.Content.ReadAsStringAsync(cancellationToken).ConfigureAwait(false);
 
-                        __value_404 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_404, typeof(string), JsonSerializerContext);
+                        __value_404 = global::Composio.Error.FromJson(__content_404, JsonSerializerContext);
                     }
                 }
                 catch (global::System.Exception __ex)
@@ -239,7 +239,7 @@ namespace Composio
                     __exception_404 = __ex;
                 }
 
-                throw new global::Composio.ApiException<string>(
+                throw new global::Composio.ApiException<global::Composio.Error>(
                     message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
                     innerException: __exception_404,
                     statusCode: __response.StatusCode)
@@ -252,7 +252,7 @@ namespace Composio
                         h => h.Value),
                 };
             }
-            // Internal server error - Failed to update the connected account due to a server-side issue
+            // Internal server error - Failed to update connected account
             if ((int)__response.StatusCode == 500)
             {
                 string? __content_500 = null;
@@ -377,22 +377,25 @@ namespace Composio
         }
         /// <summary>
         /// Update a connected account<br/>
-        /// Updates mutable fields of a connected account. Currently supports updating the alias field. Alias must be unique within the same project, entity, and toolkit scope.
+        /// Update a connected account. Supports updating the alias and/or credentials. Only specified fields will be updated. Set a credential field to null to remove it. Alias must be unique within the same project, entity, and toolkit scope.
         /// </summary>
         /// <param name="nanoid"></param>
         /// <param name="alias">
         /// A human-readable alias for this connected account. Pass an empty string to clear the alias. Must be unique per entity and toolkit within the project.
         /// </param>
+        /// <param name="connection"></param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Composio.PatchConnectedAccountsByNanoidResponse> PatchConnectedAccountsByNanoidAsync(
             string nanoid,
-            string alias,
+            string? alias = default,
+            global::Composio.PatchConnectedAccountBodyConnection? connection = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __request = new global::Composio.PatchConnectedAccountsByNanoidRequest
+            var __request = new global::Composio.PatchConnectedAccountBody
             {
                 Alias = alias,
+                Connection = connection,
             };
 
             return await PatchConnectedAccountsByNanoidAsync(

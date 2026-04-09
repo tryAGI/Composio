@@ -30,18 +30,18 @@ namespace Composio
 
         /// <summary>
         /// ID references to the auth configurations used by this server<br/>
-        /// Example: [auth_cfg_abc123def456, auth_cfg_xyz789]
+        /// Example: [ac_1a2b3c4d5e6f, ac_7g8h9i0j1k2l]
         /// </summary>
-        /// <example>[auth_cfg_abc123def456, auth_cfg_xyz789]</example>
+        /// <example>[ac_1a2b3c4d5e6f, ac_7g8h9i0j1k2l]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("auth_config_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<string> AuthConfigIds { get; set; }
 
         /// <summary>
         /// Array of tool slugs that this MCP server is allowed to use<br/>
-        /// Example: [github-issues, github-repos, github-pull-requests]
+        /// Example: [GITHUB_CREATE_AN_ISSUE, GITHUB_GET_A_REPOSITORY, GITHUB_LIST_PULL_REQUESTS]
         /// </summary>
-        /// <example>[github-issues, github-repos, github-pull-requests]</example>
+        /// <example>[GITHUB_CREATE_AN_ISSUE, GITHUB_GET_A_REPOSITORY, GITHUB_LIST_PULL_REQUESTS]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("allowed_tools")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<string> AllowedTools { get; set; }
@@ -142,11 +142,11 @@ namespace Composio
         /// </param>
         /// <param name="authConfigIds">
         /// ID references to the auth configurations used by this server<br/>
-        /// Example: [auth_cfg_abc123def456, auth_cfg_xyz789]
+        /// Example: [ac_1a2b3c4d5e6f, ac_7g8h9i0j1k2l]
         /// </param>
         /// <param name="allowedTools">
         /// Array of tool slugs that this MCP server is allowed to use<br/>
-        /// Example: [github-issues, github-repos, github-pull-requests]
+        /// Example: [GITHUB_CREATE_AN_ISSUE, GITHUB_GET_A_REPOSITORY, GITHUB_LIST_PULL_REQUESTS]
         /// </param>
         /// <param name="mcpUrl">
         /// [DEPRECATED] Please use the URL with user_id or connected_account_id query param<br/>

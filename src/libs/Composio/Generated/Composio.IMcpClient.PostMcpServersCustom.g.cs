@@ -25,7 +25,7 @@ namespace Composio
         /// </param>
         /// <param name="authConfigIds">
         /// ID references to existing authentication configurations<br/>
-        /// Example: [auth_cfg_abc123def456, auth_cfg_xyz789]
+        /// Example: [ac_1a2b3c4d5e6f, ac_7g8h9i0j1k2l]
         /// </param>
         /// <param name="toolkits">
         /// List of application/toolkit identifiers to enable for this server<br/>
@@ -33,11 +33,11 @@ namespace Composio
         /// </param>
         /// <param name="allowedTools">
         /// Tool identifiers to enable that aren't part of standard toolkits<br/>
-        /// Example: [custom-api-tool, internal-database-tool]
+        /// Example: [GITHUB_CREATE_AN_ISSUE, SLACK_SEND_MESSAGE]
         /// </param>
         /// <param name="customTools">
         /// DEPRECATED: Use allowed_tools instead. Tool identifiers to enable that aren't part of standard toolkits<br/>
-        /// Example: [custom-api-tool, internal-database-tool]
+        /// Example: [GITHUB_CREATE_AN_ISSUE, SLACK_SEND_MESSAGE]
         /// </param>
         /// <param name="managedAuthViaComposio">
         /// Whether to manage authentication via Composio

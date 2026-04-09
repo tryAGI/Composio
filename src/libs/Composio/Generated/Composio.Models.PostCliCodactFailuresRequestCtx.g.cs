@@ -5,7 +5,7 @@ namespace Composio
 {
     /// <summary>
     /// Arbitrary failure context from the CLI.<br/>
-    /// Example: {"invalid_tool_slug":"GITHUB_MAKE_ISSUE","candidate_tool_slugs":["GITHUB_CREATE_ISSUE"]}
+    /// Example: {"invalid_tool_slug":"GITHUB_MAKE_ISSUE","candidate_tool_slugs":["GITHUB_CREATE_AN_ISSUE"]}
     /// </summary>
     public sealed partial class PostCliCodactFailuresRequestCtx
     {

@@ -10,9 +10,9 @@ namespace Composio
     {
         /// <summary>
         /// The unique slug identifier of the tool to execute<br/>
-        /// Example: GITHUB_CREATE_ISSUE
+        /// Example: GITHUB_CREATE_AN_ISSUE
         /// </summary>
-        /// <example>GITHUB_CREATE_ISSUE</example>
+        /// <example>GITHUB_CREATE_AN_ISSUE</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_slug")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ToolSlug { get; set; }
@@ -45,7 +45,7 @@ namespace Composio
         /// </summary>
         /// <param name="toolSlug">
         /// The unique slug identifier of the tool to execute<br/>
-        /// Example: GITHUB_CREATE_ISSUE
+        /// Example: GITHUB_CREATE_AN_ISSUE
         /// </param>
         /// <param name="arguments">
         /// The arguments required by the tool<br/>

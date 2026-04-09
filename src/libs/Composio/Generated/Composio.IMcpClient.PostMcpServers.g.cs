@@ -25,7 +25,7 @@ namespace Composio
         /// </param>
         /// <param name="authConfigIds">
         /// ID references to existing authentication configurations<br/>
-        /// Example: [auth_cfg_abc123def456, auth_cfg_xyz789]
+        /// Example: [ac_1a2b3c4d5e6f, ac_7g8h9i0j1k2l]
         /// </param>
         /// <param name="noAuthApps">
         /// List of NO_AUTH apps to enable for this MCP server<br/>
@@ -34,7 +34,7 @@ namespace Composio
         /// <param name="allowedTools">
         /// List of tool slugs that should be allowed for this server. If not provided, all available tools for the authentication configuration will be enabled.<br/>
         /// Default Value: []<br/>
-        /// Example: [github-issues, github-repos, github-pull-requests]
+        /// Example: [GITHUB_CREATE_AN_ISSUE, GITHUB_GET_A_REPOSITORY, GITHUB_LIST_PULL_REQUESTS]
         /// </param>
         /// <param name="managedAuthViaComposio">
         /// Whether the MCP server is managed by Composio
