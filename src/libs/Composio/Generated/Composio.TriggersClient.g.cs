@@ -4,7 +4,7 @@
 namespace Composio
 {
     /// <summary>
-    /// Trigger management and execution<br/>
+    /// Trigger management and execution.<br/>
     /// If no httpClient is provided, a new one will be created.<br/>
     /// If no baseUri is provided, the default baseUri from OpenAPI spec will be used.
     /// </summary>
@@ -13,7 +13,7 @@ namespace Composio
         /// <summary>
         /// PRODUCTION API
         /// </summary>
-        public const string DefaultBaseUrl = "https://backend.composio.dev";
+        public const string DefaultBaseUrl = "https://backend.composio.dev/";
 
         private bool _disposeHttpClient = true;
 

@@ -5,6 +5,25 @@ namespace Composio
 {
     public partial class McpClient
     {
+
+
+        private static readonly global::Composio.EndPointSecurityRequirement s_DeleteMcpByIdSecurityRequirement0 =
+            new global::Composio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Composio.EndPointAuthorizationRequirement[]
+                {                    new global::Composio.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Composio.EndPointSecurityRequirement[] s_DeleteMcpByIdSecurityRequirements =
+            new global::Composio.EndPointSecurityRequirement[]
+            {                s_DeleteMcpByIdSecurityRequirement0,
+            };
         partial void PrepareDeleteMcpByIdArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string id);
@@ -41,9 +60,15 @@ namespace Composio
                 httpClient: HttpClient,
                 id: ref id);
 
+
+            var __authorizations = global::Composio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_DeleteMcpByIdSecurityRequirements,
+                operationName: "DeleteMcpByIdAsync");
+
             var __pathBuilder = new global::Composio.PathBuilder(
                 path: $"/api/v3/mcp/{id}",
-                baseUri: HttpClient.BaseAddress); 
+                baseUri: HttpClient.BaseAddress);
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Delete,
@@ -53,7 +78,7 @@ namespace Composio
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")

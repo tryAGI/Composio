@@ -40,17 +40,17 @@ namespace Composio
 
 
         /// <summary>
-        /// Authentication configuration management
+        /// Authentication configuration management.
         /// </summary>
         public AuthConfigsClient AuthConfigs { get; }
 
         /// <summary>
-        /// Authentication related endpoints
+        /// Authentication related endpoints.
         /// </summary>
         public AuthenticationClient Authentication { get; }
 
         /// <summary>
-        /// CLI integration endpoints
+        /// CLI integration endpoints.
         /// </summary>
         public CliClient Cli { get; }
 
@@ -60,32 +60,32 @@ namespace Composio
         public CliAuthenticationClient CliAuthentication { get; }
 
         /// <summary>
-        /// Connected account management
+        /// Connected account management.
         /// </summary>
         public ConnectedAccountsClient ConnectedAccounts { get; }
 
         /// <summary>
-        /// File management
+        /// File management.
         /// </summary>
         public FilesClient Files { get; }
 
         /// <summary>
-        /// Logging and monitoring
+        /// Logging and monitoring.
         /// </summary>
         public LogsClient Logs { get; }
 
         /// <summary>
-        /// MCP server management
+        /// MCP server management.
         /// </summary>
         public McpClient Mcp { get; }
 
         /// <summary>
-        /// Endpoints to help with migration from v1 to v3
+        /// Endpoints to help with migration from v1 to v3.
         /// </summary>
         public MigrationClient Migration { get; }
 
         /// <summary>
-        /// Organization management
+        /// Organization management.
         /// </summary>
         public OrganizationClient Organization { get; }
 
@@ -100,27 +100,27 @@ namespace Composio
         public ProjectsClient Projects { get; }
 
         /// <summary>
-        /// (Labs) Tool router endpoints
+        /// (Labs) Tool router endpoints.
         /// </summary>
         public ToolRouterClient ToolRouter { get; }
 
         /// <summary>
-        /// Toolkit and tool management
+        /// Toolkit and tool management.
         /// </summary>
         public ToolkitsClient Toolkits { get; }
 
         /// <summary>
-        /// Tool execution endpoints
+        /// Tool execution endpoints.
         /// </summary>
         public ToolsClient Tools { get; }
 
         /// <summary>
-        /// Trigger management and execution
+        /// Trigger management and execution.
         /// </summary>
         public TriggersClient Triggers { get; }
 
         /// <summary>
-        /// Webhook configuration
+        /// Webhook configuration.
         /// </summary>
         public WebhooksClient Webhooks { get; }
 

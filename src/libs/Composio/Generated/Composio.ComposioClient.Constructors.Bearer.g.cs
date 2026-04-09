@@ -6,6 +6,7 @@ namespace Composio
     public sealed partial class ComposioClient
     {
         /// <inheritdoc cref="ComposioClient(global::System.Net.Http.HttpClient?, global::System.Uri?, global::System.Collections.Generic.List{global::Composio.EndPointAuthorization}?, bool)"/>
+
         public ComposioClient(
             string apiKey,
             global::System.Net.Http.HttpClient? httpClient = null,

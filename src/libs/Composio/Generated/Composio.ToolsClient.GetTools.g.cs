@@ -5,6 +5,25 @@ namespace Composio
 {
     public partial class ToolsClient
     {
+
+
+        private static readonly global::Composio.EndPointSecurityRequirement s_GetToolsSecurityRequirement0 =
+            new global::Composio.EndPointSecurityRequirement
+            {
+                Authorizations = new global::Composio.EndPointAuthorizationRequirement[]
+                {                    new global::Composio.EndPointAuthorizationRequirement
+                    {
+                        Type = "Http",
+                        Location = "Header",
+                        Name = "Bearer",
+                        FriendlyName = "Bearer",
+                    },
+                },
+            };
+        private static readonly global::Composio.EndPointSecurityRequirement[] s_GetToolsSecurityRequirements =
+            new global::Composio.EndPointSecurityRequirement[]
+            {                s_GetToolsSecurityRequirement0,
+            };
         partial void PrepareGetToolsArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string? toolkitSlug,
@@ -97,6 +116,12 @@ namespace Composio
                 limit: ref limit,
                 cursor: ref cursor);
 
+
+            var __authorizations = global::Composio.EndPointSecurityResolver.ResolveAuthorizations(
+                availableAuthorizations: Authorizations,
+                securityRequirements: s_GetToolsSecurityRequirements,
+                operationName: "GetToolsAsync");
+
             var __pathBuilder = new global::Composio.PathBuilder(
                 path: "/api/v3/tools",
                 baseUri: HttpClient.BaseAddress); 
@@ -113,7 +138,7 @@ namespace Composio
                 .AddOptionalParameter("toolkit_versions", toolkitVersions?.ToString())
                 .AddOptionalParameter("limit", limit?.ToString())
                 .AddOptionalParameter("cursor", cursor) 
-                ; 
+                ;
             var __path = __pathBuilder.ToString();
             using var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
                 method: global::System.Net.Http.HttpMethod.Get,
@@ -123,7 +148,7 @@ namespace Composio
             __httpRequest.VersionPolicy = global::System.Net.Http.HttpVersionPolicy.RequestVersionOrHigher;
 #endif
 
-            foreach (var __authorization in Authorizations)
+            foreach (var __authorization in __authorizations)
             {
                 if (__authorization.Type == "Http" ||
                     __authorization.Type == "OAuth2")
