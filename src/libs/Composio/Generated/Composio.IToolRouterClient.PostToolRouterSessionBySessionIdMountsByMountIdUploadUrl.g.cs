@@ -17,6 +17,7 @@ namespace Composio
         /// Example: files
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.PostToolRouterSessionBySessionIdMountsByMountIdUploadUrlResponse> PostToolRouterSessionBySessionIdMountsByMountIdUploadUrlAsync(
@@ -24,6 +25,7 @@ namespace Composio
             string mountId,
 
             global::Composio.PostToolRouterSessionBySessionIdMountsByMountIdUploadUrlRequest request,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create a presigned upload URL for a mount file<br/>
@@ -45,6 +47,7 @@ namespace Composio
         /// MIME type of the file being uploaded<br/>
         /// Example: application/pdf
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.PostToolRouterSessionBySessionIdMountsByMountIdUploadUrlResponse> PostToolRouterSessionBySessionIdMountsByMountIdUploadUrlAsync(
@@ -52,6 +55,7 @@ namespace Composio
             string mountId,
             string mountRelativePath,
             string? mimetype = default,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

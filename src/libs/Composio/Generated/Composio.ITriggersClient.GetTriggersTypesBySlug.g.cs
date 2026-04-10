@@ -13,11 +13,13 @@ namespace Composio
         /// Example: SLACK_RECEIVE_MESSAGE
         /// </param>
         /// <param name="toolkitVersions"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.GetTriggersTypesBySlugResponse> GetTriggersTypesBySlugAsync(
             string slug,
             global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

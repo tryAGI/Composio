@@ -13,12 +13,14 @@ namespace Composio
         /// Example: uak_abc123xyz456...
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.PostCliCodactFailuresResponse> PostCliCodactFailuresAsync(
             string xUserApiKey,
 
             global::Composio.PostCliCodactFailuresRequest request,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Ingest CLI codact failures<br/>
@@ -48,6 +50,7 @@ namespace Composio
         /// Optional request identifier associated with the failure.<br/>
         /// Example: req_123
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.PostCliCodactFailuresResponse> PostCliCodactFailuresAsync(
@@ -57,6 +60,7 @@ namespace Composio
             global::System.Collections.Generic.Dictionary<string, object?> session,
             global::Composio.PostCliCodactFailuresRequestToolInfo? toolInfo = default,
             string? requestId = default,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

@@ -11,6 +11,7 @@ namespace Composio
         /// <param name="nanoid"></param>
         /// <param name="redirectUrl"></param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.PostConnectedAccountsByNanoidRefreshResponse> PostConnectedAccountsByNanoidRefreshAsync(
@@ -18,6 +19,7 @@ namespace Composio
 
             global::Composio.PostConnectedAccountsByNanoidRefreshRequest request,
             string? redirectUrl = default,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Refresh authentication for a connected account<br/>
@@ -30,6 +32,7 @@ namespace Composio
         /// [EXPERIMENTAL] Whether to validate the provided credentials, validates only for API Key Auth scheme<br/>
         /// Default Value: false
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.PostConnectedAccountsByNanoidRefreshResponse> PostConnectedAccountsByNanoidRefreshAsync(
@@ -37,6 +40,7 @@ namespace Composio
             string? redirectUrl = default,
             string? requestRedirectUrl = default,
             bool? validateCredentials = default,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

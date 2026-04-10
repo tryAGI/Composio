@@ -11,11 +11,13 @@ namespace Composio
         /// Proxy an HTTP request to a third-party API using connected account credentials. This endpoint allows making authenticated API calls to external services while abstracting away authentication details.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.PostToolsExecuteProxyResponse> PostToolsExecuteProxyAsync(
 
             global::Composio.PostToolsExecuteProxyRequest request,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Execute proxy request<br/>
@@ -44,6 +46,7 @@ namespace Composio
         /// Additional HTTP headers or query parameters to include in the request<br/>
         /// Example: [{"name":"x-api-key","value":"abc123def456","type":"header"}, {"name":"filter","value":"active","type":"query"}]
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.PostToolsExecuteProxyResponse> PostToolsExecuteProxyAsync(
@@ -53,6 +56,7 @@ namespace Composio
             object? body = default,
             global::Composio.AnyOf<global::Composio.PostToolsExecuteProxyRequestBinaryBodyVariant1, global::Composio.PostToolsExecuteProxyRequestBinaryBodyVariant2>? binaryBody = default,
             global::System.Collections.Generic.IList<global::Composio.PostToolsExecuteProxyRequestParameter>? parameters = default,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

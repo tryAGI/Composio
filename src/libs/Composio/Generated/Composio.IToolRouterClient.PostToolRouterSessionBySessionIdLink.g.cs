@@ -13,12 +13,14 @@ namespace Composio
         /// Example: trs_LX9uJKBinWWr
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.PostToolRouterSessionBySessionIdLinkResponse> PostToolRouterSessionBySessionIdLinkAsync(
             string sessionId,
 
             global::Composio.PostToolRouterSessionBySessionIdLinkRequest request,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create a link session for a toolkit in a tool router session<br/>
@@ -32,16 +34,22 @@ namespace Composio
         /// The unique slug identifier of the toolkit to connect<br/>
         /// Example: github
         /// </param>
+        /// <param name="alias">
+        /// A human-readable alias for this connected account. Must be unique per entity and toolkit within the project.
+        /// </param>
         /// <param name="callbackUrl">
         /// URL where users will be redirected after completing auth<br/>
         /// Example: https://myapp.com/callback
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.PostToolRouterSessionBySessionIdLinkResponse> PostToolRouterSessionBySessionIdLinkAsync(
             string sessionId,
             string toolkit,
+            string? alias = default,
             string? callbackUrl = default,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

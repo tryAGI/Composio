@@ -8,11 +8,13 @@ namespace Composio
         /// Search and retrieve action execution logs
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.PostInternalActionExecutionLogsResponse> PostInternalActionExecutionLogsAsync(
 
             global::Composio.PostInternalActionExecutionLogsRequest request,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Search and retrieve action execution logs
@@ -33,6 +35,7 @@ namespace Composio
         /// end_time_of_the_logs_in_epoch_time
         /// </param>
         /// <param name="searchParams"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.PostInternalActionExecutionLogsResponse> PostInternalActionExecutionLogsAsync(
@@ -42,6 +45,7 @@ namespace Composio
             double? from = default,
             double? to = default,
             global::System.Collections.Generic.IList<global::Composio.PostInternalActionExecutionLogsRequestSearchParam>? searchParams = default,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

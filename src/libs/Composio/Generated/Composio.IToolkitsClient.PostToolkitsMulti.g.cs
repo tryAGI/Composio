@@ -9,11 +9,13 @@ namespace Composio
         /// Retrieves a comprehensive list of toolkits of their latest versions that are available to the authenticated project. Toolkits represent integration points with external services and applications, each containing a collection of tools and triggers. This endpoint supports filtering by category and management type, as well as different sorting options. You can optionally specify a list of toolkit slugs to fetch specific toolkits.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.PostToolkitsMultiResponse> PostToolkitsMultiAsync(
 
             global::Composio.PostToolkitsMultiRequest request,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Fetch multiple toolkits<br/>
@@ -35,6 +37,7 @@ namespace Composio
         /// </param>
         /// <param name="limit"></param>
         /// <param name="cursor"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.PostToolkitsMultiResponse> PostToolkitsMultiAsync(
@@ -44,6 +47,7 @@ namespace Composio
             global::Composio.PostToolkitsMultiRequestSortBy? sortBy = default,
             double? limit = default,
             string? cursor = default,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

@@ -12,10 +12,12 @@ namespace Composio
         /// Unique identifier (Nano ID) of the project to regenerate API key for<br/>
         /// Example: proj_abc123xyz456
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.PostOrgOwnerProjectByNanoIdRegenerateApiKeyResponse> PostOrgOwnerProjectByNanoIdRegenerateApiKeyAsync(
             string nanoId,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

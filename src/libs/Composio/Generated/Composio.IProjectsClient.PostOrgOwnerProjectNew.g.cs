@@ -9,11 +9,13 @@ namespace Composio
         /// Creates a new project within the authenticated user's organization using the specified name. Projects are isolated environments within your organization, each with their own API keys, webhook configurations, and resources. Use this endpoint to create additional projects for different environments (e.g., development, staging, production) or for separate applications.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.PostOrgOwnerProjectNewResponse> PostOrgOwnerProjectNewAsync(
 
             global::Composio.PostOrgOwnerProjectNewRequest request,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create a new project<br/>
@@ -31,12 +33,14 @@ namespace Composio
         /// <param name="config">
         /// Configuration for the project
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.PostOrgOwnerProjectNewResponse> PostOrgOwnerProjectNewAsync(
             string name,
             bool? shouldCreateApiKey = default,
             global::Composio.PostOrgOwnerProjectNewRequestConfig? config = default,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

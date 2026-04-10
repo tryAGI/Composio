@@ -18,6 +18,12 @@ namespace Composio
         public required string Toolkit { get; set; }
 
         /// <summary>
+        /// A human-readable alias for this connected account. Must be unique per entity and toolkit within the project.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("alias")]
+        public string? Alias { get; set; }
+
+        /// <summary>
         /// URL where users will be redirected after completing auth<br/>
         /// Example: https://myapp.com/callback
         /// </summary>
@@ -38,6 +44,9 @@ namespace Composio
         /// The unique slug identifier of the toolkit to connect<br/>
         /// Example: github
         /// </param>
+        /// <param name="alias">
+        /// A human-readable alias for this connected account. Must be unique per entity and toolkit within the project.
+        /// </param>
         /// <param name="callbackUrl">
         /// URL where users will be redirected after completing auth<br/>
         /// Example: https://myapp.com/callback
@@ -47,9 +56,11 @@ namespace Composio
 #endif
         public PostToolRouterSessionBySessionIdLinkRequest(
             string toolkit,
+            string? alias,
             string? callbackUrl)
         {
             this.Toolkit = toolkit ?? throw new global::System.ArgumentNullException(nameof(toolkit));
+            this.Alias = alias;
             this.CallbackUrl = callbackUrl;
         }
 

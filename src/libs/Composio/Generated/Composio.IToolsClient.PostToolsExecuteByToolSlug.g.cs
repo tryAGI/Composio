@@ -16,6 +16,7 @@ namespace Composio
         /// Example: {"x-custom-header": "value", "authorization": "Bearer token"}
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.PostToolsExecuteByToolSlugResponse> PostToolsExecuteByToolSlugAsync(
@@ -23,6 +24,7 @@ namespace Composio
 
             global::Composio.PostToolsExecuteByToolSlugRequest request,
             string? xLlmGatewayHeaders = default,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Execute tool<br/>
@@ -61,6 +63,7 @@ namespace Composio
         /// Natural language description of the task to perform (mutually exclusive with arguments)<br/>
         /// Example: Trigger the main workflow in the octocat/Hello-World repository on the main branch for the production environment
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.PostToolsExecuteByToolSlugResponse> PostToolsExecuteByToolSlugAsync(
@@ -73,6 +76,7 @@ namespace Composio
             global::Composio.OneOf<global::Composio.PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant1, global::Composio.PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant2, global::Composio.PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant3, global::Composio.PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant4, global::Composio.PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant5, global::Composio.PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant6, global::Composio.PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant7, global::Composio.PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant8, global::Composio.PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant9, global::Composio.PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant10, global::Composio.PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant11>? customConnectionData = default,
             global::System.Collections.Generic.Dictionary<string, object?>? arguments = default,
             string? text = default,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }
