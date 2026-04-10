@@ -9,11 +9,13 @@ namespace Composio
         /// Search and retrieve trigger event logs with advanced filtering capabilities including search parameters
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.PostInternalTriggerLogsResponse> PostInternalTriggerLogsAsync(
 
             global::Composio.PostInternalTriggerLogsRequest request,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Search and retrieve trigger event logs<br/>
@@ -53,6 +55,7 @@ namespace Composio
         /// Whether to include payload fields in the response. Set to false for faster list views.<br/>
         /// Default Value: true
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.PostInternalTriggerLogsResponse> PostInternalTriggerLogsAsync(
@@ -68,6 +71,7 @@ namespace Composio
             string? cursor = default,
             global::System.Collections.Generic.IList<global::Composio.PostInternalTriggerLogsRequestSearchParam>? searchParams = default,
             bool? includePayload = default,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

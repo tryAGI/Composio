@@ -36,6 +36,7 @@ namespace Composio
         /// Default Value: desc<br/>
         /// Example: desc
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.GetMcpServersByServerIdInstancesResponse> GetMcpServersByServerIdInstancesAsync(
@@ -45,6 +46,7 @@ namespace Composio
             string? search = default,
             global::Composio.GetMcpServersByServerIdInstancesOrderBy? orderBy = default,
             global::Composio.GetMcpServersByServerIdInstancesOrderDirection? orderDirection = default,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

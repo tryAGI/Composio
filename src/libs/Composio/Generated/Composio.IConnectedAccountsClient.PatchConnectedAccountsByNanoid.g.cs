@@ -10,12 +10,14 @@ namespace Composio
         /// </summary>
         /// <param name="nanoid"></param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.PatchConnectedAccountsByNanoidResponse> PatchConnectedAccountsByNanoidAsync(
             string nanoid,
 
             global::Composio.PatchConnectedAccountBody request,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update a connected account<br/>
@@ -26,12 +28,14 @@ namespace Composio
         /// A human-readable alias for this connected account. Pass an empty string to clear the alias. Must be unique per entity and toolkit within the project.
         /// </param>
         /// <param name="connection"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.PatchConnectedAccountsByNanoidResponse> PatchConnectedAccountsByNanoidAsync(
             string nanoid,
             string? alias = default,
             global::Composio.PatchConnectedAccountBodyConnection? connection = default,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

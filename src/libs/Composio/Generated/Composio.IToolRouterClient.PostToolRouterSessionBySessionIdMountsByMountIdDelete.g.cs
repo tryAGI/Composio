@@ -17,6 +17,7 @@ namespace Composio
         /// Example: files
         /// </param>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.PostToolRouterSessionBySessionIdMountsByMountIdDeleteResponse> PostToolRouterSessionBySessionIdMountsByMountIdDeleteAsync(
@@ -24,6 +25,7 @@ namespace Composio
             string mountId,
 
             global::Composio.PostToolRouterSessionBySessionIdMountsByMountIdDeleteRequest request,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete a file from a session mount<br/>
@@ -41,12 +43,14 @@ namespace Composio
         /// Relative file path within the mount<br/>
         /// Example: report.pdf
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.PostToolRouterSessionBySessionIdMountsByMountIdDeleteResponse> PostToolRouterSessionBySessionIdMountsByMountIdDeleteAsync(
             string sessionId,
             string mountId,
             string mountRelativePath,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

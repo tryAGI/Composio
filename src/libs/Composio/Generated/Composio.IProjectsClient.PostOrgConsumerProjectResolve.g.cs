@@ -16,11 +16,13 @@ namespace Composio
         /// Organization nano ID that scopes the user API key resolution.<br/>
         /// Example: org_abc123xyz456
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.PostOrgConsumerProjectResolveResponse> PostOrgConsumerProjectResolveAsync(
             string xUserApiKey,
             string xOrgId,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

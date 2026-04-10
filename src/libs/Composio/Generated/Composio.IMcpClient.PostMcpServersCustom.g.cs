@@ -9,11 +9,13 @@ namespace Composio
         /// Creates a new Model Control Protocol (MCP) server instance that can integrate with multiple applications or toolkits simultaneously. This endpoint allows you to create a server that can access tools from different applications, making it suitable for complex workflows that span multiple services.
         /// </summary>
         /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.PostMcpServersCustomResponse> PostMcpServersCustomAsync(
 
             global::Composio.PostMcpServersCustomRequest request,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create a new custom MCP server with multiple apps<br/>
@@ -42,6 +44,7 @@ namespace Composio
         /// <param name="managedAuthViaComposio">
         /// Whether to manage authentication via Composio
         /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.PostMcpServersCustomResponse> PostMcpServersCustomAsync(
@@ -51,6 +54,7 @@ namespace Composio
             global::System.Collections.Generic.IList<string>? allowedTools = default,
             global::System.Collections.Generic.IList<string>? customTools = default,
             bool? managedAuthViaComposio = default,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
 }

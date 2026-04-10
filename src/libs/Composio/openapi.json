@@ -49481,6 +49481,10 @@
                     "description": "The unique slug identifier of the toolkit to connect",
                     "example": "github"
                   },
+                  "alias": {
+                    "type": "string",
+                    "description": "A human-readable alias for this connected account. Must be unique per entity and toolkit within the project."
+                  },
                   "callback_url": {
                     "type": "string",
                     "format": "uri",
