@@ -5,7 +5,7 @@ namespace Composio
 {
     /// <summary>
     /// The connected accounts to use for the session. This will override the default behaviour and use the given connected account when specific toolkits are being executed<br/>
-    /// Example: {"github":"ca_34454545454545"}
+    /// Example: {"github":"ca_3m4n5o6p7q8r"}
     /// </summary>
     public sealed partial class PostToolRouterSessionRequestConnectedAccounts
     {

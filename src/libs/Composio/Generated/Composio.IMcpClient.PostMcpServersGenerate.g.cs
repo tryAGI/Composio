@@ -36,7 +36,7 @@ namespace Composio
         /// </param>
         /// <param name="connectedAccountIds">
         /// List of connected account identifiers<br/>
-        /// Example: [account_1, account_2, account_3]
+        /// Example: [ca_1a2b3c4d5e6f, ca_7g8h9i0j1k2l, ca_3m4n5o6p7q8r]
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

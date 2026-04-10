@@ -19,18 +19,18 @@ namespace Composio
 
         /// <summary>
         /// List of URLs generated for each connected account ID<br/>
-        /// Example: [https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&amp;connected_account_ids=account_1&amp;user_id=user_123456,user_789012, https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&amp;connected_account_ids=account_2&amp;user_id=user_123456,user_789012]
+        /// Example: [https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&amp;connected_account_ids=ca_1a2b3c4d5e6f&amp;user_id=user_123456,user_789012, https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&amp;connected_account_ids=ca_7g8h9i0j1k2l&amp;user_id=user_123456,user_789012]
         /// </summary>
-        /// <example>[https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&amp;connected_account_ids=account_1&amp;user_id=user_123456,user_789012, https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&amp;connected_account_ids=account_2&amp;user_id=user_123456,user_789012]</example>
+        /// <example>[https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&amp;connected_account_ids=ca_1a2b3c4d5e6f&amp;user_id=user_123456,user_789012, https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&amp;connected_account_ids=ca_7g8h9i0j1k2l&amp;user_id=user_123456,user_789012]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("connected_account_urls")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<string> ConnectedAccountUrls { get; set; }
 
         /// <summary>
         /// List of URLs generated for each user ID<br/>
-        /// Example: [https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&amp;connected_account_ids=account_1,account_2&amp;user_id=user_123456, https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&amp;connected_account_ids=account_1,account_2&amp;user_id=user_789012]
+        /// Example: [https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&amp;connected_account_ids=ca_1a2b3c4d5e6f,ca_7g8h9i0j1k2l&amp;user_id=user_123456, https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&amp;connected_account_ids=ca_1a2b3c4d5e6f,ca_7g8h9i0j1k2l&amp;user_id=user_789012]
         /// </summary>
-        /// <example>[https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&amp;connected_account_ids=account_1,account_2&amp;user_id=user_123456, https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&amp;connected_account_ids=account_1,account_2&amp;user_id=user_789012]</example>
+        /// <example>[https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&amp;connected_account_ids=ca_1a2b3c4d5e6f,ca_7g8h9i0j1k2l&amp;user_id=user_123456, https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&amp;connected_account_ids=ca_1a2b3c4d5e6f,ca_7g8h9i0j1k2l&amp;user_id=user_789012]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_ids_url")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<string> UserIdsUrl { get; set; }
@@ -50,11 +50,11 @@ namespace Composio
         /// </param>
         /// <param name="connectedAccountUrls">
         /// List of URLs generated for each connected account ID<br/>
-        /// Example: [https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&amp;connected_account_ids=account_1&amp;user_id=user_123456,user_789012, https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&amp;connected_account_ids=account_2&amp;user_id=user_123456,user_789012]
+        /// Example: [https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&amp;connected_account_ids=ca_1a2b3c4d5e6f&amp;user_id=user_123456,user_789012, https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&amp;connected_account_ids=ca_7g8h9i0j1k2l&amp;user_id=user_123456,user_789012]
         /// </param>
         /// <param name="userIdsUrl">
         /// List of URLs generated for each user ID<br/>
-        /// Example: [https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&amp;connected_account_ids=account_1,account_2&amp;user_id=user_123456, https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&amp;connected_account_ids=account_1,account_2&amp;user_id=user_789012]
+        /// Example: [https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&amp;connected_account_ids=ca_1a2b3c4d5e6f,ca_7g8h9i0j1k2l&amp;user_id=user_123456, https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&amp;connected_account_ids=ca_1a2b3c4d5e6f,ca_7g8h9i0j1k2l&amp;user_id=user_789012]
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

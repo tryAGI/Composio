@@ -26,17 +26,17 @@ namespace Composio
 
         /// <summary>
         /// The auth configs to use for the session. This will override the default behavior and use the given auth config when specific toolkits are being executed<br/>
-        /// Example: {"gmail":"ac_1223434343","slack":"ac_23343434343434"}
+        /// Example: {"gmail":"ac_1a2b3c4d5e6f","slack":"ac_7g8h9i0j1k2l"}
         /// </summary>
-        /// <example>{"gmail":"ac_1223434343","slack":"ac_23343434343434"}</example>
+        /// <example>{"gmail":"ac_1a2b3c4d5e6f","slack":"ac_7g8h9i0j1k2l"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("auth_configs")]
         public global::System.Collections.Generic.Dictionary<string, string>? AuthConfigs { get; set; }
 
         /// <summary>
         /// The connected accounts to use for the session. This will override the default behaviour and use the given connected account when specific toolkits are being executed<br/>
-        /// Example: {"github":"ca_34454545454545"}
+        /// Example: {"github":"ca_3m4n5o6p7q8r"}
         /// </summary>
-        /// <example>{"github":"ca_34454545454545"}</example>
+        /// <example>{"github":"ca_3m4n5o6p7q8r"}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("connected_accounts")]
         public global::System.Collections.Generic.Dictionary<string, string>? ConnectedAccounts { get; set; }
 
@@ -101,11 +101,11 @@ namespace Composio
         /// </param>
         /// <param name="authConfigs">
         /// The auth configs to use for the session. This will override the default behavior and use the given auth config when specific toolkits are being executed<br/>
-        /// Example: {"gmail":"ac_1223434343","slack":"ac_23343434343434"}
+        /// Example: {"gmail":"ac_1a2b3c4d5e6f","slack":"ac_7g8h9i0j1k2l"}
         /// </param>
         /// <param name="connectedAccounts">
         /// The connected accounts to use for the session. This will override the default behaviour and use the given connected account when specific toolkits are being executed<br/>
-        /// Example: {"github":"ca_34454545454545"}
+        /// Example: {"github":"ca_3m4n5o6p7q8r"}
         /// </param>
         /// <param name="manageConnections">
         /// Configuration for connection management settings<br/>

@@ -36,9 +36,9 @@ namespace Composio
 
         /// <summary>
         /// List of connected account identifiers<br/>
-        /// Example: [account_1, account_2, account_3]
+        /// Example: [ca_1a2b3c4d5e6f, ca_7g8h9i0j1k2l, ca_3m4n5o6p7q8r]
         /// </summary>
-        /// <example>[account_1, account_2, account_3]</example>
+        /// <example>[ca_1a2b3c4d5e6f, ca_7g8h9i0j1k2l, ca_3m4n5o6p7q8r]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("connected_account_ids")]
         public global::System.Collections.Generic.IList<string>? ConnectedAccountIds { get; set; }
 
@@ -66,7 +66,7 @@ namespace Composio
         /// </param>
         /// <param name="connectedAccountIds">
         /// List of connected account identifiers<br/>
-        /// Example: [account_1, account_2, account_3]
+        /// Example: [ca_1a2b3c4d5e6f, ca_7g8h9i0j1k2l, ca_3m4n5o6p7q8r]
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
