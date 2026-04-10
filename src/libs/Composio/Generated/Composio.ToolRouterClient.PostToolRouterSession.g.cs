@@ -391,6 +391,9 @@ namespace Composio
         /// Configuration for workbench behavior<br/>
         /// Default Value: {"enable":true,"enable_proxy_execution":true}
         /// </param>
+        /// <param name="multiAccount">
+        /// Configure multi-account behavior. When enabled, users can connect multiple accounts per toolkit.
+        /// </param>
         /// <param name="experimental">
         /// Experimental features - not stable, may be modified or removed in future versions.
         /// </param>
@@ -405,6 +408,7 @@ namespace Composio
             object? tools = default,
             global::Composio.AnyOf<global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionRequestTag>, global::Composio.PostToolRouterSessionRequestTags>? tags = default,
             global::Composio.PostToolRouterSessionRequestWorkbench? workbench = default,
+            global::Composio.PostToolRouterSessionRequestMultiAccount? multiAccount = default,
             global::Composio.PostToolRouterSessionRequestExperimental? experimental = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -418,6 +422,7 @@ namespace Composio
                 Tools = tools,
                 Tags = tags,
                 Workbench = workbench,
+                MultiAccount = multiAccount,
                 Experimental = experimental,
             };
 

@@ -72,6 +72,12 @@ namespace Composio
         public global::Composio.PostToolRouterSessionRequestWorkbench? Workbench { get; set; }
 
         /// <summary>
+        /// Configure multi-account behavior. When enabled, users can connect multiple accounts per toolkit.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("multi_account")]
+        public global::Composio.PostToolRouterSessionRequestMultiAccount? MultiAccount { get; set; }
+
+        /// <summary>
         /// Experimental features - not stable, may be modified or removed in future versions.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("experimental")]
@@ -117,6 +123,9 @@ namespace Composio
         /// Configuration for workbench behavior<br/>
         /// Default Value: {"enable":true,"enable_proxy_execution":true}
         /// </param>
+        /// <param name="multiAccount">
+        /// Configure multi-account behavior. When enabled, users can connect multiple accounts per toolkit.
+        /// </param>
         /// <param name="experimental">
         /// Experimental features - not stable, may be modified or removed in future versions.
         /// </param>
@@ -132,6 +141,7 @@ namespace Composio
             object? tools,
             global::Composio.AnyOf<global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionRequestTag>, global::Composio.PostToolRouterSessionRequestTags>? tags,
             global::Composio.PostToolRouterSessionRequestWorkbench? workbench,
+            global::Composio.PostToolRouterSessionRequestMultiAccount? multiAccount,
             global::Composio.PostToolRouterSessionRequestExperimental? experimental)
         {
             this.UserId = userId ?? throw new global::System.ArgumentNullException(nameof(userId));
@@ -142,6 +152,7 @@ namespace Composio
             this.Tools = tools;
             this.Tags = tags;
             this.Workbench = workbench;
+            this.MultiAccount = multiAccount;
             this.Experimental = experimental;
         }
 

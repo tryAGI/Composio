@@ -25,6 +25,9 @@ namespace Composio
         /// <param name="userId">
         /// The user id to create a link for
         /// </param>
+        /// <param name="alias">
+        /// A human-readable alias for this connected account. Must be unique per entity and toolkit within the project.
+        /// </param>
         /// <param name="callbackUrl">
         /// The callback url to create a link for
         /// </param>
@@ -36,6 +39,7 @@ namespace Composio
         global::System.Threading.Tasks.Task<global::Composio.PostConnectedAccountsLinkResponse> PostConnectedAccountsLinkAsync(
             string authConfigId,
             string userId,
+            string? alias = default,
             string? callbackUrl = default,
             object? connectionData = default,
             global::System.Threading.CancellationToken cancellationToken = default);
