@@ -33617,6 +33617,10 @@
                     "minLength": 1,
                     "description": "The user id to create a link for"
                   },
+                  "alias": {
+                    "type": "string",
+                    "description": "A human-readable alias for this connected account. Must be unique per entity and toolkit within the project."
+                  },
                   "callback_url": {
                     "type": "string",
                     "description": "The callback url to create a link for"
@@ -47722,6 +47726,30 @@
                     },
                     "additionalProperties": false,
                     "description": "Configuration for workbench behavior"
+                  },
+                  "multi_account": {
+                    "type": "object",
+                    "properties": {
+                      "enable": {
+                        "type": "boolean",
+                        "description": "When true, enables multi-account mode for this session. When not set, falls back to org/project-level configuration.",
+                        "example": true
+                      },
+                      "max_accounts_per_toolkit": {
+                        "type": "integer",
+                        "minimum": 2,
+                        "maximum": 10,
+                        "description": "Maximum number of connected accounts allowed per toolkit. Must be between 2 and 10.",
+                        "example": 5
+                      },
+                      "require_explicit_selection": {
+                        "type": "boolean",
+                        "description": "When true, the agent must explicitly select which account to use. When false (default), the first/default account is used automatically.",
+                        "example": false
+                      }
+                    },
+                    "additionalProperties": false,
+                    "description": "Configure multi-account behavior. When enabled, users can connect multiple accounts per toolkit."
                   },
                   "experimental": {
                     "type": "object",

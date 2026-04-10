@@ -23,6 +23,12 @@ namespace Composio
         public required string UserId { get; set; }
 
         /// <summary>
+        /// A human-readable alias for this connected account. Must be unique per entity and toolkit within the project.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("alias")]
+        public string? Alias { get; set; }
+
+        /// <summary>
         /// The callback url to create a link for
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("callback_url")]
@@ -49,6 +55,9 @@ namespace Composio
         /// <param name="userId">
         /// The user id to create a link for
         /// </param>
+        /// <param name="alias">
+        /// A human-readable alias for this connected account. Must be unique per entity and toolkit within the project.
+        /// </param>
         /// <param name="callbackUrl">
         /// The callback url to create a link for
         /// </param>
@@ -61,11 +70,13 @@ namespace Composio
         public PostConnectedAccountsLinkRequest(
             string authConfigId,
             string userId,
+            string? alias,
             string? callbackUrl,
             object? connectionData)
         {
             this.AuthConfigId = authConfigId ?? throw new global::System.ArgumentNullException(nameof(authConfigId));
             this.UserId = userId ?? throw new global::System.ArgumentNullException(nameof(userId));
+            this.Alias = alias;
             this.CallbackUrl = callbackUrl;
             this.ConnectionData = connectionData;
         }
