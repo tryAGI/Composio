@@ -44879,9 +44879,9 @@
                     },
                     "description": "List of connected account identifiers",
                     "example": [
-                      "account_1",
-                      "account_2",
-                      "account_3"
+                      "ca_1a2b3c4d5e6f",
+                      "ca_7g8h9i0j1k2l",
+                      "ca_3m4n5o6p7q8r"
                     ]
                   }
                 },
@@ -44898,8 +44898,8 @@
                       "user_123456"
                     ],
                     "connected_account_ids": [
-                      "account_1",
-                      "account_2"
+                      "ca_1a2b3c4d5e6f",
+                      "ca_7g8h9i0j1k2l"
                     ]
                   }
                 },
@@ -44911,9 +44911,9 @@
                       "user_789012"
                     ],
                     "connected_account_ids": [
-                      "account_1",
-                      "account_2",
-                      "account_3"
+                      "ca_1a2b3c4d5e6f",
+                      "ca_7g8h9i0j1k2l",
+                      "ca_3m4n5o6p7q8r"
                     ]
                   }
                 }
@@ -44941,8 +44941,8 @@
                       },
                       "description": "List of URLs generated for each connected account ID",
                       "example": [
-                        "https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&connected_account_ids=account_1&user_id=user_123456,user_789012",
-                        "https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&connected_account_ids=account_2&user_id=user_123456,user_789012"
+                        "https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&connected_account_ids=ca_1a2b3c4d5e6f&user_id=user_123456,user_789012",
+                        "https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&connected_account_ids=ca_7g8h9i0j1k2l&user_id=user_123456,user_789012"
                       ]
                     },
                     "user_ids_url": {
@@ -44952,8 +44952,8 @@
                       },
                       "description": "List of URLs generated for each user ID",
                       "example": [
-                        "https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&connected_account_ids=account_1,account_2&user_id=user_123456",
-                        "https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&connected_account_ids=account_1,account_2&user_id=user_789012"
+                        "https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&connected_account_ids=ca_1a2b3c4d5e6f,ca_7g8h9i0j1k2l&user_id=user_123456",
+                        "https://mcp.composio.dev/composio/server/550e8400-e29b-41d4-a716-446655440000?include_composio_helper_actions=true&connected_account_ids=ca_1a2b3c4d5e6f,ca_7g8h9i0j1k2l&user_id=user_789012"
                       ]
                     }
                   },
@@ -47453,8 +47453,8 @@
                     },
                     "description": "The auth configs to use for the session. This will override the default behavior and use the given auth config when specific toolkits are being executed",
                     "example": {
-                      "gmail": "ac_1223434343",
-                      "slack": "ac_23343434343434"
+                      "gmail": "ac_1a2b3c4d5e6f",
+                      "slack": "ac_7g8h9i0j1k2l"
                     }
                   },
                   "connected_accounts": {
@@ -47465,7 +47465,7 @@
                     },
                     "description": "The connected accounts to use for the session. This will override the default behaviour and use the given connected account when specific toolkits are being executed",
                     "example": {
-                      "github": "ca_34454545454545"
+                      "github": "ca_3m4n5o6p7q8r"
                     }
                   },
                   "manage_connections": {
@@ -48045,8 +48045,8 @@
                       ]
                     },
                     "auth_configs": {
-                      "gmail": "ac_1223434343",
-                      "slack": "ac_23343434343434"
+                      "gmail": "ac_1a2b3c4d5e6f",
+                      "slack": "ac_7g8h9i0j1k2l"
                     }
                   }
                 },
@@ -48060,8 +48060,8 @@
                       ]
                     },
                     "connected_accounts": {
-                      "gmail": "ca_1223434343",
-                      "slack": "ca_23344434343434"
+                      "gmail": "ca_1a2b3c4d5e6f",
+                      "slack": "ca_7g8h9i0j1k2l"
                     }
                   }
                 },
@@ -48076,11 +48076,11 @@
                       ]
                     },
                     "auth_configs": {
-                      "gmail": "ac_1223434343",
-                      "slack": "ac_23343434343434"
+                      "gmail": "ac_1a2b3c4d5e6f",
+                      "slack": "ac_7g8h9i0j1k2l"
                     },
                     "connected_accounts": {
-                      "github": "ca_34454545454545"
+                      "github": "ca_3m4n5o6p7q8r"
                     },
                     "manage_connections": {
                       "enable": true,
