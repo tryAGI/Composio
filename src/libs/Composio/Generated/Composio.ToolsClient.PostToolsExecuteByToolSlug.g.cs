@@ -133,10 +133,10 @@ namespace Composio
                 } 
             }
 
-                if (xLlmGatewayHeaders != default)
-                {
-                    __httpRequest.Headers.TryAddWithoutValidation("x-llm-gateway-headers", xLlmGatewayHeaders.ToString());
-                }
+            if (xLlmGatewayHeaders != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("x-llm-gateway-headers", xLlmGatewayHeaders.ToString());
+            }
 
                             var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
                             var __httpRequestContent = new global::System.Net.Http.StringContent(

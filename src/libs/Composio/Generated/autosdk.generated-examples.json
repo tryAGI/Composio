@@ -1,0 +1,235 @@
+{
+  "Examples": [
+    {
+      "Order": 1,
+      "Title": "Update an authentication configuration",
+      "Slug": "patchauthconfigsbynanoid",
+      "Description": "Modifies an existing authentication configuration with new credentials or other settings. Only specified fields will be updated.",
+      "Language": "http",
+      "Code": "### Update an authentication configuration\n# @name patchAuthConfigsByNanoid\nPATCH {{host}}/api/v3/auth_configs/{{nanoid}}\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022auth_config\u0022: {\n    \u0022credentials\u0022: {\n      \u0022api_key\u0022: \u0022YOUR_NEW_API_KEY\u0022,\n      \u0022client_secret\u0022: \u0022YOUR_NEW_CLIENT_SECRET\u0022\n    },\n    \u0022restrict_to_following_tools\u0022: [\n      \u0022GMAIL_SEND_EMAIL\u0022,\n      \u0022GMAIL_FETCH_EMAILS\u0022\n    ]\n  }\n}\n\n## Responses\n# 200\n# Description: Successfully updated auth config\n# Content-Type: application/json\n# 400\n# Description: Bad request - Invalid input or credentials format\n# Content-Type: application/json\n# 401\n# Description: Unauthorized - Authentication required\n# Content-Type: application/json\n# 404\n# Description: Not found - Auth configuration does not exist\n# Content-Type: application/json\n# 500\n# Description: Internal server error - Something went wrong on the server\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "patchAuthConfigsByNanoid",
+      "Setup": null
+    },
+    {
+      "Order": 2,
+      "Title": "Ingest CLI codact failures",
+      "Slug": "postclicodactfailures",
+      "Description": "Accepts CLI-reported codact failures authenticated by user API key and stores them in ClickHouse for later analysis.",
+      "Language": "http",
+      "Code": "### Ingest CLI codact failures\n# @name postCliCodactFailures\nPOST {{host}}/api/v3/cli/codact_failures\nAuthorization: Bearer {{token}}\nx-user-api-key: {{x-user-api-key}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022failure_type\u0022: \u0022wrong_tool_slug\u0022,\n  \u0022tool_info\u0022: {\n    \u0022toolkit\u0022: \u0022github\u0022,\n    \u0022tool\u0022: {\n      \u0022slug\u0022: \u0022GITHUB_CREATE_AN_ISSUE\u0022,\n      \u0022version\u0022: \u00222026.03.23\u0022\n    }\n  },\n  \u0022ctx\u0022: {\n    \u0022invalid_tool_slug\u0022: \u0022GITHUB_MAKE_ISSUE\u0022\n  },\n  \u0022session\u0022: {\n    \u0022id\u0022: \u0022sess_123\u0022,\n    \u0022source\u0022: \u0022cli\u0022\n  },\n  \u0022request_id\u0022: \u0022req_123\u0022\n}\n\n## Responses\n# 200\n# Description: CLI codact failure accepted and stored.\n# Content-Type: application/json\n# 400\n# Description: Bad request.\n# Content-Type: application/json\n# 401\n# Description: Unauthorized. A valid user API key is required.\n# Content-Type: application/json\n# 500\n# Description: Internal server error.\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "postCliCodactFailures",
+      "Setup": null
+    },
+    {
+      "Order": 3,
+      "Title": "Delete a connected account",
+      "Slug": "deleteconnectedaccountsbynanoid",
+      "Description": "Soft-deletes a connected account by marking it as deleted in the database. This prevents the account from being used for API calls but preserves the record for audit purposes.",
+      "Language": "csharp",
+      "Code": "using var client = new ComposioClient(apiKey);\n\nvar response = await client.ConnectedAccounts.DeleteConnectedAccountsByNanoidAsync(\n    nanoid: \u0022ca_1a2b3c4d5e6f\u0022\n);\n\n// Example response:\n// {\n//   \u0022success\u0022: true\n// }",
+      "Format": "sdk",
+      "OperationId": "deleteConnectedAccountsByNanoid",
+      "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+    },
+    {
+      "Order": 4,
+      "Title": "Get connected account details by ID",
+      "Slug": "getconnectedaccountsbynanoid",
+      "Description": "Retrieves comprehensive details of a connected account, including authentication configuration, connection status, and all parameters needed for API requests.",
+      "Language": "csharp",
+      "Code": "using var client = new ComposioClient(apiKey);\n\nvar response = await client.ConnectedAccounts.GetConnectedAccountsByNanoidAsync(\n    nanoid: \u0022ca_1a2b3c4d5e6f\u0022\n);",
+      "Format": "sdk",
+      "OperationId": "getConnectedAccountsByNanoid",
+      "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+    },
+    {
+      "Order": 5,
+      "Title": "Enable or disable a connected account",
+      "Slug": "patchconnectedaccountsbynanoidstatus",
+      "Description": "Updates the status of a connected account to either enabled (active) or disabled (inactive). Disabled accounts cannot be used for API calls but remain in the database.",
+      "Language": "csharp",
+      "Code": "using var client = new ComposioClient(apiKey);\n\nvar request = global::System.Text.Json.JsonSerializer.Deserialize\u003Cglobal::Composio.PatchConnectedAccountsByNanoIdStatusRequest\u003E(\n    @\u0022{\n  \u0022\u0022enabled\u0022\u0022: true\n}\u0022)!;\n\nvar response = await client.ConnectedAccounts.PatchConnectedAccountsByNanoIdStatusAsync(\n    nanoId: \u0022ca_1a2b3c4d5e6f\u0022,\n    request: request\n);\n\n// Example response:\n// {\n//   \u0022success\u0022: true\n// }",
+      "Format": "sdk",
+      "OperationId": "patchConnectedAccountsByNanoIdStatus",
+      "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+    },
+    {
+      "Order": 6,
+      "Title": "Update a connected account",
+      "Slug": "patchconnectedaccountsbynanoid",
+      "Description": "Update a connected account. Supports updating the alias and/or credentials. Only specified fields will be updated. Set a credential field to null to remove it. Alias must be unique within the same project, entity, and toolkit scope.",
+      "Language": "csharp",
+      "Code": "using var client = new ComposioClient(apiKey);\n\nvar request = global::System.Text.Json.JsonSerializer.Deserialize\u003Cglobal::Composio.PatchConnectedAccountBody\u003E(\n    @\u0022{\n  \u0022\u0022alias\u0022\u0022: \u0022\u0022work-gmail\u0022\u0022\n}\u0022)!;\n\nvar response = await client.ConnectedAccounts.PatchConnectedAccountsByNanoidAsync(\n    nanoid: \u0022ca_1a2b3c4d5e6f\u0022,\n    request: request\n);\n\n// Example response:\n// {\n//   \u0022success\u0022: true,\n//   \u0022id\u0022: \u0022ca_1a2b3c4d5e6f\u0022,\n//   \u0022status\u0022: \u0022ACTIVE\u0022\n// }",
+      "Format": "sdk",
+      "OperationId": "patchConnectedAccountsByNanoid",
+      "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+    },
+    {
+      "Order": 7,
+      "Title": "Refresh authentication for a connected account",
+      "Slug": "postconnectedaccountsbynanoidrefresh",
+      "Description": "Initiates a new authentication flow for a connected account when credentials have expired or become invalid. This may generate a new authentication URL for OAuth flows or refresh tokens for other auth schemes.",
+      "Language": "http",
+      "Code": "### Refresh authentication for a connected account\n# @name postConnectedAccountsByNanoidRefresh\nPOST {{host}}/api/v3/connected_accounts/{{nanoid}}/refresh?redirect_url={{redirect_url}}\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022redirect_url\u0022: \u0022https://example.com\u0022,\n  \u0022validate_credentials\u0022: false\n}\n\n## Responses\n# 200\n# Description: Successfully refreshed the connected account authentication. For OAuth flows, a new redirect URL is provided.\n# Content-Type: application/json\n# 400\n# Description: Bad request - Invalid nanoid format or the account cannot be refreshed in its current state\n# Content-Type: application/json\n# 401\n# Description: Unauthorized - Authentication failed\n# Content-Type: application/json\n# 403\n# Description: Forbidden - Insufficient permissions to refresh this connected account\n# Content-Type: application/json\n# 404\n# Description: Not found - Connected account does not exist or was deleted\n# Content-Type: application/json\n# 500\n# Description: Internal server error - Failed to refresh the connected account authentication\n# Content-Type: application/json\n# 501\n# Description: Not implemented - This operation is not supported for the requested connected account or authentication scheme\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "postConnectedAccountsByNanoidRefresh",
+      "Setup": null
+    },
+    {
+      "Order": 8,
+      "Title": "Create presigned URL for request file upload to S3",
+      "Slug": "postfilesuploadrequest",
+      "Description": "Generates a presigned URL for uploading a file to S3. This endpoint handles deduplication by checking if a file with the same MD5 hash already exists.",
+      "Language": "csharp",
+      "Code": "using var client = new ComposioClient(apiKey);\n\nvar request = global::System.Text.Json.JsonSerializer.Deserialize\u003Cglobal::Composio.PostFilesUploadRequestRequest\u003E(\n    @\u0022{\n  \u0022\u0022toolkit_slug\u0022\u0022: \u0022\u0022github\u0022\u0022,\n  \u0022\u0022tool_slug\u0022\u0022: \u0022\u0022GITHUB_CREATE_AN_ISSUE\u0022\u0022,\n  \u0022\u0022filename\u0022\u0022: \u0022\u0022bug_screenshot.png\u0022\u0022,\n  \u0022\u0022mimetype\u0022\u0022: \u0022\u0022image/png\u0022\u0022,\n  \u0022\u0022md5\u0022\u0022: \u0022\u0022c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8\u0022\u0022\n}\u0022)!;\n\nvar response = await client.Files.PostFilesUploadRequestAsync(\n    request: request\n);",
+      "Format": "sdk",
+      "OperationId": "postFilesUploadRequest",
+      "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+    },
+    {
+      "Order": 9,
+      "Title": "Update MCP server configuration",
+      "Slug": "patchmcpbyid",
+      "Description": "Updates the configuration of an existing Model Control Protocol (MCP) server. You can modify the server name, associated applications, and enabled tools. Only the fields included in the request will be updated.",
+      "Language": "http",
+      "Code": "### Update MCP server configuration\n# @name patchMcpById\nPATCH {{host}}/api/v3/mcp/{{id}}\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022name\u0022: \u0022Production Multi-App MCP Server\u0022,\n  \u0022auth_config_ids\u0022: [\n    \u0022ac_1a2b3c4d5e6f\u0022,\n    \u0022ac_7g8h9i0j1k2l\u0022\n  ],\n  \u0022toolkits\u0022: [\n    \u0022gmail\u0022,\n    \u0022notion\u0022\n  ],\n  \u0022allowed_tools\u0022: [\n    \u0022GMAIL_ADD_LABEL_TO_EMAIL\u0022,\n    \u0022NOTION_CREATE_NOTION_PAGE\u0022\n  ]\n}\n\n## Responses\n# 200\n# Description: Successfully updated MCP server. Returns the complete updated server configuration including connection details, authentication settings, and available tools.\n# Content-Type: application/json\n# 400\n# Description: Bad request. The request parameters may be invalid or in an incorrect format.\n# Content-Type: application/json\n# 401\n# Description: Unauthorized. Authentication is required or the provided credentials are invalid.\n# Content-Type: application/json\n# 403\n# Description: Forbidden. The authenticated user does not have permission to update this MCP server.\n# Content-Type: application/json\n# 404\n# Description: MCP server not found. No server with the specified ID exists or it has been deleted.\n# Content-Type: application/json\n# 500\n# Description: Internal server error. An unexpected error occurred while processing the request.\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "patchMcpById",
+      "Setup": null
+    },
+    {
+      "Order": 10,
+      "Title": "Create a new MCP server",
+      "Slug": "postmcpservers",
+      "Description": "Creates a new Model Control Protocol (MCP) server instance for the authenticated project. An MCP server provides a connection point for AI assistants to access your applications and services. The server is configured with specific authentication and tool permissions that determine what actions the connected assistants can perform.",
+      "Language": "csharp",
+      "Code": "using var client = new ComposioClient(apiKey);\n\nvar request = global::System.Text.Json.JsonSerializer.Deserialize\u003Cglobal::Composio.PostMcpServersRequest\u003E(\n    @\u0022{\n  \u0022\u0022name\u0022\u0022: \u0022\u0022GitHub Integration Server\u0022\u0022,\n  \u0022\u0022auth_config_ids\u0022\u0022: [\n    \u0022\u0022ac_1a2b3c4d5e6f\u0022\u0022\n  ]\n}\u0022)!;\n\nvar response = await client.Mcp.PostMcpServersAsync(\n    request: request\n);",
+      "Format": "sdk",
+      "OperationId": "postMcpServers",
+      "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+    },
+    {
+      "Order": 11,
+      "Title": "Create a new MCP server instance",
+      "Slug": "postmcpserversbyserveridinstances",
+      "Description": "Creates a new instance for a Model Control Protocol (MCP) server. This endpoint validates that the user has connected accounts for all auth configurations associated with the MCP server before creating the instance.",
+      "Language": "http",
+      "Code": "### Create a new MCP server instance\n# @name postMcpServersByServerIdInstances\nPOST {{host}}/api/v3/mcp/servers/{{serverId}}/instances\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022user_id\u0022: \u0022user_123456\u0022\n}\n\n## Responses\n# 201\n# Description: Successfully created MCP server instance. Returns the created instance details.\n# Content-Type: application/json\n# 400\n# Description: Bad request. The request parameters may be invalid or the instance ID already exists.\n# Content-Type: application/json\n# 401\n# Description: Unauthorized. Authentication is required or the provided credentials are invalid.\n# Content-Type: application/json\n# 403\n# Description: Forbidden. The user does not have connected accounts for all required auth configurations.\n# Content-Type: application/json\n# 404\n# Description: MCP server not found. No server with the specified ID exists.\n# Content-Type: application/json\n# 409\n# Description: Conflict. An instance with this ID already exists for the server.\n# Content-Type: application/json\n# 500\n# Description: Internal server error. An unexpected error occurred while processing the request.\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "postMcpServersByServerIdInstances",
+      "Setup": null
+    },
+    {
+      "Order": 12,
+      "Title": "Create a new custom MCP server with multiple apps",
+      "Slug": "postmcpserverscustom",
+      "Description": "Creates a new Model Control Protocol (MCP) server instance that can integrate with multiple applications or toolkits simultaneously. This endpoint allows you to create a server that can access tools from different applications, making it suitable for complex workflows that span multiple services.",
+      "Language": "csharp",
+      "Code": "using var client = new ComposioClient(apiKey);\n\nvar request = global::System.Text.Json.JsonSerializer.Deserialize\u003Cglobal::Composio.PostMcpServersCustomRequest\u003E(\n    @\u0022{\n  \u0022\u0022name\u0022\u0022: \u0022\u0022Complete Workflow Integration\u0022\u0022,\n  \u0022\u0022toolkits\u0022\u0022: [\n    \u0022\u0022github\u0022\u0022,\n    \u0022\u0022jira\u0022\u0022,\n    \u0022\u0022slack\u0022\u0022\n  ],\n  \u0022\u0022custom_tools\u0022\u0022: [\n    \u0022\u0022SLACK_SEND_MESSAGE\u0022\u0022\n  ]\n}\u0022)!;\n\nvar response = await client.Mcp.PostMcpServersCustomAsync(\n    request: request\n);",
+      "Format": "sdk",
+      "OperationId": "postMcpServersCustom",
+      "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+    },
+    {
+      "Order": 13,
+      "Title": "Generate MCP URL with custom parameters",
+      "Slug": "postmcpserversgenerate",
+      "Description": "Generates a Model Control Protocol (MCP) URL for an existing server with custom query parameters. The URL includes user-specific parameters and configuration flags that control the behavior of the MCP connection.",
+      "Language": "csharp",
+      "Code": "using var client = new ComposioClient(apiKey);\n\nvar request = global::System.Text.Json.JsonSerializer.Deserialize\u003Cglobal::Composio.PostMcpServersGenerateRequest\u003E(\n    @\u0022{\n  \u0022\u0022mcp_server_id\u0022\u0022: \u0022\u0022550e8400-e29b-41d4-a716-446655440000\u0022\u0022,\n  \u0022\u0022user_ids\u0022\u0022: [\n    \u0022\u0022user_123456\u0022\u0022\n  ],\n  \u0022\u0022connected_account_ids\u0022\u0022: [\n    \u0022\u0022ca_1a2b3c4d5e6f\u0022\u0022,\n    \u0022\u0022ca_7g8h9i0j1k2l\u0022\u0022\n  ]\n}\u0022)!;\n\nvar response = await client.Mcp.PostMcpServersGenerateAsync(\n    request: request\n);",
+      "Format": "sdk",
+      "OperationId": "postMcpServersGenerate",
+      "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+    },
+    {
+      "Order": 14,
+      "Title": "Update project configuration",
+      "Slug": "patchorgprojectconfig",
+      "Description": "Updates the project configuration settings.",
+      "Language": "csharp",
+      "Code": "using var client = new ComposioClient(apiKey);\n\nvar request = global::System.Text.Json.JsonSerializer.Deserialize\u003Cglobal::Composio.PatchOrgProjectConfigRequest\u003E(\n    @\u0022{\n  \u0022\u0022is_2FA_enabled\u0022\u0022: false\n}\u0022)!;\n\nvar response = await client.Projects.PatchOrgProjectConfigAsync(\n    request: request\n);",
+      "Format": "sdk",
+      "OperationId": "patchOrgProjectConfig",
+      "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+    },
+    {
+      "Order": 15,
+      "Title": "Create a new project",
+      "Slug": "postorgownerprojectnew",
+      "Description": "Creates a new project within the authenticated user\u0027s organization using the specified name. Projects are isolated environments within your organization, each with their own API keys, webhook configurations, and resources. Use this endpoint to create additional projects for different environments (e.g., development, staging, production) or for separate applications.",
+      "Language": "csharp",
+      "Code": "using var client = new ComposioClient(apiKey);\n\nvar request = global::System.Text.Json.JsonSerializer.Deserialize\u003Cglobal::Composio.PostOrgOwnerProjectNewRequest\u003E(\n    @\u0022{\n  \u0022\u0022name\u0022\u0022: \u0022\u0022my_production_api\u0022\u0022\n}\u0022)!;\n\nvar response = await client.Projects.PostOrgOwnerProjectNewAsync(\n    request: request\n);",
+      "Format": "sdk",
+      "OperationId": "postOrgOwnerProjectNew",
+      "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+    },
+    {
+      "Order": 16,
+      "Title": "Create a new tool router session (Legacy)",
+      "Slug": "postlabstoolroutersession",
+      "Description": "Creates a new session for the tool router lab feature (Legacy). This endpoint initializes a new session with specified toolkits and their authentication configurations. The session provides an isolated environment for testing and managing tool routing logic with scoped MCP server access.",
+      "Language": "csharp",
+      "Code": "using var client = new ComposioClient(apiKey);\n\nvar request = global::System.Text.Json.JsonSerializer.Deserialize\u003Cglobal::Composio.PostLabsToolRouterSessionRequest\u003E(\n    @\u0022{\n  \u0022\u0022user_id\u0022\u0022: \u0022\u0022user_123456789\u0022\u0022,\n  \u0022\u0022config\u0022\u0022: {}\n}\u0022)!;\n\nvar response = await client.ToolRouter.PostLabsToolRouterSessionAsync(\n    request: request\n);",
+      "Format": "sdk",
+      "OperationId": "postLabsToolRouterSession",
+      "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+    },
+    {
+      "Order": 17,
+      "Title": "Create a new tool router session",
+      "Slug": "posttoolroutersession",
+      "Description": "Creates a new session for the tool router feature. This endpoint initializes a new session with specified toolkits and their authentication configurations. The session provides an isolated environment for testing and managing tool routing logic with scoped MCP server access.",
+      "Language": "csharp",
+      "Code": "using var client = new ComposioClient(apiKey);\n\nvar request = global::System.Text.Json.JsonSerializer.Deserialize\u003Cglobal::Composio.PostToolRouterSessionRequest\u003E(\n    @\u0022{\n  \u0022\u0022user_id\u0022\u0022: \u0022\u0022user_123456789\u0022\u0022\n}\u0022)!;\n\nvar response = await client.ToolRouter.PostToolRouterSessionAsync(\n    request: request\n);",
+      "Format": "sdk",
+      "OperationId": "postToolRouterSession",
+      "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+    },
+    {
+      "Order": 18,
+      "Title": "List available tools",
+      "Slug": "gettools",
+      "Description": "Retrieve a paginated list of available tools with comprehensive filtering, sorting and search capabilities. Use query parameters to narrow down results by toolkit, tags, or search terms.",
+      "Language": "csharp",
+      "Code": "using var client = new ComposioClient(apiKey);\n\nvar response = await client.Tools.GetToolsAsync(\n    toolkitVersions: global::System.Text.Json.JsonSerializer.Deserialize\u003Cglobal::Composio.OneOf\u003Cobject, string, global::System.Collections.Generic.Dictionary\u003Cstring, string\u003E\u003E\u003E(\n    @\u0022\u0022\u0022Use: toolkit_versions[gmail]=20250930_00\\u0026toolkit_versions[slack]=20250929_00\u0022\u0022\u0022)!\n);",
+      "Format": "sdk",
+      "OperationId": "getTools",
+      "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+    },
+    {
+      "Order": 19,
+      "Title": "Get tool by slug",
+      "Slug": "gettoolsbytoolslug",
+      "Description": "Retrieve detailed information about a specific tool using its slug identifier. This endpoint returns full metadata about a tool including input/output parameters, versions, and toolkit information.",
+      "Language": "http",
+      "Code": "### Get tool by slug\n# @name getToolsByToolSlug\nGET {{host}}/api/v3/tools/{{tool_slug}}?version={{version}}\u0026toolkit_versions=Use: toolkit_versions[gmail]=20250930_00\u0026toolkit_versions[slack]=20250929_00\nAuthorization: Bearer {{token}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successfully retrieved tool details\n# Content-Type: application/json\n# 400\n# Description: Bad request - Invalid tool slug format\n# Content-Type: application/json\n# 401\n# Description: Unauthorized - Authentication credentials are missing or invalid\n# Content-Type: application/json\n# 404\n# Description: Not found - Tool with the specified slug does not exist\n# Content-Type: application/json\n# 500\n# Description: Internal server error - Something went wrong on the server\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "getToolsByToolSlug",
+      "Setup": null
+    },
+    {
+      "Order": 20,
+      "Title": "List trigger types",
+      "Slug": "gettriggerstypes",
+      "Description": "Retrieve a list of available trigger types with optional filtering by toolkit. Results are paginated and can be filtered by toolkit.",
+      "Language": "csharp",
+      "Code": "using var client = new ComposioClient(apiKey);\n\nvar response = await client.Triggers.GetTriggersTypesAsync(\n    toolkitVersions: global::System.Text.Json.JsonSerializer.Deserialize\u003Cglobal::Composio.OneOf\u003Cobject, string, global::System.Collections.Generic.Dictionary\u003Cstring, string\u003E\u003E\u003E(\n    @\u0022\u0022\u0022Use: toolkit_versions[gmail]=20250930_00\\u0026toolkit_versions[slack]=20250929_00\u0022\u0022\u0022)!\n);",
+      "Format": "sdk",
+      "OperationId": "getTriggersTypes",
+      "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
+    },
+    {
+      "Order": 21,
+      "Title": "Get trigger type by slug",
+      "Slug": "gettriggerstypesbyslug",
+      "Description": "Retrieve detailed information about a specific trigger type using its slug identifier",
+      "Language": "http",
+      "Code": "### Get trigger type by slug\n# @name getTriggersTypesBySlug\nGET {{host}}/api/v3/triggers_types/{{slug}}?toolkit_versions=Use: toolkit_versions[gmail]=20250930_00\u0026toolkit_versions[slack]=20250929_00\nAuthorization: Bearer {{token}}\nAccept: application/json\n\n## Responses\n# 200\n# Description: Successfully retrieved trigger type\n# Content-Type: application/json\n# 400\n# Description: Bad request\n# Content-Type: application/json\n# 401\n# Description: Unauthorized\n# Content-Type: application/json\n# 404\n# Description: Not found\n# Content-Type: application/json\n# 500\n# Description: Internal server error\n# Content-Type: application/json",
+      "Format": "http",
+      "OperationId": "getTriggersTypesBySlug",
+      "Setup": null
+    }
+  ]
+}
