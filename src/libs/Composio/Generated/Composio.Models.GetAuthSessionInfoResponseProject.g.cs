@@ -57,9 +57,9 @@ namespace Composio
 
         /// <summary>
         /// Short, URL-friendly unique identifier for the project<br/>
-        /// Example: proj_abc123xyz456
+        /// Example: pr_1a2b3c4d5e6f
         /// </summary>
-        /// <example>proj_abc123xyz456</example>
+        /// <example>pr_1a2b3c4d5e6f</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("nano_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string NanoId { get; set; }
@@ -189,7 +189,7 @@ namespace Composio
         /// </param>
         /// <param name="nanoId">
         /// Short, URL-friendly unique identifier for the project<br/>
-        /// Example: proj_abc123xyz456
+        /// Example: pr_1a2b3c4d5e6f
         /// </param>
         /// <param name="createdAt">
         /// Date and time when the project was created<br/>

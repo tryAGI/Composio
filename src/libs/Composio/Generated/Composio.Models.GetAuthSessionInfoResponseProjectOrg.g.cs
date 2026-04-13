@@ -10,9 +10,9 @@ namespace Composio
     {
         /// <summary>
         /// Short, URL-friendly unique identifier for the organization<br/>
-        /// Example: org_abc123xyz456
+        /// Example: ok_1a2b3c4d5e6f
         /// </summary>
-        /// <example>org_abc123xyz456</example>
+        /// <example>ok_1a2b3c4d5e6f</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Id { get; set; }
@@ -46,7 +46,7 @@ namespace Composio
         /// </summary>
         /// <param name="id">
         /// Short, URL-friendly unique identifier for the organization<br/>
-        /// Example: org_abc123xyz456
+        /// Example: ok_1a2b3c4d5e6f
         /// </param>
         /// <param name="name">
         /// User-defined name for the organization<br/>

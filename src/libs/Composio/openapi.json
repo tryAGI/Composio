@@ -876,7 +876,7 @@
                           "type": "string",
                           "format": "projectId",
                           "description": "Short, URL-friendly unique identifier for the project",
-                          "example": "proj_abc123xyz456"
+                          "example": "pr_1a2b3c4d5e6f"
                         },
                         "created_at": {
                           "type": "string",
@@ -945,7 +945,7 @@
                               "type": "string",
                               "format": "orgId",
                               "description": "Short, URL-friendly unique identifier for the organization",
-                              "example": "org_abc123xyz456"
+                              "example": "ok_1a2b3c4d5e6f"
                             },
                             "name": {
                               "type": "string",
@@ -1010,7 +1010,7 @@
                           "type": "string",
                           "format": "projectId",
                           "description": "Short, URL-friendly unique identifier for the associated project",
-                          "example": "proj_abc123xyz456"
+                          "example": "pr_1a2b3c4d5e6f"
                         },
                         "org_member_id": {
                           "type": "string",
@@ -35452,7 +35452,7 @@
                       "type": "string",
                       "format": "projectId",
                       "description": "Unique identifier for the project",
-                      "example": "proj_abc123xyz456"
+                      "example": "pr_1a2b3c4d5e6f"
                     },
                     "name": {
                       "type": "string",
@@ -35559,13 +35559,13 @@
                             "type": "string",
                             "format": "projectId",
                             "description": "Unique identifier for the project",
-                            "example": "proj_abc123xyz456"
+                            "example": "pr_1a2b3c4d5e6f"
                           },
                           "org_id": {
                             "type": "string",
                             "format": "orgId",
                             "description": "Identifier of the organization that owns this project",
-                            "example": "org_abc123xyz456"
+                            "example": "ok_1a2b3c4d5e6f"
                           },
                           "name": {
                             "type": "string",
@@ -35756,13 +35756,13 @@
                       "type": "string",
                       "format": "projectId",
                       "description": "Unique identifier for the project",
-                      "example": "proj_abc123xyz456"
+                      "example": "pr_1a2b3c4d5e6f"
                     },
                     "org_id": {
                       "type": "string",
                       "format": "orgId",
                       "description": "Identifier of the organization that owns this project",
-                      "example": "org_abc123xyz456"
+                      "example": "ok_1a2b3c4d5e6f"
                     },
                     "name": {
                       "type": "string",
@@ -36063,7 +36063,7 @@
               "type": "string",
               "format": "projectId",
               "description": "Unique identifier (Nano ID) of the project to regenerate API key for",
-              "example": "proj_abc123xyz456"
+              "example": "pr_1a2b3c4d5e6f"
             },
             "required": true,
             "description": "Unique identifier (Nano ID) of the project to regenerate API key for",
