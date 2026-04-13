@@ -37,9 +37,9 @@ namespace Composio
 
         /// <summary>
         /// Short, URL-friendly unique identifier for the associated project<br/>
-        /// Example: proj_abc123xyz456
+        /// Example: pr_1a2b3c4d5e6f
         /// </summary>
-        /// <example>proj_abc123xyz456</example>
+        /// <example>pr_1a2b3c4d5e6f</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("project_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ProjectId { get; set; }
@@ -118,7 +118,7 @@ namespace Composio
         /// </param>
         /// <param name="projectId">
         /// Short, URL-friendly unique identifier for the associated project<br/>
-        /// Example: proj_abc123xyz456
+        /// Example: pr_1a2b3c4d5e6f
         /// </param>
         /// <param name="orgMemberId">
         /// UUID identifier for the organization member who owns this API key<br/>

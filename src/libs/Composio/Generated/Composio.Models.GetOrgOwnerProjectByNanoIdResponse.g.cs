@@ -12,18 +12,18 @@ namespace Composio
     {
         /// <summary>
         /// Unique identifier for the project<br/>
-        /// Example: proj_abc123xyz456
+        /// Example: pr_1a2b3c4d5e6f
         /// </summary>
-        /// <example>proj_abc123xyz456</example>
+        /// <example>pr_1a2b3c4d5e6f</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Id { get; set; }
 
         /// <summary>
         /// Identifier of the organization that owns this project<br/>
-        /// Example: org_abc123xyz456
+        /// Example: ok_1a2b3c4d5e6f
         /// </summary>
-        /// <example>org_abc123xyz456</example>
+        /// <example>ok_1a2b3c4d5e6f</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("org_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string OrgId { get; set; }
@@ -153,11 +153,11 @@ namespace Composio
         /// </summary>
         /// <param name="id">
         /// Unique identifier for the project<br/>
-        /// Example: proj_abc123xyz456
+        /// Example: pr_1a2b3c4d5e6f
         /// </param>
         /// <param name="orgId">
         /// Identifier of the organization that owns this project<br/>
-        /// Example: org_abc123xyz456
+        /// Example: ok_1a2b3c4d5e6f
         /// </param>
         /// <param name="name">
         /// Name of the project<br/>
