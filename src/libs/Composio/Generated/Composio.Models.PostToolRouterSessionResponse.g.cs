@@ -10,9 +10,9 @@ namespace Composio
     {
         /// <summary>
         /// The identifier of the session<br/>
-        /// Example: trs_123456789
+        /// Example: trs_1a2b3c4d5e6f
         /// </summary>
-        /// <example>trs_123456789</example>
+        /// <example>trs_1a2b3c4d5e6f</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("session_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string SessionId { get; set; }
@@ -55,7 +55,7 @@ namespace Composio
         /// </summary>
         /// <param name="sessionId">
         /// The identifier of the session<br/>
-        /// Example: trs_123456789
+        /// Example: trs_1a2b3c4d5e6f
         /// </param>
         /// <param name="mcp"></param>
         /// <param name="toolRouterTools">

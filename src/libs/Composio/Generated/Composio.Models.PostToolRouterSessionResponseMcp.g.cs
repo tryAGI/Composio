@@ -17,9 +17,9 @@ namespace Composio
 
         /// <summary>
         /// The URL of the MCP server<br/>
-        /// Example: https://app.composio.dev/tool_router/v3/trs_123456789/mcp
+        /// Example: https://app.composio.dev/tool_router/v3/trs_1a2b3c4d5e6f/mcp
         /// </summary>
-        /// <example>https://app.composio.dev/tool_router/v3/trs_123456789/mcp</example>
+        /// <example>https://app.composio.dev/tool_router/v3/trs_1a2b3c4d5e6f/mcp</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("url")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Url { get; set; }
@@ -35,7 +35,7 @@ namespace Composio
         /// </summary>
         /// <param name="url">
         /// The URL of the MCP server<br/>
-        /// Example: https://app.composio.dev/tool_router/v3/trs_123456789/mcp
+        /// Example: https://app.composio.dev/tool_router/v3/trs_1a2b3c4d5e6f/mcp
         /// </param>
         /// <param name="type">
         /// The type of the MCP server. Can be http

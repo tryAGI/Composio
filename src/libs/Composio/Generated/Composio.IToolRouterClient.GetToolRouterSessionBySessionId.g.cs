@@ -10,7 +10,7 @@ namespace Composio
         /// </summary>
         /// <param name="sessionId">
         /// The session ID returned when creating the session<br/>
-        /// Example: trs_123456789
+        /// Example: trs_1a2b3c4d5e6f
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

@@ -60,6 +60,12 @@ namespace Composio
         public global::Composio.GetToolRouterSessionBySessionIdResponseConfigWorkbench? Workbench { get; set; }
 
         /// <summary>
+        /// Multi-account configuration for this session.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("multi_account")]
+        public global::Composio.GetToolRouterSessionBySessionIdResponseConfigMultiAccount? MultiAccount { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -93,6 +99,9 @@ namespace Composio
         /// Workbench configuration<br/>
         /// Default Value: {"enable":true,"proxy_execution_enabled":true}
         /// </param>
+        /// <param name="multiAccount">
+        /// Multi-account configuration for this session.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -104,7 +113,8 @@ namespace Composio
             global::Composio.GetToolRouterSessionBySessionIdResponseConfigManageConnections? manageConnections,
             object? tools,
             global::Composio.GetToolRouterSessionBySessionIdResponseConfigTags? tags,
-            global::Composio.GetToolRouterSessionBySessionIdResponseConfigWorkbench? workbench)
+            global::Composio.GetToolRouterSessionBySessionIdResponseConfigWorkbench? workbench,
+            global::Composio.GetToolRouterSessionBySessionIdResponseConfigMultiAccount? multiAccount)
         {
             this.UserId = userId ?? throw new global::System.ArgumentNullException(nameof(userId));
             this.Toolkits = toolkits;
@@ -114,6 +124,7 @@ namespace Composio
             this.Tools = tools;
             this.Tags = tags;
             this.Workbench = workbench;
+            this.MultiAccount = multiAccount;
         }
 
         /// <summary>

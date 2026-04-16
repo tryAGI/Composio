@@ -51,7 +51,7 @@ namespace Composio
         /// </summary>
         /// <param name="sessionId">
         /// The unique identifier of the tool router session<br/>
-        /// Example: trs_123456789
+        /// Example: trs_1a2b3c4d5e6f
         /// </param>
         /// <param name="mountId">
         /// ID of the storage mount<br/>
@@ -563,7 +563,7 @@ namespace Composio
         /// </summary>
         /// <param name="sessionId">
         /// The unique identifier of the tool router session<br/>
-        /// Example: trs_123456789
+        /// Example: trs_1a2b3c4d5e6f
         /// </param>
         /// <param name="mountId">
         /// ID of the storage mount<br/>
