@@ -9,28 +9,28 @@ namespace Composio
     public sealed partial class PostLabsToolRouterSessionResponse
     {
         /// <summary>
-        /// Generated session identifier<br/>
-        /// Example: session_123456789
+        /// Generated session identifier (prefixed with "trs_")<br/>
+        /// Example: trs_1a2b3c4d5e6f
         /// </summary>
-        /// <example>session_123456789</example>
+        /// <example>trs_1a2b3c4d5e6f</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("session_id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string SessionId { get; set; }
 
         /// <summary>
         /// MCP server endpoint URL for this specific chat session<br/>
-        /// Example: https://api.composio.dev/v3/mcp/tool-router/session_123456789/mcp
+        /// Example: https://api.composio.dev/v3/mcp/tool-router/trs_1a2b3c4d5e6f/mcp
         /// </summary>
-        /// <example>https://api.composio.dev/v3/mcp/tool-router/session_123456789/mcp</example>
+        /// <example>https://api.composio.dev/v3/mcp/tool-router/trs_1a2b3c4d5e6f/mcp</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("chat_session_mcp_url")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ChatSessionMcpUrl { get; set; }
 
         /// <summary>
         /// MCP server endpoint URL for this specific tool router instance<br/>
-        /// Example: https://api.composio.dev/v3/mcp/tool-router/session_123456789/mcp
+        /// Example: https://api.composio.dev/v3/mcp/tool-router/trs_1a2b3c4d5e6f/mcp
         /// </summary>
-        /// <example>https://api.composio.dev/v3/mcp/tool-router/session_123456789/mcp</example>
+        /// <example>https://api.composio.dev/v3/mcp/tool-router/trs_1a2b3c4d5e6f/mcp</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_router_instance_mcp_url")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ToolRouterInstanceMcpUrl { get; set; }
@@ -45,16 +45,16 @@ namespace Composio
         /// Initializes a new instance of the <see cref="PostLabsToolRouterSessionResponse" /> class.
         /// </summary>
         /// <param name="sessionId">
-        /// Generated session identifier<br/>
-        /// Example: session_123456789
+        /// Generated session identifier (prefixed with "trs_")<br/>
+        /// Example: trs_1a2b3c4d5e6f
         /// </param>
         /// <param name="chatSessionMcpUrl">
         /// MCP server endpoint URL for this specific chat session<br/>
-        /// Example: https://api.composio.dev/v3/mcp/tool-router/session_123456789/mcp
+        /// Example: https://api.composio.dev/v3/mcp/tool-router/trs_1a2b3c4d5e6f/mcp
         /// </param>
         /// <param name="toolRouterInstanceMcpUrl">
         /// MCP server endpoint URL for this specific tool router instance<br/>
-        /// Example: https://api.composio.dev/v3/mcp/tool-router/session_123456789/mcp
+        /// Example: https://api.composio.dev/v3/mcp/tool-router/trs_1a2b3c4d5e6f/mcp
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

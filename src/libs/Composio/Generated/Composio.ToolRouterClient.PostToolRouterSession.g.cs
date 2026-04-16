@@ -409,6 +409,44 @@ namespace Composio
                                         h => h.Value),
                                 };
                             }
+                            // Request timeout. The session creation took too long to complete.
+                            if ((int)__response.StatusCode == 408)
+                            {
+                                string? __content_408 = null;
+                                global::System.Exception? __exception_408 = null;
+                                global::Composio.Error? __value_408 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_408 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_408 = global::Composio.Error.FromJson(__content_408, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_408 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_408 = global::Composio.Error.FromJson(__content_408, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_408 = __ex;
+                                }
+
+                                throw new global::Composio.ApiException<global::Composio.Error>(
+                                    message: __content_408 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_408,
+                                    statusCode: __response.StatusCode)
+                                {
+                                    ResponseBody = __content_408,
+                                    ResponseObject = __value_408,
+                                    ResponseHeaders = global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value),
+                                };
+                            }
                             // Internal server error. An unexpected error occurred while processing the request.
                             if ((int)__response.StatusCode == 500)
                             {
