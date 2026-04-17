@@ -121,15 +121,6 @@ namespace Composio
         };
 
         /// <summary>
-        /// Organization management.
-        /// </summary>
-        public OrganizationClient Organization => new OrganizationClient(HttpClient, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
         /// 
         /// </summary>
         public OrganizationManagementClient OrganizationManagement => new OrganizationManagementClient(HttpClient, authorizations: Authorizations, options: Options)

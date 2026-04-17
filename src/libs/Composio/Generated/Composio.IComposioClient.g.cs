@@ -90,11 +90,6 @@ namespace Composio
         public MigrationClient Migration { get; }
 
         /// <summary>
-        /// Organization management.
-        /// </summary>
-        public OrganizationClient Organization { get; }
-
-        /// <summary>
         /// 
         /// </summary>
         public OrganizationManagementClient OrganizationManagement { get; }
