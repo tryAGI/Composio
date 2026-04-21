@@ -18,21 +18,21 @@ namespace Composio
         public required string Id { get; set; }
 
         /// <summary>
-        /// Object storage upload location. Example: "projects/prj_xyz789/requests/slack/SLACK_UPLOAD_FILE/document_9mZn4q.docx"
+        /// Object storage upload location. Example: "projects/pr_1a2b3c4d5e6f/requests/slack/SLACK_UPLOAD_FILE/document_9mZn4q.docx"
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("key")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Key { get; set; }
 
         /// <summary>
-        /// Presigned URL for upload. Example: "https://storage.composio.dev/projects/prj_xyz789/requests/slack/document_9mZn4q.docx?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Expires=3600..."
+        /// Presigned URL for upload. Example: "https://storage.composio.dev/projects/pr_1a2b3c4d5e6f/requests/slack/document_9mZn4q.docx?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Expires=3600..."
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("new_presigned_url")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string NewPresignedUrl { get; set; }
 
         /// <summary>
-        /// [DEPRECATED] Use new_presigned_url instead. Presigned URL for upload. Example: "https://storage.composio.dev/projects/prj_xyz789/requests/slack/document_9mZn4q.docx?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Expires=3600..."
+        /// [DEPRECATED] Use new_presigned_url instead. Presigned URL for upload. Example: "https://storage.composio.dev/projects/pr_1a2b3c4d5e6f/requests/slack/document_9mZn4q.docx?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Expires=3600..."
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("newPresignedUrl")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -66,13 +66,13 @@ namespace Composio
         /// ID of the request file. Example: "req_file_9mZn4qR8sXwT"
         /// </param>
         /// <param name="key">
-        /// Object storage upload location. Example: "projects/prj_xyz789/requests/slack/SLACK_UPLOAD_FILE/document_9mZn4q.docx"
+        /// Object storage upload location. Example: "projects/pr_1a2b3c4d5e6f/requests/slack/SLACK_UPLOAD_FILE/document_9mZn4q.docx"
         /// </param>
         /// <param name="newPresignedUrl">
-        /// Presigned URL for upload. Example: "https://storage.composio.dev/projects/prj_xyz789/requests/slack/document_9mZn4q.docx?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Expires=3600..."
+        /// Presigned URL for upload. Example: "https://storage.composio.dev/projects/pr_1a2b3c4d5e6f/requests/slack/document_9mZn4q.docx?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Expires=3600..."
         /// </param>
         /// <param name="newPresignedUrl2">
-        /// [DEPRECATED] Use new_presigned_url instead. Presigned URL for upload. Example: "https://storage.composio.dev/projects/prj_xyz789/requests/slack/document_9mZn4q.docx?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Expires=3600..."
+        /// [DEPRECATED] Use new_presigned_url instead. Presigned URL for upload. Example: "https://storage.composio.dev/projects/pr_1a2b3c4d5e6f/requests/slack/document_9mZn4q.docx?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Expires=3600..."
         /// </param>
         /// <param name="metadata"></param>
 #if NET7_0_OR_GREATER
