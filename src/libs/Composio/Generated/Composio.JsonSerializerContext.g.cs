@@ -673,6 +673,10 @@ namespace Composio
 
             typeof(global::Composio.JsonConverters.GetAuthSessionInfoResponseProjectWebhookVersionNullableJsonConverter),
 
+            typeof(global::Composio.JsonConverters.GetAuthSessionInfoResponseOrgMemberMetadataOnboardingPlatformJsonConverter),
+
+            typeof(global::Composio.JsonConverters.GetAuthSessionInfoResponseOrgMemberMetadataOnboardingPlatformNullableJsonConverter),
+
             typeof(global::Composio.JsonConverters.GetAuthConfigsResponseItemTypeJsonConverter),
 
             typeof(global::Composio.JsonConverters.GetAuthConfigsResponseItemTypeNullableJsonConverter),
@@ -2087,6 +2091,8 @@ namespace Composio
 
             typeof(global::Composio.JsonConverters.OneOfJsonConverter<object, string, global::System.Collections.Generic.Dictionary<string, string>>),
 
+            typeof(global::Composio.JsonConverters.AnyOfJsonConverter<string, bool?, double?>),
+
             typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.GetConnectedAccountsResponseItemStateVariant1, global::Composio.GetConnectedAccountsResponseItemStateVariant2, global::Composio.GetConnectedAccountsResponseItemStateVariant3, global::Composio.GetConnectedAccountsResponseItemStateVariant4, global::Composio.GetConnectedAccountsResponseItemStateVariant5, global::Composio.GetConnectedAccountsResponseItemStateVariant6, global::Composio.GetConnectedAccountsResponseItemStateVariant7, global::Composio.GetConnectedAccountsResponseItemStateVariant8, global::Composio.GetConnectedAccountsResponseItemStateVariant9, global::Composio.GetConnectedAccountsResponseItemStateVariant10, global::Composio.GetConnectedAccountsResponseItemStateVariant11, global::Composio.GetConnectedAccountsResponseItemStateVariant12, global::Composio.GetConnectedAccountsResponseItemStateVariant13, global::Composio.GetConnectedAccountsResponseItemStateVariant14>),
 
             typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.GetConnectedAccountsResponseItemStateVariant1ValVariant1, global::Composio.GetConnectedAccountsResponseItemStateVariant1ValVariant2, global::Composio.GetConnectedAccountsResponseItemStateVariant1ValVariant3, global::Composio.GetConnectedAccountsResponseItemStateVariant1ValVariant4, global::Composio.GetConnectedAccountsResponseItemStateVariant1ValVariant5, global::Composio.GetConnectedAccountsResponseItemStateVariant1ValVariant6>),
@@ -2756,6 +2762,9 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetAuthSessionInfoResponseProjectOrg))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetAuthSessionInfoResponseApiKey))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetAuthSessionInfoResponseOrgMember))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetAuthSessionInfoResponseOrgMemberMetadata))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<string, bool?, double?>), TypeInfoPropertyName = "AnyOfStringBooleanDouble2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetAuthSessionInfoResponseOrgMemberMetadataOnboardingPlatform), TypeInfoPropertyName = "GetAuthSessionInfoResponseOrgMemberMetadataOnboardingPlatform2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostAuthSessionLogoutResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostAuthSessionLogoutResponse2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostAuthSessionLogoutResponse3))]

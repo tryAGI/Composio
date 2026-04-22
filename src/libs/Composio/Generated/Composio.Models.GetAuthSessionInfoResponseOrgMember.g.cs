@@ -5,7 +5,7 @@ namespace Composio
 {
     /// <summary>
     /// Information about the authenticated user<br/>
-    /// Example: {"id":"550e8400-e29b-41d4-a716-446655440002","email":"user@example.com","name":"John Doe","role":"admin"}
+    /// Example: {"id":"550e8400-e29b-41d4-a716-446655440002","email":"user@example.com","name":"John Doe","role":"admin","metadata":{"prefers_old_dashboard":false}}
     /// </summary>
     public sealed partial class GetAuthSessionInfoResponseOrgMember
     {
@@ -46,6 +46,13 @@ namespace Composio
         public required string Role { get; set; }
 
         /// <summary>
+        /// User metadata (JSONB). Typed keys are shown; additional keys pass through unchanged.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Composio.GetAuthSessionInfoResponseOrgMemberMetadata Metadata { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -70,6 +77,9 @@ namespace Composio
         /// Access role of the authenticated user within the organization<br/>
         /// Example: admin
         /// </param>
+        /// <param name="metadata">
+        /// User metadata (JSONB). Typed keys are shown; additional keys pass through unchanged.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -77,12 +87,14 @@ namespace Composio
             string id,
             string email,
             string name,
-            string role)
+            string role,
+            global::Composio.GetAuthSessionInfoResponseOrgMemberMetadata metadata)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Email = email ?? throw new global::System.ArgumentNullException(nameof(email));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Role = role ?? throw new global::System.ArgumentNullException(nameof(role));
+            this.Metadata = metadata ?? throw new global::System.ArgumentNullException(nameof(metadata));
         }
 
         /// <summary>
