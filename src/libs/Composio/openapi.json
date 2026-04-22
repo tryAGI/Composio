@@ -1079,20 +1079,71 @@
                           "type": "string",
                           "description": "Access role of the authenticated user within the organization",
                           "example": "admin"
+                        },
+                        "metadata": {
+                          "type": "object",
+                          "properties": {
+                            "createdInBetterAuth": {
+                              "type": "boolean",
+                              "description": "Whether the user was created via Better Auth (dashboard signup)."
+                            },
+                            "prefers_old_dashboard": {
+                              "type": "boolean",
+                              "description": "If true, the user will be redirected to the legacy dashboard at platform.composio.dev."
+                            },
+                            "onboarding_platform": {
+                              "type": "string",
+                              "enum": [
+                                "consumer",
+                                "developer"
+                              ],
+                              "description": "Platform the user onboarded on."
+                            },
+                            "seen_flow_consumer": {
+                              "type": "boolean",
+                              "description": "True once the user has completed the consumer onboarding flow."
+                            },
+                            "seen_flow_developer": {
+                              "type": "boolean",
+                              "description": "True once the user has completed the developer onboarding flow."
+                            },
+                            "seen_flow_cli": {
+                              "type": "boolean",
+                              "description": "True once the user has completed the CLI onboarding flow."
+                            }
+                          },
+                          "additionalProperties": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "boolean"
+                              },
+                              {
+                                "type": "number"
+                              }
+                            ]
+                          },
+                          "description": "User metadata (JSONB). Typed keys are shown; additional keys pass through unchanged."
                         }
                       },
                       "required": [
                         "id",
                         "email",
                         "name",
-                        "role"
+                        "role",
+                        "metadata"
                       ],
                       "description": "Information about the authenticated user",
                       "example": {
                         "id": "550e8400-e29b-41d4-a716-446655440002",
                         "email": "user@example.com",
                         "name": "John Doe",
-                        "role": "admin"
+                        "role": "admin",
+                        "metadata": {
+                          "prefers_old_dashboard": false
+                        }
                       }
                     }
                   },
@@ -47310,8 +47361,7 @@
                                           "idempotentHint",
                                           "openWorldHint"
                                         ]
-                                      },
-                                      "description": "Tags that the tool must have at least one of"
+                                      }
                                     },
                                     "disable": {
                                       "type": "array",
@@ -47323,8 +47373,7 @@
                                           "idempotentHint",
                                           "openWorldHint"
                                         ]
-                                      },
-                                      "description": "Tags that the tool must NOT have any of"
+                                      }
                                     }
                                   }
                                 }
@@ -47399,8 +47448,7 @@
                                 "idempotentHint",
                                 "openWorldHint"
                               ]
-                            },
-                            "description": "Tags that the tool must have at least one of"
+                            }
                           },
                           "disable": {
                             "type": "array",
@@ -47412,8 +47460,7 @@
                                 "idempotentHint",
                                 "openWorldHint"
                               ]
-                            },
-                            "description": "Tags that the tool must NOT have any of"
+                            }
                           }
                         }
                       }

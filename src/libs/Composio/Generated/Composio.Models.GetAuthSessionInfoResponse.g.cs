@@ -22,9 +22,9 @@ namespace Composio
 
         /// <summary>
         /// Information about the authenticated user<br/>
-        /// Example: {"id":"550e8400-e29b-41d4-a716-446655440002","email":"user@example.com","name":"John Doe","role":"admin"}
+        /// Example: {"id":"550e8400-e29b-41d4-a716-446655440002","email":"user@example.com","name":"John Doe","role":"admin","metadata":{"prefers_old_dashboard":false}}
         /// </summary>
-        /// <example>{"id":"550e8400-e29b-41d4-a716-446655440002","email":"user@example.com","name":"John Doe","role":"admin"}</example>
+        /// <example>{"id":"550e8400-e29b-41d4-a716-446655440002","email":"user@example.com","name":"John Doe","role":"admin","metadata":{"prefers_old_dashboard":false}}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("org_member")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::Composio.GetAuthSessionInfoResponseOrgMember OrgMember { get; set; }
@@ -40,7 +40,7 @@ namespace Composio
         /// </summary>
         /// <param name="orgMember">
         /// Information about the authenticated user<br/>
-        /// Example: {"id":"550e8400-e29b-41d4-a716-446655440002","email":"user@example.com","name":"John Doe","role":"admin"}
+        /// Example: {"id":"550e8400-e29b-41d4-a716-446655440002","email":"user@example.com","name":"John Doe","role":"admin","metadata":{"prefers_old_dashboard":false}}
         /// </param>
         /// <param name="project">
         /// Details of the current active project (null if accessing with org-level credentials)
