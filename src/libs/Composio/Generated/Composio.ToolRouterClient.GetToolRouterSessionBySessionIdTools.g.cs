@@ -44,8 +44,8 @@ namespace Composio
             ref string content);
 
         /// <summary>
-        /// List meta tools with schemas for a tool router session<br/>
-        /// Returns the meta tools available in a tool router session with their complete schemas. This includes request and response schemas specific to the session context.
+        /// List tools with schemas for a tool router session<br/>
+        /// Returns the tools available in a tool router session with their complete schemas. This includes both meta tools and any preloaded app tools exposed by the session.
         /// </summary>
         /// <param name="sessionId">
         /// Tool router session ID
@@ -662,8 +662,8 @@ namespace Composio
             }
         }
         /// <summary>
-        /// List meta tools with schemas for a tool router session<br/>
-        /// Returns the meta tools available in a tool router session with their complete schemas. This includes request and response schemas specific to the session context.
+        /// List tools with schemas for a tool router session<br/>
+        /// Returns the tools available in a tool router session with their complete schemas. This includes both meta tools and any preloaded app tools exposed by the session.
         /// </summary>
         /// <param name="sessionId">
         /// Tool router session ID

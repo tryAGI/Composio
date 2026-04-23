@@ -29,7 +29,7 @@ namespace Composio
         public global::System.Collections.Generic.Dictionary<string, string>? AuthConfigs { get; set; }
 
         /// <summary>
-        /// Connected account overrides per toolkit
+        /// Connected account overrides per toolkit. Each connected account must belong to the same user_id as the session.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("connected_accounts")]
         public global::System.Collections.Generic.Dictionary<string, string>? ConnectedAccounts { get; set; }
@@ -66,6 +66,13 @@ namespace Composio
         public global::Composio.GetToolRouterSessionBySessionIdResponseConfigMultiAccount? MultiAccount { get; set; }
 
         /// <summary>
+        /// Preload configuration. Controls which tools appear in `session.tools` and the MCP server tool list, callable directly without going through search. Each preloaded tool adds to the agent context — roughly ≤20 tools is recommended. Always present in the response (empty `tools: []` when the session was created without a preload config).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("preload")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Composio.GetToolRouterSessionBySessionIdResponseConfigPreload Preload { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -77,6 +84,9 @@ namespace Composio
         /// <param name="userId">
         /// User identifier for this session
         /// </param>
+        /// <param name="preload">
+        /// Preload configuration. Controls which tools appear in `session.tools` and the MCP server tool list, callable directly without going through search. Each preloaded tool adds to the agent context — roughly ≤20 tools is recommended. Always present in the response (empty `tools: []` when the session was created without a preload config).
+        /// </param>
         /// <param name="toolkits">
         /// Toolkit configuration - either enabled list or disabled list
         /// </param>
@@ -84,7 +94,7 @@ namespace Composio
         /// Auth config overrides per toolkit
         /// </param>
         /// <param name="connectedAccounts">
-        /// Connected account overrides per toolkit
+        /// Connected account overrides per toolkit. Each connected account must belong to the same user_id as the session.
         /// </param>
         /// <param name="manageConnections">
         /// Manage connections configuration
@@ -107,6 +117,7 @@ namespace Composio
 #endif
         public GetToolRouterSessionBySessionIdResponseConfig(
             string userId,
+            global::Composio.GetToolRouterSessionBySessionIdResponseConfigPreload preload,
             global::Composio.AnyOf<global::Composio.GetToolRouterSessionBySessionIdResponseConfigToolkitsVariant1, global::Composio.GetToolRouterSessionBySessionIdResponseConfigToolkitsVariant2>? toolkits,
             global::System.Collections.Generic.Dictionary<string, string>? authConfigs,
             global::System.Collections.Generic.Dictionary<string, string>? connectedAccounts,
@@ -125,6 +136,7 @@ namespace Composio
             this.Tags = tags;
             this.Workbench = workbench;
             this.MultiAccount = multiAccount;
+            this.Preload = preload ?? throw new global::System.ArgumentNullException(nameof(preload));
         }
 
         /// <summary>
