@@ -84,6 +84,12 @@ namespace Composio
         public global::Composio.PostToolRouterSessionRequestExperimental? Experimental { get; set; }
 
         /// <summary>
+        /// Preload configuration. Controls which tools appear in `session.tools` and the MCP server tool list so the agent can call them directly without going through search first — useful for frequently used tools. Each slug must be allowed by the session filters (`toolkits`, `tools`, `tags`), otherwise session creation fails with a 400. Custom tools declared in `custom_tools` / `custom_toolkits` can also be preloaded. Not supported when multi-account is enabled. Each preloaded tool adds to the agent context window, so keep the list at or under ~20 tools.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("preload")]
+        public global::Composio.PostToolRouterSessionRequestPreload? Preload { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -129,6 +135,9 @@ namespace Composio
         /// <param name="experimental">
         /// Experimental features - not stable, may be modified or removed in future versions.
         /// </param>
+        /// <param name="preload">
+        /// Preload configuration. Controls which tools appear in `session.tools` and the MCP server tool list so the agent can call them directly without going through search first — useful for frequently used tools. Each slug must be allowed by the session filters (`toolkits`, `tools`, `tags`), otherwise session creation fails with a 400. Custom tools declared in `custom_tools` / `custom_toolkits` can also be preloaded. Not supported when multi-account is enabled. Each preloaded tool adds to the agent context window, so keep the list at or under ~20 tools.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -142,7 +151,8 @@ namespace Composio
             global::Composio.AnyOf<global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionRequestTag>, global::Composio.PostToolRouterSessionRequestTags>? tags,
             global::Composio.PostToolRouterSessionRequestWorkbench? workbench,
             global::Composio.PostToolRouterSessionRequestMultiAccount? multiAccount,
-            global::Composio.PostToolRouterSessionRequestExperimental? experimental)
+            global::Composio.PostToolRouterSessionRequestExperimental? experimental,
+            global::Composio.PostToolRouterSessionRequestPreload? preload)
         {
             this.UserId = userId ?? throw new global::System.ArgumentNullException(nameof(userId));
             this.Toolkits = toolkits;
@@ -154,6 +164,7 @@ namespace Composio
             this.Workbench = workbench;
             this.MultiAccount = multiAccount;
             this.Experimental = experimental;
+            this.Preload = preload;
         }
 
         /// <summary>

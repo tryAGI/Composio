@@ -47713,6 +47713,24 @@
                     "additionalProperties": false,
                     "description": "Experimental features - not stable, may be modified or removed in future versions.",
                     "x-experimental": true
+                  },
+                  "preload": {
+                    "type": "object",
+                    "properties": {
+                      "tools": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "description": "Tool slugs to preload. Each slug must be allowed by the session filters (`toolkits`, `tools`, `tags`) and exist either in the Composio tool catalog or in `custom_tools` / `custom_toolkits` — unknown or blocked slugs return a 400 at session creation.",
+                        "example": [
+                          "GMAIL_FETCH_EMAILS",
+                          "SLACK_SEND_MESSAGE"
+                        ]
+                      }
+                    },
+                    "additionalProperties": false,
+                    "description": "Preload configuration. Controls which tools appear in `session.tools` and the MCP server tool list so the agent can call them directly without going through search first — useful for frequently used tools. Each slug must be allowed by the session filters (`toolkits`, `tools`, `tags`), otherwise session creation fails with a 400. Custom tools declared in `custom_tools` / `custom_toolkits` can also be preloaded. Not supported when multi-account is enabled. Each preloaded tool adds to the agent context window, so keep the list at or under ~20 tools."
                   }
                 },
                 "required": [
@@ -48008,7 +48026,7 @@
                             "type": "string",
                             "format": "connectedAccountId"
                           },
-                          "description": "Connected account overrides per toolkit"
+                          "description": "Connected account overrides per toolkit. Each connected account must belong to the same user_id as the session."
                         },
                         "manage_connections": {
                           "type": "object",
@@ -48187,10 +48205,28 @@
                             }
                           },
                           "description": "Multi-account configuration for this session."
+                        },
+                        "preload": {
+                          "type": "object",
+                          "properties": {
+                            "tools": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "description": "Tool slugs preloaded for this session. Appear in `session.tools` and the MCP server tool list, callable directly without going through search. Empty array when no preload was configured."
+                            }
+                          },
+                          "required": [
+                            "tools"
+                          ],
+                          "additionalProperties": false,
+                          "description": "Preload configuration. Controls which tools appear in `session.tools` and the MCP server tool list, callable directly without going through search. Each preloaded tool adds to the agent context — roughly ≤20 tools is recommended. Always present in the response (empty `tools: []` when the session was created without a preload config)."
                         }
                       },
                       "required": [
-                        "user_id"
+                        "user_id",
+                        "preload"
                       ],
                       "description": "The session configuration including user, toolkits, and overrides"
                     },
@@ -48329,6 +48365,39 @@
                       },
                       "description": "Experimental features including the generated system prompt. Only returned on session creation, not on GET.",
                       "x-experimental": true
+                    },
+                    "warnings": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "code": {
+                            "type": "string",
+                            "enum": [
+                              "PRELOAD_TOOLS_HIGH_CONTEXT_USAGE"
+                            ],
+                            "description": "Stable machine code identifying the advisory. Safe to switch on in client code.",
+                            "example": "PRELOAD_TOOLS_HIGH_CONTEXT_USAGE"
+                          },
+                          "message": {
+                            "type": "string",
+                            "description": "Human-readable description of the advisory. Suitable for logging or surfacing to end users.",
+                            "example": "Session preloads 25 tools; each preloaded tool adds to the agent context window. Consider keeping the list at or under ~20 tools."
+                          }
+                        },
+                        "required": [
+                          "code",
+                          "message"
+                        ]
+                      },
+                      "default": [],
+                      "description": "Advisory list — session was created, but the listed issues may warrant attention.",
+                      "example": [
+                        {
+                          "code": "PRELOAD_TOOLS_HIGH_CONTEXT_USAGE",
+                          "message": "Session preloads 25 tools; each preloaded tool adds to the agent context window. Consider keeping the list at or under ~20 tools."
+                        }
+                      ]
                     }
                   },
                   "required": [
@@ -48397,7 +48466,7 @@
     "/api/v3/tool_router/session/{session_id}/execute": {
       "post": {
         "summary": "Execute a tool within a tool router session",
-        "description": "Executes a specific tool within a tool router session. The toolkit is automatically inferred from the tool slug. The tool must belong to an allowed toolkit and must not be disabled in the session configuration. This endpoint validates permissions, resolves connected accounts, and executes the tool with the session context.",
+        "description": "Executes a specific tool within a tool router session. This is the primary execution endpoint for both meta tools and app tools exposed by the session. The toolkit is automatically inferred from the tool slug. For app tools, the tool must belong to an allowed toolkit and must not be disabled in the session configuration. The endpoint validates permissions, resolves connected accounts when needed, and executes the tool with the session context.",
         "tags": [
           "Tool Router"
         ],
@@ -48439,7 +48508,7 @@
                   "tool_slug": {
                     "type": "string",
                     "minLength": 1,
-                    "description": "The unique slug identifier of the tool to execute",
+                    "description": "The unique slug identifier of the tool to execute. Supports both meta tools and app tools exposed by the session.",
                     "example": "GITHUB_CREATE_AN_ISSUE"
                   },
                   "arguments": {
@@ -48586,7 +48655,7 @@
     "/api/v3/tool_router/session/{session_id}/execute_meta": {
       "post": {
         "summary": "Execute a meta tool within a tool router session",
-        "description": "Executes a Composio meta tool (COMPOSIO_*) within a tool router session.",
+        "description": "Executes a Composio meta tool (COMPOSIO_*) within a tool router session. This endpoint is kept for meta-tool compatibility; clients can also use the primary /execute endpoint.",
         "tags": [
           "Tool Router"
         ],
@@ -48904,7 +48973,7 @@
                             "type": "string",
                             "format": "connectedAccountId"
                           },
-                          "description": "Connected account overrides per toolkit"
+                          "description": "Connected account overrides per toolkit. Each connected account must belong to the same user_id as the session."
                         },
                         "manage_connections": {
                           "type": "object",
@@ -49083,10 +49152,28 @@
                             }
                           },
                           "description": "Multi-account configuration for this session."
+                        },
+                        "preload": {
+                          "type": "object",
+                          "properties": {
+                            "tools": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "description": "Tool slugs preloaded for this session. Appear in `session.tools` and the MCP server tool list, callable directly without going through search. Empty array when no preload was configured."
+                            }
+                          },
+                          "required": [
+                            "tools"
+                          ],
+                          "additionalProperties": false,
+                          "description": "Preload configuration. Controls which tools appear in `session.tools` and the MCP server tool list, callable directly without going through search. Each preloaded tool adds to the agent context — roughly ≤20 tools is recommended. Always present in the response (empty `tools: []` when the session was created without a preload config)."
                         }
                       },
                       "required": [
-                        "user_id"
+                        "user_id",
+                        "preload"
                       ],
                       "description": "The session configuration including user, toolkits, and overrides"
                     },
@@ -51189,8 +51276,8 @@
     },
     "/api/v3/tool_router/session/{session_id}/tools": {
       "get": {
-        "summary": "List meta tools with schemas for a tool router session",
-        "description": "Returns the meta tools available in a tool router session with their complete schemas. This includes request and response schemas specific to the session context.",
+        "summary": "List tools with schemas for a tool router session",
+        "description": "Returns the tools available in a tool router session with their complete schemas. This includes both meta tools and any preloaded app tools exposed by the session.",
         "tags": [
           "Tool Router"
         ],
@@ -51231,7 +51318,7 @@
         },
         "responses": {
           "200": {
-            "description": "Successfully retrieved meta tools with their complete schemas.",
+            "description": "Successfully retrieved tools with their complete schemas.",
             "content": {
               "application/json": {
                 "schema": {

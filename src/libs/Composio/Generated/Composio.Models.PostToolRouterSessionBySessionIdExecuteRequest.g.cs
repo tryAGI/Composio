@@ -9,7 +9,7 @@ namespace Composio
     public sealed partial class PostToolRouterSessionBySessionIdExecuteRequest
     {
         /// <summary>
-        /// The unique slug identifier of the tool to execute<br/>
+        /// The unique slug identifier of the tool to execute. Supports both meta tools and app tools exposed by the session.<br/>
         /// Example: GITHUB_CREATE_AN_ISSUE
         /// </summary>
         /// <example>GITHUB_CREATE_AN_ISSUE</example>
@@ -44,7 +44,7 @@ namespace Composio
         /// Initializes a new instance of the <see cref="PostToolRouterSessionBySessionIdExecuteRequest" /> class.
         /// </summary>
         /// <param name="toolSlug">
-        /// The unique slug identifier of the tool to execute<br/>
+        /// The unique slug identifier of the tool to execute. Supports both meta tools and app tools exposed by the session.<br/>
         /// Example: GITHUB_CREATE_AN_ISSUE
         /// </param>
         /// <param name="arguments">

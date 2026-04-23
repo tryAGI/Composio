@@ -45,7 +45,7 @@ namespace Composio
 
         /// <summary>
         /// Execute a meta tool within a tool router session<br/>
-        /// Executes a Composio meta tool (COMPOSIO_*) within a tool router session.
+        /// Executes a Composio meta tool (COMPOSIO_*) within a tool router session. This endpoint is kept for meta-tool compatibility; clients can also use the primary /execute endpoint.
         /// </summary>
         /// <param name="sessionId">
         /// The unique identifier of the tool router session. Required for public API endpoints, optional for internal endpoints where it is injected by middleware.<br/>
@@ -664,7 +664,7 @@ namespace Composio
         }
         /// <summary>
         /// Execute a meta tool within a tool router session<br/>
-        /// Executes a Composio meta tool (COMPOSIO_*) within a tool router session.
+        /// Executes a Composio meta tool (COMPOSIO_*) within a tool router session. This endpoint is kept for meta-tool compatibility; clients can also use the primary /execute endpoint.
         /// </summary>
         /// <param name="sessionId">
         /// The unique identifier of the tool router session. Required for public API endpoints, optional for internal endpoints where it is injected by middleware.<br/>

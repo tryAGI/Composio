@@ -6,7 +6,7 @@ namespace Composio
     {
         /// <summary>
         /// Execute a tool within a tool router session<br/>
-        /// Executes a specific tool within a tool router session. The toolkit is automatically inferred from the tool slug. The tool must belong to an allowed toolkit and must not be disabled in the session configuration. This endpoint validates permissions, resolves connected accounts, and executes the tool with the session context.
+        /// Executes a specific tool within a tool router session. This is the primary execution endpoint for both meta tools and app tools exposed by the session. The toolkit is automatically inferred from the tool slug. For app tools, the tool must belong to an allowed toolkit and must not be disabled in the session configuration. The endpoint validates permissions, resolves connected accounts when needed, and executes the tool with the session context.
         /// </summary>
         /// <param name="sessionId">
         /// The unique identifier of the tool router session. Required for public API endpoints, optional for internal endpoints where it is injected by middleware.<br/>
@@ -24,14 +24,14 @@ namespace Composio
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Execute a tool within a tool router session<br/>
-        /// Executes a specific tool within a tool router session. The toolkit is automatically inferred from the tool slug. The tool must belong to an allowed toolkit and must not be disabled in the session configuration. This endpoint validates permissions, resolves connected accounts, and executes the tool with the session context.
+        /// Executes a specific tool within a tool router session. This is the primary execution endpoint for both meta tools and app tools exposed by the session. The toolkit is automatically inferred from the tool slug. For app tools, the tool must belong to an allowed toolkit and must not be disabled in the session configuration. The endpoint validates permissions, resolves connected accounts when needed, and executes the tool with the session context.
         /// </summary>
         /// <param name="sessionId">
         /// The unique identifier of the tool router session. Required for public API endpoints, optional for internal endpoints where it is injected by middleware.<br/>
         /// Example: trs_LX9uJKBinWWr
         /// </param>
         /// <param name="toolSlug">
-        /// The unique slug identifier of the tool to execute<br/>
+        /// The unique slug identifier of the tool to execute. Supports both meta tools and app tools exposed by the session.<br/>
         /// Example: GITHUB_CREATE_AN_ISSUE
         /// </param>
         /// <param name="arguments">
