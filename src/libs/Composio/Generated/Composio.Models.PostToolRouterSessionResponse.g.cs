@@ -39,6 +39,13 @@ namespace Composio
         public required global::Composio.PostToolRouterSessionResponseConfig Config { get; set; }
 
         /// <summary>
+        /// Monotonic version of the config. Incremented on each PATCH. Use for optimistic concurrency control.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("config_version")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int ConfigVersion { get; set; }
+
+        /// <summary>
         /// Experimental features including the generated system prompt. Only returned on session creation, not on GET.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("experimental")]
@@ -73,6 +80,9 @@ namespace Composio
         /// <param name="config">
         /// The session configuration including user, toolkits, and overrides
         /// </param>
+        /// <param name="configVersion">
+        /// Monotonic version of the config. Incremented on each PATCH. Use for optimistic concurrency control.
+        /// </param>
         /// <param name="experimental">
         /// Experimental features including the generated system prompt. Only returned on session creation, not on GET.
         /// </param>
@@ -89,6 +99,7 @@ namespace Composio
             global::Composio.PostToolRouterSessionResponseMcp mcp,
             global::System.Collections.Generic.IList<string> toolRouterTools,
             global::Composio.PostToolRouterSessionResponseConfig config,
+            int configVersion,
             global::Composio.PostToolRouterSessionResponseExperimental? experimental,
             global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionResponseWarning>? warnings)
         {
@@ -96,6 +107,7 @@ namespace Composio
             this.Mcp = mcp ?? throw new global::System.ArgumentNullException(nameof(mcp));
             this.ToolRouterTools = toolRouterTools ?? throw new global::System.ArgumentNullException(nameof(toolRouterTools));
             this.Config = config ?? throw new global::System.ArgumentNullException(nameof(config));
+            this.ConfigVersion = configVersion;
             this.Experimental = experimental;
             this.Warnings = warnings;
         }

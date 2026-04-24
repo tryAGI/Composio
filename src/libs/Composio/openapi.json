@@ -37070,6 +37070,696 @@
         }
       }
     },
+    "/api/v3/webhook_endpoints": {
+      "post": {
+        "summary": "Create webhook endpoint",
+        "description": "Creates a shared webhook endpoint for a toolkit + OAuth app + project. Returns the webhook URL that the customer registers in their app dashboard. Idempotent — returns existing endpoint if one already exists for this toolkit + client_id + project.",
+        "tags": [
+          "Webhooks"
+        ],
+        "operationId": "postWebhookEndpoints",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          },
+          {
+            "UserApiKeyAuth": []
+          },
+          {
+            "CookieAuth": []
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "toolkit_slug": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "Toolkit identifier (e.g., slack, discord)"
+                  },
+                  "client_id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "description": "OAuth app client ID — identifies which app this endpoint is for"
+                  }
+                },
+                "required": [
+                  "toolkit_slug",
+                  "client_id"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Existing webhook endpoint returned",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Webhook endpoint nano ID"
+                    },
+                    "toolkit_slug": {
+                      "type": "string",
+                      "description": "Toolkit this endpoint is for"
+                    },
+                    "client_id": {
+                      "type": "string",
+                      "nullable": true,
+                      "description": "OAuth app client ID"
+                    },
+                    "webhook_url": {
+                      "type": "string",
+                      "description": "The webhook URL to register with the provider"
+                    },
+                    "data": {
+                      "type": "object",
+                      "nullable": true,
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "description": "Configured fields with secret values masked"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "description": "ISO 8601 timestamp"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "toolkit_slug",
+                    "client_id",
+                    "webhook_url",
+                    "data",
+                    "created_at"
+                  ]
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Webhook endpoint created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Webhook endpoint nano ID"
+                    },
+                    "toolkit_slug": {
+                      "type": "string",
+                      "description": "Toolkit this endpoint is for"
+                    },
+                    "client_id": {
+                      "type": "string",
+                      "nullable": true,
+                      "description": "OAuth app client ID"
+                    },
+                    "webhook_url": {
+                      "type": "string",
+                      "description": "The webhook URL to register with the provider"
+                    },
+                    "data": {
+                      "type": "object",
+                      "nullable": true,
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "description": "Configured fields with secret values masked"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "description": "ISO 8601 timestamp"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "toolkit_slug",
+                    "client_id",
+                    "webhook_url",
+                    "data",
+                    "created_at"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "List webhook endpoints",
+        "description": "Lists webhook endpoints for the authenticated project, optionally filtered by toolkit.",
+        "tags": [
+          "Webhooks"
+        ],
+        "operationId": "getWebhookEndpoints",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          },
+          {
+            "UserApiKeyAuth": []
+          },
+          {
+            "CookieAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "description": "Filter by toolkit slug"
+            },
+            "required": false,
+            "description": "Filter by toolkit slug",
+            "name": "toolkit_slug",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string",
+                            "description": "Webhook endpoint nano ID"
+                          },
+                          "toolkit_slug": {
+                            "type": "string",
+                            "description": "Toolkit this endpoint is for"
+                          },
+                          "client_id": {
+                            "type": "string",
+                            "nullable": true,
+                            "description": "OAuth app client ID"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "toolkit_slug",
+                          "client_id"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "items"
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v3/webhook_endpoints/{nano_id}": {
+      "get": {
+        "summary": "Get webhook endpoint",
+        "description": "Retrieves a single webhook endpoint. Secret values are redacted. Use GET /webhook_endpoints/schema to discover field definitions.",
+        "tags": [
+          "Webhooks"
+        ],
+        "operationId": "getWebhookEndpointsByNanoId",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          },
+          {
+            "UserApiKeyAuth": []
+          },
+          {
+            "CookieAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "description": "Webhook endpoint nano ID (e.g., we_abc123)"
+            },
+            "required": true,
+            "description": "Webhook endpoint nano ID (e.g., we_abc123)",
+            "name": "nano_id",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Webhook endpoint nano ID"
+                    },
+                    "toolkit_slug": {
+                      "type": "string",
+                      "description": "Toolkit this endpoint is for"
+                    },
+                    "client_id": {
+                      "type": "string",
+                      "nullable": true,
+                      "description": "OAuth app client ID"
+                    },
+                    "webhook_url": {
+                      "type": "string",
+                      "description": "The webhook URL to register with the provider"
+                    },
+                    "data": {
+                      "type": "object",
+                      "nullable": true,
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "description": "Configured fields with secret values masked"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "description": "ISO 8601 timestamp"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "toolkit_slug",
+                    "client_id",
+                    "webhook_url",
+                    "data",
+                    "created_at"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Put webhook endpoint configuration",
+        "description": "Full replacement of webhook endpoint configuration. All required setup fields must be provided. Use PATCH to update individual fields.",
+        "tags": [
+          "Webhooks"
+        ],
+        "operationId": "postWebhookEndpointsByNanoId",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          },
+          {
+            "UserApiKeyAuth": []
+          },
+          {
+            "CookieAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "description": "Webhook endpoint nano ID (e.g., we_abc123)"
+            },
+            "required": true,
+            "description": "Webhook endpoint nano ID (e.g., we_abc123)",
+            "name": "nano_id",
+            "in": "path"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    },
+                    "description": "Key-value pairs for ALL required setup_fields. Unlike PATCH, all required fields must be provided — this is initial configuration."
+                  }
+                },
+                "required": [
+                  "data"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Configured",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Webhook endpoint nano ID"
+                    },
+                    "toolkit_slug": {
+                      "type": "string",
+                      "description": "Toolkit this endpoint is for"
+                    },
+                    "client_id": {
+                      "type": "string",
+                      "nullable": true,
+                      "description": "OAuth app client ID"
+                    },
+                    "webhook_url": {
+                      "type": "string",
+                      "description": "The webhook URL to register with the provider"
+                    },
+                    "data": {
+                      "type": "object",
+                      "nullable": true,
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "description": "Configured fields with secret values masked"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "description": "ISO 8601 timestamp"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "toolkit_slug",
+                    "client_id",
+                    "webhook_url",
+                    "data",
+                    "created_at"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update webhook endpoint configuration",
+        "description": "Updates app-specific secrets and credentials. Uses merge semantics — only included fields are updated; omitted fields are preserved. Can be called on active endpoints (e.g., to rotate a signing secret).",
+        "tags": [
+          "Webhooks"
+        ],
+        "operationId": "patchWebhookEndpointsByNanoId",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          },
+          {
+            "UserApiKeyAuth": []
+          },
+          {
+            "CookieAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "description": "Webhook endpoint nano ID (e.g., we_abc123)"
+            },
+            "required": true,
+            "description": "Webhook endpoint nano ID (e.g., we_abc123)",
+            "name": "nano_id",
+            "in": "path"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "data": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    },
+                    "description": "Key-value pairs matching the toolkit's setup_fields. Only include fields you want to update — omitted fields are preserved."
+                  }
+                },
+                "required": [
+                  "data"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "description": "Webhook endpoint nano ID"
+                    },
+                    "toolkit_slug": {
+                      "type": "string",
+                      "description": "Toolkit this endpoint is for"
+                    },
+                    "client_id": {
+                      "type": "string",
+                      "nullable": true,
+                      "description": "OAuth app client ID"
+                    },
+                    "webhook_url": {
+                      "type": "string",
+                      "description": "The webhook URL to register with the provider"
+                    },
+                    "data": {
+                      "type": "object",
+                      "nullable": true,
+                      "additionalProperties": {
+                        "type": "string"
+                      },
+                      "description": "Configured fields with secret values masked"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "description": "ISO 8601 timestamp"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "toolkit_slug",
+                    "client_id",
+                    "webhook_url",
+                    "data",
+                    "created_at"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v3/toolkits": {
       "get": {
         "summary": "List available toolkits",
@@ -47245,7 +47935,7 @@
                       "type": "string",
                       "format": "connectedAccountId"
                     },
-                    "description": "The connected accounts to use for the session. This will override the default behaviour and use the given connected account when specific toolkits are being executed",
+                    "description": "The connected accounts to use for the session. This will override the default behaviour and use the given connected account when specific toolkits are being executed. Each connected account must exist (not deleted or disabled) and belong to the same `user_id` as the session — otherwise session creation fails with a clear error explaining which account didn't match.",
                     "example": {
                       "github": "ca_3m4n5o6p7q8r"
                     }
@@ -47396,7 +48086,7 @@
                         }
                       ]
                     },
-                    "description": "Tool-level configuration per toolkit - either specify enable tools (whitelist), disable tools (blacklist), or filter by MCP tags for each toolkit",
+                    "description": "Tool-level configuration per toolkit. Allows you to enable, disable, or filter by tags for specific tools within each toolkit. Every slug passed in `enable` / `disable` must be a valid Composio tool slug for that toolkit — invalid or typo'd slugs fail session creation with a clear error listing which ones didn't match.",
                     "example": {
                       "gmail": {
                         "enable": [
@@ -48230,6 +48920,10 @@
                       ],
                       "description": "The session configuration including user, toolkits, and overrides"
                     },
+                    "config_version": {
+                      "type": "integer",
+                      "description": "Monotonic version of the config. Incremented on each PATCH. Use for optimistic concurrency control."
+                    },
                     "experimental": {
                       "type": "object",
                       "properties": {
@@ -48404,7 +49098,8 @@
                     "session_id",
                     "mcp",
                     "tool_router_tools",
-                    "config"
+                    "config",
+                    "config_version"
                   ]
                 }
               }
@@ -49177,6 +49872,10 @@
                       ],
                       "description": "The session configuration including user, toolkits, and overrides"
                     },
+                    "config_version": {
+                      "type": "integer",
+                      "description": "Monotonic version of the config. Incremented on each PATCH. Use for optimistic concurrency control."
+                    },
                     "experimental": {
                       "type": "object",
                       "properties": {
@@ -49318,7 +50017,8 @@
                     "session_id",
                     "mcp",
                     "tool_router_tools",
-                    "config"
+                    "config",
+                    "config_version"
                   ]
                 }
               }
@@ -49356,6 +50056,903 @@
           },
           "500": {
             "description": "Internal server error. An unexpected error occurred while processing the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "summary": "Patch a tool router session config",
+        "description": "Partially updates the configuration of an existing tool router session. Only the fields provided in the request body will be updated. Uses optimistic concurrency control to prevent lost updates. The previous config is stored in config history.",
+        "tags": [
+          "Tool Router"
+        ],
+        "operationId": "patchToolRouterSessionBySessionId",
+        "security": [
+          {
+            "ApiKeyAuth": []
+          },
+          {
+            "UserApiKeyAuth": []
+          },
+          {
+            "CookieAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "format": "toolRouterSessionId",
+              "description": "The unique identifier of the tool router session",
+              "example": "trs_1a2b3c4d5e6f"
+            },
+            "required": true,
+            "description": "The unique identifier of the tool router session",
+            "name": "session_id",
+            "in": "path"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "toolkits": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "enable": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "Only these specific toolkits will be enabled",
+                            "example": [
+                              "gmail",
+                              "slack",
+                              "github"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "enable"
+                        ],
+                        "additionalProperties": false,
+                        "description": "Enable only specific toolkits (allowlist)"
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "disable": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "description": "These specific toolkits will be disabled",
+                            "example": [
+                              "gmail",
+                              "slack"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "disable"
+                        ],
+                        "additionalProperties": false,
+                        "description": "Disable specific toolkits (denylist)"
+                      }
+                    ],
+                    "description": "Toolkit configuration - specify either enable toolkits (allowlist) or disable toolkits (denylist). Mutually exclusive."
+                  },
+                  "auth_configs": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string",
+                      "format": "authConfigId"
+                    },
+                    "description": "The auth configs to use for the session. This will override the default behavior and use the given auth config when specific toolkits are being executed",
+                    "example": {
+                      "gmail": "ac_1a2b3c4d5e6f",
+                      "slack": "ac_7g8h9i0j1k2l"
+                    }
+                  },
+                  "connected_accounts": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string",
+                      "format": "connectedAccountId"
+                    },
+                    "description": "The connected accounts to use for the session. This will override the default behaviour and use the given connected account when specific toolkits are being executed. Each connected account must exist (not deleted or disabled) and belong to the same `user_id` as the session — otherwise session creation fails with a clear error explaining which account didn't match.",
+                    "example": {
+                      "github": "ca_3m4n5o6p7q8r"
+                    }
+                  },
+                  "manage_connections": {
+                    "type": "object",
+                    "nullable": true,
+                    "properties": {
+                      "enable": {
+                        "type": "boolean",
+                        "nullable": true,
+                        "description": "Whether to enable the connection manager for automatic connection handling. If true, we will provide a tool your agent can use to initiate connections to toolkits if it doesnt exist. If set to false, then you have to manage connections manually.",
+                        "example": true
+                      },
+                      "callback_url": {
+                        "type": "string",
+                        "format": "uri",
+                        "description": "The URL to redirect to after a user completes authentication for a connected account. This allows you to handle the auth callback in your own application.",
+                        "example": "https://your-app.com/auth/callback"
+                      },
+                      "enable_wait_for_connections": {
+                        "type": "boolean",
+                        "nullable": true,
+                        "description": "When true, the COMPOSIO_WAIT_FOR_CONNECTIONS tool is available for agents to poll connection status after sharing auth URLs. Default is false (disabled). May not work reliably with GPT models.",
+                        "example": false
+                      },
+                      "enable_connection_removal": {
+                        "type": "boolean",
+                        "nullable": true,
+                        "description": "Enable the \"remove\" action in COMPOSIO_MANAGE_CONNECTIONS to allow deleting connected accounts. Default true."
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "tools": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "properties": {
+                            "enable": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "description": "Only these specific tools will be available for this toolkit",
+                              "example": [
+                                "GMAIL_SEND_EMAIL",
+                                "GMAIL_FETCH_EMAILS"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "enable"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "disable": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "description": "These specific tools will be disabled for this toolkit",
+                              "example": [
+                                "SLACK_ADD_EMOJI"
+                              ]
+                            }
+                          },
+                          "required": [
+                            "disable"
+                          ],
+                          "additionalProperties": false
+                        },
+                        {
+                          "type": "object",
+                          "properties": {
+                            "tags": {
+                              "anyOf": [
+                                {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string",
+                                    "enum": [
+                                      "readOnlyHint",
+                                      "destructiveHint",
+                                      "idempotentHint",
+                                      "openWorldHint"
+                                    ]
+                                  }
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "enable": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string",
+                                        "enum": [
+                                          "readOnlyHint",
+                                          "destructiveHint",
+                                          "idempotentHint",
+                                          "openWorldHint"
+                                        ]
+                                      }
+                                    },
+                                    "disable": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string",
+                                        "enum": [
+                                          "readOnlyHint",
+                                          "destructiveHint",
+                                          "idempotentHint",
+                                          "openWorldHint"
+                                        ]
+                                      }
+                                    }
+                                  }
+                                }
+                              ],
+                              "description": "MCP tags to filter tools. Array format is treated as enabled list. Object format supports both enabled and disabled lists.",
+                              "example": {
+                                "enable": [
+                                  "openWorldHint"
+                                ],
+                                "disable": [
+                                  "destructiveHint"
+                                ]
+                              }
+                            }
+                          },
+                          "required": [
+                            "tags"
+                          ],
+                          "additionalProperties": false
+                        }
+                      ]
+                    },
+                    "description": "Tool-level configuration per toolkit. Allows you to enable, disable, or filter by tags for specific tools within each toolkit. Every slug passed in `enable` / `disable` must be a valid Composio tool slug for that toolkit — invalid or typo'd slugs fail session creation with a clear error listing which ones didn't match.",
+                    "example": {
+                      "gmail": {
+                        "enable": [
+                          "GMAIL_SEND_EMAIL",
+                          "GMAIL_FETCH_EMAILS"
+                        ]
+                      },
+                      "slack": {
+                        "disable": [
+                          "SLACK_ADD_EMOJI"
+                        ]
+                      },
+                      "slack_bot": {
+                        "tags": {
+                          "enable": [
+                            "destructiveHint"
+                          ],
+                          "disable": [
+                            "openWorldHint"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "tags": {
+                    "anyOf": [
+                      {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "enum": [
+                            "readOnlyHint",
+                            "destructiveHint",
+                            "idempotentHint",
+                            "openWorldHint"
+                          ]
+                        }
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "enable": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "readOnlyHint",
+                                "destructiveHint",
+                                "idempotentHint",
+                                "openWorldHint"
+                              ]
+                            }
+                          },
+                          "disable": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "readOnlyHint",
+                                "destructiveHint",
+                                "idempotentHint",
+                                "openWorldHint"
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    ],
+                    "description": "Global MCP tool annotation hints for filtering. Array format is treated as enabled list. Object format supports both enabled (tool must have at least one) and disabled (tool must NOT have any) lists. Toolkit-level tags override this. Toolkit enabled/disabled lists take precedence over tag filtering.",
+                    "example": {
+                      "enable": [
+                        "openWorldHint"
+                      ],
+                      "disable": [
+                        "destructiveHint"
+                      ]
+                    }
+                  },
+                  "workbench": {
+                    "type": "object",
+                    "nullable": true,
+                    "properties": {
+                      "enable": {
+                        "type": "boolean",
+                        "description": "Set to false to disable the workbench entirely. When disabled, no code execution tools are available in the session.",
+                        "example": true
+                      },
+                      "enable_proxy_execution": {
+                        "type": "boolean",
+                        "description": "Whether proxy execution is enabled. When enabled, workbench can call URLs and APIs directly.",
+                        "example": true
+                      },
+                      "auto_offload_threshold": {
+                        "type": "number",
+                        "minimum": 0,
+                        "exclusiveMinimum": true,
+                        "description": "Character threshold for automatic offloading. When workbench response exceeds this threshold, it will be automatically offloaded. Default is picked automatically based on the response size.",
+                        "example": 20000
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "multi_account": {
+                    "type": "object",
+                    "nullable": true,
+                    "properties": {
+                      "enable": {
+                        "type": "boolean",
+                        "description": "When true, enables multi-account mode for this session. When not set, falls back to org/project-level configuration.",
+                        "example": true
+                      },
+                      "max_accounts_per_toolkit": {
+                        "type": "integer",
+                        "minimum": 2,
+                        "maximum": 10,
+                        "description": "Maximum number of connected accounts allowed per toolkit. Must be between 2 and 10.",
+                        "example": 5
+                      },
+                      "require_explicit_selection": {
+                        "type": "boolean",
+                        "description": "When true, the agent must explicitly select which account to use. When false (default), the first/default account is used automatically.",
+                        "example": false
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Session config successfully patched.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "session_id": {
+                      "type": "string",
+                      "format": "toolRouterSessionId",
+                      "description": "The identifier of the session",
+                      "example": "trs_1a2b3c4d5e6f"
+                    },
+                    "mcp": {
+                      "type": "object",
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "enum": [
+                            "http"
+                          ],
+                          "description": "The type of the MCP server. Can be http"
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri",
+                          "description": "The URL of the MCP server",
+                          "example": "https://app.composio.dev/tool_router/v3/trs_1a2b3c4d5e6f/mcp"
+                        }
+                      },
+                      "required": [
+                        "type",
+                        "url"
+                      ]
+                    },
+                    "tool_router_tools": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "description": "List of available tools in this session"
+                    },
+                    "config": {
+                      "type": "object",
+                      "properties": {
+                        "user_id": {
+                          "type": "string",
+                          "description": "User identifier for this session"
+                        },
+                        "toolkits": {
+                          "anyOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "enabled": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "required": [
+                                "enabled"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "disabled": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                }
+                              },
+                              "required": [
+                                "disabled"
+                              ],
+                              "additionalProperties": false
+                            }
+                          ],
+                          "description": "Toolkit configuration - either enabled list or disabled list"
+                        },
+                        "auth_configs": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "string",
+                            "format": "authConfigId"
+                          },
+                          "description": "Auth config overrides per toolkit"
+                        },
+                        "connected_accounts": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "string",
+                            "format": "connectedAccountId"
+                          },
+                          "description": "Connected account overrides per toolkit. Each connected account must belong to the same user_id as the session."
+                        },
+                        "manage_connections": {
+                          "type": "object",
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean",
+                              "default": true,
+                              "description": "Whether to enable the connection manager for automatic connection handling"
+                            },
+                            "callback_url": {
+                              "type": "string",
+                              "format": "uri",
+                              "description": "Custom callback URL for connected account auth flows"
+                            },
+                            "enable_wait_for_connections": {
+                              "type": "boolean",
+                              "default": false,
+                              "description": "Enable the COMPOSIO_WAIT_FOR_CONNECTIONS tool for polling connection status. Default false. May not work reliably with GPT models."
+                            },
+                            "enable_connection_removal": {
+                              "type": "boolean",
+                              "default": true,
+                              "description": "Enable the \"remove\" action in COMPOSIO_MANAGE_CONNECTIONS. Default true."
+                            }
+                          },
+                          "description": "Manage connections configuration"
+                        },
+                        "tools": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "anyOf": [
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "enabled": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "enabled"
+                                ],
+                                "additionalProperties": false
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "disabled": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "disabled"
+                                ],
+                                "additionalProperties": false
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "tags": {
+                                    "type": "object",
+                                    "properties": {
+                                      "enabled": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string",
+                                          "enum": [
+                                            "readOnlyHint",
+                                            "destructiveHint",
+                                            "idempotentHint",
+                                            "openWorldHint"
+                                          ]
+                                        },
+                                        "description": "Tags that the tool must have at least one of"
+                                      },
+                                      "disabled": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string",
+                                          "enum": [
+                                            "readOnlyHint",
+                                            "destructiveHint",
+                                            "idempotentHint",
+                                            "openWorldHint"
+                                          ]
+                                        },
+                                        "description": "Tags that the tool must NOT have any of"
+                                      }
+                                    }
+                                  }
+                                },
+                                "required": [
+                                  "tags"
+                                ],
+                                "additionalProperties": false
+                              }
+                            ]
+                          },
+                          "description": "Tool-level configuration per toolkit"
+                        },
+                        "tags": {
+                          "type": "object",
+                          "properties": {
+                            "enabled": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "enum": [
+                                  "readOnlyHint",
+                                  "destructiveHint",
+                                  "idempotentHint",
+                                  "openWorldHint"
+                                ]
+                              },
+                              "description": "Tags that the tool must have at least one of"
+                            },
+                            "disabled": {
+                              "type": "array",
+                              "items": {
+                                "type": "string",
+                                "enum": [
+                                  "readOnlyHint",
+                                  "destructiveHint",
+                                  "idempotentHint",
+                                  "openWorldHint"
+                                ]
+                              },
+                              "description": "Tags that the tool must NOT have any of"
+                            }
+                          },
+                          "description": "MCP tool annotation hints for filtering tools with enabled/disabled support. enabled: tags that the tool must have at least one of. disabled: tags that the tool must NOT have any of. Both conditions must be satisfied."
+                        },
+                        "workbench": {
+                          "type": "object",
+                          "properties": {
+                            "enable": {
+                              "type": "boolean",
+                              "description": "Whether the workbench (code execution sandbox) is enabled. When false, COMPOSIO_REMOTE_WORKBENCH and COMPOSIO_REMOTE_BASH_TOOL are not exposed."
+                            },
+                            "proxy_execution_enabled": {
+                              "type": "boolean",
+                              "description": "Whether proxy execution is enabled in the workbench"
+                            },
+                            "auto_offload_threshold": {
+                              "type": "number",
+                              "minimum": 0,
+                              "exclusiveMinimum": true,
+                              "description": "Character threshold after which tool execution response are saved to a file in workbench. Default is 20k."
+                            }
+                          },
+                          "default": {
+                            "enable": true,
+                            "proxy_execution_enabled": true
+                          },
+                          "description": "Workbench configuration"
+                        },
+                        "multi_account": {
+                          "type": "object",
+                          "properties": {
+                            "enable": {
+                              "type": "boolean",
+                              "description": "When true, enables multi-account mode for this session. When not set, falls back to org/project-level configuration."
+                            },
+                            "max_accounts_per_toolkit": {
+                              "type": "integer",
+                              "description": "Maximum number of connected accounts allowed per toolkit. Defaults to 5 when multi-account is enabled."
+                            },
+                            "require_explicit_selection": {
+                              "type": "boolean",
+                              "description": "When true, require explicit account selection when multiple accounts are connected. When false (default), use the first/default account."
+                            }
+                          },
+                          "description": "Multi-account configuration for this session."
+                        },
+                        "preload": {
+                          "type": "object",
+                          "properties": {
+                            "tools": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              },
+                              "description": "Tool slugs preloaded for this session. Appear in `session.tools` and the MCP server tool list, callable directly without going through search. Empty array when no preload was configured."
+                            }
+                          },
+                          "required": [
+                            "tools"
+                          ],
+                          "additionalProperties": false,
+                          "description": "Preload configuration. Controls which tools appear in `session.tools` and the MCP server tool list, callable directly without going through search. Each preloaded tool adds to the agent context — roughly ≤20 tools is recommended. Always present in the response (empty `tools: []` when the session was created without a preload config)."
+                        }
+                      },
+                      "required": [
+                        "user_id",
+                        "preload"
+                      ],
+                      "description": "The session configuration including user, toolkits, and overrides"
+                    },
+                    "config_version": {
+                      "type": "integer",
+                      "description": "Monotonic version of the config. Incremented on each PATCH. Use for optimistic concurrency control."
+                    },
+                    "experimental": {
+                      "type": "object",
+                      "properties": {
+                        "assistive_prompt": {
+                          "type": "string",
+                          "description": "The assistive system prompt for the tool router session"
+                        },
+                        "custom_toolkits": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "slug": {
+                                "type": "string",
+                                "minLength": 1,
+                                "pattern": "^[a-zA-Z0-9_-]+$"
+                              },
+                              "name": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 128
+                              },
+                              "description": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 2048
+                              },
+                              "tools": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "slug": {
+                                      "type": "string",
+                                      "description": "Prefixed tool slug (e.g. LOCAL_CRM_FIND_CUSTOMER)"
+                                    },
+                                    "name": {
+                                      "type": "string",
+                                      "minLength": 1,
+                                      "maxLength": 128
+                                    },
+                                    "description": {
+                                      "type": "string",
+                                      "minLength": 1,
+                                      "maxLength": 5120
+                                    },
+                                    "input_schema": {
+                                      "type": "object",
+                                      "additionalProperties": {
+                                        "nullable": true
+                                      }
+                                    },
+                                    "output_schema": {
+                                      "type": "object",
+                                      "additionalProperties": {
+                                        "nullable": true
+                                      }
+                                    },
+                                    "original_slug": {
+                                      "type": "string",
+                                      "description": "Original tool slug as provided by the user"
+                                    }
+                                  },
+                                  "required": [
+                                    "slug",
+                                    "name",
+                                    "description",
+                                    "input_schema",
+                                    "original_slug"
+                                  ]
+                                }
+                              }
+                            },
+                            "required": [
+                              "slug",
+                              "name",
+                              "description",
+                              "tools"
+                            ]
+                          },
+                          "description": "User-defined custom toolkits with grouped tools (no-auth)"
+                        },
+                        "custom_tools": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "slug": {
+                                "type": "string",
+                                "description": "Prefixed tool slug (e.g. LOCAL_GMAIL_GET_IMPORTANT_EMAILS)"
+                              },
+                              "name": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 128
+                              },
+                              "description": {
+                                "type": "string",
+                                "minLength": 1,
+                                "maxLength": 5120
+                              },
+                              "input_schema": {
+                                "type": "object",
+                                "additionalProperties": {
+                                  "nullable": true
+                                }
+                              },
+                              "output_schema": {
+                                "type": "object",
+                                "additionalProperties": {
+                                  "nullable": true
+                                }
+                              },
+                              "extends_toolkit": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "original_slug": {
+                                "type": "string",
+                                "description": "Original tool slug as provided by the user"
+                              }
+                            },
+                            "required": [
+                              "slug",
+                              "name",
+                              "description",
+                              "input_schema",
+                              "original_slug"
+                            ]
+                          },
+                          "description": "Custom tools — standalone or extending Composio toolkits"
+                        }
+                      },
+                      "description": "Experimental features",
+                      "x-experimental": true
+                    }
+                  },
+                  "required": [
+                    "session_id",
+                    "mcp",
+                    "tool_router_tools",
+                    "config",
+                    "config_version"
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request. Invalid config values.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Session not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "Request timeout while validating patch.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Config version conflict. Re-fetch the session and retry.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error.",
             "content": {
               "application/json": {
                 "schema": {
