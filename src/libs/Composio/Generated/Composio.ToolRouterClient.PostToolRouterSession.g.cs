@@ -593,7 +593,7 @@ namespace Composio
         /// Example: {"gmail":"ac_1a2b3c4d5e6f","slack":"ac_7g8h9i0j1k2l"}
         /// </param>
         /// <param name="connectedAccounts">
-        /// The connected accounts to use for the session. This will override the default behaviour and use the given connected account when specific toolkits are being executed<br/>
+        /// The connected accounts to use for the session. This will override the default behaviour and use the given connected account when specific toolkits are being executed. Each connected account must exist (not deleted or disabled) and belong to the same `user_id` as the session — otherwise session creation fails with a clear error explaining which account didn't match.<br/>
         /// Example: {"github":"ca_3m4n5o6p7q8r"}
         /// </param>
         /// <param name="manageConnections">
@@ -601,7 +601,7 @@ namespace Composio
         /// Default Value: {"enable":true,"enable_wait_for_connections":false,"enable_connection_removal":true}
         /// </param>
         /// <param name="tools">
-        /// Tool-level configuration per toolkit - either specify enable tools (whitelist), disable tools (blacklist), or filter by MCP tags for each toolkit<br/>
+        /// Tool-level configuration per toolkit. Allows you to enable, disable, or filter by tags for specific tools within each toolkit. Every slug passed in `enable` / `disable` must be a valid Composio tool slug for that toolkit — invalid or typo'd slugs fail session creation with a clear error listing which ones didn't match.<br/>
         /// Example: {"gmail":{"enable":["GMAIL_SEND_EMAIL","GMAIL_FETCH_EMAILS"]},"slack":{"disable":["SLACK_ADD_EMOJI"]},"slack_bot":{"tags":{"enable":["destructiveHint"],"disable":["openWorldHint"]}}}
         /// </param>
         /// <param name="tags">

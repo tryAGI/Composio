@@ -39,6 +39,13 @@ namespace Composio
         public required global::Composio.GetToolRouterSessionBySessionIdResponseConfig Config { get; set; }
 
         /// <summary>
+        /// Monotonic version of the config. Incremented on each PATCH. Use for optimistic concurrency control.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("config_version")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required int ConfigVersion { get; set; }
+
+        /// <summary>
         /// Experimental features
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("experimental")]
@@ -64,6 +71,9 @@ namespace Composio
         /// <param name="config">
         /// The session configuration including user, toolkits, and overrides
         /// </param>
+        /// <param name="configVersion">
+        /// Monotonic version of the config. Incremented on each PATCH. Use for optimistic concurrency control.
+        /// </param>
         /// <param name="experimental">
         /// Experimental features
         /// </param>
@@ -75,12 +85,14 @@ namespace Composio
             global::Composio.GetToolRouterSessionBySessionIdResponseMcp mcp,
             global::System.Collections.Generic.IList<string> toolRouterTools,
             global::Composio.GetToolRouterSessionBySessionIdResponseConfig config,
+            int configVersion,
             global::Composio.GetToolRouterSessionBySessionIdResponseExperimental? experimental)
         {
             this.SessionId = sessionId ?? throw new global::System.ArgumentNullException(nameof(sessionId));
             this.Mcp = mcp ?? throw new global::System.ArgumentNullException(nameof(mcp));
             this.ToolRouterTools = toolRouterTools ?? throw new global::System.ArgumentNullException(nameof(toolRouterTools));
             this.Config = config ?? throw new global::System.ArgumentNullException(nameof(config));
+            this.ConfigVersion = configVersion;
             this.Experimental = experimental;
         }
 
