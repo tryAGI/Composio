@@ -9,7 +9,7 @@ namespace Composio
     public sealed partial class PostToolRouterSessionBySessionIdSearchRequestQuerie
     {
         /// <summary>
-        /// The task or use case to search tools for. Provide a detailed description to get the best results.<br/>
+        /// The task or use case to search tools for. Provide a detailed description to get the best results. Max 1024 characters.<br/>
         /// Example: Send an email to john@example.com with a summary of my last 5 slack messages
         /// </summary>
         /// <example>Send an email to john@example.com with a summary of my last 5 slack messages</example>
@@ -18,7 +18,7 @@ namespace Composio
         public required string UseCase { get; set; }
 
         /// <summary>
-        /// Known field hints as key:value pairs (e.g., "channel_name:general, user_email:john@example.com")<br/>
+        /// Known field hints as key:value pairs (e.g., "channel_name:general, user_email:john@example.com"). Max 500 characters.<br/>
         /// Example: channel_name:general
         /// </summary>
         /// <example>channel_name:general</example>
@@ -35,11 +35,11 @@ namespace Composio
         /// Initializes a new instance of the <see cref="PostToolRouterSessionBySessionIdSearchRequestQuerie" /> class.
         /// </summary>
         /// <param name="useCase">
-        /// The task or use case to search tools for. Provide a detailed description to get the best results.<br/>
+        /// The task or use case to search tools for. Provide a detailed description to get the best results. Max 1024 characters.<br/>
         /// Example: Send an email to john@example.com with a summary of my last 5 slack messages
         /// </param>
         /// <param name="knownFields">
-        /// Known field hints as key:value pairs (e.g., "channel_name:general, user_email:john@example.com")<br/>
+        /// Known field hints as key:value pairs (e.g., "channel_name:general, user_email:john@example.com"). Max 500 characters.<br/>
         /// Example: channel_name:general
         /// </param>
 #if NET7_0_OR_GREATER

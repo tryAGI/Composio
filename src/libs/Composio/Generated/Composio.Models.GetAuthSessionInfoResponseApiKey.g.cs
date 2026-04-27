@@ -79,9 +79,9 @@ namespace Composio
 
         /// <summary>
         /// The actual API key value (usually only shown once during creation)<br/>
-        /// Example: sk_live_abc123xyz456
+        /// Example: ak_a1b2c3d4e5f6g7h8i9j0
         /// </summary>
-        /// <example>sk_live_abc123xyz456</example>
+        /// <example>ak_a1b2c3d4e5f6g7h8i9j0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("key")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Key { get; set; }
@@ -134,7 +134,7 @@ namespace Composio
         /// </param>
         /// <param name="key">
         /// The actual API key value (usually only shown once during creation)<br/>
-        /// Example: sk_live_abc123xyz456
+        /// Example: ak_a1b2c3d4e5f6g7h8i9j0
         /// </param>
         /// <param name="deleted">
         /// Flag indicating if the API key has been deleted<br/>
