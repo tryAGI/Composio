@@ -28,6 +28,13 @@ namespace Composio
         public double? AutoOffloadThreshold { get; set; }
 
         /// <summary>
+        /// Sandbox compute tier: standard (1 vCPU / 1 GB), medium (2 vCPU / 2 GB), large (4 vCPU / 4 GB), xlarge (8 vCPU / 8 GB). Defaults to standard.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("sandbox_size")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.GetToolRouterSessionBySessionIdResponseConfigWorkbenchSandboxSizeJsonConverter))]
+        public global::Composio.GetToolRouterSessionBySessionIdResponseConfigWorkbenchSandboxSize? SandboxSize { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -45,17 +52,22 @@ namespace Composio
         /// <param name="autoOffloadThreshold">
         /// Character threshold after which tool execution response are saved to a file in workbench. Default is 20k.
         /// </param>
+        /// <param name="sandboxSize">
+        /// Sandbox compute tier: standard (1 vCPU / 1 GB), medium (2 vCPU / 2 GB), large (4 vCPU / 4 GB), xlarge (8 vCPU / 8 GB). Defaults to standard.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public GetToolRouterSessionBySessionIdResponseConfigWorkbench(
             bool? enable,
             bool? proxyExecutionEnabled,
-            double? autoOffloadThreshold)
+            double? autoOffloadThreshold,
+            global::Composio.GetToolRouterSessionBySessionIdResponseConfigWorkbenchSandboxSize? sandboxSize)
         {
             this.Enable = enable;
             this.ProxyExecutionEnabled = proxyExecutionEnabled;
             this.AutoOffloadThreshold = autoOffloadThreshold;
+            this.SandboxSize = sandboxSize;
         }
 
         /// <summary>

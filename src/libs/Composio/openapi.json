@@ -48186,6 +48186,18 @@
                         "exclusiveMinimum": true,
                         "description": "Character threshold for automatic offloading. When workbench response exceeds this threshold, it will be automatically offloaded. Default is picked automatically based on the response size.",
                         "example": 20000
+                      },
+                      "sandbox_size": {
+                        "type": "string",
+                        "enum": [
+                          "standard",
+                          "medium",
+                          "large",
+                          "xlarge"
+                        ],
+                        "default": "standard",
+                        "description": "Sandbox compute tier: standard (1 vCPU / 1 GB), medium (2 vCPU / 2 GB), large (4 vCPU / 4 GB), xlarge (8 vCPU / 8 GB). Defaults to standard.",
+                        "example": "standard"
                       }
                     },
                     "default": {
@@ -48870,6 +48882,16 @@
                               "minimum": 0,
                               "exclusiveMinimum": true,
                               "description": "Character threshold after which tool execution response are saved to a file in workbench. Default is 20k."
+                            },
+                            "sandbox_size": {
+                              "type": "string",
+                              "enum": [
+                                "standard",
+                                "medium",
+                                "large",
+                                "xlarge"
+                              ],
+                              "description": "Sandbox compute tier: standard (1 vCPU / 1 GB), medium (2 vCPU / 2 GB), large (4 vCPU / 4 GB), xlarge (8 vCPU / 8 GB). Defaults to standard."
                             }
                           },
                           "default": {
@@ -49822,6 +49844,16 @@
                               "minimum": 0,
                               "exclusiveMinimum": true,
                               "description": "Character threshold after which tool execution response are saved to a file in workbench. Default is 20k."
+                            },
+                            "sandbox_size": {
+                              "type": "string",
+                              "enum": [
+                                "standard",
+                                "medium",
+                                "large",
+                                "xlarge"
+                              ],
+                              "description": "Sandbox compute tier: standard (1 vCPU / 1 GB), medium (2 vCPU / 2 GB), large (4 vCPU / 4 GB), xlarge (8 vCPU / 8 GB). Defaults to standard."
                             }
                           },
                           "default": {
@@ -50412,6 +50444,17 @@
                         "exclusiveMinimum": true,
                         "description": "Character threshold for automatic offloading. When workbench response exceeds this threshold, it will be automatically offloaded. Default is picked automatically based on the response size.",
                         "example": 20000
+                      },
+                      "sandbox_size": {
+                        "type": "string",
+                        "enum": [
+                          "standard",
+                          "medium",
+                          "large",
+                          "xlarge"
+                        ],
+                        "description": "Sandbox compute tier: standard (1 vCPU / 1 GB), medium (2 vCPU / 2 GB), large (4 vCPU / 4 GB), xlarge (8 vCPU / 8 GB). Patching this value recreates the sandbox on next access — sandbox FS state is lost, but /mnt/files/ R2 mount persists.",
+                        "example": "large"
                       }
                     },
                     "additionalProperties": false
@@ -50699,6 +50742,16 @@
                               "minimum": 0,
                               "exclusiveMinimum": true,
                               "description": "Character threshold after which tool execution response are saved to a file in workbench. Default is 20k."
+                            },
+                            "sandbox_size": {
+                              "type": "string",
+                              "enum": [
+                                "standard",
+                                "medium",
+                                "large",
+                                "xlarge"
+                              ],
+                              "description": "Sandbox compute tier: standard (1 vCPU / 1 GB), medium (2 vCPU / 2 GB), large (4 vCPU / 4 GB), xlarge (8 vCPU / 8 GB). Defaults to standard."
                             }
                           },
                           "default": {
