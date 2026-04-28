@@ -557,6 +557,10 @@ namespace Composio
 
             typeof(global::Composio.JsonConverters.PostToolRouterSessionRequestTagsDisableItemNullableJsonConverter),
 
+            typeof(global::Composio.JsonConverters.PostToolRouterSessionRequestWorkbenchSandboxSizeJsonConverter),
+
+            typeof(global::Composio.JsonConverters.PostToolRouterSessionRequestWorkbenchSandboxSizeNullableJsonConverter),
+
             typeof(global::Composio.JsonConverters.PostToolRouterSessionBySessionIdExecuteMetaRequestSlugJsonConverter),
 
             typeof(global::Composio.JsonConverters.PostToolRouterSessionBySessionIdExecuteMetaRequestSlugNullableJsonConverter),
@@ -584,6 +588,10 @@ namespace Composio
             typeof(global::Composio.JsonConverters.PatchToolRouterSessionBySessionIdRequestTagsDisableItemJsonConverter),
 
             typeof(global::Composio.JsonConverters.PatchToolRouterSessionBySessionIdRequestTagsDisableItemNullableJsonConverter),
+
+            typeof(global::Composio.JsonConverters.PatchToolRouterSessionBySessionIdRequestWorkbenchSandboxSizeJsonConverter),
+
+            typeof(global::Composio.JsonConverters.PatchToolRouterSessionBySessionIdRequestWorkbenchSandboxSizeNullableJsonConverter),
 
             typeof(global::Composio.JsonConverters.PostToolRouterSessionBySessionIdProxyExecuteRequestMethodJsonConverter),
 
@@ -1941,6 +1949,10 @@ namespace Composio
 
             typeof(global::Composio.JsonConverters.PostToolRouterSessionResponseConfigTagsDisabledItemNullableJsonConverter),
 
+            typeof(global::Composio.JsonConverters.PostToolRouterSessionResponseConfigWorkbenchSandboxSizeJsonConverter),
+
+            typeof(global::Composio.JsonConverters.PostToolRouterSessionResponseConfigWorkbenchSandboxSizeNullableJsonConverter),
+
             typeof(global::Composio.JsonConverters.PostToolRouterSessionResponseWarningCodeJsonConverter),
 
             typeof(global::Composio.JsonConverters.PostToolRouterSessionResponseWarningCodeNullableJsonConverter),
@@ -1965,6 +1977,10 @@ namespace Composio
 
             typeof(global::Composio.JsonConverters.GetToolRouterSessionBySessionIdResponseConfigTagsDisabledItemNullableJsonConverter),
 
+            typeof(global::Composio.JsonConverters.GetToolRouterSessionBySessionIdResponseConfigWorkbenchSandboxSizeJsonConverter),
+
+            typeof(global::Composio.JsonConverters.GetToolRouterSessionBySessionIdResponseConfigWorkbenchSandboxSizeNullableJsonConverter),
+
             typeof(global::Composio.JsonConverters.PatchToolRouterSessionBySessionIdResponseMcpTypeJsonConverter),
 
             typeof(global::Composio.JsonConverters.PatchToolRouterSessionBySessionIdResponseMcpTypeNullableJsonConverter),
@@ -1984,6 +2000,10 @@ namespace Composio
             typeof(global::Composio.JsonConverters.PatchToolRouterSessionBySessionIdResponseConfigTagsDisabledItemJsonConverter),
 
             typeof(global::Composio.JsonConverters.PatchToolRouterSessionBySessionIdResponseConfigTagsDisabledItemNullableJsonConverter),
+
+            typeof(global::Composio.JsonConverters.PatchToolRouterSessionBySessionIdResponseConfigWorkbenchSandboxSizeJsonConverter),
+
+            typeof(global::Composio.JsonConverters.PatchToolRouterSessionBySessionIdResponseConfigWorkbenchSandboxSizeNullableJsonConverter),
 
             typeof(global::Composio.JsonConverters.PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseAccountSelectionJsonConverter),
 
@@ -2738,6 +2758,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionRequestTagsDisableItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionRequestTagsDisableItem), TypeInfoPropertyName = "PostToolRouterSessionRequestTagsDisableItem2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionRequestWorkbench))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionRequestWorkbenchSandboxSize), TypeInfoPropertyName = "PostToolRouterSessionRequestWorkbenchSandboxSize2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionRequestMultiAccount))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(int))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionRequestExperimental))]
@@ -2778,6 +2799,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.PatchToolRouterSessionBySessionIdRequestTagsDisableItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchToolRouterSessionBySessionIdRequestTagsDisableItem), TypeInfoPropertyName = "PatchToolRouterSessionBySessionIdRequestTagsDisableItem2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchToolRouterSessionBySessionIdRequestWorkbench))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchToolRouterSessionBySessionIdRequestWorkbenchSandboxSize), TypeInfoPropertyName = "PatchToolRouterSessionBySessionIdRequestWorkbenchSandboxSize2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchToolRouterSessionBySessionIdRequestMultiAccount))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionBySessionIdLinkRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionBySessionIdProxyExecuteRequest))]
@@ -3689,6 +3711,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionResponseConfigTagsDisabledItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionResponseConfigTagsDisabledItem), TypeInfoPropertyName = "PostToolRouterSessionResponseConfigTagsDisabledItem2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionResponseConfigWorkbench))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionResponseConfigWorkbenchSandboxSize), TypeInfoPropertyName = "PostToolRouterSessionResponseConfigWorkbenchSandboxSize2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionResponseConfigMultiAccount))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionResponseConfigPreload))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionResponseExperimental))]
@@ -3726,6 +3749,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.GetToolRouterSessionBySessionIdResponseConfigTagsDisabledItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolRouterSessionBySessionIdResponseConfigTagsDisabledItem), TypeInfoPropertyName = "GetToolRouterSessionBySessionIdResponseConfigTagsDisabledItem2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolRouterSessionBySessionIdResponseConfigWorkbench))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolRouterSessionBySessionIdResponseConfigWorkbenchSandboxSize), TypeInfoPropertyName = "GetToolRouterSessionBySessionIdResponseConfigWorkbenchSandboxSize2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolRouterSessionBySessionIdResponseConfigMultiAccount))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolRouterSessionBySessionIdResponseConfigPreload))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolRouterSessionBySessionIdResponseExperimental))]
@@ -3758,6 +3782,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.PatchToolRouterSessionBySessionIdResponseConfigTagsDisabledItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchToolRouterSessionBySessionIdResponseConfigTagsDisabledItem), TypeInfoPropertyName = "PatchToolRouterSessionBySessionIdResponseConfigTagsDisabledItem2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchToolRouterSessionBySessionIdResponseConfigWorkbench))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchToolRouterSessionBySessionIdResponseConfigWorkbenchSandboxSize), TypeInfoPropertyName = "PatchToolRouterSessionBySessionIdResponseConfigWorkbenchSandboxSize2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchToolRouterSessionBySessionIdResponseConfigMultiAccount))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchToolRouterSessionBySessionIdResponseConfigPreload))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchToolRouterSessionBySessionIdResponseExperimental))]

@@ -33,6 +33,15 @@ namespace Composio
         public double? AutoOffloadThreshold { get; set; }
 
         /// <summary>
+        /// Sandbox compute tier: standard (1 vCPU / 1 GB), medium (2 vCPU / 2 GB), large (4 vCPU / 4 GB), xlarge (8 vCPU / 8 GB). Patching this value recreates the sandbox on next access — sandbox FS state is lost, but /mnt/files/ R2 mount persists.<br/>
+        /// Example: large
+        /// </summary>
+        /// <example>large</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("sandbox_size")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.PatchToolRouterSessionBySessionIdRequestWorkbenchSandboxSizeJsonConverter))]
+        public global::Composio.PatchToolRouterSessionBySessionIdRequestWorkbenchSandboxSize? SandboxSize { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -53,17 +62,23 @@ namespace Composio
         /// Character threshold for automatic offloading. When workbench response exceeds this threshold, it will be automatically offloaded. Default is picked automatically based on the response size.<br/>
         /// Example: 20000
         /// </param>
+        /// <param name="sandboxSize">
+        /// Sandbox compute tier: standard (1 vCPU / 1 GB), medium (2 vCPU / 2 GB), large (4 vCPU / 4 GB), xlarge (8 vCPU / 8 GB). Patching this value recreates the sandbox on next access — sandbox FS state is lost, but /mnt/files/ R2 mount persists.<br/>
+        /// Example: large
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PatchToolRouterSessionBySessionIdRequestWorkbench(
             bool? enable,
             bool? enableProxyExecution,
-            double? autoOffloadThreshold)
+            double? autoOffloadThreshold,
+            global::Composio.PatchToolRouterSessionBySessionIdRequestWorkbenchSandboxSize? sandboxSize)
         {
             this.Enable = enable;
             this.EnableProxyExecution = enableProxyExecution;
             this.AutoOffloadThreshold = autoOffloadThreshold;
+            this.SandboxSize = sandboxSize;
         }
 
         /// <summary>
