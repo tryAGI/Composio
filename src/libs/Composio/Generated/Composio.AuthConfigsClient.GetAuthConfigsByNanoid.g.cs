@@ -127,7 +127,7 @@ namespace Composio
                 PrepareGetAuthConfigsByNanoidRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    nanoid: nanoid);
+                    nanoid: nanoid!);
 
                 return __httpRequest;
             }

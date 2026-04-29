@@ -140,7 +140,7 @@ namespace Composio
                 PrepareGetToolkitsBySlugRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    slug: slug,
+                    slug: slug!,
                     version: version);
 
                 return __httpRequest;

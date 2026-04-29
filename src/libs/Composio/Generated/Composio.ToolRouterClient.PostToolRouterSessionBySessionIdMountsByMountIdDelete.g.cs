@@ -150,8 +150,8 @@ namespace Composio
                 PreparePostToolRouterSessionBySessionIdMountsByMountIdDeleteRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    sessionId: sessionId,
-                    mountId: mountId,
+                    sessionId: sessionId!,
+                    mountId: mountId!,
                     request: request);
 
                 return __httpRequest;

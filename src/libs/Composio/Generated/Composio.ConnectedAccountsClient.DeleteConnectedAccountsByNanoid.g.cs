@@ -125,7 +125,7 @@ namespace Composio
                 PrepareDeleteConnectedAccountsByNanoidRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    nanoid: nanoid);
+                    nanoid: nanoid!);
 
                 return __httpRequest;
             }

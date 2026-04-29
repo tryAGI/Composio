@@ -142,7 +142,7 @@ namespace Composio
                 PreparePostMcpServersByServerIdInstancesRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    serverId: serverId,
+                    serverId: serverId!,
                     request: request);
 
                 return __httpRequest;

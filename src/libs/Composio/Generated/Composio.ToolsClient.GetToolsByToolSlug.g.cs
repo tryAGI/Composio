@@ -139,7 +139,7 @@ namespace Composio
                 PrepareGetToolsByToolSlugRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    toolSlug: toolSlug,
+                    toolSlug: toolSlug!,
                     version: version,
                     toolkitVersions: toolkitVersions);
 

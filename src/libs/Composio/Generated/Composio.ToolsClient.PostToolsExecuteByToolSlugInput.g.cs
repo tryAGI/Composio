@@ -139,7 +139,7 @@ namespace Composio
                 PreparePostToolsExecuteByToolSlugInputRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    toolSlug: toolSlug,
+                    toolSlug: toolSlug!,
                     request: request);
 
                 return __httpRequest;

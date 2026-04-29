@@ -179,7 +179,7 @@ namespace Composio
                 PrepareGetMcpServersByServerIdInstancesRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    serverId: serverId,
+                    serverId: serverId!,
                     pageNo: pageNo,
                     limit: limit,
                     search: search,

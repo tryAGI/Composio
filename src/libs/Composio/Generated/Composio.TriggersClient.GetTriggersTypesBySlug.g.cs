@@ -136,7 +136,7 @@ namespace Composio
                 PrepareGetTriggersTypesBySlugRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    slug: slug,
+                    slug: slug!,
                     toolkitVersions: toolkitVersions);
 
                 return __httpRequest;

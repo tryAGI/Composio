@@ -125,7 +125,7 @@ namespace Composio
                 PrepareGetConnectedAccountsByNanoidRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    nanoid: nanoid);
+                    nanoid: nanoid!);
 
                 return __httpRequest;
             }

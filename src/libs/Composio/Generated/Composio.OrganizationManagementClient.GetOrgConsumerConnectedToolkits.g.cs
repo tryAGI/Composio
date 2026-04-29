@@ -149,9 +149,9 @@ namespace Composio
                 PrepareGetOrgConsumerConnectedToolkitsRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    userId: userId,
-                    xUserApiKey: xUserApiKey,
-                    xOrgId: xOrgId);
+                    userId: userId!,
+                    xUserApiKey: xUserApiKey!,
+                    xOrgId: xOrgId!);
 
                 return __httpRequest;
             }
