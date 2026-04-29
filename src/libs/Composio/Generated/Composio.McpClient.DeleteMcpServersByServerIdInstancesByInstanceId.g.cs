@@ -136,8 +136,8 @@ namespace Composio
                 PrepareDeleteMcpServersByServerIdInstancesByInstanceIdRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    serverId: serverId,
-                    instanceId: instanceId);
+                    serverId: serverId!,
+                    instanceId: instanceId!);
 
                 return __httpRequest;
             }

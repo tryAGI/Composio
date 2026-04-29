@@ -134,8 +134,8 @@ namespace Composio
                 PreparePatchAuthConfigsByNanoidByStatusRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    nanoid: nanoid,
-                    status: status);
+                    nanoid: nanoid!,
+                    status: status!);
 
                 return __httpRequest;
             }

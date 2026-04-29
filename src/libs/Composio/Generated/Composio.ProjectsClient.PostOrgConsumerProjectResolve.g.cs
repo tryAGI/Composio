@@ -140,8 +140,8 @@ namespace Composio
                 PreparePostOrgConsumerProjectResolveRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    xUserApiKey: xUserApiKey,
-                    xOrgId: xOrgId);
+                    xUserApiKey: xUserApiKey!,
+                    xOrgId: xOrgId!);
 
                 return __httpRequest;
             }

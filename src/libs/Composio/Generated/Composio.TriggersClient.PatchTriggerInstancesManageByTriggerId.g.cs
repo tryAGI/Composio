@@ -141,7 +141,7 @@ namespace Composio
                 PreparePatchTriggerInstancesManageByTriggerIdRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    triggerId: triggerId,
+                    triggerId: triggerId!,
                     request: request);
 
                 return __httpRequest;

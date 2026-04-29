@@ -149,9 +149,9 @@ namespace Composio
                 PrepareGetMigrationGetNanoidRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    uuid: uuid,
-                    type: type,
-                    xApiKey: xApiKey);
+                    uuid: uuid!,
+                    type: type!,
+                    xApiKey: xApiKey!);
 
                 return __httpRequest;
             }

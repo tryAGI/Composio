@@ -169,7 +169,7 @@ namespace Composio
                 PrepareGetToolRouterSessionBySessionIdToolkitsRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    sessionId: sessionId,
+                    sessionId: sessionId!,
                     limit: limit,
                     cursor: cursor,
                     toolkits: toolkits,

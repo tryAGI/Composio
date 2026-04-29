@@ -155,7 +155,7 @@ namespace Composio
                 PreparePostToolsExecuteByToolSlugRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    toolSlug: toolSlug,
+                    toolSlug: toolSlug!,
                     xLlmGatewayHeaders: xLlmGatewayHeaders,
                     request: request);
 

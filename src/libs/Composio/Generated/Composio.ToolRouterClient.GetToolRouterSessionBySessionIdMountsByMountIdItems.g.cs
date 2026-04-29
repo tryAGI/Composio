@@ -164,8 +164,8 @@ namespace Composio
                 PrepareGetToolRouterSessionBySessionIdMountsByMountIdItemsRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    sessionId: sessionId,
-                    mountId: mountId,
+                    sessionId: sessionId!,
+                    mountId: mountId!,
                     cursor: cursor,
                     limit: limit,
                     mountRelativePrefix: mountRelativePrefix);

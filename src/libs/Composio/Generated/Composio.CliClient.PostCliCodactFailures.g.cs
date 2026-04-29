@@ -145,7 +145,7 @@ namespace Composio
                 PreparePostCliCodactFailuresRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    xUserApiKey: xUserApiKey,
+                    xUserApiKey: xUserApiKey!,
                     request: request);
 
                 return __httpRequest;

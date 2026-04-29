@@ -139,7 +139,7 @@ namespace Composio
                 PreparePatchConnectedAccountsByNanoIdStatusRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    nanoId: nanoId,
+                    nanoId: nanoId!,
                     request: request);
 
                 return __httpRequest;

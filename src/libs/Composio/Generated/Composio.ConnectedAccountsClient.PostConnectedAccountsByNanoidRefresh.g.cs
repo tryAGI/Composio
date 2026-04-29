@@ -147,7 +147,7 @@ namespace Composio
                 PreparePostConnectedAccountsByNanoidRefreshRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    nanoid: nanoid,
+                    nanoid: nanoid!,
                     redirectUrl: redirectUrl,
                     request: request);
 

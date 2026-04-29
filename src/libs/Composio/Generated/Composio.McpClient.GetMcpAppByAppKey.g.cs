@@ -191,7 +191,7 @@ namespace Composio
                 PrepareGetMcpAppByAppKeyRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    appKey: appKey,
+                    appKey: appKey!,
                     name: name,
                     toolkits: toolkits,
                     authConfigIds: authConfigIds,

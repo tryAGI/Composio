@@ -127,7 +127,7 @@ namespace Composio
                 PrepareDeleteTriggerInstancesManageByTriggerIdRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    triggerId: triggerId);
+                    triggerId: triggerId!);
 
                 return __httpRequest;
             }
