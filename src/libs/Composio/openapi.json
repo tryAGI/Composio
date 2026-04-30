@@ -48410,9 +48410,37 @@
                           ]
                         },
                         "description": "Custom tools to include in search. Standalone tools need no auth. Tools with extends_toolkit inherit the Composio toolkit's connection."
+                      },
+                      "permissions": {
+                        "type": "object",
+                        "properties": {
+                          "default": {
+                            "type": "string",
+                            "enum": [
+                              "allow_all",
+                              "ask_every_call",
+                              "ask_once_per_session"
+                            ],
+                            "description": "Default elicitation behavior when no override matches. `allow_all` runs every tool without prompting; `ask_every_call` prompts on each invocation; `ask_once_per_session` prompts once and remembers the answer for the rest of the session."
+                          },
+                          "overrides": {
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string",
+                              "enum": [
+                                "always_allow",
+                                "always_deny"
+                              ]
+                            },
+                            "description": "Per-tool overrides keyed by `${toolSlug}:${connectedAccountId ?? \"__none__\"}`. `always_allow` skips the prompt and runs the tool; `always_deny` blocks the tool. Overrides take precedence over `default` and the session cache."
+                          }
+                        },
+                        "required": [
+                          "default"
+                        ],
+                        "description": "Per-tool elicitation permission config. Default behavior + per-tool always_allow/always_deny overrides. Mutation via PATCH."
                       }
                     },
-                    "additionalProperties": false,
                     "description": "Experimental features - not stable, may be modified or removed in future versions.",
                     "x-experimental": true
                   },
@@ -49107,7 +49135,7 @@
                         ]
                       },
                       "default": [],
-                      "description": "Advisory list — session was created, but the listed issues may warrant attention.",
+                      "description": "Advisory list — the session exists and is usable, but the listed issues may warrant attention.",
                       "example": [
                         {
                           "code": "PRELOAD_TOOLS_HIGH_CONTEXT_USAGE",
@@ -49183,7 +49211,7 @@
     "/api/v3/tool_router/session/{session_id}/execute": {
       "post": {
         "summary": "Execute a tool within a tool router session",
-        "description": "Executes a specific tool within a tool router session. This is the primary execution endpoint for both meta tools and app tools exposed by the session. The toolkit is automatically inferred from the tool slug. For app tools, the tool must belong to an allowed toolkit and must not be disabled in the session configuration. The endpoint validates permissions, resolves connected accounts when needed, and executes the tool with the session context.",
+        "description": "Executes a specific tool within a tool router session. This is the primary execution endpoint for both meta tools and app tools exposed by the session. The toolkit is automatically inferred from the tool slug. For app tools, the tool must belong to an allowed toolkit and must not be disabled in the session configuration. The endpoint validates permissions, resolves connected accounts when needed, and executes the tool with the session context. The top-level account field applies only to direct app tool execution in multi-account sessions. Meta/helper tools either ignore it or define their own account-selection fields, for example COMPOSIO_MULTI_EXECUTE_TOOL.tools[].account.",
         "tags": [
           "Tool Router"
         ],
@@ -49246,7 +49274,7 @@
                   },
                   "account": {
                     "type": "string",
-                    "description": "Account identifier to specify which connected account to use. Use the account ID (e.g. \"coup_hurricane_dal_analytical\") or an alias. When omitted with a single account, the default is used. When omitted with multiple accounts, an error lists available accounts.",
+                    "description": "Account identifier to specify which connected account to use for direct app tool execution. Use the account ID (e.g. \"coup_hurricane_dal_analytical\") or an alias. When omitted with a single account, the default is used. When omitted with multiple accounts, an error lists available accounts. Meta/helper tools either ignore this top-level field or define their own account-selection fields, for example COMPOSIO_MULTI_EXECUTE_TOOL.tools[].account.",
                     "example": "coup_hurricane_dal_analytical"
                   }
                 },
@@ -50043,6 +50071,39 @@
                       },
                       "description": "Experimental features",
                       "x-experimental": true
+                    },
+                    "warnings": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "code": {
+                            "type": "string",
+                            "enum": [
+                              "PRELOAD_TOOLS_HIGH_CONTEXT_USAGE"
+                            ],
+                            "description": "Stable machine code identifying the advisory. Safe to switch on in client code.",
+                            "example": "PRELOAD_TOOLS_HIGH_CONTEXT_USAGE"
+                          },
+                          "message": {
+                            "type": "string",
+                            "description": "Human-readable description of the advisory. Suitable for logging or surfacing to end users.",
+                            "example": "Session preloads 25 tools; each preloaded tool adds to the agent context window. Consider keeping the list at or under ~20 tools."
+                          }
+                        },
+                        "required": [
+                          "code",
+                          "message"
+                        ]
+                      },
+                      "default": [],
+                      "description": "Advisory list — the session exists and is usable, but the listed issues may warrant attention.",
+                      "example": [
+                        {
+                          "code": "PRELOAD_TOOLS_HIGH_CONTEXT_USAGE",
+                          "message": "Session preloads 25 tools; each preloaded tool adds to the agent context window. Consider keeping the list at or under ~20 tools."
+                        }
+                      ]
                     }
                   },
                   "required": [
@@ -50482,6 +50543,59 @@
                       }
                     },
                     "additionalProperties": false
+                  },
+                  "preload": {
+                    "type": "object",
+                    "properties": {
+                      "tools": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "description": "Tool slugs to preload. Each slug must be allowed by the session filters (`toolkits`, `tools`, `tags`) and exist either in the Composio tool catalog or in `custom_tools` / `custom_toolkits` — unknown or blocked slugs return a 400 at session creation.",
+                        "example": [
+                          "GMAIL_FETCH_EMAILS",
+                          "SLACK_SEND_MESSAGE"
+                        ]
+                      }
+                    },
+                    "additionalProperties": false,
+                    "description": "Preload configuration. Controls which tools appear in `session.tools` and the MCP server tool list so the agent can call them directly without going through search first — useful for frequently used tools. Each slug must be allowed by the session filters (`toolkits`, `tools`, `tags`), otherwise session creation fails with a 400. Custom tools declared in `custom_tools` / `custom_toolkits` can also be preloaded. Not supported when multi-account is enabled. Each preloaded tool adds to the agent context window, so keep the list at or under ~20 tools."
+                  },
+                  "experimental": {
+                    "type": "object",
+                    "nullable": true,
+                    "properties": {
+                      "permissions": {
+                        "type": "object",
+                        "properties": {
+                          "default": {
+                            "type": "string",
+                            "enum": [
+                              "allow_all",
+                              "ask_every_call",
+                              "ask_once_per_session"
+                            ],
+                            "description": "Default elicitation behavior when no override matches. `allow_all` runs every tool without prompting; `ask_every_call` prompts on each invocation; `ask_once_per_session` prompts once and remembers the answer for the rest of the session."
+                          },
+                          "overrides": {
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string",
+                              "enum": [
+                                "always_allow",
+                                "always_deny"
+                              ]
+                            },
+                            "description": "Per-tool overrides keyed by `${toolSlug}:${connectedAccountId ?? \"__none__\"}`. `always_allow` skips the prompt and runs the tool; `always_deny` blocks the tool. Overrides take precedence over `default` and the session cache."
+                          }
+                        },
+                        "required": [
+                          "default"
+                        ],
+                        "description": "Per-tool elicitation permission config. Replaces the stored block when provided."
+                      }
+                    }
                   }
                 },
                 "additionalProperties": false
@@ -50941,6 +51055,39 @@
                       },
                       "description": "Experimental features",
                       "x-experimental": true
+                    },
+                    "warnings": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "code": {
+                            "type": "string",
+                            "enum": [
+                              "PRELOAD_TOOLS_HIGH_CONTEXT_USAGE"
+                            ],
+                            "description": "Stable machine code identifying the advisory. Safe to switch on in client code.",
+                            "example": "PRELOAD_TOOLS_HIGH_CONTEXT_USAGE"
+                          },
+                          "message": {
+                            "type": "string",
+                            "description": "Human-readable description of the advisory. Suitable for logging or surfacing to end users.",
+                            "example": "Session preloads 25 tools; each preloaded tool adds to the agent context window. Consider keeping the list at or under ~20 tools."
+                          }
+                        },
+                        "required": [
+                          "code",
+                          "message"
+                        ]
+                      },
+                      "default": [],
+                      "description": "Advisory list — the session exists and is usable, but the listed issues may warrant attention.",
+                      "example": [
+                        {
+                          "code": "PRELOAD_TOOLS_HIGH_CONTEXT_USAGE",
+                          "message": "Session preloads 25 tools; each preloaded tool adds to the agent context window. Consider keeping the list at or under ~20 tools."
+                        }
+                      ]
                     }
                   },
                   "required": [

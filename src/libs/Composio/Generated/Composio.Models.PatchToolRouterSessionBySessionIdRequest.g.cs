@@ -67,6 +67,18 @@ namespace Composio
         public global::Composio.PatchToolRouterSessionBySessionIdRequestMultiAccount? MultiAccount { get; set; }
 
         /// <summary>
+        /// Preload configuration. Controls which tools appear in `session.tools` and the MCP server tool list so the agent can call them directly without going through search first — useful for frequently used tools. Each slug must be allowed by the session filters (`toolkits`, `tools`, `tags`), otherwise session creation fails with a 400. Custom tools declared in `custom_tools` / `custom_toolkits` can also be preloaded. Not supported when multi-account is enabled. Each preloaded tool adds to the agent context window, so keep the list at or under ~20 tools.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("preload")]
+        public global::Composio.PatchToolRouterSessionBySessionIdRequestPreload? Preload { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("experimental")]
+        public global::Composio.PatchToolRouterSessionBySessionIdRequestExperimental? Experimental { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -97,6 +109,10 @@ namespace Composio
         /// </param>
         /// <param name="workbench"></param>
         /// <param name="multiAccount"></param>
+        /// <param name="preload">
+        /// Preload configuration. Controls which tools appear in `session.tools` and the MCP server tool list so the agent can call them directly without going through search first — useful for frequently used tools. Each slug must be allowed by the session filters (`toolkits`, `tools`, `tags`), otherwise session creation fails with a 400. Custom tools declared in `custom_tools` / `custom_toolkits` can also be preloaded. Not supported when multi-account is enabled. Each preloaded tool adds to the agent context window, so keep the list at or under ~20 tools.
+        /// </param>
+        /// <param name="experimental"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -108,7 +124,9 @@ namespace Composio
             object? tools,
             global::Composio.AnyOf<global::System.Collections.Generic.IList<global::Composio.PatchToolRouterSessionBySessionIdRequestTag>, global::Composio.PatchToolRouterSessionBySessionIdRequestTags>? tags,
             global::Composio.PatchToolRouterSessionBySessionIdRequestWorkbench? workbench,
-            global::Composio.PatchToolRouterSessionBySessionIdRequestMultiAccount? multiAccount)
+            global::Composio.PatchToolRouterSessionBySessionIdRequestMultiAccount? multiAccount,
+            global::Composio.PatchToolRouterSessionBySessionIdRequestPreload? preload,
+            global::Composio.PatchToolRouterSessionBySessionIdRequestExperimental? experimental)
         {
             this.Toolkits = toolkits;
             this.AuthConfigs = authConfigs;
@@ -118,6 +136,8 @@ namespace Composio
             this.Tags = tags;
             this.Workbench = workbench;
             this.MultiAccount = multiAccount;
+            this.Preload = preload;
+            this.Experimental = experimental;
         }
 
         /// <summary>

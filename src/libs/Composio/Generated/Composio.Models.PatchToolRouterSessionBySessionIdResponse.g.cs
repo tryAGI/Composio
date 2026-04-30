@@ -52,6 +52,15 @@ namespace Composio
         public global::Composio.PatchToolRouterSessionBySessionIdResponseExperimental? Experimental { get; set; }
 
         /// <summary>
+        /// Advisory list — the session exists and is usable, but the listed issues may warrant attention.<br/>
+        /// Default Value: []<br/>
+        /// Example: [{"code":"PRELOAD_TOOLS_HIGH_CONTEXT_USAGE","message":"Session preloads 25 tools; each preloaded tool adds to the agent context window. Consider keeping the list at or under ~20 tools."}]
+        /// </summary>
+        /// <example>[{"code":"PRELOAD_TOOLS_HIGH_CONTEXT_USAGE","message":"Session preloads 25 tools; each preloaded tool adds to the agent context window. Consider keeping the list at or under ~20 tools."}]</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("warnings")]
+        public global::System.Collections.Generic.IList<global::Composio.PatchToolRouterSessionBySessionIdResponseWarning>? Warnings { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -77,6 +86,11 @@ namespace Composio
         /// <param name="experimental">
         /// Experimental features
         /// </param>
+        /// <param name="warnings">
+        /// Advisory list — the session exists and is usable, but the listed issues may warrant attention.<br/>
+        /// Default Value: []<br/>
+        /// Example: [{"code":"PRELOAD_TOOLS_HIGH_CONTEXT_USAGE","message":"Session preloads 25 tools; each preloaded tool adds to the agent context window. Consider keeping the list at or under ~20 tools."}]
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -86,7 +100,8 @@ namespace Composio
             global::System.Collections.Generic.IList<string> toolRouterTools,
             global::Composio.PatchToolRouterSessionBySessionIdResponseConfig config,
             int configVersion,
-            global::Composio.PatchToolRouterSessionBySessionIdResponseExperimental? experimental)
+            global::Composio.PatchToolRouterSessionBySessionIdResponseExperimental? experimental,
+            global::System.Collections.Generic.IList<global::Composio.PatchToolRouterSessionBySessionIdResponseWarning>? warnings)
         {
             this.SessionId = sessionId ?? throw new global::System.ArgumentNullException(nameof(sessionId));
             this.Mcp = mcp ?? throw new global::System.ArgumentNullException(nameof(mcp));
@@ -94,6 +109,7 @@ namespace Composio
             this.Config = config ?? throw new global::System.ArgumentNullException(nameof(config));
             this.ConfigVersion = configVersion;
             this.Experimental = experimental;
+            this.Warnings = warnings;
         }
 
         /// <summary>
