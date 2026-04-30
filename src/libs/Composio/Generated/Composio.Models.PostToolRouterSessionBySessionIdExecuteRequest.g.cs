@@ -27,12 +27,20 @@ namespace Composio
         public global::System.Collections.Generic.Dictionary<string, object?>? Arguments { get; set; }
 
         /// <summary>
-        /// Account identifier to specify which connected account to use for direct app tool execution. Use the account ID (e.g. "coup_hurricane_dal_analytical") or an alias. When omitted with a single account, the default is used. When omitted with multiple accounts, an error lists available accounts. Meta/helper tools either ignore this top-level field or define their own account-selection fields, for example COMPOSIO_MULTI_EXECUTE_TOOL.tools[].account.<br/>
+        /// Account identifier to specify which connected account to use for direct tool execution. Use the account ID (e.g. "coup_hurricane_dal_analytical") or an alias. When omitted with a single account, the default is used. When omitted with multiple accounts, an error lists available accounts. Meta/helper tools either ignore this top-level field or define their own account-selection fields, for example COMPOSIO_MULTI_EXECUTE_TOOL.tools[].account.<br/>
         /// Example: coup_hurricane_dal_analytical
         /// </summary>
         /// <example>coup_hurricane_dal_analytical</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("account")]
         public string? Account { get; set; }
+
+        /// <summary>
+        /// When true, direct non-meta tool execution may return a workbench offload preview if the response exceeds the configured threshold and the session workbench is enabled. When omitted or false, direct tool execution returns the normal inline response. Meta/helper tools are unaffected, and COMPOSIO_MULTI_EXECUTE_TOOL uses session.workbench configuration for its own batch-level offload behavior.<br/>
+        /// Example: true
+        /// </summary>
+        /// <example>true</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("enable_auto_workbench_offload")]
+        public bool? EnableAutoWorkbenchOffload { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -53,8 +61,12 @@ namespace Composio
         /// Example: {"repository":"octocat/Hello-World","workflow_id":"main.yml","ref":"main","inputs":{"environment":"production"}}
         /// </param>
         /// <param name="account">
-        /// Account identifier to specify which connected account to use for direct app tool execution. Use the account ID (e.g. "coup_hurricane_dal_analytical") or an alias. When omitted with a single account, the default is used. When omitted with multiple accounts, an error lists available accounts. Meta/helper tools either ignore this top-level field or define their own account-selection fields, for example COMPOSIO_MULTI_EXECUTE_TOOL.tools[].account.<br/>
+        /// Account identifier to specify which connected account to use for direct tool execution. Use the account ID (e.g. "coup_hurricane_dal_analytical") or an alias. When omitted with a single account, the default is used. When omitted with multiple accounts, an error lists available accounts. Meta/helper tools either ignore this top-level field or define their own account-selection fields, for example COMPOSIO_MULTI_EXECUTE_TOOL.tools[].account.<br/>
         /// Example: coup_hurricane_dal_analytical
+        /// </param>
+        /// <param name="enableAutoWorkbenchOffload">
+        /// When true, direct non-meta tool execution may return a workbench offload preview if the response exceeds the configured threshold and the session workbench is enabled. When omitted or false, direct tool execution returns the normal inline response. Meta/helper tools are unaffected, and COMPOSIO_MULTI_EXECUTE_TOOL uses session.workbench configuration for its own batch-level offload behavior.<br/>
+        /// Example: true
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -62,11 +74,13 @@ namespace Composio
         public PostToolRouterSessionBySessionIdExecuteRequest(
             string toolSlug,
             global::System.Collections.Generic.Dictionary<string, object?>? arguments,
-            string? account)
+            string? account,
+            bool? enableAutoWorkbenchOffload)
         {
             this.ToolSlug = toolSlug ?? throw new global::System.ArgumentNullException(nameof(toolSlug));
             this.Arguments = arguments;
             this.Account = account;
+            this.EnableAutoWorkbenchOffload = enableAutoWorkbenchOffload;
         }
 
         /// <summary>
