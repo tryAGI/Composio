@@ -654,6 +654,10 @@ namespace Composio
         /// </param>
         /// <param name="workbench"></param>
         /// <param name="multiAccount"></param>
+        /// <param name="preload">
+        /// Preload configuration. Controls which tools appear in `session.tools` and the MCP server tool list so the agent can call them directly without going through search first — useful for frequently used tools. Each slug must be allowed by the session filters (`toolkits`, `tools`, `tags`), otherwise session creation fails with a 400. Custom tools declared in `custom_tools` / `custom_toolkits` can also be preloaded. Not supported when multi-account is enabled. Each preloaded tool adds to the agent context window, so keep the list at or under ~20 tools.
+        /// </param>
+        /// <param name="experimental"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -667,6 +671,8 @@ namespace Composio
             global::Composio.AnyOf<global::System.Collections.Generic.IList<global::Composio.PatchToolRouterSessionBySessionIdRequestTag>, global::Composio.PatchToolRouterSessionBySessionIdRequestTags>? tags = default,
             global::Composio.PatchToolRouterSessionBySessionIdRequestWorkbench? workbench = default,
             global::Composio.PatchToolRouterSessionBySessionIdRequestMultiAccount? multiAccount = default,
+            global::Composio.PatchToolRouterSessionBySessionIdRequestPreload? preload = default,
+            global::Composio.PatchToolRouterSessionBySessionIdRequestExperimental? experimental = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -680,6 +686,8 @@ namespace Composio
                 Tags = tags,
                 Workbench = workbench,
                 MultiAccount = multiAccount,
+                Preload = preload,
+                Experimental = experimental,
             };
 
             return await PatchToolRouterSessionBySessionIdAsync(

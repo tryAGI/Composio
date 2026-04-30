@@ -27,7 +27,7 @@ namespace Composio
         public global::System.Collections.Generic.Dictionary<string, object?>? Arguments { get; set; }
 
         /// <summary>
-        /// Account identifier to specify which connected account to use. Use the account ID (e.g. "coup_hurricane_dal_analytical") or an alias. When omitted with a single account, the default is used. When omitted with multiple accounts, an error lists available accounts.<br/>
+        /// Account identifier to specify which connected account to use for direct app tool execution. Use the account ID (e.g. "coup_hurricane_dal_analytical") or an alias. When omitted with a single account, the default is used. When omitted with multiple accounts, an error lists available accounts. Meta/helper tools either ignore this top-level field or define their own account-selection fields, for example COMPOSIO_MULTI_EXECUTE_TOOL.tools[].account.<br/>
         /// Example: coup_hurricane_dal_analytical
         /// </summary>
         /// <example>coup_hurricane_dal_analytical</example>
@@ -53,7 +53,7 @@ namespace Composio
         /// Example: {"repository":"octocat/Hello-World","workflow_id":"main.yml","ref":"main","inputs":{"environment":"production"}}
         /// </param>
         /// <param name="account">
-        /// Account identifier to specify which connected account to use. Use the account ID (e.g. "coup_hurricane_dal_analytical") or an alias. When omitted with a single account, the default is used. When omitted with multiple accounts, an error lists available accounts.<br/>
+        /// Account identifier to specify which connected account to use for direct app tool execution. Use the account ID (e.g. "coup_hurricane_dal_analytical") or an alias. When omitted with a single account, the default is used. When omitted with multiple accounts, an error lists available accounts. Meta/helper tools either ignore this top-level field or define their own account-selection fields, for example COMPOSIO_MULTI_EXECUTE_TOOL.tools[].account.<br/>
         /// Example: coup_hurricane_dal_analytical
         /// </param>
 #if NET7_0_OR_GREATER

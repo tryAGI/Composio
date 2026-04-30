@@ -52,7 +52,7 @@ namespace Composio
         public global::Composio.PostToolRouterSessionResponseExperimental? Experimental { get; set; }
 
         /// <summary>
-        /// Advisory list — session was created, but the listed issues may warrant attention.<br/>
+        /// Advisory list — the session exists and is usable, but the listed issues may warrant attention.<br/>
         /// Default Value: []<br/>
         /// Example: [{"code":"PRELOAD_TOOLS_HIGH_CONTEXT_USAGE","message":"Session preloads 25 tools; each preloaded tool adds to the agent context window. Consider keeping the list at or under ~20 tools."}]
         /// </summary>
@@ -87,7 +87,7 @@ namespace Composio
         /// Experimental features including the generated system prompt. Only returned on session creation, not on GET.
         /// </param>
         /// <param name="warnings">
-        /// Advisory list — session was created, but the listed issues may warrant attention.<br/>
+        /// Advisory list — the session exists and is usable, but the listed issues may warrant attention.<br/>
         /// Default Value: []<br/>
         /// Example: [{"code":"PRELOAD_TOOLS_HIGH_CONTEXT_USAGE","message":"Session preloads 25 tools; each preloaded tool adds to the agent context window. Consider keeping the list at or under ~20 tools."}]
         /// </param>
