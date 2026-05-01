@@ -33610,8 +33610,8 @@
               }
             }
           },
-          "500": {
-            "description": "Internal server error - Failed to refresh the connected account authentication",
+          "409": {
+            "description": "Conflict - The connection cannot be refreshed because of a permanent attribute (e.g. its auth scheme does not support refresh, such as API_KEY or BEARER_TOKEN)",
             "content": {
               "application/json": {
                 "schema": {
@@ -33620,8 +33620,18 @@
               }
             }
           },
-          "501": {
-            "description": "Not implemented - This operation is not supported for the requested connected account or authentication scheme",
+          "422": {
+            "description": "Unprocessable entity - The connection is in an invalid state for refresh (e.g. connection-data validation failed, or the stored connection status is incompatible with reinitiation)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error - Failed to refresh the connected account authentication",
             "content": {
               "application/json": {
                 "schema": {
