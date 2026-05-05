@@ -10,7 +10,7 @@ namespace Composio
         /// </summary>
         /// <param name="xUserApiKey">
         /// User API key used to authenticate the CLI codact failure.<br/>
-        /// Example: uak_abc123xyz456...
+        /// Example: uak_a1b2c3d4e5f6g7h8i9j0
         /// </param>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -28,7 +28,7 @@ namespace Composio
         /// </summary>
         /// <param name="xUserApiKey">
         /// User API key used to authenticate the CLI codact failure.<br/>
-        /// Example: uak_abc123xyz456...
+        /// Example: uak_a1b2c3d4e5f6g7h8i9j0
         /// </param>
         /// <param name="failureType">
         /// Type of codact failure being recorded.<br/>

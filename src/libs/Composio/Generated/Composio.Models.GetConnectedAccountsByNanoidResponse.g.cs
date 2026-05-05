@@ -88,7 +88,7 @@ namespace Composio
         public required global::System.Collections.Generic.Dictionary<string, object?> Data { get; set; }
 
         /// <summary>
-        /// The reason the connection status changed. Possible reasons: Connection initiation did not complete within 10 minutes, Permanent auth error during token refresh, Max auth failures reached, OAuth callback failed during token exchange, Connection status updated by user, Auth config is disabled
+        /// The reason the connection status changed. Possible reasons: Connection initiation did not complete within 10 minutes, Permanent auth error during token refresh, Max auth failures reached, OAuth callback failed during token exchange, Connection status updated by user, Auth config is disabled, Revoked via user-initiated revoke endpoint, Revoked via admin tool, Revoked as part of connection delete
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status_reason")]
         public string? StatusReason { get; set; }
@@ -165,7 +165,7 @@ namespace Composio
         /// A user-defined alias for the connected account
         /// </param>
         /// <param name="statusReason">
-        /// The reason the connection status changed. Possible reasons: Connection initiation did not complete within 10 minutes, Permanent auth error during token refresh, Max auth failures reached, OAuth callback failed during token exchange, Connection status updated by user, Auth config is disabled
+        /// The reason the connection status changed. Possible reasons: Connection initiation did not complete within 10 minutes, Permanent auth error during token refresh, Max auth failures reached, OAuth callback failed during token exchange, Connection status updated by user, Auth config is disabled, Revoked via user-initiated revoke endpoint, Revoked via admin tool, Revoked as part of connection delete
         /// </param>
         /// <param name="testRequestEndpoint">
         /// The endpoint to make test request for verification

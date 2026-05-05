@@ -32,6 +32,10 @@ namespace Composio
         /// 
         /// </summary>
         Initiated,
+        /// <summary>
+        /// 
+        /// </summary>
+        Revoked,
     }
 
     /// <summary>
@@ -52,6 +56,7 @@ namespace Composio
                 PostConnectedAccountsByNanoidRefreshResponseStatus.Inactive => "INACTIVE",
                 PostConnectedAccountsByNanoidRefreshResponseStatus.Initializing => "INITIALIZING",
                 PostConnectedAccountsByNanoidRefreshResponseStatus.Initiated => "INITIATED",
+                PostConnectedAccountsByNanoidRefreshResponseStatus.Revoked => "REVOKED",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -68,6 +73,7 @@ namespace Composio
                 "INACTIVE" => PostConnectedAccountsByNanoidRefreshResponseStatus.Inactive,
                 "INITIALIZING" => PostConnectedAccountsByNanoidRefreshResponseStatus.Initializing,
                 "INITIATED" => PostConnectedAccountsByNanoidRefreshResponseStatus.Initiated,
+                "REVOKED" => PostConnectedAccountsByNanoidRefreshResponseStatus.Revoked,
                 _ => null,
             };
         }

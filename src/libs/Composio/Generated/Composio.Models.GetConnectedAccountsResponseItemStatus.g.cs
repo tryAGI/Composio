@@ -32,6 +32,10 @@ namespace Composio
         /// 
         /// </summary>
         Initiated,
+        /// <summary>
+        /// 
+        /// </summary>
+        Revoked,
     }
 
     /// <summary>
@@ -52,6 +56,7 @@ namespace Composio
                 GetConnectedAccountsResponseItemStatus.Inactive => "INACTIVE",
                 GetConnectedAccountsResponseItemStatus.Initializing => "INITIALIZING",
                 GetConnectedAccountsResponseItemStatus.Initiated => "INITIATED",
+                GetConnectedAccountsResponseItemStatus.Revoked => "REVOKED",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -68,6 +73,7 @@ namespace Composio
                 "INACTIVE" => GetConnectedAccountsResponseItemStatus.Inactive,
                 "INITIALIZING" => GetConnectedAccountsResponseItemStatus.Initializing,
                 "INITIATED" => GetConnectedAccountsResponseItemStatus.Initiated,
+                "REVOKED" => GetConnectedAccountsResponseItemStatus.Revoked,
                 _ => null,
             };
         }

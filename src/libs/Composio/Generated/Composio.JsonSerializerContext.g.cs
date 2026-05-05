@@ -101,6 +101,10 @@ namespace Composio
 
             typeof(global::Composio.JsonConverters.PostConnectedAccountsRequestConnectionStateVariant2ValVariant6StatusNullableJsonConverter),
 
+            typeof(global::Composio.JsonConverters.PostConnectedAccountsRequestConnectionStateVariant2ValVariant7StatusJsonConverter),
+
+            typeof(global::Composio.JsonConverters.PostConnectedAccountsRequestConnectionStateVariant2ValVariant7StatusNullableJsonConverter),
+
             typeof(global::Composio.JsonConverters.PostConnectedAccountsRequestConnectionStateVariant3AuthSchemeJsonConverter),
 
             typeof(global::Composio.JsonConverters.PostConnectedAccountsRequestConnectionStateVariant3AuthSchemeNullableJsonConverter),
@@ -829,6 +833,10 @@ namespace Composio
 
             typeof(global::Composio.JsonConverters.GetConnectedAccountsResponseItemStateVariant2ValVariant6StatusNullableJsonConverter),
 
+            typeof(global::Composio.JsonConverters.GetConnectedAccountsResponseItemStateVariant2ValVariant7StatusJsonConverter),
+
+            typeof(global::Composio.JsonConverters.GetConnectedAccountsResponseItemStateVariant2ValVariant7StatusNullableJsonConverter),
+
             typeof(global::Composio.JsonConverters.GetConnectedAccountsResponseItemStateVariant3AuthSchemeJsonConverter),
 
             typeof(global::Composio.JsonConverters.GetConnectedAccountsResponseItemStateVariant3AuthSchemeNullableJsonConverter),
@@ -1180,6 +1188,10 @@ namespace Composio
             typeof(global::Composio.JsonConverters.PostConnectedAccountsResponseConnectionDataVariant2ValVariant6StatusJsonConverter),
 
             typeof(global::Composio.JsonConverters.PostConnectedAccountsResponseConnectionDataVariant2ValVariant6StatusNullableJsonConverter),
+
+            typeof(global::Composio.JsonConverters.PostConnectedAccountsResponseConnectionDataVariant2ValVariant7StatusJsonConverter),
+
+            typeof(global::Composio.JsonConverters.PostConnectedAccountsResponseConnectionDataVariant2ValVariant7StatusNullableJsonConverter),
 
             typeof(global::Composio.JsonConverters.PostConnectedAccountsResponseConnectionDataVariant3AuthSchemeJsonConverter),
 
@@ -1544,6 +1556,10 @@ namespace Composio
             typeof(global::Composio.JsonConverters.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant6StatusJsonConverter),
 
             typeof(global::Composio.JsonConverters.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant6StatusNullableJsonConverter),
+
+            typeof(global::Composio.JsonConverters.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant7StatusJsonConverter),
+
+            typeof(global::Composio.JsonConverters.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant7StatusNullableJsonConverter),
 
             typeof(global::Composio.JsonConverters.GetConnectedAccountsByNanoidResponseStateVariant3AuthSchemeJsonConverter),
 
@@ -2063,7 +2079,7 @@ namespace Composio
 
             typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.PostConnectedAccountsRequestConnectionStateVariant1ValVariant1, global::Composio.PostConnectedAccountsRequestConnectionStateVariant1ValVariant2, global::Composio.PostConnectedAccountsRequestConnectionStateVariant1ValVariant3, global::Composio.PostConnectedAccountsRequestConnectionStateVariant1ValVariant4, global::Composio.PostConnectedAccountsRequestConnectionStateVariant1ValVariant5, global::Composio.PostConnectedAccountsRequestConnectionStateVariant1ValVariant6>),
 
-            typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant1, global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant2, global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant3, global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant4, global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant5, global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant6>),
+            typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant1, global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant2, global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant3, global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant4, global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant5, global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant6, global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant7>),
 
             typeof(global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>),
 
@@ -2197,7 +2213,7 @@ namespace Composio
 
             typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.GetConnectedAccountsResponseItemStateVariant1ValVariant1, global::Composio.GetConnectedAccountsResponseItemStateVariant1ValVariant2, global::Composio.GetConnectedAccountsResponseItemStateVariant1ValVariant3, global::Composio.GetConnectedAccountsResponseItemStateVariant1ValVariant4, global::Composio.GetConnectedAccountsResponseItemStateVariant1ValVariant5, global::Composio.GetConnectedAccountsResponseItemStateVariant1ValVariant6>),
 
-            typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant1, global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant2, global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant3, global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant4, global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant5, global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant6>),
+            typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant1, global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant2, global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant3, global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant4, global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant5, global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant6, global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant7>),
 
             typeof(global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>),
 
@@ -2251,7 +2267,7 @@ namespace Composio
 
             typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.PostConnectedAccountsResponseConnectionDataVariant1ValVariant1, global::Composio.PostConnectedAccountsResponseConnectionDataVariant1ValVariant2, global::Composio.PostConnectedAccountsResponseConnectionDataVariant1ValVariant3, global::Composio.PostConnectedAccountsResponseConnectionDataVariant1ValVariant4, global::Composio.PostConnectedAccountsResponseConnectionDataVariant1ValVariant5, global::Composio.PostConnectedAccountsResponseConnectionDataVariant1ValVariant6>),
 
-            typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant1, global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant2, global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant3, global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant4, global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant5, global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant6>),
+            typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant1, global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant2, global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant3, global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant4, global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant5, global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant6, global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant7>),
 
             typeof(global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>),
 
@@ -2305,7 +2321,7 @@ namespace Composio
 
             typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.GetConnectedAccountsByNanoidResponseStateVariant1ValVariant1, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant1ValVariant2, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant1ValVariant3, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant1ValVariant4, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant1ValVariant5, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant1ValVariant6>),
 
-            typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant1, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant2, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant3, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant4, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant5, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant6>),
+            typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant1, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant2, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant3, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant4, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant5, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant6, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant7>),
 
             typeof(global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>),
 
@@ -2452,7 +2468,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostConnectedAccountsRequestConnectionStateVariant1ValVariant6Status), TypeInfoPropertyName = "PostConnectedAccountsRequestConnectionStateVariant1ValVariant6Status2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostConnectedAccountsRequestConnectionStateVariant2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostConnectedAccountsRequestConnectionStateVariant2AuthScheme), TypeInfoPropertyName = "PostConnectedAccountsRequestConnectionStateVariant2AuthScheme2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.OneOf<global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant1, global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant2, global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant3, global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant4, global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant5, global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant6>), TypeInfoPropertyName = "PostConnectedAccountsRequestConnectionStateVariant2ValVariant6_0fa0e56b79cedc4e")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.OneOf<global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant1, global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant2, global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant3, global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant4, global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant5, global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant6, global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant7>), TypeInfoPropertyName = "PostConnectedAccountsRequestConnectionStateVariant2ValVariant7_d82cc687c5001349")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant1))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant1Status), TypeInfoPropertyName = "PostConnectedAccountsRequestConnectionStateVariant2ValVariant1Status2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant2))]
@@ -2469,6 +2485,8 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant5Status), TypeInfoPropertyName = "PostConnectedAccountsRequestConnectionStateVariant2ValVariant5Status2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant6))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant6Status), TypeInfoPropertyName = "PostConnectedAccountsRequestConnectionStateVariant2ValVariant6Status2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant7))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant7Status), TypeInfoPropertyName = "PostConnectedAccountsRequestConnectionStateVariant2ValVariant7Status2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostConnectedAccountsRequestConnectionStateVariant3))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostConnectedAccountsRequestConnectionStateVariant3AuthScheme), TypeInfoPropertyName = "PostConnectedAccountsRequestConnectionStateVariant3AuthScheme2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.OneOf<global::Composio.PostConnectedAccountsRequestConnectionStateVariant3ValVariant1, global::Composio.PostConnectedAccountsRequestConnectionStateVariant3ValVariant2, global::Composio.PostConnectedAccountsRequestConnectionStateVariant3ValVariant3, global::Composio.PostConnectedAccountsRequestConnectionStateVariant3ValVariant4>), TypeInfoPropertyName = "PostConnectedAccountsRequestConnectionStateVariant3ValVariant4_c1e217f7e446898b")]
@@ -2974,7 +2992,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsResponseItemStateVariant1ValVariant6Status), TypeInfoPropertyName = "GetConnectedAccountsResponseItemStateVariant1ValVariant6Status2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsResponseItemStateVariant2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsResponseItemStateVariant2AuthScheme), TypeInfoPropertyName = "GetConnectedAccountsResponseItemStateVariant2AuthScheme2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.OneOf<global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant1, global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant2, global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant3, global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant4, global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant5, global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant6>), TypeInfoPropertyName = "GetConnectedAccountsResponseItemStateVariant2ValVariant6_7b0bb5598ab7e0c4")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.OneOf<global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant1, global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant2, global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant3, global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant4, global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant5, global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant6, global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant7>), TypeInfoPropertyName = "GetConnectedAccountsResponseItemStateVariant2ValVariant7_d110d14822cb71b3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant1))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant1Status), TypeInfoPropertyName = "GetConnectedAccountsResponseItemStateVariant2ValVariant1Status2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant2))]
@@ -2989,6 +3007,8 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant5Status), TypeInfoPropertyName = "GetConnectedAccountsResponseItemStateVariant2ValVariant5Status2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant6))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant6Status), TypeInfoPropertyName = "GetConnectedAccountsResponseItemStateVariant2ValVariant6Status2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant7))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsResponseItemStateVariant2ValVariant7Status), TypeInfoPropertyName = "GetConnectedAccountsResponseItemStateVariant2ValVariant7Status2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsResponseItemStateVariant3))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsResponseItemStateVariant3AuthScheme), TypeInfoPropertyName = "GetConnectedAccountsResponseItemStateVariant3AuthScheme2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.OneOf<global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant1, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant2, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant3, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant4>), TypeInfoPropertyName = "GetConnectedAccountsResponseItemStateVariant3ValVariant4_418714025ccbc95f")]
@@ -3169,7 +3189,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostConnectedAccountsResponseConnectionDataVariant1ValVariant6Status), TypeInfoPropertyName = "PostConnectedAccountsResponseConnectionDataVariant1ValVariant6Status2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostConnectedAccountsResponseConnectionDataVariant2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostConnectedAccountsResponseConnectionDataVariant2AuthScheme), TypeInfoPropertyName = "PostConnectedAccountsResponseConnectionDataVariant2AuthScheme2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.OneOf<global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant1, global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant2, global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant3, global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant4, global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant5, global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant6>), TypeInfoPropertyName = "PostConnectedAccountsResponseConnectionDataVariant2ValVariant6_2b2154935282bd05")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.OneOf<global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant1, global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant2, global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant3, global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant4, global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant5, global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant6, global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant7>), TypeInfoPropertyName = "PostConnectedAccountsResponseConnectionDataVariant2ValVariant7_dc25000898f528cb")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant1))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant1Status), TypeInfoPropertyName = "PostConnectedAccountsResponseConnectionDataVariant2ValVariant1Status2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant2))]
@@ -3184,6 +3204,8 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant5Status), TypeInfoPropertyName = "PostConnectedAccountsResponseConnectionDataVariant2ValVariant5Status2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant6))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant6Status), TypeInfoPropertyName = "PostConnectedAccountsResponseConnectionDataVariant2ValVariant6Status2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant7))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostConnectedAccountsResponseConnectionDataVariant2ValVariant7Status), TypeInfoPropertyName = "PostConnectedAccountsResponseConnectionDataVariant2ValVariant7Status2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostConnectedAccountsResponseConnectionDataVariant3))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostConnectedAccountsResponseConnectionDataVariant3AuthScheme), TypeInfoPropertyName = "PostConnectedAccountsResponseConnectionDataVariant3AuthScheme2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.OneOf<global::Composio.PostConnectedAccountsResponseConnectionDataVariant3ValVariant1, global::Composio.PostConnectedAccountsResponseConnectionDataVariant3ValVariant2, global::Composio.PostConnectedAccountsResponseConnectionDataVariant3ValVariant3, global::Composio.PostConnectedAccountsResponseConnectionDataVariant3ValVariant4>), TypeInfoPropertyName = "PostConnectedAccountsResponseConnectionDataVariant3ValVariant4_5d2f2c950e9b5ba9")]
@@ -3370,7 +3392,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsByNanoidResponseStateVariant1ValVariant6Status), TypeInfoPropertyName = "GetConnectedAccountsByNanoidResponseStateVariant1ValVariant6Status2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2AuthScheme), TypeInfoPropertyName = "GetConnectedAccountsByNanoidResponseStateVariant2AuthScheme2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.OneOf<global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant1, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant2, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant3, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant4, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant5, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant6>), TypeInfoPropertyName = "GetConnectedAccountsByNanoidResponseStateVariant2ValVariant6_4c75bda15070633b")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.OneOf<global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant1, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant2, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant3, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant4, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant5, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant6, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant7>), TypeInfoPropertyName = "GetConnectedAccountsByNanoidResponseStateVariant2ValVariant7_58db215b4f9e3c93")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant1))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant1Status), TypeInfoPropertyName = "GetConnectedAccountsByNanoidResponseStateVariant2ValVariant1Status2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant2))]
@@ -3385,6 +3407,8 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant5Status), TypeInfoPropertyName = "GetConnectedAccountsByNanoidResponseStateVariant2ValVariant5Status2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant6))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant6Status), TypeInfoPropertyName = "GetConnectedAccountsByNanoidResponseStateVariant2ValVariant6Status2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant7))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2ValVariant7Status), TypeInfoPropertyName = "GetConnectedAccountsByNanoidResponseStateVariant2ValVariant7Status2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsByNanoidResponseStateVariant3))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsByNanoidResponseStateVariant3AuthScheme), TypeInfoPropertyName = "GetConnectedAccountsByNanoidResponseStateVariant3AuthScheme2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.OneOf<global::Composio.GetConnectedAccountsByNanoidResponseStateVariant3ValVariant1, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant3ValVariant2, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant3ValVariant3, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant3ValVariant4>), TypeInfoPropertyName = "GetConnectedAccountsByNanoidResponseStateVariant3ValVariant4_828723f7e645a043")]
