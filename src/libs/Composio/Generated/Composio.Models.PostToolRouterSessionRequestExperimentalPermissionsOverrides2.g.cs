@@ -16,6 +16,14 @@ namespace Composio
         /// 
         /// </summary>
         AlwaysDeny,
+        /// <summary>
+        /// 
+        /// </summary>
+        AskAlways,
+        /// <summary>
+        /// 
+        /// </summary>
+        AskOnce,
     }
 
     /// <summary>
@@ -32,6 +40,8 @@ namespace Composio
             {
                 PostToolRouterSessionRequestExperimentalPermissionsOverrides2.AlwaysAllow => "always_allow",
                 PostToolRouterSessionRequestExperimentalPermissionsOverrides2.AlwaysDeny => "always_deny",
+                PostToolRouterSessionRequestExperimentalPermissionsOverrides2.AskAlways => "ask_always",
+                PostToolRouterSessionRequestExperimentalPermissionsOverrides2.AskOnce => "ask_once",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -44,6 +54,8 @@ namespace Composio
             {
                 "always_allow" => PostToolRouterSessionRequestExperimentalPermissionsOverrides2.AlwaysAllow,
                 "always_deny" => PostToolRouterSessionRequestExperimentalPermissionsOverrides2.AlwaysDeny,
+                "ask_always" => PostToolRouterSessionRequestExperimentalPermissionsOverrides2.AskAlways,
+                "ask_once" => PostToolRouterSessionRequestExperimentalPermissionsOverrides2.AskOnce,
                 _ => null,
             };
         }
