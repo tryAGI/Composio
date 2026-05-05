@@ -95,6 +95,59 @@ namespace Composio
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            var __response = await GetAuthConfigsAsResponseAsync(
+                isComposioManaged: isComposioManaged,
+                toolkitSlug: toolkitSlug,
+                deprecatedAppId: deprecatedAppId,
+                deprecatedStatus: deprecatedStatus,
+                showDisabled: showDisabled,
+                search: search,
+                limit: limit,
+                cursor: cursor,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken
+            ).ConfigureAwait(false);
+
+            return __response.Body;
+        }
+        /// <summary>
+        /// List authentication configurations with optional filters<br/>
+        /// Retrieves all auth configs for your project. Auth configs define how users authenticate with external services (OAuth, API keys, etc.). Use filters to find configs for specific toolkits or to distinguish between Composio-managed and custom configurations.
+        /// </summary>
+        /// <param name="isComposioManaged">
+        /// Whether to filter by composio managed auth configs
+        /// </param>
+        /// <param name="toolkitSlug"></param>
+        /// <param name="deprecatedAppId">
+        /// DEPRECATED: This parameter will be removed in a future version. Please use toolkit_slug instead.
+        /// </param>
+        /// <param name="deprecatedStatus">
+        /// DEPRECATED: This parameter will be removed in a future version.
+        /// </param>
+        /// <param name="showDisabled">
+        /// Show disabled auth configs<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="search">
+        /// Search auth configs by name or id
+        /// </param>
+        /// <param name="limit"></param>
+        /// <param name="cursor"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Composio.ApiException"></exception>
+        public async global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.GetAuthConfigsResponse>> GetAuthConfigsAsResponseAsync(
+            global::Composio.AnyOf<string, bool?>? isComposioManaged = default,
+            string? toolkitSlug = default,
+            string? deprecatedAppId = default,
+            string? deprecatedStatus = default,
+            bool? showDisabled = default,
+            string? search = default,
+            double? limit = default,
+            string? cursor = default,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
             PrepareArguments(
                 client: HttpClient);
             PrepareGetAuthConfigsArguments(
@@ -130,9 +183,10 @@ namespace Composio
 
             global::System.Net.Http.HttpRequestMessage __CreateHttpRequest()
             {
+
                             var __pathBuilder = new global::Composio.PathBuilder(
                                 path: "/api/v3/auth_configs",
-                                baseUri: HttpClient.BaseAddress); 
+                                baseUri: HttpClient.BaseAddress);
                             __pathBuilder
                                 .AddOptionalParameter("is_composio_managed", isComposioManaged?.ToString())
                                 .AddOptionalParameter("toolkit_slug", toolkitSlug)
@@ -141,7 +195,7 @@ namespace Composio
                                 .AddOptionalParameter("show_disabled", showDisabled?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("search", search)
                                 .AddOptionalParameter("limit", limit?.ToString())
-                                .AddOptionalParameter("cursor", cursor) 
+                                .AddOptionalParameter("cursor", cursor)
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Composio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -220,6 +274,8 @@ namespace Composio
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                     try
                     {
@@ -230,6 +286,11 @@ namespace Composio
                     }
                     catch (global::System.Net.Http.HttpRequestException __exception)
                     {
+                        var __retryDelay = global::Composio.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: null,
+                            attempt: __attempt);
                         var __willRetry = __attempt < __maxAttempts && !__effectiveCancellationToken.IsCancellationRequested;
                         await global::Composio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
@@ -247,6 +308,8 @@ namespace Composio
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: __willRetry,
+                                retryDelay: __willRetry ? __retryDelay : (global::System.TimeSpan?)null,
+                                retryReason: "exception",
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                         if (!__willRetry)
                         {
@@ -256,8 +319,7 @@ namespace Composio
                         __httpRequest.Dispose();
                         __httpRequest = null;
                         await global::Composio.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
+                            retryDelay: __retryDelay,
                             cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                         continue;
                     }
@@ -266,6 +328,11 @@ namespace Composio
                         __attempt < __maxAttempts &&
                         global::Composio.AutoSDKRequestOptionsSupport.ShouldRetryStatusCode(__response.StatusCode))
                     {
+                        var __retryDelay = global::Composio.AutoSDKRequestOptionsSupport.GetRetryDelay(
+                            clientOptions: Options,
+                            requestOptions: requestOptions,
+                            response: __response,
+                            attempt: __attempt);
                         await global::Composio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Composio.AutoSDKRequestOptionsSupport.CreateHookContext(
@@ -282,14 +349,15 @@ namespace Composio
                                 attempt: __attempt,
                                 maxAttempts: __maxAttempts,
                                 willRetry: true,
+                                retryDelay: __retryDelay,
+                                retryReason: "status:" + ((int)__response.StatusCode).ToString(global::System.Globalization.CultureInfo.InvariantCulture),
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                         __response.Dispose();
                         __response = null;
                         __httpRequest.Dispose();
                         __httpRequest = null;
                         await global::Composio.AutoSDKRequestOptionsSupport.DelayBeforeRetryAsync(
-                            clientOptions: Options,
-                            requestOptions: requestOptions,
+                            retryDelay: __retryDelay,
                             cancellationToken: __effectiveCancellationToken).ConfigureAwait(false);
                         continue;
                     }
@@ -329,6 +397,8 @@ namespace Composio
                                 attempt: __attemptNumber,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
                 else
@@ -349,6 +419,8 @@ namespace Composio
                                 attempt: __attemptNumber,
                                 maxAttempts: __maxAttempts,
                                 willRetry: false,
+                                retryDelay: null,
+                                retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
                             // Bad request
@@ -525,9 +597,13 @@ namespace Composio
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return
-                                        global::Composio.GetAuthConfigsResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::Composio.GetAuthConfigsResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::Composio.AutoSDKHttpResponse<global::Composio.GetAuthConfigsResponse>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::Composio.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -555,9 +631,13 @@ namespace Composio
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    return
-                                        await global::Composio.GetAuthConfigsResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::Composio.GetAuthConfigsResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::Composio.AutoSDKHttpResponse<global::Composio.GetAuthConfigsResponse>(
+                                        statusCode: __response.StatusCode,
+                                        headers: global::Composio.AutoSDKHttpResponse.CreateHeaders(__response),
+                                        requestUri: __response.RequestMessage?.RequestUri,
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {

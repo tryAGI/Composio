@@ -30,6 +30,23 @@ namespace Composio
         /// <param name="slug">
         /// The slug of the trigger instance. Case-insensitive (internally normalized to uppercase).
         /// </param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Composio.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.PostTriggerInstancesBySlugUpsertResponse>> PostTriggerInstancesBySlugUpsertAsResponseAsync(
+            string slug,
+
+            global::Composio.PostTriggerInstancesBySlugUpsertRequest request,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create or update a trigger<br/>
+        /// Creates a new trigger instance or updates an existing one with the same configuration. Triggers listen for events from external services (webhooks or polling) and can invoke your workflows. If a matching trigger already exists and is disabled, it will be re-enabled. Requires a connected account ID to associate the trigger with a specific user connection.
+        /// </summary>
+        /// <param name="slug">
+        /// The slug of the trigger instance. Case-insensitive (internally normalized to uppercase).
+        /// </param>
         /// <param name="connectedAccountId">
         /// Connected account nanoid
         /// </param>

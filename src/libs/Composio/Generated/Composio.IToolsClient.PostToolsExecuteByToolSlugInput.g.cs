@@ -24,6 +24,21 @@ namespace Composio
         /// Uses AI to translate a natural language description into structured arguments for a specific tool. This endpoint is useful when you want to let users describe what they want to do in plain language instead of providing structured parameters.
         /// </summary>
         /// <param name="toolSlug"></param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Composio.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.PostToolsExecuteByToolSlugInputResponse>> PostToolsExecuteByToolSlugInputAsResponseAsync(
+            string toolSlug,
+
+            global::Composio.PostToolsExecuteByToolSlugInputRequest request,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Generate tool inputs from natural language<br/>
+        /// Uses AI to translate a natural language description into structured arguments for a specific tool. This endpoint is useful when you want to let users describe what they want to do in plain language instead of providing structured parameters.
+        /// </summary>
+        /// <param name="toolSlug"></param>
         /// <param name="text">
         /// Natural language description of what you want to accomplish with this tool<br/>
         /// Example: I need to trigger the main workflow in the octocat/Hello-World repository to deploy to production

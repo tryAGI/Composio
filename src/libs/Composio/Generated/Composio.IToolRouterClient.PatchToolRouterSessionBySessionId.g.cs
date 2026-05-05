@@ -30,6 +30,24 @@ namespace Composio
         /// The unique identifier of the tool router session<br/>
         /// Example: trs_1a2b3c4d5e6f
         /// </param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Composio.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.PatchToolRouterSessionBySessionIdResponse>> PatchToolRouterSessionBySessionIdAsResponseAsync(
+            string sessionId,
+
+            global::Composio.PatchToolRouterSessionBySessionIdRequest request,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Patch a tool router session config<br/>
+        /// Partially updates the configuration of an existing tool router session. Only the fields provided in the request body will be updated. Uses optimistic concurrency control to prevent lost updates. The previous config is stored in config history.
+        /// </summary>
+        /// <param name="sessionId">
+        /// The unique identifier of the tool router session<br/>
+        /// Example: trs_1a2b3c4d5e6f
+        /// </param>
         /// <param name="toolkits">
         /// Toolkit configuration - specify either enable toolkits (allowlist) or disable toolkits (denylist). Mutually exclusive.
         /// </param>

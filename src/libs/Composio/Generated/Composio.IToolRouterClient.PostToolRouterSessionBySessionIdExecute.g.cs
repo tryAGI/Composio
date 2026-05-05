@@ -30,6 +30,24 @@ namespace Composio
         /// The unique identifier of the tool router session. Required for public API endpoints, optional for internal endpoints where it is injected by middleware.<br/>
         /// Example: trs_LX9uJKBinWWr
         /// </param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Composio.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.PostToolRouterSessionBySessionIdExecuteResponse>> PostToolRouterSessionBySessionIdExecuteAsResponseAsync(
+            string? sessionId,
+
+            global::Composio.PostToolRouterSessionBySessionIdExecuteRequest request,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Execute a tool within a tool router session<br/>
+        /// Executes a specific tool within a tool router session. This is the primary execution endpoint for both meta tools and app tools exposed by the session. The toolkit is automatically inferred from the tool slug. For app tools, the tool must belong to an allowed toolkit and must not be disabled in the session configuration. The endpoint validates permissions, resolves connected accounts when needed, and executes the tool with the session context. The top-level account field applies only to direct app tool execution in multi-account sessions. Meta/helper tools either ignore it or define their own account-selection fields, for example COMPOSIO_MULTI_EXECUTE_TOOL.tools[].account.
+        /// </summary>
+        /// <param name="sessionId">
+        /// The unique identifier of the tool router session. Required for public API endpoints, optional for internal endpoints where it is injected by middleware.<br/>
+        /// Example: trs_LX9uJKBinWWr
+        /// </param>
         /// <param name="toolSlug">
         /// The unique slug identifier of the tool to execute. Supports both meta tools and app tools exposed by the session.<br/>
         /// Example: GITHUB_CREATE_AN_ISSUE

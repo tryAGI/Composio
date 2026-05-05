@@ -21,6 +21,19 @@ namespace Composio
         /// Generate MCP URL with custom parameters<br/>
         /// Generates a Model Control Protocol (MCP) URL for an existing server with custom query parameters. The URL includes user-specific parameters and configuration flags that control the behavior of the MCP connection.
         /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Composio.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.PostMcpServersGenerateResponse>> PostMcpServersGenerateAsResponseAsync(
+
+            global::Composio.PostMcpServersGenerateRequest request,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Generate MCP URL with custom parameters<br/>
+        /// Generates a Model Control Protocol (MCP) URL for an existing server with custom query parameters. The URL includes user-specific parameters and configuration flags that control the behavior of the MCP connection.
+        /// </summary>
         /// <param name="mcpServerId">
         /// Unique identifier of the MCP server to generate URL for<br/>
         /// Example: 550e8400-e29b-41d4-a716-446655440000

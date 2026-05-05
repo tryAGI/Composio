@@ -42,7 +42,7 @@ namespace Composio
         /// <summary>
         /// Authentication configuration management.
         /// </summary>
-        public AuthConfigsClient AuthConfigs => new AuthConfigsClient(HttpClient, authorizations: Authorizations, options: Options)
+        public AuthConfigsClient AuthConfigs => new AuthConfigsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -51,7 +51,7 @@ namespace Composio
         /// <summary>
         /// Authentication related endpoints.
         /// </summary>
-        public AuthenticationClient Authentication => new AuthenticationClient(HttpClient, authorizations: Authorizations, options: Options)
+        public AuthenticationClient Authentication => new AuthenticationClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -60,7 +60,7 @@ namespace Composio
         /// <summary>
         /// CLI integration endpoints.
         /// </summary>
-        public CliClient Cli => new CliClient(HttpClient, authorizations: Authorizations, options: Options)
+        public CliClient Cli => new CliClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -69,7 +69,7 @@ namespace Composio
         /// <summary>
         /// 
         /// </summary>
-        public CliAuthenticationClient CliAuthentication => new CliAuthenticationClient(HttpClient, authorizations: Authorizations, options: Options)
+        public CliAuthenticationClient CliAuthentication => new CliAuthenticationClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -78,7 +78,7 @@ namespace Composio
         /// <summary>
         /// Connected account management.
         /// </summary>
-        public ConnectedAccountsClient ConnectedAccounts => new ConnectedAccountsClient(HttpClient, authorizations: Authorizations, options: Options)
+        public ConnectedAccountsClient ConnectedAccounts => new ConnectedAccountsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -87,7 +87,7 @@ namespace Composio
         /// <summary>
         /// File management.
         /// </summary>
-        public FilesClient Files => new FilesClient(HttpClient, authorizations: Authorizations, options: Options)
+        public FilesClient Files => new FilesClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -96,7 +96,7 @@ namespace Composio
         /// <summary>
         /// Logging and monitoring.
         /// </summary>
-        public LogsClient Logs => new LogsClient(HttpClient, authorizations: Authorizations, options: Options)
+        public LogsClient Logs => new LogsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -105,7 +105,7 @@ namespace Composio
         /// <summary>
         /// MCP server management.
         /// </summary>
-        public McpClient Mcp => new McpClient(HttpClient, authorizations: Authorizations, options: Options)
+        public McpClient Mcp => new McpClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -114,7 +114,7 @@ namespace Composio
         /// <summary>
         /// Endpoints to help with migration from v1 to v3.
         /// </summary>
-        public MigrationClient Migration => new MigrationClient(HttpClient, authorizations: Authorizations, options: Options)
+        public MigrationClient Migration => new MigrationClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -123,7 +123,7 @@ namespace Composio
         /// <summary>
         /// 
         /// </summary>
-        public OrganizationManagementClient OrganizationManagement => new OrganizationManagementClient(HttpClient, authorizations: Authorizations, options: Options)
+        public OrganizationManagementClient OrganizationManagement => new OrganizationManagementClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -132,7 +132,7 @@ namespace Composio
         /// <summary>
         /// 
         /// </summary>
-        public ProjectsClient Projects => new ProjectsClient(HttpClient, authorizations: Authorizations, options: Options)
+        public ProjectsClient Projects => new ProjectsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -141,7 +141,7 @@ namespace Composio
         /// <summary>
         /// (Labs) Tool router endpoints.
         /// </summary>
-        public ToolRouterClient ToolRouter => new ToolRouterClient(HttpClient, authorizations: Authorizations, options: Options)
+        public ToolRouterClient ToolRouter => new ToolRouterClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -150,7 +150,7 @@ namespace Composio
         /// <summary>
         /// Toolkit and tool management.
         /// </summary>
-        public ToolkitsClient Toolkits => new ToolkitsClient(HttpClient, authorizations: Authorizations, options: Options)
+        public ToolkitsClient Toolkits => new ToolkitsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -159,7 +159,7 @@ namespace Composio
         /// <summary>
         /// Tool execution endpoints.
         /// </summary>
-        public ToolsClient Tools => new ToolsClient(HttpClient, authorizations: Authorizations, options: Options)
+        public ToolsClient Tools => new ToolsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -168,7 +168,7 @@ namespace Composio
         /// <summary>
         /// Trigger management and execution.
         /// </summary>
-        public TriggersClient Triggers => new TriggersClient(HttpClient, authorizations: Authorizations, options: Options)
+        public TriggersClient Triggers => new TriggersClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -177,7 +177,7 @@ namespace Composio
         /// <summary>
         /// Webhook configuration.
         /// </summary>
-        public WebhooksClient Webhooks => new WebhooksClient(HttpClient, authorizations: Authorizations, options: Options)
+        public WebhooksClient Webhooks => new WebhooksClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
             ReadResponseAsString = ReadResponseAsString,
             JsonSerializerContext = JsonSerializerContext,
@@ -216,10 +216,10 @@ namespace Composio
         /// <param name="options">Client-wide request defaults such as headers, query parameters, retries, and timeout.</param>
         /// <param name="disposeHttpClient">Dispose the HttpClient when the instance is disposed. True by default.</param>
         public ComposioClient(
-            global::System.Net.Http.HttpClient? httpClient = null,
-            global::System.Uri? baseUri = null,
-            global::System.Collections.Generic.List<global::Composio.EndPointAuthorization>? authorizations = null,
-            global::Composio.AutoSDKClientOptions? options = null,
+            global::System.Net.Http.HttpClient? httpClient,
+            global::System.Uri? baseUri,
+            global::System.Collections.Generic.List<global::Composio.EndPointAuthorization>? authorizations,
+            global::Composio.AutoSDKClientOptions? options,
             bool disposeHttpClient = true)
         {
 
