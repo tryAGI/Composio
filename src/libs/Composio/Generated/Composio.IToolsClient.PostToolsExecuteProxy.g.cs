@@ -23,6 +23,19 @@ namespace Composio
         /// Execute proxy request<br/>
         /// Proxy an HTTP request to a third-party API using connected account credentials. This endpoint allows making authenticated API calls to external services while abstracting away authentication details.
         /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Composio.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.PostToolsExecuteProxyResponse>> PostToolsExecuteProxyAsResponseAsync(
+
+            global::Composio.PostToolsExecuteProxyRequest request,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Execute proxy request<br/>
+        /// Proxy an HTTP request to a third-party API using connected account credentials. This endpoint allows making authenticated API calls to external services while abstracting away authentication details.
+        /// </summary>
         /// <param name="connectedAccountId">
         /// The ID of the connected account to use for authentication (if not provided, will use the default account for the project)<br/>
         /// Example: ca_1a2b3c4d5e6f

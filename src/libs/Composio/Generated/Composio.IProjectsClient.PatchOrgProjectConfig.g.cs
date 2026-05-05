@@ -21,6 +21,19 @@ namespace Composio
         /// Update project configuration<br/>
         /// Updates the project configuration settings.
         /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Composio.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.PatchOrgProjectConfigResponse>> PatchOrgProjectConfigAsResponseAsync(
+
+            global::Composio.PatchOrgProjectConfigRequest request,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Update project configuration<br/>
+        /// Updates the project configuration settings.
+        /// </summary>
         /// <param name="is2faEnabled"></param>
         /// <param name="logoUrl"></param>
         /// <param name="displayName"></param>

@@ -28,6 +28,23 @@ namespace Composio
         /// <param name="sessionId">
         /// Tool router session ID
         /// </param>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Composio.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.GetToolRouterSessionBySessionIdToolsResponse>> GetToolRouterSessionBySessionIdToolsAsResponseAsync(
+            string? sessionId,
+
+            object request,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// List tools with schemas for a tool router session<br/>
+        /// Returns the tools available in a tool router session with their complete schemas. This includes both meta tools and any preloaded app tools exposed by the session.
+        /// </summary>
+        /// <param name="sessionId">
+        /// Tool router session ID
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>

@@ -21,6 +21,19 @@ namespace Composio
         /// Create a new custom MCP server with multiple apps<br/>
         /// Creates a new Model Control Protocol (MCP) server instance that can integrate with multiple applications or toolkits simultaneously. This endpoint allows you to create a server that can access tools from different applications, making it suitable for complex workflows that span multiple services.
         /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Composio.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.PostMcpServersCustomResponse>> PostMcpServersCustomAsResponseAsync(
+
+            global::Composio.PostMcpServersCustomRequest request,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create a new custom MCP server with multiple apps<br/>
+        /// Creates a new Model Control Protocol (MCP) server instance that can integrate with multiple applications or toolkits simultaneously. This endpoint allows you to create a server that can access tools from different applications, making it suitable for complex workflows that span multiple services.
+        /// </summary>
         /// <param name="name">
         /// Human-readable name to identify this custom MCP server (4-30 characters, alphanumeric, spaces, and hyphens only)<br/>
         /// Example: Multi App Integration Server

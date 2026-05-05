@@ -21,6 +21,19 @@ namespace Composio
         /// Create a new auth link session<br/>
         /// Creates a new authentication link session that users can use to connect their accounts
         /// </summary>
+        /// <param name="request"></param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::Composio.ApiException"></exception>
+        global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.PostConnectedAccountsLinkResponse>> PostConnectedAccountsLinkAsResponseAsync(
+
+            global::Composio.PostConnectedAccountsLinkRequest request,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default);
+        /// <summary>
+        /// Create a new auth link session<br/>
+        /// Creates a new authentication link session that users can use to connect their accounts
+        /// </summary>
         /// <param name="authConfigId">
         /// The auth config id to create a link for
         /// </param>
