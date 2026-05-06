@@ -4,10 +4,9 @@
 namespace Composio
 {
     /// <summary>
-    /// Per-toolkit connected account override (single nano-ID). Each connected account must exist (not deleted or disabled) and belong to the same `user_id` as the session.<br/>
-    /// Example: {"github":"ca_3m4n5o6p7q8r"}
+    /// Full per-toolkit connected account overrides as arrays. Populated whenever `connected_accounts` is non-empty; carries the complete list when multi-account is enabled.
     /// </summary>
-    public sealed partial class PatchToolRouterSessionBySessionIdRequestConnectedAccounts
+    public sealed partial class GetToolRouterSessionBySessionIdResponseConfigAllConnectedAccounts
     {
 
         /// <summary>

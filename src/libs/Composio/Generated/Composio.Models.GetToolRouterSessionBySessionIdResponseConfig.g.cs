@@ -29,10 +29,16 @@ namespace Composio
         public global::System.Collections.Generic.Dictionary<string, string>? AuthConfigs { get; set; }
 
         /// <summary>
-        /// Connected account overrides per toolkit. Each connected account must belong to the same user_id as the session.
+        /// Per-toolkit connected account override (single nano-ID). Returns the first override when multi-account is enabled; see `all_connected_accounts` for the full list.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("connected_accounts")]
         public global::System.Collections.Generic.Dictionary<string, string>? ConnectedAccounts { get; set; }
+
+        /// <summary>
+        /// Full per-toolkit connected account overrides as arrays. Populated whenever `connected_accounts` is non-empty; carries the complete list when multi-account is enabled.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("all_connected_accounts")]
+        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<string>>? AllConnectedAccounts { get; set; }
 
         /// <summary>
         /// Manage connections configuration
@@ -94,7 +100,10 @@ namespace Composio
         /// Auth config overrides per toolkit
         /// </param>
         /// <param name="connectedAccounts">
-        /// Connected account overrides per toolkit. Each connected account must belong to the same user_id as the session.
+        /// Per-toolkit connected account override (single nano-ID). Returns the first override when multi-account is enabled; see `all_connected_accounts` for the full list.
+        /// </param>
+        /// <param name="allConnectedAccounts">
+        /// Full per-toolkit connected account overrides as arrays. Populated whenever `connected_accounts` is non-empty; carries the complete list when multi-account is enabled.
         /// </param>
         /// <param name="manageConnections">
         /// Manage connections configuration
@@ -121,6 +130,7 @@ namespace Composio
             global::Composio.AnyOf<global::Composio.GetToolRouterSessionBySessionIdResponseConfigToolkitsVariant1, global::Composio.GetToolRouterSessionBySessionIdResponseConfigToolkitsVariant2>? toolkits,
             global::System.Collections.Generic.Dictionary<string, string>? authConfigs,
             global::System.Collections.Generic.Dictionary<string, string>? connectedAccounts,
+            global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<string>>? allConnectedAccounts,
             global::Composio.GetToolRouterSessionBySessionIdResponseConfigManageConnections? manageConnections,
             object? tools,
             global::Composio.GetToolRouterSessionBySessionIdResponseConfigTags? tags,
@@ -131,6 +141,7 @@ namespace Composio
             this.Toolkits = toolkits;
             this.AuthConfigs = authConfigs;
             this.ConnectedAccounts = connectedAccounts;
+            this.AllConnectedAccounts = allConnectedAccounts;
             this.ManageConnections = manageConnections;
             this.Tools = tools;
             this.Tags = tags;

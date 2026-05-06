@@ -4,7 +4,7 @@
 namespace Composio
 {
     /// <summary>
-    /// Connected account overrides per toolkit. Each connected account must belong to the same user_id as the session.
+    /// Per-toolkit connected account override (single nano-ID). Returns the first override when multi-account is enabled; see `all_connected_accounts` for the full list.
     /// </summary>
     public sealed partial class PostToolRouterSessionResponseConfigConnectedAccounts
     {
