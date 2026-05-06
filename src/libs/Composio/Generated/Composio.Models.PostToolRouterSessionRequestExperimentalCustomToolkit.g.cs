@@ -36,6 +36,12 @@ namespace Composio
         public required string Description { get; set; }
 
         /// <summary>
+        /// SDK hint for direct custom-tool exposure. Not stored in session config; echoed in create/attach responses for inline custom definitions.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("preload")]
+        public bool? Preload { get; set; }
+
+        /// <summary>
         /// Tools in this custom toolkit
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
@@ -66,6 +72,9 @@ namespace Composio
         /// <param name="tools">
         /// Tools in this custom toolkit
         /// </param>
+        /// <param name="preload">
+        /// SDK hint for direct custom-tool exposure. Not stored in session config; echoed in create/attach responses for inline custom definitions.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -73,11 +82,13 @@ namespace Composio
             string slug,
             string name,
             string description,
-            global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionRequestExperimentalCustomToolkitTool> tools)
+            global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionRequestExperimentalCustomToolkitTool> tools,
+            bool? preload)
         {
             this.Slug = slug ?? throw new global::System.ArgumentNullException(nameof(slug));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
+            this.Preload = preload;
             this.Tools = tools ?? throw new global::System.ArgumentNullException(nameof(tools));
         }
 

@@ -59,6 +59,12 @@ namespace Composio
         public string? ExtendsToolkit { get; set; }
 
         /// <summary>
+        /// SDK hint for direct custom-tool exposure. Not stored in session config; echoed in create/attach responses for inline custom definitions.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("preload")]
+        public bool? Preload { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -90,6 +96,9 @@ namespace Composio
         /// If set, must be a valid Composio toolkit slug. The tool inherits that toolkit's auth/connection status. If omitted, the tool is standalone (no-auth).<br/>
         /// Example: gmail
         /// </param>
+        /// <param name="preload">
+        /// SDK hint for direct custom-tool exposure. Not stored in session config; echoed in create/attach responses for inline custom definitions.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -99,7 +108,8 @@ namespace Composio
             string description,
             global::System.Collections.Generic.Dictionary<string, object?> inputSchema,
             global::System.Collections.Generic.Dictionary<string, object?>? outputSchema,
-            string? extendsToolkit)
+            string? extendsToolkit,
+            bool? preload)
         {
             this.Slug = slug ?? throw new global::System.ArgumentNullException(nameof(slug));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -107,6 +117,7 @@ namespace Composio
             this.InputSchema = inputSchema ?? throw new global::System.ArgumentNullException(nameof(inputSchema));
             this.OutputSchema = outputSchema;
             this.ExtendsToolkit = extendsToolkit;
+            this.Preload = preload;
         }
 
         /// <summary>

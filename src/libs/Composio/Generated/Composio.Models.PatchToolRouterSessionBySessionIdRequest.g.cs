@@ -24,7 +24,7 @@ namespace Composio
         public global::System.Collections.Generic.Dictionary<string, string>? AuthConfigs { get; set; }
 
         /// <summary>
-        /// The connected accounts to use for the session. This will override the default behaviour and use the given connected account when specific toolkits are being executed. Each connected account must exist (not deleted or disabled) and belong to the same `user_id` as the session — otherwise session creation fails with a clear error explaining which account didn't match.<br/>
+        /// Per-toolkit connected account override (single nano-ID). Each connected account must exist (not deleted or disabled) and belong to the same `user_id` as the session.<br/>
         /// Example: {"github":"ca_3m4n5o6p7q8r"}
         /// </summary>
         /// <example>{"github":"ca_3m4n5o6p7q8r"}</example>
@@ -67,7 +67,7 @@ namespace Composio
         public global::Composio.PatchToolRouterSessionBySessionIdRequestMultiAccount? MultiAccount { get; set; }
 
         /// <summary>
-        /// Preload configuration. Controls which tools appear in `session.tools` and the MCP server tool list so the agent can call them directly without going through search first — useful for frequently used tools. Each slug must be allowed by the session filters (`toolkits`, `tools`, `tags`), otherwise session creation fails with a 400. Custom tools declared in `custom_tools` / `custom_toolkits` can also be preloaded. Not supported when multi-account is enabled. Each preloaded tool adds to the agent context window, so keep the list at or under ~20 tools.
+        /// Preload configuration for Composio tools. Controls which tools appear in `session.tools` and the MCP server tool list so the agent can call them directly without going through search first. Custom tools use `preload` on the custom tool/toolkit definition instead. Not supported when multi-account is enabled. Each preloaded tool adds to the agent context window, so keep the list at or under ~20 tools.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("preload")]
         public global::Composio.PatchToolRouterSessionBySessionIdRequestPreload? Preload { get; set; }
@@ -95,7 +95,7 @@ namespace Composio
         /// Example: {"gmail":"ac_1a2b3c4d5e6f","slack":"ac_7g8h9i0j1k2l"}
         /// </param>
         /// <param name="connectedAccounts">
-        /// The connected accounts to use for the session. This will override the default behaviour and use the given connected account when specific toolkits are being executed. Each connected account must exist (not deleted or disabled) and belong to the same `user_id` as the session — otherwise session creation fails with a clear error explaining which account didn't match.<br/>
+        /// Per-toolkit connected account override (single nano-ID). Each connected account must exist (not deleted or disabled) and belong to the same `user_id` as the session.<br/>
         /// Example: {"github":"ca_3m4n5o6p7q8r"}
         /// </param>
         /// <param name="manageConnections"></param>
@@ -110,7 +110,7 @@ namespace Composio
         /// <param name="workbench"></param>
         /// <param name="multiAccount"></param>
         /// <param name="preload">
-        /// Preload configuration. Controls which tools appear in `session.tools` and the MCP server tool list so the agent can call them directly without going through search first — useful for frequently used tools. Each slug must be allowed by the session filters (`toolkits`, `tools`, `tags`), otherwise session creation fails with a 400. Custom tools declared in `custom_tools` / `custom_toolkits` can also be preloaded. Not supported when multi-account is enabled. Each preloaded tool adds to the agent context window, so keep the list at or under ~20 tools.
+        /// Preload configuration for Composio tools. Controls which tools appear in `session.tools` and the MCP server tool list so the agent can call them directly without going through search first. Custom tools use `preload` on the custom tool/toolkit definition instead. Not supported when multi-account is enabled. Each preloaded tool adds to the agent context window, so keep the list at or under ~20 tools.
         /// </param>
         /// <param name="experimental"></param>
 #if NET7_0_OR_GREATER

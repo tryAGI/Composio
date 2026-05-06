@@ -48247,9 +48247,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "requestBody": {
@@ -48326,11 +48323,11 @@
                   },
                   "connected_accounts": {
                     "type": "object",
+                    "description": "Per-toolkit connected account override (single nano-ID). Each connected account must exist (not deleted or disabled) and belong to the same `user_id` as the session.",
                     "additionalProperties": {
                       "type": "string",
-                      "format": "connectedAccountId"
+                      "example": "ca_3m4n5o6p7q8r"
                     },
-                    "description": "The connected accounts to use for the session. This will override the default behaviour and use the given connected account when specific toolkits are being executed. Each connected account must exist (not deleted or disabled) and belong to the same `user_id` as the session — otherwise session creation fails with a clear error explaining which account didn't match.",
                     "example": {
                       "github": "ca_3m4n5o6p7q8r"
                     }
@@ -48667,6 +48664,10 @@
                               "description": "Used for BM25 search matching and shown in toolkit connection statuses.",
                               "example": "Internal e-commerce API for order management and fulfillment"
                             },
+                            "preload": {
+                              "type": "boolean",
+                              "description": "SDK hint for direct custom-tool exposure. Not stored in session config; echoed in create/attach responses for inline custom definitions."
+                            },
                             "tools": {
                               "type": "array",
                               "items": {
@@ -48718,6 +48719,10 @@
                                       "nullable": true
                                     },
                                     "description": "Optional output schema for the tool response."
+                                  },
+                                  "preload": {
+                                    "type": "boolean",
+                                    "description": "SDK hint for direct custom-tool exposure. Not stored in session config; echoed in create/attach responses for inline custom definitions."
                                   }
                                 },
                                 "required": [
@@ -48795,6 +48800,10 @@
                               "minLength": 1,
                               "description": "If set, must be a valid Composio toolkit slug. The tool inherits that toolkit's auth/connection status. If omitted, the tool is standalone (no-auth).",
                               "example": "gmail"
+                            },
+                            "preload": {
+                              "type": "boolean",
+                              "description": "SDK hint for direct custom-tool exposure. Not stored in session config; echoed in create/attach responses for inline custom definitions."
                             }
                           },
                           "required": [
@@ -48836,6 +48845,12 @@
                           "default"
                         ],
                         "description": "Per-tool elicitation permission config. Default behavior + per-tool always_allow/always_deny overrides. Mutation via PATCH."
+                      },
+                      "link_url_overwrite": {
+                        "type": "string",
+                        "format": "uri",
+                        "description": "Experimental base URL override for connection link redirects created from this tool-router session. When set, link creation returns `${link_url_overwrite}/link/{link_token}` instead of the default Composio Connect base URL. Use only when your integration needs links to open through a custom Connect host.",
+                        "x-experimental": true
                       }
                     },
                     "description": "Experimental features - not stable, may be modified or removed in future versions.",
@@ -48849,7 +48864,7 @@
                         "items": {
                           "type": "string"
                         },
-                        "description": "Tool slugs to preload. Each slug must be allowed by the session filters (`toolkits`, `tools`, `tags`) and exist either in the Composio tool catalog or in `custom_tools` / `custom_toolkits` — unknown or blocked slugs return a 400 at session creation.",
+                        "description": "Composio tool slugs to preload. Each slug must be allowed by the session filters (`toolkits`, `tools`, `tags`) — unknown, blocked, meta, or custom slugs return a 400 at session creation.",
                         "example": [
                           "GMAIL_FETCH_EMAILS",
                           "SLACK_SEND_MESSAGE"
@@ -48857,7 +48872,7 @@
                       }
                     },
                     "additionalProperties": false,
-                    "description": "Preload configuration. Controls which tools appear in `session.tools` and the MCP server tool list so the agent can call them directly without going through search first — useful for frequently used tools. Each slug must be allowed by the session filters (`toolkits`, `tools`, `tags`), otherwise session creation fails with a 400. Custom tools declared in `custom_tools` / `custom_toolkits` can also be preloaded. Not supported when multi-account is enabled. Each preloaded tool adds to the agent context window, so keep the list at or under ~20 tools."
+                    "description": "Preload configuration for Composio tools. Controls which tools appear in `session.tools` and the MCP server tool list so the agent can call them directly without going through search first. Custom tools use `preload` on the custom tool/toolkit definition instead. Not supported when multi-account is enabled. Each preloaded tool adds to the agent context window, so keep the list at or under ~20 tools."
                   }
                 },
                 "required": [
@@ -49153,7 +49168,19 @@
                             "type": "string",
                             "format": "connectedAccountId"
                           },
-                          "description": "Connected account overrides per toolkit. Each connected account must belong to the same user_id as the session."
+                          "description": "Per-toolkit connected account override (single nano-ID). Returns the first override when multi-account is enabled; see `all_connected_accounts` for the full list."
+                        },
+                        "all_connected_accounts": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "format": "connectedAccountId"
+                            },
+                            "minItems": 1
+                          },
+                          "description": "Full per-toolkit connected account overrides as arrays. Populated whenever `connected_accounts` is non-empty; carries the complete list when multi-account is enabled."
                         },
                         "manage_connections": {
                           "type": "object",
@@ -50140,7 +50167,19 @@
                             "type": "string",
                             "format": "connectedAccountId"
                           },
-                          "description": "Connected account overrides per toolkit. Each connected account must belong to the same user_id as the session."
+                          "description": "Per-toolkit connected account override (single nano-ID). Returns the first override when multi-account is enabled; see `all_connected_accounts` for the full list."
+                        },
+                        "all_connected_accounts": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "format": "connectedAccountId"
+                            },
+                            "minItems": 1
+                          },
+                          "description": "Full per-toolkit connected account overrides as arrays. Populated whenever `connected_accounts` is non-empty; carries the complete list when multi-account is enabled."
                         },
                         "manage_connections": {
                           "type": "object",
@@ -50681,11 +50720,11 @@
                   },
                   "connected_accounts": {
                     "type": "object",
+                    "description": "Per-toolkit connected account override (single nano-ID). Each connected account must exist (not deleted or disabled) and belong to the same `user_id` as the session.",
                     "additionalProperties": {
                       "type": "string",
-                      "format": "connectedAccountId"
+                      "example": "ca_3m4n5o6p7q8r"
                     },
-                    "description": "The connected accounts to use for the session. This will override the default behaviour and use the given connected account when specific toolkits are being executed. Each connected account must exist (not deleted or disabled) and belong to the same `user_id` as the session — otherwise session creation fails with a clear error explaining which account didn't match.",
                     "example": {
                       "github": "ca_3m4n5o6p7q8r"
                     }
@@ -50974,7 +51013,7 @@
                         "items": {
                           "type": "string"
                         },
-                        "description": "Tool slugs to preload. Each slug must be allowed by the session filters (`toolkits`, `tools`, `tags`) and exist either in the Composio tool catalog or in `custom_tools` / `custom_toolkits` — unknown or blocked slugs return a 400 at session creation.",
+                        "description": "Composio tool slugs to preload. Each slug must be allowed by the session filters (`toolkits`, `tools`, `tags`) — unknown, blocked, meta, or custom slugs return a 400 at session creation.",
                         "example": [
                           "GMAIL_FETCH_EMAILS",
                           "SLACK_SEND_MESSAGE"
@@ -50982,7 +51021,7 @@
                       }
                     },
                     "additionalProperties": false,
-                    "description": "Preload configuration. Controls which tools appear in `session.tools` and the MCP server tool list so the agent can call them directly without going through search first — useful for frequently used tools. Each slug must be allowed by the session filters (`toolkits`, `tools`, `tags`), otherwise session creation fails with a 400. Custom tools declared in `custom_tools` / `custom_toolkits` can also be preloaded. Not supported when multi-account is enabled. Each preloaded tool adds to the agent context window, so keep the list at or under ~20 tools."
+                    "description": "Preload configuration for Composio tools. Controls which tools appear in `session.tools` and the MCP server tool list so the agent can call them directly without going through search first. Custom tools use `preload` on the custom tool/toolkit definition instead. Not supported when multi-account is enabled. Each preloaded tool adds to the agent context window, so keep the list at or under ~20 tools."
                   },
                   "experimental": {
                     "type": "object",
@@ -51018,8 +51057,15 @@
                           "default"
                         ],
                         "description": "Per-tool elicitation permission config. Replaces the stored block when provided."
+                      },
+                      "link_url_overwrite": {
+                        "type": "string",
+                        "format": "uri",
+                        "description": "Experimental base URL override for connection link redirects created from this tool-router session. When set, link creation returns `${link_url_overwrite}/link/{link_token}` instead of the default Composio Connect base URL. Use only when your integration needs links to open through a custom Connect host.",
+                        "x-experimental": true
                       }
-                    }
+                    },
+                    "additionalProperties": false
                   }
                 },
                 "additionalProperties": false
@@ -51126,7 +51172,19 @@
                             "type": "string",
                             "format": "connectedAccountId"
                           },
-                          "description": "Connected account overrides per toolkit. Each connected account must belong to the same user_id as the session."
+                          "description": "Per-toolkit connected account override (single nano-ID). Returns the first override when multi-account is enabled; see `all_connected_accounts` for the full list."
+                        },
+                        "all_connected_accounts": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "format": "connectedAccountId"
+                            },
+                            "minItems": 1
+                          },
+                          "description": "Full per-toolkit connected account overrides as arrays. Populated whenever `connected_accounts` is non-empty; carries the complete list when multi-account is enabled."
                         },
                         "manage_connections": {
                           "type": "object",
