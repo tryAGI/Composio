@@ -25,7 +25,7 @@ public static class ComposioToolExtensions
             async (string toolSlug, string? arguments, string? text, CancellationToken cancellationToken) =>
             {
                 var parsedArgs = arguments is not null
-                    ? JsonSerializer.Deserialize<Dictionary<string, object?>>(arguments)
+                    ? ParseJsonObject(arguments)
                     : null;
 
                 var response = await client.Tools.PostToolsExecuteByToolSlugAsync(
@@ -35,12 +35,12 @@ public static class ComposioToolExtensions
                     text: text,
                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
-                return JsonSerializer.Serialize(new
+                return new
                 {
                     successful = response.Successful,
                     data = response.Data,
                     error = response.Error,
-                });
+                };
             },
             name: "ExecuteComposioTool",
             description: "Executes a Composio tool by its slug (e.g., 'github-issues-create', 'slack-send-message'). Accepts structured JSON arguments or a natural language text description of the action to perform.");
@@ -64,7 +64,7 @@ public static class ComposioToolExtensions
                     limit: 20,
                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
-                return JsonSerializer.Serialize(new
+                return new
                 {
                     total_items = response.TotalItems,
                     items = response.Items.Select(t => new
@@ -76,7 +76,7 @@ public static class ComposioToolExtensions
                         no_auth = t.NoAuth,
                         tags = t.Tags,
                     }),
-                });
+                };
             },
             name: "ListComposioTools",
             description: "Lists available Composio tools with their slugs, names, descriptions, and required parameters. Filter by toolkit slug (e.g., 'github', 'slack') or search by keyword.");
@@ -99,13 +99,13 @@ public static class ComposioToolExtensions
                     limit: 20,
                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
-                return JsonSerializer.Serialize(response.Items.Select(t => new
+                return response.Items.Select(t => new
                 {
                     slug = t.Slug,
                     name = t.Name,
                     auth_schemes = t.AuthSchemes,
                     no_auth = t.NoAuth,
-                }));
+                });
             },
             name: "ListComposioToolkits",
             description: "Lists available Composio toolkits (integrations like GitHub, Slack, Gmail, etc.) with their slugs and supported authentication methods. Search by name to find specific integrations.");
@@ -127,7 +127,7 @@ public static class ComposioToolExtensions
                     limit: 20,
                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
-                return JsonSerializer.Serialize(new
+                return new
                 {
                     total_items = response.TotalItems,
                     items = response.Items.Select(a => new
@@ -138,9 +138,26 @@ public static class ComposioToolExtensions
                         created_at = a.CreatedAt,
                         is_disabled = a.IsDisabled,
                     }),
-                });
+                };
             },
             name: "ListComposioConnectedAccounts",
             description: "Lists connected accounts (authenticated integrations) in Composio. Returns account IDs, toolkit names, statuses, and whether they are disabled. Use the account ID when executing tools that require authentication.");
+    }
+
+    private static Dictionary<string, object?> ParseJsonObject(string json)
+    {
+        using var document = JsonDocument.Parse(json);
+        if (document.RootElement.ValueKind != JsonValueKind.Object)
+        {
+            throw new ArgumentException("Expected a JSON object.", nameof(json));
+        }
+
+        var result = new Dictionary<string, object?>(StringComparer.Ordinal);
+        foreach (var property in document.RootElement.EnumerateObject())
+        {
+            result[property.Name] = property.Value.Clone();
+        }
+
+        return result;
     }
 }
