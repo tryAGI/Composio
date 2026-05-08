@@ -43,7 +43,7 @@ namespace Composio
 
         /// <summary>
         /// Create webhook subscription<br/>
-        /// Creates a webhook subscription for the authenticated project. Only one subscription is allowed per project. The signing secret is returned only on creation.
+        /// Creates a webhook subscription for the authenticated project. Only one subscription is allowed per project. The signing secret is returned in subscription responses.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -66,7 +66,7 @@ namespace Composio
         }
         /// <summary>
         /// Create webhook subscription<br/>
-        /// Creates a webhook subscription for the authenticated project. Only one subscription is allowed per project. The signing secret is returned only on creation.
+        /// Creates a webhook subscription for the authenticated project. Only one subscription is allowed per project. The signing secret is returned in subscription responses.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -591,7 +591,7 @@ namespace Composio
         }
         /// <summary>
         /// Create webhook subscription<br/>
-        /// Creates a webhook subscription for the authenticated project. Only one subscription is allowed per project. The signing secret is returned only on creation.
+        /// Creates a webhook subscription for the authenticated project. Only one subscription is allowed per project. The signing secret is returned in subscription responses.
         /// </summary>
         /// <param name="webhookUrl">
         /// HTTPS URL to receive webhook events

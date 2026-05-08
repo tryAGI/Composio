@@ -36597,7 +36597,7 @@
     "/api/v3/webhook_subscriptions": {
       "post": {
         "summary": "Create webhook subscription",
-        "description": "Creates a webhook subscription for the authenticated project. Only one subscription is allowed per project. The signing secret is returned only on creation.",
+        "description": "Creates a webhook subscription for the authenticated project. Only one subscription is allowed per project. The signing secret is returned in subscription responses.",
         "tags": [
           "Webhooks"
         ],
@@ -36832,7 +36832,7 @@
                           },
                           "secret": {
                             "type": "string",
-                            "description": "Masked signing secret (full secret only on create/rotate)"
+                            "description": "Signing secret for HMAC verification"
                           },
                           "created_at": {
                             "type": "string",
@@ -36978,7 +36978,7 @@
                     },
                     "secret": {
                       "type": "string",
-                      "description": "Masked signing secret (full secret only on create/rotate)"
+                      "description": "Signing secret for HMAC verification"
                     },
                     "created_at": {
                       "type": "string",
@@ -37134,7 +37134,7 @@
                     },
                     "secret": {
                       "type": "string",
-                      "description": "Masked signing secret (full secret only on create/rotate)"
+                      "description": "Signing secret for HMAC verification"
                     },
                     "created_at": {
                       "type": "string",
@@ -37286,7 +37286,7 @@
     "/api/v3/webhook_subscriptions/{id}/rotate_secret": {
       "post": {
         "summary": "Rotate webhook secret",
-        "description": "Generates a new signing secret for the webhook subscription. The new secret is returned only in this response.",
+        "description": "Generates a new signing secret for the webhook subscription.",
         "tags": [
           "Webhooks"
         ],

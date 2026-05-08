@@ -43,7 +43,7 @@ namespace Composio
 
         /// <summary>
         /// Rotate webhook secret<br/>
-        /// Generates a new signing secret for the webhook subscription. The new secret is returned only in this response.
+        /// Generates a new signing secret for the webhook subscription.
         /// </summary>
         /// <param name="id">
         /// Webhook subscription ID
@@ -66,7 +66,7 @@ namespace Composio
         }
         /// <summary>
         /// Rotate webhook secret<br/>
-        /// Generates a new signing secret for the webhook subscription. The new secret is returned only in this response.
+        /// Generates a new signing secret for the webhook subscription.
         /// </summary>
         /// <param name="id">
         /// Webhook subscription ID
