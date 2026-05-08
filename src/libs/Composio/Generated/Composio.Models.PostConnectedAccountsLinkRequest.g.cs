@@ -41,6 +41,13 @@ namespace Composio
         public object? ConnectionData { get; set; }
 
         /// <summary>
+        /// Sharing model for this connected account. PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned in the session config — at most one SHARED connection per toolkit per session. Sessions never use a SHARED connection implicitly. Set at creation time only — cannot be changed later.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("account_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.PostConnectedAccountsLinkRequestAccountTypeJsonConverter))]
+        public global::Composio.PostConnectedAccountsLinkRequestAccountType? AccountType { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -64,6 +71,9 @@ namespace Composio
         /// <param name="connectionData">
         /// Connection data for the linked account (provider-specific key-value pairs)
         /// </param>
+        /// <param name="accountType">
+        /// Sharing model for this connected account. PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned in the session config — at most one SHARED connection per toolkit per session. Sessions never use a SHARED connection implicitly. Set at creation time only — cannot be changed later.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -72,13 +82,15 @@ namespace Composio
             string userId,
             string? alias,
             string? callbackUrl,
-            object? connectionData)
+            object? connectionData,
+            global::Composio.PostConnectedAccountsLinkRequestAccountType? accountType)
         {
             this.AuthConfigId = authConfigId ?? throw new global::System.ArgumentNullException(nameof(authConfigId));
             this.UserId = userId ?? throw new global::System.ArgumentNullException(nameof(userId));
             this.Alias = alias;
             this.CallbackUrl = callbackUrl;
             this.ConnectionData = connectionData;
+            this.AccountType = accountType;
         }
 
         /// <summary>

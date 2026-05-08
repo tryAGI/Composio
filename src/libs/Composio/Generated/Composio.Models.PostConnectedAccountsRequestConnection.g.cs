@@ -59,6 +59,13 @@ namespace Composio
         public bool? DeprecatedIsV1Rerouted { get; set; }
 
         /// <summary>
+        /// Sharing model for this connected account. PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned in the session config — at most one SHARED connection per toolkit per session. Sessions never use a SHARED connection implicitly. Set at creation time only — cannot be changed later.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("account_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.PostConnectedAccountsRequestConnectionAccountTypeJsonConverter))]
+        public global::Composio.PostConnectedAccountsRequestConnectionAccountType? AccountType { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -80,6 +87,9 @@ namespace Composio
         /// <param name="callbackUrl">
         /// The URL to redirect to after connection completion
         /// </param>
+        /// <param name="accountType">
+        /// Sharing model for this connected account. PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned in the session config — at most one SHARED connection per toolkit per session. Sessions never use a SHARED connection implicitly. Set at creation time only — cannot be changed later.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -87,12 +97,14 @@ namespace Composio
             global::Composio.OneOf<global::Composio.PostConnectedAccountsRequestConnectionStateVariant1, global::Composio.PostConnectedAccountsRequestConnectionStateVariant2, global::Composio.PostConnectedAccountsRequestConnectionStateVariant3, global::Composio.PostConnectedAccountsRequestConnectionStateVariant4, global::Composio.PostConnectedAccountsRequestConnectionStateVariant5, global::Composio.PostConnectedAccountsRequestConnectionStateVariant6, global::Composio.PostConnectedAccountsRequestConnectionStateVariant7, global::Composio.PostConnectedAccountsRequestConnectionStateVariant8, global::Composio.PostConnectedAccountsRequestConnectionStateVariant9, global::Composio.PostConnectedAccountsRequestConnectionStateVariant10, global::Composio.PostConnectedAccountsRequestConnectionStateVariant11, global::Composio.PostConnectedAccountsRequestConnectionStateVariant12, global::Composio.PostConnectedAccountsRequestConnectionStateVariant13, global::Composio.PostConnectedAccountsRequestConnectionStateVariant14>? state,
             string? userId,
             string? alias,
-            string? callbackUrl)
+            string? callbackUrl,
+            global::Composio.PostConnectedAccountsRequestConnectionAccountType? accountType)
         {
             this.State = state;
             this.UserId = userId;
             this.Alias = alias;
             this.CallbackUrl = callbackUrl;
+            this.AccountType = accountType;
         }
 
         /// <summary>

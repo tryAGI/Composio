@@ -55,6 +55,14 @@ namespace Composio
         public required global::Composio.PostConnectedAccountsResponseDeprecated Deprecated { get; set; }
 
         /// <summary>
+        /// The persisted sharing model for this connected account (PRIVATE | SHARED). Echoes back the value supplied at creation time so callers can confirm what landed without a follow-up GET.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("account_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.PostConnectedAccountsResponseAccountTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Composio.PostConnectedAccountsResponseAccountType AccountType { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -75,6 +83,9 @@ namespace Composio
         /// <param name="deprecated">
         /// DEPRECATED: This field will be removed in a future version. Please use id and auth_config.id instead.
         /// </param>
+        /// <param name="accountType">
+        /// The persisted sharing model for this connected account (PRIVATE | SHARED). Echoes back the value supplied at creation time so callers can confirm what landed without a follow-up GET.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -82,12 +93,14 @@ namespace Composio
             string id,
             global::Composio.OneOf<global::Composio.PostConnectedAccountsResponseConnectionDataVariant1, global::Composio.PostConnectedAccountsResponseConnectionDataVariant2, global::Composio.PostConnectedAccountsResponseConnectionDataVariant3, global::Composio.PostConnectedAccountsResponseConnectionDataVariant4, global::Composio.PostConnectedAccountsResponseConnectionDataVariant5, global::Composio.PostConnectedAccountsResponseConnectionDataVariant6, global::Composio.PostConnectedAccountsResponseConnectionDataVariant7, global::Composio.PostConnectedAccountsResponseConnectionDataVariant8, global::Composio.PostConnectedAccountsResponseConnectionDataVariant9, global::Composio.PostConnectedAccountsResponseConnectionDataVariant10, global::Composio.PostConnectedAccountsResponseConnectionDataVariant11, global::Composio.PostConnectedAccountsResponseConnectionDataVariant12, global::Composio.PostConnectedAccountsResponseConnectionDataVariant13, global::Composio.PostConnectedAccountsResponseConnectionDataVariant14> connectionData,
             global::Composio.PostConnectedAccountsResponseStatus status,
-            global::Composio.PostConnectedAccountsResponseDeprecated deprecated)
+            global::Composio.PostConnectedAccountsResponseDeprecated deprecated,
+            global::Composio.PostConnectedAccountsResponseAccountType accountType)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.ConnectionData = connectionData;
             this.Status = status;
             this.Deprecated = deprecated ?? throw new global::System.ArgumentNullException(nameof(deprecated));
+            this.AccountType = accountType;
         }
 
         /// <summary>

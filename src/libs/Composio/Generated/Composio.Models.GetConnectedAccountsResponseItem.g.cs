@@ -59,6 +59,14 @@ namespace Composio
         public required global::Composio.GetConnectedAccountsResponseItemStatus Status { get; set; }
 
         /// <summary>
+        /// Sharing model. PRIVATE accounts are usable only by their owning user_id. SHARED accounts are reachable from a tool-router session only when explicitly pinned in the session config (at most one SHARED per toolkit per session); they are never used implicitly.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("account_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.GetConnectedAccountsResponseItemAccountTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Composio.GetConnectedAccountsResponseItemAccountType AccountType { get; set; }
+
+        /// <summary>
         /// The created at of the connection
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
@@ -133,6 +141,9 @@ namespace Composio
         /// <param name="status">
         /// The status of the connection
         /// </param>
+        /// <param name="accountType">
+        /// Sharing model. PRIVATE accounts are usable only by their owning user_id. SHARED accounts are reachable from a tool-router session only when explicitly pinned in the session config (at most one SHARED per toolkit per session); they are never used implicitly.
+        /// </param>
         /// <param name="createdAt">
         /// The created at of the connection
         /// </param>
@@ -169,6 +180,7 @@ namespace Composio
             string id,
             string userId,
             global::Composio.GetConnectedAccountsResponseItemStatus status,
+            global::Composio.GetConnectedAccountsResponseItemAccountType accountType,
             string createdAt,
             string updatedAt,
             global::Composio.OneOf<global::Composio.GetConnectedAccountsResponseItemStateVariant1, global::Composio.GetConnectedAccountsResponseItemStateVariant2, global::Composio.GetConnectedAccountsResponseItemStateVariant3, global::Composio.GetConnectedAccountsResponseItemStateVariant4, global::Composio.GetConnectedAccountsResponseItemStateVariant5, global::Composio.GetConnectedAccountsResponseItemStateVariant6, global::Composio.GetConnectedAccountsResponseItemStateVariant7, global::Composio.GetConnectedAccountsResponseItemStateVariant8, global::Composio.GetConnectedAccountsResponseItemStateVariant9, global::Composio.GetConnectedAccountsResponseItemStateVariant10, global::Composio.GetConnectedAccountsResponseItemStateVariant11, global::Composio.GetConnectedAccountsResponseItemStateVariant12, global::Composio.GetConnectedAccountsResponseItemStateVariant13, global::Composio.GetConnectedAccountsResponseItemStateVariant14> state,
@@ -186,6 +198,7 @@ namespace Composio
             this.Alias = alias;
             this.UserId = userId ?? throw new global::System.ArgumentNullException(nameof(userId));
             this.Status = status;
+            this.AccountType = accountType;
             this.CreatedAt = createdAt ?? throw new global::System.ArgumentNullException(nameof(createdAt));
             this.UpdatedAt = updatedAt ?? throw new global::System.ArgumentNullException(nameof(updatedAt));
             this.State = state;

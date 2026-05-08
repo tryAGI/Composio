@@ -32,6 +32,13 @@ namespace Composio
         public string? CallbackUrl { get; set; }
 
         /// <summary>
+        /// Sharing model for this connected account. PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned in the session config — at most one SHARED connection per toolkit per session. Sessions never use a SHARED connection implicitly. Set at creation time only — cannot be changed later.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("account_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.PostToolRouterSessionBySessionIdLinkRequestAccountTypeJsonConverter))]
+        public global::Composio.PostToolRouterSessionBySessionIdLinkRequestAccountType? AccountType { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -51,17 +58,22 @@ namespace Composio
         /// URL where users will be redirected after completing auth<br/>
         /// Example: https://myapp.com/callback
         /// </param>
+        /// <param name="accountType">
+        /// Sharing model for this connected account. PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned in the session config — at most one SHARED connection per toolkit per session. Sessions never use a SHARED connection implicitly. Set at creation time only — cannot be changed later.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PostToolRouterSessionBySessionIdLinkRequest(
             string toolkit,
             string? alias,
-            string? callbackUrl)
+            string? callbackUrl,
+            global::Composio.PostToolRouterSessionBySessionIdLinkRequestAccountType? accountType)
         {
             this.Toolkit = toolkit ?? throw new global::System.ArgumentNullException(nameof(toolkit));
             this.Alias = alias;
             this.CallbackUrl = callbackUrl;
+            this.AccountType = accountType;
         }
 
         /// <summary>

@@ -35,7 +35,8 @@ namespace Composio
             global::System.Collections.Generic.IList<string>? authConfigIds,
             global::System.Collections.Generic.IList<string>? connectedAccountIds,
             ref global::Composio.GetConnectedAccountsOrderBy? orderBy,
-            ref global::Composio.GetConnectedAccountsOrderDirection? orderDirection);
+            ref global::Composio.GetConnectedAccountsOrderDirection? orderDirection,
+            ref global::Composio.GetConnectedAccountsAccountType? accountType);
         partial void PrepareGetConnectedAccountsRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -47,7 +48,8 @@ namespace Composio
             global::System.Collections.Generic.IList<string>? authConfigIds,
             global::System.Collections.Generic.IList<string>? connectedAccountIds,
             global::Composio.GetConnectedAccountsOrderBy? orderBy,
-            global::Composio.GetConnectedAccountsOrderDirection? orderDirection);
+            global::Composio.GetConnectedAccountsOrderDirection? orderDirection,
+            global::Composio.GetConnectedAccountsAccountType? accountType);
         partial void ProcessGetConnectedAccountsResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -90,6 +92,9 @@ namespace Composio
         /// The order direction of the connected accounts<br/>
         /// Default Value: desc
         /// </param>
+        /// <param name="accountType">
+        /// Filter by sharing model. Default (omitted) returns PRIVATE only — shared accounts must be requested explicitly. Pass SHARED for only shared accounts, or ALL for PRIVATE + SHARED.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
@@ -103,6 +108,7 @@ namespace Composio
             global::System.Collections.Generic.IList<string>? connectedAccountIds = default,
             global::Composio.GetConnectedAccountsOrderBy? orderBy = default,
             global::Composio.GetConnectedAccountsOrderDirection? orderDirection = default,
+            global::Composio.GetConnectedAccountsAccountType? accountType = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -116,6 +122,7 @@ namespace Composio
                 connectedAccountIds: connectedAccountIds,
                 orderBy: orderBy,
                 orderDirection: orderDirection,
+                accountType: accountType,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -155,6 +162,9 @@ namespace Composio
         /// The order direction of the connected accounts<br/>
         /// Default Value: desc
         /// </param>
+        /// <param name="accountType">
+        /// Filter by sharing model. Default (omitted) returns PRIVATE only — shared accounts must be requested explicitly. Pass SHARED for only shared accounts, or ALL for PRIVATE + SHARED.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
@@ -168,6 +178,7 @@ namespace Composio
             global::System.Collections.Generic.IList<string>? connectedAccountIds = default,
             global::Composio.GetConnectedAccountsOrderBy? orderBy = default,
             global::Composio.GetConnectedAccountsOrderDirection? orderDirection = default,
+            global::Composio.GetConnectedAccountsAccountType? accountType = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -183,7 +194,8 @@ namespace Composio
                 authConfigIds: authConfigIds,
                 connectedAccountIds: connectedAccountIds,
                 orderBy: ref orderBy,
-                orderDirection: ref orderDirection);
+                orderDirection: ref orderDirection,
+                accountType: ref accountType);
 
 
             var __authorizations = global::Composio.EndPointSecurityResolver.ResolveAuthorizations(
@@ -221,6 +233,7 @@ namespace Composio
                                 .AddOptionalParameter("connected_account_ids", connectedAccountIds, delimiter: ",", explode: true)
                                 .AddOptionalParameter("order_by", orderBy?.ToValueString())
                                 .AddOptionalParameter("order_direction", orderDirection?.ToValueString())
+                                .AddOptionalParameter("account_type", accountType?.ToValueString())
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Composio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -270,7 +283,8 @@ namespace Composio
                     authConfigIds: authConfigIds,
                     connectedAccountIds: connectedAccountIds,
                     orderBy: orderBy,
-                    orderDirection: orderDirection);
+                    orderDirection: orderDirection,
+                    accountType: accountType);
 
                 return __httpRequest;
             }
