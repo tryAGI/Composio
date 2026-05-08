@@ -36,6 +36,16 @@ namespace Composio
         public required string ConnectedAccountId { get; set; }
 
         /// <summary>
+        /// PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned, with at most one SHARED per toolkit per session.<br/>
+        /// Example: PRIVATE
+        /// </summary>
+        /// <example>PRIVATE</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("account_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.PostToolRouterSessionBySessionIdLinkResponseAccountTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Composio.PostToolRouterSessionBySessionIdLinkResponseAccountType AccountType { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -56,17 +66,23 @@ namespace Composio
         /// The unique identifier for the connected account<br/>
         /// Example: ca_abc123xyz
         /// </param>
+        /// <param name="accountType">
+        /// PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned, with at most one SHARED per toolkit per session.<br/>
+        /// Example: PRIVATE
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PostToolRouterSessionBySessionIdLinkResponse(
             string linkToken,
             string redirectUrl,
-            string connectedAccountId)
+            string connectedAccountId,
+            global::Composio.PostToolRouterSessionBySessionIdLinkResponseAccountType accountType)
         {
             this.LinkToken = linkToken ?? throw new global::System.ArgumentNullException(nameof(linkToken));
             this.RedirectUrl = redirectUrl ?? throw new global::System.ArgumentNullException(nameof(redirectUrl));
             this.ConnectedAccountId = connectedAccountId ?? throw new global::System.ArgumentNullException(nameof(connectedAccountId));
+            this.AccountType = accountType;
         }
 
         /// <summary>

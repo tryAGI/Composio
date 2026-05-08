@@ -58,6 +58,14 @@
       "description": "Webhook configuration"
     },
     {
+      "name": "Webhook Endpoints",
+      "description": "Per-OAuth-app webhook ingress endpoints. Inbound URLs the provider posts to, plus signing secret storage and verification."
+    },
+    {
+      "name": "Webhook Subscriptions",
+      "description": "Webhook delivery subscriptions. Outbound URLs Composio posts trigger events to, plus signing secret rotation and event-type filters."
+    },
+    {
       "name": "Team",
       "description": "Team member management"
     },
@@ -3634,6 +3642,21 @@
             "description": "The order direction of the connected accounts",
             "name": "order_direction",
             "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "enum": [
+                "PRIVATE",
+                "SHARED",
+                "ALL"
+              ],
+              "description": "Filter by sharing model. Default (omitted) returns PRIVATE only — shared accounts must be requested explicitly. Pass SHARED for only shared accounts, or ALL for PRIVATE + SHARED."
+            },
+            "required": false,
+            "description": "Filter by sharing model. Default (omitted) returns PRIVATE only — shared accounts must be requested explicitly. Pass SHARED for only shared accounts, or ALL for PRIVATE + SHARED.",
+            "name": "account_type",
+            "in": "query"
           }
         ],
         "responses": {
@@ -3752,6 +3775,14 @@
                               "REVOKED"
                             ],
                             "description": "The status of the connection"
+                          },
+                          "account_type": {
+                            "type": "string",
+                            "enum": [
+                              "PRIVATE",
+                              "SHARED"
+                            ],
+                            "description": "Sharing model. PRIVATE accounts are usable only by their owning user_id. SHARED accounts are reachable from a tool-router session only when explicitly pinned in the session config (at most one SHARED per toolkit per session); they are never used implicitly."
                           },
                           "created_at": {
                             "type": "string",
@@ -11076,6 +11107,7 @@
                           "alias",
                           "user_id",
                           "status",
+                          "account_type",
                           "created_at",
                           "updated_at",
                           "state",
@@ -18497,6 +18529,14 @@
                         "default": false,
                         "description": "DEPRECATED: This parameter will be removed in a future version.",
                         "deprecated": true
+                      },
+                      "account_type": {
+                        "type": "string",
+                        "enum": [
+                          "PRIVATE",
+                          "SHARED"
+                        ],
+                        "description": "Sharing model for this connected account. PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned in the session config — at most one SHARED connection per toolkit per session. Sessions never use a SHARED connection implicitly. Set at creation time only — cannot be changed later."
                       }
                     }
                   },
@@ -25837,6 +25877,14 @@
                       ],
                       "description": "DEPRECATED: This field will be removed in a future version. Please use id and auth_config.id instead.",
                       "deprecated": true
+                    },
+                    "account_type": {
+                      "type": "string",
+                      "enum": [
+                        "PRIVATE",
+                        "SHARED"
+                      ],
+                      "description": "The persisted sharing model for this connected account (PRIVATE | SHARED). Echoes back the value supplied at creation time so callers can confirm what landed without a follow-up GET."
                     }
                   },
                   "required": [
@@ -25845,7 +25893,8 @@
                     "status",
                     "redirect_url",
                     "redirect_uri",
-                    "deprecated"
+                    "deprecated",
+                    "account_type"
                   ]
                 }
               }
@@ -26048,6 +26097,14 @@
                         "REVOKED"
                       ],
                       "description": "The status of the connection"
+                    },
+                    "account_type": {
+                      "type": "string",
+                      "enum": [
+                        "PRIVATE",
+                        "SHARED"
+                      ],
+                      "description": "Sharing model. PRIVATE accounts are usable only by their owning user_id. SHARED accounts are reachable from a tool-router session only when explicitly pinned in the session config (at most one SHARED per toolkit per session); they are never used implicitly."
                     },
                     "created_at": {
                       "type": "string",
@@ -33380,6 +33437,7 @@
                     "alias",
                     "user_id",
                     "status",
+                    "account_type",
                     "created_at",
                     "updated_at",
                     "state",
@@ -34074,6 +34132,14 @@
                   "connection_data": {
                     "type": "object",
                     "description": "Connection data for the linked account (provider-specific key-value pairs)"
+                  },
+                  "account_type": {
+                    "type": "string",
+                    "enum": [
+                      "PRIVATE",
+                      "SHARED"
+                    ],
+                    "description": "Sharing model for this connected account. PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned in the session config — at most one SHARED connection per toolkit per session. Sessions never use a SHARED connection implicitly. Set at creation time only — cannot be changed later."
                   }
                 },
                 "required": [
@@ -34108,13 +34174,22 @@
                       "type": "string",
                       "format": "connectedAccountId",
                       "description": "The connected account ID that was created"
+                    },
+                    "account_type": {
+                      "type": "string",
+                      "enum": [
+                        "PRIVATE",
+                        "SHARED"
+                      ],
+                      "description": "The persisted sharing model for this connected account (PRIVATE | SHARED). Echoes back the value supplied at creation time so callers can confirm what landed without a follow-up GET."
                     }
                   },
                   "required": [
                     "link_token",
                     "redirect_url",
                     "expires_at",
-                    "connected_account_id"
+                    "connected_account_id",
+                    "account_type"
                   ]
                 }
               }
@@ -36599,7 +36674,7 @@
         "summary": "Create webhook subscription",
         "description": "Creates a webhook subscription for the authenticated project. Only one subscription is allowed per project. The signing secret is returned in subscription responses.",
         "tags": [
-          "Webhooks"
+          "Webhook Subscriptions"
         ],
         "operationId": "postWebhookSubscriptions",
         "security": [
@@ -36757,7 +36832,7 @@
         "summary": "List webhook subscriptions",
         "description": "Lists all webhook subscriptions for the authenticated project with pagination. Currently limited to one subscription per project.",
         "tags": [
-          "Webhooks"
+          "Webhook Subscriptions"
         ],
         "operationId": "getWebhookSubscriptions",
         "security": [
@@ -36916,7 +36991,7 @@
         "summary": "Get webhook subscription",
         "description": "Retrieves a webhook subscription by ID.",
         "tags": [
-          "Webhooks"
+          "Webhook Subscriptions"
         ],
         "operationId": "getWebhookSubscriptionsById",
         "security": [
@@ -37038,7 +37113,7 @@
         "summary": "Update webhook subscription",
         "description": "Updates a webhook subscription. At least one field must be provided.",
         "tags": [
-          "Webhooks"
+          "Webhook Subscriptions"
         ],
         "operationId": "patchWebhookSubscriptionsById",
         "security": [
@@ -37204,7 +37279,7 @@
         "summary": "Delete webhook subscription",
         "description": "Permanently deletes a webhook subscription. This action cannot be undone.",
         "tags": [
-          "Webhooks"
+          "Webhook Subscriptions"
         ],
         "operationId": "deleteWebhookSubscriptionsById",
         "security": [
@@ -37288,7 +37363,7 @@
         "summary": "Rotate webhook secret",
         "description": "Generates a new signing secret for the webhook subscription.",
         "tags": [
-          "Webhooks"
+          "Webhook Subscriptions"
         ],
         "operationId": "postWebhookSubscriptionsByIdRotateSecret",
         "security": [
@@ -37379,7 +37454,7 @@
         "summary": "List available event types",
         "description": "Returns all event types that can be subscribed to, along with their supported webhook versions.",
         "tags": [
-          "Webhooks"
+          "Webhook Subscriptions"
         ],
         "operationId": "getWebhookSubscriptionsEventTypes",
         "security": [
@@ -37470,7 +37545,7 @@
         "summary": "Create webhook endpoint",
         "description": "Creates a shared webhook endpoint for a toolkit + OAuth app + project. Returns the webhook URL that the customer registers in their app dashboard. Idempotent — returns existing endpoint if one already exists for this toolkit + client_id + project.",
         "tags": [
-          "Webhooks"
+          "Webhook Endpoints"
         ],
         "operationId": "postWebhookEndpoints",
         "security": [
@@ -37654,7 +37729,7 @@
         "summary": "List webhook endpoints",
         "description": "Lists webhook endpoints for the authenticated project, optionally filtered by toolkit.",
         "tags": [
-          "Webhooks"
+          "Webhook Endpoints"
         ],
         "operationId": "getWebhookEndpoints",
         "security": [
@@ -37750,7 +37825,7 @@
         "summary": "Get webhook endpoint",
         "description": "Retrieves a single webhook endpoint. Secret values are redacted. Use GET /webhook_endpoints/schema to discover field definitions.",
         "tags": [
-          "Webhooks"
+          "Webhook Endpoints"
         ],
         "operationId": "getWebhookEndpointsByNanoId",
         "security": [
@@ -37872,7 +37947,7 @@
         "summary": "Put webhook endpoint configuration",
         "description": "Full replacement of webhook endpoint configuration. All required setup fields must be provided. Use PATCH to update individual fields.",
         "tags": [
-          "Webhooks"
+          "Webhook Endpoints"
         ],
         "operationId": "postWebhookEndpointsByNanoId",
         "security": [
@@ -38015,7 +38090,7 @@
         "summary": "Update webhook endpoint configuration",
         "description": "Updates app-specific secrets and credentials. Uses merge semantics — only included fields are updated; omitted fields are preserved. Can be called on active endpoints (e.g., to rotate a signing secret).",
         "tags": [
-          "Webhooks"
+          "Webhook Endpoints"
         ],
         "operationId": "patchWebhookEndpointsByNanoId",
         "security": [
@@ -44434,6 +44509,12 @@
                       "type": "string",
                       "description": "Version of the trigger type",
                       "example": "20250930_00"
+                    },
+                    "requires_webhook_endpoint_setup": {
+                      "type": "boolean",
+                      "default": false,
+                      "description": "True when the developer must register a Composio-issued webhook URL with the upstream provider (e.g. Slack Event Subscriptions, Notion integration webhooks). See the webhook_endpoint API for the setup.",
+                      "example": false
                     }
                   },
                   "required": [
@@ -44703,6 +44784,12 @@
                             "type": "string",
                             "description": "Version of the trigger type",
                             "example": "20250930_00"
+                          },
+                          "requires_webhook_endpoint_setup": {
+                            "type": "boolean",
+                            "default": false,
+                            "description": "True when the developer must register a Composio-issued webhook URL with the upstream provider (e.g. Slack Event Subscriptions, Notion integration webhooks). See the webhook_endpoint API for the setup.",
+                            "example": false
                           }
                         },
                         "required": [
@@ -51700,6 +51787,14 @@
                     "format": "uri",
                     "description": "URL where users will be redirected after completing auth",
                     "example": "https://myapp.com/callback"
+                  },
+                  "account_type": {
+                    "type": "string",
+                    "enum": [
+                      "PRIVATE",
+                      "SHARED"
+                    ],
+                    "description": "Sharing model for this connected account. PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned in the session config — at most one SHARED connection per toolkit per session. Sessions never use a SHARED connection implicitly. Set at creation time only — cannot be changed later."
                   }
                 },
                 "required": [
@@ -51733,12 +51828,22 @@
                       "format": "connectedAccountId",
                       "description": "The unique identifier for the connected account",
                       "example": "ca_abc123xyz"
+                    },
+                    "account_type": {
+                      "type": "string",
+                      "enum": [
+                        "PRIVATE",
+                        "SHARED"
+                      ],
+                      "description": "PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned, with at most one SHARED per toolkit per session.",
+                      "example": "PRIVATE"
                     }
                   },
                   "required": [
                     "link_token",
                     "redirect_url",
-                    "connected_account_id"
+                    "connected_account_id",
+                    "account_type"
                   ]
                 }
               }
