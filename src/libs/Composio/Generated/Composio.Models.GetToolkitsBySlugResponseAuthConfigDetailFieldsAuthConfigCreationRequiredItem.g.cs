@@ -98,5 +98,6 @@ namespace Composio
         public GetToolkitsBySlugResponseAuthConfigDetailFieldsAuthConfigCreationRequiredItem()
         {
         }
+
     }
 }

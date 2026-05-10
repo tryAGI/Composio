@@ -258,5 +258,6 @@ namespace Composio
         public GetConnectedAccountsResponseItemStateVariant10ValVariant4()
         {
         }
+
     }
 }

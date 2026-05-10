@@ -65,5 +65,6 @@ namespace Composio
         public GetWebhookEndpointsResponseItem()
         {
         }
+
     }
 }

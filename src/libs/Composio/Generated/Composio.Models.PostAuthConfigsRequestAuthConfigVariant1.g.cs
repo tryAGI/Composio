@@ -103,5 +103,6 @@ namespace Composio
         public PostAuthConfigsRequestAuthConfigVariant1()
         {
         }
+
     }
 }

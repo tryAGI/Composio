@@ -67,5 +67,6 @@ namespace Composio
         public PostConnectedAccountsByNanoidRefreshResponse()
         {
         }
+
     }
 }

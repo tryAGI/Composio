@@ -52,5 +52,6 @@ namespace Composio
         public PatchAuthConfigsByNanoidRequestVariant2ToolAccessConfig()
         {
         }
+
     }
 }

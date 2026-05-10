@@ -169,5 +169,6 @@ namespace Composio
         public GetInternalTriggerLogByIdResponseLogMeta()
         {
         }
+
     }
 }

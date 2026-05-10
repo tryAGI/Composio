@@ -48,5 +48,6 @@ namespace Composio
         public PostConnectedAccountsRequestConnectionStateVariant2ValVariant4AuthedUser()
         {
         }
+
     }
 }

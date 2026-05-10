@@ -55,5 +55,6 @@ namespace Composio
         public PatchConnectedAccountBodyConnectionState()
         {
         }
+
     }
 }

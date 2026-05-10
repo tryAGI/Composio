@@ -43,5 +43,6 @@ namespace Composio
         public PostAuthConfigsRequestAuthConfigVariant2ToolAccessConfig()
         {
         }
+
     }
 }

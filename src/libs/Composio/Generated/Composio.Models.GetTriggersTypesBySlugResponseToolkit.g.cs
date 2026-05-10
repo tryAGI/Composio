@@ -75,5 +75,6 @@ namespace Composio
         public GetTriggersTypesBySlugResponseToolkit()
         {
         }
+
     }
 }

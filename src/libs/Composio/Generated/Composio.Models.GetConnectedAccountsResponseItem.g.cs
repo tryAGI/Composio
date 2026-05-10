@@ -214,5 +214,6 @@ namespace Composio
         public GetConnectedAccountsResponseItem()
         {
         }
+
     }
 }

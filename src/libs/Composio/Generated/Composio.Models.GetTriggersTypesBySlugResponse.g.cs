@@ -176,5 +176,6 @@ namespace Composio
         public GetTriggersTypesBySlugResponse()
         {
         }
+
     }
 }
