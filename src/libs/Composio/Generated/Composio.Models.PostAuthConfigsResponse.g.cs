@@ -50,5 +50,6 @@ namespace Composio
         public PostAuthConfigsResponse()
         {
         }
+
     }
 }

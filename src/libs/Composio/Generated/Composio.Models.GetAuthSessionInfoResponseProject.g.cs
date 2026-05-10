@@ -281,5 +281,6 @@ namespace Composio
         public GetAuthSessionInfoResponseProject()
         {
         }
+
     }
 }

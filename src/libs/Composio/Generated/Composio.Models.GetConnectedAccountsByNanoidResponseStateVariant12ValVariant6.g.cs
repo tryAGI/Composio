@@ -247,5 +247,6 @@ namespace Composio
         public GetConnectedAccountsByNanoidResponseStateVariant12ValVariant6()
         {
         }
+
     }
 }

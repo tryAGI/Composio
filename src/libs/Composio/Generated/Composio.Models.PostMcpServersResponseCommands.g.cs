@@ -74,5 +74,6 @@ namespace Composio
             this.Claude = claude ?? throw new global::System.ArgumentNullException(nameof(claude));
             this.Windsurf = windsurf ?? throw new global::System.ArgumentNullException(nameof(windsurf));
         }
+
     }
 }

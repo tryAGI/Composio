@@ -54,5 +54,6 @@ namespace Composio
         public GetToolkitsBySlugResponseAuthConfigDetailFields()
         {
         }
+
     }
 }

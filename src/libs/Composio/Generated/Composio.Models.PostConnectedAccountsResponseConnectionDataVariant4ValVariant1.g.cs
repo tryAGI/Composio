@@ -238,5 +238,6 @@ namespace Composio
         public PostConnectedAccountsResponseConnectionDataVariant4ValVariant1()
         {
         }
+
     }
 }

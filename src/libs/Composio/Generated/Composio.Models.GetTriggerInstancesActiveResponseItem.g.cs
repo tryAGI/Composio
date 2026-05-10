@@ -239,5 +239,6 @@ namespace Composio
         public GetTriggerInstancesActiveResponseItem()
         {
         }
+
     }
 }

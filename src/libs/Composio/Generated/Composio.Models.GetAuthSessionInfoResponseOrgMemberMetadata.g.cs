@@ -97,5 +97,6 @@ namespace Composio
         public GetAuthSessionInfoResponseOrgMemberMetadata()
         {
         }
+
     }
 }

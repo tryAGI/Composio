@@ -53,5 +53,6 @@ namespace Composio
         public PostAuthConfigsRequestAuthConfigVariant2ProxyConfig()
         {
         }
+
     }
 }
