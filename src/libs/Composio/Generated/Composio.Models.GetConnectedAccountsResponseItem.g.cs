@@ -67,6 +67,12 @@ namespace Composio
         public required global::Composio.GetConnectedAccountsResponseItemAccountType AccountType { get; set; }
 
         /// <summary>
+        /// Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("acl_config_for_shared")]
+        public global::Composio.GetConnectedAccountsResponseItemAclConfigForShared? AclConfigForShared { get; set; }
+
+        /// <summary>
         /// The created at of the connection
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
@@ -165,6 +171,9 @@ namespace Composio
         /// <param name="alias">
         /// A user-defined alias for the connected account
         /// </param>
+        /// <param name="aclConfigForShared">
+        /// Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY.
+        /// </param>
         /// <param name="statusReason">
         /// The reason the connection status changed. Possible reasons: Connection initiation did not complete within 10 minutes, Permanent auth error during token refresh, Max auth failures reached, OAuth callback failed during token exchange, Connection status updated by user, Auth config is disabled, Revoked via user-initiated revoke endpoint, Revoked via admin tool, Revoked as part of connection delete
         /// </param>
@@ -188,6 +197,7 @@ namespace Composio
             bool isDisabled,
             string? wordId,
             string? alias,
+            global::Composio.GetConnectedAccountsResponseItemAclConfigForShared? aclConfigForShared,
             string? statusReason,
             string? testRequestEndpoint)
         {
@@ -199,6 +209,7 @@ namespace Composio
             this.UserId = userId ?? throw new global::System.ArgumentNullException(nameof(userId));
             this.Status = status;
             this.AccountType = accountType;
+            this.AclConfigForShared = aclConfigForShared;
             this.CreatedAt = createdAt ?? throw new global::System.ArgumentNullException(nameof(createdAt));
             this.UpdatedAt = updatedAt ?? throw new global::System.ArgumentNullException(nameof(updatedAt));
             this.State = state;
