@@ -685,7 +685,10 @@ namespace Composio
         /// Connection data for the linked account (provider-specific key-value pairs)
         /// </param>
         /// <param name="accountType">
-        /// Sharing model for this connected account. PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned in the session config — at most one SHARED connection per toolkit per session. Sessions never use a SHARED connection implicitly. Set at creation time only — cannot be changed later.
+        /// Sharing model for this connected account. PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned in the session config — at most one SHARED connection per toolkit per session. Sessions never use a SHARED connection implicitly.
+        /// </param>
+        /// <param name="aclConfigForShared">
+        /// Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY. Default state (omitted or {}) is deny-by-default — only the creator can use.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -697,6 +700,7 @@ namespace Composio
             string? callbackUrl = default,
             object? connectionData = default,
             global::Composio.PostConnectedAccountsLinkRequestAccountType? accountType = default,
+            global::Composio.PostConnectedAccountsLinkRequestAclConfigForShared? aclConfigForShared = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -708,6 +712,7 @@ namespace Composio
                 CallbackUrl = callbackUrl,
                 ConnectionData = connectionData,
                 AccountType = accountType,
+                AclConfigForShared = aclConfigForShared,
             };
 
             return await PostConnectedAccountsLinkAsync(

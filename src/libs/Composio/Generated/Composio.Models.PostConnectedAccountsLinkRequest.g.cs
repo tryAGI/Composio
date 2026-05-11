@@ -41,11 +41,17 @@ namespace Composio
         public object? ConnectionData { get; set; }
 
         /// <summary>
-        /// Sharing model for this connected account. PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned in the session config — at most one SHARED connection per toolkit per session. Sessions never use a SHARED connection implicitly. Set at creation time only — cannot be changed later.
+        /// Sharing model for this connected account. PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned in the session config — at most one SHARED connection per toolkit per session. Sessions never use a SHARED connection implicitly.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("account_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.PostConnectedAccountsLinkRequestAccountTypeJsonConverter))]
         public global::Composio.PostConnectedAccountsLinkRequestAccountType? AccountType { get; set; }
+
+        /// <summary>
+        /// Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY. Default state (omitted or {}) is deny-by-default — only the creator can use.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("acl_config_for_shared")]
+        public global::Composio.PostConnectedAccountsLinkRequestAclConfigForShared? AclConfigForShared { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -72,7 +78,10 @@ namespace Composio
         /// Connection data for the linked account (provider-specific key-value pairs)
         /// </param>
         /// <param name="accountType">
-        /// Sharing model for this connected account. PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned in the session config — at most one SHARED connection per toolkit per session. Sessions never use a SHARED connection implicitly. Set at creation time only — cannot be changed later.
+        /// Sharing model for this connected account. PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned in the session config — at most one SHARED connection per toolkit per session. Sessions never use a SHARED connection implicitly.
+        /// </param>
+        /// <param name="aclConfigForShared">
+        /// Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY. Default state (omitted or {}) is deny-by-default — only the creator can use.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -83,7 +92,8 @@ namespace Composio
             string? alias,
             string? callbackUrl,
             object? connectionData,
-            global::Composio.PostConnectedAccountsLinkRequestAccountType? accountType)
+            global::Composio.PostConnectedAccountsLinkRequestAccountType? accountType,
+            global::Composio.PostConnectedAccountsLinkRequestAclConfigForShared? aclConfigForShared)
         {
             this.AuthConfigId = authConfigId ?? throw new global::System.ArgumentNullException(nameof(authConfigId));
             this.UserId = userId ?? throw new global::System.ArgumentNullException(nameof(userId));
@@ -91,6 +101,7 @@ namespace Composio
             this.CallbackUrl = callbackUrl;
             this.ConnectionData = connectionData;
             this.AccountType = accountType;
+            this.AclConfigForShared = aclConfigForShared;
         }
 
         /// <summary>

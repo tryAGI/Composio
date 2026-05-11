@@ -645,6 +645,9 @@ namespace Composio
         /// A human-readable alias for this connected account. Pass an empty string to clear the alias. Must be unique per entity and toolkit within the project.
         /// </param>
         /// <param name="connection"></param>
+        /// <param name="aclConfigForShared">
+        /// Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY. Default state (omitted or {}) is deny-by-default — only the creator can use.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -652,6 +655,7 @@ namespace Composio
             string nanoid,
             string? alias = default,
             global::Composio.PatchConnectedAccountBodyConnection? connection = default,
+            global::Composio.PatchConnectedAccountBodyAclConfigForShared? aclConfigForShared = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -659,6 +663,7 @@ namespace Composio
             {
                 Alias = alias,
                 Connection = connection,
+                AclConfigForShared = aclConfigForShared,
             };
 
             return await PatchConnectedAccountsByNanoidAsync(

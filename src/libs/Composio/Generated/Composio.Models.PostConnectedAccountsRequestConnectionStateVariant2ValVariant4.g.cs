@@ -211,6 +211,12 @@ namespace Composio
         public global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant4AuthedUser? AuthedUser { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("extra_token_data")]
+        public global::System.Collections.Generic.Dictionary<string, object?>? ExtraTokenData { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -258,6 +264,7 @@ namespace Composio
         /// <param name="authedUser">
         /// for slack user scopes
         /// </param>
+        /// <param name="extraTokenData"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -294,7 +301,8 @@ namespace Composio
             global::Composio.AnyOf<double?, string, object>? expiresIn,
             global::Composio.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? scope,
             string? webhookSignature,
-            global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant4AuthedUser? authedUser)
+            global::Composio.PostConnectedAccountsRequestConnectionStateVariant2ValVariant4AuthedUser? authedUser,
+            global::System.Collections.Generic.Dictionary<string, object?>? extraTokenData)
         {
             this.Subdomain = subdomain;
             this.YourDomain = yourDomain;
@@ -329,6 +337,7 @@ namespace Composio
             this.Scope = scope;
             this.WebhookSignature = webhookSignature;
             this.AuthedUser = authedUser;
+            this.ExtraTokenData = extraTokenData;
         }
 
         /// <summary>

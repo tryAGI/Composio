@@ -373,6 +373,36 @@
             "required": [
               "state"
             ]
+          },
+          "acl_config_for_shared": {
+            "type": "object",
+            "properties": {
+              "allow_all_users": {
+                "type": "boolean",
+                "description": "Wildcard \"any user_id in the project\" allow toggle. Only valid on SHARED connections."
+              },
+              "allowed_user_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
+                "maxItems": 1000,
+                "description": "Explicit allow list of user_ids who can use this SHARED connection."
+              },
+              "not_allowed_user_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 256
+                },
+                "maxItems": 1000,
+                "description": "Explicit deny list. Wins on conflict with allow_all_users and allowed_user_ids."
+              }
+            },
+            "description": "Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY. Default state (omitted or {}) is deny-by-default — only the creator can use."
           }
         }
       },
@@ -3784,6 +3814,32 @@
                             ],
                             "description": "Sharing model. PRIVATE accounts are usable only by their owning user_id. SHARED accounts are reachable from a tool-router session only when explicitly pinned in the session config (at most one SHARED per toolkit per session); they are never used implicitly."
                           },
+                          "acl_config_for_shared": {
+                            "type": "object",
+                            "properties": {
+                              "allow_all_users": {
+                                "type": "boolean"
+                              },
+                              "allowed_user_ids": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              },
+                              "not_allowed_user_ids": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "required": [
+                              "allow_all_users",
+                              "allowed_user_ids",
+                              "not_allowed_user_ids"
+                            ],
+                            "description": "Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY."
+                          },
                           "created_at": {
                             "type": "string",
                             "description": "The created at of the connection"
@@ -4730,6 +4786,12 @@
                                               }
                                             },
                                             "description": "for slack user scopes"
+                                          },
+                                          "extra_token_data": {
+                                            "type": "object",
+                                            "additionalProperties": {
+                                              "nullable": true
+                                            }
                                           }
                                         },
                                         "required": [
@@ -4880,6 +4942,12 @@
                                               }
                                             },
                                             "description": "for slack user scopes"
+                                          },
+                                          "extra_token_data": {
+                                            "type": "object",
+                                            "additionalProperties": {
+                                              "nullable": true
+                                            }
                                           }
                                         },
                                         "required": [
@@ -12171,6 +12239,12 @@
                                           }
                                         },
                                         "description": "for slack user scopes"
+                                      },
+                                      "extra_token_data": {
+                                        "type": "object",
+                                        "additionalProperties": {
+                                          "nullable": true
+                                        }
                                       }
                                     },
                                     "required": [
@@ -12321,6 +12395,12 @@
                                           }
                                         },
                                         "description": "for slack user scopes"
+                                      },
+                                      "extra_token_data": {
+                                        "type": "object",
+                                        "additionalProperties": {
+                                          "nullable": true
+                                        }
                                       }
                                     },
                                     "required": [
@@ -18536,7 +18616,37 @@
                           "PRIVATE",
                           "SHARED"
                         ],
-                        "description": "Sharing model for this connected account. PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned in the session config — at most one SHARED connection per toolkit per session. Sessions never use a SHARED connection implicitly. Set at creation time only — cannot be changed later."
+                        "description": "Sharing model for this connected account. PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned in the session config — at most one SHARED connection per toolkit per session. Sessions never use a SHARED connection implicitly."
+                      },
+                      "acl_config_for_shared": {
+                        "type": "object",
+                        "properties": {
+                          "allow_all_users": {
+                            "type": "boolean",
+                            "description": "Wildcard \"any user_id in the project\" allow toggle. Only valid on SHARED connections."
+                          },
+                          "allowed_user_ids": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 256
+                            },
+                            "maxItems": 1000,
+                            "description": "Explicit allow list of user_ids who can use this SHARED connection."
+                          },
+                          "not_allowed_user_ids": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 256
+                            },
+                            "maxItems": 1000,
+                            "description": "Explicit deny list. Wins on conflict with allow_all_users and allowed_user_ids."
+                          }
+                        },
+                        "description": "Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY. Default state (omitted or {}) is deny-by-default — only the creator can use."
                       }
                     }
                   },
@@ -19506,6 +19616,12 @@
                                         }
                                       },
                                       "description": "for slack user scopes"
+                                    },
+                                    "extra_token_data": {
+                                      "type": "object",
+                                      "additionalProperties": {
+                                        "nullable": true
+                                      }
                                     }
                                   },
                                   "required": [
@@ -19656,6 +19772,12 @@
                                         }
                                       },
                                       "description": "for slack user scopes"
+                                    },
+                                    "extra_token_data": {
+                                      "type": "object",
+                                      "additionalProperties": {
+                                        "nullable": true
+                                      }
                                     }
                                   },
                                   "required": [
@@ -26106,6 +26228,32 @@
                       ],
                       "description": "Sharing model. PRIVATE accounts are usable only by their owning user_id. SHARED accounts are reachable from a tool-router session only when explicitly pinned in the session config (at most one SHARED per toolkit per session); they are never used implicitly."
                     },
+                    "acl_config_for_shared": {
+                      "type": "object",
+                      "properties": {
+                        "allow_all_users": {
+                          "type": "boolean"
+                        },
+                        "allowed_user_ids": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "not_allowed_user_ids": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "required": [
+                        "allow_all_users",
+                        "allowed_user_ids",
+                        "not_allowed_user_ids"
+                      ],
+                      "description": "Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY."
+                    },
                     "created_at": {
                       "type": "string",
                       "description": "The created at of the connection"
@@ -27052,6 +27200,12 @@
                                         }
                                       },
                                       "description": "for slack user scopes"
+                                    },
+                                    "extra_token_data": {
+                                      "type": "object",
+                                      "additionalProperties": {
+                                        "nullable": true
+                                      }
                                     }
                                   },
                                   "required": [
@@ -27202,6 +27356,12 @@
                                         }
                                       },
                                       "description": "for slack user scopes"
+                                    },
+                                    "extra_token_data": {
+                                      "type": "object",
+                                      "additionalProperties": {
+                                        "nullable": true
+                                      }
                                     }
                                   },
                                   "required": [
@@ -34139,7 +34299,37 @@
                       "PRIVATE",
                       "SHARED"
                     ],
-                    "description": "Sharing model for this connected account. PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned in the session config — at most one SHARED connection per toolkit per session. Sessions never use a SHARED connection implicitly. Set at creation time only — cannot be changed later."
+                    "description": "Sharing model for this connected account. PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned in the session config — at most one SHARED connection per toolkit per session. Sessions never use a SHARED connection implicitly."
+                  },
+                  "acl_config_for_shared": {
+                    "type": "object",
+                    "properties": {
+                      "allow_all_users": {
+                        "type": "boolean",
+                        "description": "Wildcard \"any user_id in the project\" allow toggle. Only valid on SHARED connections."
+                      },
+                      "allowed_user_ids": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 256
+                        },
+                        "maxItems": 1000,
+                        "description": "Explicit allow list of user_ids who can use this SHARED connection."
+                      },
+                      "not_allowed_user_ids": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 256
+                        },
+                        "maxItems": 1000,
+                        "description": "Explicit deny list. Wins on conflict with allow_all_users and allowed_user_ids."
+                      }
+                    },
+                    "description": "Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY. Default state (omitted or {}) is deny-by-default — only the creator can use."
                   }
                 },
                 "required": [
@@ -35705,7 +35895,7 @@
                       "type": "string",
                       "nullable": true,
                       "description": "API key for the project",
-                      "example": "ak_abc123xyz456"
+                      "example": "ak_a1b2c3d4e5f6g7h8i9j0"
                     }
                   },
                   "required": [
@@ -38809,8 +38999,14 @@
                                         "required": {
                                           "type": "boolean"
                                         },
+                                        "is_secret": {
+                                          "type": "boolean"
+                                        },
                                         "legacy_template_name": {
                                           "type": "string"
+                                        },
+                                        "advanced": {
+                                          "type": "boolean"
                                         }
                                       },
                                       "required": [
@@ -38846,8 +39042,14 @@
                                         "required": {
                                           "type": "boolean"
                                         },
+                                        "is_secret": {
+                                          "type": "boolean"
+                                        },
                                         "legacy_template_name": {
                                           "type": "string"
+                                        },
+                                        "advanced": {
+                                          "type": "boolean"
                                         }
                                       },
                                       "required": [
@@ -38893,8 +39095,14 @@
                                         "required": {
                                           "type": "boolean"
                                         },
+                                        "is_secret": {
+                                          "type": "boolean"
+                                        },
                                         "legacy_template_name": {
                                           "type": "string"
+                                        },
+                                        "advanced": {
+                                          "type": "boolean"
                                         }
                                       },
                                       "required": [
@@ -38930,8 +39138,14 @@
                                         "required": {
                                           "type": "boolean"
                                         },
+                                        "is_secret": {
+                                          "type": "boolean"
+                                        },
                                         "legacy_template_name": {
                                           "type": "string"
+                                        },
+                                        "advanced": {
+                                          "type": "boolean"
                                         }
                                       },
                                       "required": [
@@ -40265,6 +40479,12 @@
                                   }
                                 },
                                 "description": "for slack user scopes"
+                              },
+                              "extra_token_data": {
+                                "type": "object",
+                                "additionalProperties": {
+                                  "nullable": true
+                                }
                               }
                             },
                             "required": [
@@ -42089,6 +42309,12 @@
                                   }
                                 },
                                 "description": "for slack user scopes"
+                              },
+                              "extra_token_data": {
+                                "type": "object",
+                                "additionalProperties": {
+                                  "nullable": true
+                                }
                               }
                             },
                             "required": [
@@ -51794,7 +52020,37 @@
                       "PRIVATE",
                       "SHARED"
                     ],
-                    "description": "Sharing model for this connected account. PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned in the session config — at most one SHARED connection per toolkit per session. Sessions never use a SHARED connection implicitly. Set at creation time only — cannot be changed later."
+                    "description": "Sharing model for this connected account. PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned in the session config — at most one SHARED connection per toolkit per session. Sessions never use a SHARED connection implicitly."
+                  },
+                  "acl_config_for_shared": {
+                    "type": "object",
+                    "properties": {
+                      "allow_all_users": {
+                        "type": "boolean",
+                        "description": "Wildcard \"any user_id in the project\" allow toggle. Only valid on SHARED connections."
+                      },
+                      "allowed_user_ids": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 256
+                        },
+                        "maxItems": 1000,
+                        "description": "Explicit allow list of user_ids who can use this SHARED connection."
+                      },
+                      "not_allowed_user_ids": {
+                        "type": "array",
+                        "items": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 256
+                        },
+                        "maxItems": 1000,
+                        "description": "Explicit deny list. Wins on conflict with allow_all_users and allowed_user_ids."
+                      }
+                    },
+                    "description": "Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY. Default state (omitted or {}) is deny-by-default — only the creator can use."
                   }
                 },
                 "required": [
@@ -52207,6 +52463,12 @@
                                   }
                                 },
                                 "description": "for slack user scopes"
+                              },
+                              "extra_token_data": {
+                                "type": "object",
+                                "additionalProperties": {
+                                  "nullable": true
+                                }
                               }
                             },
                             "required": [
