@@ -36,14 +36,10 @@ namespace Composio
         public required string ConnectedAccountId { get; set; }
 
         /// <summary>
-        /// PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned, with at most one SHARED per toolkit per session.<br/>
-        /// Example: PRIVATE
+        /// Experimental features - not stable, may be modified or removed in future versions.
         /// </summary>
-        /// <example>PRIVATE</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("account_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.PostToolRouterSessionBySessionIdLinkResponseAccountTypeJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Composio.PostToolRouterSessionBySessionIdLinkResponseAccountType AccountType { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("experimental")]
+        public global::Composio.PostToolRouterSessionBySessionIdLinkResponseExperimental? Experimental { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -66,9 +62,8 @@ namespace Composio
         /// The unique identifier for the connected account<br/>
         /// Example: ca_abc123xyz
         /// </param>
-        /// <param name="accountType">
-        /// PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned, with at most one SHARED per toolkit per session.<br/>
-        /// Example: PRIVATE
+        /// <param name="experimental">
+        /// Experimental features - not stable, may be modified or removed in future versions.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -77,12 +72,12 @@ namespace Composio
             string linkToken,
             string redirectUrl,
             string connectedAccountId,
-            global::Composio.PostToolRouterSessionBySessionIdLinkResponseAccountType accountType)
+            global::Composio.PostToolRouterSessionBySessionIdLinkResponseExperimental? experimental)
         {
             this.LinkToken = linkToken ?? throw new global::System.ArgumentNullException(nameof(linkToken));
             this.RedirectUrl = redirectUrl ?? throw new global::System.ArgumentNullException(nameof(redirectUrl));
             this.ConnectedAccountId = connectedAccountId ?? throw new global::System.ArgumentNullException(nameof(connectedAccountId));
-            this.AccountType = accountType;
+            this.Experimental = experimental;
         }
 
         /// <summary>

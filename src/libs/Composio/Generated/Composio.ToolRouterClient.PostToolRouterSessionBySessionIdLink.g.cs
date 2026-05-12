@@ -661,11 +661,8 @@ namespace Composio
         /// URL where users will be redirected after completing auth<br/>
         /// Example: https://myapp.com/callback
         /// </param>
-        /// <param name="accountType">
-        /// Sharing model for this connected account. PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned in the session config — at most one SHARED connection per toolkit per session. Sessions never use a SHARED connection implicitly.
-        /// </param>
-        /// <param name="aclConfigForShared">
-        /// Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY. Default state (omitted or {}) is deny-by-default — only the creator can use.
+        /// <param name="experimental">
+        /// Experimental features - not stable, may be modified or removed in future versions.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -675,8 +672,7 @@ namespace Composio
             string toolkit,
             string? alias = default,
             string? callbackUrl = default,
-            global::Composio.PostToolRouterSessionBySessionIdLinkRequestAccountType? accountType = default,
-            global::Composio.PostToolRouterSessionBySessionIdLinkRequestAclConfigForShared? aclConfigForShared = default,
+            global::Composio.PostToolRouterSessionBySessionIdLinkRequestExperimental? experimental = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -685,8 +681,7 @@ namespace Composio
                 Toolkit = toolkit,
                 Alias = alias,
                 CallbackUrl = callbackUrl,
-                AccountType = accountType,
-                AclConfigForShared = aclConfigForShared,
+                Experimental = experimental,
             };
 
             return await PostToolRouterSessionBySessionIdLinkAsync(

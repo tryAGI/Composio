@@ -4,7 +4,7 @@
 namespace Composio
 {
     /// <summary>
-    /// Filter by sharing model. Default (omitted) returns PRIVATE only — shared accounts must be requested explicitly. Pass SHARED for only shared accounts, or ALL for PRIVATE + SHARED.
+    /// [Experimental] Filter by sharing model. Default (omitted) returns PRIVATE only — shared accounts must be requested explicitly. Pass SHARED for only shared accounts, or ALL for PRIVATE + SHARED.
     /// </summary>
     public enum GetConnectedAccountsAccountType
     {
