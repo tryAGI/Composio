@@ -59,17 +59,10 @@ namespace Composio
         public bool? DeprecatedIsV1Rerouted { get; set; }
 
         /// <summary>
-        /// Sharing model for this connected account. PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned in the session config — at most one SHARED connection per toolkit per session. Sessions never use a SHARED connection implicitly.
+        /// Experimental features - not stable, may be modified or removed in future versions.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("account_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.PostConnectedAccountsRequestConnectionAccountTypeJsonConverter))]
-        public global::Composio.PostConnectedAccountsRequestConnectionAccountType? AccountType { get; set; }
-
-        /// <summary>
-        /// Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY. Default state (omitted or {}) is deny-by-default — only the creator can use.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("acl_config_for_shared")]
-        public global::Composio.PostConnectedAccountsRequestConnectionAclConfigForShared? AclConfigForShared { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("experimental")]
+        public global::Composio.PostConnectedAccountsRequestConnectionExperimental? Experimental { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -93,11 +86,8 @@ namespace Composio
         /// <param name="callbackUrl">
         /// The URL to redirect to after connection completion
         /// </param>
-        /// <param name="accountType">
-        /// Sharing model for this connected account. PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned in the session config — at most one SHARED connection per toolkit per session. Sessions never use a SHARED connection implicitly.
-        /// </param>
-        /// <param name="aclConfigForShared">
-        /// Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY. Default state (omitted or {}) is deny-by-default — only the creator can use.
+        /// <param name="experimental">
+        /// Experimental features - not stable, may be modified or removed in future versions.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -107,15 +97,13 @@ namespace Composio
             string? userId,
             string? alias,
             string? callbackUrl,
-            global::Composio.PostConnectedAccountsRequestConnectionAccountType? accountType,
-            global::Composio.PostConnectedAccountsRequestConnectionAclConfigForShared? aclConfigForShared)
+            global::Composio.PostConnectedAccountsRequestConnectionExperimental? experimental)
         {
             this.State = state;
             this.UserId = userId;
             this.Alias = alias;
             this.CallbackUrl = callbackUrl;
-            this.AccountType = accountType;
-            this.AclConfigForShared = aclConfigForShared;
+            this.Experimental = experimental;
         }
 
         /// <summary>

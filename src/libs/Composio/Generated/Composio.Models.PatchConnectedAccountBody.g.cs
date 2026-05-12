@@ -21,10 +21,10 @@ namespace Composio
         public global::Composio.PatchConnectedAccountBodyConnection? Connection { get; set; }
 
         /// <summary>
-        /// Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY. Default state (omitted or {}) is deny-by-default — only the creator can use.
+        /// Experimental features - not stable, may be modified or removed in future versions.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("acl_config_for_shared")]
-        public global::Composio.PatchConnectedAccountBodyAclConfigForShared? AclConfigForShared { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("experimental")]
+        public global::Composio.PatchConnectedAccountBodyExperimental? Experimental { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -39,8 +39,8 @@ namespace Composio
         /// A human-readable alias for this connected account. Pass an empty string to clear the alias. Must be unique per entity and toolkit within the project.
         /// </param>
         /// <param name="connection"></param>
-        /// <param name="aclConfigForShared">
-        /// Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY. Default state (omitted or {}) is deny-by-default — only the creator can use.
+        /// <param name="experimental">
+        /// Experimental features - not stable, may be modified or removed in future versions.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -48,11 +48,11 @@ namespace Composio
         public PatchConnectedAccountBody(
             string? alias,
             global::Composio.PatchConnectedAccountBodyConnection? connection,
-            global::Composio.PatchConnectedAccountBodyAclConfigForShared? aclConfigForShared)
+            global::Composio.PatchConnectedAccountBodyExperimental? experimental)
         {
             this.Alias = alias;
             this.Connection = connection;
-            this.AclConfigForShared = aclConfigForShared;
+            this.Experimental = experimental;
         }
 
         /// <summary>

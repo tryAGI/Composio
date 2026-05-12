@@ -59,18 +59,10 @@ namespace Composio
         public required global::Composio.GetConnectedAccountsByNanoidResponseStatus Status { get; set; }
 
         /// <summary>
-        /// Sharing model. PRIVATE accounts are usable only by their owning user_id. SHARED accounts are reachable from a tool-router session only when explicitly pinned in the session config (at most one SHARED per toolkit per session); they are never used implicitly.
+        /// Experimental features - not stable, may be modified or removed in future versions.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("account_type")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.GetConnectedAccountsByNanoidResponseAccountTypeJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Composio.GetConnectedAccountsByNanoidResponseAccountType AccountType { get; set; }
-
-        /// <summary>
-        /// Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("acl_config_for_shared")]
-        public global::Composio.GetConnectedAccountsByNanoidResponseAclConfigForShared? AclConfigForShared { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("experimental")]
+        public global::Composio.GetConnectedAccountsByNanoidResponseExperimental? Experimental { get; set; }
 
         /// <summary>
         /// The created at of the connection
@@ -154,9 +146,6 @@ namespace Composio
         /// <param name="status">
         /// The status of the connection
         /// </param>
-        /// <param name="accountType">
-        /// Sharing model. PRIVATE accounts are usable only by their owning user_id. SHARED accounts are reachable from a tool-router session only when explicitly pinned in the session config (at most one SHARED per toolkit per session); they are never used implicitly.
-        /// </param>
         /// <param name="createdAt">
         /// The created at of the connection
         /// </param>
@@ -181,8 +170,8 @@ namespace Composio
         /// <param name="alias">
         /// A user-defined alias for the connected account
         /// </param>
-        /// <param name="aclConfigForShared">
-        /// Access control for SHARED connections. Resolution rule (only fires when caller != creator): user in not_allowed_user_ids → DENY; allow_all_users=true → ALLOW; user in allowed_user_ids → ALLOW; else DENY.
+        /// <param name="experimental">
+        /// Experimental features - not stable, may be modified or removed in future versions.
         /// </param>
         /// <param name="statusReason">
         /// The reason the connection status changed. Possible reasons: Connection initiation did not complete within 10 minutes, Permanent auth error during token refresh, Max auth failures reached, OAuth callback failed during token exchange, Connection status updated by user, Auth config is disabled, Revoked via user-initiated revoke endpoint, Revoked via admin tool, Revoked as part of connection delete
@@ -199,7 +188,6 @@ namespace Composio
             string id,
             string userId,
             global::Composio.GetConnectedAccountsByNanoidResponseStatus status,
-            global::Composio.GetConnectedAccountsByNanoidResponseAccountType accountType,
             string createdAt,
             string updatedAt,
             global::Composio.OneOf<global::Composio.GetConnectedAccountsByNanoidResponseStateVariant1, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant2, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant3, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant4, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant5, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant7, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant8, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant9, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant10, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant11, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant12, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant13, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant14> state,
@@ -208,7 +196,7 @@ namespace Composio
             global::System.Collections.Generic.Dictionary<string, object?> @params,
             string? wordId,
             string? alias,
-            global::Composio.GetConnectedAccountsByNanoidResponseAclConfigForShared? aclConfigForShared,
+            global::Composio.GetConnectedAccountsByNanoidResponseExperimental? experimental,
             string? statusReason,
             string? testRequestEndpoint)
         {
@@ -219,8 +207,7 @@ namespace Composio
             this.Alias = alias;
             this.UserId = userId ?? throw new global::System.ArgumentNullException(nameof(userId));
             this.Status = status;
-            this.AccountType = accountType;
-            this.AclConfigForShared = aclConfigForShared;
+            this.Experimental = experimental;
             this.CreatedAt = createdAt ?? throw new global::System.ArgumentNullException(nameof(createdAt));
             this.UpdatedAt = updatedAt ?? throw new global::System.ArgumentNullException(nameof(updatedAt));
             this.State = state;
