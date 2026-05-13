@@ -46,6 +46,12 @@ namespace Composio
         public bool? SeenFlowCli { get; set; }
 
         /// <summary>
+        /// True once the user has dismissed the Composio For You announcement modal in the developer dashboard.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("seen_connect_announcement")]
+        public bool? SeenConnectAnnouncement { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -72,6 +78,9 @@ namespace Composio
         /// <param name="seenFlowCli">
         /// True once the user has completed the CLI onboarding flow.
         /// </param>
+        /// <param name="seenConnectAnnouncement">
+        /// True once the user has dismissed the Composio For You announcement modal in the developer dashboard.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -81,7 +90,8 @@ namespace Composio
             global::Composio.GetAuthSessionInfoResponseOrgMemberMetadataOnboardingPlatform? onboardingPlatform,
             bool? seenFlowConsumer,
             bool? seenFlowDeveloper,
-            bool? seenFlowCli)
+            bool? seenFlowCli,
+            bool? seenConnectAnnouncement)
         {
             this.CreatedInBetterAuth = createdInBetterAuth;
             this.PrefersOldDashboard = prefersOldDashboard;
@@ -89,6 +99,7 @@ namespace Composio
             this.SeenFlowConsumer = seenFlowConsumer;
             this.SeenFlowDeveloper = seenFlowDeveloper;
             this.SeenFlowCli = seenFlowCli;
+            this.SeenConnectAnnouncement = seenConnectAnnouncement;
         }
 
         /// <summary>

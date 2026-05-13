@@ -49,6 +49,13 @@ namespace Composio
         public required bool IsDefault { get; set; }
 
         /// <summary>
+        /// Sharing model for this connected account. PRIVATE is owner-only; SHARED is reachable from a tool-router session only when explicitly pinned.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("account_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseAccountAccountTypeJsonConverter))]
+        public global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseAccountAccountType? AccountType { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -75,6 +82,9 @@ namespace Composio
         /// <param name="userInfo">
         /// Information about the connected user (email, name, etc.)
         /// </param>
+        /// <param name="accountType">
+        /// Sharing model for this connected account. PRIVATE is owner-only; SHARED is reachable from a tool-router session only when explicitly pinned.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -84,7 +94,8 @@ namespace Composio
             string createdAt,
             bool isDefault,
             string? alias,
-            global::System.Collections.Generic.Dictionary<string, object?>? userInfo)
+            global::System.Collections.Generic.Dictionary<string, object?>? userInfo,
+            global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseAccountAccountType? accountType)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Alias = alias;
@@ -92,6 +103,7 @@ namespace Composio
             this.Status = status ?? throw new global::System.ArgumentNullException(nameof(status));
             this.CreatedAt = createdAt ?? throw new global::System.ArgumentNullException(nameof(createdAt));
             this.IsDefault = isDefault;
+            this.AccountType = accountType;
         }
 
         /// <summary>
