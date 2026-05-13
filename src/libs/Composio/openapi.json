@@ -1156,6 +1156,10 @@
                             "seen_flow_cli": {
                               "type": "boolean",
                               "description": "True once the user has completed the CLI onboarding flow."
+                            },
+                            "seen_connect_announcement": {
+                              "type": "boolean",
+                              "description": "True once the user has dismissed the Composio For You announcement modal in the developer dashboard."
                             }
                           },
                           "additionalProperties": {
@@ -54485,6 +54489,14 @@
                             },
                             "description": "Information about the currently connected user (email, name, etc.)"
                           },
+                          "account_type": {
+                            "type": "string",
+                            "enum": [
+                              "PRIVATE",
+                              "SHARED"
+                            ],
+                            "description": "Sharing model for the connected account when has_active_connection is true. PRIVATE is owner-only; SHARED is reachable only when explicitly pinned to the session."
+                          },
                           "accounts": {
                             "type": "array",
                             "items": {
@@ -54516,6 +54528,14 @@
                                 "is_default": {
                                   "type": "boolean",
                                   "description": "Whether this is the default account for the toolkit"
+                                },
+                                "account_type": {
+                                  "type": "string",
+                                  "enum": [
+                                    "PRIVATE",
+                                    "SHARED"
+                                  ],
+                                  "description": "Sharing model for this connected account. PRIVATE is owner-only; SHARED is reachable from a tool-router session only when explicitly pinned."
                                 }
                               },
                               "required": [
