@@ -90,6 +90,10 @@
       "description": "Payment and subscription management"
     },
     {
+      "name": "Billing",
+      "description": "Dashboard billing state — usage, subscription, contract (cookie-auth only)"
+    },
+    {
       "name": "Files",
       "description": "File management"
     },
