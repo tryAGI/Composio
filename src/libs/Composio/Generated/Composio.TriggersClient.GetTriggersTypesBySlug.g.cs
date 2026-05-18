@@ -49,7 +49,7 @@ namespace Composio
         /// </summary>
         /// <param name="slug">
         /// The unique slug identifier for the trigger type. Case-insensitive (internally normalized to uppercase).<br/>
-        /// Example: SLACK_RECEIVE_MESSAGE
+        /// Example: SLACK_CHANNEL_MESSAGE_RECEIVED
         /// </param>
         /// <param name="toolkitVersions"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -76,7 +76,7 @@ namespace Composio
         /// </summary>
         /// <param name="slug">
         /// The unique slug identifier for the trigger type. Case-insensitive (internally normalized to uppercase).<br/>
-        /// Example: SLACK_RECEIVE_MESSAGE
+        /// Example: SLACK_CHANNEL_MESSAGE_RECEIVED
         /// </param>
         /// <param name="toolkitVersions"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
