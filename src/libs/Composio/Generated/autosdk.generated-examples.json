@@ -59,7 +59,7 @@
       "Order": 6,
       "Title": "Update a connected account",
       "Slug": "patchconnectedaccountsbynanoid",
-      "Description": "Update a connected account. Supports updating the alias and/or credentials. Only specified fields will be updated. Set a credential field to null to remove it. Alias must be unique within the same project, entity, and toolkit scope.",
+      "Description": "Update a connected account. Supports updating alias, credentials, sharing model (\u0060experimental.account_type\u0060), and per-user ACL (\u0060experimental.acl_config_for_shared\u0060). Only specified fields are updated. Set a credential field to null to remove it. Alias must be unique within the same project, entity, and toolkit scope. Toggling \u0060experimental.account_type\u0060 between PRIVATE and SHARED reuses the stored credentials \u2014 no re-auth is required. Demoting SHARED \u2192 PRIVATE atomically clears the stored ACL; supplying \u0060acl_config_for_shared\u0060 in the same call is rejected as \u0060acl_config_for_shared is only valid on SHARED connections\u0060.",
       "Language": "csharp",
       "Code": "using var client = new ComposioClient(apiKey);\n\nvar request = global::System.Text.Json.JsonSerializer.Deserialize\u003Cglobal::Composio.PatchConnectedAccountBody\u003E(\n    @\u0022{\n  \u0022\u0022alias\u0022\u0022: \u0022\u0022work-gmail\u0022\u0022\n}\u0022)!;\n\nvar response = await client.ConnectedAccounts.PatchConnectedAccountsByNanoidAsync(\n    nanoid: \u0022ca_1a2b3c4d5e6f\u0022,\n    request: request\n);\n\n// Example response:\n// {\n//   \u0022success\u0022: true,\n//   \u0022id\u0022: \u0022ca_1a2b3c4d5e6f\u0022,\n//   \u0022status\u0022: \u0022ACTIVE\u0022\n// }",
       "Format": "sdk",

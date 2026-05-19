@@ -17,6 +17,10 @@ namespace Composio
 
             typeof(global::Composio.JsonConverters.PatchConnectedAccountBodyConnectionStateAuthSchemeNullableJsonConverter),
 
+            typeof(global::Composio.JsonConverters.PatchConnectedAccountBodyExperimentalAccountTypeJsonConverter),
+
+            typeof(global::Composio.JsonConverters.PatchConnectedAccountBodyExperimentalAccountTypeNullableJsonConverter),
+
             typeof(global::Composio.JsonConverters.PostAuthConfigsRequestAuthConfigVariant1TypeJsonConverter),
 
             typeof(global::Composio.JsonConverters.PostAuthConfigsRequestAuthConfigVariant1TypeNullableJsonConverter),
@@ -2588,6 +2592,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchConnectedAccountBodyConnectionStateVal))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(object))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchConnectedAccountBodyExperimental))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchConnectedAccountBodyExperimentalAccountType), TypeInfoPropertyName = "PatchConnectedAccountBodyExperimentalAccountType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchConnectedAccountBodyExperimentalAclConfigForShared))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.DeprecatedToolkitInfo))]
@@ -2928,7 +2933,6 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolsExecuteProxyRequestCustomConnectionDataVariant6Val))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolsExecuteProxyRequestCustomConnectionDataVariant7))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolsExecuteProxyRequestCustomConnectionDataVariant7AuthScheme), TypeInfoPropertyName = "PostToolsExecuteProxyRequestCustomConnectionDataVariant7AuthScheme2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolsExecuteProxyRequestCustomConnectionDataVariant7Val))]
     internal sealed partial class SourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -2943,6 +2947,10 @@ namespace Composio
             typeof(global::Composio.JsonConverters.PatchConnectedAccountBodyConnectionStateAuthSchemeJsonConverter),
 
             typeof(global::Composio.JsonConverters.PatchConnectedAccountBodyConnectionStateAuthSchemeNullableJsonConverter),
+
+            typeof(global::Composio.JsonConverters.PatchConnectedAccountBodyExperimentalAccountTypeJsonConverter),
+
+            typeof(global::Composio.JsonConverters.PatchConnectedAccountBodyExperimentalAccountTypeNullableJsonConverter),
 
             typeof(global::Composio.JsonConverters.PostAuthConfigsRequestAuthConfigVariant1TypeJsonConverter),
 
@@ -5502,6 +5510,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolkitsVariant1, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolkitsVariant2>?), TypeInfoPropertyName = "PatchToolRouterSessionBySessionIdResponseConfigToolkitsVariant2_8c4e11298b7955e1")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolsVariant1, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolsVariant2, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolsVariant3>?), TypeInfoPropertyName = "PatchToolRouterSessionBySessionIdResponseConfigToolsVariant3_cacc23460b6994b3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<global::System.Collections.Generic.List<global::Composio.PatchToolRouterSessionBySessionIdRequestToolsVariant3Tag>, global::Composio.PatchToolRouterSessionBySessionIdRequestToolsVariant3Tags>), TypeInfoPropertyName = "PatchToolRouterSessionBySessionIdRequestToolsVariant3Tags_d5bdef055e1131b0")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolsExecuteProxyRequestCustomConnectionDataVariant7Val))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolsExecuteProxyRequestCustomConnectionDataVariant8))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolsExecuteProxyRequestCustomConnectionDataVariant8AuthScheme), TypeInfoPropertyName = "PostToolsExecuteProxyRequestCustomConnectionDataVariant8AuthScheme2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolsExecuteProxyRequestCustomConnectionDataVariant8Val))]
@@ -5855,7 +5864,6 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsResponseItemStateVariant10ValVariant4))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsResponseItemStateVariant10ValVariant4Status), TypeInfoPropertyName = "GetConnectedAccountsResponseItemStateVariant10ValVariant4Status2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsResponseItemStateVariant10ValVariant5))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsResponseItemStateVariant10ValVariant5Status), TypeInfoPropertyName = "GetConnectedAccountsResponseItemStateVariant10ValVariant5Status2")]
     internal sealed partial class SourceGenerationContextChunk1 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -5870,6 +5878,10 @@ namespace Composio
             typeof(global::Composio.JsonConverters.PatchConnectedAccountBodyConnectionStateAuthSchemeJsonConverter),
 
             typeof(global::Composio.JsonConverters.PatchConnectedAccountBodyConnectionStateAuthSchemeNullableJsonConverter),
+
+            typeof(global::Composio.JsonConverters.PatchConnectedAccountBodyExperimentalAccountTypeJsonConverter),
+
+            typeof(global::Composio.JsonConverters.PatchConnectedAccountBodyExperimentalAccountTypeNullableJsonConverter),
 
             typeof(global::Composio.JsonConverters.PostAuthConfigsRequestAuthConfigVariant1TypeJsonConverter),
 
@@ -8429,6 +8441,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolkitsVariant1, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolkitsVariant2>?), TypeInfoPropertyName = "PatchToolRouterSessionBySessionIdResponseConfigToolkitsVariant2_8c4e11298b7955e1")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolsVariant1, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolsVariant2, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolsVariant3>?), TypeInfoPropertyName = "PatchToolRouterSessionBySessionIdResponseConfigToolsVariant3_cacc23460b6994b3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<global::System.Collections.Generic.List<global::Composio.PatchToolRouterSessionBySessionIdRequestToolsVariant3Tag>, global::Composio.PatchToolRouterSessionBySessionIdRequestToolsVariant3Tags>), TypeInfoPropertyName = "PatchToolRouterSessionBySessionIdRequestToolsVariant3Tags_d5bdef055e1131b0")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsResponseItemStateVariant10ValVariant5Status), TypeInfoPropertyName = "GetConnectedAccountsResponseItemStateVariant10ValVariant5Status2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsResponseItemStateVariant10ValVariant6))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsResponseItemStateVariant10ValVariant6Status), TypeInfoPropertyName = "GetConnectedAccountsResponseItemStateVariant10ValVariant6Status2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsResponseItemStateVariant11))]
@@ -8782,7 +8795,6 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsByNanoidResponseStateVariant9))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsByNanoidResponseStateVariant9AuthScheme), TypeInfoPropertyName = "GetConnectedAccountsByNanoidResponseStateVariant9AuthScheme2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsByNanoidResponseStateVariant9ValVariant1))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsByNanoidResponseStateVariant9ValVariant1Status), TypeInfoPropertyName = "GetConnectedAccountsByNanoidResponseStateVariant9ValVariant1Status2")]
     internal sealed partial class SourceGenerationContextChunk2 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -8797,6 +8809,10 @@ namespace Composio
             typeof(global::Composio.JsonConverters.PatchConnectedAccountBodyConnectionStateAuthSchemeJsonConverter),
 
             typeof(global::Composio.JsonConverters.PatchConnectedAccountBodyConnectionStateAuthSchemeNullableJsonConverter),
+
+            typeof(global::Composio.JsonConverters.PatchConnectedAccountBodyExperimentalAccountTypeJsonConverter),
+
+            typeof(global::Composio.JsonConverters.PatchConnectedAccountBodyExperimentalAccountTypeNullableJsonConverter),
 
             typeof(global::Composio.JsonConverters.PostAuthConfigsRequestAuthConfigVariant1TypeJsonConverter),
 
@@ -11356,6 +11372,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolkitsVariant1, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolkitsVariant2>?), TypeInfoPropertyName = "PatchToolRouterSessionBySessionIdResponseConfigToolkitsVariant2_8c4e11298b7955e1")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolsVariant1, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolsVariant2, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolsVariant3>?), TypeInfoPropertyName = "PatchToolRouterSessionBySessionIdResponseConfigToolsVariant3_cacc23460b6994b3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<global::System.Collections.Generic.List<global::Composio.PatchToolRouterSessionBySessionIdRequestToolsVariant3Tag>, global::Composio.PatchToolRouterSessionBySessionIdRequestToolsVariant3Tags>), TypeInfoPropertyName = "PatchToolRouterSessionBySessionIdRequestToolsVariant3Tags_d5bdef055e1131b0")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsByNanoidResponseStateVariant9ValVariant1Status), TypeInfoPropertyName = "GetConnectedAccountsByNanoidResponseStateVariant9ValVariant1Status2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsByNanoidResponseStateVariant9ValVariant2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsByNanoidResponseStateVariant9ValVariant2Status), TypeInfoPropertyName = "GetConnectedAccountsByNanoidResponseStateVariant9ValVariant2Status2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsByNanoidResponseStateVariant9ValVariant3))]
@@ -11709,7 +11726,6 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchToolRouterSessionBySessionIdResponseConfigMultiAccount))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchToolRouterSessionBySessionIdResponseConfigPreload))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchToolRouterSessionBySessionIdResponseExperimental))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.PatchToolRouterSessionBySessionIdResponseExperimentalCustomToolkit>))]
     internal sealed partial class SourceGenerationContextChunk3 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -11724,6 +11740,10 @@ namespace Composio
             typeof(global::Composio.JsonConverters.PatchConnectedAccountBodyConnectionStateAuthSchemeJsonConverter),
 
             typeof(global::Composio.JsonConverters.PatchConnectedAccountBodyConnectionStateAuthSchemeNullableJsonConverter),
+
+            typeof(global::Composio.JsonConverters.PatchConnectedAccountBodyExperimentalAccountTypeJsonConverter),
+
+            typeof(global::Composio.JsonConverters.PatchConnectedAccountBodyExperimentalAccountTypeNullableJsonConverter),
 
             typeof(global::Composio.JsonConverters.PostAuthConfigsRequestAuthConfigVariant1TypeJsonConverter),
 
@@ -14283,6 +14303,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolkitsVariant1, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolkitsVariant2>?), TypeInfoPropertyName = "PatchToolRouterSessionBySessionIdResponseConfigToolkitsVariant2_8c4e11298b7955e1")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolsVariant1, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolsVariant2, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolsVariant3>?), TypeInfoPropertyName = "PatchToolRouterSessionBySessionIdResponseConfigToolsVariant3_cacc23460b6994b3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<global::System.Collections.Generic.List<global::Composio.PatchToolRouterSessionBySessionIdRequestToolsVariant3Tag>, global::Composio.PatchToolRouterSessionBySessionIdRequestToolsVariant3Tags>), TypeInfoPropertyName = "PatchToolRouterSessionBySessionIdRequestToolsVariant3Tags_d5bdef055e1131b0")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.PatchToolRouterSessionBySessionIdResponseExperimentalCustomToolkit>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchToolRouterSessionBySessionIdResponseExperimentalCustomToolkit))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.PatchToolRouterSessionBySessionIdResponseExperimentalCustomToolkitTool>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchToolRouterSessionBySessionIdResponseExperimentalCustomToolkitTool))]
@@ -14476,6 +14497,8 @@ namespace Composio
             };
             options.Converters.Add(new global::Composio.JsonConverters.PatchConnectedAccountBodyConnectionStateAuthSchemeJsonConverter());
             options.Converters.Add(new global::Composio.JsonConverters.PatchConnectedAccountBodyConnectionStateAuthSchemeNullableJsonConverter());
+            options.Converters.Add(new global::Composio.JsonConverters.PatchConnectedAccountBodyExperimentalAccountTypeJsonConverter());
+            options.Converters.Add(new global::Composio.JsonConverters.PatchConnectedAccountBodyExperimentalAccountTypeNullableJsonConverter());
             options.Converters.Add(new global::Composio.JsonConverters.PostAuthConfigsRequestAuthConfigVariant1TypeJsonConverter());
             options.Converters.Add(new global::Composio.JsonConverters.PostAuthConfigsRequestAuthConfigVariant1TypeNullableJsonConverter());
             options.Converters.Add(new global::Composio.JsonConverters.PostAuthConfigsRequestAuthConfigVariant2TypeJsonConverter());
