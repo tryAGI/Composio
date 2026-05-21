@@ -381,15 +381,6 @@
           "experimental": {
             "type": "object",
             "properties": {
-              "account_type": {
-                "type": "string",
-                "enum": [
-                  "PRIVATE",
-                  "SHARED"
-                ],
-                "description": "Mutate the sharing model. PRIVATE → SHARED promotes the existing connection without re-auth; SHARED → PRIVATE revokes all non-creator access and clears the stored ACL atomically. Omit to leave unchanged.",
-                "x-experimental": true
-              },
               "acl_config_for_shared": {
                 "type": "object",
                 "properties": {
@@ -33877,7 +33868,7 @@
       },
       "patch": {
         "summary": "Update a connected account",
-        "description": "Update a connected account. Supports updating alias, credentials, sharing model (`experimental.account_type`), and per-user ACL (`experimental.acl_config_for_shared`). Only specified fields are updated. Set a credential field to null to remove it. Alias must be unique within the same project, entity, and toolkit scope. Toggling `experimental.account_type` between PRIVATE and SHARED reuses the stored credentials — no re-auth is required. Demoting SHARED → PRIVATE atomically clears the stored ACL; supplying `acl_config_for_shared` in the same call is rejected as `acl_config_for_shared is only valid on SHARED connections`.",
+        "description": "Update a connected account. Supports updating the alias and/or credentials. Only specified fields will be updated. Set a credential field to null to remove it. Alias must be unique within the same project, entity, and toolkit scope.",
         "tags": [
           "Connected Accounts",
           "Account Management"
@@ -33931,40 +33922,6 @@
                   "summary": "Update alias",
                   "value": {
                     "alias": "work-gmail"
-                  }
-                },
-                "promoteToShared": {
-                  "summary": "Promote PRIVATE → SHARED without re-auth, granting access in the same call",
-                  "value": {
-                    "experimental": {
-                      "account_type": "SHARED",
-                      "acl_config_for_shared": {
-                        "allow_all_users": true,
-                        "not_allowed_user_ids": [
-                          "user_bob"
-                        ]
-                      }
-                    }
-                  }
-                },
-                "demoteToPrivate": {
-                  "summary": "Demote SHARED → PRIVATE (clears stored ACL atomically; revokes all non-creator access)",
-                  "value": {
-                    "experimental": {
-                      "account_type": "PRIVATE"
-                    }
-                  }
-                },
-                "updateAcl": {
-                  "summary": "Edit ACL on an already-SHARED connection",
-                  "value": {
-                    "experimental": {
-                      "acl_config_for_shared": {
-                        "allowed_user_ids": [
-                          "user_alice"
-                        ]
-                      }
-                    }
                   }
                 }
               }
