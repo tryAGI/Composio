@@ -38,7 +38,7 @@ namespace Composio
         public required global::System.Collections.Generic.IList<string> EnabledEvents { get; set; }
 
         /// <summary>
-        /// Masked signing secret (full secret only on create/rotate)
+        /// Signing secret for HMAC verification
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("secret")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -80,7 +80,7 @@ namespace Composio
         /// Subscribed event types
         /// </param>
         /// <param name="secret">
-        /// Masked signing secret (full secret only on create/rotate)
+        /// Signing secret for HMAC verification
         /// </param>
         /// <param name="createdAt">
         /// ISO 8601 timestamp
@@ -115,5 +115,6 @@ namespace Composio
         public PatchWebhookSubscriptionsByIdResponse()
         {
         }
+
     }
 }

@@ -10,9 +10,9 @@ namespace Composio
     {
         /// <summary>
         /// Unique identifier for the trigger type<br/>
-        /// Example: SLACK_RECEIVE_MESSAGE
+        /// Example: SLACK_CHANNEL_MESSAGE_RECEIVED
         /// </summary>
-        /// <example>SLACK_RECEIVE_MESSAGE</example>
+        /// <example>SLACK_CHANNEL_MESSAGE_RECEIVED</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("slug")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Slug { get; set; }
@@ -87,6 +87,15 @@ namespace Composio
         public required string Version { get; set; }
 
         /// <summary>
+        /// True when the developer must register a Composio-issued webhook URL with the upstream provider (e.g. Slack Event Subscriptions, Notion integration webhooks). See the webhook_endpoint API for the setup.<br/>
+        /// Default Value: false<br/>
+        /// Example: false
+        /// </summary>
+        /// <example>false</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("requires_webhook_endpoint_setup")]
+        public bool? RequiresWebhookEndpointSetup { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -97,7 +106,7 @@ namespace Composio
         /// </summary>
         /// <param name="slug">
         /// Unique identifier for the trigger type<br/>
-        /// Example: SLACK_RECEIVE_MESSAGE
+        /// Example: SLACK_CHANNEL_MESSAGE_RECEIVED
         /// </param>
         /// <param name="name">
         /// Human-readable name of the trigger<br/>
@@ -129,6 +138,11 @@ namespace Composio
         /// Version of the trigger type<br/>
         /// Example: 20250930_00
         /// </param>
+        /// <param name="requiresWebhookEndpointSetup">
+        /// True when the developer must register a Composio-issued webhook URL with the upstream provider (e.g. Slack Event Subscriptions, Notion integration webhooks). See the webhook_endpoint API for the setup.<br/>
+        /// Default Value: false<br/>
+        /// Example: false
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -141,7 +155,8 @@ namespace Composio
             global::Composio.GetTriggersTypesBySlugResponseToolkit toolkit,
             global::System.Collections.Generic.Dictionary<string, object?> config,
             global::System.Collections.Generic.Dictionary<string, object?> payload,
-            string version)
+            string version,
+            bool? requiresWebhookEndpointSetup)
         {
             this.Slug = slug ?? throw new global::System.ArgumentNullException(nameof(slug));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -152,6 +167,7 @@ namespace Composio
             this.Config = config ?? throw new global::System.ArgumentNullException(nameof(config));
             this.Payload = payload ?? throw new global::System.ArgumentNullException(nameof(payload));
             this.Version = version ?? throw new global::System.ArgumentNullException(nameof(version));
+            this.RequiresWebhookEndpointSetup = requiresWebhookEndpointSetup;
         }
 
         /// <summary>
@@ -160,5 +176,6 @@ namespace Composio
         public GetTriggersTypesBySlugResponse()
         {
         }
+
     }
 }

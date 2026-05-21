@@ -88,5 +88,6 @@ namespace Composio
         public GetConnectedAccountsByNanoidResponseAuthConfig()
         {
         }
+
     }
 }

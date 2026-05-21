@@ -6,7 +6,7 @@ namespace Composio
     {
         /// <summary>
         /// Update a connected account<br/>
-        /// Update a connected account. Supports updating the alias and/or credentials. Only specified fields will be updated. Set a credential field to null to remove it. Alias must be unique within the same project, entity, and toolkit scope.
+        /// Update a connected account. Supports updating alias, credentials, sharing model (`experimental.account_type`), and per-user ACL (`experimental.acl_config_for_shared`). Only specified fields are updated. Set a credential field to null to remove it. Alias must be unique within the same project, entity, and toolkit scope. Toggling `experimental.account_type` between PRIVATE and SHARED reuses the stored credentials — no re-auth is required. Demoting SHARED → PRIVATE atomically clears the stored ACL; supplying `acl_config_for_shared` in the same call is rejected as `acl_config_for_shared is only valid on SHARED connections`.
         /// </summary>
         /// <param name="nanoid"></param>
         /// <param name="request"></param>
@@ -21,7 +21,7 @@ namespace Composio
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update a connected account<br/>
-        /// Update a connected account. Supports updating the alias and/or credentials. Only specified fields will be updated. Set a credential field to null to remove it. Alias must be unique within the same project, entity, and toolkit scope.
+        /// Update a connected account. Supports updating alias, credentials, sharing model (`experimental.account_type`), and per-user ACL (`experimental.acl_config_for_shared`). Only specified fields are updated. Set a credential field to null to remove it. Alias must be unique within the same project, entity, and toolkit scope. Toggling `experimental.account_type` between PRIVATE and SHARED reuses the stored credentials — no re-auth is required. Demoting SHARED → PRIVATE atomically clears the stored ACL; supplying `acl_config_for_shared` in the same call is rejected as `acl_config_for_shared is only valid on SHARED connections`.
         /// </summary>
         /// <param name="nanoid"></param>
         /// <param name="request"></param>
@@ -36,13 +36,16 @@ namespace Composio
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Update a connected account<br/>
-        /// Update a connected account. Supports updating the alias and/or credentials. Only specified fields will be updated. Set a credential field to null to remove it. Alias must be unique within the same project, entity, and toolkit scope.
+        /// Update a connected account. Supports updating alias, credentials, sharing model (`experimental.account_type`), and per-user ACL (`experimental.acl_config_for_shared`). Only specified fields are updated. Set a credential field to null to remove it. Alias must be unique within the same project, entity, and toolkit scope. Toggling `experimental.account_type` between PRIVATE and SHARED reuses the stored credentials — no re-auth is required. Demoting SHARED → PRIVATE atomically clears the stored ACL; supplying `acl_config_for_shared` in the same call is rejected as `acl_config_for_shared is only valid on SHARED connections`.
         /// </summary>
         /// <param name="nanoid"></param>
         /// <param name="alias">
         /// A human-readable alias for this connected account. Pass an empty string to clear the alias. Must be unique per entity and toolkit within the project.
         /// </param>
         /// <param name="connection"></param>
+        /// <param name="experimental">
+        /// Experimental features - not stable, may be modified or removed in future versions.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -50,6 +53,7 @@ namespace Composio
             string nanoid,
             string? alias = default,
             global::Composio.PatchConnectedAccountBodyConnection? connection = default,
+            global::Composio.PatchConnectedAccountBodyExperimental? experimental = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

@@ -53,5 +53,6 @@ namespace Composio
         public PatchAuthConfigsByNanoidRequestVariant1ProxyConfig()
         {
         }
+
     }
 }

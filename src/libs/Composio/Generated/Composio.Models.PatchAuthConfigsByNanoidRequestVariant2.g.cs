@@ -111,5 +111,6 @@ namespace Composio
         public PatchAuthConfigsByNanoidRequestVariant2()
         {
         }
+
     }
 }

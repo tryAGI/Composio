@@ -50,5 +50,6 @@ namespace Composio
         public PatchAuthConfigsByNanoidRequestVariant1Credentials()
         {
         }
+
     }
 }

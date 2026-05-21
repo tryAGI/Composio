@@ -42,5 +42,6 @@ namespace Composio
         public GetTriggerInstancesActiveResponseItemDeprecated()
         {
         }
+
     }
 }

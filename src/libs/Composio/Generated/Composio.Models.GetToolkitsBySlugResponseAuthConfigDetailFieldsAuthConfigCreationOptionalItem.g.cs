@@ -52,8 +52,20 @@ namespace Composio
         /// <summary>
         /// 
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_secret")]
+        public bool? IsSecret { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("legacy_template_name")]
         public string? LegacyTemplateName { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("advanced")]
+        public bool? Advanced { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -70,7 +82,9 @@ namespace Composio
         /// <param name="description"></param>
         /// <param name="required"></param>
         /// <param name="default"></param>
+        /// <param name="isSecret"></param>
         /// <param name="legacyTemplateName"></param>
+        /// <param name="advanced"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -81,7 +95,9 @@ namespace Composio
             string description,
             bool required,
             string? @default,
-            string? legacyTemplateName)
+            bool? isSecret,
+            string? legacyTemplateName,
+            bool? advanced)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.DisplayName = displayName ?? throw new global::System.ArgumentNullException(nameof(displayName));
@@ -89,7 +105,9 @@ namespace Composio
             this.Type = type ?? throw new global::System.ArgumentNullException(nameof(type));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
             this.Required = required;
+            this.IsSecret = isSecret;
             this.LegacyTemplateName = legacyTemplateName;
+            this.Advanced = advanced;
         }
 
         /// <summary>
@@ -98,5 +116,6 @@ namespace Composio
         public GetToolkitsBySlugResponseAuthConfigDetailFieldsAuthConfigCreationOptionalItem()
         {
         }
+
     }
 }

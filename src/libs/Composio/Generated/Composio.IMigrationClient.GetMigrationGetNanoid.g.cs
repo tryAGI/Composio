@@ -16,7 +16,7 @@ namespace Composio
         /// </param>
         /// <param name="xApiKey">
         /// Your Composio API key used for authentication<br/>
-        /// Example: sk_123456789abcdef
+        /// Example: ak_a1b2c3d4e5f6g7h8i9j0
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -39,7 +39,7 @@ namespace Composio
         /// </param>
         /// <param name="xApiKey">
         /// Your Composio API key used for authentication<br/>
-        /// Example: sk_123456789abcdef
+        /// Example: ak_a1b2c3d4e5f6g7h8i9j0
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

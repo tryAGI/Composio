@@ -32,6 +32,12 @@ namespace Composio
         public string? CallbackUrl { get; set; }
 
         /// <summary>
+        /// Experimental features - not stable, may be modified or removed in future versions.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("experimental")]
+        public global::Composio.PostToolRouterSessionBySessionIdLinkRequestExperimental? Experimental { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -51,17 +57,22 @@ namespace Composio
         /// URL where users will be redirected after completing auth<br/>
         /// Example: https://myapp.com/callback
         /// </param>
+        /// <param name="experimental">
+        /// Experimental features - not stable, may be modified or removed in future versions.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PostToolRouterSessionBySessionIdLinkRequest(
             string toolkit,
             string? alias,
-            string? callbackUrl)
+            string? callbackUrl,
+            global::Composio.PostToolRouterSessionBySessionIdLinkRequestExperimental? experimental)
         {
             this.Toolkit = toolkit ?? throw new global::System.ArgumentNullException(nameof(toolkit));
             this.Alias = alias;
             this.CallbackUrl = callbackUrl;
+            this.Experimental = experimental;
         }
 
         /// <summary>
@@ -70,5 +81,6 @@ namespace Composio
         public PostToolRouterSessionBySessionIdLinkRequest()
         {
         }
+
     }
 }

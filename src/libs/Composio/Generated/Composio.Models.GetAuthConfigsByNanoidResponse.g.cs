@@ -251,5 +251,6 @@ namespace Composio
         public GetAuthConfigsByNanoidResponse()
         {
         }
+
     }
 }

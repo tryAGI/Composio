@@ -49,6 +49,9 @@ namespace Composio
         /// <param name="connectionData">
         /// Connection data for the linked account (provider-specific key-value pairs)
         /// </param>
+        /// <param name="experimental">
+        /// Experimental features - not stable, may be modified or removed in future versions.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -58,6 +61,7 @@ namespace Composio
             string? alias = default,
             string? callbackUrl = default,
             object? connectionData = default,
+            global::Composio.PostConnectedAccountsLinkRequestExperimental? experimental = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

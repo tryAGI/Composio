@@ -59,5 +59,6 @@ namespace Composio
         public PostAuthSessionLogoutResponse2()
         {
         }
+
     }
 }

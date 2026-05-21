@@ -48,5 +48,6 @@ namespace Composio
         public PostConnectedAccountsResponseConnectionDataVariant2ValVariant4AuthedUser()
         {
         }
+
     }
 }

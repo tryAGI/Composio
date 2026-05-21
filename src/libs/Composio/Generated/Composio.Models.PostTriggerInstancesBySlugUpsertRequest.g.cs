@@ -92,5 +92,6 @@ namespace Composio
         public PostTriggerInstancesBySlugUpsertRequest()
         {
         }
+
     }
 }

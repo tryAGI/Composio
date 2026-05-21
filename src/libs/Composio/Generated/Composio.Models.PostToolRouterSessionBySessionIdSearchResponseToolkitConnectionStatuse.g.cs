@@ -42,6 +42,13 @@ namespace Composio
         public global::System.Collections.Generic.Dictionary<string, object?>? CurrentUserInfo { get; set; }
 
         /// <summary>
+        /// Sharing model for the connected account when has_active_connection is true. PRIVATE is owner-only; SHARED is reachable only when explicitly pinned to the session.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("account_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseAccountTypeJsonConverter))]
+        public global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseAccountType? AccountType { get; set; }
+
+        /// <summary>
         /// List of connected accounts for this toolkit. Present when multi-account is enabled.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("accounts")]
@@ -88,6 +95,9 @@ namespace Composio
         /// <param name="currentUserInfo">
         /// Information about the currently connected user (email, name, etc.)
         /// </param>
+        /// <param name="accountType">
+        /// Sharing model for the connected account when has_active_connection is true. PRIVATE is owner-only; SHARED is reachable only when explicitly pinned to the session.
+        /// </param>
         /// <param name="accounts">
         /// List of connected accounts for this toolkit. Present when multi-account is enabled.
         /// </param>
@@ -104,6 +114,7 @@ namespace Composio
             string statusMessage,
             global::System.Collections.Generic.Dictionary<string, object?>? connectionDetails,
             global::System.Collections.Generic.Dictionary<string, object?>? currentUserInfo,
+            global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseAccountType? accountType,
             global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseAccount>? accounts,
             global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseAccountSelection? accountSelection)
         {
@@ -112,6 +123,7 @@ namespace Composio
             this.HasActiveConnection = hasActiveConnection;
             this.ConnectionDetails = connectionDetails;
             this.CurrentUserInfo = currentUserInfo;
+            this.AccountType = accountType;
             this.Accounts = accounts;
             this.AccountSelection = accountSelection;
             this.StatusMessage = statusMessage ?? throw new global::System.ArgumentNullException(nameof(statusMessage));
@@ -123,5 +135,6 @@ namespace Composio
         public PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuse()
         {
         }
+
     }
 }

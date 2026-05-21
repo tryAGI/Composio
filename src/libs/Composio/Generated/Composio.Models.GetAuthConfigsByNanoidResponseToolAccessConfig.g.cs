@@ -56,5 +56,6 @@ namespace Composio
         public GetAuthConfigsByNanoidResponseToolAccessConfig()
         {
         }
+
     }
 }

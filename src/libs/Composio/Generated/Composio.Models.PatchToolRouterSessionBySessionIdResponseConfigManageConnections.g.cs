@@ -80,5 +80,6 @@ namespace Composio
         public PatchToolRouterSessionBySessionIdResponseConfigManageConnections()
         {
         }
+
     }
 }

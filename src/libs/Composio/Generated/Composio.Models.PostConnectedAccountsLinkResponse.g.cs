@@ -37,6 +37,12 @@ namespace Composio
         public required string ConnectedAccountId { get; set; }
 
         /// <summary>
+        /// Experimental features - not stable, may be modified or removed in future versions.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("experimental")]
+        public global::Composio.PostConnectedAccountsLinkResponseExperimental? Experimental { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -57,6 +63,9 @@ namespace Composio
         /// <param name="connectedAccountId">
         /// The connected account ID that was created
         /// </param>
+        /// <param name="experimental">
+        /// Experimental features - not stable, may be modified or removed in future versions.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -64,12 +73,14 @@ namespace Composio
             string linkToken,
             string redirectUrl,
             string expiresAt,
-            string connectedAccountId)
+            string connectedAccountId,
+            global::Composio.PostConnectedAccountsLinkResponseExperimental? experimental)
         {
             this.LinkToken = linkToken ?? throw new global::System.ArgumentNullException(nameof(linkToken));
             this.RedirectUrl = redirectUrl ?? throw new global::System.ArgumentNullException(nameof(redirectUrl));
             this.ExpiresAt = expiresAt ?? throw new global::System.ArgumentNullException(nameof(expiresAt));
             this.ConnectedAccountId = connectedAccountId ?? throw new global::System.ArgumentNullException(nameof(connectedAccountId));
+            this.Experimental = experimental;
         }
 
         /// <summary>
@@ -78,5 +89,6 @@ namespace Composio
         public PostConnectedAccountsLinkResponse()
         {
         }
+
     }
 }

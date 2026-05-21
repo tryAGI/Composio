@@ -168,5 +168,6 @@ namespace Composio
         public PostInternalTriggerLogsRequest()
         {
         }
+
     }
 }

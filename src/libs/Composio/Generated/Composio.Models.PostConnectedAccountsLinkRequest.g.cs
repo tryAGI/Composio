@@ -41,6 +41,12 @@ namespace Composio
         public object? ConnectionData { get; set; }
 
         /// <summary>
+        /// Experimental features - not stable, may be modified or removed in future versions.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("experimental")]
+        public global::Composio.PostConnectedAccountsLinkRequestExperimental? Experimental { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -64,6 +70,9 @@ namespace Composio
         /// <param name="connectionData">
         /// Connection data for the linked account (provider-specific key-value pairs)
         /// </param>
+        /// <param name="experimental">
+        /// Experimental features - not stable, may be modified or removed in future versions.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -72,13 +81,15 @@ namespace Composio
             string userId,
             string? alias,
             string? callbackUrl,
-            object? connectionData)
+            object? connectionData,
+            global::Composio.PostConnectedAccountsLinkRequestExperimental? experimental)
         {
             this.AuthConfigId = authConfigId ?? throw new global::System.ArgumentNullException(nameof(authConfigId));
             this.UserId = userId ?? throw new global::System.ArgumentNullException(nameof(userId));
             this.Alias = alias;
             this.CallbackUrl = callbackUrl;
             this.ConnectionData = connectionData;
+            this.Experimental = experimental;
         }
 
         /// <summary>
@@ -87,5 +98,6 @@ namespace Composio
         public PostConnectedAccountsLinkRequest()
         {
         }
+
     }
 }

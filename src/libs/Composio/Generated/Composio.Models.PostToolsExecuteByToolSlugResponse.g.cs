@@ -42,9 +42,9 @@ namespace Composio
 
         /// <summary>
         /// Unique identifier for the execution log (useful for debugging and support)<br/>
-        /// Example: log_abc123def456
+        /// Example: log_1a2b3c4d5e6f
         /// </summary>
-        /// <example>log_abc123def456</example>
+        /// <example>log_1a2b3c4d5e6f</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("log_id")]
         public string? LogId { get; set; }
 
@@ -74,7 +74,7 @@ namespace Composio
         /// </param>
         /// <param name="logId">
         /// Unique identifier for the execution log (useful for debugging and support)<br/>
-        /// Example: log_abc123def456
+        /// Example: log_1a2b3c4d5e6f
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -99,5 +99,6 @@ namespace Composio
         public PostToolsExecuteByToolSlugResponse()
         {
         }
+
     }
 }

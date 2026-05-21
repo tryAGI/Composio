@@ -51,5 +51,6 @@ namespace Composio
         public PostConnectedAccountsResponseConnectionDataVariant12()
         {
         }
+
     }
 }

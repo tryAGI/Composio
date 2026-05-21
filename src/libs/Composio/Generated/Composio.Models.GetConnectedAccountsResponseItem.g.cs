@@ -59,6 +59,12 @@ namespace Composio
         public required global::Composio.GetConnectedAccountsResponseItemStatus Status { get; set; }
 
         /// <summary>
+        /// Experimental features - not stable, may be modified or removed in future versions.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("experimental")]
+        public global::Composio.GetConnectedAccountsResponseItemExperimental? Experimental { get; set; }
+
+        /// <summary>
         /// The created at of the connection
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("created_at")]
@@ -154,6 +160,9 @@ namespace Composio
         /// <param name="alias">
         /// A user-defined alias for the connected account
         /// </param>
+        /// <param name="experimental">
+        /// Experimental features - not stable, may be modified or removed in future versions.
+        /// </param>
         /// <param name="statusReason">
         /// The reason the connection status changed. Possible reasons: Connection initiation did not complete within 10 minutes, Permanent auth error during token refresh, Max auth failures reached, OAuth callback failed during token exchange, Connection status updated by user, Auth config is disabled, Revoked via user-initiated revoke endpoint, Revoked via admin tool, Revoked as part of connection delete
         /// </param>
@@ -176,6 +185,7 @@ namespace Composio
             bool isDisabled,
             string? wordId,
             string? alias,
+            global::Composio.GetConnectedAccountsResponseItemExperimental? experimental,
             string? statusReason,
             string? testRequestEndpoint)
         {
@@ -186,6 +196,7 @@ namespace Composio
             this.Alias = alias;
             this.UserId = userId ?? throw new global::System.ArgumentNullException(nameof(userId));
             this.Status = status;
+            this.Experimental = experimental;
             this.CreatedAt = createdAt ?? throw new global::System.ArgumentNullException(nameof(createdAt));
             this.UpdatedAt = updatedAt ?? throw new global::System.ArgumentNullException(nameof(updatedAt));
             this.State = state;
@@ -201,5 +212,6 @@ namespace Composio
         public GetConnectedAccountsResponseItem()
         {
         }
+
     }
 }

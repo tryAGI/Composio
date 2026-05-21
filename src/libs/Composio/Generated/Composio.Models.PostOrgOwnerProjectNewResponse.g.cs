@@ -27,9 +27,9 @@ namespace Composio
 
         /// <summary>
         /// API key for the project<br/>
-        /// Example: ak_abc123xyz456
+        /// Example: ak_a1b2c3d4e5f6g7h8i9j0
         /// </summary>
-        /// <example>ak_abc123xyz456</example>
+        /// <example>ak_a1b2c3d4e5f6g7h8i9j0</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("api_key")]
         public string? ApiKey { get; set; }
 
@@ -52,7 +52,7 @@ namespace Composio
         /// </param>
         /// <param name="apiKey">
         /// API key for the project<br/>
-        /// Example: ak_abc123xyz456
+        /// Example: ak_a1b2c3d4e5f6g7h8i9j0
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -73,5 +73,6 @@ namespace Composio
         public PostOrgOwnerProjectNewResponse()
         {
         }
+
     }
 }

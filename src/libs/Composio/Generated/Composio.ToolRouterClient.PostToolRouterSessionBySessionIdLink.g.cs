@@ -661,6 +661,9 @@ namespace Composio
         /// URL where users will be redirected after completing auth<br/>
         /// Example: https://myapp.com/callback
         /// </param>
+        /// <param name="experimental">
+        /// Experimental features - not stable, may be modified or removed in future versions.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -669,6 +672,7 @@ namespace Composio
             string toolkit,
             string? alias = default,
             string? callbackUrl = default,
+            global::Composio.PostToolRouterSessionBySessionIdLinkRequestExperimental? experimental = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -677,6 +681,7 @@ namespace Composio
                 Toolkit = toolkit,
                 Alias = alias,
                 CallbackUrl = callbackUrl,
+                Experimental = experimental,
             };
 
             return await PostToolRouterSessionBySessionIdLinkAsync(

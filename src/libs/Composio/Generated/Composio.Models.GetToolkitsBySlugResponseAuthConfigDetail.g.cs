@@ -106,5 +106,6 @@ namespace Composio
         public GetToolkitsBySlugResponseAuthConfigDetail()
         {
         }
+
     }
 }
