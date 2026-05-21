@@ -45,7 +45,7 @@ namespace Composio
 
         /// <summary>
         /// Update a connected account<br/>
-        /// Update a connected account. Supports updating alias, credentials, sharing model (`experimental.account_type`), and per-user ACL (`experimental.acl_config_for_shared`). Only specified fields are updated. Set a credential field to null to remove it. Alias must be unique within the same project, entity, and toolkit scope. Toggling `experimental.account_type` between PRIVATE and SHARED reuses the stored credentials — no re-auth is required. Demoting SHARED → PRIVATE atomically clears the stored ACL; supplying `acl_config_for_shared` in the same call is rejected as `acl_config_for_shared is only valid on SHARED connections`.
+        /// Update a connected account. Supports updating the alias and/or credentials. Only specified fields will be updated. Set a credential field to null to remove it. Alias must be unique within the same project, entity, and toolkit scope.
         /// </summary>
         /// <param name="nanoid"></param>
         /// <param name="request"></param>
@@ -71,7 +71,7 @@ namespace Composio
         }
         /// <summary>
         /// Update a connected account<br/>
-        /// Update a connected account. Supports updating alias, credentials, sharing model (`experimental.account_type`), and per-user ACL (`experimental.acl_config_for_shared`). Only specified fields are updated. Set a credential field to null to remove it. Alias must be unique within the same project, entity, and toolkit scope. Toggling `experimental.account_type` between PRIVATE and SHARED reuses the stored credentials — no re-auth is required. Demoting SHARED → PRIVATE atomically clears the stored ACL; supplying `acl_config_for_shared` in the same call is rejected as `acl_config_for_shared is only valid on SHARED connections`.
+        /// Update a connected account. Supports updating the alias and/or credentials. Only specified fields will be updated. Set a credential field to null to remove it. Alias must be unique within the same project, entity, and toolkit scope.
         /// </summary>
         /// <param name="nanoid"></param>
         /// <param name="request"></param>
@@ -638,7 +638,7 @@ namespace Composio
         }
         /// <summary>
         /// Update a connected account<br/>
-        /// Update a connected account. Supports updating alias, credentials, sharing model (`experimental.account_type`), and per-user ACL (`experimental.acl_config_for_shared`). Only specified fields are updated. Set a credential field to null to remove it. Alias must be unique within the same project, entity, and toolkit scope. Toggling `experimental.account_type` between PRIVATE and SHARED reuses the stored credentials — no re-auth is required. Demoting SHARED → PRIVATE atomically clears the stored ACL; supplying `acl_config_for_shared` in the same call is rejected as `acl_config_for_shared is only valid on SHARED connections`.
+        /// Update a connected account. Supports updating the alias and/or credentials. Only specified fields will be updated. Set a credential field to null to remove it. Alias must be unique within the same project, entity, and toolkit scope.
         /// </summary>
         /// <param name="nanoid"></param>
         /// <param name="alias">
