@@ -40346,9 +40346,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -42004,9 +42001,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -42165,9 +42159,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "requestBody": {
@@ -50092,9 +50083,6 @@
             "UserApiKeyAuth": []
           },
           {
-            "CookieAuth": []
-          },
-          {
             "workbench_access_key": []
           }
         ],
@@ -50294,9 +50282,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -52348,9 +52333,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           },
           {
             "workbench_access_key": []
