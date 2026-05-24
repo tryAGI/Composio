@@ -27,10 +27,10 @@ namespace Composio
         public required string Name { get; set; }
 
         /// <summary>
-        /// The actual API key value used for authentication<br/>
-        /// Example: ak_a1b2c3d4e5f6g7h8i9j0
+        /// Masked API key value<br/>
+        /// Example: ak_**6j0z
         /// </summary>
-        /// <example>ak_a1b2c3d4e5f6g7h8i9j0</example>
+        /// <example>ak_**6j0z</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("key")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Key { get; set; }
@@ -62,8 +62,8 @@ namespace Composio
         /// Example: Production Server Key
         /// </param>
         /// <param name="key">
-        /// The actual API key value used for authentication<br/>
-        /// Example: ak_a1b2c3d4e5f6g7h8i9j0
+        /// Masked API key value<br/>
+        /// Example: ak_**6j0z
         /// </param>
         /// <param name="createdAt">
         /// ISO 8601 timestamp when the API key was created<br/>
