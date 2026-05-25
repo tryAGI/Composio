@@ -52333,9 +52333,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "workbench_access_key": []
           }
         ],
         "parameters": [
