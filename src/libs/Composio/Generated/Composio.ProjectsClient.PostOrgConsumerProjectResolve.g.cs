@@ -49,7 +49,7 @@ namespace Composio
         /// </summary>
         /// <param name="xUserApiKey">
         /// User API key used to authenticate the request.<br/>
-        /// Example: uak_a1b2c3d4e5f6g7h8i9j0
+        /// Example: uak_a1b2c3d4e5f6g7h8i9j0k1m2n3p4q5r6s7t8u9v0wXy
         /// </param>
         /// <param name="xOrgId">
         /// Organization nano ID that scopes the user API key resolution.<br/>
@@ -79,7 +79,7 @@ namespace Composio
         /// </summary>
         /// <param name="xUserApiKey">
         /// User API key used to authenticate the request.<br/>
-        /// Example: uak_a1b2c3d4e5f6g7h8i9j0
+        /// Example: uak_a1b2c3d4e5f6g7h8i9j0k1m2n3p4q5r6s7t8u9v0wXy
         /// </param>
         /// <param name="xOrgId">
         /// Organization nano ID that scopes the user API key resolution.<br/>
