@@ -167,17 +167,6 @@
     },
     {
       "Order": 16,
-      "Title": "Create a new tool router session (Legacy)",
-      "Slug": "postlabstoolroutersession",
-      "Description": "Creates a new session for the tool router lab feature (Legacy). This endpoint initializes a new session with specified toolkits and their authentication configurations. The session provides an isolated environment for testing and managing tool routing logic with scoped MCP server access.",
-      "Language": "csharp",
-      "Code": "using var client = new ComposioClient(apiKey);\n\nvar request = global::System.Text.Json.JsonSerializer.Deserialize\u003Cglobal::Composio.PostLabsToolRouterSessionRequest\u003E(\n    @\u0022{\n  \u0022\u0022user_id\u0022\u0022: \u0022\u0022user_123456789\u0022\u0022,\n  \u0022\u0022config\u0022\u0022: {}\n}\u0022)!;\n\nvar response = await client.ToolRouter.PostLabsToolRouterSessionAsync(\n    request: request\n);",
-      "Format": "sdk",
-      "OperationId": "postLabsToolRouterSession",
-      "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
-    },
-    {
-      "Order": 17,
       "Title": "Create a new tool router session",
       "Slug": "posttoolroutersession",
       "Description": "Creates a new session for the tool router feature. This endpoint initializes a new session with specified toolkits and their authentication configurations. The session provides an isolated environment for testing and managing tool routing logic with scoped MCP server access.",
@@ -188,7 +177,7 @@
       "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 18,
+      "Order": 17,
       "Title": "List available tools",
       "Slug": "gettools",
       "Description": "Retrieve a paginated list of available tools with comprehensive filtering, sorting and search capabilities. Use query parameters to narrow down results by toolkit, tags, or search terms.",
@@ -199,7 +188,7 @@
       "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 19,
+      "Order": 18,
       "Title": "Get tool by slug",
       "Slug": "gettoolsbytoolslug",
       "Description": "Retrieve detailed information about a specific tool using its slug identifier. This endpoint returns full metadata about a tool including input/output parameters, versions, and toolkit information.",
@@ -210,7 +199,7 @@
       "Setup": null
     },
     {
-      "Order": 20,
+      "Order": 19,
       "Title": "List trigger types",
       "Slug": "gettriggerstypes",
       "Description": "Retrieve a list of available trigger types with optional filtering by toolkit. Results are paginated and can be filtered by toolkit.",
@@ -221,7 +210,7 @@
       "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 21,
+      "Order": 20,
       "Title": "Get trigger type by slug",
       "Slug": "gettriggerstypesbyslug",
       "Description": "Retrieve detailed information about a specific trigger type using its slug identifier",
