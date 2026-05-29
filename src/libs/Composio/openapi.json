@@ -2827,9 +2827,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -26160,9 +26157,6 @@
         "operationId": "getConnectedAccountsByNanoid",
         "security": [
           {
-            "CookieAuth": []
-          },
-          {
             "ApiKeyAuth": []
           },
           {
@@ -34032,9 +34026,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -34164,9 +34155,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -34345,9 +34333,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "requestBody": {
@@ -35625,282 +35610,6 @@
           },
           "500": {
             "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/v3/org/project/config": {
-      "get": {
-        "summary": "Get project configuration",
-        "description": "Retrieves the current project configuration including 2FA settings.",
-        "tags": [
-          "Projects",
-          "Configuration"
-        ],
-        "operationId": "getOrgProjectConfig",
-        "security": [
-          {
-            "CookieAuth": []
-          },
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Project configuration retrieved successfully.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "is_2FA_enabled": {
-                      "type": "boolean"
-                    },
-                    "logo_url": {
-                      "type": "string"
-                    },
-                    "display_name": {
-                      "type": "string"
-                    },
-                    "mask_secret_keys_in_connected_account": {
-                      "type": "boolean"
-                    },
-                    "log_visibility_setting": {
-                      "type": "string",
-                      "enum": [
-                        "show_all",
-                        "dont_store_data"
-                      ]
-                    },
-                    "require_mcp_api_key": {
-                      "type": "boolean"
-                    },
-                    "is_composio_link_enabled_for_managed_auth": {
-                      "type": "boolean",
-                      "description": "Whether to enable composio link for managed authentication. This key will be deprecated in the future. Please don't use this key."
-                    },
-                    "signed_url_file_expiry_in_seconds": {
-                      "type": "number",
-                      "minimum": 1,
-                      "maximum": 86400
-                    }
-                  },
-                  "required": [
-                    "is_2FA_enabled",
-                    "mask_secret_keys_in_connected_account",
-                    "log_visibility_setting"
-                  ]
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request. The project configuration data may be invalid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized. Authentication is required or the provided credentials are invalid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Project not found. The specified project does not exist or has been deleted.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error. An unexpected error occurred while processing the request.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        }
-      },
-      "patch": {
-        "summary": "Update project configuration",
-        "description": "Updates the project configuration settings.",
-        "tags": [
-          "Projects",
-          "Configuration"
-        ],
-        "operationId": "patchOrgProjectConfig",
-        "security": [
-          {
-            "CookieAuth": []
-          },
-          {
-            "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "is_2FA_enabled": {
-                    "type": "boolean"
-                  },
-                  "logo_url": {
-                    "type": "string"
-                  },
-                  "display_name": {
-                    "type": "string"
-                  },
-                  "mask_secret_keys_in_connected_account": {
-                    "type": "boolean"
-                  },
-                  "log_visibility_setting": {
-                    "type": "string",
-                    "enum": [
-                      "show_all",
-                      "dont_store_data"
-                    ]
-                  },
-                  "require_mcp_api_key": {
-                    "type": "boolean"
-                  },
-                  "is_composio_link_enabled_for_managed_auth": {
-                    "type": "boolean",
-                    "description": "Whether to enable composio link for managed authentication. This key will be deprecated in the future. Please don't use this key."
-                  },
-                  "signed_url_file_expiry_in_seconds": {
-                    "type": "number",
-                    "minimum": 1,
-                    "maximum": 86400
-                  }
-                }
-              },
-              "examples": {
-                "Enable 2FA": {
-                  "value": {
-                    "is_2FA_enabled": true
-                  }
-                },
-                "Disable 2FA": {
-                  "value": {
-                    "is_2FA_enabled": false
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Project configuration updated successfully.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "is_2FA_enabled": {
-                      "type": "boolean"
-                    },
-                    "logo_url": {
-                      "type": "string"
-                    },
-                    "display_name": {
-                      "type": "string"
-                    },
-                    "mask_secret_keys_in_connected_account": {
-                      "type": "boolean"
-                    },
-                    "log_visibility_setting": {
-                      "type": "string",
-                      "enum": [
-                        "show_all",
-                        "dont_store_data"
-                      ]
-                    },
-                    "require_mcp_api_key": {
-                      "type": "boolean"
-                    },
-                    "is_composio_link_enabled_for_managed_auth": {
-                      "type": "boolean",
-                      "description": "Whether to enable composio link for managed authentication. This key will be deprecated in the future. Please don't use this key."
-                    },
-                    "signed_url_file_expiry_in_seconds": {
-                      "type": "number",
-                      "minimum": 1,
-                      "maximum": 86400
-                    }
-                  },
-                  "required": [
-                    "is_2FA_enabled",
-                    "mask_secret_keys_in_connected_account",
-                    "log_visibility_setting"
-                  ]
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad request. The configuration data may be invalid or missing.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized. Authentication is required or the provided credentials are invalid.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Project not found. The specified project does not exist or has been deleted.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error. An unexpected error occurred while processing the request.",
             "content": {
               "application/json": {
                 "schema": {
@@ -47928,9 +47637,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -48099,9 +47805,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "requestBody": {
