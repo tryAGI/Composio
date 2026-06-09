@@ -19,8 +19,7 @@ namespace Composio
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("deprecated")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Composio.PostTriggerInstancesBySlugUpsertResponseDeprecated2 Deprecated { get; set; }
+        public global::Composio.PostTriggerInstancesBySlugUpsertResponseDeprecated2? Deprecated { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -40,10 +39,10 @@ namespace Composio
 #endif
         public PostTriggerInstancesBySlugUpsertResponse2(
             string triggerId,
-            global::Composio.PostTriggerInstancesBySlugUpsertResponseDeprecated2 deprecated)
+            global::Composio.PostTriggerInstancesBySlugUpsertResponseDeprecated2? deprecated)
         {
             this.TriggerId = triggerId ?? throw new global::System.ArgumentNullException(nameof(triggerId));
-            this.Deprecated = deprecated ?? throw new global::System.ArgumentNullException(nameof(deprecated));
+            this.Deprecated = deprecated;
         }
 
         /// <summary>
