@@ -112,15 +112,6 @@ namespace Composio
         };
 
         /// <summary>
-        /// Endpoints to help with migration from v1 to v3.
-        /// </summary>
-        public MigrationClient Migration => new MigrationClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContext = JsonSerializerContext,
-        };
-
-        /// <summary>
         /// 
         /// </summary>
         public OrganizationManagementClient OrganizationManagement => new OrganizationManagementClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)

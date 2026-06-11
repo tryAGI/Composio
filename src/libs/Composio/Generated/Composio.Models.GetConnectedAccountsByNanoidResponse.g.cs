@@ -127,6 +127,18 @@ namespace Composio
         public required global::System.Collections.Generic.Dictionary<string, object?> Params { get; set; }
 
         /// <summary>
+        /// OAuth scopes requested when this connection was most recently initiated (create or refresh). Absent for connections created before scope snapshots were captured and for non-OAuth auth schemes.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("requested_scopes")]
+        public global::System.Collections.Generic.IList<string>? RequestedScopes { get; set; }
+
+        /// <summary>
+        /// OAuth user-token scopes requested at the most recent initiation. Only meaningful for Slackbot auth configs (user-token scopes); absent otherwise.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("requested_user_scopes")]
+        public global::System.Collections.Generic.IList<string>? RequestedUserScopes { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -179,6 +191,12 @@ namespace Composio
         /// <param name="testRequestEndpoint">
         /// The endpoint to make test request for verification
         /// </param>
+        /// <param name="requestedScopes">
+        /// OAuth scopes requested when this connection was most recently initiated (create or refresh). Absent for connections created before scope snapshots were captured and for non-OAuth auth schemes.
+        /// </param>
+        /// <param name="requestedUserScopes">
+        /// OAuth user-token scopes requested at the most recent initiation. Only meaningful for Slackbot auth configs (user-token scopes); absent otherwise.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -198,7 +216,9 @@ namespace Composio
             string? alias,
             global::Composio.GetConnectedAccountsByNanoidResponseExperimental? experimental,
             string? statusReason,
-            string? testRequestEndpoint)
+            string? testRequestEndpoint,
+            global::System.Collections.Generic.IList<string>? requestedScopes,
+            global::System.Collections.Generic.IList<string>? requestedUserScopes)
         {
             this.Toolkit = toolkit ?? throw new global::System.ArgumentNullException(nameof(toolkit));
             this.AuthConfig = authConfig ?? throw new global::System.ArgumentNullException(nameof(authConfig));
@@ -216,6 +236,8 @@ namespace Composio
             this.IsDisabled = isDisabled;
             this.TestRequestEndpoint = testRequestEndpoint;
             this.Params = @params ?? throw new global::System.ArgumentNullException(nameof(@params));
+            this.RequestedScopes = requestedScopes;
+            this.RequestedUserScopes = requestedUserScopes;
         }
 
         /// <summary>
