@@ -85,11 +85,6 @@ namespace Composio
         public McpClient Mcp { get; }
 
         /// <summary>
-        /// Endpoints to help with migration from v1 to v3.
-        /// </summary>
-        public MigrationClient Migration { get; }
-
-        /// <summary>
         /// 
         /// </summary>
         public OrganizationManagementClient OrganizationManagement { get; }
