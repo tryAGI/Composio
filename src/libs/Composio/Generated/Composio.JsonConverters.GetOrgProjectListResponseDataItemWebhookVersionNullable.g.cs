@@ -3,10 +3,10 @@
 namespace Composio.JsonConverters
 {
     /// <inheritdoc />
-    public sealed class GetOrgProjectConfigResponseLogVisibilitySettingJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::Composio.GetOrgProjectConfigResponseLogVisibilitySetting>
+    public sealed class GetOrgProjectListResponseDataItemWebhookVersionNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::Composio.GetOrgProjectListResponseDataItemWebhookVersion?>
     {
         /// <inheritdoc />
-        public override global::Composio.GetOrgProjectConfigResponseLogVisibilitySetting Read(
+        public override global::Composio.GetOrgProjectListResponseDataItemWebhookVersion? Read(
             ref global::System.Text.Json.Utf8JsonReader reader,
             global::System.Type typeToConvert,
             global::System.Text.Json.JsonSerializerOptions options)
@@ -18,7 +18,7 @@ namespace Composio.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::Composio.GetOrgProjectConfigResponseLogVisibilitySettingExtensions.ToEnum(stringValue) ?? default;
+                        return global::Composio.GetOrgProjectListResponseDataItemWebhookVersionExtensions.ToEnum(stringValue);
                     }
                     
                     break;
@@ -26,11 +26,11 @@ namespace Composio.JsonConverters
                 case global::System.Text.Json.JsonTokenType.Number:
                 {
                     var numValue = reader.GetInt32();
-                    return (global::Composio.GetOrgProjectConfigResponseLogVisibilitySetting)numValue;
+                    return (global::Composio.GetOrgProjectListResponseDataItemWebhookVersion)numValue;
                 }
                 case global::System.Text.Json.JsonTokenType.Null:
                 {
-                    return default(global::Composio.GetOrgProjectConfigResponseLogVisibilitySetting);
+                    return default(global::Composio.GetOrgProjectListResponseDataItemWebhookVersion?);
                 }
                 default:
                     throw new global::System.ArgumentOutOfRangeException(nameof(reader));
@@ -42,12 +42,19 @@ namespace Composio.JsonConverters
         /// <inheritdoc />
         public override void Write(
             global::System.Text.Json.Utf8JsonWriter writer,
-            global::Composio.GetOrgProjectConfigResponseLogVisibilitySetting value,
+            global::Composio.GetOrgProjectListResponseDataItemWebhookVersion? value,
             global::System.Text.Json.JsonSerializerOptions options)
         {
             writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
 
-            writer.WriteStringValue(global::Composio.GetOrgProjectConfigResponseLogVisibilitySettingExtensions.ToValueString(value));
+            if (value == null)
+            {
+                writer.WriteNullValue();
+            }
+            else
+            {
+                writer.WriteStringValue(global::Composio.GetOrgProjectListResponseDataItemWebhookVersionExtensions.ToValueString(value.Value));
+            }
         }
     }
 }

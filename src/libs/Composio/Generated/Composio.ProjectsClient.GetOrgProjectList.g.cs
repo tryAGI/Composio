@@ -7,7 +7,7 @@ namespace Composio
     {
 
 
-        private static readonly global::Composio.EndPointSecurityRequirement s_GetOrgProjectConfigSecurityRequirement0 =
+        private static readonly global::Composio.EndPointSecurityRequirement s_GetOrgProjectListSecurityRequirement0 =
             new global::Composio.EndPointSecurityRequirement
             {
                 Authorizations = new global::Composio.EndPointAuthorizationRequirement[]
@@ -21,36 +21,54 @@ namespace Composio
                     },
                 },
             };
-        private static readonly global::Composio.EndPointSecurityRequirement[] s_GetOrgProjectConfigSecurityRequirements =
+        private static readonly global::Composio.EndPointSecurityRequirement[] s_GetOrgProjectListSecurityRequirements =
             new global::Composio.EndPointSecurityRequirement[]
-            {                s_GetOrgProjectConfigSecurityRequirement0,
+            {                s_GetOrgProjectListSecurityRequirement0,
             };
-        partial void PrepareGetOrgProjectConfigArguments(
-            global::System.Net.Http.HttpClient httpClient);
-        partial void PrepareGetOrgProjectConfigRequest(
+        partial void PrepareGetOrgProjectListArguments(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
-        partial void ProcessGetOrgProjectConfigResponse(
+            ref bool? listAllOrgProjects,
+            ref int? limit,
+            ref string? cursor);
+        partial void PrepareGetOrgProjectListRequest(
+            global::System.Net.Http.HttpClient httpClient,
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            bool? listAllOrgProjects,
+            int? limit,
+            string? cursor);
+        partial void ProcessGetOrgProjectListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGetOrgProjectConfigResponseContent(
+        partial void ProcessGetOrgProjectListResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Get project configuration<br/>
-        /// Retrieves the current project configuration including 2FA settings.
+        /// List all projects<br/>
+        /// Retrieves projects belonging to the authenticated organization by default, or all organizations the authenticated user belongs to when list_all_org_projects is true. Projects are returned in descending order of creation date (newest first). This endpoint is useful for displaying project selection in dashboards or for integrations that need to list all available projects.
         /// </summary>
+        /// <param name="listAllOrgProjects">
+        /// List projects from all organizations the authenticated user belongs to<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="limit"></param>
+        /// <param name="cursor"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Composio.GetOrgProjectConfigResponse> GetOrgProjectConfigAsync(
+        public async global::System.Threading.Tasks.Task<global::Composio.GetOrgProjectListResponse> GetOrgProjectListAsync(
+            bool? listAllOrgProjects = default,
+            int? limit = default,
+            string? cursor = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await GetOrgProjectConfigAsResponseAsync(
+            var __response = await GetOrgProjectListAsResponseAsync(
+                listAllOrgProjects: listAllOrgProjects,
+                limit: limit,
+                cursor: cursor,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -58,26 +76,38 @@ namespace Composio
             return __response.Body;
         }
         /// <summary>
-        /// Get project configuration<br/>
-        /// Retrieves the current project configuration including 2FA settings.
+        /// List all projects<br/>
+        /// Retrieves projects belonging to the authenticated organization by default, or all organizations the authenticated user belongs to when list_all_org_projects is true. Projects are returned in descending order of creation date (newest first). This endpoint is useful for displaying project selection in dashboards or for integrations that need to list all available projects.
         /// </summary>
+        /// <param name="listAllOrgProjects">
+        /// List projects from all organizations the authenticated user belongs to<br/>
+        /// Default Value: false
+        /// </param>
+        /// <param name="limit"></param>
+        /// <param name="cursor"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.GetOrgProjectConfigResponse>> GetOrgProjectConfigAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.GetOrgProjectListResponse>> GetOrgProjectListAsResponseAsync(
+            bool? listAllOrgProjects = default,
+            int? limit = default,
+            string? cursor = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareGetOrgProjectConfigArguments(
-                httpClient: HttpClient);
+            PrepareGetOrgProjectListArguments(
+                httpClient: HttpClient,
+                listAllOrgProjects: ref listAllOrgProjects,
+                limit: ref limit,
+                cursor: ref cursor);
 
 
             var __authorizations = global::Composio.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_GetOrgProjectConfigSecurityRequirements,
-                operationName: "GetOrgProjectConfigAsync");
+                securityRequirements: s_GetOrgProjectListSecurityRequirements,
+                operationName: "GetOrgProjectListAsync");
 
             using var __timeoutCancellationTokenSource = global::Composio.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -97,8 +127,13 @@ namespace Composio
             {
 
                             var __pathBuilder = new global::Composio.PathBuilder(
-                                path: "/api/v3/org/project/config",
+                                path: "/api/v3/org/project/list",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("list_all_org_projects", listAllOrgProjects?.ToString().ToLowerInvariant())
+                                .AddOptionalParameter("limit", limit?.ToString())
+                                .AddOptionalParameter("cursor", cursor)
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Composio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -136,9 +171,12 @@ namespace Composio
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareGetOrgProjectConfigRequest(
+                PrepareGetOrgProjectListRequest(
                     httpClient: HttpClient,
-                    httpRequestMessage: __httpRequest);
+                    httpRequestMessage: __httpRequest,
+                    listAllOrgProjects: listAllOrgProjects,
+                    limit: limit,
+                    cursor: cursor);
 
                 return __httpRequest;
             }
@@ -155,9 +193,9 @@ namespace Composio
                     await global::Composio.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::Composio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetOrgProjectConfig",
-                                methodName: "GetOrgProjectConfigAsync",
-                                pathTemplate: "\"/api/v3/org/project/config\"",
+                                operationId: "GetOrgProjectList",
+                                methodName: "GetOrgProjectListAsync",
+                                pathTemplate: "\"/api/v3/org/project/list\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -189,9 +227,9 @@ namespace Composio
                         await global::Composio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Composio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetOrgProjectConfig",
-                                methodName: "GetOrgProjectConfigAsync",
-                                pathTemplate: "\"/api/v3/org/project/config\"",
+                                operationId: "GetOrgProjectList",
+                                methodName: "GetOrgProjectListAsync",
+                                pathTemplate: "\"/api/v3/org/project/list\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -230,9 +268,9 @@ namespace Composio
                         await global::Composio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Composio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetOrgProjectConfig",
-                                methodName: "GetOrgProjectConfigAsync",
-                                pathTemplate: "\"/api/v3/org/project/config\"",
+                                operationId: "GetOrgProjectList",
+                                methodName: "GetOrgProjectListAsync",
+                                pathTemplate: "\"/api/v3/org/project/list\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -270,7 +308,7 @@ namespace Composio
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessGetOrgProjectConfigResponse(
+                ProcessGetOrgProjectListResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -278,9 +316,9 @@ namespace Composio
                     await global::Composio.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::Composio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetOrgProjectConfig",
-                                methodName: "GetOrgProjectConfigAsync",
-                                pathTemplate: "\"/api/v3/org/project/config\"",
+                                operationId: "GetOrgProjectList",
+                                methodName: "GetOrgProjectListAsync",
+                                pathTemplate: "\"/api/v3/org/project/list\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -300,9 +338,9 @@ namespace Composio
                     await global::Composio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Composio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetOrgProjectConfig",
-                                methodName: "GetOrgProjectConfigAsync",
-                                pathTemplate: "\"/api/v3/org/project/config\"",
+                                operationId: "GetOrgProjectList",
+                                methodName: "GetOrgProjectListAsync",
+                                pathTemplate: "\"/api/v3/org/project/list\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -317,7 +355,7 @@ namespace Composio
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // Bad request. The project configuration data may be invalid.
+                            // Bad request. This may occur if there are invalid query parameters or the request is malformed.
                             if ((int)__response.StatusCode == 400)
                             {
                                 string? __content_400 = null;
@@ -391,43 +429,6 @@ namespace Composio
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // Project not found. The specified project does not exist or has been deleted.
-                            if ((int)__response.StatusCode == 404)
-                            {
-                                string? __content_404 = null;
-                                global::System.Exception? __exception_404 = null;
-                                global::Composio.Error? __value_404 = null;
-                                try
-                                {
-                                    if (__effectiveReadResponseAsString)
-                                    {
-                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_404 = global::Composio.Error.FromJson(__content_404, JsonSerializerContext);
-                                    }
-                                    else
-                                    {
-                                        __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-
-                                        __value_404 = global::Composio.Error.FromJson(__content_404, JsonSerializerContext);
-                                    }
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    __exception_404 = __ex;
-                                }
-
-
-                                throw global::Composio.ApiException<global::Composio.Error>.Create(
-                                    statusCode: __response.StatusCode,
-                                    message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_404,
-                                    responseBody: __content_404,
-                                    responseObject: __value_404,
-                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value));
-                            }
                             // Internal server error. An unexpected error occurred while processing the request.
                             if ((int)__response.StatusCode == 500)
                             {
@@ -478,7 +479,7 @@ namespace Composio
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessGetOrgProjectConfigResponseContent(
+                                ProcessGetOrgProjectListResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -487,9 +488,9 @@ namespace Composio
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::Composio.GetOrgProjectConfigResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::Composio.GetOrgProjectListResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::Composio.AutoSDKHttpResponse<global::Composio.GetOrgProjectConfigResponse>(
+                                    return new global::Composio.AutoSDKHttpResponse<global::Composio.GetOrgProjectListResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Composio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -519,9 +520,9 @@ namespace Composio
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::Composio.GetOrgProjectConfigResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::Composio.GetOrgProjectListResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::Composio.AutoSDKHttpResponse<global::Composio.GetOrgProjectConfigResponse>(
+                                    return new global::Composio.AutoSDKHttpResponse<global::Composio.GetOrgProjectListResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Composio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

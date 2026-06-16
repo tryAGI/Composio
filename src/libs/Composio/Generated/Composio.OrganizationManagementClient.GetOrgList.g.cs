@@ -3,11 +3,11 @@
 
 namespace Composio
 {
-    public partial class MigrationClient
+    public partial class OrganizationManagementClient
     {
 
 
-        private static readonly global::Composio.EndPointSecurityRequirement s_GetMigrationGetNanoidSecurityRequirement0 =
+        private static readonly global::Composio.EndPointSecurityRequirement s_GetOrgListSecurityRequirement0 =
             new global::Composio.EndPointSecurityRequirement
             {
                 Authorizations = new global::Composio.EndPointAuthorizationRequirement[]
@@ -21,58 +21,46 @@ namespace Composio
                     },
                 },
             };
-        private static readonly global::Composio.EndPointSecurityRequirement[] s_GetMigrationGetNanoidSecurityRequirements =
+        private static readonly global::Composio.EndPointSecurityRequirement[] s_GetOrgListSecurityRequirements =
             new global::Composio.EndPointSecurityRequirement[]
-            {                s_GetMigrationGetNanoidSecurityRequirement0,
+            {                s_GetOrgListSecurityRequirement0,
             };
-        partial void PrepareGetMigrationGetNanoidArguments(
+        partial void PrepareGetOrgListArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref global::System.Guid uuid,
-            ref global::Composio.GetMigrationGetNanoidType type,
-            ref string xApiKey);
-        partial void PrepareGetMigrationGetNanoidRequest(
+            ref int? limit,
+            ref string? cursor);
+        partial void PrepareGetOrgListRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::System.Guid uuid,
-            global::Composio.GetMigrationGetNanoidType type,
-            string xApiKey);
-        partial void ProcessGetMigrationGetNanoidResponse(
+            int? limit,
+            string? cursor);
+        partial void ProcessGetOrgListResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessGetMigrationGetNanoidResponseContent(
+        partial void ProcessGetOrgListResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Get NanoId from UUID<br/>
-        /// Convert a legacy UUID to its corresponding NanoId for migration purposes. This endpoint facilitates the transition from UUID-based identifiers to the more compact NanoId format used in the v3 API.
+        /// List organizations<br/>
+        /// Retrieves a list of organizations that the authenticated user has access to. This includes organizations where the user is a member with any role.
         /// </summary>
-        /// <param name="uuid">
-        /// Example: 123e4567-e89b-12d3-a456-426614174000
-        /// </param>
-        /// <param name="type">
-        /// Example: CONNECTED_ACCOUNT
-        /// </param>
-        /// <param name="xApiKey">
-        /// Your Composio API key used for authentication<br/>
-        /// Example: ak_a1b2c3d4e5f6g7h8i9j0
-        /// </param>
+        /// <param name="limit"></param>
+        /// <param name="cursor"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Composio.GetMigrationGetNanoidResponse> GetMigrationGetNanoidAsync(
-            global::System.Guid uuid,
-            global::Composio.GetMigrationGetNanoidType type,
-            string xApiKey,
+        public async global::System.Threading.Tasks.Task<global::Composio.GetOrgListResponse> GetOrgListAsync(
+            int? limit = default,
+            string? cursor = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await GetMigrationGetNanoidAsResponseAsync(
-                uuid: uuid,
-                type: type,
-                xApiKey: xApiKey,
+            var __response = await GetOrgListAsResponseAsync(
+                limit: limit,
+                cursor: cursor,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -80,42 +68,32 @@ namespace Composio
             return __response.Body;
         }
         /// <summary>
-        /// Get NanoId from UUID<br/>
-        /// Convert a legacy UUID to its corresponding NanoId for migration purposes. This endpoint facilitates the transition from UUID-based identifiers to the more compact NanoId format used in the v3 API.
+        /// List organizations<br/>
+        /// Retrieves a list of organizations that the authenticated user has access to. This includes organizations where the user is a member with any role.
         /// </summary>
-        /// <param name="uuid">
-        /// Example: 123e4567-e89b-12d3-a456-426614174000
-        /// </param>
-        /// <param name="type">
-        /// Example: CONNECTED_ACCOUNT
-        /// </param>
-        /// <param name="xApiKey">
-        /// Your Composio API key used for authentication<br/>
-        /// Example: ak_a1b2c3d4e5f6g7h8i9j0
-        /// </param>
+        /// <param name="limit"></param>
+        /// <param name="cursor"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.GetMigrationGetNanoidResponse>> GetMigrationGetNanoidAsResponseAsync(
-            global::System.Guid uuid,
-            global::Composio.GetMigrationGetNanoidType type,
-            string xApiKey,
+        public async global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.GetOrgListResponse>> GetOrgListAsResponseAsync(
+            int? limit = default,
+            string? cursor = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
-            PrepareGetMigrationGetNanoidArguments(
+            PrepareGetOrgListArguments(
                 httpClient: HttpClient,
-                uuid: ref uuid,
-                type: ref type,
-                xApiKey: ref xApiKey);
+                limit: ref limit,
+                cursor: ref cursor);
 
 
             var __authorizations = global::Composio.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_GetMigrationGetNanoidSecurityRequirements,
-                operationName: "GetMigrationGetNanoidAsync");
+                securityRequirements: s_GetOrgListSecurityRequirements,
+                operationName: "GetOrgListAsync");
 
             using var __timeoutCancellationTokenSource = global::Composio.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -135,11 +113,11 @@ namespace Composio
             {
 
                             var __pathBuilder = new global::Composio.PathBuilder(
-                                path: "/api/v3/migration/get-nanoid",
+                                path: "/api/v3/org/list",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
-                                .AddRequiredParameter("uuid", uuid.ToString()!)
-                                .AddRequiredParameter("type", type.ToValueString())
+                                .AddOptionalParameter("limit", limit?.ToString())
+                                .AddOptionalParameter("cursor", cursor)
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Composio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -170,9 +148,6 @@ namespace Composio
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 } 
             }
-
-                __httpRequest.Headers.TryAddWithoutValidation("x-api-key", xApiKey.ToString());
-
                 global::Composio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -181,12 +156,11 @@ namespace Composio
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareGetMigrationGetNanoidRequest(
+                PrepareGetOrgListRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    uuid: uuid!,
-                    type: type!,
-                    xApiKey: xApiKey!);
+                    limit: limit,
+                    cursor: cursor);
 
                 return __httpRequest;
             }
@@ -203,9 +177,9 @@ namespace Composio
                     await global::Composio.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::Composio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetMigrationGetNanoid",
-                                methodName: "GetMigrationGetNanoidAsync",
-                                pathTemplate: "\"/api/v3/migration/get-nanoid\"",
+                                operationId: "GetOrgList",
+                                methodName: "GetOrgListAsync",
+                                pathTemplate: "\"/api/v3/org/list\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -237,9 +211,9 @@ namespace Composio
                         await global::Composio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Composio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetMigrationGetNanoid",
-                                methodName: "GetMigrationGetNanoidAsync",
-                                pathTemplate: "\"/api/v3/migration/get-nanoid\"",
+                                operationId: "GetOrgList",
+                                methodName: "GetOrgListAsync",
+                                pathTemplate: "\"/api/v3/org/list\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -278,9 +252,9 @@ namespace Composio
                         await global::Composio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Composio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetMigrationGetNanoid",
-                                methodName: "GetMigrationGetNanoidAsync",
-                                pathTemplate: "\"/api/v3/migration/get-nanoid\"",
+                                operationId: "GetOrgList",
+                                methodName: "GetOrgListAsync",
+                                pathTemplate: "\"/api/v3/org/list\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -318,7 +292,7 @@ namespace Composio
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessGetMigrationGetNanoidResponse(
+                ProcessGetOrgListResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -326,9 +300,9 @@ namespace Composio
                     await global::Composio.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::Composio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetMigrationGetNanoid",
-                                methodName: "GetMigrationGetNanoidAsync",
-                                pathTemplate: "\"/api/v3/migration/get-nanoid\"",
+                                operationId: "GetOrgList",
+                                methodName: "GetOrgListAsync",
+                                pathTemplate: "\"/api/v3/org/list\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -348,9 +322,9 @@ namespace Composio
                     await global::Composio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Composio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "GetMigrationGetNanoid",
-                                methodName: "GetMigrationGetNanoidAsync",
-                                pathTemplate: "\"/api/v3/migration/get-nanoid\"",
+                                operationId: "GetOrgList",
+                                methodName: "GetOrgListAsync",
+                                pathTemplate: "\"/api/v3/org/list\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
@@ -365,7 +339,7 @@ namespace Composio
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // Bad Request - Invalid UUID or resource not found
+                            // Bad request. This may occur if there are invalid query parameters or the request is malformed.
                             if ((int)__response.StatusCode == 400)
                             {
                                 string? __content_400 = null;
@@ -402,7 +376,7 @@ namespace Composio
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // Unauthorized - Invalid or missing API key
+                            // Unauthorized. Authentication is required or the provided credentials are invalid.
                             if ((int)__response.StatusCode == 401)
                             {
                                 string? __content_401 = null;
@@ -439,7 +413,7 @@ namespace Composio
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // Not Found - The UUID does not correspond to any resource of the specified type
+                            // Not found. The user or organization was not found.
                             if ((int)__response.StatusCode == 404)
                             {
                                 string? __content_404 = null;
@@ -476,44 +450,7 @@ namespace Composio
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // Gone - The UUID does not correspond to any resource of the specified type
-                            if ((int)__response.StatusCode == 410)
-                            {
-                                string? __content_410 = null;
-                                global::System.Exception? __exception_410 = null;
-                                global::Composio.Error? __value_410 = null;
-                                try
-                                {
-                                    if (__effectiveReadResponseAsString)
-                                    {
-                                        __content_410 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_410 = global::Composio.Error.FromJson(__content_410, JsonSerializerContext);
-                                    }
-                                    else
-                                    {
-                                        __content_410 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-
-                                        __value_410 = global::Composio.Error.FromJson(__content_410, JsonSerializerContext);
-                                    }
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    __exception_410 = __ex;
-                                }
-
-
-                                throw global::Composio.ApiException<global::Composio.Error>.Create(
-                                    statusCode: __response.StatusCode,
-                                    message: __content_410 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_410,
-                                    responseBody: __content_410,
-                                    responseObject: __value_410,
-                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value));
-                            }
-                            // Internal server error - An unexpected error occurred during processing
+                            // Internal server error. An unexpected error occurred while processing the request.
                             if ((int)__response.StatusCode == 500)
                             {
                                 string? __content_500 = null;
@@ -563,7 +500,7 @@ namespace Composio
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessGetMigrationGetNanoidResponseContent(
+                                ProcessGetOrgListResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -572,9 +509,9 @@ namespace Composio
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::Composio.GetMigrationGetNanoidResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::Composio.GetOrgListResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::Composio.AutoSDKHttpResponse<global::Composio.GetMigrationGetNanoidResponse>(
+                                    return new global::Composio.AutoSDKHttpResponse<global::Composio.GetOrgListResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Composio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -604,9 +541,9 @@ namespace Composio
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::Composio.GetMigrationGetNanoidResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::Composio.GetOrgListResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::Composio.AutoSDKHttpResponse<global::Composio.GetMigrationGetNanoidResponse>(
+                                    return new global::Composio.AutoSDKHttpResponse<global::Composio.GetOrgListResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Composio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

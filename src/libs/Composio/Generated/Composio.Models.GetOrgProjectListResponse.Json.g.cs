@@ -2,7 +2,7 @@
 
 namespace Composio
 {
-    public sealed partial class GetOrgProjectConfigResponse
+    public sealed partial class GetOrgProjectListResponse
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -34,14 +34,14 @@ namespace Composio
         /// <summary>
         /// Deserializes a JSON string using the provided JsonSerializerContext.
         /// </summary>
-        public static global::Composio.GetOrgProjectConfigResponse? FromJson(
+        public static global::Composio.GetOrgProjectListResponse? FromJson(
             string json,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
-                typeof(global::Composio.GetOrgProjectConfigResponse),
-                jsonSerializerContext) as global::Composio.GetOrgProjectConfigResponse;
+                typeof(global::Composio.GetOrgProjectListResponse),
+                jsonSerializerContext) as global::Composio.GetOrgProjectListResponse;
         }
 
         /// <summary>
@@ -51,11 +51,11 @@ namespace Composio
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::Composio.GetOrgProjectConfigResponse? FromJson(
+        public static global::Composio.GetOrgProjectListResponse? FromJson(
             string json,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::Composio.GetOrgProjectConfigResponse>(
+            return global::System.Text.Json.JsonSerializer.Deserialize<global::Composio.GetOrgProjectListResponse>(
                 json,
                 jsonSerializerOptions);
         }
@@ -63,14 +63,14 @@ namespace Composio
         /// <summary>
         /// Deserializes a JSON stream using the provided JsonSerializerContext.
         /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::Composio.GetOrgProjectConfigResponse?> FromJsonStreamAsync(
+        public static async global::System.Threading.Tasks.ValueTask<global::Composio.GetOrgProjectListResponse?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
-                typeof(global::Composio.GetOrgProjectConfigResponse),
-                jsonSerializerContext).ConfigureAwait(false)) as global::Composio.GetOrgProjectConfigResponse;
+                typeof(global::Composio.GetOrgProjectListResponse),
+                jsonSerializerContext).ConfigureAwait(false)) as global::Composio.GetOrgProjectListResponse;
         }
 
         /// <summary>
@@ -80,11 +80,11 @@ namespace Composio
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::System.Threading.Tasks.ValueTask<global::Composio.GetOrgProjectConfigResponse?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::Composio.GetOrgProjectListResponse?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::Composio.GetOrgProjectConfigResponse?>(
+            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::Composio.GetOrgProjectListResponse?>(
                 jsonStream,
                 jsonSerializerOptions);
         }

@@ -2,7 +2,7 @@
 
 namespace Composio
 {
-    public sealed partial class PostAuthSessionLogoutResponse3
+    public sealed partial class GetOrgListResponse
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -34,14 +34,14 @@ namespace Composio
         /// <summary>
         /// Deserializes a JSON string using the provided JsonSerializerContext.
         /// </summary>
-        public static global::Composio.PostAuthSessionLogoutResponse3? FromJson(
+        public static global::Composio.GetOrgListResponse? FromJson(
             string json,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
-                typeof(global::Composio.PostAuthSessionLogoutResponse3),
-                jsonSerializerContext) as global::Composio.PostAuthSessionLogoutResponse3;
+                typeof(global::Composio.GetOrgListResponse),
+                jsonSerializerContext) as global::Composio.GetOrgListResponse;
         }
 
         /// <summary>
@@ -51,11 +51,11 @@ namespace Composio
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::Composio.PostAuthSessionLogoutResponse3? FromJson(
+        public static global::Composio.GetOrgListResponse? FromJson(
             string json,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
-            return global::System.Text.Json.JsonSerializer.Deserialize<global::Composio.PostAuthSessionLogoutResponse3>(
+            return global::System.Text.Json.JsonSerializer.Deserialize<global::Composio.GetOrgListResponse>(
                 json,
                 jsonSerializerOptions);
         }
@@ -63,14 +63,14 @@ namespace Composio
         /// <summary>
         /// Deserializes a JSON stream using the provided JsonSerializerContext.
         /// </summary>
-        public static async global::System.Threading.Tasks.ValueTask<global::Composio.PostAuthSessionLogoutResponse3?> FromJsonStreamAsync(
+        public static async global::System.Threading.Tasks.ValueTask<global::Composio.GetOrgListResponse?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.Serialization.JsonSerializerContext jsonSerializerContext)
         {
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
-                typeof(global::Composio.PostAuthSessionLogoutResponse3),
-                jsonSerializerContext).ConfigureAwait(false)) as global::Composio.PostAuthSessionLogoutResponse3;
+                typeof(global::Composio.GetOrgListResponse),
+                jsonSerializerContext).ConfigureAwait(false)) as global::Composio.GetOrgListResponse;
         }
 
         /// <summary>
@@ -80,11 +80,11 @@ namespace Composio
         [global::System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("JSON serialization and deserialization might require types that cannot be statically analyzed. Use the overload that takes a JsonTypeInfo or JsonSerializerContext, or make sure all of the required types are preserved.")]
         [global::System.Diagnostics.CodeAnalysis.RequiresDynamicCode("JSON serialization and deserialization might require types that cannot be statically analyzed and might need runtime code generation. Use System.Text.Json source generation for native AOT applications.")]
 #endif
-        public static global::System.Threading.Tasks.ValueTask<global::Composio.PostAuthSessionLogoutResponse3?> FromJsonStreamAsync(
+        public static global::System.Threading.Tasks.ValueTask<global::Composio.GetOrgListResponse?> FromJsonStreamAsync(
             global::System.IO.Stream jsonStream,
             global::System.Text.Json.JsonSerializerOptions? jsonSerializerOptions = null)
         {
-            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::Composio.PostAuthSessionLogoutResponse3?>(
+            return global::System.Text.Json.JsonSerializer.DeserializeAsync<global::Composio.GetOrgListResponse?>(
                 jsonStream,
                 jsonSerializerOptions);
         }
