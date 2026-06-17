@@ -426,6 +426,43 @@ namespace Composio
                                         h => h.Key,
                                         h => h.Value));
                             }
+                            // Forbidden
+                            if ((int)__response.StatusCode == 403)
+                            {
+                                string? __content_403 = null;
+                                global::System.Exception? __exception_403 = null;
+                                global::Composio.Error? __value_403 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_403 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_403 = global::Composio.Error.FromJson(__content_403, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_403 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_403 = global::Composio.Error.FromJson(__content_403, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_403 = __ex;
+                                }
+
+
+                                throw global::Composio.ApiException<global::Composio.Error>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_403 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_403,
+                                    responseBody: __content_403,
+                                    responseObject: __value_403,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
                             // Trigger instance not found
                             if ((int)__response.StatusCode == 404)
                             {
@@ -791,6 +828,9 @@ namespace Composio
         /// <param name="connectedAccountId">
         /// Connected account nanoid
         /// </param>
+        /// <param name="userId">
+        /// The user id (entity id) that owns the connected account. When the project has 2FA enabled, this is validated against the owner of connected_account_id.
+        /// </param>
         /// <param name="triggerConfig2">
         /// Trigger configuration
         /// </param>
@@ -804,6 +844,7 @@ namespace Composio
         public async global::System.Threading.Tasks.Task<global::Composio.PostTriggerInstancesBySlugUpsertResponse> PostTriggerInstancesBySlugUpsertAsync(
             string slug,
             string? connectedAccountId = default,
+            string? userId = default,
             global::System.Collections.Generic.Dictionary<string, object?>? triggerConfig2 = default,
             global::Composio.AnyOf<string, global::System.Collections.Generic.Dictionary<string, string>, object>? toolkitVersions = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
@@ -812,6 +853,7 @@ namespace Composio
             var __request = new global::Composio.PostTriggerInstancesBySlugUpsertRequest
             {
                 ConnectedAccountId = connectedAccountId,
+                UserId = userId,
                 TriggerConfig2 = triggerConfig2,
                 ToolkitVersions = toolkitVersions,
             };

@@ -27,11 +27,13 @@ namespace Composio
             };
         partial void PrepareDeleteConnectedAccountsByNanoidArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string nanoid);
+            ref string nanoid,
+            ref bool? revokeOnDelete);
         partial void PrepareDeleteConnectedAccountsByNanoidRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string nanoid);
+            string nanoid,
+            bool? revokeOnDelete);
         partial void ProcessDeleteConnectedAccountsByNanoidResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -43,19 +45,25 @@ namespace Composio
 
         /// <summary>
         /// Delete a connected account<br/>
-        /// Soft-deletes a connected account by marking it as deleted in the database. This prevents the account from being used for API calls but preserves the record for audit purposes.
+        /// Soft-deletes a connected account by marking it as deleted in the database. This prevents the account from being used for API calls but preserves the record for audit purposes. Pass `?revoke_on_delete=true` to also revoke the account's upstream credentials via a background job.
         /// </summary>
         /// <param name="nanoid"></param>
+        /// <param name="revokeOnDelete">
+        /// When `true`, the delete also starts a background job that revokes the upstream credentials of every connected account in scope, and the response carries a `revoke_job_id`. Defaults to `false`. Revocation is irreversible — recovering a deleted entity does not restore working credentials.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Composio.DeleteConnectedAccountsByNanoidResponse> DeleteConnectedAccountsByNanoidAsync(
             string nanoid,
+            bool? revokeOnDelete = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await DeleteConnectedAccountsByNanoidAsResponseAsync(
                 nanoid: nanoid,
+                revokeOnDelete: revokeOnDelete,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -64,14 +72,19 @@ namespace Composio
         }
         /// <summary>
         /// Delete a connected account<br/>
-        /// Soft-deletes a connected account by marking it as deleted in the database. This prevents the account from being used for API calls but preserves the record for audit purposes.
+        /// Soft-deletes a connected account by marking it as deleted in the database. This prevents the account from being used for API calls but preserves the record for audit purposes. Pass `?revoke_on_delete=true` to also revoke the account's upstream credentials via a background job.
         /// </summary>
         /// <param name="nanoid"></param>
+        /// <param name="revokeOnDelete">
+        /// When `true`, the delete also starts a background job that revokes the upstream credentials of every connected account in scope, and the response carries a `revoke_job_id`. Defaults to `false`. Revocation is irreversible — recovering a deleted entity does not restore working credentials.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.DeleteConnectedAccountsByNanoidResponse>> DeleteConnectedAccountsByNanoidAsResponseAsync(
             string nanoid,
+            bool? revokeOnDelete = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -79,7 +92,8 @@ namespace Composio
                 client: HttpClient);
             PrepareDeleteConnectedAccountsByNanoidArguments(
                 httpClient: HttpClient,
-                nanoid: ref nanoid);
+                nanoid: ref nanoid,
+                revokeOnDelete: ref revokeOnDelete);
 
 
             var __authorizations = global::Composio.EndPointSecurityResolver.ResolveAuthorizations(
@@ -107,6 +121,9 @@ namespace Composio
                             var __pathBuilder = new global::Composio.PathBuilder(
                                 path: $"/api/v3/connected_accounts/{nanoid}",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("revoke_on_delete", revokeOnDelete?.ToString().ToLowerInvariant())
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Composio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -147,7 +164,8 @@ namespace Composio
                 PrepareDeleteConnectedAccountsByNanoidRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    nanoid: nanoid!);
+                    nanoid: nanoid!,
+                    revokeOnDelete: revokeOnDelete);
 
                 return __httpRequest;
             }

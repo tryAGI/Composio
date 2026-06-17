@@ -27,11 +27,13 @@ namespace Composio
             };
         partial void PrepareDeleteAuthConfigsByNanoidArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string nanoid);
+            ref string nanoid,
+            ref bool? revokeOnDelete);
         partial void PrepareDeleteAuthConfigsByNanoidRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string nanoid);
+            string nanoid,
+            bool? revokeOnDelete);
         partial void ProcessDeleteAuthConfigsByNanoidResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -43,21 +45,27 @@ namespace Composio
 
         /// <summary>
         /// Delete an authentication configuration<br/>
-        /// Soft-deletes an authentication configuration by marking it as deleted in the database. This operation cannot be undone.
+        /// Soft-deletes an authentication configuration by marking it as deleted in the database. This operation cannot be undone. Pass `?revoke_on_delete=true` to also revoke the upstream credentials of every connection using this auth config via a background job.
         /// </summary>
         /// <param name="nanoid">
         /// The unique identifier of the authentication configuration to delete
         /// </param>
+        /// <param name="revokeOnDelete">
+        /// When `true`, the delete also starts a background job that revokes the upstream credentials of every connected account in scope, and the response carries a `revoke_job_id`. Defaults to `false`. Revocation is irreversible — recovering a deleted entity does not restore working credentials.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> DeleteAuthConfigsByNanoidAsync(
+        public async global::System.Threading.Tasks.Task<global::Composio.DeleteAuthConfigsByNanoidResponse> DeleteAuthConfigsByNanoidAsync(
             string nanoid,
+            bool? revokeOnDelete = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await DeleteAuthConfigsByNanoidAsResponseAsync(
                 nanoid: nanoid,
+                revokeOnDelete: revokeOnDelete,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -66,16 +74,21 @@ namespace Composio
         }
         /// <summary>
         /// Delete an authentication configuration<br/>
-        /// Soft-deletes an authentication configuration by marking it as deleted in the database. This operation cannot be undone.
+        /// Soft-deletes an authentication configuration by marking it as deleted in the database. This operation cannot be undone. Pass `?revoke_on_delete=true` to also revoke the upstream credentials of every connection using this auth config via a background job.
         /// </summary>
         /// <param name="nanoid">
         /// The unique identifier of the authentication configuration to delete
         /// </param>
+        /// <param name="revokeOnDelete">
+        /// When `true`, the delete also starts a background job that revokes the upstream credentials of every connected account in scope, and the response carries a `revoke_job_id`. Defaults to `false`. Revocation is irreversible — recovering a deleted entity does not restore working credentials.<br/>
+        /// Default Value: false
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<string>> DeleteAuthConfigsByNanoidAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.DeleteAuthConfigsByNanoidResponse>> DeleteAuthConfigsByNanoidAsResponseAsync(
             string nanoid,
+            bool? revokeOnDelete = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -83,7 +96,8 @@ namespace Composio
                 client: HttpClient);
             PrepareDeleteAuthConfigsByNanoidArguments(
                 httpClient: HttpClient,
-                nanoid: ref nanoid);
+                nanoid: ref nanoid,
+                revokeOnDelete: ref revokeOnDelete);
 
 
             var __authorizations = global::Composio.EndPointSecurityResolver.ResolveAuthorizations(
@@ -111,6 +125,9 @@ namespace Composio
                             var __pathBuilder = new global::Composio.PathBuilder(
                                 path: $"/api/v3/auth_configs/{nanoid}",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("revoke_on_delete", revokeOnDelete?.ToString().ToLowerInvariant())
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Composio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -151,7 +168,8 @@ namespace Composio
                 PrepareDeleteAuthConfigsByNanoidRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    nanoid: nanoid!);
+                    nanoid: nanoid!,
+                    revokeOnDelete: revokeOnDelete);
 
                 return __httpRequest;
             }
@@ -500,11 +518,13 @@ namespace Composio
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return new global::Composio.AutoSDKHttpResponse<string>(
+                                    var __value = global::Composio.DeleteAuthConfigsByNanoidResponse.FromJson(__content, JsonSerializerContext) ??
+                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::Composio.AutoSDKHttpResponse<global::Composio.DeleteAuthConfigsByNanoidResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Composio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __content);
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -524,17 +544,19 @@ namespace Composio
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    var __content = await __response.Content.ReadAsStringAsync(
+                                    using var __content = await __response.Content.ReadAsStreamAsync(
                 #if NET5_0_OR_GREATER
                                         __effectiveCancellationToken
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    return new global::Composio.AutoSDKHttpResponse<string>(
+                                    var __value = await global::Composio.DeleteAuthConfigsByNanoidResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::Composio.AutoSDKHttpResponse<global::Composio.DeleteAuthConfigsByNanoidResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Composio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __content);
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
