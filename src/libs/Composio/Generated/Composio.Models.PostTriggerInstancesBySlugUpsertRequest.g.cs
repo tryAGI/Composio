@@ -31,6 +31,12 @@ namespace Composio
         public string? ConnectedAccountId { get; set; }
 
         /// <summary>
+        /// The user id (entity id) that owns the connected account. When the project has 2FA enabled, this is validated against the owner of connected_account_id.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_id")]
+        public string? UserId { get; set; }
+
+        /// <summary>
         /// Trigger configuration
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("trigger_config")]
@@ -66,6 +72,9 @@ namespace Composio
         /// <param name="connectedAccountId">
         /// Connected account nanoid
         /// </param>
+        /// <param name="userId">
+        /// The user id (entity id) that owns the connected account. When the project has 2FA enabled, this is validated against the owner of connected_account_id.
+        /// </param>
         /// <param name="triggerConfig2">
         /// Trigger configuration
         /// </param>
@@ -78,10 +87,12 @@ namespace Composio
 #endif
         public PostTriggerInstancesBySlugUpsertRequest(
             string? connectedAccountId,
+            string? userId,
             global::System.Collections.Generic.Dictionary<string, object?>? triggerConfig2,
             global::Composio.AnyOf<string, global::System.Collections.Generic.Dictionary<string, string>, object>? toolkitVersions)
         {
             this.ConnectedAccountId = connectedAccountId;
+            this.UserId = userId;
             this.TriggerConfig2 = triggerConfig2;
             this.ToolkitVersions = toolkitVersions;
         }

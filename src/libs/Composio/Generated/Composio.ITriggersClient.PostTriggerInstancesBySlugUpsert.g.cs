@@ -50,6 +50,9 @@ namespace Composio
         /// <param name="connectedAccountId">
         /// Connected account nanoid
         /// </param>
+        /// <param name="userId">
+        /// The user id (entity id) that owns the connected account. When the project has 2FA enabled, this is validated against the owner of connected_account_id.
+        /// </param>
         /// <param name="triggerConfig2">
         /// Trigger configuration
         /// </param>
@@ -63,6 +66,7 @@ namespace Composio
         global::System.Threading.Tasks.Task<global::Composio.PostTriggerInstancesBySlugUpsertResponse> PostTriggerInstancesBySlugUpsertAsync(
             string slug,
             string? connectedAccountId = default,
+            string? userId = default,
             global::System.Collections.Generic.Dictionary<string, object?>? triggerConfig2 = default,
             global::Composio.AnyOf<string, global::System.Collections.Generic.Dictionary<string, string>, object>? toolkitVersions = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,

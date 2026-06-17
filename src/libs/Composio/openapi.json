@@ -798,9 +798,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "responses": {
@@ -1196,9 +1193,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "requestBody": {
@@ -1557,9 +1551,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -1963,9 +1954,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -2263,9 +2251,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -2553,7 +2538,7 @@
       },
       "delete": {
         "summary": "Delete an authentication configuration",
-        "description": "Soft-deletes an authentication configuration by marking it as deleted in the database. This operation cannot be undone.",
+        "description": "Soft-deletes an authentication configuration by marking it as deleted in the database. This operation cannot be undone. Pass `?revoke_on_delete=true` to also revoke the upstream credentials of every connection using this auth config via a background job.",
         "tags": [
           "Auth Configs"
         ],
@@ -2564,9 +2549,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -2580,6 +2562,18 @@
             "description": "The unique identifier of the authentication configuration to delete",
             "name": "nanoid",
             "in": "path"
+          },
+          {
+            "schema": {
+              "type": "boolean",
+              "nullable": true,
+              "default": false,
+              "description": "When `true`, the delete also starts a background job that revokes the upstream credentials of every connected account in scope, and the response carries a `revoke_job_id`. Defaults to `false`. Revocation is irreversible — recovering a deleted entity does not restore working credentials."
+            },
+            "required": false,
+            "description": "When `true`, the delete also starts a background job that revokes the upstream credentials of every connected account in scope, and the response carries a `revoke_job_id`. Defaults to `false`. Revocation is irreversible — recovering a deleted entity does not restore working credentials.",
+            "name": "revoke_on_delete",
+            "in": "query"
           }
         ],
         "responses": {
@@ -2589,7 +2583,13 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {}
+                  "properties": {
+                    "revoke_job_id": {
+                      "type": "string",
+                      "description": "Identifier of the background revoke job started for this delete. Present only when `revoke_on_delete=true`. Track the job and its per-connection results from the Composio dashboard — a programmatic endpoint to poll this job is not yet generally available.",
+                      "example": "pj_1a2b3c4d5e6f"
+                    }
+                  }
                 }
               }
             }
@@ -2649,9 +2649,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
           }
         ],
         "parameters": [
@@ -3055,9 +3052,6 @@
         "operationId": "getCliGetSession",
         "security": [
           {
-            "CookieAuth": []
-          },
-          {
             "no_auth": []
           }
         ],
@@ -3210,9 +3204,6 @@
         "operationId": "getCliRealtimeCredentials",
         "security": [
           {
-            "ApiKeyAuth": []
-          },
-          {
             "UserApiKeyAuth": []
           }
         ],
@@ -3271,9 +3262,6 @@
         ],
         "operationId": "postCliRealtimeAuth",
         "security": [
-          {
-            "ApiKeyAuth": []
-          },
           {
             "UserApiKeyAuth": []
           }
@@ -3372,9 +3360,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -11121,12 +11106,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "requestBody": {
@@ -33591,16 +33570,13 @@
       },
       "delete": {
         "summary": "Delete a connected account",
-        "description": "Soft-deletes a connected account by marking it as deleted in the database. This prevents the account from being used for API calls but preserves the record for audit purposes.",
+        "description": "Soft-deletes a connected account by marking it as deleted in the database. This prevents the account from being used for API calls but preserves the record for audit purposes. Pass `?revoke_on_delete=true` to also revoke the account's upstream credentials via a background job.",
         "tags": [
           "Connected Accounts",
           "Account Management"
         ],
         "operationId": "deleteConnectedAccountsByNanoid",
         "security": [
-          {
-            "CookieAuth": []
-          },
           {
             "ApiKeyAuth": []
           },
@@ -33619,6 +33595,18 @@
             "example": "ca_1a2b3c4d5e6f",
             "name": "nanoid",
             "in": "path"
+          },
+          {
+            "schema": {
+              "type": "boolean",
+              "nullable": true,
+              "default": false,
+              "description": "When `true`, the delete also starts a background job that revokes the upstream credentials of every connected account in scope, and the response carries a `revoke_job_id`. Defaults to `false`. Revocation is irreversible — recovering a deleted entity does not restore working credentials."
+            },
+            "required": false,
+            "description": "When `true`, the delete also starts a background job that revokes the upstream credentials of every connected account in scope, and the response carries a `revoke_job_id`. Defaults to `false`. Revocation is irreversible — recovering a deleted entity does not restore working credentials.",
+            "name": "revoke_on_delete",
+            "in": "query"
           }
         ],
         "responses": {
@@ -33632,6 +33620,11 @@
                     "success": {
                       "type": "boolean",
                       "description": "Indicates whether the connected account was successfully deleted"
+                    },
+                    "revoke_job_id": {
+                      "type": "string",
+                      "description": "Identifier of the background revoke job started for this delete. Present only when `revoke_on_delete=true`. Track the job and its per-connection results from the Composio dashboard — a programmatic endpoint to poll this job is not yet generally available.",
+                      "example": "pj_1a2b3c4d5e6f"
                     }
                   },
                   "required": [
@@ -33709,12 +33702,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -33861,9 +33848,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
           }
         ],
         "parameters": [
@@ -33990,9 +33974,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
           }
         ],
         "parameters": [
@@ -34413,13 +34394,7 @@
         "operationId": "postInternalTriggerLogs",
         "security": [
           {
-            "CookieAuth": []
-          },
-          {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
           }
         ],
         "requestBody": {
@@ -34690,13 +34665,7 @@
         "operationId": "getInternalTriggerLogById",
         "security": [
           {
-            "CookieAuth": []
-          },
-          {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
           }
         ],
         "parameters": [
@@ -34876,13 +34845,7 @@
         "operationId": "postInternalActionExecutionLogs",
         "security": [
           {
-            "CookieAuth": []
-          },
-          {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
           }
         ],
         "requestBody": {
@@ -35077,13 +35040,7 @@
         "operationId": "getInternalActionExecutionFields",
         "security": [
           {
-            "CookieAuth": []
-          },
-          {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
           }
         ],
         "responses": {
@@ -35147,13 +35104,7 @@
         "operationId": "getInternalActionExecutionLogById",
         "security": [
           {
-            "CookieAuth": []
-          },
-          {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
           }
         ],
         "parameters": [
@@ -36415,7 +36366,7 @@
       },
       "delete": {
         "summary": "Delete a project",
-        "description": "Soft-deletes a project within the organization by its unique identifier. When a project is deleted, it is marked as deleted but not immediately removed from the database. This operation affects all resources associated with the project including API keys, webhook configurations, and connected services. This action cannot be undone through the API.",
+        "description": "Soft-deletes a project within the organization by its unique identifier. When a project is deleted, it is marked as deleted but not immediately removed from the database. This operation affects all resources associated with the project including API keys, webhook configurations, and connected services. This action cannot be undone through the API. Pass `?revoke_on_delete=true` to also revoke the upstream credentials of every connection in the project via a background job.",
         "tags": [
           "Projects",
           "Organization Management"
@@ -36438,6 +36389,18 @@
             "description": "Unique identifier (Nano ID) of the project to delete",
             "name": "nano_id",
             "in": "path"
+          },
+          {
+            "schema": {
+              "type": "boolean",
+              "nullable": true,
+              "default": false,
+              "description": "When `true`, the delete also starts a background job that revokes the upstream credentials of every connected account in scope, and the response carries a `revoke_job_id`. Defaults to `false`. Revocation is irreversible — recovering a deleted entity does not restore working credentials."
+            },
+            "required": false,
+            "description": "When `true`, the delete also starts a background job that revokes the upstream credentials of every connected account in scope, and the response carries a `revoke_job_id`. Defaults to `false`. Revocation is irreversible — recovering a deleted entity does not restore working credentials.",
+            "name": "revoke_on_delete",
+            "in": "query"
           }
         ],
         "responses": {
@@ -36455,6 +36418,11 @@
                       ],
                       "description": "Status indicating successful deletion",
                       "example": "success"
+                    },
+                    "revoke_job_id": {
+                      "type": "string",
+                      "description": "Identifier of the background revoke job started for this delete. Present only when `revoke_on_delete=true`. Track the job and its per-connection results from the Composio dashboard — a programmatic endpoint to poll this job is not yet generally available.",
+                      "example": "oj_1a2b3c4d5e6f"
                     }
                   },
                   "required": [
@@ -36924,12 +36892,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "requestBody": {
@@ -37082,12 +37044,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -37241,12 +37197,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -37363,12 +37313,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -37529,12 +37473,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -37613,12 +37551,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -37704,12 +37636,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "responses": {
@@ -37795,12 +37721,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "requestBody": {
@@ -37979,12 +37899,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -38075,12 +37989,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -38197,12 +38105,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -38340,12 +38242,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -38489,9 +38385,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -38823,12 +38716,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "responses": {
@@ -38944,9 +38831,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -39490,9 +39374,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -39746,9 +39627,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "responses": {
@@ -39833,9 +39711,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -39961,12 +39836,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "requestBody": {
@@ -41921,9 +41790,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
           }
         ],
         "parameters": [
@@ -42079,9 +41945,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
           }
         ],
         "requestBody": {
@@ -43701,9 +43564,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -43742,6 +43602,10 @@
                     "type": "string",
                     "format": "connectedAccountId",
                     "description": "Connected account nanoid"
+                  },
+                  "user_id": {
+                    "type": "string",
+                    "description": "The user id (entity id) that owns the connected account. When the project has 2FA enabled, this is validated against the owner of connected_account_id."
                   },
                   "trigger_config": {
                     "type": "object",
@@ -43873,6 +43737,16 @@
               }
             }
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Trigger instance not found",
             "content": {
@@ -43960,9 +43834,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -44274,9 +44145,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -44388,9 +44256,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -44533,9 +44398,6 @@
         "operationId": "getTriggersTypesListEnum",
         "security": [
           {
-            "CookieAuth": []
-          },
-          {
             "ApiKeyAuth": []
           },
           {
@@ -44614,9 +44476,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -44858,9 +44717,6 @@
           },
           {
             "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -45153,12 +45009,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -45503,12 +45353,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "requestBody": {
@@ -45812,12 +45656,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "requestBody": {
@@ -46059,12 +45897,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "requestBody": {
@@ -46255,12 +46087,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -46485,12 +46311,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -46830,12 +46650,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -46946,12 +46760,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -47320,12 +47128,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -47556,12 +47358,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -47727,12 +47523,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -47836,9 +47626,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
           }
         ],
         "parameters": [
@@ -48004,9 +47791,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
           }
         ],
         "requestBody": {
@@ -49651,9 +49435,6 @@
             "ApiKeyAuth": []
           },
           {
-            "UserApiKeyAuth": []
-          },
-          {
             "workbench_access_key": []
           }
         ],
@@ -49850,9 +49631,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
           }
         ],
         "parameters": [
@@ -50044,12 +49822,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -50628,12 +50400,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -51655,12 +51421,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -53510,12 +53270,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -53665,12 +53419,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -53813,12 +53561,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -54362,12 +54104,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -54536,12 +54272,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -54679,12 +54409,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -54828,12 +54552,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "parameters": [
@@ -54961,12 +54679,6 @@
         "security": [
           {
             "ApiKeyAuth": []
-          },
-          {
-            "UserApiKeyAuth": []
-          },
-          {
-            "CookieAuth": []
           }
         ],
         "responses": {
