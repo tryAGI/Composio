@@ -19,6 +19,13 @@ using Composio;
 using var client = new ComposioClient(apiKey);
 ```
 
+### CLI
+
+```bash
+dotnet tool install --global Composio.CLI --prerelease
+composio api --help
+```
+
 <!-- EXAMPLES:START -->
 <!-- EXAMPLES:END -->
 

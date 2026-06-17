@@ -37,3 +37,21 @@ autosdk generate openapi.json \
   --output Generated \
   --exclude-deprecated-operations \
   --security-scheme Http:Header:Bearer
+
+rm -rf ../../cli/Composio.CLI
+
+autosdk cli-project openapi.json \
+  --output ../../cli/Composio.CLI \
+  --sdk-project ../../libs/Composio/Composio.csproj \
+  --targetFramework net10.0 \
+  --namespace Composio \
+  --clientClassName ComposioClient \
+  --package-id Composio.CLI \
+  --tool-command-name composio \
+  --user-secrets-id Composio.CLI \
+  --api-key-env-var COMPOSIO_API_KEY \
+  --base-url-env-var COMPOSIO_BASE_URL \
+  --cli-credential-file \
+  --cli-keep-api-group \
+  --exclude-deprecated-operations \
+  --security-scheme Http:Header:Bearer
