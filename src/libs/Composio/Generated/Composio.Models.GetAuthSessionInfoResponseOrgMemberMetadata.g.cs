@@ -9,12 +9,6 @@ namespace Composio
     public sealed partial class GetAuthSessionInfoResponseOrgMemberMetadata
     {
         /// <summary>
-        /// Whether the user was created via Better Auth (dashboard signup).
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("createdInBetterAuth")]
-        public bool? CreatedInBetterAuth { get; set; }
-
-        /// <summary>
         /// If true, the user will be redirected to the legacy dashboard at platform.composio.dev.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("prefers_old_dashboard")]
@@ -60,9 +54,6 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="GetAuthSessionInfoResponseOrgMemberMetadata" /> class.
         /// </summary>
-        /// <param name="createdInBetterAuth">
-        /// Whether the user was created via Better Auth (dashboard signup).
-        /// </param>
         /// <param name="prefersOldDashboard">
         /// If true, the user will be redirected to the legacy dashboard at platform.composio.dev.
         /// </param>
@@ -85,7 +76,6 @@ namespace Composio
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public GetAuthSessionInfoResponseOrgMemberMetadata(
-            bool? createdInBetterAuth,
             bool? prefersOldDashboard,
             global::Composio.GetAuthSessionInfoResponseOrgMemberMetadataOnboardingPlatform? onboardingPlatform,
             bool? seenFlowConsumer,
@@ -93,7 +83,6 @@ namespace Composio
             bool? seenFlowCli,
             bool? seenConnectAnnouncement)
         {
-            this.CreatedInBetterAuth = createdInBetterAuth;
             this.PrefersOldDashboard = prefersOldDashboard;
             this.OnboardingPlatform = onboardingPlatform;
             this.SeenFlowConsumer = seenFlowConsumer;
