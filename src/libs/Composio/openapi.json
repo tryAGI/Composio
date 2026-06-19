@@ -102,6 +102,10 @@
       "description": "MCP partner management"
     },
     {
+      "name": "Stripe Projects",
+      "description": "Stripe Projects provisioning"
+    },
+    {
       "name": "Profiling",
       "description": "Profiling endpoints"
     },
@@ -794,9 +798,6 @@
         "operationId": "getAuthSessionInfo",
         "security": [
           {
-            "ApiKeyAuth": []
-          },
-          {
             "UserApiKeyAuth": []
           }
         ],
@@ -1048,10 +1049,6 @@
                         "metadata": {
                           "type": "object",
                           "properties": {
-                            "createdInBetterAuth": {
-                              "type": "boolean",
-                              "description": "Whether the user was created via Better Auth (dashboard signup)."
-                            },
                             "prefers_old_dashboard": {
                               "type": "boolean",
                               "description": "If true, the user will be redirected to the legacy dashboard at platform.composio.dev."
