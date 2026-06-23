@@ -51,7 +51,7 @@ namespace Composio
         public global::Composio.PatchAuthConfigsByNanoidRequestVariant2ToolAccessConfig? ToolAccessConfig { get; set; }
 
         /// <summary>
-        /// Shared credentials that will be inherited by connected accounts. For eg: this can be used to share the API key for a tool with all connected accounts using this auth config.
+        /// Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("shared_credentials")]
         public global::System.Collections.Generic.Dictionary<string, object?>? SharedCredentials { get; set; }
@@ -79,7 +79,7 @@ namespace Composio
         /// <param name="userScopes"></param>
         /// <param name="toolAccessConfig"></param>
         /// <param name="sharedCredentials">
-        /// Shared credentials that will be inherited by connected accounts. For eg: this can be used to share the API key for a tool with all connected accounts using this auth config.
+        /// Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged.
         /// </param>
         /// <param name="isEnabledForToolRouter">
         /// Whether this auth config is enabled for tool router
