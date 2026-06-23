@@ -157,15 +157,13 @@ namespace Composio
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("client_id")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ClientId { get; set; }
+        public string? ClientId { get; set; }
 
         /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("client_secret")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string ClientSecret { get; set; }
+        public string? ClientSecret { get; set; }
 
         /// <summary>
         /// 
@@ -197,8 +195,6 @@ namespace Composio
         /// Initializes a new instance of the <see cref="PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant11Val" /> class.
         /// </summary>
         /// <param name="accessToken"></param>
-        /// <param name="clientId"></param>
-        /// <param name="clientSecret"></param>
         /// <param name="subdomain"></param>
         /// <param name="yourDomain"></param>
         /// <param name="region"></param>
@@ -222,6 +218,8 @@ namespace Composio
         /// <param name="serverLocation"></param>
         /// <param name="baseUrl"></param>
         /// <param name="tokenType"></param>
+        /// <param name="clientId"></param>
+        /// <param name="clientSecret"></param>
         /// <param name="expiresIn"></param>
         /// <param name="expiresAt"></param>
         /// <param name="scope"></param>
@@ -230,8 +228,6 @@ namespace Composio
 #endif
         public PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant11Val(
             string accessToken,
-            string clientId,
-            string clientSecret,
             string? subdomain,
             string? yourDomain,
             string? region,
@@ -255,6 +251,8 @@ namespace Composio
             string? serverLocation,
             string? baseUrl,
             string? tokenType,
+            string? clientId,
+            string? clientSecret,
             global::Composio.AnyOf<double?, string, object>? expiresIn,
             string? expiresAt,
             global::Composio.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? scope)
@@ -283,8 +281,8 @@ namespace Composio
             this.BaseUrl = baseUrl;
             this.AccessToken = accessToken ?? throw new global::System.ArgumentNullException(nameof(accessToken));
             this.TokenType = tokenType;
-            this.ClientId = clientId ?? throw new global::System.ArgumentNullException(nameof(clientId));
-            this.ClientSecret = clientSecret ?? throw new global::System.ArgumentNullException(nameof(clientSecret));
+            this.ClientId = clientId;
+            this.ClientSecret = clientSecret;
             this.ExpiresIn = expiresIn;
             this.ExpiresAt = expiresAt;
             this.Scope = scope;
