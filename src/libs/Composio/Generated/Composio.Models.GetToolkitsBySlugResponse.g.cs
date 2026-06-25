@@ -46,6 +46,13 @@ namespace Composio
         public global::System.Collections.Generic.IList<string>? ComposioManagedAuthSchemes { get; set; }
 
         /// <summary>
+        /// Managed-auth-only metadata, including the supported OAuth scope ceiling.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("composio_managed_auth")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::Composio.GetToolkitsBySlugResponseComposioManagedAuthItem> ComposioManagedAuth { get; set; }
+
+        /// <summary>
         /// DEPRECATED: This field is no longer meaningful and will always return false. It was previously used to indicate if a toolkit is specific to the current project.<br/>
         /// Example: false
         /// </summary>
@@ -125,6 +132,9 @@ namespace Composio
         /// Indicates if this toolkit is currently enabled and available for use<br/>
         /// Example: true
         /// </param>
+        /// <param name="composioManagedAuth">
+        /// Managed-auth-only metadata, including the supported OAuth scope ceiling.
+        /// </param>
         /// <param name="isLocalToolkit">
         /// DEPRECATED: This field is no longer meaningful and will always return false. It was previously used to indicate if a toolkit is specific to the current project.<br/>
         /// Example: false
@@ -162,6 +172,7 @@ namespace Composio
             string slug,
             string name,
             bool enabled,
+            global::System.Collections.Generic.IList<global::Composio.GetToolkitsBySlugResponseComposioManagedAuthItem> composioManagedAuth,
             bool isLocalToolkit,
             global::Composio.GetToolkitsBySlugResponseMeta meta,
             global::Composio.GetToolkitsBySlugResponseDeprecated deprecated,
@@ -176,6 +187,7 @@ namespace Composio
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Enabled = enabled;
             this.ComposioManagedAuthSchemes = composioManagedAuthSchemes;
+            this.ComposioManagedAuth = composioManagedAuth ?? throw new global::System.ArgumentNullException(nameof(composioManagedAuth));
             this.IsLocalToolkit = isLocalToolkit;
             this.AuthConfigDetails = authConfigDetails;
             this.AuthGuideUrl = authGuideUrl;

@@ -24,14 +24,14 @@ namespace Composio
         public string? Name { get; set; }
 
         /// <summary>
-        /// 
+        /// OAuth scopes requested for the auth config.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("scopes")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>))]
         public global::Composio.AnyOf<string, global::System.Collections.Generic.IList<string>>? Scopes { get; set; }
 
         /// <summary>
-        /// 
+        /// OAuth user-token scopes requested for the auth config. This is primarily used by Slack OAuth v2.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_scopes")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>))]
@@ -75,8 +75,12 @@ namespace Composio
         /// <param name="name">
         /// The display name of the authentication configuration
         /// </param>
-        /// <param name="scopes"></param>
-        /// <param name="userScopes"></param>
+        /// <param name="scopes">
+        /// OAuth scopes requested for the auth config.
+        /// </param>
+        /// <param name="userScopes">
+        /// OAuth user-token scopes requested for the auth config. This is primarily used by Slack OAuth v2.
+        /// </param>
         /// <param name="toolAccessConfig"></param>
         /// <param name="sharedCredentials">
         /// Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged.

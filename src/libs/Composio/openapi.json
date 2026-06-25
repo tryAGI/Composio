@@ -1239,7 +1239,8 @@
                                       "type": "string"
                                     }
                                   }
-                                ]
+                                ],
+                                "description": "OAuth scopes requested for the managed auth config."
                               },
                               "user_scopes": {
                                 "anyOf": [
@@ -1252,7 +1253,8 @@
                                       "type": "string"
                                     }
                                   }
-                                ]
+                                ],
+                                "description": "OAuth user-token scopes requested for the managed auth config. This is primarily used by Slack OAuth v2."
                               }
                             },
                             "default": {}
@@ -1342,7 +1344,8 @@
                                       "type": "string"
                                     }
                                   }
-                                ]
+                                ],
+                                "description": "OAuth scopes requested for the custom auth config."
                               },
                               "user_scopes": {
                                 "anyOf": [
@@ -1355,7 +1358,8 @@
                                       "type": "string"
                                     }
                                   }
-                                ]
+                                ],
+                                "description": "OAuth user-token scopes requested for the custom auth config. This is primarily used by Slack OAuth v2."
                               }
                             },
                             "default": {}
@@ -2296,7 +2300,8 @@
                                   "type": "string"
                                 }
                               }
-                            ]
+                            ],
+                            "description": "OAuth scopes requested for the auth config."
                           },
                           "user_scopes": {
                             "anyOf": [
@@ -2309,7 +2314,8 @@
                                   "type": "string"
                                 }
                               }
-                            ]
+                            ],
+                            "description": "OAuth user-token scopes requested for the auth config. This is primarily used by Slack OAuth v2."
                           }
                         }
                       },
@@ -2399,7 +2405,8 @@
                               "type": "string"
                             }
                           }
-                        ]
+                        ],
+                        "description": "OAuth scopes requested for the auth config."
                       },
                       "user_scopes": {
                         "anyOf": [
@@ -2412,7 +2419,8 @@
                               "type": "string"
                             }
                           }
-                        ]
+                        ],
+                        "description": "OAuth user-token scopes requested for the auth config. This is primarily used by Slack OAuth v2."
                       },
                       "restrict_to_following_tools": {
                         "type": "array",
@@ -38872,6 +38880,68 @@
                         "oauth2"
                       ]
                     },
+                    "composio_managed_auth": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "mode": {
+                            "type": "string",
+                            "description": "Authentication mode for the Composio-managed auth config",
+                            "example": "OAUTH2"
+                          },
+                          "scopes": {
+                            "type": "object",
+                            "properties": {
+                              "available": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "description": "Available OAuth scopes"
+                              }
+                            },
+                            "required": [
+                              "available"
+                            ],
+                            "description": "OAuth scopes available in the Composio-managed auth config for this auth mode.",
+                            "example": {
+                              "available": [
+                                "read",
+                                "write"
+                              ]
+                            }
+                          },
+                          "user_scopes": {
+                            "type": "object",
+                            "properties": {
+                              "available": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                },
+                                "description": "Available OAuth user scopes"
+                              }
+                            },
+                            "required": [
+                              "available"
+                            ],
+                            "description": "OAuth user scopes available in the Composio-managed auth config for this auth mode. Only present for Slack toolkits.",
+                            "example": {
+                              "available": [
+                                "search:read",
+                                "users:read"
+                              ]
+                            }
+                          }
+                        },
+                        "required": [
+                          "mode",
+                          "scopes"
+                        ]
+                      },
+                      "description": "Managed-auth-only metadata, including the supported OAuth scope ceiling."
+                    },
                     "is_local_toolkit": {
                       "type": "boolean",
                       "description": "DEPRECATED: This field is no longer meaningful and will always return false. It was previously used to indicate if a toolkit is specific to the current project.",
@@ -39289,6 +39359,7 @@
                     "slug",
                     "name",
                     "enabled",
+                    "composio_managed_auth",
                     "is_local_toolkit",
                     "meta",
                     "deprecated"
