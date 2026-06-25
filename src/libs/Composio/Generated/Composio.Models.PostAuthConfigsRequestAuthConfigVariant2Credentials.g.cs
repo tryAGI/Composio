@@ -9,14 +9,14 @@ namespace Composio
     public sealed partial class PostAuthConfigsRequestAuthConfigVariant2Credentials
     {
         /// <summary>
-        /// 
+        /// OAuth scopes requested for the custom auth config.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("scopes")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>))]
         public global::Composio.AnyOf<string, global::System.Collections.Generic.IList<string>>? Scopes { get; set; }
 
         /// <summary>
-        /// 
+        /// OAuth user-token scopes requested for the custom auth config. This is primarily used by Slack OAuth v2.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_scopes")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>))]
@@ -31,8 +31,12 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="PostAuthConfigsRequestAuthConfigVariant2Credentials" /> class.
         /// </summary>
-        /// <param name="scopes"></param>
-        /// <param name="userScopes"></param>
+        /// <param name="scopes">
+        /// OAuth scopes requested for the custom auth config.
+        /// </param>
+        /// <param name="userScopes">
+        /// OAuth user-token scopes requested for the custom auth config. This is primarily used by Slack OAuth v2.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
