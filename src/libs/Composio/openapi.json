@@ -47665,8 +47665,9 @@
     },
     "/api/v3/files/list": {
       "get": {
-        "summary": "List files with optional app and action filters",
-        "description": "Retrieves a list of files associated with the authenticated project. Results can be filtered by toolkit and tool slugs.",
+        "summary": "List files with optional app and action filters (DEPRECATED)",
+        "description": "DEPRECATED: This endpoint is deprecated and will be removed in a future release. Retrieves a list of files associated with the authenticated project. Results can be filtered by toolkit and tool slugs. Responses carry a `Deprecation` header (RFC 9745) for client-side detection.",
+        "deprecated": true,
         "tags": [
           "Files"
         ],
