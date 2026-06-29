@@ -62,12 +62,6 @@ namespace Composio
         public string? LegacyTemplateName { get; set; }
 
         /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("advanced")]
-        public bool? Advanced { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -84,7 +78,6 @@ namespace Composio
         /// <param name="default"></param>
         /// <param name="isSecret"></param>
         /// <param name="legacyTemplateName"></param>
-        /// <param name="advanced"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -96,8 +89,7 @@ namespace Composio
             bool required,
             string? @default,
             bool? isSecret,
-            string? legacyTemplateName,
-            bool? advanced)
+            string? legacyTemplateName)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.DisplayName = displayName ?? throw new global::System.ArgumentNullException(nameof(displayName));
@@ -107,7 +99,6 @@ namespace Composio
             this.Required = required;
             this.IsSecret = isSecret;
             this.LegacyTemplateName = legacyTemplateName;
-            this.Advanced = advanced;
         }
 
         /// <summary>
