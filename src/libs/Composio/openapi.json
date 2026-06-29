@@ -38993,9 +38993,6 @@
                                         },
                                         "legacy_template_name": {
                                           "type": "string"
-                                        },
-                                        "advanced": {
-                                          "type": "boolean"
                                         }
                                       },
                                       "required": [
@@ -39036,9 +39033,6 @@
                                         },
                                         "legacy_template_name": {
                                           "type": "string"
-                                        },
-                                        "advanced": {
-                                          "type": "boolean"
                                         }
                                       },
                                       "required": [
@@ -39089,9 +39083,6 @@
                                         },
                                         "legacy_template_name": {
                                           "type": "string"
-                                        },
-                                        "advanced": {
-                                          "type": "boolean"
                                         }
                                       },
                                       "required": [
@@ -39132,9 +39123,6 @@
                                         },
                                         "legacy_template_name": {
                                           "type": "string"
-                                        },
-                                        "advanced": {
-                                          "type": "boolean"
                                         }
                                       },
                                       "required": [
