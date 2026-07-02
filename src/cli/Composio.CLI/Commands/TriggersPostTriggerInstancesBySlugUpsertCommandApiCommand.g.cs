@@ -16,13 +16,13 @@ internal static partial class TriggersPostTriggerInstancesBySlugUpsertCommandApi
     private static Option<string?> ConnectedAccountId { get; } = new(
         name: @"--connected-account-id")
     {
-        Description = @"Connected account nanoid",
+        Description = @"Connected account nanoid. Optional when user_id is provided — the first active connection for that user and the trigger's toolkit is auto-resolved.",
     };
 
     private static Option<string?> UserId { get; } = new(
         name: @"--user-id")
     {
-        Description = @"The user id (entity id) that owns the connected account. When the project has 2FA enabled, this is validated against the owner of connected_account_id.",
+        Description = @"The user id (entity id) that owns the connection. When connected_account_id is omitted, the first active connection for this user and the trigger's toolkit is auto-resolved (same as tool execution). When connected_account_id is also provided and the project has 2FA enabled, user_id is validated against the owner of that connection.",
     };
 
     private static Option<global::System.Collections.Generic.Dictionary<string, object?>?> TriggerConfig2 { get; } = new(
@@ -76,7 +76,7 @@ internal static partial class TriggersPostTriggerInstancesBySlugUpsertCommandApi
     public static Command Create()
     {
         var command = new Command(@"post-trigger-instances-by-slug-upsert", @"Create or update a trigger
-Creates a new trigger instance or updates an existing one with the same configuration. Triggers listen for events from external services (webhooks or polling) and can invoke your workflows. If a matching trigger already exists and is disabled, it will be re-enabled. Requires a connected account ID to associate the trigger with a specific user connection.");
+Creates a new trigger instance or updates an existing one with the same configuration. Triggers listen for events from external services (webhooks or polling) and can invoke your workflows. If a matching trigger already exists and is disabled, it will be re-enabled. Provide either a connected_account_id to pin a specific user connection, or a user_id to auto-resolve the first active connection for that user and the trigger's toolkit.");
                         command.Arguments.Add(Slug);
                         command.Options.Add(ConnectedAccountId);
                         command.Options.Add(UserId);
