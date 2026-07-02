@@ -47,7 +47,7 @@ namespace Composio
 
         /// <summary>
         /// Create or update a trigger<br/>
-        /// Creates a new trigger instance or updates an existing one with the same configuration. Triggers listen for events from external services (webhooks or polling) and can invoke your workflows. If a matching trigger already exists and is disabled, it will be re-enabled. Requires a connected account ID to associate the trigger with a specific user connection.
+        /// Creates a new trigger instance or updates an existing one with the same configuration. Triggers listen for events from external services (webhooks or polling) and can invoke your workflows. If a matching trigger already exists and is disabled, it will be re-enabled. Provide either a connected_account_id to pin a specific user connection, or a user_id to auto-resolve the first active connection for that user and the trigger's toolkit.
         /// </summary>
         /// <param name="slug">
         /// The slug of the trigger instance. Case-insensitive (internally normalized to uppercase).
@@ -75,7 +75,7 @@ namespace Composio
         }
         /// <summary>
         /// Create or update a trigger<br/>
-        /// Creates a new trigger instance or updates an existing one with the same configuration. Triggers listen for events from external services (webhooks or polling) and can invoke your workflows. If a matching trigger already exists and is disabled, it will be re-enabled. Requires a connected account ID to associate the trigger with a specific user connection.
+        /// Creates a new trigger instance or updates an existing one with the same configuration. Triggers listen for events from external services (webhooks or polling) and can invoke your workflows. If a matching trigger already exists and is disabled, it will be re-enabled. Provide either a connected_account_id to pin a specific user connection, or a user_id to auto-resolve the first active connection for that user and the trigger's toolkit.
         /// </summary>
         /// <param name="slug">
         /// The slug of the trigger instance. Case-insensitive (internally normalized to uppercase).
@@ -820,16 +820,16 @@ namespace Composio
         }
         /// <summary>
         /// Create or update a trigger<br/>
-        /// Creates a new trigger instance or updates an existing one with the same configuration. Triggers listen for events from external services (webhooks or polling) and can invoke your workflows. If a matching trigger already exists and is disabled, it will be re-enabled. Requires a connected account ID to associate the trigger with a specific user connection.
+        /// Creates a new trigger instance or updates an existing one with the same configuration. Triggers listen for events from external services (webhooks or polling) and can invoke your workflows. If a matching trigger already exists and is disabled, it will be re-enabled. Provide either a connected_account_id to pin a specific user connection, or a user_id to auto-resolve the first active connection for that user and the trigger's toolkit.
         /// </summary>
         /// <param name="slug">
         /// The slug of the trigger instance. Case-insensitive (internally normalized to uppercase).
         /// </param>
         /// <param name="connectedAccountId">
-        /// Connected account nanoid
+        /// Connected account nanoid. Optional when user_id is provided — the first active connection for that user and the trigger's toolkit is auto-resolved.
         /// </param>
         /// <param name="userId">
-        /// The user id (entity id) that owns the connected account. When the project has 2FA enabled, this is validated against the owner of connected_account_id.
+        /// The user id (entity id) that owns the connection. When connected_account_id is omitted, the first active connection for this user and the trigger's toolkit is auto-resolved (same as tool execution). When connected_account_id is also provided and the project has 2FA enabled, user_id is validated against the owner of that connection.
         /// </param>
         /// <param name="triggerConfig2">
         /// Trigger configuration

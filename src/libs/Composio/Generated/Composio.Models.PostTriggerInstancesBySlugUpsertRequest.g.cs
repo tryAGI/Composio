@@ -25,13 +25,13 @@ namespace Composio
         public global::System.Collections.Generic.Dictionary<string, object?>? TriggerConfig { get; set; }
 
         /// <summary>
-        /// Connected account nanoid
+        /// Connected account nanoid. Optional when user_id is provided — the first active connection for that user and the trigger's toolkit is auto-resolved.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("connected_account_id")]
         public string? ConnectedAccountId { get; set; }
 
         /// <summary>
-        /// The user id (entity id) that owns the connected account. When the project has 2FA enabled, this is validated against the owner of connected_account_id.
+        /// The user id (entity id) that owns the connection. When connected_account_id is omitted, the first active connection for this user and the trigger's toolkit is auto-resolved (same as tool execution). When connected_account_id is also provided and the project has 2FA enabled, user_id is validated against the owner of that connection.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_id")]
         public string? UserId { get; set; }
@@ -70,10 +70,10 @@ namespace Composio
         /// Initializes a new instance of the <see cref="PostTriggerInstancesBySlugUpsertRequest" /> class.
         /// </summary>
         /// <param name="connectedAccountId">
-        /// Connected account nanoid
+        /// Connected account nanoid. Optional when user_id is provided — the first active connection for that user and the trigger's toolkit is auto-resolved.
         /// </param>
         /// <param name="userId">
-        /// The user id (entity id) that owns the connected account. When the project has 2FA enabled, this is validated against the owner of connected_account_id.
+        /// The user id (entity id) that owns the connection. When connected_account_id is omitted, the first active connection for this user and the trigger's toolkit is auto-resolved (same as tool execution). When connected_account_id is also provided and the project has 2FA enabled, user_id is validated against the owner of that connection.
         /// </param>
         /// <param name="triggerConfig2">
         /// Trigger configuration
