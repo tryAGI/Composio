@@ -35021,7 +35021,9 @@
     },
     "/api/v3/internal/action_execution/fields": {
       "get": {
-        "summary": "Get action log fields for filtering",
+        "summary": "Get action log fields for filtering (DEPRECATED)",
+        "description": "DEPRECATED: This endpoint is deprecated and will be removed in a future release. Returns the set of action log fields (and their supported operations/regex) available for filtering action execution logs. Responses carry a `Deprecation` header (RFC 9745) for client-side detection.",
+        "deprecated": true,
         "tags": [
           "Logs",
           "x-internal"
