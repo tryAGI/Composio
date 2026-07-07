@@ -29,6 +29,16 @@ namespace Composio
         public required string Name { get; set; }
 
         /// <summary>
+        /// Toolkit provenance: "native" for Composio-managed toolkits, "custom" for a project-registered custom (MCP) toolkit<br/>
+        /// Example: native
+        /// </summary>
+        /// <example>native</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.PostToolkitsMultiResponseItemTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Composio.PostToolkitsMultiResponseItemType Type { get; set; }
+
+        /// <summary>
         /// List of authentication methods supported by this toolkit<br/>
         /// Example: [oauth2, api_key]
         /// </summary>
@@ -102,6 +112,10 @@ namespace Composio
         /// Human-readable name of the toolkit<br/>
         /// Example: GitHub
         /// </param>
+        /// <param name="type">
+        /// Toolkit provenance: "native" for Composio-managed toolkits, "custom" for a project-registered custom (MCP) toolkit<br/>
+        /// Example: native
+        /// </param>
         /// <param name="isLocalToolkit">
         /// DEPRECATED: This field is no longer meaningful and will always return false. It was previously used to indicate if a toolkit is specific to the current project.<br/>
         /// Example: false
@@ -135,6 +149,7 @@ namespace Composio
         public PostToolkitsMultiResponseItem(
             string slug,
             string name,
+            global::Composio.PostToolkitsMultiResponseItemType type,
             bool isLocalToolkit,
             global::Composio.DeprecatedToolkitInfo deprecated,
             global::Composio.PostToolkitsMultiResponseItemMeta meta,
@@ -145,6 +160,7 @@ namespace Composio
         {
             this.Slug = slug ?? throw new global::System.ArgumentNullException(nameof(slug));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
+            this.Type = type;
             this.AuthSchemes = authSchemes;
             this.ComposioManagedAuthSchemes = composioManagedAuthSchemes;
             this.IsLocalToolkit = isLocalToolkit;

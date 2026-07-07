@@ -15,6 +15,10 @@ namespace Composio
         /// <param name="managedBy">
         /// Entity responsible for managing the toolkits
         /// </param>
+        /// <param name="type">
+        /// Filter by toolkit provenance: "native" (Composio-managed), "custom" (project-registered custom toolkits), or "all". Takes precedence over managed_by when both are supplied.<br/>
+        /// Example: custom
+        /// </param>
         /// <param name="sortBy">
         /// Determines how toolkits should be sorted in the response
         /// </param>
@@ -35,6 +39,7 @@ namespace Composio
         global::System.Threading.Tasks.Task<global::Composio.GetToolkitsResponse> GetToolkitsAsync(
             string? category = default,
             global::Composio.GetToolkitsManagedBy? managedBy = default,
+            global::Composio.GetToolkitsType? type = default,
             global::Composio.GetToolkitsSortBy? sortBy = default,
             bool? includeDeprecated = default,
             string? search = default,
@@ -52,6 +57,10 @@ namespace Composio
         /// </param>
         /// <param name="managedBy">
         /// Entity responsible for managing the toolkits
+        /// </param>
+        /// <param name="type">
+        /// Filter by toolkit provenance: "native" (Composio-managed), "custom" (project-registered custom toolkits), or "all". Takes precedence over managed_by when both are supplied.<br/>
+        /// Example: custom
         /// </param>
         /// <param name="sortBy">
         /// Determines how toolkits should be sorted in the response
@@ -73,6 +82,7 @@ namespace Composio
         global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.GetToolkitsResponse>> GetToolkitsAsResponseAsync(
             string? category = default,
             global::Composio.GetToolkitsManagedBy? managedBy = default,
+            global::Composio.GetToolkitsType? type = default,
             global::Composio.GetToolkitsSortBy? sortBy = default,
             bool? includeDeprecated = default,
             string? search = default,

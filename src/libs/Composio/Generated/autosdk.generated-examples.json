@@ -68,17 +68,6 @@
     },
     {
       "Order": 7,
-      "Title": "Refresh authentication for a connected account",
-      "Slug": "postconnectedaccountsbynanoidrefresh",
-      "Description": "Initiates a new authentication flow for a connected account when credentials have expired or become invalid. This may generate a new authentication URL for OAuth flows or refresh tokens for other auth schemes.",
-      "Language": "http",
-      "Code": "### Refresh authentication for a connected account\n# @name postConnectedAccountsByNanoidRefresh\nPOST {{host}}/api/v3/connected_accounts/{{nanoid}}/refresh?redirect_url={{redirect_url}}\nAuthorization: Bearer {{token}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022redirect_url\u0022: \u0022https://example.com\u0022,\n  \u0022validate_credentials\u0022: false\n}\n\n## Responses\n# 200\n# Description: Successfully refreshed the connected account authentication. For OAuth flows, a new redirect URL is provided.\n# Content-Type: application/json\n# 400\n# Description: Bad request - Invalid nanoid format or the account cannot be refreshed in its current state\n# Content-Type: application/json\n# 401\n# Description: Unauthorized - Authentication failed\n# Content-Type: application/json\n# 403\n# Description: Forbidden - Insufficient permissions to refresh this connected account\n# Content-Type: application/json\n# 404\n# Description: Not found - Connected account does not exist or was deleted\n# Content-Type: application/json\n# 409\n# Description: Conflict - The connection cannot be refreshed because of a permanent attribute (e.g. its auth scheme does not support refresh, such as API_KEY or BEARER_TOKEN)\n# Content-Type: application/json\n# 422\n# Description: Unprocessable entity - The connection is in an invalid state for refresh (e.g. connection-data validation failed, or the stored connection status is incompatible with reinitiation)\n# Content-Type: application/json\n# 500\n# Description: Internal server error - Failed to refresh the connected account authentication\n# Content-Type: application/json",
-      "Format": "http",
-      "OperationId": "postConnectedAccountsByNanoidRefresh",
-      "Setup": null
-    },
-    {
-      "Order": 8,
       "Title": "Create presigned URL for request file upload to S3",
       "Slug": "postfilesuploadrequest",
       "Description": "Generates a presigned URL for uploading a file to S3. This endpoint handles deduplication by checking if a file with the same MD5 hash already exists.",
@@ -89,7 +78,7 @@
       "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 9,
+      "Order": 8,
       "Title": "Update MCP server configuration",
       "Slug": "patchmcpbyid",
       "Description": "Updates the configuration of an existing Model Control Protocol (MCP) server. You can modify the server name, associated applications, and enabled tools. Only the fields included in the request will be updated.",
@@ -100,7 +89,7 @@
       "Setup": null
     },
     {
-      "Order": 10,
+      "Order": 9,
       "Title": "Create a new MCP server",
       "Slug": "postmcpservers",
       "Description": "Creates a new Model Control Protocol (MCP) server instance for the authenticated project. An MCP server provides a connection point for AI assistants to access your applications and services. The server is configured with specific authentication and tool permissions that determine what actions the connected assistants can perform.",
@@ -111,7 +100,7 @@
       "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 11,
+      "Order": 10,
       "Title": "Create a new MCP server instance",
       "Slug": "postmcpserversbyserveridinstances",
       "Description": "Creates a new instance for a Model Control Protocol (MCP) server. This endpoint validates that the user has connected accounts for all auth configurations associated with the MCP server before creating the instance.",
@@ -122,7 +111,7 @@
       "Setup": null
     },
     {
-      "Order": 12,
+      "Order": 11,
       "Title": "Create a new custom MCP server with multiple apps",
       "Slug": "postmcpserverscustom",
       "Description": "Creates a new Model Control Protocol (MCP) server instance that can integrate with multiple applications or toolkits simultaneously. This endpoint allows you to create a server that can access tools from different applications, making it suitable for complex workflows that span multiple services.",
@@ -133,7 +122,7 @@
       "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 13,
+      "Order": 12,
       "Title": "Generate MCP URL with custom parameters",
       "Slug": "postmcpserversgenerate",
       "Description": "Generates a Model Control Protocol (MCP) URL for an existing server with custom query parameters. The URL includes user-specific parameters and configuration flags that control the behavior of the MCP connection.",
@@ -144,7 +133,7 @@
       "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 14,
+      "Order": 13,
       "Title": "Create a new project",
       "Slug": "postorgownerprojectnew",
       "Description": "Creates a new project within the authenticated user\u0027s organization using the specified name. Projects are isolated environments within your organization, each with their own API keys, webhook configurations, and resources. Use this endpoint to create additional projects for different environments (e.g., development, staging, production) or for separate applications.",
@@ -155,7 +144,7 @@
       "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 15,
+      "Order": 14,
       "Title": "Create a new tool router session",
       "Slug": "posttoolroutersession",
       "Description": "Creates a new session for the tool router feature. This endpoint initializes a new session with specified toolkits and their authentication configurations. The session provides an isolated environment for testing and managing tool routing logic with scoped MCP server access.",
@@ -166,7 +155,7 @@
       "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 16,
+      "Order": 15,
       "Title": "List available tools",
       "Slug": "gettools",
       "Description": "Retrieve a paginated list of available tools with comprehensive filtering, sorting and search capabilities. Use query parameters to narrow down results by toolkit, tags, or search terms.",
@@ -177,7 +166,7 @@
       "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 17,
+      "Order": 16,
       "Title": "Get tool by slug",
       "Slug": "gettoolsbytoolslug",
       "Description": "Retrieve detailed information about a specific tool using its slug identifier. This endpoint returns full metadata about a tool including input/output parameters, versions, and toolkit information.",
@@ -188,7 +177,7 @@
       "Setup": null
     },
     {
-      "Order": 18,
+      "Order": 17,
       "Title": "List trigger types",
       "Slug": "gettriggerstypes",
       "Description": "Retrieve a list of available trigger types with optional filtering by toolkit. Results are paginated and can be filtered by toolkit.",
@@ -199,7 +188,7 @@
       "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 19,
+      "Order": 18,
       "Title": "Get trigger type by slug",
       "Slug": "gettriggerstypesbyslug",
       "Description": "Retrieve detailed information about a specific trigger type using its slug identifier",

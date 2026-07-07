@@ -29,6 +29,7 @@ namespace Composio
             global::System.Net.Http.HttpClient httpClient,
             ref string? category,
             ref global::Composio.GetToolkitsManagedBy? managedBy,
+            ref global::Composio.GetToolkitsType? type,
             ref global::Composio.GetToolkitsSortBy? sortBy,
             ref bool? includeDeprecated,
             ref string? search,
@@ -39,6 +40,7 @@ namespace Composio
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string? category,
             global::Composio.GetToolkitsManagedBy? managedBy,
+            global::Composio.GetToolkitsType? type,
             global::Composio.GetToolkitsSortBy? sortBy,
             bool? includeDeprecated,
             string? search,
@@ -64,6 +66,10 @@ namespace Composio
         /// <param name="managedBy">
         /// Entity responsible for managing the toolkits
         /// </param>
+        /// <param name="type">
+        /// Filter by toolkit provenance: "native" (Composio-managed), "custom" (project-registered custom toolkits), or "all". Takes precedence over managed_by when both are supplied.<br/>
+        /// Example: custom
+        /// </param>
         /// <param name="sortBy">
         /// Determines how toolkits should be sorted in the response
         /// </param>
@@ -84,6 +90,7 @@ namespace Composio
         public async global::System.Threading.Tasks.Task<global::Composio.GetToolkitsResponse> GetToolkitsAsync(
             string? category = default,
             global::Composio.GetToolkitsManagedBy? managedBy = default,
+            global::Composio.GetToolkitsType? type = default,
             global::Composio.GetToolkitsSortBy? sortBy = default,
             bool? includeDeprecated = default,
             string? search = default,
@@ -95,6 +102,7 @@ namespace Composio
             var __response = await GetToolkitsAsResponseAsync(
                 category: category,
                 managedBy: managedBy,
+                type: type,
                 sortBy: sortBy,
                 includeDeprecated: includeDeprecated,
                 search: search,
@@ -117,6 +125,10 @@ namespace Composio
         /// <param name="managedBy">
         /// Entity responsible for managing the toolkits
         /// </param>
+        /// <param name="type">
+        /// Filter by toolkit provenance: "native" (Composio-managed), "custom" (project-registered custom toolkits), or "all". Takes precedence over managed_by when both are supplied.<br/>
+        /// Example: custom
+        /// </param>
         /// <param name="sortBy">
         /// Determines how toolkits should be sorted in the response
         /// </param>
@@ -137,6 +149,7 @@ namespace Composio
         public async global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.GetToolkitsResponse>> GetToolkitsAsResponseAsync(
             string? category = default,
             global::Composio.GetToolkitsManagedBy? managedBy = default,
+            global::Composio.GetToolkitsType? type = default,
             global::Composio.GetToolkitsSortBy? sortBy = default,
             bool? includeDeprecated = default,
             string? search = default,
@@ -151,6 +164,7 @@ namespace Composio
                 httpClient: HttpClient,
                 category: ref category,
                 managedBy: ref managedBy,
+                type: ref type,
                 sortBy: ref sortBy,
                 includeDeprecated: ref includeDeprecated,
                 search: ref search,
@@ -186,6 +200,7 @@ namespace Composio
                             __pathBuilder
                                 .AddOptionalParameter("category", category)
                                 .AddOptionalParameter("managed_by", managedBy?.ToValueString())
+                                .AddOptionalParameter("type", type?.ToValueString())
                                 .AddOptionalParameter("sort_by", sortBy?.ToValueString())
                                 .AddOptionalParameter("include_deprecated", includeDeprecated?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("search", search)
@@ -234,6 +249,7 @@ namespace Composio
                     httpRequestMessage: __httpRequest,
                     category: category,
                     managedBy: managedBy,
+                    type: type,
                     sortBy: sortBy,
                     includeDeprecated: includeDeprecated,
                     search: search,

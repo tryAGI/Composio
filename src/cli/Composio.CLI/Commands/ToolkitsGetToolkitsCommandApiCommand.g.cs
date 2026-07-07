@@ -19,6 +19,12 @@ internal static partial class ToolkitsGetToolkitsCommandApiCommand
         Description = @"Filter toolkits by who manages them",
     };
 
+    private static Option<global::Composio.GetToolkitsType?> Type { get; } = new(
+        name: @"--type")
+    {
+        Description = @"Filter toolkits by provenance (alias over managed_by)",
+    };
+
     private static Option<global::Composio.GetToolkitsSortBy?> SortBy { get; } = new(
         name: @"--sort-by")
     {
@@ -73,6 +79,7 @@ internal static partial class ToolkitsGetToolkitsCommandApiCommand
 Retrieves a comprehensive list of toolkits of their latest versions that are available to the authenticated project. Toolkits represent integration points with external services and applications, each containing a collection of tools and triggers. This endpoint supports filtering by category and management type, as well as different sorting options.");
                         command.Options.Add(Category);
                         command.Options.Add(ManagedBy);
+                        command.Options.Add(Type);
                         command.Options.Add(SortBy);
                         command.Options.Add(IncludeDeprecated);
                         command.Options.Add(Search);
@@ -85,6 +92,7 @@ Retrieves a comprehensive list of toolkits of their latest versions that are ava
             {
                         var category = parseResult.GetValue(Category);
                         var managedBy = parseResult.GetValue(ManagedBy);
+                        var type = parseResult.GetValue(Type);
                         var sortBy = parseResult.GetValue(SortBy);
                         var includeDeprecated = parseResult.GetValue(IncludeDeprecated);
                         var search = parseResult.GetValue(Search);
@@ -96,6 +104,7 @@ Retrieves a comprehensive list of toolkits of their latest versions that are ava
                                 var response = await client.Toolkits.GetToolkitsAsync(
                                     category: category,
                                     managedBy: managedBy,
+                                    type: type,
                                     sortBy: sortBy,
                                     includeDeprecated: includeDeprecated,
                                     search: search,
