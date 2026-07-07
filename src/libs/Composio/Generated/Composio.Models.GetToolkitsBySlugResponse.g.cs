@@ -29,6 +29,16 @@ namespace Composio
         public required string Name { get; set; }
 
         /// <summary>
+        /// Toolkit provenance: "native" for Composio-managed toolkits, "custom" for a project-registered custom (MCP) toolkit<br/>
+        /// Example: native
+        /// </summary>
+        /// <example>native</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.GetToolkitsBySlugResponseTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Composio.GetToolkitsBySlugResponseType Type { get; set; }
+
+        /// <summary>
         /// Indicates if this toolkit is currently enabled and available for use<br/>
         /// Example: true
         /// </summary>
@@ -128,6 +138,10 @@ namespace Composio
         /// Human-readable name of the toolkit<br/>
         /// Example: GitHub
         /// </param>
+        /// <param name="type">
+        /// Toolkit provenance: "native" for Composio-managed toolkits, "custom" for a project-registered custom (MCP) toolkit<br/>
+        /// Example: native
+        /// </param>
         /// <param name="enabled">
         /// Indicates if this toolkit is currently enabled and available for use<br/>
         /// Example: true
@@ -171,6 +185,7 @@ namespace Composio
         public GetToolkitsBySlugResponse(
             string slug,
             string name,
+            global::Composio.GetToolkitsBySlugResponseType type,
             bool enabled,
             global::System.Collections.Generic.IList<global::Composio.GetToolkitsBySlugResponseComposioManagedAuthItem> composioManagedAuth,
             bool isLocalToolkit,
@@ -185,6 +200,7 @@ namespace Composio
         {
             this.Slug = slug ?? throw new global::System.ArgumentNullException(nameof(slug));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
+            this.Type = type;
             this.Enabled = enabled;
             this.ComposioManagedAuthSchemes = composioManagedAuthSchemes;
             this.ComposioManagedAuth = composioManagedAuth ?? throw new global::System.ArgumentNullException(nameof(composioManagedAuth));

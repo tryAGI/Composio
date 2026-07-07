@@ -15,7 +15,6 @@ internal static class ConnectedAccountsApiGroupCommand
                          command.Subcommands.Add(ConnectedAccountsPatchConnectedAccountsByNanoIdStatusCommandApiCommand.Create());
                          command.Subcommands.Add(ConnectedAccountsPatchConnectedAccountsByNanoidCommandApiCommand.Create());
                          command.Subcommands.Add(ConnectedAccountsPostConnectedAccountsCommandApiCommand.Create());
-                         command.Subcommands.Add(ConnectedAccountsPostConnectedAccountsByNanoidRefreshCommandApiCommand.Create());
                          command.Subcommands.Add(ConnectedAccountsPostConnectedAccountsLinkCommandApiCommand.Create());
         return command;
     }
