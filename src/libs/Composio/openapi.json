@@ -1827,39 +1827,6 @@
                           "is_enabled_for_tool_router": {
                             "type": "boolean",
                             "description": "Whether this auth config is enabled for tool router"
-                          },
-                          "deprecated_params": {
-                            "type": "object",
-                            "properties": {
-                              "default_connector_id": {
-                                "type": "string",
-                                "nullable": true,
-                                "description": "Deprecated: Default connector ID"
-                              },
-                              "member_uuid": {
-                                "type": "string",
-                                "description": "Deprecated: Member UUID"
-                              },
-                              "toolkit_id": {
-                                "type": "string",
-                                "description": "Deprecated: Toolkit ID"
-                              },
-                              "expected_input_fields": {
-                                "type": "array",
-                                "items": {
-                                  "type": "object",
-                                  "additionalProperties": {
-                                    "nullable": true
-                                  }
-                                },
-                                "description": "Deprecated: Fields expected during connection initialization"
-                              }
-                            },
-                            "required": [
-                              "default_connector_id"
-                            ],
-                            "description": "DEPRECATED: This parameter will be removed in a future version.",
-                            "deprecated": true
                           }
                         },
                         "required": [
@@ -2148,39 +2115,6 @@
                     "is_enabled_for_tool_router": {
                       "type": "boolean",
                       "description": "Whether this auth config is enabled for tool router"
-                    },
-                    "deprecated_params": {
-                      "type": "object",
-                      "properties": {
-                        "default_connector_id": {
-                          "type": "string",
-                          "nullable": true,
-                          "description": "Deprecated: Default connector ID"
-                        },
-                        "member_uuid": {
-                          "type": "string",
-                          "description": "Deprecated: Member UUID"
-                        },
-                        "toolkit_id": {
-                          "type": "string",
-                          "description": "Deprecated: Toolkit ID"
-                        },
-                        "expected_input_fields": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "additionalProperties": {
-                              "nullable": true
-                            }
-                          },
-                          "description": "Deprecated: Fields expected during connection initialization"
-                        }
-                      },
-                      "required": [
-                        "default_connector_id"
-                      ],
-                      "description": "DEPRECATED: This parameter will be removed in a future version.",
-                      "deprecated": true
                     }
                   },
                   "required": [
@@ -3579,20 +3513,6 @@
                               "is_disabled": {
                                 "type": "boolean",
                                 "description": "Whether the auth config is disabled"
-                              },
-                              "deprecated": {
-                                "type": "object",
-                                "properties": {
-                                  "uuid": {
-                                    "type": "string",
-                                    "format": "uuid",
-                                    "description": "The uuid of the auth config"
-                                  }
-                                },
-                                "required": [
-                                  "uuid"
-                                ],
-                                "deprecated": true
                               }
                             },
                             "required": [
@@ -10980,28 +10900,6 @@
                           "test_request_endpoint": {
                             "type": "string",
                             "description": "The endpoint to make test request for verification"
-                          },
-                          "deprecated": {
-                            "type": "object",
-                            "properties": {
-                              "labels": {
-                                "type": "array",
-                                "items": {
-                                  "type": "string"
-                                },
-                                "description": "The labels of the connection"
-                              },
-                              "uuid": {
-                                "type": "string",
-                                "format": "uuid",
-                                "description": "The uuid of the connection"
-                              }
-                            },
-                            "required": [
-                              "labels",
-                              "uuid"
-                            ],
-                            "deprecated": true
                           }
                         },
                         "required": [
@@ -25810,27 +25708,6 @@
                       "description": "DEPRECATED: This field will be removed in a future version",
                       "deprecated": true
                     },
-                    "deprecated": {
-                      "type": "object",
-                      "properties": {
-                        "uuid": {
-                          "type": "string",
-                          "format": "uuid",
-                          "description": "The uuid of the connected account"
-                        },
-                        "authConfigUuid": {
-                          "type": "string",
-                          "format": "uuid",
-                          "description": "The uuid of the auth config"
-                        }
-                      },
-                      "required": [
-                        "uuid",
-                        "authConfigUuid"
-                      ],
-                      "description": "DEPRECATED: This field will be removed in a future version. Please use id and auth_config.id instead.",
-                      "deprecated": true
-                    },
                     "experimental": {
                       "type": "object",
                       "properties": {
@@ -26028,20 +25905,6 @@
                         "is_disabled": {
                           "type": "boolean",
                           "description": "Whether the auth config is disabled"
-                        },
-                        "deprecated": {
-                          "type": "object",
-                          "properties": {
-                            "uuid": {
-                              "type": "string",
-                              "format": "uuid",
-                              "description": "The uuid of the auth config"
-                            }
-                          },
-                          "required": [
-                            "uuid"
-                          ],
-                          "deprecated": true
                         }
                       },
                       "required": [
@@ -33430,28 +33293,6 @@
                       "type": "string",
                       "description": "The endpoint to make test request for verification"
                     },
-                    "deprecated": {
-                      "type": "object",
-                      "properties": {
-                        "labels": {
-                          "type": "array",
-                          "items": {
-                            "type": "string"
-                          },
-                          "description": "The labels of the connection"
-                        },
-                        "uuid": {
-                          "type": "string",
-                          "format": "uuid",
-                          "description": "The uuid of the connection"
-                        }
-                      },
-                      "required": [
-                        "labels",
-                        "uuid"
-                      ],
-                      "deprecated": true
-                    },
                     "params": {
                       "type": "object",
                       "additionalProperties": {
@@ -34647,7 +34488,9 @@
     },
     "/api/v3/internal/trigger/log/{id}": {
       "get": {
-        "summary": "Get detailed trigger log by ID",
+        "summary": "Get detailed trigger log by ID (DEPRECATED)",
+        "description": "DEPRECATED: This endpoint has declining traffic and will be removed in a future version.",
+        "deprecated": true,
         "tags": [
           "Logs",
           "x-internal"
@@ -43739,18 +43582,6 @@
                     "trigger_id": {
                       "type": "string",
                       "description": "ID of the updated trigger"
-                    },
-                    "deprecated": {
-                      "type": "object",
-                      "properties": {
-                        "uuid": {
-                          "type": "string",
-                          "description": "ID of the updated trigger"
-                        }
-                      },
-                      "required": [
-                        "uuid"
-                      ]
                     }
                   },
                   "required": [
@@ -43770,18 +43601,6 @@
                     "trigger_id": {
                       "type": "string",
                       "description": "ID of the updated trigger"
-                    },
-                    "deprecated": {
-                      "type": "object",
-                      "properties": {
-                        "uuid": {
-                          "type": "string",
-                          "description": "ID of the updated trigger"
-                        }
-                      },
-                      "required": [
-                        "uuid"
-                      ]
                     }
                   },
                   "required": [

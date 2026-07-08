@@ -137,13 +137,6 @@ namespace Composio
         public bool? IsEnabledForToolRouter { get; set; }
 
         /// <summary>
-        /// DEPRECATED: This parameter will be removed in a future version.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("deprecated_params")]
-        [global::System.Obsolete("This property marked as deprecated.")]
-        public global::Composio.GetAuthConfigsByNanoidResponseDeprecatedParams? DeprecatedParams { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]

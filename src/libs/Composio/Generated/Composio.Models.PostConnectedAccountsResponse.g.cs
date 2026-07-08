@@ -48,13 +48,6 @@ namespace Composio
         public string? RedirectUri { get; set; }
 
         /// <summary>
-        /// DEPRECATED: This field will be removed in a future version. Please use id and auth_config.id instead.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("deprecated")]
-        [global::System.Obsolete("This property marked as deprecated.")]
-        public global::Composio.PostConnectedAccountsResponseDeprecated? Deprecated { get; set; }
-
-        /// <summary>
         /// Experimental features - not stable, may be modified or removed in future versions.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("experimental")]

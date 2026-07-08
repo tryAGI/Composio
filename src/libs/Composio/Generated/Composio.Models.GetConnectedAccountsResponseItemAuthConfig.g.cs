@@ -40,13 +40,6 @@ namespace Composio
         public required bool IsDisabled { get; set; }
 
         /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("deprecated")]
-        [global::System.Obsolete("This property marked as deprecated.")]
-        public global::Composio.GetConnectedAccountsResponseItemAuthConfigDeprecated? Deprecated { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
