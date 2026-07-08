@@ -113,13 +113,6 @@ namespace Composio
         public string? TestRequestEndpoint { get; set; }
 
         /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("deprecated")]
-        [global::System.Obsolete("This property marked as deprecated.")]
-        public global::Composio.GetConnectedAccountsByNanoidResponseDeprecated? Deprecated { get; set; }
-
-        /// <summary>
         /// The initialization data of the connection, including configuration parameters
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("params")]

@@ -16,12 +16,6 @@ namespace Composio
         public required string TriggerId { get; set; }
 
         /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("deprecated")]
-        public global::Composio.PostTriggerInstancesBySlugUpsertResponseDeprecated? Deprecated { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -33,16 +27,13 @@ namespace Composio
         /// <param name="triggerId">
         /// ID of the updated trigger
         /// </param>
-        /// <param name="deprecated"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PostTriggerInstancesBySlugUpsertResponse(
-            string triggerId,
-            global::Composio.PostTriggerInstancesBySlugUpsertResponseDeprecated? deprecated)
+            string triggerId)
         {
             this.TriggerId = triggerId ?? throw new global::System.ArgumentNullException(nameof(triggerId));
-            this.Deprecated = deprecated;
         }
 
         /// <summary>
