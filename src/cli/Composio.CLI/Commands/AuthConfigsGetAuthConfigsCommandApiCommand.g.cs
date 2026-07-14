@@ -44,7 +44,7 @@ internal static partial class AuthConfigsGetAuthConfigsCommandApiCommand
     private static Option<double?> Limit { get; } = new(
         name: @"--limit")
     {
-        Description = @"Number of items per page, max allowed is 1000",
+        Description = @"Number of items per page, max allowed is 50",
     };
 
     private static Option<string?> Cursor { get; } = new(

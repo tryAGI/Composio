@@ -1630,7 +1630,7 @@
               "nullable": true
             },
             "required": false,
-            "description": "Number of items per page, max allowed is 1000",
+            "description": "Number of items per page, max allowed is 50",
             "name": "limit",
             "in": "query"
           },
@@ -35790,7 +35790,7 @@
               "nullable": true
             },
             "required": false,
-            "description": "Number of items per page, max allowed is 1000",
+            "description": "Number of items per page, max allowed is 50",
             "name": "limit",
             "in": "query"
           },
@@ -36888,7 +36888,7 @@
               "nullable": true
             },
             "required": false,
-            "description": "Number of items per page, max allowed is 1000",
+            "description": "Number of items per page, max allowed is 50",
             "name": "limit",
             "in": "query"
           },
@@ -43832,7 +43832,7 @@
               "nullable": true
             },
             "required": false,
-            "description": "Number of items per page, max allowed is 1000",
+            "description": "Number of items per page, max allowed is 50",
             "name": "limit",
             "in": "query"
           },
@@ -44685,7 +44685,7 @@
               "nullable": true
             },
             "required": false,
-            "description": "Number of items per page, max allowed is 1000",
+            "description": "Number of items per page, max allowed is 50",
             "name": "limit",
             "in": "query"
           },
@@ -47560,7 +47560,7 @@
               "nullable": true
             },
             "required": false,
-            "description": "Number of items per page, max allowed is 1000",
+            "description": "Number of items per page, max allowed is 50",
             "name": "limit",
             "in": "query"
           },
