@@ -6,7 +6,7 @@ namespace Composio
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class DeleteAuthConfigsByNanoidResponse2
+    public sealed partial class ToolScopeRequirementsAllOfItemWhen
     {
 
         /// <summary>
