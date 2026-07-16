@@ -13,7 +13,13 @@ namespace Composio
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("any_of")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<string> AnyOf { get; set; }
+        public required global::System.Collections.Generic.IList<global::Composio.AnyOf<string, global::Composio.ToolScopeRequirementsAllOfItemAnyOfItem>> AnyOf { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("when")]
+        public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<string>>? When { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -25,13 +31,16 @@ namespace Composio
         /// Initializes a new instance of the <see cref="ToolScopeRequirementsAllOfItem" /> class.
         /// </summary>
         /// <param name="anyOf"></param>
+        /// <param name="when"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ToolScopeRequirementsAllOfItem(
-            global::System.Collections.Generic.IList<string> anyOf)
+            global::System.Collections.Generic.IList<global::Composio.AnyOf<string, global::Composio.ToolScopeRequirementsAllOfItemAnyOfItem>> anyOf,
+            global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<string>>? when)
         {
             this.AnyOf = anyOf ?? throw new global::System.ArgumentNullException(nameof(anyOf));
+            this.When = when;
         }
 
         /// <summary>

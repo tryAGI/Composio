@@ -427,19 +427,19 @@ namespace Composio
                             {
                                 string? __content_404 = null;
                                 global::System.Exception? __exception_404 = null;
-                                string? __value_404 = null;
+                                global::Composio.Error? __value_404 = null;
                                 try
                                 {
                                     if (__effectiveReadResponseAsString)
                                     {
                                         __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_404 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_404, typeof(string), JsonSerializerContext);
+                                        __value_404 = global::Composio.Error.FromJson(__content_404, JsonSerializerContext);
                                     }
                                     else
                                     {
                                         __content_404 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
 
-                                        __value_404 = (string?)global::System.Text.Json.JsonSerializer.Deserialize(__content_404, typeof(string), JsonSerializerContext);
+                                        __value_404 = global::Composio.Error.FromJson(__content_404, JsonSerializerContext);
                                     }
                                 }
                                 catch (global::System.Exception __ex)
@@ -448,7 +448,7 @@ namespace Composio
                                 }
 
 
-                                throw global::Composio.ApiException<string>.Create(
+                                throw global::Composio.ApiException<global::Composio.Error>.Create(
                                     statusCode: __response.StatusCode,
                                     message: __content_404 ?? __response.ReasonPhrase ?? string.Empty,
                                     innerException: __exception_404,
