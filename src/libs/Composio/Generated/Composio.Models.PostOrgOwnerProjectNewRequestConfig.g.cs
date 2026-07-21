@@ -61,6 +61,12 @@ namespace Composio
         public double? SignedUrlFileExpiryInSeconds { get; set; }
 
         /// <summary>
+        /// Developer-hosted OAuth callback verifier URL. Setting it enables per-user callback identity verification; null disables it. Must be https and pass SSRF checks.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("oauth_callback_verifier_url")]
+        public string? OauthCallbackVerifierUrl { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -79,6 +85,9 @@ namespace Composio
         /// Whether to enable composio link for managed authentication. This key will be deprecated in the future. Please don't use this key.
         /// </param>
         /// <param name="signedUrlFileExpiryInSeconds"></param>
+        /// <param name="oauthCallbackVerifierUrl">
+        /// Developer-hosted OAuth callback verifier URL. Setting it enables per-user callback identity verification; null disables it. Must be https and pass SSRF checks.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -90,7 +99,8 @@ namespace Composio
             string? displayName,
             bool? requireMcpApiKey,
             bool? isComposioLinkEnabledForManagedAuth,
-            double? signedUrlFileExpiryInSeconds)
+            double? signedUrlFileExpiryInSeconds,
+            string? oauthCallbackVerifierUrl)
         {
             this.Is2faEnabled = is2faEnabled;
             this.LogoUrl = logoUrl;
@@ -100,6 +110,7 @@ namespace Composio
             this.RequireMcpApiKey = requireMcpApiKey;
             this.IsComposioLinkEnabledForManagedAuth = isComposioLinkEnabledForManagedAuth;
             this.SignedUrlFileExpiryInSeconds = signedUrlFileExpiryInSeconds;
+            this.OauthCallbackVerifierUrl = oauthCallbackVerifierUrl;
         }
 
         /// <summary>
