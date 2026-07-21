@@ -35716,6 +35716,12 @@
                         "type": "number",
                         "minimum": 1,
                         "maximum": 86400
+                      },
+                      "oauth_callback_verifier_url": {
+                        "type": "string",
+                        "nullable": true,
+                        "format": "uri",
+                        "description": "Developer-hosted OAuth callback verifier URL. Setting it enables per-user callback identity verification; null disables it. Must be https and pass SSRF checks."
                       }
                     },
                     "required": [
@@ -45252,6 +45258,16 @@
               }
             }
           },
+          "404": {
+            "description": "Not Found. One or more of the specified auth_config_ids do not exist or are not accessible to the authenticated user.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Internal server error. An unexpected error occurred while processing the request.",
             "content": {
@@ -45785,6 +45801,16 @@
           },
           "403": {
             "description": "Forbidden. The authenticated user does not have permission to create MCP servers for this project.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found. One or more of the specified auth_config_ids do not exist or are not accessible to the authenticated user.",
             "content": {
               "application/json": {
                 "schema": {
@@ -47370,7 +47396,7 @@
             }
           },
           "400": {
-            "description": "Bad request. The request parameters may be invalid or the instance ID already exists.",
+            "description": "Bad request. The request parameters may be invalid.",
             "content": {
               "application/json": {
                 "schema": {

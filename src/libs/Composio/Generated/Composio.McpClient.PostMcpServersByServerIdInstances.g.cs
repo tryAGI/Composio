@@ -352,7 +352,7 @@ namespace Composio
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // Bad request. The request parameters may be invalid or the instance ID already exists.
+                            // Bad request. The request parameters may be invalid.
                             if ((int)__response.StatusCode == 400)
                             {
                                 string? __content_400 = null;
