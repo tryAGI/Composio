@@ -22,6 +22,12 @@ namespace Composio
         public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<string>>? When { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("source")]
+        public global::System.Collections.Generic.IList<string>? Source { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -32,15 +38,18 @@ namespace Composio
         /// </summary>
         /// <param name="anyOf"></param>
         /// <param name="when"></param>
+        /// <param name="source"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ToolScopeRequirementsAllOfItem(
             global::System.Collections.Generic.IList<global::Composio.AnyOf<string, global::Composio.ToolScopeRequirementsAllOfItemAnyOfItem>> anyOf,
-            global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<string>>? when)
+            global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<string>>? when,
+            global::System.Collections.Generic.IList<string>? source)
         {
             this.AnyOf = anyOf ?? throw new global::System.ArgumentNullException(nameof(anyOf));
             this.When = when;
+            this.Source = source;
         }
 
         /// <summary>
