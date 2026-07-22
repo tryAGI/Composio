@@ -17,6 +17,12 @@ namespace Composio
         public required global::System.Collections.Generic.IList<global::Composio.AnyOf<string, global::Composio.ToolScopeRequirementsAllOfItem>> AllOf { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("source")]
+        public global::System.Collections.Generic.IList<string>? Source { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -26,13 +32,16 @@ namespace Composio
         /// Initializes a new instance of the <see cref="ToolScopeRequirements" /> class.
         /// </summary>
         /// <param name="allOf"></param>
+        /// <param name="source"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ToolScopeRequirements(
-            global::System.Collections.Generic.IList<global::Composio.AnyOf<string, global::Composio.ToolScopeRequirementsAllOfItem>> allOf)
+            global::System.Collections.Generic.IList<global::Composio.AnyOf<string, global::Composio.ToolScopeRequirementsAllOfItem>> allOf,
+            global::System.Collections.Generic.IList<string>? source)
         {
             this.AllOf = allOf ?? throw new global::System.ArgumentNullException(nameof(allOf));
+            this.Source = source;
         }
 
         /// <summary>
