@@ -20,6 +20,15 @@ namespace Composio
         public required string Mode { get; set; }
 
         /// <summary>
+        /// OAuth scopes that are always requested for this authentication method regardless of the tool-specific scopes selected, such as token-refresh (e.g. offline_access) and identity/whoami scopes. Consumers handling authentication themselves should union these with per-tool scopes.<br/>
+        /// Example: [offline_access, User.Read]
+        /// </summary>
+        /// <example>[offline_access, User.Read]</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("required_scopes")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<string> RequiredScopes { get; set; }
+
+        /// <summary>
         /// Field groups required for different authentication stages
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fields")]
@@ -69,6 +78,10 @@ namespace Composio
         /// The type of authentication mode (e.g., oauth2, basic_auth, api_key)<br/>
         /// Example: oauth2
         /// </param>
+        /// <param name="requiredScopes">
+        /// OAuth scopes that are always requested for this authentication method regardless of the tool-specific scopes selected, such as token-refresh (e.g. offline_access) and identity/whoami scopes. Consumers handling authentication themselves should union these with per-tool scopes.<br/>
+        /// Example: [offline_access, User.Read]
+        /// </param>
         /// <param name="fields">
         /// Field groups required for different authentication stages
         /// </param>
@@ -88,12 +101,14 @@ namespace Composio
 #endif
         public GetToolkitsBySlugResponseAuthConfigDetail(
             string mode,
+            global::System.Collections.Generic.IList<string> requiredScopes,
             global::Composio.GetToolkitsBySlugResponseAuthConfigDetailFields fields,
             string name,
             global::Composio.GetToolkitsBySlugResponseAuthConfigDetailProxy? proxy,
             string? authHintUrl)
         {
             this.Mode = mode ?? throw new global::System.ArgumentNullException(nameof(mode));
+            this.RequiredScopes = requiredScopes ?? throw new global::System.ArgumentNullException(nameof(requiredScopes));
             this.Fields = fields ?? throw new global::System.ArgumentNullException(nameof(fields));
             this.Proxy = proxy;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
