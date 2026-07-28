@@ -6,7 +6,7 @@ namespace Composio
     {
         /// <summary>
         /// List tools with schemas for a tool router session<br/>
-        /// Returns the tools available in a tool router session with their complete schemas. This includes both meta tools and any preloaded app tools exposed by the session.
+        /// Returns the tools available in a tool router session with their complete schemas. This includes both meta tools and any preloaded app tools exposed by the session. Tools are returned in alphabetical order.
         /// </summary>
         /// <param name="sessionId">
         /// Tool router session ID
@@ -23,7 +23,7 @@ namespace Composio
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List tools with schemas for a tool router session<br/>
-        /// Returns the tools available in a tool router session with their complete schemas. This includes both meta tools and any preloaded app tools exposed by the session.
+        /// Returns the tools available in a tool router session with their complete schemas. This includes both meta tools and any preloaded app tools exposed by the session. Tools are returned in alphabetical order.
         /// </summary>
         /// <param name="sessionId">
         /// Tool router session ID
@@ -40,7 +40,7 @@ namespace Composio
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List tools with schemas for a tool router session<br/>
-        /// Returns the tools available in a tool router session with their complete schemas. This includes both meta tools and any preloaded app tools exposed by the session.
+        /// Returns the tools available in a tool router session with their complete schemas. This includes both meta tools and any preloaded app tools exposed by the session. Tools are returned in alphabetical order.
         /// </summary>
         /// <param name="sessionId">
         /// Tool router session ID
