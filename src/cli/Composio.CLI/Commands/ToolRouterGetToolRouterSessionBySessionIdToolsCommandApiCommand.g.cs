@@ -52,7 +52,7 @@ internal static partial class ToolRouterGetToolRouterSessionBySessionIdToolsComm
     public static Command Create()
     {
         var command = new Command(@"get-tool-router-session-by-session-id-tools", @"List tools with schemas for a tool router session
-Returns the tools available in a tool router session with their complete schemas. This includes both meta tools and any preloaded app tools exposed by the session.");
+Returns the tools available in a tool router session with their complete schemas. This includes both meta tools and any preloaded app tools exposed by the session. Tools are returned in alphabetical order.");
                         command.Arguments.Add(SessionId);
           command.Options.Add(Input);
           command.Options.Add(RequestJson);
