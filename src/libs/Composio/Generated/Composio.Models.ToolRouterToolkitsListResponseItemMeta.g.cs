@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace Composio
@@ -21,6 +23,13 @@ namespace Composio
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Description { get; set; }
+
+        /// <summary>
+        /// Duplicates the top-level is_no_auth field. Kept for backward compatibility with existing readers; use is_no_auth instead.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("isNoAuth")]
+        [global::System.Obsolete("This property marked as deprecated.")]
+        public bool? IsNoAuth { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema

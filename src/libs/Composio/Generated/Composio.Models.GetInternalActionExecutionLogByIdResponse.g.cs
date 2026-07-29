@@ -104,8 +104,7 @@ namespace Composio
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.Dictionary<string, object?> Response { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, object?>? Response { get; set; }
 
         /// <summary>
         /// 
@@ -136,8 +135,8 @@ namespace Composio
         /// <param name="startTime"></param>
         /// <param name="endTime"></param>
         /// <param name="totalDuration"></param>
-        /// <param name="response"></param>
         /// <param name="error"></param>
+        /// <param name="response"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -155,8 +154,8 @@ namespace Composio
             double startTime,
             double endTime,
             string totalDuration,
-            global::System.Collections.Generic.Dictionary<string, object?> response,
-            global::System.Collections.Generic.Dictionary<string, object?> error)
+            global::System.Collections.Generic.Dictionary<string, object?> error,
+            global::System.Collections.Generic.Dictionary<string, object?>? response)
         {
             this.ActionLogId = actionLogId ?? throw new global::System.ArgumentNullException(nameof(actionLogId));
             this.ActionId = actionId ?? throw new global::System.ArgumentNullException(nameof(actionId));
@@ -171,7 +170,7 @@ namespace Composio
             this.StartTime = startTime;
             this.EndTime = endTime;
             this.TotalDuration = totalDuration ?? throw new global::System.ArgumentNullException(nameof(totalDuration));
-            this.Response = response ?? throw new global::System.ArgumentNullException(nameof(response));
+            this.Response = response;
             this.Error = error ?? throw new global::System.ArgumentNullException(nameof(error));
         }
 
