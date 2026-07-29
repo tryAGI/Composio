@@ -54,7 +54,7 @@ namespace Composio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<string> PatchAuthConfigsByNanoidAsync(
+        public async global::System.Threading.Tasks.Task<global::Composio.PatchAuthConfigsByNanoidResponse> PatchAuthConfigsByNanoidAsync(
             string nanoid,
 
             global::Composio.OneOf<global::Composio.PatchAuthConfigsByNanoidRequestVariant1, global::Composio.PatchAuthConfigsByNanoidRequestVariant2> request,
@@ -82,7 +82,7 @@ namespace Composio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<string>> PatchAuthConfigsByNanoidAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.PatchAuthConfigsByNanoidResponse>> PatchAuthConfigsByNanoidAsResponseAsync(
             string nanoid,
 
             global::Composio.OneOf<global::Composio.PatchAuthConfigsByNanoidRequestVariant1, global::Composio.PatchAuthConfigsByNanoidRequestVariant2> request,
@@ -518,11 +518,13 @@ namespace Composio
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    return new global::Composio.AutoSDKHttpResponse<string>(
+                                    var __value = global::Composio.PatchAuthConfigsByNanoidResponse.FromJson(__content, JsonSerializerContext) ??
+                                        throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
+                                    return new global::Composio.AutoSDKHttpResponse<global::Composio.PatchAuthConfigsByNanoidResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Composio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __content);
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -542,17 +544,19 @@ namespace Composio
                                 try
                                 {
                                     __response.EnsureSuccessStatusCode();
-                                    var __content = await __response.Content.ReadAsStringAsync(
+                                    using var __content = await __response.Content.ReadAsStreamAsync(
                 #if NET5_0_OR_GREATER
                                         __effectiveCancellationToken
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    return new global::Composio.AutoSDKHttpResponse<string>(
+                                    var __value = await global::Composio.PatchAuthConfigsByNanoidResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                        throw new global::System.InvalidOperationException("Response deserialization failed.");
+                                    return new global::Composio.AutoSDKHttpResponse<global::Composio.PatchAuthConfigsByNanoidResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Composio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
-                                        body: __content);
+                                        body: __value);
                                 }
                                 catch (global::System.Exception __ex)
                                 {
@@ -598,7 +602,7 @@ namespace Composio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
-        public async global::System.Threading.Tasks.Task<string> PatchAuthConfigsByNanoidAsync(
+        public async global::System.Threading.Tasks.Task<global::Composio.PatchAuthConfigsByNanoidResponse> PatchAuthConfigsByNanoidAsync(
             string nanoid,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)

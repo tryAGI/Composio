@@ -32,6 +32,14 @@ namespace Composio
         public required string Id { get; set; }
 
         /// <summary>
+        /// Duplicates state.authScheme. Kept for backward compatibility with existing readers; use state.authScheme instead.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("authScheme")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.GetConnectedAccountsByNanoidResponseAuthSchemeJsonConverter))]
+        [global::System.Obsolete("This property marked as deprecated.")]
+        public global::Composio.GetConnectedAccountsByNanoidResponseAuthScheme? AuthScheme { get; set; }
+
+        /// <summary>
         /// A short, token-friendly identifier for multi-account disambiguation, typically toolkit-prefixed with 1-2 words (e.g., "gmail_red-castle")
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("word_id")]
@@ -94,7 +102,7 @@ namespace Composio
         public required global::System.Collections.Generic.Dictionary<string, object?> Data { get; set; }
 
         /// <summary>
-        /// The reason the connection status changed. Possible reasons: Connection initiation did not complete within 10 minutes, Permanent auth error during token refresh, Max auth failures reached, OAuth callback failed during token exchange, Connection status updated by user, Auth config is disabled, Revoked via user-initiated revoke endpoint, Revoked via admin tool, Revoked as part of connection delete
+        /// The reason the connection status changed. Possible reasons: Connection initiation did not complete within 10 minutes, Permanent auth error during token refresh, Max auth failures reached, OAuth callback failed during token exchange, Connection status updated by user, Auth config is disabled, Revoked via user-initiated revoke endpoint, Revoked via admin tool, Revoked as part of connection delete, Callback identity verification failed
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status_reason")]
         public string? StatusReason { get; set; }
@@ -179,7 +187,7 @@ namespace Composio
         /// Experimental features - not stable, may be modified or removed in future versions.
         /// </param>
         /// <param name="statusReason">
-        /// The reason the connection status changed. Possible reasons: Connection initiation did not complete within 10 minutes, Permanent auth error during token refresh, Max auth failures reached, OAuth callback failed during token exchange, Connection status updated by user, Auth config is disabled, Revoked via user-initiated revoke endpoint, Revoked via admin tool, Revoked as part of connection delete
+        /// The reason the connection status changed. Possible reasons: Connection initiation did not complete within 10 minutes, Permanent auth error during token refresh, Max auth failures reached, OAuth callback failed during token exchange, Connection status updated by user, Auth config is disabled, Revoked via user-initiated revoke endpoint, Revoked via admin tool, Revoked as part of connection delete, Callback identity verification failed
         /// </param>
         /// <param name="testRequestEndpoint">
         /// The endpoint to make test request for verification

@@ -75,8 +75,8 @@ namespace Composio
         /// DEPRECATED: This field exposes internal state and will be removed in a future version.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("state")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.Dictionary<string, object?> State { get; set; }
+        [global::System.Obsolete("This property marked as deprecated.")]
+        public global::System.Collections.Generic.Dictionary<string, object?>? State { get; set; }
 
         /// <summary>
         /// ISO 8601 timestamp when the trigger instance was updated
@@ -162,9 +162,6 @@ namespace Composio
         /// <param name="triggerConfig">
         /// Configuration for the trigger
         /// </param>
-        /// <param name="state">
-        /// DEPRECATED: This field exposes internal state and will be removed in a future version.
-        /// </param>
         /// <param name="updatedAt">
         /// ISO 8601 timestamp when the trigger instance was updated
         /// </param>
@@ -203,7 +200,6 @@ namespace Composio
             string userId,
             string version,
             global::System.Collections.Generic.Dictionary<string, object?> triggerConfig,
-            global::System.Collections.Generic.Dictionary<string, object?> state,
             string updatedAt,
             string connectedAccountId2,
             string triggerName2,
@@ -223,7 +219,6 @@ namespace Composio
             this.TriggerData = triggerData;
             this.Version = version ?? throw new global::System.ArgumentNullException(nameof(version));
             this.TriggerConfig = triggerConfig ?? throw new global::System.ArgumentNullException(nameof(triggerConfig));
-            this.State = state ?? throw new global::System.ArgumentNullException(nameof(state));
             this.UpdatedAt = updatedAt ?? throw new global::System.ArgumentNullException(nameof(updatedAt));
             this.DisabledAt = disabledAt;
             this.ConnectedAccountId2 = connectedAccountId2 ?? throw new global::System.ArgumentNullException(nameof(connectedAccountId2));
