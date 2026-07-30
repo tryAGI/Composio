@@ -37,6 +37,12 @@ namespace Composio
         public required global::System.Collections.Generic.IList<global::Composio.GetToolRouterSessionBySessionIdResponseExperimentalCustomToolkitTool> Tools { get; set; }
 
         /// <summary>
+        /// Echoes the SDK-local preload hint provided for this toolkit
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("preload")]
+        public bool? Preload { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -49,6 +55,9 @@ namespace Composio
         /// <param name="name"></param>
         /// <param name="description"></param>
         /// <param name="tools"></param>
+        /// <param name="preload">
+        /// Echoes the SDK-local preload hint provided for this toolkit
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -56,12 +65,14 @@ namespace Composio
             string slug,
             string name,
             string description,
-            global::System.Collections.Generic.IList<global::Composio.GetToolRouterSessionBySessionIdResponseExperimentalCustomToolkitTool> tools)
+            global::System.Collections.Generic.IList<global::Composio.GetToolRouterSessionBySessionIdResponseExperimentalCustomToolkitTool> tools,
+            bool? preload)
         {
             this.Slug = slug ?? throw new global::System.ArgumentNullException(nameof(slug));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
             this.Tools = tools ?? throw new global::System.ArgumentNullException(nameof(tools));
+            this.Preload = preload;
         }
 
         /// <summary>

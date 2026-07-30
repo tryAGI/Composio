@@ -19,9 +19,9 @@ namespace Composio
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("val")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6ValVariant1, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6ValVariant2, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6ValVariant3, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6ValVariant4>))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6ValVariant1, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6ValVariant2, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6ValVariant3, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6ValVariant4, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6ValVariant5>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Composio.OneOf<global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6ValVariant1, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6ValVariant2, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6ValVariant3, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6ValVariant4> Val { get; set; }
+        public required global::Composio.OneOf<global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6ValVariant1, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6ValVariant2, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6ValVariant3, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6ValVariant4, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6ValVariant5> Val { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -38,7 +38,7 @@ namespace Composio
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public GetConnectedAccountsByNanoidResponseStateVariant6(
-            global::Composio.OneOf<global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6ValVariant1, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6ValVariant2, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6ValVariant3, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6ValVariant4> val,
+            global::Composio.OneOf<global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6ValVariant1, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6ValVariant2, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6ValVariant3, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6ValVariant4, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6ValVariant5> val,
             global::Composio.GetConnectedAccountsByNanoidResponseStateVariant6AuthScheme authScheme)
         {
             this.AuthScheme = authScheme;

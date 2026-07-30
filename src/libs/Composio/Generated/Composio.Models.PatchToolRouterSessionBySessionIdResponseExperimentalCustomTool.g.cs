@@ -56,6 +56,12 @@ namespace Composio
         public required string OriginalSlug { get; set; }
 
         /// <summary>
+        /// Echoes the SDK-local preload hint provided for this tool
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("preload")]
+        public bool? Preload { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -75,6 +81,9 @@ namespace Composio
         /// </param>
         /// <param name="outputSchema"></param>
         /// <param name="extendsToolkit"></param>
+        /// <param name="preload">
+        /// Echoes the SDK-local preload hint provided for this tool
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -85,7 +94,8 @@ namespace Composio
             global::System.Collections.Generic.Dictionary<string, object?> inputSchema,
             string originalSlug,
             global::System.Collections.Generic.Dictionary<string, object?>? outputSchema,
-            string? extendsToolkit)
+            string? extendsToolkit,
+            bool? preload)
         {
             this.Slug = slug ?? throw new global::System.ArgumentNullException(nameof(slug));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -94,6 +104,7 @@ namespace Composio
             this.OutputSchema = outputSchema;
             this.ExtendsToolkit = extendsToolkit;
             this.OriginalSlug = originalSlug ?? throw new global::System.ArgumentNullException(nameof(originalSlug));
+            this.Preload = preload;
         }
 
         /// <summary>

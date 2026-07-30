@@ -19,7 +19,7 @@ internal static partial class AuthConfigsPatchAuthConfigsByNanoidByStatusCommand
         Description = @"The new status to set for the auth configuration",
     };
 
-                    private static string FormatResponse(ParseResult parseResult, string value, global::System.Text.Json.Serialization.JsonSerializerContext context, bool truncateLongStrings)
+                    private static string FormatResponse(ParseResult parseResult, global::Composio.PatchAuthConfigsByNanoidByStatusResponse value, global::System.Text.Json.Serialization.JsonSerializerContext context, bool truncateLongStrings)
                     {
                         string? text = null;
                         CustomizeResponseText(parseResult, value, ref text);
@@ -35,7 +35,7 @@ internal static partial class AuthConfigsPatchAuthConfigsByNanoidByStatusCommand
                         return CliRuntime.FormatHumanReadable(value, context, truncateLongStrings, hints);
                     }
 
-                    static partial void CustomizeResponseText(ParseResult parseResult, string value, ref string? text);
+                    static partial void CustomizeResponseText(ParseResult parseResult, global::Composio.PatchAuthConfigsByNanoidByStatusResponse value, ref string? text);
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
