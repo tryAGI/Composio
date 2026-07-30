@@ -2706,7 +2706,20 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {}
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "description": "Whether the status update succeeded"
+                    },
+                    "message": {
+                      "type": "string",
+                      "description": "A human-readable result message"
+                    }
+                  },
+                  "required": [
+                    "success",
+                    "message"
+                  ]
                 }
               }
             }
@@ -5944,6 +5957,92 @@
                                         "additionalProperties": {
                                           "nullable": true
                                         }
+                                      },
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "subdomain": {
+                                            "type": "string"
+                                          },
+                                          "your-domain": {
+                                            "type": "string"
+                                          },
+                                          "region": {
+                                            "type": "string"
+                                          },
+                                          "shop": {
+                                            "type": "string"
+                                          },
+                                          "account_url": {
+                                            "type": "string"
+                                          },
+                                          "COMPANYDOMAIN": {
+                                            "type": "string"
+                                          },
+                                          "extension": {
+                                            "type": "string"
+                                          },
+                                          "form_api_base_url": {
+                                            "type": "string"
+                                          },
+                                          "instanceEndpoint": {
+                                            "type": "string"
+                                          },
+                                          "api_url": {
+                                            "type": "string"
+                                          },
+                                          "borneo_dashboard_url": {
+                                            "type": "string"
+                                          },
+                                          "proxy_username": {
+                                            "type": "string"
+                                          },
+                                          "proxy_password": {
+                                            "type": "string"
+                                          },
+                                          "domain": {
+                                            "type": "string"
+                                          },
+                                          "version": {
+                                            "type": "string"
+                                          },
+                                          "dc": {
+                                            "type": "string"
+                                          },
+                                          "site_name": {
+                                            "type": "string"
+                                          },
+                                          "instanceName": {
+                                            "type": "string"
+                                          },
+                                          "account_id": {
+                                            "type": "string"
+                                          },
+                                          "your_server": {
+                                            "type": "string"
+                                          },
+                                          "server_location": {
+                                            "type": "string"
+                                          },
+                                          "base_url": {
+                                            "type": "string"
+                                          },
+                                          "status": {
+                                            "type": "string",
+                                            "enum": [
+                                              "EXPIRED"
+                                            ]
+                                          },
+                                          "expired_at": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "status"
+                                        ],
+                                        "additionalProperties": {
+                                          "nullable": true
+                                        }
                                       }
                                     ]
                                   }
@@ -6665,6 +6764,92 @@
                                         "required": [
                                           "status",
                                           "credentials_json"
+                                        ],
+                                        "additionalProperties": {
+                                          "nullable": true
+                                        }
+                                      },
+                                      {
+                                        "type": "object",
+                                        "properties": {
+                                          "subdomain": {
+                                            "type": "string"
+                                          },
+                                          "your-domain": {
+                                            "type": "string"
+                                          },
+                                          "region": {
+                                            "type": "string"
+                                          },
+                                          "shop": {
+                                            "type": "string"
+                                          },
+                                          "account_url": {
+                                            "type": "string"
+                                          },
+                                          "COMPANYDOMAIN": {
+                                            "type": "string"
+                                          },
+                                          "extension": {
+                                            "type": "string"
+                                          },
+                                          "form_api_base_url": {
+                                            "type": "string"
+                                          },
+                                          "instanceEndpoint": {
+                                            "type": "string"
+                                          },
+                                          "api_url": {
+                                            "type": "string"
+                                          },
+                                          "borneo_dashboard_url": {
+                                            "type": "string"
+                                          },
+                                          "proxy_username": {
+                                            "type": "string"
+                                          },
+                                          "proxy_password": {
+                                            "type": "string"
+                                          },
+                                          "domain": {
+                                            "type": "string"
+                                          },
+                                          "version": {
+                                            "type": "string"
+                                          },
+                                          "dc": {
+                                            "type": "string"
+                                          },
+                                          "site_name": {
+                                            "type": "string"
+                                          },
+                                          "instanceName": {
+                                            "type": "string"
+                                          },
+                                          "account_id": {
+                                            "type": "string"
+                                          },
+                                          "your_server": {
+                                            "type": "string"
+                                          },
+                                          "server_location": {
+                                            "type": "string"
+                                          },
+                                          "base_url": {
+                                            "type": "string"
+                                          },
+                                          "status": {
+                                            "type": "string",
+                                            "enum": [
+                                              "EXPIRED"
+                                            ]
+                                          },
+                                          "expired_at": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "status"
                                         ],
                                         "additionalProperties": {
                                           "nullable": true
@@ -11089,7 +11274,7 @@
                           "status_reason": {
                             "type": "string",
                             "nullable": true,
-                            "description": "The reason the connection status changed. Possible reasons: Connection initiation did not complete within 10 minutes, Permanent auth error during token refresh, Max auth failures reached, OAuth callback failed during token exchange, Connection status updated by user, Auth config is disabled, Revoked via user-initiated revoke endpoint, Revoked via admin tool, Revoked as part of connection delete, Callback identity verification failed"
+                            "description": "The reason the connection status changed."
                           },
                           "is_disabled": {
                             "type": "boolean",
@@ -13459,6 +13644,92 @@
                                     "additionalProperties": {
                                       "nullable": true
                                     }
+                                  },
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "subdomain": {
+                                        "type": "string"
+                                      },
+                                      "your-domain": {
+                                        "type": "string"
+                                      },
+                                      "region": {
+                                        "type": "string"
+                                      },
+                                      "shop": {
+                                        "type": "string"
+                                      },
+                                      "account_url": {
+                                        "type": "string"
+                                      },
+                                      "COMPANYDOMAIN": {
+                                        "type": "string"
+                                      },
+                                      "extension": {
+                                        "type": "string"
+                                      },
+                                      "form_api_base_url": {
+                                        "type": "string"
+                                      },
+                                      "instanceEndpoint": {
+                                        "type": "string"
+                                      },
+                                      "api_url": {
+                                        "type": "string"
+                                      },
+                                      "borneo_dashboard_url": {
+                                        "type": "string"
+                                      },
+                                      "proxy_username": {
+                                        "type": "string"
+                                      },
+                                      "proxy_password": {
+                                        "type": "string"
+                                      },
+                                      "domain": {
+                                        "type": "string"
+                                      },
+                                      "version": {
+                                        "type": "string"
+                                      },
+                                      "dc": {
+                                        "type": "string"
+                                      },
+                                      "site_name": {
+                                        "type": "string"
+                                      },
+                                      "instanceName": {
+                                        "type": "string"
+                                      },
+                                      "account_id": {
+                                        "type": "string"
+                                      },
+                                      "your_server": {
+                                        "type": "string"
+                                      },
+                                      "server_location": {
+                                        "type": "string"
+                                      },
+                                      "base_url": {
+                                        "type": "string"
+                                      },
+                                      "status": {
+                                        "type": "string",
+                                        "enum": [
+                                          "EXPIRED"
+                                        ]
+                                      },
+                                      "expired_at": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "status"
+                                    ],
+                                    "additionalProperties": {
+                                      "nullable": true
+                                    }
                                   }
                                 ]
                               }
@@ -14180,6 +14451,92 @@
                                     "required": [
                                       "status",
                                       "credentials_json"
+                                    ],
+                                    "additionalProperties": {
+                                      "nullable": true
+                                    }
+                                  },
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "subdomain": {
+                                        "type": "string"
+                                      },
+                                      "your-domain": {
+                                        "type": "string"
+                                      },
+                                      "region": {
+                                        "type": "string"
+                                      },
+                                      "shop": {
+                                        "type": "string"
+                                      },
+                                      "account_url": {
+                                        "type": "string"
+                                      },
+                                      "COMPANYDOMAIN": {
+                                        "type": "string"
+                                      },
+                                      "extension": {
+                                        "type": "string"
+                                      },
+                                      "form_api_base_url": {
+                                        "type": "string"
+                                      },
+                                      "instanceEndpoint": {
+                                        "type": "string"
+                                      },
+                                      "api_url": {
+                                        "type": "string"
+                                      },
+                                      "borneo_dashboard_url": {
+                                        "type": "string"
+                                      },
+                                      "proxy_username": {
+                                        "type": "string"
+                                      },
+                                      "proxy_password": {
+                                        "type": "string"
+                                      },
+                                      "domain": {
+                                        "type": "string"
+                                      },
+                                      "version": {
+                                        "type": "string"
+                                      },
+                                      "dc": {
+                                        "type": "string"
+                                      },
+                                      "site_name": {
+                                        "type": "string"
+                                      },
+                                      "instanceName": {
+                                        "type": "string"
+                                      },
+                                      "account_id": {
+                                        "type": "string"
+                                      },
+                                      "your_server": {
+                                        "type": "string"
+                                      },
+                                      "server_location": {
+                                        "type": "string"
+                                      },
+                                      "base_url": {
+                                        "type": "string"
+                                      },
+                                      "status": {
+                                        "type": "string",
+                                        "enum": [
+                                          "EXPIRED"
+                                        ]
+                                      },
+                                      "expired_at": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "status"
                                     ],
                                     "additionalProperties": {
                                       "nullable": true
@@ -20936,6 +21293,92 @@
                                   "additionalProperties": {
                                     "nullable": true
                                   }
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "subdomain": {
+                                      "type": "string"
+                                    },
+                                    "your-domain": {
+                                      "type": "string"
+                                    },
+                                    "region": {
+                                      "type": "string"
+                                    },
+                                    "shop": {
+                                      "type": "string"
+                                    },
+                                    "account_url": {
+                                      "type": "string"
+                                    },
+                                    "COMPANYDOMAIN": {
+                                      "type": "string"
+                                    },
+                                    "extension": {
+                                      "type": "string"
+                                    },
+                                    "form_api_base_url": {
+                                      "type": "string"
+                                    },
+                                    "instanceEndpoint": {
+                                      "type": "string"
+                                    },
+                                    "api_url": {
+                                      "type": "string"
+                                    },
+                                    "borneo_dashboard_url": {
+                                      "type": "string"
+                                    },
+                                    "proxy_username": {
+                                      "type": "string"
+                                    },
+                                    "proxy_password": {
+                                      "type": "string"
+                                    },
+                                    "domain": {
+                                      "type": "string"
+                                    },
+                                    "version": {
+                                      "type": "string"
+                                    },
+                                    "dc": {
+                                      "type": "string"
+                                    },
+                                    "site_name": {
+                                      "type": "string"
+                                    },
+                                    "instanceName": {
+                                      "type": "string"
+                                    },
+                                    "account_id": {
+                                      "type": "string"
+                                    },
+                                    "your_server": {
+                                      "type": "string"
+                                    },
+                                    "server_location": {
+                                      "type": "string"
+                                    },
+                                    "base_url": {
+                                      "type": "string"
+                                    },
+                                    "status": {
+                                      "type": "string",
+                                      "enum": [
+                                        "EXPIRED"
+                                      ]
+                                    },
+                                    "expired_at": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "status"
+                                  ],
+                                  "additionalProperties": {
+                                    "nullable": true
+                                  }
                                 }
                               ]
                             }
@@ -21657,6 +22100,92 @@
                                   "required": [
                                     "status",
                                     "credentials_json"
+                                  ],
+                                  "additionalProperties": {
+                                    "nullable": true
+                                  }
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "subdomain": {
+                                      "type": "string"
+                                    },
+                                    "your-domain": {
+                                      "type": "string"
+                                    },
+                                    "region": {
+                                      "type": "string"
+                                    },
+                                    "shop": {
+                                      "type": "string"
+                                    },
+                                    "account_url": {
+                                      "type": "string"
+                                    },
+                                    "COMPANYDOMAIN": {
+                                      "type": "string"
+                                    },
+                                    "extension": {
+                                      "type": "string"
+                                    },
+                                    "form_api_base_url": {
+                                      "type": "string"
+                                    },
+                                    "instanceEndpoint": {
+                                      "type": "string"
+                                    },
+                                    "api_url": {
+                                      "type": "string"
+                                    },
+                                    "borneo_dashboard_url": {
+                                      "type": "string"
+                                    },
+                                    "proxy_username": {
+                                      "type": "string"
+                                    },
+                                    "proxy_password": {
+                                      "type": "string"
+                                    },
+                                    "domain": {
+                                      "type": "string"
+                                    },
+                                    "version": {
+                                      "type": "string"
+                                    },
+                                    "dc": {
+                                      "type": "string"
+                                    },
+                                    "site_name": {
+                                      "type": "string"
+                                    },
+                                    "instanceName": {
+                                      "type": "string"
+                                    },
+                                    "account_id": {
+                                      "type": "string"
+                                    },
+                                    "your_server": {
+                                      "type": "string"
+                                    },
+                                    "server_location": {
+                                      "type": "string"
+                                    },
+                                    "base_url": {
+                                      "type": "string"
+                                    },
+                                    "status": {
+                                      "type": "string",
+                                      "enum": [
+                                        "EXPIRED"
+                                      ]
+                                    },
+                                    "expired_at": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "status"
                                   ],
                                   "additionalProperties": {
                                     "nullable": true
@@ -28642,6 +29171,92 @@
                                   "additionalProperties": {
                                     "nullable": true
                                   }
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "subdomain": {
+                                      "type": "string"
+                                    },
+                                    "your-domain": {
+                                      "type": "string"
+                                    },
+                                    "region": {
+                                      "type": "string"
+                                    },
+                                    "shop": {
+                                      "type": "string"
+                                    },
+                                    "account_url": {
+                                      "type": "string"
+                                    },
+                                    "COMPANYDOMAIN": {
+                                      "type": "string"
+                                    },
+                                    "extension": {
+                                      "type": "string"
+                                    },
+                                    "form_api_base_url": {
+                                      "type": "string"
+                                    },
+                                    "instanceEndpoint": {
+                                      "type": "string"
+                                    },
+                                    "api_url": {
+                                      "type": "string"
+                                    },
+                                    "borneo_dashboard_url": {
+                                      "type": "string"
+                                    },
+                                    "proxy_username": {
+                                      "type": "string"
+                                    },
+                                    "proxy_password": {
+                                      "type": "string"
+                                    },
+                                    "domain": {
+                                      "type": "string"
+                                    },
+                                    "version": {
+                                      "type": "string"
+                                    },
+                                    "dc": {
+                                      "type": "string"
+                                    },
+                                    "site_name": {
+                                      "type": "string"
+                                    },
+                                    "instanceName": {
+                                      "type": "string"
+                                    },
+                                    "account_id": {
+                                      "type": "string"
+                                    },
+                                    "your_server": {
+                                      "type": "string"
+                                    },
+                                    "server_location": {
+                                      "type": "string"
+                                    },
+                                    "base_url": {
+                                      "type": "string"
+                                    },
+                                    "status": {
+                                      "type": "string",
+                                      "enum": [
+                                        "EXPIRED"
+                                      ]
+                                    },
+                                    "expired_at": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "status"
+                                  ],
+                                  "additionalProperties": {
+                                    "nullable": true
+                                  }
                                 }
                               ]
                             }
@@ -29363,6 +29978,92 @@
                                   "required": [
                                     "status",
                                     "credentials_json"
+                                  ],
+                                  "additionalProperties": {
+                                    "nullable": true
+                                  }
+                                },
+                                {
+                                  "type": "object",
+                                  "properties": {
+                                    "subdomain": {
+                                      "type": "string"
+                                    },
+                                    "your-domain": {
+                                      "type": "string"
+                                    },
+                                    "region": {
+                                      "type": "string"
+                                    },
+                                    "shop": {
+                                      "type": "string"
+                                    },
+                                    "account_url": {
+                                      "type": "string"
+                                    },
+                                    "COMPANYDOMAIN": {
+                                      "type": "string"
+                                    },
+                                    "extension": {
+                                      "type": "string"
+                                    },
+                                    "form_api_base_url": {
+                                      "type": "string"
+                                    },
+                                    "instanceEndpoint": {
+                                      "type": "string"
+                                    },
+                                    "api_url": {
+                                      "type": "string"
+                                    },
+                                    "borneo_dashboard_url": {
+                                      "type": "string"
+                                    },
+                                    "proxy_username": {
+                                      "type": "string"
+                                    },
+                                    "proxy_password": {
+                                      "type": "string"
+                                    },
+                                    "domain": {
+                                      "type": "string"
+                                    },
+                                    "version": {
+                                      "type": "string"
+                                    },
+                                    "dc": {
+                                      "type": "string"
+                                    },
+                                    "site_name": {
+                                      "type": "string"
+                                    },
+                                    "instanceName": {
+                                      "type": "string"
+                                    },
+                                    "account_id": {
+                                      "type": "string"
+                                    },
+                                    "your_server": {
+                                      "type": "string"
+                                    },
+                                    "server_location": {
+                                      "type": "string"
+                                    },
+                                    "base_url": {
+                                      "type": "string"
+                                    },
+                                    "status": {
+                                      "type": "string",
+                                      "enum": [
+                                        "EXPIRED"
+                                      ]
+                                    },
+                                    "expired_at": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "status"
                                   ],
                                   "additionalProperties": {
                                     "nullable": true
@@ -33787,7 +34488,7 @@
                     "status_reason": {
                       "type": "string",
                       "nullable": true,
-                      "description": "The reason the connection status changed. Possible reasons: Connection initiation did not complete within 10 minutes, Permanent auth error during token refresh, Max auth failures reached, OAuth callback failed during token exchange, Connection status updated by user, Auth config is disabled, Revoked via user-initiated revoke endpoint, Revoked via admin tool, Revoked as part of connection delete, Callback identity verification failed"
+                      "description": "The reason the connection status changed."
                     },
                     "is_disabled": {
                       "type": "boolean",
@@ -34007,8 +34708,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {}
+                  "$ref": "#/components/schemas/Error"
                 }
               }
             }
@@ -49708,6 +50408,10 @@
                                     "original_slug": {
                                       "type": "string",
                                       "description": "Original tool slug as provided by the user"
+                                    },
+                                    "preload": {
+                                      "type": "boolean",
+                                      "description": "Echoes the SDK-local preload hint provided for this tool"
                                     }
                                   },
                                   "required": [
@@ -49718,6 +50422,10 @@
                                     "original_slug"
                                   ]
                                 }
+                              },
+                              "preload": {
+                                "type": "boolean",
+                                "description": "Echoes the SDK-local preload hint provided for this toolkit"
                               }
                             },
                             "required": [
@@ -49767,6 +50475,10 @@
                               "original_slug": {
                                 "type": "string",
                                 "description": "Original tool slug as provided by the user"
+                              },
+                              "preload": {
+                                "type": "boolean",
+                                "description": "Echoes the SDK-local preload hint provided for this tool"
                               }
                             },
                             "required": [
@@ -50687,6 +51399,10 @@
                                     "original_slug": {
                                       "type": "string",
                                       "description": "Original tool slug as provided by the user"
+                                    },
+                                    "preload": {
+                                      "type": "boolean",
+                                      "description": "Echoes the SDK-local preload hint provided for this tool"
                                     }
                                   },
                                   "required": [
@@ -50697,6 +51413,10 @@
                                     "original_slug"
                                   ]
                                 }
+                              },
+                              "preload": {
+                                "type": "boolean",
+                                "description": "Echoes the SDK-local preload hint provided for this toolkit"
                               }
                             },
                             "required": [
@@ -50746,6 +51466,10 @@
                               "original_slug": {
                                 "type": "string",
                                 "description": "Original tool slug as provided by the user"
+                              },
+                              "preload": {
+                                "type": "boolean",
+                                "description": "Echoes the SDK-local preload hint provided for this tool"
                               }
                             },
                             "required": [
@@ -51686,6 +52410,10 @@
                                     "original_slug": {
                                       "type": "string",
                                       "description": "Original tool slug as provided by the user"
+                                    },
+                                    "preload": {
+                                      "type": "boolean",
+                                      "description": "Echoes the SDK-local preload hint provided for this tool"
                                     }
                                   },
                                   "required": [
@@ -51696,6 +52424,10 @@
                                     "original_slug"
                                   ]
                                 }
+                              },
+                              "preload": {
+                                "type": "boolean",
+                                "description": "Echoes the SDK-local preload hint provided for this toolkit"
                               }
                             },
                             "required": [
@@ -51745,6 +52477,10 @@
                               "original_slug": {
                                 "type": "string",
                                 "description": "Original tool slug as provided by the user"
+                              },
+                              "preload": {
+                                "type": "boolean",
+                                "description": "Echoes the SDK-local preload hint provided for this tool"
                               }
                             },
                             "required": [
