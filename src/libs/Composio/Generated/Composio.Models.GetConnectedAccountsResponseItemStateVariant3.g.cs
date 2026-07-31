@@ -19,9 +19,9 @@ namespace Composio
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("val")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant1, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant2, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant3, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant4, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant5>))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant1, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant2, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant3, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant4, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant5, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant6>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Composio.OneOf<global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant1, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant2, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant3, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant4, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant5> Val { get; set; }
+        public required global::Composio.OneOf<global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant1, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant2, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant3, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant4, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant5, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant6> Val { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -38,7 +38,7 @@ namespace Composio
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public GetConnectedAccountsResponseItemStateVariant3(
-            global::Composio.OneOf<global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant1, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant2, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant3, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant4, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant5> val,
+            global::Composio.OneOf<global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant1, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant2, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant3, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant4, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant5, global::Composio.GetConnectedAccountsResponseItemStateVariant3ValVariant6> val,
             global::Composio.GetConnectedAccountsResponseItemStateVariant3AuthScheme authScheme)
         {
             this.AuthScheme = authScheme;

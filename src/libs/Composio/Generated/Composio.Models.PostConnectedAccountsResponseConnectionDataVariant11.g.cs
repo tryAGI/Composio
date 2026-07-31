@@ -19,9 +19,9 @@ namespace Composio
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("val")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.PostConnectedAccountsResponseConnectionDataVariant11ValVariant1, global::Composio.PostConnectedAccountsResponseConnectionDataVariant11ValVariant2, global::Composio.PostConnectedAccountsResponseConnectionDataVariant11ValVariant3, global::Composio.PostConnectedAccountsResponseConnectionDataVariant11ValVariant4>))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.PostConnectedAccountsResponseConnectionDataVariant11ValVariant1, global::Composio.PostConnectedAccountsResponseConnectionDataVariant11ValVariant2, global::Composio.PostConnectedAccountsResponseConnectionDataVariant11ValVariant3, global::Composio.PostConnectedAccountsResponseConnectionDataVariant11ValVariant4, global::Composio.PostConnectedAccountsResponseConnectionDataVariant11ValVariant5>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Composio.OneOf<global::Composio.PostConnectedAccountsResponseConnectionDataVariant11ValVariant1, global::Composio.PostConnectedAccountsResponseConnectionDataVariant11ValVariant2, global::Composio.PostConnectedAccountsResponseConnectionDataVariant11ValVariant3, global::Composio.PostConnectedAccountsResponseConnectionDataVariant11ValVariant4> Val { get; set; }
+        public required global::Composio.OneOf<global::Composio.PostConnectedAccountsResponseConnectionDataVariant11ValVariant1, global::Composio.PostConnectedAccountsResponseConnectionDataVariant11ValVariant2, global::Composio.PostConnectedAccountsResponseConnectionDataVariant11ValVariant3, global::Composio.PostConnectedAccountsResponseConnectionDataVariant11ValVariant4, global::Composio.PostConnectedAccountsResponseConnectionDataVariant11ValVariant5> Val { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -38,7 +38,7 @@ namespace Composio
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PostConnectedAccountsResponseConnectionDataVariant11(
-            global::Composio.OneOf<global::Composio.PostConnectedAccountsResponseConnectionDataVariant11ValVariant1, global::Composio.PostConnectedAccountsResponseConnectionDataVariant11ValVariant2, global::Composio.PostConnectedAccountsResponseConnectionDataVariant11ValVariant3, global::Composio.PostConnectedAccountsResponseConnectionDataVariant11ValVariant4> val,
+            global::Composio.OneOf<global::Composio.PostConnectedAccountsResponseConnectionDataVariant11ValVariant1, global::Composio.PostConnectedAccountsResponseConnectionDataVariant11ValVariant2, global::Composio.PostConnectedAccountsResponseConnectionDataVariant11ValVariant3, global::Composio.PostConnectedAccountsResponseConnectionDataVariant11ValVariant4, global::Composio.PostConnectedAccountsResponseConnectionDataVariant11ValVariant5> val,
             global::Composio.PostConnectedAccountsResponseConnectionDataVariant11AuthScheme authScheme)
         {
             this.AuthScheme = authScheme;
