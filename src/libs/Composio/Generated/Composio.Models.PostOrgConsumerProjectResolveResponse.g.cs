@@ -44,6 +44,13 @@ namespace Composio
         public global::Composio.PostOrgConsumerProjectResolveResponseProjectType ProjectType { get; set; }
 
         /// <summary>
+        /// Consumer project configuration bag (consumer-experience and enhanced-controls flags, plus any provider-specific keys).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("config")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Composio.PostOrgConsumerProjectResolveResponseConfig Config { get; set; }
+
+        /// <summary>
         /// Derived internal Composio user ID for the authenticated user in this consumer org context.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("consumer_user_id")]
@@ -71,6 +78,9 @@ namespace Composio
         /// <param name="orgId">
         /// Organization nano ID that owns the consumer project.
         /// </param>
+        /// <param name="config">
+        /// Consumer project configuration bag (consumer-experience and enhanced-controls flags, plus any provider-specific keys).
+        /// </param>
         /// <param name="consumerUserId">
         /// Derived internal Composio user ID for the authenticated user in this consumer org context.
         /// </param>
@@ -85,6 +95,7 @@ namespace Composio
             string projectNanoId,
             string projectName,
             string orgId,
+            global::Composio.PostOrgConsumerProjectResolveResponseConfig config,
             string consumerUserId,
             global::Composio.PostOrgConsumerProjectResolveResponseProjectType projectType)
         {
@@ -93,6 +104,7 @@ namespace Composio
             this.ProjectName = projectName ?? throw new global::System.ArgumentNullException(nameof(projectName));
             this.OrgId = orgId ?? throw new global::System.ArgumentNullException(nameof(orgId));
             this.ProjectType = projectType;
+            this.Config = config ?? throw new global::System.ArgumentNullException(nameof(config));
             this.ConsumerUserId = consumerUserId ?? throw new global::System.ArgumentNullException(nameof(consumerUserId));
         }
 
