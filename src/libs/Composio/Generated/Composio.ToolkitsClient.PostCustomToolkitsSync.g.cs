@@ -3,11 +3,11 @@
 
 namespace Composio
 {
-    public partial class McpClient
+    public partial class ToolkitsClient
     {
 
 
-        private static readonly global::Composio.EndPointSecurityRequirement s_DeleteMcpByIdSecurityRequirement0 =
+        private static readonly global::Composio.EndPointSecurityRequirement s_PostCustomToolkitsSyncSecurityRequirement0 =
             new global::Composio.EndPointSecurityRequirement
             {
                 Authorizations = new global::Composio.EndPointAuthorizationRequirement[]
@@ -21,44 +21,43 @@ namespace Composio
                     },
                 },
             };
-        private static readonly global::Composio.EndPointSecurityRequirement[] s_DeleteMcpByIdSecurityRequirements =
+        private static readonly global::Composio.EndPointSecurityRequirement[] s_PostCustomToolkitsSyncSecurityRequirements =
             new global::Composio.EndPointSecurityRequirement[]
-            {                s_DeleteMcpByIdSecurityRequirement0,
+            {                s_PostCustomToolkitsSyncSecurityRequirement0,
             };
-        partial void PrepareDeleteMcpByIdArguments(
+        partial void PreparePostCustomToolkitsSyncArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string id);
-        partial void PrepareDeleteMcpByIdRequest(
+            global::Composio.PostCustomToolkitsSyncRequest request);
+        partial void PreparePostCustomToolkitsSyncRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string id);
-        partial void ProcessDeleteMcpByIdResponse(
+            global::Composio.PostCustomToolkitsSyncRequest request);
+        partial void ProcessPostCustomToolkitsSyncResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
 
-        partial void ProcessDeleteMcpByIdResponseContent(
+        partial void ProcessPostCustomToolkitsSyncResponseContent(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage,
             ref string content);
 
         /// <summary>
-        /// Delete an MCP server<br/>
-        /// Performs a soft delete on a Model Control Protocol (MCP) server, making it unavailable for future use. This operation is reversible in the database but cannot be undone through the API. Any applications or services connected to this server will lose access after deletion.
+        /// Sync a custom toolkit<br/>
+        /// Experimental: custom toolkits are in pilot and this contract may change. Re-fetches tool definitions from the remote MCP server for the custom toolkit with the provided slug. Call it when automatic sync fails or the remote tool definitions change.
         /// </summary>
-        /// <param name="id">
-        /// Unique identifier of the MCP server to retrieve, update, or delete<br/>
-        /// Example: 550e8400-e29b-41d4-a716-446655440000
-        /// </param>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Composio.DeleteMcpByIdResponse> DeleteMcpByIdAsync(
-            string id,
+        public async global::System.Threading.Tasks.Task<global::Composio.PostCustomToolkitsSyncResponse> PostCustomToolkitsSyncAsync(
+
+            global::Composio.PostCustomToolkitsSyncRequest request,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
-            var __response = await DeleteMcpByIdAsResponseAsync(
-                id: id,
+            var __response = await PostCustomToolkitsSyncAsResponseAsync(
+
+                request: request,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -66,32 +65,32 @@ namespace Composio
             return __response.Body;
         }
         /// <summary>
-        /// Delete an MCP server<br/>
-        /// Performs a soft delete on a Model Control Protocol (MCP) server, making it unavailable for future use. This operation is reversible in the database but cannot be undone through the API. Any applications or services connected to this server will lose access after deletion.
+        /// Sync a custom toolkit<br/>
+        /// Experimental: custom toolkits are in pilot and this contract may change. Re-fetches tool definitions from the remote MCP server for the custom toolkit with the provided slug. Call it when automatic sync fails or the remote tool definitions change.
         /// </summary>
-        /// <param name="id">
-        /// Unique identifier of the MCP server to retrieve, update, or delete<br/>
-        /// Example: 550e8400-e29b-41d4-a716-446655440000
-        /// </param>
+        /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.DeleteMcpByIdResponse>> DeleteMcpByIdAsResponseAsync(
-            string id,
+        public async global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.PostCustomToolkitsSyncResponse>> PostCustomToolkitsSyncAsResponseAsync(
+
+            global::Composio.PostCustomToolkitsSyncRequest request,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
+            request = request ?? throw new global::System.ArgumentNullException(nameof(request));
+
             PrepareArguments(
                 client: HttpClient);
-            PrepareDeleteMcpByIdArguments(
+            PreparePostCustomToolkitsSyncArguments(
                 httpClient: HttpClient,
-                id: ref id);
+                request: request);
 
 
             var __authorizations = global::Composio.EndPointSecurityResolver.ResolveAuthorizations(
                 availableAuthorizations: Authorizations,
-                securityRequirements: s_DeleteMcpByIdSecurityRequirements,
-                operationName: "DeleteMcpByIdAsync");
+                securityRequirements: s_PostCustomToolkitsSyncSecurityRequirements,
+                operationName: "PostCustomToolkitsSyncAsync");
 
             using var __timeoutCancellationTokenSource = global::Composio.AutoSDKRequestOptionsSupport.CreateTimeoutCancellationTokenSource(
                 clientOptions: Options,
@@ -111,7 +110,7 @@ namespace Composio
             {
 
                             var __pathBuilder = new global::Composio.PathBuilder(
-                                path: $"/api/v3/mcp/{id}",
+                                path: "/api/v3/custom/toolkits/sync",
                                 baseUri: HttpClient.BaseAddress);
                             var __path = __pathBuilder.ToString();
                 __path = global::Composio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -119,7 +118,7 @@ namespace Composio
                     clientParameters: Options.QueryParameters,
                     requestParameters: requestOptions?.QueryParameters);
                 var __httpRequest = new global::System.Net.Http.HttpRequestMessage(
-                    method: global::System.Net.Http.HttpMethod.Delete,
+                    method: global::System.Net.Http.HttpMethod.Post,
                     requestUri: new global::System.Uri(__path, global::System.UriKind.RelativeOrAbsolute));
 #if NET6_0_OR_GREATER
                 __httpRequest.Version = global::System.Net.HttpVersion.Version11;
@@ -142,6 +141,12 @@ namespace Composio
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 } 
             }
+                            var __httpRequestContentBody = request.ToJson(JsonSerializerContext);
+                            var __httpRequestContent = new global::System.Net.Http.StringContent(
+                                content: __httpRequestContentBody,
+                                encoding: global::System.Text.Encoding.UTF8,
+                                mediaType: "application/json");
+                            __httpRequest.Content = __httpRequestContent;
                 global::Composio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -150,10 +155,10 @@ namespace Composio
                 PrepareRequest(
                     client: HttpClient,
                     request: __httpRequest);
-                PrepareDeleteMcpByIdRequest(
+                PreparePostCustomToolkitsSyncRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id!);
+                    request: request);
 
                 return __httpRequest;
             }
@@ -170,10 +175,10 @@ namespace Composio
                     await global::Composio.AutoSDKRequestOptionsSupport.OnBeforeRequestAsync(
                             clientOptions: Options,
                             context: global::Composio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "DeleteMcpById",
-                                methodName: "DeleteMcpByIdAsync",
-                                pathTemplate: "$\"/api/v3/mcp/{id}\"",
-                                httpMethod: "DELETE",
+                                operationId: "PostCustomToolkitsSync",
+                                methodName: "PostCustomToolkitsSyncAsync",
+                                pathTemplate: "\"/api/v3/custom/toolkits/sync\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -204,10 +209,10 @@ namespace Composio
                         await global::Composio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Composio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "DeleteMcpById",
-                                methodName: "DeleteMcpByIdAsync",
-                                pathTemplate: "$\"/api/v3/mcp/{id}\"",
-                                httpMethod: "DELETE",
+                                operationId: "PostCustomToolkitsSync",
+                                methodName: "PostCustomToolkitsSyncAsync",
+                                pathTemplate: "\"/api/v3/custom/toolkits/sync\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: null,
@@ -245,10 +250,10 @@ namespace Composio
                         await global::Composio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Composio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "DeleteMcpById",
-                                methodName: "DeleteMcpByIdAsync",
-                                pathTemplate: "$\"/api/v3/mcp/{id}\"",
-                                httpMethod: "DELETE",
+                                operationId: "PostCustomToolkitsSync",
+                                methodName: "PostCustomToolkitsSyncAsync",
+                                pathTemplate: "\"/api/v3/custom/toolkits/sync\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -285,7 +290,7 @@ namespace Composio
                 ProcessResponse(
                     client: HttpClient,
                     response: __response);
-                ProcessDeleteMcpByIdResponse(
+                ProcessPostCustomToolkitsSyncResponse(
                     httpClient: HttpClient,
                     httpResponseMessage: __response);
                 if (__response.IsSuccessStatusCode)
@@ -293,10 +298,10 @@ namespace Composio
                     await global::Composio.AutoSDKRequestOptionsSupport.OnAfterSuccessAsync(
                             clientOptions: Options,
                             context: global::Composio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "DeleteMcpById",
-                                methodName: "DeleteMcpByIdAsync",
-                                pathTemplate: "$\"/api/v3/mcp/{id}\"",
-                                httpMethod: "DELETE",
+                                operationId: "PostCustomToolkitsSync",
+                                methodName: "PostCustomToolkitsSyncAsync",
+                                pathTemplate: "\"/api/v3/custom/toolkits/sync\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -315,10 +320,10 @@ namespace Composio
                     await global::Composio.AutoSDKRequestOptionsSupport.OnAfterErrorAsync(
                             clientOptions: Options,
                             context: global::Composio.AutoSDKRequestOptionsSupport.CreateHookContext(
-                                operationId: "DeleteMcpById",
-                                methodName: "DeleteMcpByIdAsync",
-                                pathTemplate: "$\"/api/v3/mcp/{id}\"",
-                                httpMethod: "DELETE",
+                                operationId: "PostCustomToolkitsSync",
+                                methodName: "PostCustomToolkitsSyncAsync",
+                                pathTemplate: "\"/api/v3/custom/toolkits/sync\"",
+                                httpMethod: "POST",
                                 baseUri: BaseUri,
                                 request: __httpRequest!,
                                 response: __response,
@@ -332,7 +337,7 @@ namespace Composio
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // Bad request. The server ID parameter may be invalid or in an incorrect format.
+                            // Bad request - Invalid parameters
                             if ((int)__response.StatusCode == 400)
                             {
                                 string? __content_400 = null;
@@ -369,7 +374,7 @@ namespace Composio
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // Unauthorized. Authentication is required or the provided credentials are invalid.
+                            // Unauthorized - Invalid or missing credentials
                             if ((int)__response.StatusCode == 401)
                             {
                                 string? __content_401 = null;
@@ -406,44 +411,7 @@ namespace Composio
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // Forbidden. The authenticated user does not have permission to delete this MCP server.
-                            if ((int)__response.StatusCode == 403)
-                            {
-                                string? __content_403 = null;
-                                global::System.Exception? __exception_403 = null;
-                                global::Composio.Error? __value_403 = null;
-                                try
-                                {
-                                    if (__effectiveReadResponseAsString)
-                                    {
-                                        __content_403 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_403 = global::Composio.Error.FromJson(__content_403, JsonSerializerContext);
-                                    }
-                                    else
-                                    {
-                                        __content_403 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-
-                                        __value_403 = global::Composio.Error.FromJson(__content_403, JsonSerializerContext);
-                                    }
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    __exception_403 = __ex;
-                                }
-
-
-                                throw global::Composio.ApiException<global::Composio.Error>.Create(
-                                    statusCode: __response.StatusCode,
-                                    message: __content_403 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_403,
-                                    responseBody: __content_403,
-                                    responseObject: __value_403,
-                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value));
-                            }
-                            // MCP server not found. No server with the specified ID exists or it has already been deleted.
+                            // Not found - Toolkit not found
                             if ((int)__response.StatusCode == 404)
                             {
                                 string? __content_404 = null;
@@ -480,7 +448,81 @@ namespace Composio
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // Internal server error. An unexpected error occurred while processing the request.
+                            // Request timeout
+                            if ((int)__response.StatusCode == 408)
+                            {
+                                string? __content_408 = null;
+                                global::System.Exception? __exception_408 = null;
+                                global::Composio.Error? __value_408 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_408 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_408 = global::Composio.Error.FromJson(__content_408, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_408 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_408 = global::Composio.Error.FromJson(__content_408, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_408 = __ex;
+                                }
+
+
+                                throw global::Composio.ApiException<global::Composio.Error>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_408 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_408,
+                                    responseBody: __content_408,
+                                    responseObject: __value_408,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+                            // Conflict - Toolkit already exists
+                            if ((int)__response.StatusCode == 409)
+                            {
+                                string? __content_409 = null;
+                                global::System.Exception? __exception_409 = null;
+                                global::Composio.Error? __value_409 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_409 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_409 = global::Composio.Error.FromJson(__content_409, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_409 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_409 = global::Composio.Error.FromJson(__content_409, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_409 = __ex;
+                                }
+
+
+                                throw global::Composio.ApiException<global::Composio.Error>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_409 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_409,
+                                    responseBody: __content_409,
+                                    responseObject: __value_409,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+                            // Internal server error - Failed to sync toolkit
                             if ((int)__response.StatusCode == 500)
                             {
                                 string? __content_500 = null;
@@ -530,7 +572,7 @@ namespace Composio
                                     client: HttpClient,
                                     response: __response,
                                     content: ref __content);
-                                ProcessDeleteMcpByIdResponseContent(
+                                ProcessPostCustomToolkitsSyncResponseContent(
                                     httpClient: HttpClient,
                                     httpResponseMessage: __response,
                                     content: ref __content);
@@ -539,9 +581,9 @@ namespace Composio
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::Composio.DeleteMcpByIdResponse.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::Composio.PostCustomToolkitsSyncResponse.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::Composio.AutoSDKHttpResponse<global::Composio.DeleteMcpByIdResponse>(
+                                    return new global::Composio.AutoSDKHttpResponse<global::Composio.PostCustomToolkitsSyncResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Composio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -571,9 +613,9 @@ namespace Composio
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::Composio.DeleteMcpByIdResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::Composio.PostCustomToolkitsSyncResponse.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::Composio.AutoSDKHttpResponse<global::Composio.DeleteMcpByIdResponse>(
+                                    return new global::Composio.AutoSDKHttpResponse<global::Composio.PostCustomToolkitsSyncResponse>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Composio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -612,6 +654,38 @@ namespace Composio
             {
                 __httpRequest?.Dispose();
             }
+        }
+        /// <summary>
+        /// Sync a custom toolkit<br/>
+        /// Experimental: custom toolkits are in pilot and this contract may change. Re-fetches tool definitions from the remote MCP server for the custom toolkit with the provided slug. Call it when automatic sync fails or the remote tool definitions change.
+        /// </summary>
+        /// <param name="slug">
+        /// Toolkit slug to sync<br/>
+        /// Example: CUSTOM_MY_TOOLKIT
+        /// </param>
+        /// <param name="connectedAccountId">
+        /// The unique identifier for the connected account<br/>
+        /// Example: ca_1a2b3c4d5e6f
+        /// </param>
+        /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
+        /// <param name="cancellationToken">The token to cancel the operation with</param>
+        /// <exception cref="global::System.InvalidOperationException"></exception>
+        public async global::System.Threading.Tasks.Task<global::Composio.PostCustomToolkitsSyncResponse> PostCustomToolkitsSyncAsync(
+            string slug,
+            string? connectedAccountId = default,
+            global::Composio.AutoSDKRequestOptions? requestOptions = default,
+            global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            var __request = new global::Composio.PostCustomToolkitsSyncRequest
+            {
+                Slug = slug,
+                ConnectedAccountId = connectedAccountId,
+            };
+
+            return await PostCustomToolkitsSyncAsync(
+                request: __request,
+                requestOptions: requestOptions,
+                cancellationToken: cancellationToken).ConfigureAwait(false);
         }
     }
 }

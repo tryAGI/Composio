@@ -13,6 +13,8 @@ internal static class ToolkitsApiGroupCommand
                          command.Subcommands.Add(ToolkitsGetToolkitsBySlugCommandApiCommand.Create());
                          command.Subcommands.Add(ToolkitsGetToolkitsCategoriesCommandApiCommand.Create());
                          command.Subcommands.Add(ToolkitsGetToolkitsChangelogCommandApiCommand.Create());
+                         command.Subcommands.Add(ToolkitsPostCustomToolkitsSyncCommandApiCommand.Create());
+                         command.Subcommands.Add(ToolkitsPostCustomToolkitsUpsertCommandApiCommand.Create());
                          command.Subcommands.Add(ToolkitsPostToolkitsMultiCommandApiCommand.Create());
         return command;
     }
