@@ -150,20 +150,6 @@ namespace Composio
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("username")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Username { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("password")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Password { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("expired_at")]
         public string? ExpiredAt { get; set; }
 
@@ -176,8 +162,6 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="PostConnectedAccountsResponseConnectionDataVariant10ValVariant6" /> class.
         /// </summary>
-        /// <param name="username"></param>
-        /// <param name="password"></param>
         /// <param name="subdomain"></param>
         /// <param name="yourDomain"></param>
         /// <param name="region"></param>
@@ -206,8 +190,6 @@ namespace Composio
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PostConnectedAccountsResponseConnectionDataVariant10ValVariant6(
-            string username,
-            string password,
             string? subdomain,
             string? yourDomain,
             string? region,
@@ -256,8 +238,6 @@ namespace Composio
             this.ServerLocation = serverLocation;
             this.BaseUrl = baseUrl;
             this.Status = status;
-            this.Username = username ?? throw new global::System.ArgumentNullException(nameof(username));
-            this.Password = password ?? throw new global::System.ArgumentNullException(nameof(password));
             this.ExpiredAt = expiredAt;
         }
 
