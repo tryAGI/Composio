@@ -346,7 +346,7 @@ namespace Composio
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // Bad request - Invalid nanoid, duplicate alias, or invalid credential values
+                            // Bad request - Invalid nanoid or invalid credential values
                             if ((int)__response.StatusCode == 400)
                             {
                                 string? __content_400 = null;
@@ -494,7 +494,7 @@ namespace Composio
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // Conflict - A concurrent write holds the connection lease; retry the request
+                            // Conflict - Duplicate alias, or a concurrent write holds the connection lease; retry the request
                             if ((int)__response.StatusCode == 409)
                             {
                                 string? __content_409 = null;
