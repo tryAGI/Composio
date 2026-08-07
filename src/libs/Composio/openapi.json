@@ -36368,6 +36368,16 @@
               }
             }
           },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Internal server error",
             "content": {
@@ -40779,6 +40789,16 @@
               }
             }
           },
+          "429": {
+            "description": "Too many requests. The upstream service is rate limiting the request; retry after a short backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Internal server error. An unexpected error occurred while processing the request.",
             "content": {
@@ -42676,6 +42696,16 @@
           },
           "404": {
             "description": "Not found. The toolkits you are looking for do not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests. The upstream service is rate limiting the request; retry after a short backoff.",
             "content": {
               "application/json": {
                 "schema": {
@@ -46315,6 +46345,16 @@
           },
           "422": {
             "description": "Unprocessable entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
             "content": {
               "application/json": {
                 "schema": {
@@ -51988,6 +52028,16 @@
               }
             }
           },
+          "429": {
+            "description": "Too many requests. The upstream service is rate limiting the request; retry after a short backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Internal server error. An unexpected error occurred while processing the request.",
             "content": {
@@ -54000,6 +54050,16 @@
               }
             }
           },
+          "429": {
+            "description": "Too many requests. The upstream service is rate limiting the request; retry after a short backoff.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Internal server error.",
             "content": {
@@ -54230,6 +54290,16 @@
           },
           "404": {
             "description": "Not found. The session does not exist, toolkit not found, or no auth config exists for the toolkit.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests. The upstream service is rate limiting the request; retry after a short backoff.",
             "content": {
               "application/json": {
                 "schema": {
