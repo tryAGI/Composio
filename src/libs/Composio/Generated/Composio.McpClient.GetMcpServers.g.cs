@@ -32,8 +32,8 @@ namespace Composio
             ref string? authConfigIds,
             ref global::Composio.GetMcpServersOrderBy? orderBy,
             ref global::Composio.GetMcpServersOrderDirection? orderDirection,
-            ref double? pageNo,
-            ref double? limit);
+            ref int? pageNo,
+            ref int? limit);
         partial void PrepareGetMcpServersRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -42,8 +42,8 @@ namespace Composio
             string? authConfigIds,
             global::Composio.GetMcpServersOrderBy? orderBy,
             global::Composio.GetMcpServersOrderDirection? orderDirection,
-            double? pageNo,
-            double? limit);
+            int? pageNo,
+            int? limit);
         partial void ProcessGetMcpServersResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -92,8 +92,8 @@ namespace Composio
             string? authConfigIds = default,
             global::Composio.GetMcpServersOrderBy? orderBy = default,
             global::Composio.GetMcpServersOrderDirection? orderDirection = default,
-            double? pageNo = default,
-            double? limit = default,
+            int? pageNo = default,
+            int? limit = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -150,8 +150,8 @@ namespace Composio
             string? authConfigIds = default,
             global::Composio.GetMcpServersOrderBy? orderBy = default,
             global::Composio.GetMcpServersOrderDirection? orderDirection = default,
-            double? pageNo = default,
-            double? limit = default,
+            int? pageNo = default,
+            int? limit = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

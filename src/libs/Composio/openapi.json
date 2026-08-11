@@ -40926,8 +40926,8 @@
     },
     "/api/v3/custom/toolkits/upsert": {
       "post": {
-        "summary": "Upsert a new custom toolkit",
-        "description": "Experimental: custom toolkits are in pilot and this contract may change. Registers a custom toolkit for the project with the provided slug. Registration is insert-only: a slug that already exists returns 409; delete the toolkit and re-register it to replace it.",
+        "summary": "Upsert a custom toolkit",
+        "description": "Experimental: custom toolkits are in pilot and this contract may change. Creates a custom toolkit for the project with the provided slug, or updates its display metadata (name, API key field copy) when the project already owns a toolkit with that slug. app_url and auth_schemes cannot be changed on an existing toolkit: re-sending them unchanged is a no-op, changing them returns 409 (delete and re-register the toolkit instead, which revokes its connections).",
         "tags": [
           "Toolkits"
         ],
@@ -41163,7 +41163,7 @@
             }
           },
           "409": {
-            "description": "Conflict - Toolkit already exists",
+            "description": "Conflict - app_url or auth_schemes differ from the registered toolkit; delete and re-register to change them",
             "content": {
               "application/json": {
                 "schema": {
@@ -47642,8 +47642,9 @@
           },
           {
             "schema": {
-              "type": "number",
-              "nullable": true,
+              "type": "integer",
+              "minimum": 0,
+              "exclusiveMinimum": true,
               "default": 1,
               "description": "Page number to retrieve",
               "example": 1
@@ -47655,8 +47656,9 @@
           },
           {
             "schema": {
-              "type": "number",
-              "nullable": true,
+              "type": "integer",
+              "minimum": 0,
+              "exclusiveMinimum": true,
               "default": 10,
               "description": "Number of servers to return per page",
               "example": 10
@@ -49443,8 +49445,9 @@
           },
           {
             "schema": {
-              "type": "number",
-              "nullable": true,
+              "type": "integer",
+              "minimum": 0,
+              "exclusiveMinimum": true,
               "default": 1,
               "description": "Page number to retrieve",
               "example": 1
@@ -49456,8 +49459,9 @@
           },
           {
             "schema": {
-              "type": "number",
-              "nullable": true,
+              "type": "integer",
+              "minimum": 0,
+              "exclusiveMinimum": true,
               "default": 10,
               "description": "Number of servers to return per page",
               "example": 10
