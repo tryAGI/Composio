@@ -33,8 +33,8 @@ namespace Composio
             ref string? authConfigIds,
             ref global::Composio.GetMcpAppByAppKeyOrderBy? orderBy,
             ref global::Composio.GetMcpAppByAppKeyOrderDirection? orderDirection,
-            ref double? pageNo,
-            ref double? limit);
+            ref int? pageNo,
+            ref int? limit);
         partial void PrepareGetMcpAppByAppKeyRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
@@ -44,8 +44,8 @@ namespace Composio
             string? authConfigIds,
             global::Composio.GetMcpAppByAppKeyOrderBy? orderBy,
             global::Composio.GetMcpAppByAppKeyOrderDirection? orderDirection,
-            double? pageNo,
-            double? limit);
+            int? pageNo,
+            int? limit);
         partial void ProcessGetMcpAppByAppKeyResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -99,8 +99,8 @@ namespace Composio
             string? authConfigIds = default,
             global::Composio.GetMcpAppByAppKeyOrderBy? orderBy = default,
             global::Composio.GetMcpAppByAppKeyOrderDirection? orderDirection = default,
-            double? pageNo = default,
-            double? limit = default,
+            int? pageNo = default,
+            int? limit = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -163,8 +163,8 @@ namespace Composio
             string? authConfigIds = default,
             global::Composio.GetMcpAppByAppKeyOrderBy? orderBy = default,
             global::Composio.GetMcpAppByAppKeyOrderDirection? orderDirection = default,
-            double? pageNo = default,
-            double? limit = default,
+            int? pageNo = default,
+            int? limit = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

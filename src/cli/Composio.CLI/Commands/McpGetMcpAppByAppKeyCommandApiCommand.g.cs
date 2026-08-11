@@ -43,13 +43,13 @@ internal static partial class McpGetMcpAppByAppKeyCommandApiCommand
         Description = @"Direction of ordering",
     };
 
-    private static Option<double?> PageNo { get; } = new(
+    private static Option<int?> PageNo { get; } = new(
         name: @"--page-no")
     {
         Description = @"Page number for pagination (1-based)",
     };
 
-    private static Option<double?> Limit { get; } = new(
+    private static Option<int?> Limit { get; } = new(
         name: @"--limit")
     {
         Description = @"Number of items per page (default: 10)",

@@ -48,8 +48,8 @@ namespace Composio
             string? authConfigIds = default,
             global::Composio.GetMcpAppByAppKeyOrderBy? orderBy = default,
             global::Composio.GetMcpAppByAppKeyOrderDirection? orderDirection = default,
-            double? pageNo = default,
-            double? limit = default,
+            int? pageNo = default,
+            int? limit = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -96,8 +96,8 @@ namespace Composio
             string? authConfigIds = default,
             global::Composio.GetMcpAppByAppKeyOrderBy? orderBy = default,
             global::Composio.GetMcpAppByAppKeyOrderDirection? orderDirection = default,
-            double? pageNo = default,
-            double? limit = default,
+            int? pageNo = default,
+            int? limit = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }
