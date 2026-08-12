@@ -27436,6 +27436,16 @@
               }
             }
           },
+          "422": {
+            "description": "Unprocessable entity. The auth scheme could not be resolved or the connected account is in an invalid state for this operation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Internal server error",
             "content": {
@@ -37882,6 +37892,13 @@
                         "nullable": true,
                         "format": "uri",
                         "description": "Developer-hosted OAuth callback verifier URL. Setting it enables per-user callback identity verification; null disables it. Must be https and pass SSRF checks."
+                      },
+                      "theme": {
+                        "type": "object",
+                        "additionalProperties": {
+                          "nullable": true
+                        },
+                        "description": "Link-auth theme for the hosted connect page. Opaque to Apollo; the dashboard owns the token vocabulary and all value validation."
                       }
                     },
                     "required": [
