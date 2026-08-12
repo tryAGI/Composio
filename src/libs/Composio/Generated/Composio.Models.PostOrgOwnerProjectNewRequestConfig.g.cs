@@ -67,6 +67,12 @@ namespace Composio
         public string? OauthCallbackVerifierUrl { get; set; }
 
         /// <summary>
+        /// Link-auth theme for the hosted connect page. Opaque to Apollo; the dashboard owns the token vocabulary and all value validation.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("theme")]
+        public global::System.Collections.Generic.Dictionary<string, object?>? Theme { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -88,6 +94,9 @@ namespace Composio
         /// <param name="oauthCallbackVerifierUrl">
         /// Developer-hosted OAuth callback verifier URL. Setting it enables per-user callback identity verification; null disables it. Must be https and pass SSRF checks.
         /// </param>
+        /// <param name="theme">
+        /// Link-auth theme for the hosted connect page. Opaque to Apollo; the dashboard owns the token vocabulary and all value validation.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -100,7 +109,8 @@ namespace Composio
             bool? requireMcpApiKey,
             bool? isComposioLinkEnabledForManagedAuth,
             double? signedUrlFileExpiryInSeconds,
-            string? oauthCallbackVerifierUrl)
+            string? oauthCallbackVerifierUrl,
+            global::System.Collections.Generic.Dictionary<string, object?>? theme)
         {
             this.Is2faEnabled = is2faEnabled;
             this.LogoUrl = logoUrl;
@@ -111,6 +121,7 @@ namespace Composio
             this.IsComposioLinkEnabledForManagedAuth = isComposioLinkEnabledForManagedAuth;
             this.SignedUrlFileExpiryInSeconds = signedUrlFileExpiryInSeconds;
             this.OauthCallbackVerifierUrl = oauthCallbackVerifierUrl;
+            this.Theme = theme;
         }
 
         /// <summary>
