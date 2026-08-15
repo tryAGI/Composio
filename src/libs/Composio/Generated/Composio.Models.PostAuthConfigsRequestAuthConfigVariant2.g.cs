@@ -38,6 +38,12 @@ namespace Composio
         public global::Composio.PostAuthConfigsRequestAuthConfigVariant2Credentials? Credentials { get; set; }
 
         /// <summary>
+        /// [EXPERIMENTAL] Opt-in auth-config features.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("experimental")]
+        public global::Composio.PostAuthConfigsRequestAuthConfigVariant2Experimental? Experimental { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("proxy_config")]
@@ -86,6 +92,9 @@ namespace Composio
         /// <param name="credentials">
         /// Default Value: {}
         /// </param>
+        /// <param name="experimental">
+        /// [EXPERIMENTAL] Opt-in auth-config features.
+        /// </param>
         /// <param name="proxyConfig"></param>
         /// <param name="toolAccessConfig"></param>
         /// <param name="sharedCredentials">
@@ -102,6 +111,7 @@ namespace Composio
             global::Composio.PostAuthConfigsRequestAuthConfigVariant2Type type,
             string? name,
             global::Composio.PostAuthConfigsRequestAuthConfigVariant2Credentials? credentials,
+            global::Composio.PostAuthConfigsRequestAuthConfigVariant2Experimental? experimental,
             global::Composio.PostAuthConfigsRequestAuthConfigVariant2ProxyConfig? proxyConfig,
             global::Composio.PostAuthConfigsRequestAuthConfigVariant2ToolAccessConfig? toolAccessConfig,
             global::System.Collections.Generic.Dictionary<string, object?>? sharedCredentials,
@@ -111,6 +121,7 @@ namespace Composio
             this.Name = name;
             this.AuthScheme = authScheme;
             this.Credentials = credentials;
+            this.Experimental = experimental;
             this.ProxyConfig = proxyConfig;
             this.ToolAccessConfig = toolAccessConfig;
             this.SharedCredentials = sharedCredentials;

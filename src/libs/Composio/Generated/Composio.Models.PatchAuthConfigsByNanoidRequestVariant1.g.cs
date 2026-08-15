@@ -30,6 +30,12 @@ namespace Composio
         public global::Composio.PatchAuthConfigsByNanoidRequestVariant1Credentials? Credentials { get; set; }
 
         /// <summary>
+        /// [EXPERIMENTAL] Opt-in auth-config features.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("experimental")]
+        public global::Composio.PatchAuthConfigsByNanoidRequestVariant1Experimental? Experimental { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("proxy_config")]
@@ -74,6 +80,9 @@ namespace Composio
         /// The display name of the authentication configuration
         /// </param>
         /// <param name="credentials"></param>
+        /// <param name="experimental">
+        /// [EXPERIMENTAL] Opt-in auth-config features.
+        /// </param>
         /// <param name="proxyConfig"></param>
         /// <param name="toolAccessConfig"></param>
         /// <param name="sharedCredentials">
@@ -89,6 +98,7 @@ namespace Composio
             global::Composio.PatchAuthConfigsByNanoidRequestVariant1Type type,
             string? name,
             global::Composio.PatchAuthConfigsByNanoidRequestVariant1Credentials? credentials,
+            global::Composio.PatchAuthConfigsByNanoidRequestVariant1Experimental? experimental,
             global::Composio.PatchAuthConfigsByNanoidRequestVariant1ProxyConfig? proxyConfig,
             global::Composio.PatchAuthConfigsByNanoidRequestVariant1ToolAccessConfig? toolAccessConfig,
             global::System.Collections.Generic.Dictionary<string, object?>? sharedCredentials,
@@ -97,6 +107,7 @@ namespace Composio
             this.Type = type;
             this.Name = name;
             this.Credentials = credentials;
+            this.Experimental = experimental;
             this.ProxyConfig = proxyConfig;
             this.ToolAccessConfig = toolAccessConfig;
             this.SharedCredentials = sharedCredentials;
