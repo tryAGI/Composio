@@ -1422,6 +1422,22 @@
                             },
                             "default": {}
                           },
+                          "experimental": {
+                            "type": "object",
+                            "properties": {
+                              "sealed_credentials": {
+                                "type": "object",
+                                "additionalProperties": {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "maxLength": 16384
+                                },
+                                "description": "Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials."
+                              }
+                            },
+                            "description": "[EXPERIMENTAL] Opt-in auth-config features.",
+                            "x-experimental": true
+                          },
                           "proxy_config": {
                             "type": "object",
                             "nullable": true,
@@ -2310,6 +2326,22 @@
                             "description": "OAuth user-token scopes requested for the auth config. This is primarily used by Slack OAuth v2."
                           }
                         }
+                      },
+                      "experimental": {
+                        "type": "object",
+                        "properties": {
+                          "sealed_credentials": {
+                            "type": "object",
+                            "additionalProperties": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 16384
+                            },
+                            "description": "Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials. Rotates the stored client_secret without Apollo ever holding it."
+                          }
+                        },
+                        "description": "[EXPERIMENTAL] Opt-in auth-config features.",
+                        "x-experimental": true
                       },
                       "proxy_config": {
                         "type": "object",
@@ -3204,6 +3236,16 @@
           },
           "404": {
             "description": "CLI session not found or expired, or the linked user API key has been revoked. Sessions expire after 10 minutes from creation. Re-run the CLI login flow to create a new session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limited: too many lookups for this IP or session code, or too many key retrievals for this session. Re-run the CLI login flow.",
             "content": {
               "application/json": {
                 "schema": {
