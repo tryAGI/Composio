@@ -4,9 +4,9 @@
 namespace Composio
 {
     /// <summary>
-    /// Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials.
+    /// [EXPERIMENTAL] Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials.
     /// </summary>
-    public sealed partial class PostAuthConfigsRequestAuthConfigVariant2ExperimentalSealedCredentials
+    public sealed partial class PostAuthConfigsRequestAuthConfigVariant2SealedCredentials
     {
 
         /// <summary>

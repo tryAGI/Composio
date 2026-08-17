@@ -1422,20 +1422,14 @@
                             },
                             "default": {}
                           },
-                          "experimental": {
+                          "sealed_credentials": {
                             "type": "object",
-                            "properties": {
-                              "sealed_credentials": {
-                                "type": "object",
-                                "additionalProperties": {
-                                  "type": "string",
-                                  "minLength": 1,
-                                  "maxLength": 16384
-                                },
-                                "description": "Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials."
-                              }
+                            "additionalProperties": {
+                              "type": "string",
+                              "minLength": 1,
+                              "maxLength": 16384
                             },
-                            "description": "[EXPERIMENTAL] Opt-in auth-config features.",
+                            "description": "[EXPERIMENTAL] Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials.",
                             "x-experimental": true
                           },
                           "proxy_config": {
@@ -2327,20 +2321,14 @@
                           }
                         }
                       },
-                      "experimental": {
+                      "sealed_credentials": {
                         "type": "object",
-                        "properties": {
-                          "sealed_credentials": {
-                            "type": "object",
-                            "additionalProperties": {
-                              "type": "string",
-                              "minLength": 1,
-                              "maxLength": 16384
-                            },
-                            "description": "Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials. Rotates the stored client_secret without Apollo ever holding it."
-                          }
+                        "additionalProperties": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 16384
                         },
-                        "description": "[EXPERIMENTAL] Opt-in auth-config features.",
+                        "description": "[EXPERIMENTAL] Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials. Rotates the stored client_secret without Apollo ever holding it.",
                         "x-experimental": true
                       },
                       "proxy_config": {
