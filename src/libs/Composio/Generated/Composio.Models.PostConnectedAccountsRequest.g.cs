@@ -23,13 +23,6 @@ namespace Composio
         public required global::Composio.PostConnectedAccountsRequestConnection Connection { get; set; }
 
         /// <summary>
-        /// [EXPERIMENTAL] Whether to validate the provided credentials, validates only for API Key Auth scheme<br/>
-        /// Default Value: false
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("validate_credentials")]
-        public bool? ValidateCredentials { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -40,21 +33,15 @@ namespace Composio
         /// </summary>
         /// <param name="authConfig"></param>
         /// <param name="connection"></param>
-        /// <param name="validateCredentials">
-        /// [EXPERIMENTAL] Whether to validate the provided credentials, validates only for API Key Auth scheme<br/>
-        /// Default Value: false
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PostConnectedAccountsRequest(
             global::Composio.PostConnectedAccountsRequestAuthConfig authConfig,
-            global::Composio.PostConnectedAccountsRequestConnection connection,
-            bool? validateCredentials)
+            global::Composio.PostConnectedAccountsRequestConnection connection)
         {
             this.AuthConfig = authConfig ?? throw new global::System.ArgumentNullException(nameof(authConfig));
             this.Connection = connection ?? throw new global::System.ArgumentNullException(nameof(connection));
-            this.ValidateCredentials = validateCredentials;
         }
 
         /// <summary>

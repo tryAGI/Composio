@@ -34,7 +34,7 @@ internal static partial class ToolsPostToolsExecuteByToolSlugCommandApiCommand
     private static Option<string?> Version { get; } = new(
         name: @"--version")
     {
-        Description = @"Tool version to execute (defaults to ""00000000_00"" if not specified)",
+        Description = @"Tool version to execute. Defaults to the pinned version (""00000000_00"") when omitted.",
     };
 
     private static Option<global::Composio.PostToolsExecuteByToolSlugRequestCustomAuthParams?> CustomAuthParams { get; } = new(

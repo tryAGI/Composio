@@ -35,7 +35,7 @@ internal static partial class ToolsPostToolsExecuteByToolSlugInputCommandApiComm
     private static Option<string?> Version { get; } = new(
         name: @"--version")
     {
-        Description = @"Tool version to use when generating inputs (defaults to ""latest"" if not specified)",
+        Description = @"Tool version to use when generating inputs. Defaults to the pinned version (""00000000_00"") when omitted.",
     };
       private static Option<string?> Input { get; } = new(@"--input")
       {

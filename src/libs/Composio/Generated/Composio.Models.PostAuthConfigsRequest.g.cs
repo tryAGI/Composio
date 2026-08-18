@@ -19,8 +19,8 @@ namespace Composio
         /// Default Value: {"type":"use_composio_managed_auth","credentials":{},"restrict_to_following_tools":[]}
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auth_config")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.PostAuthConfigsRequestAuthConfigVariant1, global::Composio.PostAuthConfigsRequestAuthConfigVariant2>))]
-        public global::Composio.OneOf<global::Composio.PostAuthConfigsRequestAuthConfigVariant1, global::Composio.PostAuthConfigsRequestAuthConfigVariant2>? AuthConfig { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AuthConfigJsonConverter))]
+        public global::Composio.AuthConfig? AuthConfig { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -40,7 +40,7 @@ namespace Composio
 #endif
         public PostAuthConfigsRequest(
             global::Composio.PostAuthConfigsRequestToolkit toolkit,
-            global::Composio.OneOf<global::Composio.PostAuthConfigsRequestAuthConfigVariant1, global::Composio.PostAuthConfigsRequestAuthConfigVariant2>? authConfig)
+            global::Composio.AuthConfig? authConfig)
         {
             this.Toolkit = toolkit ?? throw new global::System.ArgumentNullException(nameof(toolkit));
             this.AuthConfig = authConfig;
