@@ -18,7 +18,7 @@ namespace Composio
         global::System.Threading.Tasks.Task<global::Composio.PatchAuthConfigsByNanoidResponse> PatchAuthConfigsByNanoidAsync(
             string nanoid,
 
-            global::Composio.OneOf<global::Composio.PatchAuthConfigsByNanoidRequestVariant1, global::Composio.PatchAuthConfigsByNanoidRequestVariant2> request,
+            global::Composio.PatchAuthConfigsByNanoidRequest request,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -35,7 +35,7 @@ namespace Composio
         global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.PatchAuthConfigsByNanoidResponse>> PatchAuthConfigsByNanoidAsResponseAsync(
             string nanoid,
 
-            global::Composio.OneOf<global::Composio.PatchAuthConfigsByNanoidRequestVariant1, global::Composio.PatchAuthConfigsByNanoidRequestVariant2> request,
+            global::Composio.PatchAuthConfigsByNanoidRequest request,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>

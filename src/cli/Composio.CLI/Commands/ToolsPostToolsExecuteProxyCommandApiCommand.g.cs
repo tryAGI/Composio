@@ -84,7 +84,7 @@ internal static partial class ToolsPostToolsExecuteProxyCommandApiCommand
     public static Command Create()
     {
         var command = new Command(@"post-tools-execute-proxy", @"Execute proxy request
-Proxy an HTTP request to a third-party API using connected account credentials. This endpoint allows making authenticated API calls to external services while abstracting away authentication details. The v3 endpoint is retired except for orgs explicitly allowlisted in LaunchDarkly during migration.");
+Proxy an HTTP request to a third-party API using connected account credentials. This endpoint allows making authenticated API calls to external services while abstracting away authentication details.");
                         command.Options.Add(ConnectedAccountId);
                         command.Options.Add(Endpoint);
                         command.Options.Add(Method);

@@ -52,7 +52,7 @@ namespace Composio
         /// Example: You are an expert assistant that generates precise GitHub Actions workflow parameters. Extract exact repository names, workflow IDs, and input values from user descriptions.
         /// </param>
         /// <param name="version">
-        /// Tool version to use when generating inputs (defaults to "latest" if not specified)<br/>
+        /// Tool version to use when generating inputs. Defaults to the pinned version ("00000000_00") when omitted.<br/>
         /// Example: latest
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>

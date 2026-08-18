@@ -73,7 +73,7 @@ Modifies an existing authentication configuration with new credentials or other 
             await CliRuntime.RunAsync(async () =>
             {
                         var nanoid = parseResult.GetRequiredValue(Nanoid);
-                        var request = await CliRuntime.ReadRequestAsync<global::Composio.OneOf<global::Composio.PatchAuthConfigsByNanoidRequestVariant1, global::Composio.PatchAuthConfigsByNanoidRequestVariant2>>(
+                        var request = await CliRuntime.ReadRequestAsync<global::Composio.PatchAuthConfigsByNanoidRequest>(
                             parseResult,
                             Input,
                             RequestJson,

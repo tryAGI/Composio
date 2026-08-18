@@ -62,7 +62,7 @@ internal static partial class ToolsGetToolsCommandApiCommand
     private static Option<global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>?> ToolkitVersions { get; } = new(
         name: @"--toolkit-versions")
     {
-        Description = @"Toolkit version specification. Use ""latest"" for latest versions or bracket notation for specific versions per toolkit.",
+        Description = @"Toolkit version specification. Use ""latest"" for latest versions or bracket notation for specific versions per toolkit. Defaults to the pinned version (""00000000_00"") when omitted.",
     };
 
     private static Option<double?> Limit { get; } = new(

@@ -34,7 +34,7 @@ namespace Composio
         public string? SystemPrompt { get; set; }
 
         /// <summary>
-        /// Tool version to use when generating inputs (defaults to "latest" if not specified)<br/>
+        /// Tool version to use when generating inputs. Defaults to the pinned version ("00000000_00") when omitted.<br/>
         /// Example: latest
         /// </summary>
         /// <example>latest</example>
@@ -63,7 +63,7 @@ namespace Composio
         /// Example: You are an expert assistant that generates precise GitHub Actions workflow parameters. Extract exact repository names, workflow IDs, and input values from user descriptions.
         /// </param>
         /// <param name="version">
-        /// Tool version to use when generating inputs (defaults to "latest" if not specified)<br/>
+        /// Tool version to use when generating inputs. Defaults to the pinned version ("00000000_00") when omitted.<br/>
         /// Example: latest
         /// </param>
 #if NET7_0_OR_GREATER

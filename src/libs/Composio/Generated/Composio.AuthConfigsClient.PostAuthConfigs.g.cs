@@ -594,7 +594,7 @@ namespace Composio
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Composio.PostAuthConfigsResponse> PostAuthConfigsAsync(
             global::Composio.PostAuthConfigsRequestToolkit toolkit,
-            global::Composio.OneOf<global::Composio.PostAuthConfigsRequestAuthConfigVariant1, global::Composio.PostAuthConfigsRequestAuthConfigVariant2>? authConfig = default,
+            global::Composio.AuthConfig? authConfig = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

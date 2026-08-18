@@ -36,7 +36,7 @@ namespace Composio
         public string? UserId { get; set; }
 
         /// <summary>
-        /// Tool version to execute (defaults to "00000000_00" if not specified)<br/>
+        /// Tool version to execute. Defaults to the pinned version ("00000000_00") when omitted.<br/>
         /// Example: latest
         /// </summary>
         /// <example>latest</example>
@@ -103,7 +103,7 @@ namespace Composio
         /// Example: user-123
         /// </param>
         /// <param name="version">
-        /// Tool version to execute (defaults to "00000000_00" if not specified)<br/>
+        /// Tool version to execute. Defaults to the pinned version ("00000000_00") when omitted.<br/>
         /// Example: latest
         /// </param>
         /// <param name="customAuthParams">

@@ -14,7 +14,7 @@ internal static partial class AuthConfigsPostAuthConfigsCommandApiCommand
         Required = true,
     };
 
-    private static Option<global::Composio.OneOf<global::Composio.PostAuthConfigsRequestAuthConfigVariant1, global::Composio.PostAuthConfigsRequestAuthConfigVariant2>?> AuthConfig { get; } = new(
+    private static Option<global::Composio.AuthConfig?> AuthConfig { get; } = new(
         name: @"--auth-config")
     {
         Description = @"",
