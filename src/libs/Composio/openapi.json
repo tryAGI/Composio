@@ -56472,6 +56472,15 @@
                     "type": "string",
                     "description": "Optional model hint for search/planning behavior (e.g., \"gpt-4o\"). Ignored if invalid.",
                     "example": "gpt-4o"
+                  },
+                  "search_strategy": {
+                    "type": "string",
+                    "enum": [
+                      "auto",
+                      "tool_search"
+                    ],
+                    "description": "Search path to use. Defaults to auto. Use tool_search to bypass cached plans and run direct tool search.",
+                    "example": "tool_search"
                   }
                 },
                 "required": [
