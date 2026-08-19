@@ -6,7 +6,7 @@ namespace Composio
     /// <summary>
     /// 
     /// </summary>
-    public sealed partial class GetToolkitsBySlugResponseAuthConfigDetailFieldsConnectedAccountInitiationOptionalItem
+    public sealed partial class GetAuthConfigsByNanoidResponseExpectedInputField
     {
         /// <summary>
         /// 
@@ -69,13 +69,19 @@ namespace Composio
         public required bool UserVisible { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_available_as_shared_credentials")]
+        public bool? IsAvailableAsSharedCredentials { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetToolkitsBySlugResponseAuthConfigDetailFieldsConnectedAccountInitiationOptionalItem" /> class.
+        /// Initializes a new instance of the <see cref="GetAuthConfigsByNanoidResponseExpectedInputField" /> class.
         /// </summary>
         /// <param name="name"></param>
         /// <param name="displayName"></param>
@@ -90,10 +96,11 @@ namespace Composio
         /// Whether this field holds a secret/credential value. Clients use it to decide whether to mask the input.
         /// </param>
         /// <param name="legacyTemplateName"></param>
+        /// <param name="isAvailableAsSharedCredentials"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
-        public GetToolkitsBySlugResponseAuthConfigDetailFieldsConnectedAccountInitiationOptionalItem(
+        public GetAuthConfigsByNanoidResponseExpectedInputField(
             string name,
             string displayName,
             string type,
@@ -102,7 +109,8 @@ namespace Composio
             bool userVisible,
             string? @default,
             bool? isSecret,
-            string? legacyTemplateName)
+            string? legacyTemplateName,
+            bool? isAvailableAsSharedCredentials)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.DisplayName = displayName ?? throw new global::System.ArgumentNullException(nameof(displayName));
@@ -113,12 +121,13 @@ namespace Composio
             this.IsSecret = isSecret;
             this.LegacyTemplateName = legacyTemplateName;
             this.UserVisible = userVisible;
+            this.IsAvailableAsSharedCredentials = isAvailableAsSharedCredentials;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetToolkitsBySlugResponseAuthConfigDetailFieldsConnectedAccountInitiationOptionalItem" /> class.
+        /// Initializes a new instance of the <see cref="GetAuthConfigsByNanoidResponseExpectedInputField" /> class.
         /// </summary>
-        public GetToolkitsBySlugResponseAuthConfigDetailFieldsConnectedAccountInitiationOptionalItem()
+        public GetAuthConfigsByNanoidResponseExpectedInputField()
         {
         }
 

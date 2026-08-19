@@ -50,7 +50,7 @@ namespace Composio
         public required bool Required { get; set; }
 
         /// <summary>
-        /// 
+        /// Whether this field holds a secret/credential value. Clients use it to decide whether to mask the input.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_secret")]
         public bool? IsSecret { get; set; }
@@ -60,6 +60,13 @@ namespace Composio
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("legacy_template_name")]
         public string? LegacyTemplateName { get; set; }
+
+        /// <summary>
+        /// Whether this field is shown to the end user in the hosted connect flow. Fields with `false` are never required — the field's `default` applies unless the developer supplies a value on the auth config (e.g. as a shared credential).
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_visible")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required bool UserVisible { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -75,8 +82,13 @@ namespace Composio
         /// <param name="type"></param>
         /// <param name="description"></param>
         /// <param name="required"></param>
+        /// <param name="userVisible">
+        /// Whether this field is shown to the end user in the hosted connect flow. Fields with `false` are never required — the field's `default` applies unless the developer supplies a value on the auth config (e.g. as a shared credential).
+        /// </param>
         /// <param name="default"></param>
-        /// <param name="isSecret"></param>
+        /// <param name="isSecret">
+        /// Whether this field holds a secret/credential value. Clients use it to decide whether to mask the input.
+        /// </param>
         /// <param name="legacyTemplateName"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -87,6 +99,7 @@ namespace Composio
             string type,
             string description,
             bool required,
+            bool userVisible,
             string? @default,
             bool? isSecret,
             string? legacyTemplateName)
@@ -99,6 +112,7 @@ namespace Composio
             this.Required = required;
             this.IsSecret = isSecret;
             this.LegacyTemplateName = legacyTemplateName;
+            this.UserVisible = userVisible;
         }
 
         /// <summary>
