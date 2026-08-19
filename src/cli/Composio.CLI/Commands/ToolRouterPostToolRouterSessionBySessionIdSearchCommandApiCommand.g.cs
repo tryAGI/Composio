@@ -25,6 +25,12 @@ internal static partial class ToolRouterPostToolRouterSessionBySessionIdSearchCo
     {
         Description = @"Optional model hint for search/planning behavior (e.g., ""gpt-4o""). Ignored if invalid.",
     };
+
+    private static Option<global::Composio.PostToolRouterSessionBySessionIdSearchRequestSearchStrategy?> SearchStrategy { get; } = new(
+        name: @"--search-strategy")
+    {
+        Description = @"Search path to use. Defaults to auto. Use tool_search to bypass cached plans and run direct tool search.",
+    };
       private static Option<string?> Input { get; } = new(@"--input")
       {
           Description = "Load request JSON from a file path, '-' for stdin, or an inline JSON object/array string.",
@@ -69,6 +75,7 @@ Search for tools matching a given use case query within a tool router session. R
                         command.Arguments.Add(SessionId);
                         command.Options.Add(Queries);
                         command.Options.Add(Model);
+                        command.Options.Add(SearchStrategy);
           command.Options.Add(Input);
           command.Options.Add(RequestJson);
           command.Options.Add(RequestFile);
@@ -97,6 +104,7 @@ Search for tools matching a given use case query within a tool router session. R
                         var sessionId = parseResult.GetRequiredValue(SessionId);
                         var queries = parseResult.GetRequiredValue(Queries);
                         var model = CliRuntime.WasSpecified(parseResult, Model) ? parseResult.GetValue(Model) : (__requestBase is { } __ModelBaseValue ? __ModelBaseValue.Model : default);
+                        var searchStrategy = CliRuntime.WasSpecified(parseResult, SearchStrategy) ? parseResult.GetValue(SearchStrategy) : (__requestBase is { } __SearchStrategyBaseValue ? __SearchStrategyBaseValue.SearchStrategy : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
@@ -104,6 +112,7 @@ Search for tools matching a given use case query within a tool router session. R
                                     sessionId: sessionId,
                                     queries: queries,
                                     model: model,
+                                    searchStrategy: searchStrategy,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
 

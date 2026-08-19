@@ -760,6 +760,10 @@ namespace Composio
         /// Optional model hint for search/planning behavior (e.g., "gpt-4o"). Ignored if invalid.<br/>
         /// Example: gpt-4o
         /// </param>
+        /// <param name="searchStrategy">
+        /// Search path to use. Defaults to auto. Use tool_search to bypass cached plans and run direct tool search.<br/>
+        /// Example: tool_search
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -767,6 +771,7 @@ namespace Composio
             string sessionId,
             global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionBySessionIdSearchRequestQuerie> queries,
             string? model = default,
+            global::Composio.PostToolRouterSessionBySessionIdSearchRequestSearchStrategy? searchStrategy = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -774,6 +779,7 @@ namespace Composio
             {
                 Queries = queries,
                 Model = model,
+                SearchStrategy = searchStrategy,
             };
 
             return await PostToolRouterSessionBySessionIdSearchAsync(
