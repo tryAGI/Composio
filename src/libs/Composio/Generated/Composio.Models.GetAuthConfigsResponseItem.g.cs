@@ -108,7 +108,7 @@ namespace Composio
         /// Fields expected during connection initialization
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("expected_input_fields")]
-        public global::System.Collections.Generic.IList<object>? ExpectedInputFields { get; set; }
+        public global::System.Collections.Generic.IList<global::Composio.GetAuthConfigsResponseItemExpectedInputField>? ExpectedInputFields { get; set; }
 
         /// <summary>
         /// Use tool_access_config instead. This field will be deprecated in the future.
@@ -214,7 +214,7 @@ namespace Composio
             string? createdBy,
             string? createdAt,
             string? lastUpdatedAt,
-            global::System.Collections.Generic.IList<object>? expectedInputFields,
+            global::System.Collections.Generic.IList<global::Composio.GetAuthConfigsResponseItemExpectedInputField>? expectedInputFields,
             global::System.Collections.Generic.Dictionary<string, object?>? sharedCredentials,
             bool? isEnabledForToolRouter)
         {

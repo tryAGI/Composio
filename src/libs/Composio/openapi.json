@@ -2067,7 +2067,50 @@
                           "expected_input_fields": {
                             "type": "array",
                             "items": {
-                              "nullable": true
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "string"
+                                },
+                                "displayName": {
+                                  "type": "string"
+                                },
+                                "default": {
+                                  "type": "string",
+                                  "nullable": true
+                                },
+                                "type": {
+                                  "type": "string"
+                                },
+                                "description": {
+                                  "type": "string"
+                                },
+                                "required": {
+                                  "type": "boolean"
+                                },
+                                "is_secret": {
+                                  "type": "boolean",
+                                  "description": "Whether this field holds a secret/credential value. Clients use it to decide whether to mask the input."
+                                },
+                                "legacy_template_name": {
+                                  "type": "string"
+                                },
+                                "user_visible": {
+                                  "type": "boolean",
+                                  "description": "Whether this field is shown to the end user in the hosted connect flow. Fields with `false` are never required — the field's `default` applies unless the developer supplies a value on the auth config (e.g. as a shared credential)."
+                                },
+                                "is_available_as_shared_credentials": {
+                                  "type": "boolean"
+                                }
+                              },
+                              "required": [
+                                "name",
+                                "displayName",
+                                "type",
+                                "description",
+                                "required",
+                                "user_visible"
+                              ]
                             },
                             "description": "Fields expected during connection initialization"
                           },
@@ -2355,7 +2398,50 @@
                     "expected_input_fields": {
                       "type": "array",
                       "items": {
-                        "nullable": true
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "displayName": {
+                            "type": "string"
+                          },
+                          "default": {
+                            "type": "string",
+                            "nullable": true
+                          },
+                          "type": {
+                            "type": "string"
+                          },
+                          "description": {
+                            "type": "string"
+                          },
+                          "required": {
+                            "type": "boolean"
+                          },
+                          "is_secret": {
+                            "type": "boolean",
+                            "description": "Whether this field holds a secret/credential value. Clients use it to decide whether to mask the input."
+                          },
+                          "legacy_template_name": {
+                            "type": "string"
+                          },
+                          "user_visible": {
+                            "type": "boolean",
+                            "description": "Whether this field is shown to the end user in the hosted connect flow. Fields with `false` are never required — the field's `default` applies unless the developer supplies a value on the auth config (e.g. as a shared credential)."
+                          },
+                          "is_available_as_shared_credentials": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "displayName",
+                          "type",
+                          "description",
+                          "required",
+                          "user_visible"
+                        ]
                       },
                       "description": "Fields expected during connection initialization"
                     },
@@ -41599,10 +41685,15 @@
                                           "type": "boolean"
                                         },
                                         "is_secret": {
-                                          "type": "boolean"
+                                          "type": "boolean",
+                                          "description": "Whether this field holds a secret/credential value. Clients use it to decide whether to mask the input."
                                         },
                                         "legacy_template_name": {
                                           "type": "string"
+                                        },
+                                        "user_visible": {
+                                          "type": "boolean",
+                                          "description": "Whether this field is shown to the end user in the hosted connect flow. Fields with `false` are never required — the field's `default` applies unless the developer supplies a value on the auth config (e.g. as a shared credential)."
                                         }
                                       },
                                       "required": [
@@ -41610,7 +41701,8 @@
                                         "displayName",
                                         "type",
                                         "description",
-                                        "required"
+                                        "required",
+                                        "user_visible"
                                       ]
                                     }
                                   },
@@ -41639,10 +41731,15 @@
                                           "type": "boolean"
                                         },
                                         "is_secret": {
-                                          "type": "boolean"
+                                          "type": "boolean",
+                                          "description": "Whether this field holds a secret/credential value. Clients use it to decide whether to mask the input."
                                         },
                                         "legacy_template_name": {
                                           "type": "string"
+                                        },
+                                        "user_visible": {
+                                          "type": "boolean",
+                                          "description": "Whether this field is shown to the end user in the hosted connect flow. Fields with `false` are never required — the field's `default` applies unless the developer supplies a value on the auth config (e.g. as a shared credential)."
                                         }
                                       },
                                       "required": [
@@ -41650,7 +41747,8 @@
                                         "displayName",
                                         "type",
                                         "description",
-                                        "required"
+                                        "required",
+                                        "user_visible"
                                       ]
                                     }
                                   }
@@ -41689,10 +41787,15 @@
                                           "type": "boolean"
                                         },
                                         "is_secret": {
-                                          "type": "boolean"
+                                          "type": "boolean",
+                                          "description": "Whether this field holds a secret/credential value. Clients use it to decide whether to mask the input."
                                         },
                                         "legacy_template_name": {
                                           "type": "string"
+                                        },
+                                        "user_visible": {
+                                          "type": "boolean",
+                                          "description": "Whether this field is shown to the end user in the hosted connect flow. Fields with `false` are never required — the field's `default` applies unless the developer supplies a value on the auth config (e.g. as a shared credential)."
                                         }
                                       },
                                       "required": [
@@ -41700,7 +41803,8 @@
                                         "displayName",
                                         "type",
                                         "description",
-                                        "required"
+                                        "required",
+                                        "user_visible"
                                       ]
                                     }
                                   },
@@ -41729,10 +41833,15 @@
                                           "type": "boolean"
                                         },
                                         "is_secret": {
-                                          "type": "boolean"
+                                          "type": "boolean",
+                                          "description": "Whether this field holds a secret/credential value. Clients use it to decide whether to mask the input."
                                         },
                                         "legacy_template_name": {
                                           "type": "string"
+                                        },
+                                        "user_visible": {
+                                          "type": "boolean",
+                                          "description": "Whether this field is shown to the end user in the hosted connect flow. Fields with `false` are never required — the field's `default` applies unless the developer supplies a value on the auth config (e.g. as a shared credential)."
                                         }
                                       },
                                       "required": [
@@ -41740,7 +41849,8 @@
                                         "displayName",
                                         "type",
                                         "description",
-                                        "required"
+                                        "required",
+                                        "user_visible"
                                       ]
                                     }
                                   }
