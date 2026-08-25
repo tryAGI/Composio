@@ -148,6 +148,18 @@ namespace Composio
         public global::Composio.PostConnectedAccountsResponseConnectionDataVariant14ValVariant1Status Status { get; set; }
 
         /// <summary>
+        /// The OAuth state prefix for the connection
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("state_prefix")]
+        public string? StatePrefix { get; set; }
+
+        /// <summary>
+        /// Whether to return the redirect URL without shortening
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("long_redirect_url")]
+        public bool? LongRedirectUrl { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -179,6 +191,12 @@ namespace Composio
         /// <param name="serverLocation"></param>
         /// <param name="baseUrl"></param>
         /// <param name="status"></param>
+        /// <param name="statePrefix">
+        /// The OAuth state prefix for the connection
+        /// </param>
+        /// <param name="longRedirectUrl">
+        /// Whether to return the redirect URL without shortening
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -205,7 +223,9 @@ namespace Composio
             string? yourServer,
             string? serverLocation,
             string? baseUrl,
-            global::Composio.PostConnectedAccountsResponseConnectionDataVariant14ValVariant1Status status)
+            global::Composio.PostConnectedAccountsResponseConnectionDataVariant14ValVariant1Status status,
+            string? statePrefix,
+            bool? longRedirectUrl)
         {
             this.Subdomain = subdomain;
             this.YourDomain = yourDomain;
@@ -230,6 +250,8 @@ namespace Composio
             this.ServerLocation = serverLocation;
             this.BaseUrl = baseUrl;
             this.Status = status;
+            this.StatePrefix = statePrefix;
+            this.LongRedirectUrl = longRedirectUrl;
         }
 
         /// <summary>

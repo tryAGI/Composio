@@ -35,6 +35,10 @@ namespace Composio
         /// <summary>
         /// 
         /// </summary>
+        CimdOauth,
+        /// <summary>
+        /// 
+        /// </summary>
         DcrOauth,
         /// <summary>
         /// 
@@ -84,6 +88,7 @@ namespace Composio
                 CustomAuthConfigCreateAuthScheme.BearerToken => "BEARER_TOKEN",
                 CustomAuthConfigCreateAuthScheme.BillcomAuth => "BILLCOM_AUTH",
                 CustomAuthConfigCreateAuthScheme.CalcomAuth => "CALCOM_AUTH",
+                CustomAuthConfigCreateAuthScheme.CimdOauth => "CIMD_OAUTH",
                 CustomAuthConfigCreateAuthScheme.DcrOauth => "DCR_OAUTH",
                 CustomAuthConfigCreateAuthScheme.GoogleServiceAccount => "GOOGLE_SERVICE_ACCOUNT",
                 CustomAuthConfigCreateAuthScheme.NoAuth => "NO_AUTH",
@@ -108,6 +113,7 @@ namespace Composio
                 "BEARER_TOKEN" => CustomAuthConfigCreateAuthScheme.BearerToken,
                 "BILLCOM_AUTH" => CustomAuthConfigCreateAuthScheme.BillcomAuth,
                 "CALCOM_AUTH" => CustomAuthConfigCreateAuthScheme.CalcomAuth,
+                "CIMD_OAUTH" => CustomAuthConfigCreateAuthScheme.CimdOauth,
                 "DCR_OAUTH" => CustomAuthConfigCreateAuthScheme.DcrOauth,
                 "GOOGLE_SERVICE_ACCOUNT" => CustomAuthConfigCreateAuthScheme.GoogleServiceAccount,
                 "NO_AUTH" => CustomAuthConfigCreateAuthScheme.NoAuth,

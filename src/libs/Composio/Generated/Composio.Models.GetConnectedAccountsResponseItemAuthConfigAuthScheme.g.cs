@@ -35,6 +35,10 @@ namespace Composio
         /// <summary>
         /// 
         /// </summary>
+        CimdOauth,
+        /// <summary>
+        /// 
+        /// </summary>
         DcrOauth,
         /// <summary>
         /// 
@@ -84,6 +88,7 @@ namespace Composio
                 GetConnectedAccountsResponseItemAuthConfigAuthScheme.BearerToken => "BEARER_TOKEN",
                 GetConnectedAccountsResponseItemAuthConfigAuthScheme.BillcomAuth => "BILLCOM_AUTH",
                 GetConnectedAccountsResponseItemAuthConfigAuthScheme.CalcomAuth => "CALCOM_AUTH",
+                GetConnectedAccountsResponseItemAuthConfigAuthScheme.CimdOauth => "CIMD_OAUTH",
                 GetConnectedAccountsResponseItemAuthConfigAuthScheme.DcrOauth => "DCR_OAUTH",
                 GetConnectedAccountsResponseItemAuthConfigAuthScheme.GoogleServiceAccount => "GOOGLE_SERVICE_ACCOUNT",
                 GetConnectedAccountsResponseItemAuthConfigAuthScheme.NoAuth => "NO_AUTH",
@@ -108,6 +113,7 @@ namespace Composio
                 "BEARER_TOKEN" => GetConnectedAccountsResponseItemAuthConfigAuthScheme.BearerToken,
                 "BILLCOM_AUTH" => GetConnectedAccountsResponseItemAuthConfigAuthScheme.BillcomAuth,
                 "CALCOM_AUTH" => GetConnectedAccountsResponseItemAuthConfigAuthScheme.CalcomAuth,
+                "CIMD_OAUTH" => GetConnectedAccountsResponseItemAuthConfigAuthScheme.CimdOauth,
                 "DCR_OAUTH" => GetConnectedAccountsResponseItemAuthConfigAuthScheme.DcrOauth,
                 "GOOGLE_SERVICE_ACCOUNT" => GetConnectedAccountsResponseItemAuthConfigAuthScheme.GoogleServiceAccount,
                 "NO_AUTH" => GetConnectedAccountsResponseItemAuthConfigAuthScheme.NoAuth,
