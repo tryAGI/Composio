@@ -148,11 +148,36 @@ namespace Composio
         public global::Composio.GetConnectedAccountsResponseItemStateVariant14ValVariant4Status Status { get; set; }
 
         /// <summary>
+        /// The OAuth state prefix for the connection
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("state_prefix")]
+        public string? StatePrefix { get; set; }
+
+        /// <summary>
+        /// Whether to return the redirect URL without shortening
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("long_redirect_url")]
+        public bool? LongRedirectUrl { get; set; }
+
+        /// <summary>
+        /// Client ID metadata document URL
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("client_id")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string ClientId { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("access_token")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string AccessToken { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("id_token")]
+        public string? IdToken { get; set; }
 
         /// <summary>
         /// 
@@ -163,14 +188,8 @@ namespace Composio
         /// <summary>
         /// 
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("client_id")]
-        public string? ClientId { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("client_secret")]
-        public string? ClientSecret { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("refresh_token")]
+        public string? RefreshToken { get; set; }
 
         /// <summary>
         /// 
@@ -178,12 +197,6 @@ namespace Composio
         [global::System.Text.Json.Serialization.JsonPropertyName("expires_in")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>))]
         public global::Composio.AnyOf<double?, string, object>? ExpiresIn { get; set; }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("expires_at")]
-        public string? ExpiresAt { get; set; }
 
         /// <summary>
         /// 
@@ -201,6 +214,9 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="GetConnectedAccountsResponseItemStateVariant14ValVariant4" /> class.
         /// </summary>
+        /// <param name="clientId">
+        /// Client ID metadata document URL
+        /// </param>
         /// <param name="accessToken"></param>
         /// <param name="subdomain"></param>
         /// <param name="yourDomain"></param>
@@ -225,16 +241,22 @@ namespace Composio
         /// <param name="serverLocation"></param>
         /// <param name="baseUrl"></param>
         /// <param name="status"></param>
+        /// <param name="statePrefix">
+        /// The OAuth state prefix for the connection
+        /// </param>
+        /// <param name="longRedirectUrl">
+        /// Whether to return the redirect URL without shortening
+        /// </param>
+        /// <param name="idToken"></param>
         /// <param name="tokenType"></param>
-        /// <param name="clientId"></param>
-        /// <param name="clientSecret"></param>
+        /// <param name="refreshToken"></param>
         /// <param name="expiresIn"></param>
-        /// <param name="expiresAt"></param>
         /// <param name="scope"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public GetConnectedAccountsResponseItemStateVariant14ValVariant4(
+            string clientId,
             string accessToken,
             string? subdomain,
             string? yourDomain,
@@ -259,11 +281,12 @@ namespace Composio
             string? serverLocation,
             string? baseUrl,
             global::Composio.GetConnectedAccountsResponseItemStateVariant14ValVariant4Status status,
+            string? statePrefix,
+            bool? longRedirectUrl,
+            string? idToken,
             string? tokenType,
-            string? clientId,
-            string? clientSecret,
+            string? refreshToken,
             global::Composio.AnyOf<double?, string, object>? expiresIn,
-            string? expiresAt,
             global::Composio.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? scope)
         {
             this.Subdomain = subdomain;
@@ -289,12 +312,14 @@ namespace Composio
             this.ServerLocation = serverLocation;
             this.BaseUrl = baseUrl;
             this.Status = status;
+            this.StatePrefix = statePrefix;
+            this.LongRedirectUrl = longRedirectUrl;
+            this.ClientId = clientId ?? throw new global::System.ArgumentNullException(nameof(clientId));
             this.AccessToken = accessToken ?? throw new global::System.ArgumentNullException(nameof(accessToken));
+            this.IdToken = idToken;
             this.TokenType = tokenType;
-            this.ClientId = clientId;
-            this.ClientSecret = clientSecret;
+            this.RefreshToken = refreshToken;
             this.ExpiresIn = expiresIn;
-            this.ExpiresAt = expiresAt;
             this.Scope = scope;
         }
 

@@ -11,7 +11,7 @@ namespace Composio
         /// <summary>
         /// 
         /// </summary>
-        S2sOauth2,
+        CimdOauth,
     }
 
     /// <summary>
@@ -26,7 +26,7 @@ namespace Composio
         {
             return value switch
             {
-                PostConnectedAccountsRequestConnectionStateVariant14AuthScheme.S2sOauth2 => "S2S_OAUTH2",
+                PostConnectedAccountsRequestConnectionStateVariant14AuthScheme.CimdOauth => "CIMD_OAUTH",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -37,7 +37,7 @@ namespace Composio
         {
             return value switch
             {
-                "S2S_OAUTH2" => PostConnectedAccountsRequestConnectionStateVariant14AuthScheme.S2sOauth2,
+                "CIMD_OAUTH" => PostConnectedAccountsRequestConnectionStateVariant14AuthScheme.CimdOauth,
                 _ => null,
             };
         }

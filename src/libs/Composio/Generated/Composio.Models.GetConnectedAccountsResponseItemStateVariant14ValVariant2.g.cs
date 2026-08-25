@@ -148,6 +148,50 @@ namespace Composio
         public global::Composio.GetConnectedAccountsResponseItemStateVariant14ValVariant2Status Status { get; set; }
 
         /// <summary>
+        /// The OAuth state prefix for the connection
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("state_prefix")]
+        public string? StatePrefix { get; set; }
+
+        /// <summary>
+        /// Whether to return the redirect URL without shortening
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("long_redirect_url")]
+        public bool? LongRedirectUrl { get; set; }
+
+        /// <summary>
+        /// Client ID metadata document URL
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("client_id")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string ClientId { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("redirectUrl")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string RedirectUrl { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("callback_url")]
+        public string? CallbackUrl { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("finalRedirectUri")]
+        public string? FinalRedirectUri { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("code_verifier")]
+        public string? CodeVerifier { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -156,6 +200,10 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="GetConnectedAccountsResponseItemStateVariant14ValVariant2" /> class.
         /// </summary>
+        /// <param name="clientId">
+        /// Client ID metadata document URL
+        /// </param>
+        /// <param name="redirectUrl"></param>
         /// <param name="subdomain"></param>
         /// <param name="yourDomain"></param>
         /// <param name="region"></param>
@@ -179,10 +227,21 @@ namespace Composio
         /// <param name="serverLocation"></param>
         /// <param name="baseUrl"></param>
         /// <param name="status"></param>
+        /// <param name="statePrefix">
+        /// The OAuth state prefix for the connection
+        /// </param>
+        /// <param name="longRedirectUrl">
+        /// Whether to return the redirect URL without shortening
+        /// </param>
+        /// <param name="callbackUrl"></param>
+        /// <param name="finalRedirectUri"></param>
+        /// <param name="codeVerifier"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public GetConnectedAccountsResponseItemStateVariant14ValVariant2(
+            string clientId,
+            string redirectUrl,
             string? subdomain,
             string? yourDomain,
             string? region,
@@ -205,7 +264,12 @@ namespace Composio
             string? yourServer,
             string? serverLocation,
             string? baseUrl,
-            global::Composio.GetConnectedAccountsResponseItemStateVariant14ValVariant2Status status)
+            global::Composio.GetConnectedAccountsResponseItemStateVariant14ValVariant2Status status,
+            string? statePrefix,
+            bool? longRedirectUrl,
+            string? callbackUrl,
+            string? finalRedirectUri,
+            string? codeVerifier)
         {
             this.Subdomain = subdomain;
             this.YourDomain = yourDomain;
@@ -230,6 +294,13 @@ namespace Composio
             this.ServerLocation = serverLocation;
             this.BaseUrl = baseUrl;
             this.Status = status;
+            this.StatePrefix = statePrefix;
+            this.LongRedirectUrl = longRedirectUrl;
+            this.ClientId = clientId ?? throw new global::System.ArgumentNullException(nameof(clientId));
+            this.RedirectUrl = redirectUrl ?? throw new global::System.ArgumentNullException(nameof(redirectUrl));
+            this.CallbackUrl = callbackUrl;
+            this.FinalRedirectUri = finalRedirectUri;
+            this.CodeVerifier = codeVerifier;
         }
 
         /// <summary>

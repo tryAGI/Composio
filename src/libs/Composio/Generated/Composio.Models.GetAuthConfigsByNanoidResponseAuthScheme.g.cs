@@ -35,6 +35,10 @@ namespace Composio
         /// <summary>
         /// 
         /// </summary>
+        CimdOauth,
+        /// <summary>
+        /// 
+        /// </summary>
         DcrOauth,
         /// <summary>
         /// 
@@ -84,6 +88,7 @@ namespace Composio
                 GetAuthConfigsByNanoidResponseAuthScheme.BearerToken => "BEARER_TOKEN",
                 GetAuthConfigsByNanoidResponseAuthScheme.BillcomAuth => "BILLCOM_AUTH",
                 GetAuthConfigsByNanoidResponseAuthScheme.CalcomAuth => "CALCOM_AUTH",
+                GetAuthConfigsByNanoidResponseAuthScheme.CimdOauth => "CIMD_OAUTH",
                 GetAuthConfigsByNanoidResponseAuthScheme.DcrOauth => "DCR_OAUTH",
                 GetAuthConfigsByNanoidResponseAuthScheme.GoogleServiceAccount => "GOOGLE_SERVICE_ACCOUNT",
                 GetAuthConfigsByNanoidResponseAuthScheme.NoAuth => "NO_AUTH",
@@ -108,6 +113,7 @@ namespace Composio
                 "BEARER_TOKEN" => GetAuthConfigsByNanoidResponseAuthScheme.BearerToken,
                 "BILLCOM_AUTH" => GetAuthConfigsByNanoidResponseAuthScheme.BillcomAuth,
                 "CALCOM_AUTH" => GetAuthConfigsByNanoidResponseAuthScheme.CalcomAuth,
+                "CIMD_OAUTH" => GetAuthConfigsByNanoidResponseAuthScheme.CimdOauth,
                 "DCR_OAUTH" => GetAuthConfigsByNanoidResponseAuthScheme.DcrOauth,
                 "GOOGLE_SERVICE_ACCOUNT" => GetAuthConfigsByNanoidResponseAuthScheme.GoogleServiceAccount,
                 "NO_AUTH" => GetAuthConfigsByNanoidResponseAuthScheme.NoAuth,
