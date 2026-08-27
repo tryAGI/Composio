@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant1Mode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NoAuth,
     }

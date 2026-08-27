@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum GetConnectedAccountsResponseItemStateVariant3AuthScheme
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ApiKey,
     }

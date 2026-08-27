@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PostConnectedAccountsRequestConnectionStateVariant9ValVariant5Status
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Failed,
     }

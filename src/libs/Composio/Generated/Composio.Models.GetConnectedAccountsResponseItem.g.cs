@@ -6,19 +6,19 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class GetConnectedAccountsResponseItem
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("toolkit")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::Composio.GetConnectedAccountsResponseItemToolkit Toolkit { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auth_config")]
         [global::System.Text.Json.Serialization.JsonRequired]

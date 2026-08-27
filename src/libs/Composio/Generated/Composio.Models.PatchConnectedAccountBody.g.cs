@@ -4,7 +4,7 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PatchConnectedAccountBody
     {
@@ -15,7 +15,7 @@ namespace Composio
         public string? Alias { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("connection")]
         public global::Composio.PatchConnectedAccountBodyConnection? Connection { get; set; }

@@ -10,15 +10,15 @@ namespace Composio
     public enum PostInternalTriggerLogsRequestStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         All,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Error,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Success,
     }

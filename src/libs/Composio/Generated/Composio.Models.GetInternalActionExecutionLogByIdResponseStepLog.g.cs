@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class GetInternalActionExecutionLogByIdResponseStepLog
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.GetInternalActionExecutionLogByIdResponseStepLogTypeJsonConverter))]
@@ -17,42 +17,42 @@ namespace Composio
         public required global::Composio.GetInternalActionExecutionLogByIdResponseStepLogType Type { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("level")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Level { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("message")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Message { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("requestId")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Guid RequestId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("time")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double Time { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("request")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::Composio.GetInternalActionExecutionLogByIdResponseStepLogRequest Request { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("response")]
         [global::System.Text.Json.Serialization.JsonRequired]

@@ -10,31 +10,31 @@ namespace Composio
     public enum PostInternalTriggerLogsRequestTime
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x1d,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x1month,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x1w,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x1y,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x30m,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x5m,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         x6h,
     }

@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum GetConnectedAccountsByNanoidResponseStateVariant7AuthScheme
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NoAuth,
     }

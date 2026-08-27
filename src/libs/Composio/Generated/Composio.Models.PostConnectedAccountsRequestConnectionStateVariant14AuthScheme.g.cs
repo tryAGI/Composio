@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PostConnectedAccountsRequestConnectionStateVariant14AuthScheme
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CimdOauth,
     }

@@ -9,63 +9,63 @@ namespace Composio
     public enum GetConnectedAccountsByNanoidResponseAuthScheme
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ApiKey,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Basic,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BasicWithJwt,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BearerToken,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BillcomAuth,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CalcomAuth,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CimdOauth,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DcrOauth,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GoogleServiceAccount,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NoAuth,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Oauth1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Oauth2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         S2sOauth2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Saml,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ServiceAccount,
     }

@@ -37,7 +37,7 @@ namespace Composio
         internal global::System.Lazy<global::System.Text.Json.Serialization.JsonSerializerContext> JsonSerializerContextProvider { get; set; } = new(() => global::Composio.SourceGenerationContext.Default);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext
         {
@@ -74,7 +74,7 @@ namespace Composio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CliAuthenticationClient CliAuthentication => new CliAuthenticationClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -119,7 +119,7 @@ namespace Composio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public OrganizationManagementClient OrganizationManagement => new OrganizationManagementClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {
@@ -128,7 +128,7 @@ namespace Composio
         };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ProjectsClient Projects => new ProjectsClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
         {

@@ -115,7 +115,7 @@ namespace Composio
         public string? GetCurrentUserEndpointMethod { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("deprecated")]
         [global::System.Text.Json.Serialization.JsonRequired]

@@ -6,12 +6,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ComposioManagedAuthConfigCreate
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.ComposioManagedAuthConfigCreateTypeJsonConverter))]
@@ -30,7 +30,7 @@ namespace Composio
         public global::Composio.ComposioManagedAuthConfigCreateCredentials? Credentials { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_access_config")]
         public global::Composio.ComposioManagedAuthConfigCreateToolAccessConfig? ToolAccessConfig { get; set; }

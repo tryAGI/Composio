@@ -9,14 +9,14 @@ namespace Composio
     public sealed partial class GetToolkitsBySlugResponseAuthConfigDetailFieldsConnectedAccountInitiation
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("required")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<global::Composio.GetToolkitsBySlugResponseAuthConfigDetailFieldsConnectedAccountInitiationRequiredItem> Required { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("optional")]
         [global::System.Text.Json.Serialization.JsonRequired]

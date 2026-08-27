@@ -9,21 +9,21 @@ namespace Composio
     public sealed partial class PostToolRouterSessionBySessionIdLinkResponseExperimentalAclConfigForShared
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("allow_all_users")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool AllowAllUsers { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("allowed_user_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.IList<string> AllowedUserIds { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("not_allowed_user_ids")]
         [global::System.Text.Json.Serialization.JsonRequired]

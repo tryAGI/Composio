@@ -9,13 +9,13 @@ namespace Composio
     public sealed partial class PostToolsExecuteProxyRequestCustomConnectionDataVariant1ValAuthedUser
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("access_token")]
         public string? AccessToken { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("scope")]
         public string? Scope { get; set; }

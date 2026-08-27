@@ -10,11 +10,11 @@ namespace Composio
     public enum GetTriggersTypesBySlugResponseType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Poll,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Webhook,
     }

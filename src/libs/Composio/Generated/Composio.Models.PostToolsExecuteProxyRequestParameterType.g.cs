@@ -10,11 +10,11 @@ namespace Composio
     public enum PostToolsExecuteProxyRequestParameterType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Header,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Query,
     }

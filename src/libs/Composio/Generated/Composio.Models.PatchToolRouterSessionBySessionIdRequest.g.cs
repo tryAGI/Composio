@@ -4,7 +4,7 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PatchToolRouterSessionBySessionIdRequest
     {
@@ -32,7 +32,7 @@ namespace Composio
         public global::System.Collections.Generic.Dictionary<string, string>? ConnectedAccounts { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("manage_connections")]
         public global::Composio.PatchToolRouterSessionBySessionIdRequestManageConnections? ManageConnections { get; set; }
@@ -55,13 +55,13 @@ namespace Composio
         public global::Composio.AnyOf<global::System.Collections.Generic.IList<global::Composio.PatchToolRouterSessionBySessionIdRequestTag>, global::Composio.PatchToolRouterSessionBySessionIdRequestTags>? Tags { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("workbench")]
         public global::Composio.PatchToolRouterSessionBySessionIdRequestWorkbench? Workbench { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("multi_account")]
         public global::Composio.PatchToolRouterSessionBySessionIdRequestMultiAccount? MultiAccount { get; set; }
@@ -73,7 +73,7 @@ namespace Composio
         public global::Composio.PatchToolRouterSessionBySessionIdRequestPreload? Preload { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("experimental")]
         public global::Composio.PatchToolRouterSessionBySessionIdRequestExperimental? Experimental { get; set; }

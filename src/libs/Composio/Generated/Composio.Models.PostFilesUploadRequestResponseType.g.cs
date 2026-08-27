@@ -9,7 +9,7 @@ namespace Composio
     public enum PostFilesUploadRequestResponseType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         New,
     }

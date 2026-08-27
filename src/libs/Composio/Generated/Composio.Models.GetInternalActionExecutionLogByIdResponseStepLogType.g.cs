@@ -4,16 +4,16 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum GetInternalActionExecutionLogByIdResponseStepLogType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Network,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         System,
     }

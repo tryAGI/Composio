@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum GetConnectedAccountsResponseItemStateVariant2ValVariant7Status
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Revoked,
     }

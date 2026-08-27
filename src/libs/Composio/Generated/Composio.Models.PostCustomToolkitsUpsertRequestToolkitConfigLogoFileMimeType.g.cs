@@ -9,11 +9,11 @@ namespace Composio
     public enum PostCustomToolkitsUpsertRequestToolkitConfigLogoFileMimeType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ImageJpeg,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ImagePng,
     }

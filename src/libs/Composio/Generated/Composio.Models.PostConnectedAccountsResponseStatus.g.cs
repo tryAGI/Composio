@@ -9,31 +9,31 @@ namespace Composio
     public enum PostConnectedAccountsResponseStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Active,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Expired,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Failed,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Inactive,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Initializing,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Initiated,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Revoked,
     }

@@ -9,11 +9,11 @@ namespace Composio
     public enum PostToolsExecuteByToolSlugRequestCustomAuthParamsParameterIn
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Header,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Query,
     }

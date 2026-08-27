@@ -9,7 +9,7 @@ namespace Composio
     public enum PostOrgConsumerProjectResolveResponseProjectType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Consumer,
     }

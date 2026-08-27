@@ -10,11 +10,11 @@ namespace Composio
     public enum GetTriggersTypesResponseItemType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Poll,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Webhook,
     }

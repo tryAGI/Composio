@@ -10,13 +10,13 @@ namespace Composio
     public sealed partial class PostCliCodactFailuresRequestToolInfo
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("toolkit")]
         public string? Toolkit { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool")]
         public global::Composio.PostCliCodactFailuresRequestToolInfoTool? Tool { get; set; }

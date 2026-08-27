@@ -6,7 +6,7 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PostToolsExecuteProxyRequest
     {
@@ -61,7 +61,7 @@ namespace Composio
         public global::System.Collections.Generic.IList<global::Composio.PostToolsExecuteProxyRequestParameter>? Parameters { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("custom_connection_data")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.PostToolsExecuteProxyRequestCustomConnectionDataVariant1, global::Composio.PostToolsExecuteProxyRequestCustomConnectionDataVariant2, global::Composio.PostToolsExecuteProxyRequestCustomConnectionDataVariant3, global::Composio.PostToolsExecuteProxyRequestCustomConnectionDataVariant4, global::Composio.PostToolsExecuteProxyRequestCustomConnectionDataVariant5, global::Composio.PostToolsExecuteProxyRequestCustomConnectionDataVariant6, global::Composio.PostToolsExecuteProxyRequestCustomConnectionDataVariant7, global::Composio.PostToolsExecuteProxyRequestCustomConnectionDataVariant8, global::Composio.PostToolsExecuteProxyRequestCustomConnectionDataVariant9, global::Composio.PostToolsExecuteProxyRequestCustomConnectionDataVariant10, global::Composio.PostToolsExecuteProxyRequestCustomConnectionDataVariant11>))]

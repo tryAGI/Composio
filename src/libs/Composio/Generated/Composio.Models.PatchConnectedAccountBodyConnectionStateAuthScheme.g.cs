@@ -9,27 +9,27 @@ namespace Composio
     public enum PatchConnectedAccountBodyConnectionStateAuthScheme
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ApiKey,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Basic,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BasicWithJwt,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BearerToken,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GoogleServiceAccount,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ServiceAccount,
     }

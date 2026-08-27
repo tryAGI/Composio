@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum GetConnectedAccountsResponseItemStateVariant12AuthScheme
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Saml,
     }

@@ -10,11 +10,11 @@ namespace Composio
     public enum PostCliCreateSessionResponseScope
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Project,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         User,
     }

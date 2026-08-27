@@ -9,7 +9,7 @@ namespace Composio
     public enum PostToolRouterSessionBySessionIdSearchResponseToolSchemasSchemaRefTool
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ComposioGetToolSchemas,
     }

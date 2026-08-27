@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum GetConnectedAccountsByNanoidResponseStateVariant10AuthScheme
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BasicWithJwt,
     }

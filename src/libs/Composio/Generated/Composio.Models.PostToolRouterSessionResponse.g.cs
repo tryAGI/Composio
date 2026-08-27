@@ -4,7 +4,7 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PostToolRouterSessionResponse
     {
@@ -18,7 +18,7 @@ namespace Composio
         public required string SessionId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mcp")]
         [global::System.Text.Json.Serialization.JsonRequired]

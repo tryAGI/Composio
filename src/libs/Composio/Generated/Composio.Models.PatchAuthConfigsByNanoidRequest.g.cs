@@ -5,17 +5,17 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public readonly partial struct PatchAuthConfigsByNanoidRequest : global::System.IEquatable<PatchAuthConfigsByNanoidRequest>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Composio.PatchAuthConfigsByNanoidRequestDiscriminatorType? Type { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Composio.CustomAuthConfigUpdate? Custom { get; init; }
@@ -24,7 +24,7 @@ namespace Composio
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Custom))]
@@ -32,7 +32,7 @@ namespace Composio
         public bool IsCustom => Custom != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickCustom(
 #if NET6_0_OR_GREATER
@@ -45,14 +45,14 @@ namespace Composio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Composio.CustomAuthConfigUpdate PickCustom() => IsCustom
             ? Custom!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Custom' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Composio.DefaultAuthConfigUpdate? Default { get; init; }
@@ -61,7 +61,7 @@ namespace Composio
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Default))]
@@ -69,7 +69,7 @@ namespace Composio
         public bool IsDefault => Default != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickDefault(
 #if NET6_0_OR_GREATER
@@ -82,23 +82,23 @@ namespace Composio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Composio.DefaultAuthConfigUpdate PickDefault() => IsDefault
             ? Default!
             : throw new global::System.InvalidOperationException($"Expected union variant 'Default' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator PatchAuthConfigsByNanoidRequest(global::Composio.CustomAuthConfigUpdate value) => new PatchAuthConfigsByNanoidRequest((global::Composio.CustomAuthConfigUpdate?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Composio.CustomAuthConfigUpdate?(PatchAuthConfigsByNanoidRequest @this) => @this.Custom;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public PatchAuthConfigsByNanoidRequest(global::Composio.CustomAuthConfigUpdate? value)
         {
@@ -106,22 +106,22 @@ namespace Composio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static PatchAuthConfigsByNanoidRequest FromCustom(global::Composio.CustomAuthConfigUpdate? value) => new PatchAuthConfigsByNanoidRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator PatchAuthConfigsByNanoidRequest(global::Composio.DefaultAuthConfigUpdate value) => new PatchAuthConfigsByNanoidRequest((global::Composio.DefaultAuthConfigUpdate?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Composio.DefaultAuthConfigUpdate?(PatchAuthConfigsByNanoidRequest @this) => @this.Default;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public PatchAuthConfigsByNanoidRequest(global::Composio.DefaultAuthConfigUpdate? value)
         {
@@ -129,12 +129,12 @@ namespace Composio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static PatchAuthConfigsByNanoidRequest FromDefault(global::Composio.DefaultAuthConfigUpdate? value) => new PatchAuthConfigsByNanoidRequest(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public PatchAuthConfigsByNanoidRequest(
             global::Composio.PatchAuthConfigsByNanoidRequestDiscriminatorType? type,
@@ -149,23 +149,23 @@ namespace Composio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             Default as object ??
-            Custom as object 
+            Custom as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             Custom?.ToString() ??
-            Default?.ToString() 
+            Default?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -173,7 +173,7 @@ namespace Composio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Composio.CustomAuthConfigUpdate, TResult>? custom = null,
@@ -198,7 +198,7 @@ namespace Composio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Composio.CustomAuthConfigUpdate>? custom = null,
@@ -222,7 +222,7 @@ namespace Composio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Composio.CustomAuthConfigUpdate>? custom = null,
@@ -245,7 +245,7 @@ namespace Composio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -266,18 +266,18 @@ namespace Composio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(PatchAuthConfigsByNanoidRequest other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::Composio.CustomAuthConfigUpdate?>.Default.Equals(Custom, other.Custom) &&
-                global::System.Collections.Generic.EqualityComparer<global::Composio.DefaultAuthConfigUpdate?>.Default.Equals(Default, other.Default) 
+                global::System.Collections.Generic.EqualityComparer<global::Composio.DefaultAuthConfigUpdate?>.Default.Equals(Default, other.Default)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(PatchAuthConfigsByNanoidRequest obj1, PatchAuthConfigsByNanoidRequest obj2)
         {
@@ -285,7 +285,7 @@ namespace Composio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(PatchAuthConfigsByNanoidRequest obj1, PatchAuthConfigsByNanoidRequest obj2)
         {
@@ -293,7 +293,7 @@ namespace Composio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

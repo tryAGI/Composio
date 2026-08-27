@@ -4,19 +4,19 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class GetConnectedAccountsByNanoidResponseStateVariant7
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("authScheme")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.GetConnectedAccountsByNanoidResponseStateVariant7AuthSchemeJsonConverter))]
         public global::Composio.GetConnectedAccountsByNanoidResponseStateVariant7AuthScheme AuthScheme { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("val")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.GetConnectedAccountsByNanoidResponseStateVariant7ValVariant1, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant7ValVariant2, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant7ValVariant3, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant7ValVariant4, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant7ValVariant5, global::Composio.GetConnectedAccountsByNanoidResponseStateVariant7ValVariant6>))]

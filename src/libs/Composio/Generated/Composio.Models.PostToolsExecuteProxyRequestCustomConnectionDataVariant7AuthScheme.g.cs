@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PostToolsExecuteProxyRequestCustomConnectionDataVariant7AuthScheme
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Oauth1,
     }

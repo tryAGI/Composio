@@ -10,11 +10,11 @@ namespace Composio
     public enum GetInternalTriggerLogByIdResponseLogMetaType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Action,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Trigger,
     }

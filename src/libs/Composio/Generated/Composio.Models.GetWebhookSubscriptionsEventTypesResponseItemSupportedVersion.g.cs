@@ -4,20 +4,20 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum GetWebhookSubscriptionsEventTypesResponseItemSupportedVersion
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         V1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         V2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         V3,
     }

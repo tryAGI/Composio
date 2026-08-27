@@ -6,12 +6,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class DefaultAuthConfigUpdate
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.DefaultAuthConfigUpdateTypeJsonConverter))]
@@ -45,7 +45,7 @@ namespace Composio
         public global::System.Collections.Generic.IList<string>? RestrictToFollowingTools { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_access_config")]
         public global::Composio.DefaultAuthConfigUpdateToolAccessConfig? ToolAccessConfig { get; set; }
