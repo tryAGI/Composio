@@ -9,7 +9,7 @@ namespace Composio
     public enum GetToolRouterSessionBySessionIdResponseMcpType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Http,
     }

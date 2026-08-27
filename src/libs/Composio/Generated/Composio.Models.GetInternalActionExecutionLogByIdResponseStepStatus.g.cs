@@ -4,20 +4,20 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum GetInternalActionExecutionLogByIdResponseStepStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Error,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Failure,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Success,
     }

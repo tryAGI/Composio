@@ -9,11 +9,11 @@ namespace Composio
     public enum GetAuthConfigsByNanoidResponseStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Disabled,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Enabled,
     }

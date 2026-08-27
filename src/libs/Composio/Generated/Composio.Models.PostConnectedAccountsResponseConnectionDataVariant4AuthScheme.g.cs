@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PostConnectedAccountsResponseConnectionDataVariant4AuthScheme
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Basic,
     }

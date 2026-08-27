@@ -4,7 +4,7 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PostCustomToolkitsUpsertRequest
     {
@@ -18,7 +18,7 @@ namespace Composio
         public required string Slug { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("toolkit_config")]
         [global::System.Text.Json.Serialization.JsonRequired]

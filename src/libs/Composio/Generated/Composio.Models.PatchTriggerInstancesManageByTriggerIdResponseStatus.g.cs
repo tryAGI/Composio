@@ -9,7 +9,7 @@ namespace Composio
     public enum PatchTriggerInstancesManageByTriggerIdResponseStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Success,
     }

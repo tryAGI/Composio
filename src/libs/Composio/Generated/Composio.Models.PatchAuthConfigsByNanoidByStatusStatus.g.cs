@@ -9,11 +9,11 @@ namespace Composio
     public enum PatchAuthConfigsByNanoidByStatusStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Disabled,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Enabled,
     }

@@ -4,19 +4,19 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PostConnectedAccountsRequestConnectionStateVariant11
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("authScheme")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.PostConnectedAccountsRequestConnectionStateVariant11AuthSchemeJsonConverter))]
         public global::Composio.PostConnectedAccountsRequestConnectionStateVariant11AuthScheme AuthScheme { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("val")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.PostConnectedAccountsRequestConnectionStateVariant11ValVariant1, global::Composio.PostConnectedAccountsRequestConnectionStateVariant11ValVariant2, global::Composio.PostConnectedAccountsRequestConnectionStateVariant11ValVariant3, global::Composio.PostConnectedAccountsRequestConnectionStateVariant11ValVariant4, global::Composio.PostConnectedAccountsRequestConnectionStateVariant11ValVariant5>))]

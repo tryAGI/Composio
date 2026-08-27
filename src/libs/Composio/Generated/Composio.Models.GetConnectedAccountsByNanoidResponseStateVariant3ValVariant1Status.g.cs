@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum GetConnectedAccountsByNanoidResponseStateVariant3ValVariant1Status
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Initializing,
     }

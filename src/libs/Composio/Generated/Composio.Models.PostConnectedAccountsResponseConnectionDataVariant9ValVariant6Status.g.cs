@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PostConnectedAccountsResponseConnectionDataVariant9ValVariant6Status
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Expired,
     }

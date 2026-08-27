@@ -10,11 +10,11 @@ namespace Composio
     public enum PostToolRouterSessionBySessionIdProxyExecuteRequestParameterType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Header,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Query,
     }

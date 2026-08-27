@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum GetConnectedAccountsByNanoidResponseStateVariant6AuthScheme
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GoogleServiceAccount,
     }

@@ -4,7 +4,7 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class ToolDeprecated
     {
@@ -45,7 +45,7 @@ namespace Composio
         public required bool IsDeprecated { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("toolkit")]
         [global::System.Text.Json.Serialization.JsonRequired]

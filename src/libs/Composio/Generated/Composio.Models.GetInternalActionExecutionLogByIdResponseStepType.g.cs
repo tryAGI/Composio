@@ -4,16 +4,16 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum GetInternalActionExecutionLogByIdResponseStepType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         FetchConnectionDetails,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ToolExecution,
     }

@@ -10,11 +10,11 @@ namespace Composio
     public enum PostCliCreateSessionResponseStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Linked,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Pending,
     }

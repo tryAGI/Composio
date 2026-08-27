@@ -10,11 +10,11 @@ namespace Composio
     public enum GetConnectedAccountsOrderDirection
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Asc,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Desc,
     }

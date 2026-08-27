@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant6AuthScheme
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BearerToken,
     }

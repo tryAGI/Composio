@@ -9,11 +9,11 @@ namespace Composio
     public enum PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseAccountType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Private,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Shared,
     }

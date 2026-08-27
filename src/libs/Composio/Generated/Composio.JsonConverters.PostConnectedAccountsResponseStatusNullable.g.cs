@@ -20,7 +20,7 @@ namespace Composio.JsonConverters
                     {
                         return global::Composio.PostConnectedAccountsResponseStatusExtensions.ToEnum(stringValue);
                     }
-                    
+
                     break;
                 }
                 case global::System.Text.Json.JsonTokenType.Number:

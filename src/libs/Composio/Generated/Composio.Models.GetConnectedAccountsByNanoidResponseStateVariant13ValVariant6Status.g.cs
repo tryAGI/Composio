@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum GetConnectedAccountsByNanoidResponseStateVariant13ValVariant6Status
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Expired,
     }

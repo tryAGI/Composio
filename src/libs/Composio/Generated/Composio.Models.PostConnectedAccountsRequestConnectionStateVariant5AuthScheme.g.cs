@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PostConnectedAccountsRequestConnectionStateVariant5AuthScheme
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BearerToken,
     }

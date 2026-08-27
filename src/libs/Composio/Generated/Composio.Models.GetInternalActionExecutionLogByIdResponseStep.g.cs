@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class GetInternalActionExecutionLogByIdResponseStep
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.GetInternalActionExecutionLogByIdResponseStepTypeJsonConverter))]
@@ -17,28 +17,28 @@ namespace Composio
         public required global::Composio.GetInternalActionExecutionLogByIdResponseStepType Type { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("startTime")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double StartTime { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("endTime")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double EndTime { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("totalDuration")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double TotalDuration { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.GetInternalActionExecutionLogByIdResponseStepStatusJsonConverter))]
@@ -46,20 +46,20 @@ namespace Composio
         public required global::Composio.GetInternalActionExecutionLogByIdResponseStepStatus Status { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("message")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Message { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
         public global::Composio.GetInternalActionExecutionLogByIdResponseStepMetadata? Metadata { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("logs")]
         public global::System.Collections.Generic.IList<global::Composio.GetInternalActionExecutionLogByIdResponseStepLog>? Logs { get; set; }

@@ -10,15 +10,15 @@ namespace Composio
     public enum GetOrgOwnerProjectListResponseDataItemWebhookVersion
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         V1,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         V2,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         V3,
     }

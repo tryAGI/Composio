@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PostConnectedAccountsRequestConnectionStateVariant8AuthScheme
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CalcomAuth,
     }

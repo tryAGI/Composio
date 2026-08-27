@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant3Mode
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DcrOauth,
     }

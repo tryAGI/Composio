@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PostConnectedAccountsRequestConnectionStateVariant2AuthScheme
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Oauth2,
     }

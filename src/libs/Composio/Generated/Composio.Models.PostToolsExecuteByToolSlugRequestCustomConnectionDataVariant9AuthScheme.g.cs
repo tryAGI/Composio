@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant9AuthScheme
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ServiceAccount,
     }

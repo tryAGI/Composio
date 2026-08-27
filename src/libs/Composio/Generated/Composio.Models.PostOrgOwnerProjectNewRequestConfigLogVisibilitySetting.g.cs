@@ -4,16 +4,16 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PostOrgOwnerProjectNewRequestConfigLogVisibilitySetting
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DontStoreData,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ShowAll,
     }

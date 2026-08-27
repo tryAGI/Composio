@@ -9,11 +9,11 @@ namespace Composio
     public enum GetAuthConfigsByNanoidResponseType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Custom,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Default,
     }

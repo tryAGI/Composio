@@ -9,15 +9,15 @@ namespace Composio
     public enum PostToolRouterSessionRequestExperimentalPermissionsDefault
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AllowAll,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AskEveryCall,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AskOncePerSession,
     }

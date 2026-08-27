@@ -4,7 +4,7 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PostConnectedAccountsResponseConnectionDataVariant2ValVariant4ExtraTokenData
     {

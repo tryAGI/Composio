@@ -6,19 +6,19 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class GetConnectedAccountsByNanoidResponse
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("toolkit")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::Composio.GetConnectedAccountsByNanoidResponseToolkit Toolkit { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auth_config")]
         [global::System.Text.Json.Serialization.JsonRequired]

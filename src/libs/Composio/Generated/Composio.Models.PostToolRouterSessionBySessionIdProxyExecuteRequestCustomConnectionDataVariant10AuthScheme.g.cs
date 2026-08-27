@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant10AuthScheme
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         GoogleServiceAccount,
     }

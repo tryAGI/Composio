@@ -10,14 +10,14 @@ namespace Composio
     public sealed partial class GetToolkitsBySlugResponseAuthConfigDetailDeprecatedAuthProviderDetails
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("authorization_url")]
         [global::System.Obsolete("This property marked as deprecated.")]
         public string? AuthorizationUrl { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("token_url")]
         [global::System.Obsolete("This property marked as deprecated.")]

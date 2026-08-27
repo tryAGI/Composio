@@ -9,11 +9,11 @@ namespace Composio
     public enum PostFilesUploadRequestResponseMetadataStorageBackend
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AzureBlobStorage,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         S3,
     }

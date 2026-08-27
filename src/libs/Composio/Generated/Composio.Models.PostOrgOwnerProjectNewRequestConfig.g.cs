@@ -9,33 +9,33 @@ namespace Composio
     public sealed partial class PostOrgOwnerProjectNewRequestConfig
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_2FA_enabled")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool Is2faEnabled { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("logo_url")]
         public string? LogoUrl { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("display_name")]
         public string? DisplayName { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mask_secret_keys_in_connected_account")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required bool MaskSecretKeysInConnectedAccount { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("log_visibility_setting")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.PostOrgOwnerProjectNewRequestConfigLogVisibilitySettingJsonConverter))]
@@ -43,7 +43,7 @@ namespace Composio
         public required global::Composio.PostOrgOwnerProjectNewRequestConfigLogVisibilitySetting LogVisibilitySetting { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("require_mcp_api_key")]
         public bool? RequireMcpApiKey { get; set; }
@@ -55,7 +55,7 @@ namespace Composio
         public bool? IsComposioLinkEnabledForManagedAuth { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("signed_url_file_expiry_in_seconds")]
         public double? SignedUrlFileExpiryInSeconds { get; set; }

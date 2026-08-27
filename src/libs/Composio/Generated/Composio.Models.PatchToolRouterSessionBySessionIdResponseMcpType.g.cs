@@ -9,7 +9,7 @@ namespace Composio
     public enum PatchToolRouterSessionBySessionIdResponseMcpType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Http,
     }

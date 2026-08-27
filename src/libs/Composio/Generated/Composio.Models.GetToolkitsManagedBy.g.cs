@@ -9,15 +9,15 @@ namespace Composio
     public enum GetToolkitsManagedBy
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         All,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Composio,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Project,
     }

@@ -4,24 +4,24 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PostToolRouterSessionRequestExperimentalPermissionsOverrides2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AlwaysAllow,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AlwaysDeny,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AskAlways,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AskOnce,
     }

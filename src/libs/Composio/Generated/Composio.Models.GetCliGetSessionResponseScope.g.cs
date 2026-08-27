@@ -10,11 +10,11 @@ namespace Composio
     public enum GetCliGetSessionResponseScope
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Project,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         User,
     }

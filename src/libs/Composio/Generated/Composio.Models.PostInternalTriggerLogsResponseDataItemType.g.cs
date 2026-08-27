@@ -10,11 +10,11 @@ namespace Composio
     public enum PostInternalTriggerLogsResponseDataItemType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Action,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Trigger,
     }

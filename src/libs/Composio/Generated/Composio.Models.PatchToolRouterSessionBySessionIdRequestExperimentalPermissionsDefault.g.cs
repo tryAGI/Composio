@@ -9,15 +9,15 @@ namespace Composio
     public enum PatchToolRouterSessionBySessionIdRequestExperimentalPermissionsDefault
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AllowAll,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AskEveryCall,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         AskOncePerSession,
     }

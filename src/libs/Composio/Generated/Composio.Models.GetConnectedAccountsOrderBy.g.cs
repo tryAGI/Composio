@@ -10,11 +10,11 @@ namespace Composio
     public enum GetConnectedAccountsOrderBy
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreatedAt,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UpdatedAt,
     }

@@ -6,54 +6,54 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PostInternalActionExecutionLogsResponseDataItem
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Id { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("actionKey")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ActionKey { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("appKey")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string AppKey { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("app")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::Composio.PostInternalActionExecutionLogsResponseDataItemApp App { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("connectedAccountId")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ConnectedAccountId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("entityId")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string EntityId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.PostInternalActionExecutionLogsResponseDataItemStatusJsonConverter))]
@@ -61,27 +61,27 @@ namespace Composio
         public required global::Composio.PostInternalActionExecutionLogsResponseDataItemStatus Status { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("executionTime")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double ExecutionTime { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("minimalResponse")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string MinimalResponse { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("metadata")]
         public global::Composio.PostInternalActionExecutionLogsResponseDataItemMetadata? Metadata { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("createdAt")]
         [global::System.Text.Json.Serialization.JsonRequired]

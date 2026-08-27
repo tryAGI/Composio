@@ -10,31 +10,31 @@ namespace Composio
     public enum PostToolRouterSessionBySessionIdExecuteMetaRequestSlug
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ComposioGetToolSchemas,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ComposioManageConnections,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ComposioMultiExecuteTool,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ComposioRemoteBashTool,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ComposioRemoteWorkbench,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ComposioSearchTools,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ComposioWaitForConnections,
     }

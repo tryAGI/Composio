@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PostInternalTriggerLogsResponseDataItemMeta
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -26,78 +26,78 @@ namespace Composio
         public required global::Composio.PostInternalTriggerLogsResponseDataItemMetaType Type { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("createdAt")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string CreatedAt { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("updatedAt")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string UpdatedAt { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("provider")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Provider { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("clientId")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ClientId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("connectionId")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ConnectionId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("triggerProviderPayload")]
         public string? TriggerProviderPayload { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("triggerClientPayload")]
         public string? TriggerClientPayload { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("triggerClientError")]
         public string? TriggerClientError { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("triggerName")]
         public string? TriggerName { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("triggerClientResponse")]
         public string? TriggerClientResponse { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("triggerId")]
         public string? TriggerId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("triggerNanoId")]
         public string? TriggerNanoId { get; set; }

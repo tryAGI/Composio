@@ -4,16 +4,16 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PatchAuthConfigsByNanoidRequestDiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Custom,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Default,
     }

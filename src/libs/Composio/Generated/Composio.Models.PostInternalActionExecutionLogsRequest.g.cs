@@ -4,7 +4,7 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PostInternalActionExecutionLogsRequest
     {
@@ -39,7 +39,7 @@ namespace Composio
         public double? To { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("search_params")]
         public global::System.Collections.Generic.IList<global::Composio.PostInternalActionExecutionLogsRequestSearchParam>? SearchParams { get; set; }

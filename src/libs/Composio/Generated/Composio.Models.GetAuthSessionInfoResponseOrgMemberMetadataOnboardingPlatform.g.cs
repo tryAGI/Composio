@@ -9,11 +9,11 @@ namespace Composio
     public enum GetAuthSessionInfoResponseOrgMemberMetadataOnboardingPlatform
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Consumer,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Developer,
     }

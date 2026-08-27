@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PostConnectedAccountsResponseConnectionDataVariant7AuthScheme
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         NoAuth,
     }

@@ -9,11 +9,11 @@ namespace Composio
     public enum PostToolRouterSessionBySessionIdLinkResponseExperimentalAccountType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Private,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Shared,
     }

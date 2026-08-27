@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum DefaultAuthConfigUpdateType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Default,
     }

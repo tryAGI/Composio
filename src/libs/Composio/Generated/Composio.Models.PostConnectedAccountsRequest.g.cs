@@ -4,19 +4,19 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PostConnectedAccountsRequest
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auth_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::Composio.PostConnectedAccountsRequestAuthConfig AuthConfig { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("connection")]
         [global::System.Text.Json.Serialization.JsonRequired]

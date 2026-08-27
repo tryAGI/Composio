@@ -10,7 +10,7 @@ namespace Composio
     public enum DeleteOrgOwnerProjectByNanoIdResponseStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Success,
     }

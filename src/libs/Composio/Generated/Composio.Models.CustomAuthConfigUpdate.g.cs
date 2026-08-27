@@ -6,12 +6,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class CustomAuthConfigUpdate
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.CustomAuthConfigUpdateTypeJsonConverter))]
@@ -24,7 +24,7 @@ namespace Composio
         public string? Name { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("credentials")]
         public global::Composio.CustomAuthConfigUpdateCredentials? Credentials { get; set; }
@@ -36,7 +36,7 @@ namespace Composio
         public global::System.Collections.Generic.Dictionary<string, string>? SealedCredentials { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("proxy_config")]
         public global::Composio.CustomAuthConfigUpdateProxyConfig? ProxyConfig { get; set; }
@@ -49,7 +49,7 @@ namespace Composio
         public global::System.Collections.Generic.IList<string>? RestrictToFollowingTools { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_access_config")]
         public global::Composio.CustomAuthConfigUpdateToolAccessConfig? ToolAccessConfig { get; set; }

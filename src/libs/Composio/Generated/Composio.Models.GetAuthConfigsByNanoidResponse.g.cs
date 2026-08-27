@@ -6,7 +6,7 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class GetAuthConfigsByNanoidResponse
     {
@@ -66,7 +66,7 @@ namespace Composio
         public global::System.Collections.Generic.Dictionary<string, object?>? Credentials { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("proxy_config")]
         public global::Composio.GetAuthConfigsByNanoidResponseProxyConfig? ProxyConfig { get; set; }
@@ -118,7 +118,7 @@ namespace Composio
         public global::System.Collections.Generic.IList<string>? RestrictToFollowingTools { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_access_config")]
         [global::System.Text.Json.Serialization.JsonRequired]

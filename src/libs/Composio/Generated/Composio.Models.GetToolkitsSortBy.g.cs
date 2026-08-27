@@ -9,11 +9,11 @@ namespace Composio
     public enum GetToolkitsSortBy
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Alphabetically,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Usage,
     }

@@ -9,11 +9,11 @@ namespace Composio
     public enum GetAuthConfigsResponseItemType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Custom,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Default,
     }

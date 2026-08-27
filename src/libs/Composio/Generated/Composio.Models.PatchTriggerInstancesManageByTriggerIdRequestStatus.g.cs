@@ -4,16 +4,16 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PatchTriggerInstancesManageByTriggerIdRequestStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Disable,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Enable,
     }

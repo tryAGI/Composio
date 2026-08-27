@@ -10,11 +10,11 @@ namespace Composio
     public enum PostToolRouterSessionBySessionIdSearchRequestSearchStrategy
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Auto,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ToolSearch,
     }

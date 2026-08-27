@@ -10,12 +10,12 @@ namespace Composio
     public readonly partial struct AuthConfig : global::System.IEquatable<AuthConfig>
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Composio.PostAuthConfigsRequestAuthConfigDiscriminatorType? Type { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Composio.ComposioManagedAuthConfigCreate? UseComposioManagedAuth { get; init; }
@@ -24,7 +24,7 @@ namespace Composio
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UseComposioManagedAuth))]
@@ -32,7 +32,7 @@ namespace Composio
         public bool IsUseComposioManagedAuth => UseComposioManagedAuth != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUseComposioManagedAuth(
 #if NET6_0_OR_GREATER
@@ -45,14 +45,14 @@ namespace Composio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Composio.ComposioManagedAuthConfigCreate PickUseComposioManagedAuth() => IsUseComposioManagedAuth
             ? UseComposioManagedAuth!
             : throw new global::System.InvalidOperationException($"Expected union variant 'UseComposioManagedAuth' but the value was {ToString()}.");
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         public global::Composio.CustomAuthConfigCreate? UseCustomAuth { get; init; }
@@ -61,7 +61,7 @@ namespace Composio
 #endif
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
 #if NET6_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(UseCustomAuth))]
@@ -69,7 +69,7 @@ namespace Composio
         public bool IsUseCustomAuth => UseCustomAuth != null;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool TryPickUseCustomAuth(
 #if NET6_0_OR_GREATER
@@ -82,23 +82,23 @@ namespace Composio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public global::Composio.CustomAuthConfigCreate PickUseCustomAuth() => IsUseCustomAuth
             ? UseCustomAuth!
             : throw new global::System.InvalidOperationException($"Expected union variant 'UseCustomAuth' but the value was {ToString()}.");
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator AuthConfig(global::Composio.ComposioManagedAuthConfigCreate value) => new AuthConfig((global::Composio.ComposioManagedAuthConfigCreate?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Composio.ComposioManagedAuthConfigCreate?(AuthConfig @this) => @this.UseComposioManagedAuth;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AuthConfig(global::Composio.ComposioManagedAuthConfigCreate? value)
         {
@@ -106,22 +106,22 @@ namespace Composio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static AuthConfig FromUseComposioManagedAuth(global::Composio.ComposioManagedAuthConfigCreate? value) => new AuthConfig(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator AuthConfig(global::Composio.CustomAuthConfigCreate value) => new AuthConfig((global::Composio.CustomAuthConfigCreate?)value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static implicit operator global::Composio.CustomAuthConfigCreate?(AuthConfig @this) => @this.UseCustomAuth;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AuthConfig(global::Composio.CustomAuthConfigCreate? value)
         {
@@ -129,12 +129,12 @@ namespace Composio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static AuthConfig FromUseCustomAuth(global::Composio.CustomAuthConfigCreate? value) => new AuthConfig(value);
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public AuthConfig(
             global::Composio.PostAuthConfigsRequestAuthConfigDiscriminatorType? type,
@@ -149,23 +149,23 @@ namespace Composio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public object? Object =>
             UseCustomAuth as object ??
-            UseComposioManagedAuth as object 
+            UseComposioManagedAuth as object
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override string? ToString() =>
             UseComposioManagedAuth?.ToString() ??
-            UseCustomAuth?.ToString() 
+            UseCustomAuth?.ToString()
             ;
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Validate()
         {
@@ -173,7 +173,7 @@ namespace Composio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public TResult? Match<TResult>(
             global::System.Func<global::Composio.ComposioManagedAuthConfigCreate, TResult>? useComposioManagedAuth = null,
@@ -198,7 +198,7 @@ namespace Composio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Match(
             global::System.Action<global::Composio.ComposioManagedAuthConfigCreate>? useComposioManagedAuth = null,
@@ -222,7 +222,7 @@ namespace Composio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void Switch(
             global::System.Action<global::Composio.ComposioManagedAuthConfigCreate>? useComposioManagedAuth = null,
@@ -245,7 +245,7 @@ namespace Composio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override int GetHashCode()
         {
@@ -266,18 +266,18 @@ namespace Composio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public bool Equals(AuthConfig other)
         {
             return
                 global::System.Collections.Generic.EqualityComparer<global::Composio.ComposioManagedAuthConfigCreate?>.Default.Equals(UseComposioManagedAuth, other.UseComposioManagedAuth) &&
-                global::System.Collections.Generic.EqualityComparer<global::Composio.CustomAuthConfigCreate?>.Default.Equals(UseCustomAuth, other.UseCustomAuth) 
+                global::System.Collections.Generic.EqualityComparer<global::Composio.CustomAuthConfigCreate?>.Default.Equals(UseCustomAuth, other.UseCustomAuth)
                 ;
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator ==(AuthConfig obj1, AuthConfig obj2)
         {
@@ -285,7 +285,7 @@ namespace Composio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public static bool operator !=(AuthConfig obj1, AuthConfig obj2)
         {
@@ -293,7 +293,7 @@ namespace Composio
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public override bool Equals(object? obj)
         {

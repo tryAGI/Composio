@@ -11,11 +11,11 @@ namespace Composio
     public enum GetMcpAppByAppKeyOrderBy
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         CreatedAt,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UpdatedAt,
     }

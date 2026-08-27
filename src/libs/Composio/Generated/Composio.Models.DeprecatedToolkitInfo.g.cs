@@ -11,7 +11,7 @@ namespace Composio
     public sealed partial class DeprecatedToolkitInfo
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("toolkitId")]
         [global::System.Text.Json.Serialization.JsonRequired]

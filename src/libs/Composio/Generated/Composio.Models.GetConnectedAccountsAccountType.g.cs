@@ -9,15 +9,15 @@ namespace Composio
     public enum GetConnectedAccountsAccountType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         All,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Private,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Shared,
     }

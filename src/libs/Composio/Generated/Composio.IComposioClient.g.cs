@@ -39,7 +39,7 @@ namespace Composio
 
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         global::System.Text.Json.Serialization.JsonSerializerContext JsonSerializerContext { get; set; }
 
@@ -60,7 +60,7 @@ namespace Composio
         public CliClient Cli { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public CliAuthenticationClient CliAuthentication { get; }
 
@@ -85,12 +85,12 @@ namespace Composio
         public McpClient Mcp { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public OrganizationManagementClient OrganizationManagement { get; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ProjectsClient Projects { get; }
 

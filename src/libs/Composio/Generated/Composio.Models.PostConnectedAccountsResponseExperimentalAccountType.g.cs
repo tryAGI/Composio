@@ -9,11 +9,11 @@ namespace Composio
     public enum PostConnectedAccountsResponseExperimentalAccountType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Private,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Shared,
     }

@@ -9,15 +9,15 @@ namespace Composio
     public enum PostToolkitsMultiRequestManagedBy
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         All,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Composio,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Project,
     }

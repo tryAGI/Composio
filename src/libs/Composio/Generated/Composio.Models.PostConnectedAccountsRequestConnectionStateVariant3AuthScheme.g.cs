@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PostConnectedAccountsRequestConnectionStateVariant3AuthScheme
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         ApiKey,
     }

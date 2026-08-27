@@ -9,7 +9,7 @@ namespace Composio
     public enum PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseAccountSelection
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Required,
     }

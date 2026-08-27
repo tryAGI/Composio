@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum GetConnectedAccountsResponseItemStateVariant13AuthScheme
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         DcrOauth,
     }

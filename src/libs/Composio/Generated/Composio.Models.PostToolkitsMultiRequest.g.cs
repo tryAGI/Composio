@@ -39,13 +39,13 @@ namespace Composio
         public global::Composio.PostToolkitsMultiRequestSortBy? SortBy { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("limit")]
         public double? Limit { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cursor")]
         public string? Cursor { get; set; }

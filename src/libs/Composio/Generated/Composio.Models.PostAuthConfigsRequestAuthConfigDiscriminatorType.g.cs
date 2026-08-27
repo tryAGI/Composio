@@ -4,16 +4,16 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PostAuthConfigsRequestAuthConfigDiscriminatorType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UseComposioManagedAuth,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         UseCustomAuth,
     }

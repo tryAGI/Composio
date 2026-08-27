@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class GetToolRouterSessionBySessionIdResponseConfigToolkitsVariant2
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("disabled")]
         [global::System.Text.Json.Serialization.JsonRequired]

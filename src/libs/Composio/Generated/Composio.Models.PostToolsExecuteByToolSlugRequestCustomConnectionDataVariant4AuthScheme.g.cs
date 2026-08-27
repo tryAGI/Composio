@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant4AuthScheme
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BasicWithJwt,
     }

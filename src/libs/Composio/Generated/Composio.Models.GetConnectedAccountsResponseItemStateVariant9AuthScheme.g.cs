@@ -4,12 +4,12 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public enum GetConnectedAccountsResponseItemStateVariant9AuthScheme
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         BillcomAuth,
     }

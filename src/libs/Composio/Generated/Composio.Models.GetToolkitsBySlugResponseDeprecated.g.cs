@@ -4,25 +4,25 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class GetToolkitsBySlugResponseDeprecated
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("toolkitId")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string ToolkitId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("getCurrentUserEndpoint")]
         public string? GetCurrentUserEndpoint { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("rawProxyInfoByAuthSchemes")]
         [global::System.Text.Json.Serialization.JsonRequired]

@@ -9,11 +9,11 @@ namespace Composio
     public enum GetAuthConfigsResponseItemStatus
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Disabled,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         Enabled,
     }

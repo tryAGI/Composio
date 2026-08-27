@@ -4,7 +4,7 @@
 namespace Composio
 {
     /// <summary>
-    /// 
+    ///
     /// </summary>
     public sealed partial class PostInternalTriggerLogsRequest
     {
@@ -45,13 +45,13 @@ namespace Composio
         public string? Search { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("integrationId")]
         public global::System.Guid? IntegrationId { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("entityId")]
         public string? EntityId { get; set; }
@@ -70,7 +70,7 @@ namespace Composio
         public double? Limit { get; set; }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("cursor")]
         public string? Cursor { get; set; }

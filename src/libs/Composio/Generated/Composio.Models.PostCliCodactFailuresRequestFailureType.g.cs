@@ -10,11 +10,11 @@ namespace Composio
     public enum PostCliCodactFailuresRequestFailureType
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WrongToolInputParam,
         /// <summary>
-        /// 
+        ///
         /// </summary>
         WrongToolSlug,
     }
