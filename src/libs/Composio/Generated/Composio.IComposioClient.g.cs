@@ -80,11 +80,6 @@ namespace Composio
         public LogsClient Logs { get; }
 
         /// <summary>
-        /// MCP server management.
-        /// </summary>
-        public McpClient Mcp { get; }
-
-        /// <summary>
         ///
         /// </summary>
         public OrganizationManagementClient OrganizationManagement { get; }

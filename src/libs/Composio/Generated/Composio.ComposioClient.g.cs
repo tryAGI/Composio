@@ -110,15 +110,6 @@ namespace Composio
         };
 
         /// <summary>
-        /// MCP server management.
-        /// </summary>
-        public McpClient Mcp => new McpClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
-        {
-            ReadResponseAsString = ReadResponseAsString,
-            JsonSerializerContextProvider = JsonSerializerContextProvider,
-        };
-
-        /// <summary>
         ///
         /// </summary>
         public OrganizationManagementClient OrganizationManagement => new OrganizationManagementClient(HttpClient, baseUri: null, authorizations: Authorizations, options: Options)
