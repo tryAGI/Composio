@@ -17,7 +17,6 @@ internal static class ApiCommand
                          command.Subcommands.Add(ConnectedAccountsApiGroupCommand.Create());
                          command.Subcommands.Add(FilesApiGroupCommand.Create());
                          command.Subcommands.Add(LogsApiGroupCommand.Create());
-                         command.Subcommands.Add(MCPApiGroupCommand.Create());
                          command.Subcommands.Add(OrganizationManagementApiGroupCommand.Create());
                          command.Subcommands.Add(ProjectsApiGroupCommand.Create());
                          command.Subcommands.Add(ToolRouterApiGroupCommand.Create());
