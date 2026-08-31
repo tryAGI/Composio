@@ -15,7 +15,7 @@
       "Order": 2,
       "Title": "Ingest CLI codact failures",
       "Slug": "postclicodactfailures",
-      "Description": "Accepts CLI-reported codact failures authenticated by user API key and stores them in ClickHouse for later analysis.",
+      "Description": "Accepts CLI-reported codact failures authenticated by user API key and records them for later analysis.",
       "Language": "http",
       "Code": "### Ingest CLI codact failures\n# @name postCliCodactFailures\nPOST {{host}}/api/v3/cli/codact_failures\nAuthorization: Bearer {{token}}\nx-user-api-key: {{x-user-api-key}}\nContent-Type: application/json\nAccept: application/json\n\n{\n  \u0022failure_type\u0022: \u0022wrong_tool_slug\u0022,\n  \u0022tool_info\u0022: {\n    \u0022toolkit\u0022: \u0022github\u0022,\n    \u0022tool\u0022: {\n      \u0022slug\u0022: \u0022GITHUB_CREATE_AN_ISSUE\u0022,\n      \u0022version\u0022: \u00222026.03.23\u0022\n    }\n  },\n  \u0022ctx\u0022: {\n    \u0022invalid_tool_slug\u0022: \u0022GITHUB_MAKE_ISSUE\u0022\n  },\n  \u0022session\u0022: {\n    \u0022id\u0022: \u0022sess_123\u0022,\n    \u0022source\u0022: \u0022cli\u0022\n  },\n  \u0022request_id\u0022: \u0022req_123\u0022\n}\n\n## Responses\n# 200\n# Description: CLI codact failure accepted and stored.\n# Content-Type: application/json\n# 400\n# Description: Bad request.\n# Content-Type: application/json\n# 401\n# Description: Unauthorized. A valid user API key is required.\n# Content-Type: application/json\n# 500\n# Description: Internal server error.\n# Content-Type: application/json",
       "Format": "http",
