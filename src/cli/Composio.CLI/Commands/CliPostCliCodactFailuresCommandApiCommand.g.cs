@@ -86,7 +86,7 @@ internal static partial class CliPostCliCodactFailuresCommandApiCommand
     public static Command Create()
     {
         var command = new Command(@"post-cli-codact-failures", @"Ingest CLI codact failures
-Accepts CLI-reported codact failures authenticated by user API key and stores them in ClickHouse for later analysis.");
+Accepts CLI-reported codact failures authenticated by user API key and records them for later analysis.");
                         command.Options.Add(XUserApiKey);
                         command.Options.Add(FailureType);
                         command.Options.Add(ToolInfo);

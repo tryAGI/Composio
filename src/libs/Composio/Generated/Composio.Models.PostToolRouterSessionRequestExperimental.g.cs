@@ -39,6 +39,12 @@ namespace Composio
         public string? LinkUrlOverwrite { get; set; }
 
         /// <summary>
+        /// Experimental flag to skip the LLM reranker in tool search and serve embeddings/BM25-only results.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("fast_mode")]
+        public bool? FastMode { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -62,6 +68,9 @@ namespace Composio
         /// <param name="linkUrlOverwrite">
         /// Experimental base URL override for connection link redirects created from this tool-router session. When set, link creation returns `${link_url_overwrite}/link/{link_token}` instead of the default Composio Connect base URL. Use only when your integration needs links to open through a custom Connect host.
         /// </param>
+        /// <param name="fastMode">
+        /// Experimental flag to skip the LLM reranker in tool search and serve embeddings/BM25-only results.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -70,13 +79,15 @@ namespace Composio
             global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionRequestExperimentalCustomToolkit>? customToolkits,
             global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionRequestExperimentalCustomTool>? customTools,
             global::Composio.PostToolRouterSessionRequestExperimentalPermissions? permissions,
-            string? linkUrlOverwrite)
+            string? linkUrlOverwrite,
+            bool? fastMode)
         {
             this.AssistivePromptConfig = assistivePromptConfig;
             this.CustomToolkits = customToolkits;
             this.CustomTools = customTools;
             this.Permissions = permissions;
             this.LinkUrlOverwrite = linkUrlOverwrite;
+            this.FastMode = fastMode;
         }
 
         /// <summary>
