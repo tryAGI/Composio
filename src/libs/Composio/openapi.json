@@ -3023,7 +3023,7 @@
     "/api/v3/cli/codact_failures": {
       "post": {
         "summary": "Ingest CLI codact failures",
-        "description": "Accepts CLI-reported codact failures authenticated by user API key and stores them in ClickHouse for later analysis.",
+        "description": "Accepts CLI-reported codact failures authenticated by user API key and records them for later analysis.",
         "tags": [
           "CLI"
         ],
@@ -54250,6 +54250,11 @@
                         "format": "uri",
                         "description": "Experimental base URL override for connection link redirects created from this tool-router session. When set, link creation returns `${link_url_overwrite}/link/{link_token}` instead of the default Composio Connect base URL. Use only when your integration needs links to open through a custom Connect host.",
                         "x-experimental": true
+                      },
+                      "fast_mode": {
+                        "type": "boolean",
+                        "description": "Experimental flag to skip the LLM reranker in tool search and serve embeddings/BM25-only results.",
+                        "x-experimental": true
                       }
                     },
                     "description": "Experimental features - not stable, may be modified or removed in future versions.",
@@ -56469,6 +56474,11 @@
                         "type": "string",
                         "format": "uri",
                         "description": "Experimental base URL override for connection link redirects created from this tool-router session. When set, link creation returns `${link_url_overwrite}/link/{link_token}` instead of the default Composio Connect base URL. Use only when your integration needs links to open through a custom Connect host.",
+                        "x-experimental": true
+                      },
+                      "fast_mode": {
+                        "type": "boolean",
+                        "description": "Experimental flag to skip the LLM reranker in tool search and serve embeddings/BM25-only results.",
                         "x-experimental": true
                       }
                     },

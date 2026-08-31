@@ -45,7 +45,7 @@ namespace Composio
 
         /// <summary>
         /// Ingest CLI codact failures<br/>
-        /// Accepts CLI-reported codact failures authenticated by user API key and stores them in ClickHouse for later analysis.
+        /// Accepts CLI-reported codact failures authenticated by user API key and records them for later analysis.
         /// </summary>
         /// <param name="xUserApiKey">
         /// User API key used to authenticate the CLI codact failure.<br/>
@@ -74,7 +74,7 @@ namespace Composio
         }
         /// <summary>
         /// Ingest CLI codact failures<br/>
-        /// Accepts CLI-reported codact failures authenticated by user API key and stores them in ClickHouse for later analysis.
+        /// Accepts CLI-reported codact failures authenticated by user API key and records them for later analysis.
         /// </summary>
         /// <param name="xUserApiKey">
         /// User API key used to authenticate the CLI codact failure.<br/>
@@ -564,7 +564,7 @@ namespace Composio
         }
         /// <summary>
         /// Ingest CLI codact failures<br/>
-        /// Accepts CLI-reported codact failures authenticated by user API key and stores them in ClickHouse for later analysis.
+        /// Accepts CLI-reported codact failures authenticated by user API key and records them for later analysis.
         /// </summary>
         /// <param name="xUserApiKey">
         /// User API key used to authenticate the CLI codact failure.<br/>
