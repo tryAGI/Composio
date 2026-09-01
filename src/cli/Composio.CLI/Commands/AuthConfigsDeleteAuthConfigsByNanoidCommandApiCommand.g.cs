@@ -40,7 +40,7 @@ internal static partial class AuthConfigsDeleteAuthConfigsByNanoidCommandApiComm
     public static Command Create()
     {
         var command = new Command(@"delete-auth-configs-by-nanoid", @"Delete an authentication configuration
-Soft-deletes an authentication configuration by marking it as deleted in the database. This operation cannot be undone. Pass `?revoke_on_delete=true` to also revoke the upstream credentials of every connection using this auth config via a background job.");
+Deletes an authentication configuration. This operation cannot be undone. Pass `?revoke_on_delete=true` to also revoke the upstream credentials of every connection using this auth config.");
                         command.Arguments.Add(Nanoid);
                         command.Options.Add(RevokeOnDelete);
 

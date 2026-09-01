@@ -127,7 +127,7 @@ namespace Composio
         public required global::Composio.GetOrgProjectListResponseDataItemWebhookVersion WebhookVersion { get; set; }
 
         /// <summary>
-        /// Whether this project has been soft-deleted<br/>
+        /// Whether this project has been deleted<br/>
         /// Example: false
         /// </summary>
         /// <example>false</example>
@@ -173,7 +173,7 @@ namespace Composio
         /// Example: V2
         /// </param>
         /// <param name="deleted">
-        /// Whether this project has been soft-deleted<br/>
+        /// Whether this project has been deleted<br/>
         /// Example: false
         /// </param>
         /// <param name="triggersEnabled">

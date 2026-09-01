@@ -26,7 +26,7 @@
       "Order": 3,
       "Title": "Delete a connected account",
       "Slug": "deleteconnectedaccountsbynanoid",
-      "Description": "Soft-deletes a connected account by marking it as deleted in the database. This prevents the account from being used for API calls but preserves the record for audit purposes. Pass \u0060?revoke_on_delete=true\u0060 to also revoke the account\u0027s upstream credentials via a background job.",
+      "Description": "Deletes a connected account. The account immediately stops working for API calls and cannot be restored through the API. Pass \u0060?revoke_on_delete=true\u0060 to also revoke the account\u0027s upstream credentials.",
       "Language": "csharp",
       "Code": "using var client = new ComposioClient(apiKey);\n\nvar response = await client.ConnectedAccounts.DeleteConnectedAccountsByNanoidAsync(\n    nanoid: \u0022ca_1a2b3c4d5e6f\u0022\n);\n\n// Example response:\n// {\n//   \u0022success\u0022: true\n// }",
       "Format": "sdk",

@@ -40,7 +40,7 @@ internal static partial class ConnectedAccountsDeleteConnectedAccountsByNanoidCo
     public static Command Create()
     {
         var command = new Command(@"delete-connected-accounts-by-nanoid", @"Delete a connected account
-Soft-deletes a connected account by marking it as deleted in the database. This prevents the account from being used for API calls but preserves the record for audit purposes. Pass `?revoke_on_delete=true` to also revoke the account's upstream credentials via a background job.");
+Deletes a connected account. The account immediately stops working for API calls and cannot be restored through the API. Pass `?revoke_on_delete=true` to also revoke the account's upstream credentials.");
                         command.Arguments.Add(Nanoid);
                         command.Options.Add(RevokeOnDelete);
 

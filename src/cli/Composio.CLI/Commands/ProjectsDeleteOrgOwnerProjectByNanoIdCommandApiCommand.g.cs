@@ -40,7 +40,7 @@ internal static partial class ProjectsDeleteOrgOwnerProjectByNanoIdCommandApiCom
     public static Command Create()
     {
         var command = new Command(@"delete-org-owner-project-by-nano-id", @"Delete a project
-Soft-deletes a project within the organization by its unique identifier. When a project is deleted, it is marked as deleted but not immediately removed from the database. This operation affects all resources associated with the project including API keys, webhook configurations, and connected services. This action cannot be undone through the API. Pass `?revoke_on_delete=true` to also revoke the upstream credentials of every connection in the project via a background job.");
+Deletes a project within the organization by its unique identifier. This affects every resource belonging to the project, including its API keys, webhook configurations, and connected services. The action cannot be undone. Pass `?revoke_on_delete=true` to also revoke the upstream credentials of every connection in the project.");
                         command.Arguments.Add(NanoId);
                         command.Options.Add(RevokeOnDelete);
 
