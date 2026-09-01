@@ -43,7 +43,7 @@ namespace Composio
 
         /// <summary>
         /// Delete and generate new API key for project<br/>
-        /// Generates a new API key for the specified project, invalidating any existing API keys for that project. This operation creates a fresh API key with a new random name and key value. All existing API keys for this project will be marked as deleted.
+        /// Generates a new API key for the specified project, invalidating any existing API keys for that project. This operation creates a fresh API key with a new random name and key value. Every existing API key for the project stops working immediately.
         /// </summary>
         /// <param name="nanoId">
         /// Unique identifier (Nano ID) of the project to regenerate API key for<br/>
@@ -67,7 +67,7 @@ namespace Composio
         }
         /// <summary>
         /// Delete and generate new API key for project<br/>
-        /// Generates a new API key for the specified project, invalidating any existing API keys for that project. This operation creates a fresh API key with a new random name and key value. All existing API keys for this project will be marked as deleted.
+        /// Generates a new API key for the specified project, invalidating any existing API keys for that project. This operation creates a fresh API key with a new random name and key value. Every existing API key for the project stops working immediately.
         /// </summary>
         /// <param name="nanoId">
         /// Unique identifier (Nano ID) of the project to regenerate API key for<br/>

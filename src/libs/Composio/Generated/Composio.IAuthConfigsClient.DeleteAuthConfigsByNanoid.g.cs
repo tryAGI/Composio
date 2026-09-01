@@ -6,7 +6,7 @@ namespace Composio
     {
         /// <summary>
         /// Delete an authentication configuration<br/>
-        /// Soft-deletes an authentication configuration by marking it as deleted in the database. This operation cannot be undone. Pass `?revoke_on_delete=true` to also revoke the upstream credentials of every connection using this auth config via a background job.
+        /// Deletes an authentication configuration. This operation cannot be undone. Pass `?revoke_on_delete=true` to also revoke the upstream credentials of every connection using this auth config.
         /// </summary>
         /// <param name="nanoid">
         /// The unique identifier of the authentication configuration to delete
@@ -25,7 +25,7 @@ namespace Composio
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete an authentication configuration<br/>
-        /// Soft-deletes an authentication configuration by marking it as deleted in the database. This operation cannot be undone. Pass `?revoke_on_delete=true` to also revoke the upstream credentials of every connection using this auth config via a background job.
+        /// Deletes an authentication configuration. This operation cannot be undone. Pass `?revoke_on_delete=true` to also revoke the upstream credentials of every connection using this auth config.
         /// </summary>
         /// <param name="nanoid">
         /// The unique identifier of the authentication configuration to delete

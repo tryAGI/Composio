@@ -6,7 +6,7 @@ namespace Composio
     {
         /// <summary>
         /// Delete a connected account<br/>
-        /// Soft-deletes a connected account by marking it as deleted in the database. This prevents the account from being used for API calls but preserves the record for audit purposes. Pass `?revoke_on_delete=true` to also revoke the account's upstream credentials via a background job.
+        /// Deletes a connected account. The account immediately stops working for API calls and cannot be restored through the API. Pass `?revoke_on_delete=true` to also revoke the account's upstream credentials.
         /// </summary>
         /// <param name="nanoid"></param>
         /// <param name="revokeOnDelete">
@@ -23,7 +23,7 @@ namespace Composio
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Delete a connected account<br/>
-        /// Soft-deletes a connected account by marking it as deleted in the database. This prevents the account from being used for API calls but preserves the record for audit purposes. Pass `?revoke_on_delete=true` to also revoke the account's upstream credentials via a background job.
+        /// Deletes a connected account. The account immediately stops working for API calls and cannot be restored through the API. Pass `?revoke_on_delete=true` to also revoke the account's upstream credentials.
         /// </summary>
         /// <param name="nanoid"></param>
         /// <param name="revokeOnDelete">
