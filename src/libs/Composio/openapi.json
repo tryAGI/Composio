@@ -122,6 +122,10 @@
       "description": "(Labs) Tool router endpoints"
     },
     {
+      "name": "Playground",
+      "description": "Dashboard playground chat"
+    },
+    {
       "name": "Admin",
       "description": "Admin endpoints"
     },
@@ -54257,7 +54261,7 @@
                       },
                       "fast_mode": {
                         "type": "boolean",
-                        "description": "Experimental flag to skip the LLM reranker in tool search and serve embeddings/BM25-only results.",
+                        "description": "Experimental flag to skip the LLM reranker in tool search and serve embeddings/BM25-only results. Also skips plan search entirely, so responses will not include cached-plan fields (recommended_plan_steps, known_pitfalls, reference_workbench_snippets) or plan-derived execution guidance.",
                         "x-experimental": true
                       }
                     },
@@ -55021,6 +55025,16 @@
           },
           "403": {
             "description": "Forbidden. The user is not authorized to create a tool router session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found. The referenced Session config or another requested resource does not exist in this project.",
             "content": {
               "application/json": {
                 "schema": {
@@ -56482,7 +56496,7 @@
                       },
                       "fast_mode": {
                         "type": "boolean",
-                        "description": "Experimental flag to skip the LLM reranker in tool search and serve embeddings/BM25-only results.",
+                        "description": "Experimental flag to skip the LLM reranker in tool search and serve embeddings/BM25-only results. Also skips plan search entirely, so responses will not include cached-plan fields (recommended_plan_steps, known_pitfalls, reference_workbench_snippets) or plan-derived execution guidance.",
                         "x-experimental": true
                       }
                     },

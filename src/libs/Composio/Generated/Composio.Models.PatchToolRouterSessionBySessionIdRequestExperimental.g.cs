@@ -21,7 +21,7 @@ namespace Composio
         public string? LinkUrlOverwrite { get; set; }
 
         /// <summary>
-        /// Experimental flag to skip the LLM reranker in tool search and serve embeddings/BM25-only results.
+        /// Experimental flag to skip the LLM reranker in tool search and serve embeddings/BM25-only results. Also skips plan search entirely, so responses will not include cached-plan fields (recommended_plan_steps, known_pitfalls, reference_workbench_snippets) or plan-derived execution guidance.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("fast_mode")]
         public bool? FastMode { get; set; }
@@ -42,7 +42,7 @@ namespace Composio
         /// Experimental base URL override for connection link redirects created from this tool-router session. When set, link creation returns `${link_url_overwrite}/link/{link_token}` instead of the default Composio Connect base URL. Use only when your integration needs links to open through a custom Connect host.
         /// </param>
         /// <param name="fastMode">
-        /// Experimental flag to skip the LLM reranker in tool search and serve embeddings/BM25-only results.
+        /// Experimental flag to skip the LLM reranker in tool search and serve embeddings/BM25-only results. Also skips plan search entirely, so responses will not include cached-plan fields (recommended_plan_steps, known_pitfalls, reference_workbench_snippets) or plan-derived execution guidance.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
