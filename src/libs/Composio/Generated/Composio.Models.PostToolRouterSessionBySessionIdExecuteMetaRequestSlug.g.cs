@@ -36,6 +36,10 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
+        ComposioSubmitFeedback,
+        /// <summary>
+        ///
+        /// </summary>
         ComposioWaitForConnections,
     }
 
@@ -57,6 +61,7 @@ namespace Composio
                 PostToolRouterSessionBySessionIdExecuteMetaRequestSlug.ComposioRemoteBashTool => "COMPOSIO_REMOTE_BASH_TOOL",
                 PostToolRouterSessionBySessionIdExecuteMetaRequestSlug.ComposioRemoteWorkbench => "COMPOSIO_REMOTE_WORKBENCH",
                 PostToolRouterSessionBySessionIdExecuteMetaRequestSlug.ComposioSearchTools => "COMPOSIO_SEARCH_TOOLS",
+                PostToolRouterSessionBySessionIdExecuteMetaRequestSlug.ComposioSubmitFeedback => "COMPOSIO_SUBMIT_FEEDBACK",
                 PostToolRouterSessionBySessionIdExecuteMetaRequestSlug.ComposioWaitForConnections => "COMPOSIO_WAIT_FOR_CONNECTIONS",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -74,6 +79,7 @@ namespace Composio
                 "COMPOSIO_REMOTE_BASH_TOOL" => PostToolRouterSessionBySessionIdExecuteMetaRequestSlug.ComposioRemoteBashTool,
                 "COMPOSIO_REMOTE_WORKBENCH" => PostToolRouterSessionBySessionIdExecuteMetaRequestSlug.ComposioRemoteWorkbench,
                 "COMPOSIO_SEARCH_TOOLS" => PostToolRouterSessionBySessionIdExecuteMetaRequestSlug.ComposioSearchTools,
+                "COMPOSIO_SUBMIT_FEEDBACK" => PostToolRouterSessionBySessionIdExecuteMetaRequestSlug.ComposioSubmitFeedback,
                 "COMPOSIO_WAIT_FOR_CONNECTIONS" => PostToolRouterSessionBySessionIdExecuteMetaRequestSlug.ComposioWaitForConnections,
                 _ => null,
             };
