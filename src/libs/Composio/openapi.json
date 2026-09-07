@@ -54263,6 +54263,19 @@
                         "type": "boolean",
                         "description": "Experimental flag to skip the LLM reranker in tool search and serve embeddings/BM25-only results. Also skips plan search entirely, so responses will not include cached-plan fields (recommended_plan_steps, known_pitfalls, reference_workbench_snippets) or plan-derived execution guidance.",
                         "x-experimental": true
+                      },
+                      "submit_feedback": {
+                        "type": "object",
+                        "properties": {
+                          "enable": {
+                            "type": "boolean",
+                            "default": false,
+                            "description": "Set to true to expose the COMPOSIO_SUBMIT_FEEDBACK helper tool in this session. Defaults to false."
+                          }
+                        },
+                        "additionalProperties": false,
+                        "description": "Exposes the COMPOSIO_SUBMIT_FEEDBACK helper tool in this session so the agent can report tool executions with empty, incorrect, or failed results. Defaults to false.",
+                        "x-experimental": true
                       }
                     },
                     "description": "Experimental features - not stable, may be modified or removed in future versions.",
@@ -55316,7 +55329,8 @@
                       "COMPOSIO_WAIT_FOR_CONNECTIONS",
                       "COMPOSIO_REMOTE_WORKBENCH",
                       "COMPOSIO_REMOTE_BASH_TOOL",
-                      "COMPOSIO_GET_TOOL_SCHEMAS"
+                      "COMPOSIO_GET_TOOL_SCHEMAS",
+                      "COMPOSIO_SUBMIT_FEEDBACK"
                     ],
                     "description": "The unique slug identifier of the meta tool to execute",
                     "example": "COMPOSIO_MANAGE_CONNECTIONS"
@@ -56498,9 +56512,25 @@
                         "type": "boolean",
                         "description": "Experimental flag to skip the LLM reranker in tool search and serve embeddings/BM25-only results. Also skips plan search entirely, so responses will not include cached-plan fields (recommended_plan_steps, known_pitfalls, reference_workbench_snippets) or plan-derived execution guidance.",
                         "x-experimental": true
+                      },
+                      "submit_feedback": {
+                        "type": "object",
+                        "properties": {
+                          "enable": {
+                            "type": "boolean",
+                            "description": "Set to true to expose the COMPOSIO_SUBMIT_FEEDBACK helper tool in this session, false to hide it."
+                          }
+                        },
+                        "required": [
+                          "enable"
+                        ],
+                        "additionalProperties": false,
+                        "description": "Exposes the COMPOSIO_SUBMIT_FEEDBACK helper tool in this session so the agent can report tool executions with empty, incorrect, or failed results. Replaces the stored block when provided; `enable` is required when the block is sent.",
+                        "x-experimental": true
                       }
                     },
-                    "additionalProperties": false
+                    "additionalProperties": false,
+                    "x-experimental": true
                   }
                 },
                 "additionalProperties": false

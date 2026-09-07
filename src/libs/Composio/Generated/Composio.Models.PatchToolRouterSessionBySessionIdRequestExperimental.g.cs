@@ -27,6 +27,12 @@ namespace Composio
         public bool? FastMode { get; set; }
 
         /// <summary>
+        /// Exposes the COMPOSIO_SUBMIT_FEEDBACK helper tool in this session so the agent can report tool executions with empty, incorrect, or failed results. Replaces the stored block when provided; `enable` is required when the block is sent.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("submit_feedback")]
+        public global::Composio.PatchToolRouterSessionBySessionIdRequestExperimentalSubmitFeedback? SubmitFeedback { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -44,17 +50,22 @@ namespace Composio
         /// <param name="fastMode">
         /// Experimental flag to skip the LLM reranker in tool search and serve embeddings/BM25-only results. Also skips plan search entirely, so responses will not include cached-plan fields (recommended_plan_steps, known_pitfalls, reference_workbench_snippets) or plan-derived execution guidance.
         /// </param>
+        /// <param name="submitFeedback">
+        /// Exposes the COMPOSIO_SUBMIT_FEEDBACK helper tool in this session so the agent can report tool executions with empty, incorrect, or failed results. Replaces the stored block when provided; `enable` is required when the block is sent.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PatchToolRouterSessionBySessionIdRequestExperimental(
             global::Composio.PatchToolRouterSessionBySessionIdRequestExperimentalPermissions? permissions,
             string? linkUrlOverwrite,
-            bool? fastMode)
+            bool? fastMode,
+            global::Composio.PatchToolRouterSessionBySessionIdRequestExperimentalSubmitFeedback? submitFeedback)
         {
             this.Permissions = permissions;
             this.LinkUrlOverwrite = linkUrlOverwrite;
             this.FastMode = fastMode;
+            this.SubmitFeedback = submitFeedback;
         }
 
         /// <summary>
