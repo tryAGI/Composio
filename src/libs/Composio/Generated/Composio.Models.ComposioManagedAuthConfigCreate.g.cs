@@ -30,13 +30,14 @@ namespace Composio
         public global::Composio.ComposioManagedAuthConfigCreateCredentials? Credentials { get; set; }
 
         /// <summary>
-        ///
+        /// DEPRECATED: use [Get required scopes](https://docs.composio.dev/reference/api-reference/toolkits/recommendToolkitScopes) to resolve the scopes for the tools you need, then pass those scopes in `credentials.scopes`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_access_config")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public global::Composio.ComposioManagedAuthConfigCreateToolAccessConfig? ToolAccessConfig { get; set; }
 
         /// <summary>
-        /// Use tool_access_config instead. This field will be deprecated in the future.<br/>
+        /// List of tool slugs this auth config is restricted to use with. DEPRECATED: use [Get required scopes](https://docs.composio.dev/reference/api-reference/toolkits/recommendToolkitScopes) to resolve the scopes for the tools you need, then pass those scopes in `credentials.scopes`.<br/>
         /// Default Value: []
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("restrict_to_following_tools")]
@@ -71,7 +72,6 @@ namespace Composio
         /// <param name="credentials">
         /// Default Value: {}
         /// </param>
-        /// <param name="toolAccessConfig"></param>
         /// <param name="sharedCredentials">
         /// [EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config
         /// </param>
@@ -85,14 +85,12 @@ namespace Composio
             global::Composio.ComposioManagedAuthConfigCreateType type,
             string? name,
             global::Composio.ComposioManagedAuthConfigCreateCredentials? credentials,
-            global::Composio.ComposioManagedAuthConfigCreateToolAccessConfig? toolAccessConfig,
             global::System.Collections.Generic.Dictionary<string, object?>? sharedCredentials,
             bool? isEnabledForToolRouter)
         {
             this.Type = type;
             this.Name = name;
             this.Credentials = credentials;
-            this.ToolAccessConfig = toolAccessConfig;
             this.SharedCredentials = sharedCredentials;
             this.IsEnabledForToolRouter = isEnabledForToolRouter;
         }

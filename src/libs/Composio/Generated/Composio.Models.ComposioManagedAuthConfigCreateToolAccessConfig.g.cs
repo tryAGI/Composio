@@ -1,18 +1,22 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace Composio
 {
     /// <summary>
-    ///
+    /// DEPRECATED: use [Get required scopes](https://docs.composio.dev/reference/api-reference/toolkits/recommendToolkitScopes) to resolve the scopes for the tools you need, then pass those scopes in `credentials.scopes`.
     /// </summary>
+    [global::System.Obsolete("This model marked as deprecated.")]
     public sealed partial class ComposioManagedAuthConfigCreateToolAccessConfig
     {
         /// <summary>
-        /// Tools used to generate the minimum required scopes for the auth config (only valid for OAuth). If passed, this will update the scopes.<br/>
+        /// Tools used to generate the minimum required scopes for the auth config (only valid for OAuth). If passed, this will update the scopes. DEPRECATED: use [Get required scopes](https://docs.composio.dev/reference/api-reference/toolkits/recommendToolkitScopes) to resolve the scopes for the tools you need, then pass those scopes in `credentials.scopes`.<br/>
         /// Default Value: []
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tools_for_connected_account_creation")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public global::System.Collections.Generic.IList<string>? ToolsForConnectedAccountCreation { get; set; }
 
         /// <summary>
@@ -20,29 +24,6 @@ namespace Composio
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
         public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ComposioManagedAuthConfigCreateToolAccessConfig" /> class.
-        /// </summary>
-        /// <param name="toolsForConnectedAccountCreation">
-        /// Tools used to generate the minimum required scopes for the auth config (only valid for OAuth). If passed, this will update the scopes.<br/>
-        /// Default Value: []
-        /// </param>
-#if NET7_0_OR_GREATER
-        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
-#endif
-        public ComposioManagedAuthConfigCreateToolAccessConfig(
-            global::System.Collections.Generic.IList<string>? toolsForConnectedAccountCreation)
-        {
-            this.ToolsForConnectedAccountCreation = toolsForConnectedAccountCreation;
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ComposioManagedAuthConfigCreateToolAccessConfig" /> class.
-        /// </summary>
-        public ComposioManagedAuthConfigCreateToolAccessConfig()
-        {
-        }
 
     }
 }
