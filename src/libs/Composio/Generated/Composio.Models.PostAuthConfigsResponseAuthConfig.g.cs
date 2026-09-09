@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace Composio
@@ -30,10 +32,11 @@ namespace Composio
         public required bool IsComposioManaged { get; set; }
 
         /// <summary>
-        /// The tools that the user can use with the auth config<br/>
+        /// The tools that the user can use with the auth config. DEPRECATED: use [Get required scopes](https://docs.composio.dev/reference/api-reference/toolkits/recommendToolkitScopes) to resolve the scopes for the tools you need, then pass those scopes in `credentials.scopes`.<br/>
         /// Default Value: []
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("restrict_to_following_tools")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public global::System.Collections.Generic.IList<string>? RestrictToFollowingTools { get; set; }
 
         /// <summary>
@@ -54,23 +57,17 @@ namespace Composio
         /// <param name="isComposioManaged">
         /// Whether the auth config is managed by Composio
         /// </param>
-        /// <param name="restrictToFollowingTools">
-        /// The tools that the user can use with the auth config<br/>
-        /// Default Value: []
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PostAuthConfigsResponseAuthConfig(
             string id,
             string authScheme,
-            bool isComposioManaged,
-            global::System.Collections.Generic.IList<string>? restrictToFollowingTools)
+            bool isComposioManaged)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.AuthScheme = authScheme ?? throw new global::System.ArgumentNullException(nameof(authScheme));
             this.IsComposioManaged = isComposioManaged;
-            this.RestrictToFollowingTools = restrictToFollowingTools;
         }
 
         /// <summary>

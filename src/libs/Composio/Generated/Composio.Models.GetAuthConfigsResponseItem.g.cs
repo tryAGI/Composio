@@ -111,14 +111,14 @@ namespace Composio
         public global::System.Collections.Generic.IList<global::Composio.GetAuthConfigsResponseItemExpectedInputField>? ExpectedInputFields { get; set; }
 
         /// <summary>
-        /// Use tool_access_config instead. This field will be deprecated in the future.
+        /// List of tool slugs this auth config is restricted to use with. DEPRECATED: use [Get required scopes](https://docs.composio.dev/reference/api-reference/toolkits/recommendToolkitScopes) to resolve the scopes for the tools you need, then pass those scopes in `credentials.scopes`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("restrict_to_following_tools")]
         [global::System.Obsolete("This property marked as deprecated.")]
         public global::System.Collections.Generic.IList<string>? RestrictToFollowingTools { get; set; }
 
         /// <summary>
-        ///
+        /// DEPRECATED: use [Get required scopes](https://docs.composio.dev/reference/api-reference/toolkits/recommendToolkitScopes) to resolve the scopes for the tools you need, then pass those scopes in `credentials.scopes`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_access_config")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -166,7 +166,9 @@ namespace Composio
         /// <param name="noOfConnections">
         /// The number of active connections using this auth config
         /// </param>
-        /// <param name="toolAccessConfig"></param>
+        /// <param name="toolAccessConfig">
+        /// DEPRECATED: use [Get required scopes](https://docs.composio.dev/reference/api-reference/toolkits/recommendToolkitScopes) to resolve the scopes for the tools you need, then pass those scopes in `credentials.scopes`.
+        /// </param>
         /// <param name="authScheme">
         /// The authentication scheme used (e.g., OAuth2, API Key, etc.)
         /// </param>

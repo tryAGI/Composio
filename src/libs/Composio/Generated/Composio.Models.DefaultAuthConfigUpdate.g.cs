@@ -38,16 +38,17 @@ namespace Composio
         public global::Composio.AnyOf<string, global::System.Collections.Generic.IList<string>>? UserScopes { get; set; }
 
         /// <summary>
-        /// Use tool_access_config instead. This field will be deprecated in the future.
+        /// List of tool slugs this auth config is restricted to use with. DEPRECATED: use [Get required scopes](https://docs.composio.dev/reference/api-reference/toolkits/recommendToolkitScopes) to resolve the scopes for the tools you need, then pass those scopes in `credentials.scopes`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("restrict_to_following_tools")]
         [global::System.Obsolete("This property marked as deprecated.")]
         public global::System.Collections.Generic.IList<string>? RestrictToFollowingTools { get; set; }
 
         /// <summary>
-        ///
+        /// DEPRECATED: use [Get required scopes](https://docs.composio.dev/reference/api-reference/toolkits/recommendToolkitScopes) to resolve the scopes for the tools you need, then pass those scopes in `credentials.scopes`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_access_config")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public global::Composio.DefaultAuthConfigUpdateToolAccessConfig? ToolAccessConfig { get; set; }
 
         /// <summary>
@@ -81,7 +82,6 @@ namespace Composio
         /// <param name="userScopes">
         /// OAuth user-token scopes requested for the auth config. This is primarily used by Slack OAuth v2.
         /// </param>
-        /// <param name="toolAccessConfig"></param>
         /// <param name="sharedCredentials">
         /// Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged.
         /// </param>
@@ -96,7 +96,6 @@ namespace Composio
             string? name,
             global::Composio.AnyOf<string, global::System.Collections.Generic.IList<string>>? scopes,
             global::Composio.AnyOf<string, global::System.Collections.Generic.IList<string>>? userScopes,
-            global::Composio.DefaultAuthConfigUpdateToolAccessConfig? toolAccessConfig,
             global::System.Collections.Generic.Dictionary<string, object?>? sharedCredentials,
             bool? isEnabledForToolRouter)
         {
@@ -104,7 +103,6 @@ namespace Composio
             this.Name = name;
             this.Scopes = scopes;
             this.UserScopes = userScopes;
-            this.ToolAccessConfig = toolAccessConfig;
             this.SharedCredentials = sharedCredentials;
             this.IsEnabledForToolRouter = isEnabledForToolRouter;
         }

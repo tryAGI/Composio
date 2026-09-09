@@ -42,16 +42,17 @@ namespace Composio
         public global::Composio.CustomAuthConfigUpdateProxyConfig? ProxyConfig { get; set; }
 
         /// <summary>
-        /// Use tool_access_config instead. This field will be deprecated in the future.
+        /// List of tool slugs this auth config is restricted to use with. DEPRECATED: use [Get required scopes](https://docs.composio.dev/reference/api-reference/toolkits/recommendToolkitScopes) to resolve the scopes for the tools you need, then pass those scopes in `credentials.scopes`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("restrict_to_following_tools")]
         [global::System.Obsolete("This property marked as deprecated.")]
         public global::System.Collections.Generic.IList<string>? RestrictToFollowingTools { get; set; }
 
         /// <summary>
-        ///
+        /// DEPRECATED: use [Get required scopes](https://docs.composio.dev/reference/api-reference/toolkits/recommendToolkitScopes) to resolve the scopes for the tools you need, then pass those scopes in `credentials.scopes`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tool_access_config")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public global::Composio.CustomAuthConfigUpdateToolAccessConfig? ToolAccessConfig { get; set; }
 
         /// <summary>
@@ -84,7 +85,6 @@ namespace Composio
         /// [EXPERIMENTAL] Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials. Rotates the stored client_secret without Apollo ever holding it.
         /// </param>
         /// <param name="proxyConfig"></param>
-        /// <param name="toolAccessConfig"></param>
         /// <param name="sharedCredentials">
         /// Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged.
         /// </param>
@@ -100,7 +100,6 @@ namespace Composio
             global::Composio.CustomAuthConfigUpdateCredentials? credentials,
             global::System.Collections.Generic.Dictionary<string, string>? sealedCredentials,
             global::Composio.CustomAuthConfigUpdateProxyConfig? proxyConfig,
-            global::Composio.CustomAuthConfigUpdateToolAccessConfig? toolAccessConfig,
             global::System.Collections.Generic.Dictionary<string, object?>? sharedCredentials,
             bool? isEnabledForToolRouter)
         {
@@ -109,7 +108,6 @@ namespace Composio
             this.Credentials = credentials;
             this.SealedCredentials = sealedCredentials;
             this.ProxyConfig = proxyConfig;
-            this.ToolAccessConfig = toolAccessConfig;
             this.SharedCredentials = sharedCredentials;
             this.IsEnabledForToolRouter = isEnabledForToolRouter;
         }
