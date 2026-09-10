@@ -22,7 +22,7 @@ internal static partial class ToolsGetToolsCommandApiCommand
     private static Option<global::Composio.OneOf<string, global::System.Collections.Generic.IList<string>>?> AuthConfigIds { get; } = new(
         name: @"--auth-config-ids")
     {
-        Description = @"Comma-separated list of auth config IDs to filter tools by",
+        Description = @"DEPRECATED: This parameter will be removed in a future version. Filter directly instead with tool_slugs and toolkit_slug, which accepts a comma-separated list of toolkits.",
     };
 
     private static Option<global::Composio.GetToolsImportant?> Important { get; } = new(
