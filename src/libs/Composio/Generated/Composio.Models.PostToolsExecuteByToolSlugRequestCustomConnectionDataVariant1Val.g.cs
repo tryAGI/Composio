@@ -141,6 +141,12 @@ namespace Composio
         public string? BaseUrl { get; set; }
 
         /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("displayName")]
+        public string? DisplayName { get; set; }
+
+        /// <summary>
         /// The oauth2 state prefix for the connection
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("state_prefix")]
@@ -241,6 +247,7 @@ namespace Composio
         /// <param name="yourServer"></param>
         /// <param name="serverLocation"></param>
         /// <param name="baseUrl"></param>
+        /// <param name="displayName"></param>
         /// <param name="statePrefix">
         /// The oauth2 state prefix for the connection
         /// </param>
@@ -284,6 +291,7 @@ namespace Composio
             string? yourServer,
             string? serverLocation,
             string? baseUrl,
+            string? displayName,
             string? statePrefix,
             bool? longRedirectUrl,
             string? idToken,
@@ -317,6 +325,7 @@ namespace Composio
             this.YourServer = yourServer;
             this.ServerLocation = serverLocation;
             this.BaseUrl = baseUrl;
+            this.DisplayName = displayName;
             this.StatePrefix = statePrefix;
             this.LongRedirectUrl = longRedirectUrl;
             this.AccessToken = accessToken ?? throw new global::System.ArgumentNullException(nameof(accessToken));

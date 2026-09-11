@@ -143,6 +143,12 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("displayName")]
+        public string? DisplayName { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("access_token")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string AccessToken { get; set; }
@@ -217,6 +223,7 @@ namespace Composio
         /// <param name="yourServer"></param>
         /// <param name="serverLocation"></param>
         /// <param name="baseUrl"></param>
+        /// <param name="displayName"></param>
         /// <param name="tokenType"></param>
         /// <param name="clientId"></param>
         /// <param name="clientSecret"></param>
@@ -250,6 +257,7 @@ namespace Composio
             string? yourServer,
             string? serverLocation,
             string? baseUrl,
+            string? displayName,
             string? tokenType,
             string? clientId,
             string? clientSecret,
@@ -279,6 +287,7 @@ namespace Composio
             this.YourServer = yourServer;
             this.ServerLocation = serverLocation;
             this.BaseUrl = baseUrl;
+            this.DisplayName = displayName;
             this.AccessToken = accessToken ?? throw new global::System.ArgumentNullException(nameof(accessToken));
             this.TokenType = tokenType;
             this.ClientId = clientId;

@@ -143,6 +143,12 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("displayName")]
+        public string? DisplayName { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.PostConnectedAccountsResponseConnectionDataVariant6ValVariant5StatusJsonConverter))]
         public global::Composio.PostConnectedAccountsResponseConnectionDataVariant6ValVariant5Status Status { get; set; }
@@ -184,6 +190,7 @@ namespace Composio
         /// <param name="yourServer"></param>
         /// <param name="serverLocation"></param>
         /// <param name="baseUrl"></param>
+        /// <param name="displayName"></param>
         /// <param name="status"></param>
         /// <param name="expiredAt"></param>
 #if NET7_0_OR_GREATER
@@ -212,6 +219,7 @@ namespace Composio
             string? yourServer,
             string? serverLocation,
             string? baseUrl,
+            string? displayName,
             global::Composio.PostConnectedAccountsResponseConnectionDataVariant6ValVariant5Status status,
             string? expiredAt)
         {
@@ -237,6 +245,7 @@ namespace Composio
             this.YourServer = yourServer;
             this.ServerLocation = serverLocation;
             this.BaseUrl = baseUrl;
+            this.DisplayName = displayName;
             this.Status = status;
             this.ExpiredAt = expiredAt;
         }
