@@ -143,6 +143,12 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("displayName")]
+        public string? DisplayName { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("token")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Token { get; set; }
@@ -179,6 +185,7 @@ namespace Composio
         /// <param name="yourServer"></param>
         /// <param name="serverLocation"></param>
         /// <param name="baseUrl"></param>
+        /// <param name="displayName"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -205,7 +212,8 @@ namespace Composio
             string? accountId,
             string? yourServer,
             string? serverLocation,
-            string? baseUrl)
+            string? baseUrl,
+            string? displayName)
         {
             this.Subdomain = subdomain;
             this.YourDomain = yourDomain;
@@ -229,6 +237,7 @@ namespace Composio
             this.YourServer = yourServer;
             this.ServerLocation = serverLocation;
             this.BaseUrl = baseUrl;
+            this.DisplayName = displayName;
             this.Token = token ?? throw new global::System.ArgumentNullException(nameof(token));
         }
 

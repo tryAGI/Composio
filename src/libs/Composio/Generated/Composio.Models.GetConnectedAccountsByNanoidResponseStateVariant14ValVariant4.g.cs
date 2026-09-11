@@ -143,6 +143,12 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("displayName")]
+        public string? DisplayName { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.GetConnectedAccountsByNanoidResponseStateVariant14ValVariant4StatusJsonConverter))]
         public global::Composio.GetConnectedAccountsByNanoidResponseStateVariant14ValVariant4Status Status { get; set; }
@@ -240,6 +246,7 @@ namespace Composio
         /// <param name="yourServer"></param>
         /// <param name="serverLocation"></param>
         /// <param name="baseUrl"></param>
+        /// <param name="displayName"></param>
         /// <param name="status"></param>
         /// <param name="statePrefix">
         /// The OAuth state prefix for the connection
@@ -280,6 +287,7 @@ namespace Composio
             string? yourServer,
             string? serverLocation,
             string? baseUrl,
+            string? displayName,
             global::Composio.GetConnectedAccountsByNanoidResponseStateVariant14ValVariant4Status status,
             string? statePrefix,
             bool? longRedirectUrl,
@@ -311,6 +319,7 @@ namespace Composio
             this.YourServer = yourServer;
             this.ServerLocation = serverLocation;
             this.BaseUrl = baseUrl;
+            this.DisplayName = displayName;
             this.Status = status;
             this.StatePrefix = statePrefix;
             this.LongRedirectUrl = longRedirectUrl;

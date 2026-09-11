@@ -143,6 +143,12 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("displayName")]
+        public string? DisplayName { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("generic_api_key")]
         public string? GenericApiKey { get; set; }
 
@@ -195,6 +201,7 @@ namespace Composio
         /// <param name="yourServer"></param>
         /// <param name="serverLocation"></param>
         /// <param name="baseUrl"></param>
+        /// <param name="displayName"></param>
         /// <param name="genericApiKey"></param>
         /// <param name="apiKey"></param>
         /// <param name="bearerToken"></param>
@@ -225,6 +232,7 @@ namespace Composio
             string? yourServer,
             string? serverLocation,
             string? baseUrl,
+            string? displayName,
             string? genericApiKey,
             string? apiKey,
             string? bearerToken,
@@ -252,6 +260,7 @@ namespace Composio
             this.YourServer = yourServer;
             this.ServerLocation = serverLocation;
             this.BaseUrl = baseUrl;
+            this.DisplayName = displayName;
             this.GenericApiKey = genericApiKey;
             this.ApiKey = apiKey;
             this.BearerToken = bearerToken;
