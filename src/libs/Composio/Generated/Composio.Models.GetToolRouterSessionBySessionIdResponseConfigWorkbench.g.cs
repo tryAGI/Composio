@@ -16,6 +16,12 @@ namespace Composio
         public bool? Enable { get; set; }
 
         /// <summary>
+        /// Whether tool execution is enabled in the workbench
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("tool_execution_enabled")]
+        public bool? ToolExecutionEnabled { get; set; }
+
+        /// <summary>
         /// Whether proxy execution is enabled in the workbench
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("proxy_execution_enabled")]
@@ -46,6 +52,9 @@ namespace Composio
         /// <param name="enable">
         /// Whether the workbench (code execution sandbox) is enabled. When false, COMPOSIO_REMOTE_WORKBENCH and COMPOSIO_REMOTE_BASH_TOOL are not exposed.
         /// </param>
+        /// <param name="toolExecutionEnabled">
+        /// Whether tool execution is enabled in the workbench
+        /// </param>
         /// <param name="proxyExecutionEnabled">
         /// Whether proxy execution is enabled in the workbench
         /// </param>
@@ -60,11 +69,13 @@ namespace Composio
 #endif
         public GetToolRouterSessionBySessionIdResponseConfigWorkbench(
             bool? enable,
+            bool? toolExecutionEnabled,
             bool? proxyExecutionEnabled,
             double? autoOffloadThreshold,
             global::Composio.GetToolRouterSessionBySessionIdResponseConfigWorkbenchSandboxSize? sandboxSize)
         {
             this.Enable = enable;
+            this.ToolExecutionEnabled = toolExecutionEnabled;
             this.ProxyExecutionEnabled = proxyExecutionEnabled;
             this.AutoOffloadThreshold = autoOffloadThreshold;
             this.SandboxSize = sandboxSize;

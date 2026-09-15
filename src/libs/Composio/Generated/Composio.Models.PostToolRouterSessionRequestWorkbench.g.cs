@@ -19,6 +19,13 @@ namespace Composio
         public bool? Enable { get; set; }
 
         /// <summary>
+        /// Whether Composio tool execution is enabled inside the workbench. Defaults to true. When false, run_composio_tool, invoke_llm, and web_search are unavailable; Python analysis and file helpers remain available. Proxy execution defaults to true and still permits authenticated connected-app HTTP requests. Set enable_proxy_execution to false as well to block both Composio tool and proxy access through Workbench credentials. These flags do not restrict network access or independently supplied credentials.<br/>
+        /// Default Value: true
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("enable_tool_execution")]
+        public bool? EnableToolExecution { get; set; }
+
+        /// <summary>
         /// Whether proxy execution is enabled. When enabled, workbench can call URLs and APIs directly.<br/>
         /// Default Value: true<br/>
         /// Example: true
@@ -59,6 +66,10 @@ namespace Composio
         /// Default Value: true<br/>
         /// Example: true
         /// </param>
+        /// <param name="enableToolExecution">
+        /// Whether Composio tool execution is enabled inside the workbench. Defaults to true. When false, run_composio_tool, invoke_llm, and web_search are unavailable; Python analysis and file helpers remain available. Proxy execution defaults to true and still permits authenticated connected-app HTTP requests. Set enable_proxy_execution to false as well to block both Composio tool and proxy access through Workbench credentials. These flags do not restrict network access or independently supplied credentials.<br/>
+        /// Default Value: true
+        /// </param>
         /// <param name="enableProxyExecution">
         /// Whether proxy execution is enabled. When enabled, workbench can call URLs and APIs directly.<br/>
         /// Default Value: true<br/>
@@ -78,11 +89,13 @@ namespace Composio
 #endif
         public PostToolRouterSessionRequestWorkbench(
             bool? enable,
+            bool? enableToolExecution,
             bool? enableProxyExecution,
             double? autoOffloadThreshold,
             global::Composio.PostToolRouterSessionRequestWorkbenchSandboxSize? sandboxSize)
         {
             this.Enable = enable;
+            this.EnableToolExecution = enableToolExecution;
             this.EnableProxyExecution = enableProxyExecution;
             this.AutoOffloadThreshold = autoOffloadThreshold;
             this.SandboxSize = sandboxSize;
