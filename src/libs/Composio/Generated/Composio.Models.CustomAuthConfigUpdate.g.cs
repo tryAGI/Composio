@@ -30,7 +30,7 @@ namespace Composio
         public global::Composio.CustomAuthConfigUpdateCredentials? Credentials { get; set; }
 
         /// <summary>
-        /// [EXPERIMENTAL] Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials. Rotates the stored client_secret without Apollo ever holding it.
+        /// [EXPERIMENTAL] Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials. Rotates the stored client_secret without Composio ever holding it.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("sealed_credentials")]
         public global::System.Collections.Generic.Dictionary<string, string>? SealedCredentials { get; set; }
@@ -82,7 +82,7 @@ namespace Composio
         /// </param>
         /// <param name="credentials"></param>
         /// <param name="sealedCredentials">
-        /// [EXPERIMENTAL] Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials. Rotates the stored client_secret without Apollo ever holding it.
+        /// [EXPERIMENTAL] Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials. Rotates the stored client_secret without Composio ever holding it.
         /// </param>
         /// <param name="proxyConfig"></param>
         /// <param name="sharedCredentials">

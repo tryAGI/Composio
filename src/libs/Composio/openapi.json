@@ -490,7 +490,7 @@
               "minLength": 1,
               "maxLength": 16384
             },
-            "description": "[EXPERIMENTAL] Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials. Rotates the stored client_secret without Apollo ever holding it.",
+            "description": "[EXPERIMENTAL] Client-sealed secret fields to redeem through the organization keyring instance (GET /api/v3.1/keyring/transfer_keys). The plaintext must not also appear in credentials. Rotates the stored client_secret without Composio ever holding it.",
             "x-experimental": true
           },
           "proxy_config": {
@@ -41919,7 +41919,7 @@
                         "additionalProperties": {
                           "nullable": true
                         },
-                        "description": "Link-auth theme for the hosted connect page. Opaque to Apollo; the dashboard owns the token vocabulary and all value validation."
+                        "description": "Link-auth theme for the hosted connect page. Opaque to the API; the dashboard owns the token vocabulary and all value validation."
                       }
                     },
                     "required": [
@@ -60035,7 +60035,8 @@
                           "val"
                         ]
                       }
-                    ]
+                    ],
+                    "deprecated": true
                   }
                 },
                 "required": [
@@ -61522,7 +61523,7 @@
     "/api/v3/tool_router/session/{session_id}/mounts/{mount_id}/delete": {
       "post": {
         "summary": "Delete a file from a session mount",
-        "description": "Deletes a file from a workbench session storage mount. S3 delete is idempotent — deleting a non-existent file succeeds silently.",
+        "description": "Deletes a file from a workbench session storage mount. Deleting a non-existent file succeeds silently (idempotent).",
         "tags": [
           "Tool Router"
         ],

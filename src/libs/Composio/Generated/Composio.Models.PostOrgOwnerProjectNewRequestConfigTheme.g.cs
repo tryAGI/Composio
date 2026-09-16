@@ -4,7 +4,7 @@
 namespace Composio
 {
     /// <summary>
-    /// Link-auth theme for the hosted connect page. Opaque to Apollo; the dashboard owns the token vocabulary and all value validation.
+    /// Link-auth theme for the hosted connect page. Opaque to the API; the dashboard owns the token vocabulary and all value validation.
     /// </summary>
     public sealed partial class PostOrgOwnerProjectNewRequestConfigTheme
     {

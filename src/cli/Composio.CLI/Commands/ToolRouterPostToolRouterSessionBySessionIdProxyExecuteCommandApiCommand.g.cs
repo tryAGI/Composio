@@ -51,12 +51,6 @@ internal static partial class ToolRouterPostToolRouterSessionBySessionIdProxyExe
     {
         Description = @"Additional HTTP headers or query parameters to include in the request",
     };
-
-    private static Option<global::Composio.OneOf<global::Composio.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant1, global::Composio.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant2, global::Composio.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant3, global::Composio.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant4, global::Composio.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant5, global::Composio.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant6, global::Composio.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant7, global::Composio.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant8, global::Composio.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant9, global::Composio.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant10, global::Composio.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant11>?> CustomConnectionData { get; } = new(
-        name: @"--custom-connection-data")
-    {
-        Description = @"",
-    };
       private static Option<string?> Input { get; } = new(@"--input")
       {
           Description = "Load request JSON from a file path, '-' for stdin, or an inline JSON object/array string.",
@@ -105,7 +99,6 @@ Execute any native API call on a toolkit with authentication automatically injec
                         command.Options.Add(Body);
                         command.Options.Add(BinaryBody);
                         command.Options.Add(Parameters);
-                        command.Options.Add(CustomConnectionData);
           command.Options.Add(Input);
           command.Options.Add(RequestJson);
           command.Options.Add(RequestFile);
@@ -138,7 +131,6 @@ Execute any native API call on a toolkit with authentication automatically injec
                         var body = CliRuntime.WasSpecified(parseResult, Body) ? parseResult.GetValue(Body) : (__requestBase is { } __BodyBaseValue ? __BodyBaseValue.Body : default);
                         var binaryBody = CliRuntime.WasSpecified(parseResult, BinaryBody) ? parseResult.GetValue(BinaryBody) : (__requestBase is { } __BinaryBodyBaseValue ? __BinaryBodyBaseValue.BinaryBody : default);
                         var parameters = CliRuntime.WasSpecified(parseResult, Parameters) ? parseResult.GetValue(Parameters) : (__requestBase is { } __ParametersBaseValue ? __ParametersBaseValue.Parameters : default);
-                        var customConnectionData = CliRuntime.WasSpecified(parseResult, CustomConnectionData) ? parseResult.GetValue(CustomConnectionData) : (__requestBase is { } __CustomConnectionDataBaseValue ? __CustomConnectionDataBaseValue.CustomConnectionData : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
@@ -150,7 +142,6 @@ Execute any native API call on a toolkit with authentication automatically injec
                                     body: body,
                                     binaryBody: binaryBody,
                                     parameters: parameters,
-                                    customConnectionData: customConnectionData,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
 

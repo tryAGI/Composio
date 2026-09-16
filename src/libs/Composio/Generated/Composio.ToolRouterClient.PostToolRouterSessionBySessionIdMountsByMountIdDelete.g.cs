@@ -47,7 +47,7 @@ namespace Composio
 
         /// <summary>
         /// Delete a file from a session mount<br/>
-        /// Deletes a file from a workbench session storage mount. S3 delete is idempotent — deleting a non-existent file succeeds silently.
+        /// Deletes a file from a workbench session storage mount. Deleting a non-existent file succeeds silently (idempotent).
         /// </summary>
         /// <param name="sessionId">
         /// The unique identifier of the tool router session<br/>
@@ -82,7 +82,7 @@ namespace Composio
         }
         /// <summary>
         /// Delete a file from a session mount<br/>
-        /// Deletes a file from a workbench session storage mount. S3 delete is idempotent — deleting a non-existent file succeeds silently.
+        /// Deletes a file from a workbench session storage mount. Deleting a non-existent file succeeds silently (idempotent).
         /// </summary>
         /// <param name="sessionId">
         /// The unique identifier of the tool router session<br/>
@@ -613,7 +613,7 @@ namespace Composio
         }
         /// <summary>
         /// Delete a file from a session mount<br/>
-        /// Deletes a file from a workbench session storage mount. S3 delete is idempotent — deleting a non-existent file succeeds silently.
+        /// Deletes a file from a workbench session storage mount. Deleting a non-existent file succeeds silently (idempotent).
         /// </summary>
         /// <param name="sessionId">
         /// The unique identifier of the tool router session<br/>
