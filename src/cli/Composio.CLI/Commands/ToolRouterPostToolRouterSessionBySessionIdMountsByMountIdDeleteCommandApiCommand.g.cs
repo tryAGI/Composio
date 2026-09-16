@@ -49,7 +49,7 @@ internal static partial class ToolRouterPostToolRouterSessionBySessionIdMountsBy
     public static Command Create()
     {
         var command = new Command(@"post-tool-router-session-by-session-id-mounts-by-mount-id-delete", @"Delete a file from a session mount
-Deletes a file from a workbench session storage mount. S3 delete is idempotent — deleting a non-existent file succeeds silently.");
+Deletes a file from a workbench session storage mount. Deleting a non-existent file succeeds silently (idempotent).");
                         command.Arguments.Add(SessionId);
                         command.Arguments.Add(MountId);
                         command.Options.Add(MountRelativePath);

@@ -67,7 +67,7 @@ namespace Composio
         public string? OauthCallbackVerifierUrl { get; set; }
 
         /// <summary>
-        /// Link-auth theme for the hosted connect page. Opaque to Apollo; the dashboard owns the token vocabulary and all value validation.
+        /// Link-auth theme for the hosted connect page. Opaque to the API; the dashboard owns the token vocabulary and all value validation.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("theme")]
         public global::System.Collections.Generic.Dictionary<string, object?>? Theme { get; set; }
@@ -95,7 +95,7 @@ namespace Composio
         /// Developer-hosted OAuth callback verifier URL. Setting it enables per-user callback identity verification; null disables it. Must be https and pass SSRF checks.
         /// </param>
         /// <param name="theme">
-        /// Link-auth theme for the hosted connect page. Opaque to Apollo; the dashboard owns the token vocabulary and all value validation.
+        /// Link-auth theme for the hosted connect page. Opaque to the API; the dashboard owns the token vocabulary and all value validation.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
