@@ -80,6 +80,12 @@ namespace Composio
         public string? PlanId { get; set; }
 
         /// <summary>
+        /// Use case the cached plan was originally built for, if a cached plan is available. May differ from `use_case` when the cached plan was matched from a similar query.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("cached_plan_usecase")]
+        public string? CachedPlanUsecase { get; set; }
+
+        /// <summary>
         /// Error message if the search for this query failed, null otherwise. Always present for failed queries.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("error")]
@@ -133,6 +139,9 @@ namespace Composio
         /// <param name="planId">
         /// ID of cached plan if available
         /// </param>
+        /// <param name="cachedPlanUsecase">
+        /// Use case the cached plan was originally built for, if a cached plan is available. May differ from `use_case` when the cached plan was matched from a similar query.
+        /// </param>
         /// <param name="error">
         /// Error message if the search for this query failed, null otherwise. Always present for failed queries.
         /// </param>
@@ -154,6 +163,7 @@ namespace Composio
             global::System.Collections.Generic.IList<string>? knownPitfalls,
             global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionBySessionIdSearchResponseResultReferenceWorkbenchSnippet>? referenceWorkbenchSnippets,
             string? planId,
+            string? cachedPlanUsecase,
             string? error,
             global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<string>>? memory)
         {
@@ -168,6 +178,7 @@ namespace Composio
             this.RelatedToolSlugs = relatedToolSlugs ?? throw new global::System.ArgumentNullException(nameof(relatedToolSlugs));
             this.Toolkits = toolkits ?? throw new global::System.ArgumentNullException(nameof(toolkits));
             this.PlanId = planId;
+            this.CachedPlanUsecase = cachedPlanUsecase;
             this.Error = error;
             this.Memory = memory;
         }
