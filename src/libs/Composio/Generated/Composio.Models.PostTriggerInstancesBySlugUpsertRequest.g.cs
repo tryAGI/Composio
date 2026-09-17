@@ -37,6 +37,12 @@ namespace Composio
         public string? UserId { get; set; }
 
         /// <summary>
+        /// Overrides the delivery URL for this trigger instance only: its events are sent to this HTTPS URL instead of the project webhook URL. Your project webhook subscription is still required and still controls signing (the webhook secret), the payload version and which events are enabled; only the destination changes for this instance. Omit to leave the current value unchanged; pass null to remove the override and deliver to the project webhook URL again.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("egress_url")]
+        public string? EgressUrl { get; set; }
+
+        /// <summary>
         /// Trigger configuration
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("trigger_config")]
@@ -75,6 +81,9 @@ namespace Composio
         /// <param name="userId">
         /// The user id (entity id) that owns the connection. When connected_account_id is omitted, the first active connection for this user and the trigger's toolkit is auto-resolved (same as tool execution). When connected_account_id is also provided and the project has 2FA enabled, user_id is validated against the owner of that connection.
         /// </param>
+        /// <param name="egressUrl">
+        /// Overrides the delivery URL for this trigger instance only: its events are sent to this HTTPS URL instead of the project webhook URL. Your project webhook subscription is still required and still controls signing (the webhook secret), the payload version and which events are enabled; only the destination changes for this instance. Omit to leave the current value unchanged; pass null to remove the override and deliver to the project webhook URL again.
+        /// </param>
         /// <param name="triggerConfig2">
         /// Trigger configuration
         /// </param>
@@ -88,11 +97,13 @@ namespace Composio
         public PostTriggerInstancesBySlugUpsertRequest(
             string? connectedAccountId,
             string? userId,
+            string? egressUrl,
             global::System.Collections.Generic.Dictionary<string, object?>? triggerConfig2,
             global::Composio.AnyOf<string, global::System.Collections.Generic.Dictionary<string, string>, object>? toolkitVersions)
         {
             this.ConnectedAccountId = connectedAccountId;
             this.UserId = userId;
+            this.EgressUrl = egressUrl;
             this.TriggerConfig2 = triggerConfig2;
             this.ToolkitVersions = toolkitVersions;
         }

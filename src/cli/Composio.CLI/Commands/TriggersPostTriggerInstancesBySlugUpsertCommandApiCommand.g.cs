@@ -25,6 +25,12 @@ internal static partial class TriggersPostTriggerInstancesBySlugUpsertCommandApi
         Description = @"The user id (entity id) that owns the connection. When connected_account_id is omitted, the first active connection for this user and the trigger's toolkit is auto-resolved (same as tool execution). When connected_account_id is also provided and the project has 2FA enabled, user_id is validated against the owner of that connection.",
     };
 
+    private static Option<string?> EgressUrl { get; } = new(
+        name: @"--egress-url")
+    {
+        Description = @"Overrides the delivery URL for this trigger instance only: its events are sent to this HTTPS URL instead of the project webhook URL. Your project webhook subscription is still required and still controls signing (the webhook secret), the payload version and which events are enabled; only the destination changes for this instance. Omit to leave the current value unchanged; pass null to remove the override and deliver to the project webhook URL again.",
+    };
+
     private static Option<global::System.Collections.Generic.Dictionary<string, object?>?> TriggerConfig2 { get; } = new(
         name: @"--trigger-config")
     {
@@ -80,6 +86,7 @@ Creates a new trigger instance or updates an existing one with the same configur
                         command.Arguments.Add(Slug);
                         command.Options.Add(ConnectedAccountId);
                         command.Options.Add(UserId);
+                        command.Options.Add(EgressUrl);
                         command.Options.Add(TriggerConfig2);
                         command.Options.Add(ToolkitVersions);
           command.Options.Add(Input);
@@ -110,6 +117,7 @@ Creates a new trigger instance or updates an existing one with the same configur
                         var slug = parseResult.GetRequiredValue(Slug);
                         var connectedAccountId = CliRuntime.WasSpecified(parseResult, ConnectedAccountId) ? parseResult.GetValue(ConnectedAccountId) : (__requestBase is { } __ConnectedAccountIdBaseValue ? __ConnectedAccountIdBaseValue.ConnectedAccountId : default);
                         var userId = CliRuntime.WasSpecified(parseResult, UserId) ? parseResult.GetValue(UserId) : (__requestBase is { } __UserIdBaseValue ? __UserIdBaseValue.UserId : default);
+                        var egressUrl = CliRuntime.WasSpecified(parseResult, EgressUrl) ? parseResult.GetValue(EgressUrl) : (__requestBase is { } __EgressUrlBaseValue ? __EgressUrlBaseValue.EgressUrl : default);
                         var triggerConfig2 = CliRuntime.WasSpecified(parseResult, TriggerConfig2) ? parseResult.GetValue(TriggerConfig2) : (__requestBase is { } __TriggerConfig2BaseValue ? __TriggerConfig2BaseValue.TriggerConfig2 : default);
                         var toolkitVersions = CliRuntime.WasSpecified(parseResult, ToolkitVersions) ? parseResult.GetValue(ToolkitVersions) : (__requestBase is { } __ToolkitVersionsBaseValue ? __ToolkitVersionsBaseValue.ToolkitVersions : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
@@ -119,6 +127,7 @@ Creates a new trigger instance or updates an existing one with the same configur
                                     slug: slug,
                                     connectedAccountId: connectedAccountId,
                                     userId: userId,
+                                    egressUrl: egressUrl,
                                     triggerConfig2: triggerConfig2,
                                     toolkitVersions: toolkitVersions,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);

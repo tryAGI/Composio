@@ -72,6 +72,12 @@ namespace Composio
         public required global::System.Collections.Generic.Dictionary<string, object?> TriggerConfig { get; set; }
 
         /// <summary>
+        /// Delivery URL override for this trigger instance: its events are sent here instead of the project webhook URL, while signing, the payload version and enabled events still come from the project webhook subscription. Null means no override.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("egress_url")]
+        public string? EgressUrl { get; set; }
+
+        /// <summary>
         /// DEPRECATED: This field exposes internal state and will be removed in a future version.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("state")]
@@ -183,6 +189,9 @@ namespace Composio
         /// <param name="triggerData">
         /// Additional data associated with the trigger instance
         /// </param>
+        /// <param name="egressUrl">
+        /// Delivery URL override for this trigger instance: its events are sent here instead of the project webhook URL, while signing, the payload version and enabled events still come from the project webhook subscription. Null means no override.
+        /// </param>
         /// <param name="disabledAt">
         /// ISO 8601 timestamp when the trigger instance was disabled, if applicable
         /// </param>
@@ -207,6 +216,7 @@ namespace Composio
             global::System.Collections.Generic.Dictionary<string, object?> triggerConfig2,
             string? uuid,
             string? triggerData,
+            string? egressUrl,
             string? disabledAt,
             global::Composio.GetTriggerInstancesActiveResponseItemDeprecated? deprecated)
         {
@@ -219,6 +229,7 @@ namespace Composio
             this.TriggerData = triggerData;
             this.Version = version ?? throw new global::System.ArgumentNullException(nameof(version));
             this.TriggerConfig = triggerConfig ?? throw new global::System.ArgumentNullException(nameof(triggerConfig));
+            this.EgressUrl = egressUrl;
             this.UpdatedAt = updatedAt ?? throw new global::System.ArgumentNullException(nameof(updatedAt));
             this.DisabledAt = disabledAt;
             this.ConnectedAccountId2 = connectedAccountId2 ?? throw new global::System.ArgumentNullException(nameof(connectedAccountId2));

@@ -4,7 +4,7 @@
 namespace Composio
 {
     /// <summary>
-    ///
+    /// Enable or disable the trigger instance.
     /// </summary>
     public enum PatchTriggerInstancesManageByTriggerIdRequestStatus
     {

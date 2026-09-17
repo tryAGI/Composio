@@ -44,8 +44,8 @@ namespace Composio
             ref string content);
 
         /// <summary>
-        /// Enable or disable a trigger<br/>
-        /// Updates the status of a trigger instance to enable or disable it. Disabling a trigger pauses event listening without deleting the trigger configuration. Re-enabling restores the trigger to its active state. Use this for temporary maintenance or to control trigger execution.
+        /// Update a trigger<br/>
+        /// Updates a trigger instance. Pass status to enable or disable it: disabling pauses event listening without deleting the trigger configuration, and re-enabling restores it. Pass egress_url to override where this instance delivers its events (null removes the override); the project webhook subscription is still required and still controls signing, the payload version and which events are enabled. Send either field or both. On a project with 2FA enabled, user_id is required to set egress_url and, whenever sent, must own the connected account behind the trigger.
         /// </summary>
         /// <param name="triggerId">
         /// The ID of the trigger instance to update
@@ -72,8 +72,8 @@ namespace Composio
             return __response.Body;
         }
         /// <summary>
-        /// Enable or disable a trigger<br/>
-        /// Updates the status of a trigger instance to enable or disable it. Disabling a trigger pauses event listening without deleting the trigger configuration. Re-enabling restores the trigger to its active state. Use this for temporary maintenance or to control trigger execution.
+        /// Update a trigger<br/>
+        /// Updates a trigger instance. Pass status to enable or disable it: disabling pauses event listening without deleting the trigger configuration, and re-enabling restores it. Pass egress_url to override where this instance delivers its events (null removes the override); the project webhook subscription is still required and still controls signing, the payload version and which events are enabled. Send either field or both. On a project with 2FA enabled, user_id is required to set egress_url and, whenever sent, must own the connected account behind the trigger.
         /// </summary>
         /// <param name="triggerId">
         /// The ID of the trigger instance to update
@@ -424,6 +424,43 @@ namespace Composio
                                         h => h.Key,
                                         h => h.Value));
                             }
+                            // Forbidden
+                            if ((int)__response.StatusCode == 403)
+                            {
+                                string? __content_403 = null;
+                                global::System.Exception? __exception_403 = null;
+                                global::Composio.Error? __value_403 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_403 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_403 = global::Composio.Error.FromJson(__content_403, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_403 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_403 = global::Composio.Error.FromJson(__content_403, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_403 = __ex;
+                                }
+
+
+                                throw global::Composio.ApiException<global::Composio.Error>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_403 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_403,
+                                    responseBody: __content_403,
+                                    responseObject: __value_403,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
                             // Trigger instance not found
                             if ((int)__response.StatusCode == 404)
                             {
@@ -706,25 +743,37 @@ namespace Composio
             }
         }
         /// <summary>
-        /// Enable or disable a trigger<br/>
-        /// Updates the status of a trigger instance to enable or disable it. Disabling a trigger pauses event listening without deleting the trigger configuration. Re-enabling restores the trigger to its active state. Use this for temporary maintenance or to control trigger execution.
+        /// Update a trigger<br/>
+        /// Updates a trigger instance. Pass status to enable or disable it: disabling pauses event listening without deleting the trigger configuration, and re-enabling restores it. Pass egress_url to override where this instance delivers its events (null removes the override); the project webhook subscription is still required and still controls signing, the payload version and which events are enabled. Send either field or both. On a project with 2FA enabled, user_id is required to set egress_url and, whenever sent, must own the connected account behind the trigger.
         /// </summary>
         /// <param name="triggerId">
         /// The ID of the trigger instance to update
         /// </param>
-        /// <param name="status"></param>
+        /// <param name="status">
+        /// Enable or disable the trigger instance.
+        /// </param>
+        /// <param name="userId">
+        /// The user id that owns the connected account behind this trigger. Optional: when sent on a project with 2FA enabled it must be the owner of a private connection or allowed on a shared one, whatever is being updated. Required to set egress_url when 2FA is enabled. Ignored when 2FA is disabled.
+        /// </param>
+        /// <param name="egressUrl">
+        /// Overrides the delivery URL for this trigger instance only: its events are sent to this HTTPS URL instead of the project webhook URL. Your project webhook subscription is still required and still controls signing (the webhook secret), the payload version and which events are enabled; only the destination changes for this instance. Omit to leave the current value unchanged; pass null to remove the override and deliver to the project webhook URL again.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Composio.PatchTriggerInstancesManageByTriggerIdResponse> PatchTriggerInstancesManageByTriggerIdAsync(
             string triggerId,
-            global::Composio.PatchTriggerInstancesManageByTriggerIdRequestStatus status,
+            global::Composio.PatchTriggerInstancesManageByTriggerIdRequestStatus? status = default,
+            string? userId = default,
+            string? egressUrl = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __request = new global::Composio.PatchTriggerInstancesManageByTriggerIdRequest
             {
                 Status = status,
+                UserId = userId,
+                EgressUrl = egressUrl,
             };
 
             return await PatchTriggerInstancesManageByTriggerIdAsync(
