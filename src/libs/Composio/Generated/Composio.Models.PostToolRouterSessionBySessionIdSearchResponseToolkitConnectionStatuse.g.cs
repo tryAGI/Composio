@@ -62,6 +62,12 @@ namespace Composio
         public global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseAccountSelection? AccountSelection { get; set; }
 
         /// <summary>
+        /// Present when the toolkit is connected through the Composio managed account rather than a connected account of the user.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("composio_managed")]
+        public global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseComposioManaged? ComposioManaged { get; set; }
+
+        /// <summary>
         /// Human-readable message about the connection status and next steps
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("status_message")]
@@ -104,6 +110,9 @@ namespace Composio
         /// <param name="accountSelection">
         /// When "required", the agent must specify which account to use. Present only when multiple accounts exist.
         /// </param>
+        /// <param name="composioManaged">
+        /// Present when the toolkit is connected through the Composio managed account rather than a connected account of the user.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -116,7 +125,8 @@ namespace Composio
             global::System.Collections.Generic.Dictionary<string, object?>? currentUserInfo,
             global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseAccountType? accountType,
             global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseAccount>? accounts,
-            global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseAccountSelection? accountSelection)
+            global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseAccountSelection? accountSelection,
+            global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseComposioManaged? composioManaged)
         {
             this.Toolkit = toolkit ?? throw new global::System.ArgumentNullException(nameof(toolkit));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
@@ -126,6 +136,7 @@ namespace Composio
             this.AccountType = accountType;
             this.Accounts = accounts;
             this.AccountSelection = accountSelection;
+            this.ComposioManaged = composioManaged;
             this.StatusMessage = statusMessage ?? throw new global::System.ArgumentNullException(nameof(statusMessage));
         }
 
