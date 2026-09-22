@@ -54,6 +54,13 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("credentialSource")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.GetInternalActionExecutionLogByIdResponseCredentialSourceJsonConverter))]
+        public global::Composio.GetInternalActionExecutionLogByIdResponseCredentialSource? CredentialSource { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("session")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.Dictionary<string, object?> Session { get; set; }
@@ -136,6 +143,7 @@ namespace Composio
         /// <param name="endTime"></param>
         /// <param name="totalDuration"></param>
         /// <param name="error"></param>
+        /// <param name="credentialSource"></param>
         /// <param name="response"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -155,6 +163,7 @@ namespace Composio
             double endTime,
             string totalDuration,
             global::System.Collections.Generic.Dictionary<string, object?> error,
+            global::Composio.GetInternalActionExecutionLogByIdResponseCredentialSource? credentialSource,
             global::System.Collections.Generic.Dictionary<string, object?>? response)
         {
             this.ActionLogId = actionLogId ?? throw new global::System.ArgumentNullException(nameof(actionLogId));
@@ -163,6 +172,7 @@ namespace Composio
             this.App = app ?? throw new global::System.ArgumentNullException(nameof(app));
             this.Version = version ?? throw new global::System.ArgumentNullException(nameof(version));
             this.Connection = connection ?? throw new global::System.ArgumentNullException(nameof(connection));
+            this.CredentialSource = credentialSource;
             this.Session = session ?? throw new global::System.ArgumentNullException(nameof(session));
             this.ExecutionMetadata = executionMetadata ?? throw new global::System.ArgumentNullException(nameof(executionMetadata));
             this.Steps = steps ?? throw new global::System.ArgumentNullException(nameof(steps));

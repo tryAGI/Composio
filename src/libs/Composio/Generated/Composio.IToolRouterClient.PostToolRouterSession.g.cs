@@ -49,6 +49,9 @@ namespace Composio
         /// Per-toolkit connected account override (single nano-ID). Each connected account must exist (not deleted or disabled) and belong to the same `user_id` as the session.<br/>
         /// Example: {"github":"ca_3m4n5o6p7q8r"}
         /// </param>
+        /// <param name="premiumUsage">
+        /// Controls premium usage, subject to project permission and session toolkit and tool restrictions. False disables premium usage. Omission on create or an empty object enables it with charges hidden. On PATCH, omitted fields are preserved; an object re-enables a disabled setting.
+        /// </param>
         /// <param name="manageConnections">
         /// Configuration for connection management settings<br/>
         /// Default Value: {"enable":true,"enable_wait_for_connections":false,"enable_connection_removal":true}
@@ -82,6 +85,7 @@ namespace Composio
             global::Composio.AnyOf<global::Composio.PostToolRouterSessionRequestToolkitsVariant1, global::Composio.PostToolRouterSessionRequestToolkitsVariant2>? toolkits = default,
             global::System.Collections.Generic.Dictionary<string, string>? authConfigs = default,
             global::System.Collections.Generic.Dictionary<string, string>? connectedAccounts = default,
+            global::Composio.AnyOf<bool?, global::Composio.PostToolRouterSessionRequestPremiumUsage>? premiumUsage = default,
             global::Composio.PostToolRouterSessionRequestManageConnections? manageConnections = default,
             object? tools = default,
             global::Composio.AnyOf<global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionRequestTag>, global::Composio.PostToolRouterSessionRequestTags>? tags = default,

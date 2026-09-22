@@ -31,6 +31,12 @@ internal static partial class ToolRouterPatchToolRouterSessionBySessionIdCommand
         Description = @"Per-toolkit connected account override (single nano-ID). Each connected account must exist (not deleted or disabled) and belong to the same `user_id` as the session.",
     };
 
+    private static Option<global::Composio.AnyOf<bool?, global::Composio.PatchToolRouterSessionBySessionIdRequestPremiumUsage>?> PremiumUsage { get; } = new(
+        name: @"--premium-usage")
+    {
+        Description = @"Controls premium usage, subject to project permission and session toolkit and tool restrictions. False disables premium usage. Omission on create or an empty object enables it with charges hidden. On PATCH, omitted fields are preserved; an object re-enables a disabled setting.",
+    };
+
     private static Option<global::Composio.PatchToolRouterSessionBySessionIdRequestManageConnections?> ManageConnections { get; } = new(
         name: @"--manage-connections")
     {
@@ -117,6 +123,7 @@ Partially updates the configuration of an existing tool router session. Only the
                         command.Options.Add(Toolkits);
                         command.Options.Add(AuthConfigs);
                         command.Options.Add(ConnectedAccounts);
+                        command.Options.Add(PremiumUsage);
                         command.Options.Add(ManageConnections);
                         command.Options.Add(Tools);
                         command.Options.Add(Tags);
@@ -153,6 +160,7 @@ Partially updates the configuration of an existing tool router session. Only the
                         var toolkits = CliRuntime.WasSpecified(parseResult, Toolkits) ? parseResult.GetValue(Toolkits) : (__requestBase is { } __ToolkitsBaseValue ? __ToolkitsBaseValue.Toolkits : default);
                         var authConfigs = CliRuntime.WasSpecified(parseResult, AuthConfigs) ? parseResult.GetValue(AuthConfigs) : (__requestBase is { } __AuthConfigsBaseValue ? __AuthConfigsBaseValue.AuthConfigs : default);
                         var connectedAccounts = CliRuntime.WasSpecified(parseResult, ConnectedAccounts) ? parseResult.GetValue(ConnectedAccounts) : (__requestBase is { } __ConnectedAccountsBaseValue ? __ConnectedAccountsBaseValue.ConnectedAccounts : default);
+                        var premiumUsage = CliRuntime.WasSpecified(parseResult, PremiumUsage) ? parseResult.GetValue(PremiumUsage) : (__requestBase is { } __PremiumUsageBaseValue ? __PremiumUsageBaseValue.PremiumUsage : default);
                         var manageConnections = CliRuntime.WasSpecified(parseResult, ManageConnections) ? parseResult.GetValue(ManageConnections) : (__requestBase is { } __ManageConnectionsBaseValue ? __ManageConnectionsBaseValue.ManageConnections : default);
                         var tools = CliRuntime.WasSpecified(parseResult, Tools) ? parseResult.GetValue(Tools) : (__requestBase is { } __ToolsBaseValue ? __ToolsBaseValue.Tools : default);
                         var tags = CliRuntime.WasSpecified(parseResult, Tags) ? parseResult.GetValue(Tags) : (__requestBase is { } __TagsBaseValue ? __TagsBaseValue.Tags : default);
@@ -168,6 +176,7 @@ Partially updates the configuration of an existing tool router session. Only the
                                     toolkits: toolkits,
                                     authConfigs: authConfigs,
                                     connectedAccounts: connectedAccounts,
+                                    premiumUsage: premiumUsage,
                                     manageConnections: manageConnections,
                                     tools: tools,
                                     tags: tags,
