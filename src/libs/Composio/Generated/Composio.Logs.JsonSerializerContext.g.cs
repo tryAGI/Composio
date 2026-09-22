@@ -52,6 +52,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostInternalActionExecutionLogsResponseDataItemApp))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostInternalActionExecutionLogsResponseDataItemStatus), TypeInfoPropertyName = "PostInternalActionExecutionLogsResponseDataItemStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostInternalActionExecutionLogsResponseDataItemMetadata))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostInternalActionExecutionLogsResponseDataItemCredentialSource), TypeInfoPropertyName = "PostInternalActionExecutionLogsResponseDataItemCredentialSource2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetInternalActionExecutionFieldsResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<global::Composio.GetInternalActionExecutionFieldsResponseField>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.GetInternalActionExecutionFieldsResponseField>))]
@@ -60,6 +61,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetInternalActionExecutionLogByIdResponseStatus), TypeInfoPropertyName = "GetInternalActionExecutionLogByIdResponseStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetInternalActionExecutionLogByIdResponseApp))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetInternalActionExecutionLogByIdResponseConnection))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetInternalActionExecutionLogByIdResponseCredentialSource), TypeInfoPropertyName = "GetInternalActionExecutionLogByIdResponseCredentialSource2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.GetInternalActionExecutionLogByIdResponseStep>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetInternalActionExecutionLogByIdResponseStep))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetInternalActionExecutionLogByIdResponseStepType), TypeInfoPropertyName = "GetInternalActionExecutionLogByIdResponseStepType2")]
@@ -80,7 +82,9 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetInternalTriggerLogByIdResponseLogType?), TypeInfoPropertyName = "NullableGetInternalTriggerLogByIdResponseLogType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetInternalTriggerLogByIdResponseLogMetaType?), TypeInfoPropertyName = "NullableGetInternalTriggerLogByIdResponseLogMetaType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostInternalActionExecutionLogsResponseDataItemStatus?), TypeInfoPropertyName = "NullablePostInternalActionExecutionLogsResponseDataItemStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostInternalActionExecutionLogsResponseDataItemCredentialSource?), TypeInfoPropertyName = "NullablePostInternalActionExecutionLogsResponseDataItemCredentialSource2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetInternalActionExecutionLogByIdResponseStatus?), TypeInfoPropertyName = "NullableGetInternalActionExecutionLogByIdResponseStatus2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetInternalActionExecutionLogByIdResponseCredentialSource?), TypeInfoPropertyName = "NullableGetInternalActionExecutionLogByIdResponseCredentialSource2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetInternalActionExecutionLogByIdResponseStepType?), TypeInfoPropertyName = "NullableGetInternalActionExecutionLogByIdResponseStepType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetInternalActionExecutionLogByIdResponseStepStatus?), TypeInfoPropertyName = "NullableGetInternalActionExecutionLogByIdResponseStepStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetInternalActionExecutionLogByIdResponseStepLogType?), TypeInfoPropertyName = "NullableGetInternalActionExecutionLogByIdResponseStepLogType2")]
@@ -286,9 +290,17 @@ namespace Composio
 
                     || typeToConvert == typeof(global::Composio.PostInternalActionExecutionLogsResponseDataItemStatus?)
 
+                    || typeToConvert == typeof(global::Composio.PostInternalActionExecutionLogsResponseDataItemCredentialSource)
+
+                    || typeToConvert == typeof(global::Composio.PostInternalActionExecutionLogsResponseDataItemCredentialSource?)
+
                     || typeToConvert == typeof(global::Composio.GetInternalActionExecutionLogByIdResponseStatus)
 
                     || typeToConvert == typeof(global::Composio.GetInternalActionExecutionLogByIdResponseStatus?)
+
+                    || typeToConvert == typeof(global::Composio.GetInternalActionExecutionLogByIdResponseCredentialSource)
+
+                    || typeToConvert == typeof(global::Composio.GetInternalActionExecutionLogByIdResponseCredentialSource?)
 
                     || typeToConvert == typeof(global::Composio.GetInternalActionExecutionLogByIdResponseStepType)
 
@@ -377,6 +389,16 @@ namespace Composio
                     return new global::Composio.JsonConverters.PostInternalActionExecutionLogsResponseDataItemStatusNullableJsonConverter();
                 }
 
+                if (typeToConvert == typeof(global::Composio.PostInternalActionExecutionLogsResponseDataItemCredentialSource))
+                {
+                    return new global::Composio.JsonConverters.PostInternalActionExecutionLogsResponseDataItemCredentialSourceJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Composio.PostInternalActionExecutionLogsResponseDataItemCredentialSource?))
+                {
+                    return new global::Composio.JsonConverters.PostInternalActionExecutionLogsResponseDataItemCredentialSourceNullableJsonConverter();
+                }
+
                 if (typeToConvert == typeof(global::Composio.GetInternalActionExecutionLogByIdResponseStatus))
                 {
                     return new global::Composio.JsonConverters.GetInternalActionExecutionLogByIdResponseStatusJsonConverter();
@@ -385,6 +407,16 @@ namespace Composio
                 if (typeToConvert == typeof(global::Composio.GetInternalActionExecutionLogByIdResponseStatus?))
                 {
                     return new global::Composio.JsonConverters.GetInternalActionExecutionLogByIdResponseStatusNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Composio.GetInternalActionExecutionLogByIdResponseCredentialSource))
+                {
+                    return new global::Composio.JsonConverters.GetInternalActionExecutionLogByIdResponseCredentialSourceJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Composio.GetInternalActionExecutionLogByIdResponseCredentialSource?))
+                {
+                    return new global::Composio.JsonConverters.GetInternalActionExecutionLogByIdResponseCredentialSourceNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::Composio.GetInternalActionExecutionLogByIdResponseStepType))

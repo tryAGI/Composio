@@ -32,6 +32,13 @@ namespace Composio
         public global::System.Collections.Generic.Dictionary<string, string>? ConnectedAccounts { get; set; }
 
         /// <summary>
+        /// Controls premium usage, subject to project permission and session toolkit and tool restrictions. False disables premium usage. Omission on create or an empty object enables it with charges hidden. On PATCH, omitted fields are preserved; an object re-enables a disabled setting.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("premium_usage")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AnyOfJsonConverter<bool?, global::Composio.PatchToolRouterSessionBySessionIdRequestPremiumUsage>))]
+        public global::Composio.AnyOf<bool?, global::Composio.PatchToolRouterSessionBySessionIdRequestPremiumUsage>? PremiumUsage { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("manage_connections")]
@@ -98,6 +105,9 @@ namespace Composio
         /// Per-toolkit connected account override (single nano-ID). Each connected account must exist (not deleted or disabled) and belong to the same `user_id` as the session.<br/>
         /// Example: {"github":"ca_3m4n5o6p7q8r"}
         /// </param>
+        /// <param name="premiumUsage">
+        /// Controls premium usage, subject to project permission and session toolkit and tool restrictions. False disables premium usage. Omission on create or an empty object enables it with charges hidden. On PATCH, omitted fields are preserved; an object re-enables a disabled setting.
+        /// </param>
         /// <param name="manageConnections"></param>
         /// <param name="tools">
         /// Tool-level configuration per toolkit. Allows you to enable, disable, or filter by tags for specific tools within each toolkit. Every slug passed in `enable` / `disable` must be a valid Composio tool slug for that toolkit — invalid or typo'd slugs fail session creation with a clear error listing which ones didn't match.<br/>
@@ -120,6 +130,7 @@ namespace Composio
             global::Composio.AnyOf<global::Composio.PatchToolRouterSessionBySessionIdRequestToolkitsVariant1, global::Composio.PatchToolRouterSessionBySessionIdRequestToolkitsVariant2>? toolkits,
             global::System.Collections.Generic.Dictionary<string, string>? authConfigs,
             global::System.Collections.Generic.Dictionary<string, string>? connectedAccounts,
+            global::Composio.AnyOf<bool?, global::Composio.PatchToolRouterSessionBySessionIdRequestPremiumUsage>? premiumUsage,
             global::Composio.PatchToolRouterSessionBySessionIdRequestManageConnections? manageConnections,
             object? tools,
             global::Composio.AnyOf<global::System.Collections.Generic.IList<global::Composio.PatchToolRouterSessionBySessionIdRequestTag>, global::Composio.PatchToolRouterSessionBySessionIdRequestTags>? tags,
@@ -131,6 +142,7 @@ namespace Composio
             this.Toolkits = toolkits;
             this.AuthConfigs = authConfigs;
             this.ConnectedAccounts = connectedAccounts;
+            this.PremiumUsage = premiumUsage;
             this.ManageConnections = manageConnections;
             this.Tools = tools;
             this.Tags = tags;

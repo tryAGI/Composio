@@ -83,6 +83,13 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("credentialSource")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.PostInternalActionExecutionLogsResponseDataItemCredentialSourceJsonConverter))]
+        public global::Composio.PostInternalActionExecutionLogsResponseDataItemCredentialSource? CredentialSource { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("createdAt")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required double CreatedAt { get; set; }
@@ -107,6 +114,7 @@ namespace Composio
         /// <param name="minimalResponse"></param>
         /// <param name="createdAt"></param>
         /// <param name="metadata"></param>
+        /// <param name="credentialSource"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -121,7 +129,8 @@ namespace Composio
             double executionTime,
             string minimalResponse,
             double createdAt,
-            global::Composio.PostInternalActionExecutionLogsResponseDataItemMetadata? metadata)
+            global::Composio.PostInternalActionExecutionLogsResponseDataItemMetadata? metadata,
+            global::Composio.PostInternalActionExecutionLogsResponseDataItemCredentialSource? credentialSource)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.ActionKey = actionKey ?? throw new global::System.ArgumentNullException(nameof(actionKey));
@@ -133,6 +142,7 @@ namespace Composio
             this.ExecutionTime = executionTime;
             this.MinimalResponse = minimalResponse ?? throw new global::System.ArgumentNullException(nameof(minimalResponse));
             this.Metadata = metadata;
+            this.CredentialSource = credentialSource;
             this.CreatedAt = createdAt;
         }
 
