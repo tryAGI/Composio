@@ -9,6 +9,12 @@ namespace Composio
     public sealed partial class PostToolRouterSessionBySessionIdExecuteMetaResponse
     {
         /// <summary>
+        /// Returned only when the session enables premium_usage.return_premium_charge and a charge is available. Failed individual tool calls omit it. Multi-execute returns one aggregate of reported charges from eligible successful calls, even if another call fails.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("premium_charge")]
+        public global::Composio.PostToolRouterSessionBySessionIdExecuteMetaResponsePremiumCharge? PremiumCharge { get; set; }
+
+        /// <summary>
         /// The data returned by the tool execution<br/>
         /// Example: {"message":"Hello, World!","status":"success"}
         /// </summary>
@@ -49,6 +55,9 @@ namespace Composio
         /// Unique identifier for the execution log<br/>
         /// Example: log_abc123xyz
         /// </param>
+        /// <param name="premiumCharge">
+        /// Returned only when the session enables premium_usage.return_premium_charge and a charge is available. Failed individual tool calls omit it. Multi-execute returns one aggregate of reported charges from eligible successful calls, even if another call fails.
+        /// </param>
         /// <param name="error">
         /// Error message if the execution failed, null otherwise
         /// </param>
@@ -58,8 +67,10 @@ namespace Composio
         public PostToolRouterSessionBySessionIdExecuteMetaResponse(
             global::System.Collections.Generic.Dictionary<string, object?> data,
             string logId,
+            global::Composio.PostToolRouterSessionBySessionIdExecuteMetaResponsePremiumCharge? premiumCharge,
             string? error)
         {
+            this.PremiumCharge = premiumCharge;
             this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
             this.Error = error;
             this.LogId = logId ?? throw new global::System.ArgumentNullException(nameof(logId));
