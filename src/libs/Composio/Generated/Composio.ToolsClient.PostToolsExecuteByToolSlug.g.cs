@@ -443,6 +443,43 @@ namespace Composio
                                         h => h.Key,
                                         h => h.Value));
                             }
+                            // Payment required - Wallet balance is exhausted; add credits to resume premium tool calls or connect your account
+                            if ((int)__response.StatusCode == 402)
+                            {
+                                string? __content_402 = null;
+                                global::System.Exception? __exception_402 = null;
+                                global::Composio.Error? __value_402 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_402 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_402 = global::Composio.Error.FromJson(__content_402, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_402 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_402 = global::Composio.Error.FromJson(__content_402, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_402 = __ex;
+                                }
+
+
+                                throw global::Composio.ApiException<global::Composio.Error>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_402 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_402,
+                                    responseBody: __content_402,
+                                    responseObject: __value_402,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
                             // Forbidden - Connected account does not have permission to execute this tool or access the requested resource
                             if ((int)__response.StatusCode == 403)
                             {
@@ -956,7 +993,7 @@ namespace Composio
         /// Example: {"x-custom-header": "value", "authorization": "Bearer token"}
         /// </param>
         /// <param name="connectedAccountId">
-        /// Unique identifier for the connected account to use for authentication<br/>
+        /// Unique identifier for the connected account to use for authentication. Pass `hosted_account` to run the tool on the Composio hosted account for its toolkit, even when the user has connected the toolkit themselves; the request fails rather than falling back to another credential.<br/>
         /// Example: ca_1a2b3c4d5e6f
         /// </param>
         /// <param name="userId">
@@ -989,7 +1026,7 @@ namespace Composio
         public async global::System.Threading.Tasks.Task<global::Composio.PostToolsExecuteByToolSlugResponse> PostToolsExecuteByToolSlugAsync(
             string toolSlug,
             string? xLlmGatewayHeaders = default,
-            string? connectedAccountId = default,
+            global::Composio.AnyOf<global::Composio.PostToolsExecuteByToolSlugRequestConnectedAccountId?, string>? connectedAccountId = default,
             string? userId = default,
             string? version = default,
             global::Composio.PostToolsExecuteByToolSlugRequestCustomAuthParams? customAuthParams = default,

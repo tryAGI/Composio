@@ -56,7 +56,7 @@ namespace Composio
         /// Example: {"x-custom-header": "value", "authorization": "Bearer token"}
         /// </param>
         /// <param name="connectedAccountId">
-        /// Unique identifier for the connected account to use for authentication<br/>
+        /// Unique identifier for the connected account to use for authentication. Pass `hosted_account` to run the tool on the Composio hosted account for its toolkit, even when the user has connected the toolkit themselves; the request fails rather than falling back to another credential.<br/>
         /// Example: ca_1a2b3c4d5e6f
         /// </param>
         /// <param name="userId">
@@ -89,7 +89,7 @@ namespace Composio
         global::System.Threading.Tasks.Task<global::Composio.PostToolsExecuteByToolSlugResponse> PostToolsExecuteByToolSlugAsync(
             string toolSlug,
             string? xLlmGatewayHeaders = default,
-            string? connectedAccountId = default,
+            global::Composio.AnyOf<global::Composio.PostToolsExecuteByToolSlugRequestConnectedAccountId?, string>? connectedAccountId = default,
             string? userId = default,
             string? version = default,
             global::Composio.PostToolsExecuteByToolSlugRequestCustomAuthParams? customAuthParams = default,

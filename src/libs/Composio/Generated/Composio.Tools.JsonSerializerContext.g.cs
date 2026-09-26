@@ -47,6 +47,8 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<double?, string, object>), TypeInfoPropertyName = "AnyOfDoubleStringObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<string, global::System.Collections.Generic.IList<string>, object>), TypeInfoPropertyName = "AnyOfStringIListStringObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolsExecuteByToolSlugRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<global::Composio.PostToolsExecuteByToolSlugRequestConnectedAccountId?, string>), TypeInfoPropertyName = "AnyOfPostToolsExecuteByToolSlugRequestConnectedAccountIdString2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolsExecuteByToolSlugRequestConnectedAccountId), TypeInfoPropertyName = "PostToolsExecuteByToolSlugRequestConnectedAccountId2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolsExecuteByToolSlugRequestCustomAuthParams))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.PostToolsExecuteByToolSlugRequestCustomAuthParamsParameter>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolsExecuteByToolSlugRequestCustomAuthParamsParameter))]
@@ -142,6 +144,8 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<string, global::Composio.ToolScopeRequirementsAllOfItemAnyOfItem>?), TypeInfoPropertyName = "NullableAnyOfStringToolScopeRequirementsAllOfItemAnyOfItem2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<double?, string, object>?), TypeInfoPropertyName = "NullableAnyOfDoubleStringObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<string, global::System.Collections.Generic.IList<string>, object>?), TypeInfoPropertyName = "NullableAnyOfStringIListStringObject2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<global::Composio.PostToolsExecuteByToolSlugRequestConnectedAccountId?, string>?), TypeInfoPropertyName = "NullableAnyOfPostToolsExecuteByToolSlugRequestConnectedAccountIdString2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolsExecuteByToolSlugRequestConnectedAccountId?), TypeInfoPropertyName = "NullablePostToolsExecuteByToolSlugRequestConnectedAccountId2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolsExecuteByToolSlugRequestCustomAuthParamsParameterIn?), TypeInfoPropertyName = "NullablePostToolsExecuteByToolSlugRequestCustomAuthParamsParameterIn2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<string, double?>?), TypeInfoPropertyName = "NullableAnyOfStringDouble2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant1AuthScheme?), TypeInfoPropertyName = "NullablePostToolsExecuteByToolSlugRequestCustomConnectionDataVariant1AuthScheme2")]
@@ -251,6 +255,7 @@ namespace Composio
             options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
             options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
             options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<global::Composio.PostToolsExecuteByToolSlugRequestConnectedAccountId?, string>());
             options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, double?>());
             options.Converters.Add(new global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant1, global::Composio.PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant2, global::Composio.PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant3, global::Composio.PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant4, global::Composio.PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant5, global::Composio.PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant6, global::Composio.PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant7, global::Composio.PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant8, global::Composio.PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant9, global::Composio.PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant10, global::Composio.PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant11>());
             options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
@@ -351,7 +356,11 @@ namespace Composio
             public override bool CanConvert(global::System.Type typeToConvert)
             {
                 return
-                    typeToConvert == typeof(global::Composio.PostToolsExecuteByToolSlugRequestCustomAuthParamsParameterIn)
+                    typeToConvert == typeof(global::Composio.PostToolsExecuteByToolSlugRequestConnectedAccountId)
+
+                    || typeToConvert == typeof(global::Composio.PostToolsExecuteByToolSlugRequestConnectedAccountId?)
+
+                    || typeToConvert == typeof(global::Composio.PostToolsExecuteByToolSlugRequestCustomAuthParamsParameterIn)
 
                     || typeToConvert == typeof(global::Composio.PostToolsExecuteByToolSlugRequestCustomAuthParamsParameterIn?)
 
@@ -460,6 +469,16 @@ namespace Composio
                 global::System.Type typeToConvert,
                 global::System.Text.Json.JsonSerializerOptions options)
             {
+                if (typeToConvert == typeof(global::Composio.PostToolsExecuteByToolSlugRequestConnectedAccountId))
+                {
+                    return new global::Composio.JsonConverters.PostToolsExecuteByToolSlugRequestConnectedAccountIdJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Composio.PostToolsExecuteByToolSlugRequestConnectedAccountId?))
+                {
+                    return new global::Composio.JsonConverters.PostToolsExecuteByToolSlugRequestConnectedAccountIdNullableJsonConverter();
+                }
+
                 if (typeToConvert == typeof(global::Composio.PostToolsExecuteByToolSlugRequestCustomAuthParamsParameterIn))
                 {
                     return new global::Composio.JsonConverters.PostToolsExecuteByToolSlugRequestCustomAuthParamsParameterInJsonConverter();

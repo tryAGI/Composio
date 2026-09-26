@@ -11,12 +11,13 @@ namespace Composio
     public sealed partial class PostToolsExecuteByToolSlugRequest
     {
         /// <summary>
-        /// Unique identifier for the connected account to use for authentication<br/>
+        /// Unique identifier for the connected account to use for authentication. Pass `hosted_account` to run the tool on the Composio hosted account for its toolkit, even when the user has connected the toolkit themselves; the request fails rather than falling back to another credential.<br/>
         /// Example: ca_1a2b3c4d5e6f
         /// </summary>
         /// <example>ca_1a2b3c4d5e6f</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("connected_account_id")]
-        public string? ConnectedAccountId { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AnyOfJsonConverter<global::Composio.PostToolsExecuteByToolSlugRequestConnectedAccountId?, string>))]
+        public global::Composio.AnyOf<global::Composio.PostToolsExecuteByToolSlugRequestConnectedAccountId?, string>? ConnectedAccountId { get; set; }
 
         /// <summary>
         /// Deprecated: please use user_id instead. Entity identifier for multi-entity connected accounts (e.g. multiple repositories, organizations)<br/>
@@ -95,7 +96,7 @@ namespace Composio
         /// Initializes a new instance of the <see cref="PostToolsExecuteByToolSlugRequest" /> class.
         /// </summary>
         /// <param name="connectedAccountId">
-        /// Unique identifier for the connected account to use for authentication<br/>
+        /// Unique identifier for the connected account to use for authentication. Pass `hosted_account` to run the tool on the Composio hosted account for its toolkit, even when the user has connected the toolkit themselves; the request fails rather than falling back to another credential.<br/>
         /// Example: ca_1a2b3c4d5e6f
         /// </param>
         /// <param name="userId">
@@ -126,7 +127,7 @@ namespace Composio
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PostToolsExecuteByToolSlugRequest(
-            string? connectedAccountId,
+            global::Composio.AnyOf<global::Composio.PostToolsExecuteByToolSlugRequestConnectedAccountId?, string>? connectedAccountId,
             string? userId,
             string? version,
             global::Composio.PostToolsExecuteByToolSlugRequestCustomAuthParams? customAuthParams,

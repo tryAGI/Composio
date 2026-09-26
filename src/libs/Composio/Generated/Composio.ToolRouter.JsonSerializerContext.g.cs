@@ -379,7 +379,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseAccount))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseAccountAccountType), TypeInfoPropertyName = "PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseAccountAccountType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseAccountSelection), TypeInfoPropertyName = "PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseAccountSelection2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseComposioManaged))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseHostedAccount))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolSchemas2>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolSchemas2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolSchemasSchemaRef))]
