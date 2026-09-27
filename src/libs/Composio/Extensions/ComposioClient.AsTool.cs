@@ -28,11 +28,19 @@ public static class ComposioToolExtensions
                     ? ParseJsonObject(arguments)
                     : null;
 
+                var request = new PostToolsExecuteByToolSlugRequest
+                {
+                    Arguments = parsedArgs,
+                    Text = text,
+                };
+                if (connectedAccountId is { } accountId)
+                {
+                    request.ConnectedAccountId = accountId;
+                }
+
                 var response = await client.Tools.PostToolsExecuteByToolSlugAsync(
                     toolSlug: toolSlug,
-                    connectedAccountId: connectedAccountId,
-                    arguments: parsedArgs,
-                    text: text,
+                    request: request,
                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
                 return new
