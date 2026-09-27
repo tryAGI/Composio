@@ -55,7 +55,7 @@ namespace Composio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Composio.Tool> GetToolsByToolSlugAsync(
+        public async global::System.Threading.Tasks.Task<global::Composio.ToolDetails> GetToolsByToolSlugAsync(
             string toolSlug,
             string? version = default,
             global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
@@ -82,7 +82,7 @@ namespace Composio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
-        public async global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.Tool>> GetToolsByToolSlugAsResponseAsync(
+        public async global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.ToolDetails>> GetToolsByToolSlugAsResponseAsync(
             string toolSlug,
             string? version = default,
             global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
@@ -518,9 +518,9 @@ namespace Composio
                                 {
                                     __response.EnsureSuccessStatusCode();
 
-                                    var __value = global::Composio.Tool.FromJson(__content, JsonSerializerContext) ??
+                                    var __value = global::Composio.ToolDetails.FromJson(__content, JsonSerializerContext) ??
                                         throw new global::System.InvalidOperationException($"Response deserialization failed for \"{__content}\" ");
-                                    return new global::Composio.AutoSDKHttpResponse<global::Composio.Tool>(
+                                    return new global::Composio.AutoSDKHttpResponse<global::Composio.ToolDetails>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Composio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,
@@ -550,9 +550,9 @@ namespace Composio
                 #endif
                                     ).ConfigureAwait(false);
 
-                                    var __value = await global::Composio.Tool.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
+                                    var __value = await global::Composio.ToolDetails.FromJsonStreamAsync(__content, JsonSerializerContext).ConfigureAwait(false) ??
                                         throw new global::System.InvalidOperationException("Response deserialization failed.");
-                                    return new global::Composio.AutoSDKHttpResponse<global::Composio.Tool>(
+                                    return new global::Composio.AutoSDKHttpResponse<global::Composio.ToolDetails>(
                                         statusCode: __response.StatusCode,
                                         headers: global::Composio.AutoSDKHttpResponse.CreateHeaders(__response),
                                         requestUri: __response.RequestMessage?.RequestUri,

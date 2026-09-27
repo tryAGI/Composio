@@ -44,6 +44,18 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolDeprecatedToolkit))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolsPaginated))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.Tool>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolPricing))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolDetails))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolDetailsToolkit))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolDetailsScopeRequirements))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.AnyOf<string, global::Composio.ToolDetailsScopeRequirementsAllOfItem>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<string, global::Composio.ToolDetailsScopeRequirementsAllOfItem>), TypeInfoPropertyName = "AnyOfStringToolDetailsScopeRequirementsAllOfItem2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolDetailsScopeRequirementsAllOfItem))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.AnyOf<string, global::Composio.ToolDetailsScopeRequirementsAllOfItemAnyOfItem>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<string, global::Composio.ToolDetailsScopeRequirementsAllOfItemAnyOfItem>), TypeInfoPropertyName = "AnyOfStringToolDetailsScopeRequirementsAllOfItemAnyOfItem2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolDetailsScopeRequirementsAllOfItemAnyOfItem))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolDetailsDeprecated))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolDetailsDeprecatedToolkit))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<double?, string, object>), TypeInfoPropertyName = "AnyOfDoubleStringObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<string, global::System.Collections.Generic.IList<string>, object>), TypeInfoPropertyName = "AnyOfStringIListStringObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolsExecuteByToolSlugRequest))]
@@ -142,6 +154,8 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<string, global::Composio.ToolScopeRequirementsAllOfItem>?), TypeInfoPropertyName = "NullableAnyOfStringToolScopeRequirementsAllOfItem2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<string, global::Composio.ToolScopeRequirementsAllOfItemAnyOfItem>?), TypeInfoPropertyName = "NullableAnyOfStringToolScopeRequirementsAllOfItemAnyOfItem2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<string, global::Composio.ToolDetailsScopeRequirementsAllOfItem>?), TypeInfoPropertyName = "NullableAnyOfStringToolDetailsScopeRequirementsAllOfItem2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<string, global::Composio.ToolDetailsScopeRequirementsAllOfItemAnyOfItem>?), TypeInfoPropertyName = "NullableAnyOfStringToolDetailsScopeRequirementsAllOfItemAnyOfItem2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<double?, string, object>?), TypeInfoPropertyName = "NullableAnyOfDoubleStringObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<string, global::System.Collections.Generic.IList<string>, object>?), TypeInfoPropertyName = "NullableAnyOfStringIListStringObject2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<global::Composio.PostToolsExecuteByToolSlugRequestConnectedAccountId?, string>?), TypeInfoPropertyName = "NullableAnyOfPostToolsExecuteByToolSlugRequestConnectedAccountIdString2")]
@@ -181,6 +195,8 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Composio.AnyOf<string, global::Composio.ToolScopeRequirementsAllOfItemAnyOfItem>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.List<string>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Composio.Tool>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Composio.AnyOf<string, global::Composio.ToolDetailsScopeRequirementsAllOfItem>>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Composio.AnyOf<string, global::Composio.ToolDetailsScopeRequirementsAllOfItemAnyOfItem>>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<string, global::System.Collections.Generic.List<string>, object>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Composio.PostToolsExecuteByToolSlugRequestCustomAuthParamsParameter>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Composio.PostToolsExecuteProxyRequestParameter>))]
@@ -242,6 +258,8 @@ namespace Composio
             options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
             options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::Composio.ToolScopeRequirementsAllOfItem>());
             options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::Composio.ToolScopeRequirementsAllOfItemAnyOfItem>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::Composio.ToolDetailsScopeRequirementsAllOfItem>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::Composio.ToolDetailsScopeRequirementsAllOfItemAnyOfItem>());
             options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
             options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
             options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
