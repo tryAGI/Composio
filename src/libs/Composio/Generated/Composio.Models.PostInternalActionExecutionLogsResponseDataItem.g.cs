@@ -88,6 +88,12 @@ namespace Composio
         public global::Composio.PostInternalActionExecutionLogsResponseDataItemCredentialSource? CredentialSource { get; set; }
 
         /// <summary>
+        /// Premium charge for using hosted account for this tool.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("premiumUsageCharge")]
+        public string? PremiumUsageCharge { get; set; }
+
+        /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("createdAt")]
@@ -115,6 +121,9 @@ namespace Composio
         /// <param name="createdAt"></param>
         /// <param name="metadata"></param>
         /// <param name="credentialSource"></param>
+        /// <param name="premiumUsageCharge">
+        /// Premium charge for using hosted account for this tool.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -130,7 +139,8 @@ namespace Composio
             string minimalResponse,
             double createdAt,
             global::Composio.PostInternalActionExecutionLogsResponseDataItemMetadata? metadata,
-            global::Composio.PostInternalActionExecutionLogsResponseDataItemCredentialSource? credentialSource)
+            global::Composio.PostInternalActionExecutionLogsResponseDataItemCredentialSource? credentialSource,
+            string? premiumUsageCharge)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.ActionKey = actionKey ?? throw new global::System.ArgumentNullException(nameof(actionKey));
@@ -143,6 +153,7 @@ namespace Composio
             this.MinimalResponse = minimalResponse ?? throw new global::System.ArgumentNullException(nameof(minimalResponse));
             this.Metadata = metadata;
             this.CredentialSource = credentialSource;
+            this.PremiumUsageCharge = premiumUsageCharge;
             this.CreatedAt = createdAt;
         }
 

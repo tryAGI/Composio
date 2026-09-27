@@ -1,0 +1,55 @@
+
+#nullable enable
+
+namespace Composio
+{
+    /// <summary>
+    /// Structured scope requirements for the tool. Null means the tool is legacy and only exposes flat scopes.<br/>
+    /// Example: {"all_of":["read:user",{"any_of":["repo","public_repo"]}]}
+    /// </summary>
+    public sealed partial class ToolDetailsScopeRequirements
+    {
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("all_of")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::System.Collections.Generic.IList<global::Composio.AnyOf<string, global::Composio.ToolDetailsScopeRequirementsAllOfItem>> AllOf { get; set; }
+
+        /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("source")]
+        public global::System.Collections.Generic.IList<string>? Source { get; set; }
+
+        /// <summary>
+        /// Additional properties that are not explicitly defined in the schema
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonExtensionData]
+        public global::System.Collections.Generic.IDictionary<string, object> AdditionalProperties { get; set; } = new global::System.Collections.Generic.Dictionary<string, object>();
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ToolDetailsScopeRequirements" /> class.
+        /// </summary>
+        /// <param name="allOf"></param>
+        /// <param name="source"></param>
+#if NET7_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
+#endif
+        public ToolDetailsScopeRequirements(
+            global::System.Collections.Generic.IList<global::Composio.AnyOf<string, global::Composio.ToolDetailsScopeRequirementsAllOfItem>> allOf,
+            global::System.Collections.Generic.IList<string>? source)
+        {
+            this.AllOf = allOf ?? throw new global::System.ArgumentNullException(nameof(allOf));
+            this.Source = source;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ToolDetailsScopeRequirements" /> class.
+        /// </summary>
+        public ToolDetailsScopeRequirements()
+        {
+        }
+
+    }
+}

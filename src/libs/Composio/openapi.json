@@ -1151,6 +1151,352 @@
           "total_items"
         ]
       },
+      "ToolPricing": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "nullable": true,
+            "description": "Human-readable pricing description."
+          },
+          "min": {
+            "type": "string",
+            "nullable": true,
+            "description": "Display text for the minimum price."
+          },
+          "max": {
+            "type": "string",
+            "nullable": true,
+            "description": "Display text for the maximum price."
+          },
+          "discount": {
+            "type": "string",
+            "nullable": true,
+            "description": "Human-readable discount text."
+          },
+          "item": {
+            "type": "string",
+            "nullable": true,
+            "description": "Pricing unit, such as per call or per second."
+          }
+        },
+        "description": "Current published pricing, independent of the requested tool version. Omitted when unspecified; absence does not mean free.",
+        "additionalProperties": false
+      },
+      "ToolDetails": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "description": "Unique identifier for the tool",
+            "example": "GITHUB_CREATE_A_WORKFLOW_DISPATCH_EVENT"
+          },
+          "name": {
+            "type": "string",
+            "description": "Human-readable display name of the tool",
+            "example": "GitHub Actions"
+          },
+          "description": {
+            "type": "string",
+            "description": "Detailed explanation of the tool's functionality and purpose",
+            "example": "Automate GitHub workflows including CI/CD, issue management, and release processes"
+          },
+          "toolkit": {
+            "type": "object",
+            "properties": {
+              "slug": {
+                "type": "string",
+                "description": "Unique identifier of the parent toolkit",
+                "example": "github"
+              },
+              "name": {
+                "type": "string",
+                "description": "Human-readable name of the parent toolkit",
+                "example": "GitHub"
+              },
+              "logo": {
+                "type": "string",
+                "description": "URL to the toolkit logo image",
+                "example": "https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"
+              }
+            },
+            "required": [
+              "slug",
+              "name",
+              "logo"
+            ]
+          },
+          "input_parameters": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "description": "Schema definition of required input parameters for the tool",
+            "example": {
+              "repo_name": {
+                "type": "string",
+                "description": "GitHub repository name in owner/repo format",
+                "required": true,
+                "example": "octocat/Hello-World"
+              },
+              "workflow_id": {
+                "type": "string",
+                "description": "ID or filename of the workflow to trigger",
+                "required": true,
+                "example": "main.yml"
+              }
+            }
+          },
+          "no_auth": {
+            "type": "boolean",
+            "description": "Indicates if the tool can be used without authentication",
+            "example": false
+          },
+          "available_versions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of all available versions for this tool",
+            "example": [
+              "20250905_00",
+              "20250906_00"
+            ]
+          },
+          "version": {
+            "type": "string",
+            "description": "Current version of the tool",
+            "example": "20250905_00"
+          },
+          "output_parameters": {
+            "type": "object",
+            "additionalProperties": {
+              "nullable": true
+            },
+            "description": "Schema definition of return values from the tool",
+            "example": {
+              "run_id": {
+                "type": "number",
+                "description": "ID of the workflow run that was triggered",
+                "example": 12345678
+              },
+              "status": {
+                "type": "string",
+                "description": "Status of the workflow run",
+                "example": "completed",
+                "enum": [
+                  "queued",
+                  "in_progress",
+                  "completed",
+                  "failed"
+                ]
+              }
+            }
+          },
+          "scopes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of scopes associated with the tool",
+            "example": [
+              "https://www.googleapis.com/auth/gmail.modify"
+            ]
+          },
+          "scope_requirements": {
+            "type": "object",
+            "nullable": true,
+            "properties": {
+              "all_of": {
+                "type": "array",
+                "items": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "any_of": {
+                          "type": "array",
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "object",
+                                "properties": {
+                                  "all_of": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string"
+                                    },
+                                    "minItems": 1
+                                  },
+                                  "source": {
+                                    "type": "array",
+                                    "items": {
+                                      "type": "string",
+                                      "minLength": 1
+                                    },
+                                    "minItems": 1
+                                  }
+                                },
+                                "required": [
+                                  "all_of"
+                                ]
+                              }
+                            ]
+                          },
+                          "minItems": 1
+                        },
+                        "when": {
+                          "type": "object",
+                          "additionalProperties": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            },
+                            "minItems": 1
+                          }
+                        },
+                        "source": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "minItems": 1
+                        }
+                      },
+                      "required": [
+                        "any_of"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "source": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "all_of"
+            ],
+            "description": "Structured scope requirements for the tool. Null means the tool is legacy and only exposes flat scopes.",
+            "example": {
+              "all_of": [
+                "read:user",
+                {
+                  "any_of": [
+                    "repo",
+                    "public_repo"
+                  ]
+                }
+              ]
+            }
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of tags associated with the tool for categorization and filtering",
+            "example": [
+              "ci-cd",
+              "github",
+              "automation",
+              "devops"
+            ]
+          },
+          "human_description": {
+            "type": "string",
+            "description": "Human-friendly description of the tool, if available",
+            "example": "Create a new issue in a GitHub repository"
+          },
+          "is_deprecated": {
+            "type": "boolean",
+            "description": "Indicates if this tool is deprecated and may be removed in the future",
+            "example": false
+          },
+          "deprecated": {
+            "type": "object",
+            "properties": {
+              "displayName": {
+                "type": "string",
+                "description": "The display name of the tool",
+                "example": "GitHub Actions"
+              },
+              "version": {
+                "type": "string",
+                "description": "Current version identifier of the tool",
+                "example": "20250905_00"
+              },
+              "available_versions": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "List of all available versions for this tool",
+                "example": [
+                  "20250905_00",
+                  "20250906_00"
+                ]
+              },
+              "is_deprecated": {
+                "type": "boolean",
+                "description": "Indicates if this tool is deprecated and may be removed in the future",
+                "example": false
+              },
+              "toolkit": {
+                "type": "object",
+                "properties": {
+                  "logo": {
+                    "type": "string",
+                    "description": "URL to the toolkit logo image",
+                    "example": "https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"
+                  }
+                },
+                "required": [
+                  "logo"
+                ]
+              }
+            },
+            "required": [
+              "displayName",
+              "version",
+              "available_versions",
+              "is_deprecated",
+              "toolkit"
+            ]
+          },
+          "pricing": {
+            "$ref": "#/components/schemas/ToolPricing"
+          }
+        },
+        "required": [
+          "slug",
+          "name",
+          "description",
+          "toolkit",
+          "input_parameters",
+          "no_auth",
+          "available_versions",
+          "version",
+          "output_parameters",
+          "scopes",
+          "scope_requirements",
+          "tags",
+          "is_deprecated",
+          "deprecated"
+        ]
+      },
       "ToolRouterToolkitsListResponse": {
         "type": "object",
         "properties": {
@@ -41029,6 +41375,10 @@
                               "no_auth"
                             ]
                           },
+                          "premiumUsageCharge": {
+                            "type": "string",
+                            "description": "Premium charge for using hosted account for this tool."
+                          },
                           "createdAt": {
                             "type": "number"
                           }
@@ -41250,6 +41600,10 @@
                         "custom_auth",
                         "no_auth"
                       ]
+                    },
+                    "premiumUsageCharge": {
+                      "type": "string",
+                      "description": "Premium charge for using hosted account for this tool."
                     },
                     "session": {
                       "type": "object",
@@ -46456,7 +46810,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Tool"
+                  "$ref": "#/components/schemas/ToolDetails"
                 }
               }
             }
@@ -59227,6 +59581,36 @@
               }
             }
           },
+          "408": {
+            "description": "Request timeout. Auth config or link creation did not complete in time; retry the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict. The link or the auto-created auth config collides with existing state, such as a duplicate alias.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable entity. The auth config or connection input was rejected by validation.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "429": {
             "description": "Too many requests. The upstream service is rate limiting the request; retry after a short backoff.",
             "content": {
@@ -59239,6 +59623,16 @@
           },
           "500": {
             "description": "Internal server error. An unexpected error occurred while creating the link session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "501": {
+            "description": "Not implemented. The auth scheme of the resolved auth config does not support link-based connection.",
             "content": {
               "application/json": {
                 "schema": {

@@ -14,7 +14,7 @@ namespace Composio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::Composio.Tool> GetToolsByToolSlugAsync(
+        global::System.Threading.Tasks.Task<global::Composio.ToolDetails> GetToolsByToolSlugAsync(
             string toolSlug,
             string? version = default,
             global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
@@ -30,7 +30,7 @@ namespace Composio
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
-        global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.Tool>> GetToolsByToolSlugAsResponseAsync(
+        global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.ToolDetails>> GetToolsByToolSlugAsResponseAsync(
             string toolSlug,
             string? version = default,
             global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,

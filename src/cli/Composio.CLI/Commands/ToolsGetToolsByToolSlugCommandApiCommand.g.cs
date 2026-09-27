@@ -25,7 +25,7 @@ internal static partial class ToolsGetToolsByToolSlugCommandApiCommand
         Description = @"Toolkit version specification. Use ""latest"" for latest versions or bracket notation for specific versions per toolkit. Read only when version is omitted; when neither is supplied the tool resolves to the pinned version (""00000000_00"").",
     };
 
-                    private static string FormatResponse(ParseResult parseResult, global::Composio.Tool value, global::System.Text.Json.Serialization.JsonSerializerContext context, bool truncateLongStrings)
+                    private static string FormatResponse(ParseResult parseResult, global::Composio.ToolDetails value, global::System.Text.Json.Serialization.JsonSerializerContext context, bool truncateLongStrings)
                     {
                         string? text = null;
                         CustomizeResponseText(parseResult, value, ref text);
@@ -41,7 +41,7 @@ internal static partial class ToolsGetToolsByToolSlugCommandApiCommand
                         return CliRuntime.FormatHumanReadable(value, context, truncateLongStrings, hints);
                     }
 
-                    static partial void CustomizeResponseText(ParseResult parseResult, global::Composio.Tool value, ref string? text);
+                    static partial void CustomizeResponseText(ParseResult parseResult, global::Composio.ToolDetails value, ref string? text);
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
