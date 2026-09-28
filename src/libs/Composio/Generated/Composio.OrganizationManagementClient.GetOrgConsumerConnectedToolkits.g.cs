@@ -184,9 +184,9 @@ namespace Composio
                 PrepareGetOrgConsumerConnectedToolkitsRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    userId: userId!,
-                    xUserApiKey: xUserApiKey!,
-                    xOrgId: xOrgId!);
+                    userId: userId,
+                    xUserApiKey: xUserApiKey,
+                    xOrgId: xOrgId);
 
                 return __httpRequest;
             }
@@ -208,7 +208,7 @@ namespace Composio
                                 pathTemplate: "\"/api/v3/org/consumer/connected_toolkits\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: null,
                                 clientOptions: Options,
@@ -242,7 +242,7 @@ namespace Composio
                                 pathTemplate: "\"/api/v3/org/consumer/connected_toolkits\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: null,
                                 exception: __exception,
                                 clientOptions: Options,
@@ -283,7 +283,7 @@ namespace Composio
                                 pathTemplate: "\"/api/v3/org/consumer/connected_toolkits\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -331,7 +331,7 @@ namespace Composio
                                 pathTemplate: "\"/api/v3/org/consumer/connected_toolkits\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
@@ -353,7 +353,7 @@ namespace Composio
                                 pathTemplate: "\"/api/v3/org/consumer/connected_toolkits\"",
                                 httpMethod: "GET",
                                 baseUri: BaseUri,
-                                request: __httpRequest!,
+                                request: __httpRequest ?? throw new global::System.InvalidOperationException("The HTTP request was not created before invoking a request hook."),
                                 response: __response,
                                 exception: null,
                                 clientOptions: Options,
