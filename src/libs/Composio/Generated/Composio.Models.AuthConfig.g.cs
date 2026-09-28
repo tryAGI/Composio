@@ -47,8 +47,8 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
-        public global::Composio.ComposioManagedAuthConfigCreate PickUseComposioManagedAuth() => IsUseComposioManagedAuth
-            ? UseComposioManagedAuth!
+        public global::Composio.ComposioManagedAuthConfigCreate PickUseComposioManagedAuth() => UseComposioManagedAuth is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'UseComposioManagedAuth' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
-        public global::Composio.CustomAuthConfigCreate PickUseCustomAuth() => IsUseCustomAuth
-            ? UseCustomAuth!
+        public global::Composio.CustomAuthConfigCreate PickUseCustomAuth() => UseCustomAuth is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'UseCustomAuth' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -185,13 +185,13 @@ namespace Composio
                 Validate();
             }
 
-            if (IsUseComposioManagedAuth && useComposioManagedAuth != null)
+            if (UseComposioManagedAuth is { } __value0 && useComposioManagedAuth != null)
             {
-                return useComposioManagedAuth(UseComposioManagedAuth!);
+                return useComposioManagedAuth(__value0);
             }
-            else if (IsUseCustomAuth && useCustomAuth != null)
+            else if (UseCustomAuth is { } __value1 && useCustomAuth != null)
             {
-                return useCustomAuth(UseCustomAuth!);
+                return useCustomAuth(__value1);
             }
 
             return default(TResult);
@@ -211,13 +211,13 @@ namespace Composio
                 Validate();
             }
 
-            if (IsUseComposioManagedAuth)
+            if (UseComposioManagedAuth is { } __value0)
             {
-                useComposioManagedAuth?.Invoke(UseComposioManagedAuth!);
+                useComposioManagedAuth?.Invoke(__value0);
             }
-            else if (IsUseCustomAuth)
+            else if (UseCustomAuth is { } __value1)
             {
-                useCustomAuth?.Invoke(UseCustomAuth!);
+                useCustomAuth?.Invoke(__value1);
             }
         }
 
@@ -234,13 +234,13 @@ namespace Composio
                 Validate();
             }
 
-            if (IsUseComposioManagedAuth)
+            if (UseComposioManagedAuth is { } __value0)
             {
-                useComposioManagedAuth?.Invoke(UseComposioManagedAuth!);
+                useComposioManagedAuth?.Invoke(__value0);
             }
-            else if (IsUseCustomAuth)
+            else if (UseCustomAuth is { } __value1)
             {
-                useCustomAuth?.Invoke(UseCustomAuth!);
+                useCustomAuth?.Invoke(__value1);
             }
         }
 

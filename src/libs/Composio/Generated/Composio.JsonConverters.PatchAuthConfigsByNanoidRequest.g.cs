@@ -59,13 +59,13 @@ namespace Composio.JsonConverters
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Composio.CustomAuthConfigUpdate), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Composio.CustomAuthConfigUpdate?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Composio.CustomAuthConfigUpdate).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Custom!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickCustom(), typeInfo);
             }
             else if (value.IsDefault)
             {
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Composio.DefaultAuthConfigUpdate), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Composio.DefaultAuthConfigUpdate?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Composio.DefaultAuthConfigUpdate).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.Default!, typeInfo);
+                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickDefault(), typeInfo);
             }
         }
     }

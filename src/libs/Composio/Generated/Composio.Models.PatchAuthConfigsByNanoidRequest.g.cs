@@ -47,8 +47,8 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
-        public global::Composio.CustomAuthConfigUpdate PickCustom() => IsCustom
-            ? Custom!
+        public global::Composio.CustomAuthConfigUpdate PickCustom() => Custom is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Custom' but the value was {ToString()}.");
 
         /// <summary>
@@ -84,8 +84,8 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
-        public global::Composio.DefaultAuthConfigUpdate PickDefault() => IsDefault
-            ? Default!
+        public global::Composio.DefaultAuthConfigUpdate PickDefault() => Default is { } value
+            ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Default' but the value was {ToString()}.");
         /// <summary>
         ///
@@ -185,13 +185,13 @@ namespace Composio
                 Validate();
             }
 
-            if (IsCustom && custom != null)
+            if (Custom is { } __value0 && custom != null)
             {
-                return custom(Custom!);
+                return custom(__value0);
             }
-            else if (IsDefault && @default != null)
+            else if (Default is { } __value1 && @default != null)
             {
-                return @default(Default!);
+                return @default(__value1);
             }
 
             return default(TResult);
@@ -211,13 +211,13 @@ namespace Composio
                 Validate();
             }
 
-            if (IsCustom)
+            if (Custom is { } __value0)
             {
-                custom?.Invoke(Custom!);
+                custom?.Invoke(__value0);
             }
-            else if (IsDefault)
+            else if (Default is { } __value1)
             {
-                @default?.Invoke(Default!);
+                @default?.Invoke(__value1);
             }
         }
 
@@ -234,13 +234,13 @@ namespace Composio
                 Validate();
             }
 
-            if (IsCustom)
+            if (Custom is { } __value0)
             {
-                custom?.Invoke(Custom!);
+                custom?.Invoke(__value0);
             }
-            else if (IsDefault)
+            else if (Default is { } __value1)
             {
-                @default?.Invoke(Default!);
+                @default?.Invoke(__value1);
             }
         }
 
