@@ -79,6 +79,8 @@ internal static partial class ToolkitsPostToolkitsMultiCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"post-toolkits-multi", @"Fetch multiple toolkits
@@ -148,6 +150,7 @@ Retrieves a comprehensive list of toolkits of their latest versions that are ava
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

@@ -40,6 +40,8 @@ internal static partial class WebhookEndpointsPostWebhookEndpointsByNanoIdComman
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"post-webhook-endpoints-by-nano-id", @"Put webhook endpoint configuration
@@ -69,6 +71,7 @@ Full replacement of webhook endpoint configuration. All required setup fields mu
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

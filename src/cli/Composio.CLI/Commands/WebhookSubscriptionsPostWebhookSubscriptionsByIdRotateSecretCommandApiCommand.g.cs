@@ -33,6 +33,8 @@ internal static partial class WebhookSubscriptionsPostWebhookSubscriptionsByIdRo
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"post-webhook-subscriptions-by-id-rotate-secret", @"Rotate webhook secret
@@ -59,6 +61,7 @@ Generates a new signing secret for the webhook subscription.");
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

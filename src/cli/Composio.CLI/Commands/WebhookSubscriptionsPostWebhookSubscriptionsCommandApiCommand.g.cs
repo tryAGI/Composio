@@ -63,6 +63,8 @@ internal static partial class WebhookSubscriptionsPostWebhookSubscriptionsComman
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"post-webhook-subscriptions", @"Create webhook subscription
@@ -123,6 +125,7 @@ Creates a webhook subscription for the authenticated project. Only one subscript
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

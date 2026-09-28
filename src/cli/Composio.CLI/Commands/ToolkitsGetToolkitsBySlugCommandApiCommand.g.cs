@@ -39,6 +39,8 @@ internal static partial class ToolkitsGetToolkitsBySlugCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-toolkits-by-slug", @"Get toolkit by slug
@@ -68,6 +70,7 @@ Retrieves comprehensive information about a specific toolkit using its unique sl
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

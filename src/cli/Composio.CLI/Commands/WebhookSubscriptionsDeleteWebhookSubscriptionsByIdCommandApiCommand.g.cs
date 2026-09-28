@@ -33,6 +33,8 @@ internal static partial class WebhookSubscriptionsDeleteWebhookSubscriptionsById
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"delete-webhook-subscriptions-by-id", @"Delete webhook subscription
@@ -59,6 +61,7 @@ Permanently deletes a webhook subscription. This action cannot be undone.");
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

@@ -68,6 +68,8 @@ internal static partial class ToolRouterPostToolRouterSessionBySessionIdMountsBy
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"post-tool-router-session-by-session-id-mounts-by-mount-id-upload-url", @"Create a presigned upload URL for a mount file
@@ -123,6 +125,7 @@ Generates a presigned upload URL for uploading a file to a workbench session mou
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

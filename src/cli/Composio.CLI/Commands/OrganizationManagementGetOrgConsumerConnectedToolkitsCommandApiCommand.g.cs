@@ -48,6 +48,8 @@ internal static partial class OrganizationManagementGetOrgConsumerConnectedToolk
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-org-consumer-connected-toolkits", @"List active connected toolkits for a consumer user
@@ -88,6 +90,7 @@ Resolves the organization's single CONSUMER project and returns the distinct too
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

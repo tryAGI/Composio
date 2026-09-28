@@ -74,6 +74,8 @@ internal static partial class ToolsPostToolsExecuteByToolSlugInputCommandApiComm
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"post-tools-execute-by-tool-slug-input", @"Generate tool inputs from natural language
@@ -132,6 +134,7 @@ Uses AI to translate a natural language description into structured arguments fo
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

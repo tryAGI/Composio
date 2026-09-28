@@ -33,6 +33,8 @@ internal static partial class ProjectsGetOrgOwnerProjectByNanoIdCommandApiComman
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-org-owner-project-by-nano-id", @"Get project details by ID With Org Api key
@@ -67,6 +69,7 @@ Retrieves detailed information about a specific project using its unique identif
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

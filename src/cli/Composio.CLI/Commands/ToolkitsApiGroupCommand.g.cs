@@ -4,8 +4,10 @@ using System.CommandLine;
 
 namespace Composio.CLI.Commands;
 
-internal static class ToolkitsApiGroupCommand
+internal static partial class ToolkitsApiGroupCommand
 {
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"toolkits", @"Toolkits endpoint commands.");
@@ -16,6 +18,7 @@ internal static class ToolkitsApiGroupCommand
                          command.Subcommands.Add(ToolkitsPostCustomToolkitsSyncCommandApiCommand.Create());
                          command.Subcommands.Add(ToolkitsPostCustomToolkitsUpsertCommandApiCommand.Create());
                          command.Subcommands.Add(ToolkitsPostToolkitsMultiCommandApiCommand.Create());
+        CustomizeCommand(ref command);
         return command;
     }
 }

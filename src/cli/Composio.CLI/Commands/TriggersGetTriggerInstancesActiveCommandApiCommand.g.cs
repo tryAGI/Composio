@@ -73,6 +73,8 @@ internal static partial class TriggersGetTriggerInstancesActiveCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-trigger-instances-active", @"List active triggers
@@ -128,6 +130,7 @@ Retrieves all active trigger instances for your project. Triggers listen for eve
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

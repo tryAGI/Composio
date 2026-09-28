@@ -41,6 +41,8 @@ internal static partial class TriggersPostCliRealtimeAuthCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"post-cli-realtime-auth", @"Authenticate CLI Pusher channel access
@@ -70,6 +72,7 @@ Authenticate CLI client access to a private-cli-{nanoId} Pusher channel");
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

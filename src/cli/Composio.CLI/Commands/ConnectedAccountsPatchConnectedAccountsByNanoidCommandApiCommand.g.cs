@@ -67,6 +67,8 @@ internal static partial class ConnectedAccountsPatchConnectedAccountsByNanoidCom
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"patch-connected-accounts-by-nanoid", @"Update a connected account
@@ -122,6 +124,7 @@ Update a connected account. Supports updating the alias and/or credentials. Only
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

@@ -77,6 +77,8 @@ internal static partial class LogsPostInternalActionExecutionLogsCommandApiComma
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"post-internal-action-execution-logs", @"Search and retrieve action execution logs");
@@ -145,6 +147,7 @@ internal static partial class LogsPostInternalActionExecutionLogsCommandApiComma
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

@@ -29,6 +29,8 @@ internal static partial class ToolkitsGetToolkitsChangelogCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-toolkits-changelog", @"Get toolkits changelog
@@ -63,6 +65,7 @@ Retrieves the last 10 versions changelog for all toolkits. This endpoint provide
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

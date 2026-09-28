@@ -33,6 +33,8 @@ internal static partial class AuthConfigsGetAuthConfigsByNanoidCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-auth-configs-by-nanoid", @"Get single authentication configuration by ID
@@ -59,6 +61,7 @@ Retrieves detailed information about a specific authentication configuration usi
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

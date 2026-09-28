@@ -57,6 +57,8 @@ internal static partial class ToolRouterGetToolRouterSessionBySessionIdMountsByM
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-tool-router-session-by-session-id-mounts-by-mount-id-items", @"List files in a session mount
@@ -103,6 +105,7 @@ Lists files in a workbench session storage mount with cursor-based pagination. U
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

@@ -29,6 +29,8 @@ internal static partial class AuthenticationGetAuthSessionInfoCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-auth-session-info", @"Get current user session information
@@ -55,6 +57,7 @@ Retrieves detailed information about the current authenticated user session, inc
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

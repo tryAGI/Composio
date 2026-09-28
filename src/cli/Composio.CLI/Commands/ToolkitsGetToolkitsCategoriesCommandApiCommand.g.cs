@@ -29,6 +29,8 @@ internal static partial class ToolkitsGetToolkitsCategoriesCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-toolkits-categories", @"List toolkit categories
@@ -63,6 +65,7 @@ Retrieves a comprehensive list of all available toolkit categories from their la
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

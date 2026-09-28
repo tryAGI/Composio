@@ -4,8 +4,10 @@ using System.CommandLine;
 
 namespace Composio.CLI.Commands;
 
-internal static class WebhookSubscriptionsApiGroupCommand
+internal static partial class WebhookSubscriptionsApiGroupCommand
 {
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"webhook-subscriptions", @"Webhook Subscriptions endpoint commands.");
@@ -16,6 +18,7 @@ internal static class WebhookSubscriptionsApiGroupCommand
                          command.Subcommands.Add(WebhookSubscriptionsPatchWebhookSubscriptionsByIdCommandApiCommand.Create());
                          command.Subcommands.Add(WebhookSubscriptionsPostWebhookSubscriptionsCommandApiCommand.Create());
                          command.Subcommands.Add(WebhookSubscriptionsPostWebhookSubscriptionsByIdRotateSecretCommandApiCommand.Create());
+        CustomizeCommand(ref command);
         return command;
     }
 }

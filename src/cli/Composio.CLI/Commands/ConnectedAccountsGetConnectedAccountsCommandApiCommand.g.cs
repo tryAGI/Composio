@@ -87,6 +87,8 @@ internal static partial class ConnectedAccountsGetConnectedAccountsCommandApiCom
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-connected-accounts", @"List connected accounts with optional filters
@@ -148,6 +150,7 @@ Retrieves all connected accounts for your project. Connected accounts represent 
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

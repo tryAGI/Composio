@@ -51,6 +51,8 @@ internal static partial class TriggersGetTriggersTypesCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-triggers-types", @"List trigger types
@@ -94,6 +96,7 @@ Retrieve a list of available trigger types with optional filtering by toolkit. R
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

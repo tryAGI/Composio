@@ -97,6 +97,8 @@ internal static partial class ToolsGetToolsCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-tools", @"List available tools
@@ -164,6 +166,7 @@ Retrieve a paginated list of available tools with comprehensive filtering, sorti
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

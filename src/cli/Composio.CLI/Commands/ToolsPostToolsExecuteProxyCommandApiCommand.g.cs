@@ -81,6 +81,8 @@ internal static partial class ToolsPostToolsExecuteProxyCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"post-tools-execute-proxy", @"Execute proxy request
@@ -142,6 +144,7 @@ Proxy an HTTP request to a third-party API using connected account credentials. 
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

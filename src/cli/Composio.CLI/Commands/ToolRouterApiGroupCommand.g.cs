@@ -4,8 +4,10 @@ using System.CommandLine;
 
 namespace Composio.CLI.Commands;
 
-internal static class ToolRouterApiGroupCommand
+internal static partial class ToolRouterApiGroupCommand
 {
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"tool-router", @"Tool Router endpoint commands.");
@@ -23,6 +25,7 @@ internal static class ToolRouterApiGroupCommand
                          command.Subcommands.Add(ToolRouterPostToolRouterSessionBySessionIdMountsByMountIdUploadUrlCommandApiCommand.Create());
                          command.Subcommands.Add(ToolRouterPostToolRouterSessionBySessionIdProxyExecuteCommandApiCommand.Create());
                          command.Subcommands.Add(ToolRouterPostToolRouterSessionBySessionIdSearchCommandApiCommand.Create());
+        CustomizeCommand(ref command);
         return command;
     }
 }

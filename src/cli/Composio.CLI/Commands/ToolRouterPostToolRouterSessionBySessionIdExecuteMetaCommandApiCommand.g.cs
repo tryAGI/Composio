@@ -62,6 +62,8 @@ internal static partial class ToolRouterPostToolRouterSessionBySessionIdExecuteM
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"post-tool-router-session-by-session-id-execute-meta", @"Execute a meta tool within a tool router session
@@ -114,6 +116,7 @@ Executes a Composio meta tool (COMPOSIO_*) within a tool router session. This en
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

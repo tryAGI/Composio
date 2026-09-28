@@ -39,6 +39,8 @@ internal static partial class AuthConfigsPatchAuthConfigsByNanoidByStatusCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"patch-auth-configs-by-nanoid-by-status", @"Enable or disable an authentication configuration
@@ -68,6 +70,7 @@ Updates the status of an authentication configuration to either enabled or disab
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

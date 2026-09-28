@@ -67,6 +67,8 @@ internal static partial class TriggersPatchTriggerInstancesManageByTriggerIdComm
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"patch-trigger-instances-manage-by-trigger-id", @"Update a trigger
@@ -122,6 +124,7 @@ Updates a trigger instance. Pass status to enable or disable it: disabling pause
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

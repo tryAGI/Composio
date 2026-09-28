@@ -4,8 +4,10 @@ using System.CommandLine;
 
 namespace Composio.CLI.Commands;
 
-internal static class ProjectsApiGroupCommand
+internal static partial class ProjectsApiGroupCommand
 {
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"projects", @"Projects endpoint commands.");
@@ -16,6 +18,7 @@ internal static class ProjectsApiGroupCommand
                          command.Subcommands.Add(ProjectsPostOrgConsumerProjectResolveCommandApiCommand.Create());
                          command.Subcommands.Add(ProjectsPostOrgOwnerProjectByNanoIdRegenerateApiKeyCommandApiCommand.Create());
                          command.Subcommands.Add(ProjectsPostOrgOwnerProjectNewCommandApiCommand.Create());
+        CustomizeCommand(ref command);
         return command;
     }
 }

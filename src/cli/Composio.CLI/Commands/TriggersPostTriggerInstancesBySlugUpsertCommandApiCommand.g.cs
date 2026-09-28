@@ -79,6 +79,8 @@ internal static partial class TriggersPostTriggerInstancesBySlugUpsertCommandApi
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"post-trigger-instances-by-slug-upsert", @"Create or update a trigger
@@ -140,6 +142,7 @@ Creates a new trigger instance or updates an existing one with the same configur
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

@@ -68,6 +68,8 @@ internal static partial class ToolRouterPostToolRouterSessionBySessionIdSearchCo
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"post-tool-router-session-by-session-id-search", @"Search for tools using a query
@@ -123,6 +125,7 @@ Search for tools matching a given use case query within a tool router session. R
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }
