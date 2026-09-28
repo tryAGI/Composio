@@ -49,6 +49,8 @@ internal static partial class ToolRouterGetToolRouterSessionBySessionIdToolsComm
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-tool-router-session-by-session-id-tools", @"List tools with schemas for a tool router session
@@ -104,6 +106,7 @@ Returns the tools available in a tool router session with their complete schemas
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

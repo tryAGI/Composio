@@ -37,6 +37,8 @@ internal static partial class AuthConfigsDeleteAuthConfigsByNanoidCommandApiComm
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"delete-auth-configs-by-nanoid", @"Delete an authentication configuration
@@ -66,6 +68,7 @@ Deletes an authentication configuration. This operation cannot be undone. Pass `
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

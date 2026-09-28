@@ -67,6 +67,8 @@ internal static partial class WebhookSubscriptionsPatchWebhookSubscriptionsByIdC
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"patch-webhook-subscriptions-by-id", @"Update webhook subscription
@@ -130,6 +132,7 @@ Updates a webhook subscription. At least one field must be provided.");
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

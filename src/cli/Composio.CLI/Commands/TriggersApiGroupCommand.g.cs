@@ -4,8 +4,10 @@ using System.CommandLine;
 
 namespace Composio.CLI.Commands;
 
-internal static class TriggersApiGroupCommand
+internal static partial class TriggersApiGroupCommand
 {
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"triggers", @"Triggers endpoint commands.");
@@ -18,6 +20,7 @@ internal static class TriggersApiGroupCommand
                          command.Subcommands.Add(TriggersPatchTriggerInstancesManageByTriggerIdCommandApiCommand.Create());
                          command.Subcommands.Add(TriggersPostCliRealtimeAuthCommandApiCommand.Create());
                          command.Subcommands.Add(TriggersPostTriggerInstancesBySlugUpsertCommandApiCommand.Create());
+        CustomizeCommand(ref command);
         return command;
     }
 }

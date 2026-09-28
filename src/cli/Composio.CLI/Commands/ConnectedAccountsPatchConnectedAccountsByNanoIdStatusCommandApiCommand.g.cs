@@ -40,6 +40,8 @@ internal static partial class ConnectedAccountsPatchConnectedAccountsByNanoIdSta
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"patch-connected-accounts-by-nano-id-status", @"Enable or disable a connected account
@@ -69,6 +71,7 @@ Updates the status of a connected account to either enabled (active) or disabled
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

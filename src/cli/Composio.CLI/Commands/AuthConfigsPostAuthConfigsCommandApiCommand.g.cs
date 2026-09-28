@@ -56,6 +56,8 @@ internal static partial class AuthConfigsPostAuthConfigsCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"post-auth-configs", @"Create new authentication configuration
@@ -105,6 +107,7 @@ Creates a new auth config for a toolkit, allowing you to use your own OAuth cred
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

@@ -33,6 +33,8 @@ internal static partial class ProjectsPostOrgOwnerProjectByNanoIdRegenerateApiKe
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"post-org-owner-project-by-nano-id-regenerate-api-key", @"Delete and generate new API key for project
@@ -59,6 +61,7 @@ Generates a new API key for the specified project, invalidating any existing API
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

@@ -33,6 +33,8 @@ internal static partial class ToolRouterGetToolRouterSessionBySessionIdCommandAp
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-tool-router-session-by-session-id", @"Get a tool router session by ID
@@ -59,6 +61,7 @@ Retrieves an existing tool router session by its ID. Returns the session configu
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

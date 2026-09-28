@@ -72,6 +72,8 @@ internal static partial class ToolRouterPostToolRouterSessionBySessionIdExecuteC
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"post-tool-router-session-by-session-id-execute", @"Execute a tool within a tool router session
@@ -130,6 +132,7 @@ Executes a specific tool within a tool router session. This is the primary execu
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

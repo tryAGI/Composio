@@ -41,6 +41,8 @@ internal static partial class ProjectsPostOrgConsumerProjectResolveCommandApiCom
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"post-org-consumer-project-resolve", @"Resolve the organization consumer project
@@ -70,6 +72,7 @@ Finds the authenticated organization's single CONSUMER project and provisions it
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

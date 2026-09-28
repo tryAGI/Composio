@@ -88,6 +88,8 @@ internal static partial class ToolRouterPostToolRouterSessionBySessionIdProxyExe
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"post-tool-router-session-by-session-id-proxy-execute", @"Execute proxy request within a tool router session
@@ -152,6 +154,7 @@ Execute any native API call on a toolkit with authentication automatically injec
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

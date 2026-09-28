@@ -4,8 +4,10 @@ using System.CommandLine;
 
 namespace Composio.CLI.Commands;
 
-internal static class AuthConfigsApiGroupCommand
+internal static partial class AuthConfigsApiGroupCommand
 {
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"auth-configs", @"Auth Configs endpoint commands.");
@@ -15,6 +17,7 @@ internal static class AuthConfigsApiGroupCommand
                          command.Subcommands.Add(AuthConfigsPatchAuthConfigsByNanoidCommandApiCommand.Create());
                          command.Subcommands.Add(AuthConfigsPatchAuthConfigsByNanoidByStatusCommandApiCommand.Create());
                          command.Subcommands.Add(AuthConfigsPostAuthConfigsCommandApiCommand.Create());
+        CustomizeCommand(ref command);
         return command;
     }
 }

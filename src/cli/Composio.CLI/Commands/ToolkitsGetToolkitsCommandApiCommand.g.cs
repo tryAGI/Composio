@@ -73,6 +73,8 @@ internal static partial class ToolkitsGetToolkitsCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-toolkits", @"List available toolkits
@@ -128,6 +130,7 @@ Retrieves a comprehensive list of toolkits of their latest versions that are ava
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

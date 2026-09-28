@@ -29,6 +29,8 @@ internal static partial class WebhookSubscriptionsGetWebhookSubscriptionsEventTy
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-webhook-subscriptions-event-types", @"List available event types
@@ -63,6 +65,7 @@ Returns all event types that can be subscribed to, along with their supported we
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

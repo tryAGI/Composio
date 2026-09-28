@@ -57,6 +57,8 @@ internal static partial class ConnectedAccountsPostConnectedAccountsCommandApiCo
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"post-connected-accounts", @"Create a new connected account
@@ -123,6 +125,7 @@ Initiates a new connection to an external service for a user. For OAuth-based to
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

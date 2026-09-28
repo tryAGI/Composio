@@ -39,6 +39,8 @@ internal static partial class TriggersGetTriggersTypesBySlugCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-triggers-types-by-slug", @"Get trigger type by slug
@@ -68,6 +70,7 @@ Retrieve detailed information about a specific trigger type using its slug ident
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

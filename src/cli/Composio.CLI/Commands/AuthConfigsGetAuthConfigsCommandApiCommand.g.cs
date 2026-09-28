@@ -73,6 +73,8 @@ internal static partial class AuthConfigsGetAuthConfigsCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-auth-configs", @"List authentication configurations with optional filters
@@ -128,6 +130,7 @@ Retrieves all auth configs for your project. Auth configs define how users authe
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

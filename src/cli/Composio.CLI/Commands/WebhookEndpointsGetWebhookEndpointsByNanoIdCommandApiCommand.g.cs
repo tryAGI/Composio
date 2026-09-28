@@ -33,6 +33,8 @@ internal static partial class WebhookEndpointsGetWebhookEndpointsByNanoIdCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-webhook-endpoints-by-nano-id", @"Get webhook endpoint
@@ -59,6 +61,7 @@ Retrieves a single webhook endpoint. Secret values are redacted. Use GET /webhoo
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

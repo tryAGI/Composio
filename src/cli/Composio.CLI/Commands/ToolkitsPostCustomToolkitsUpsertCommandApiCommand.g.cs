@@ -40,6 +40,8 @@ internal static partial class ToolkitsPostCustomToolkitsUpsertCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"post-custom-toolkits-upsert", @"Upsert a custom toolkit
@@ -69,6 +71,7 @@ Experimental: custom toolkits are in pilot and this contract may change. Creates
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

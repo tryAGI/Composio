@@ -55,6 +55,8 @@ internal static partial class CliAuthenticationPostCliCreateSessionCommandApiCom
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"post-cli-create-session", @"Create a new CLI session with auth code
@@ -104,6 +106,7 @@ Generates a new CLI session with a random 6-character code. This endpoint is the
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

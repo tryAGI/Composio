@@ -62,6 +62,8 @@ internal static partial class FilesPostFilesUploadRequestCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"post-files-upload-request", @"Create presigned URL for request file upload to S3
@@ -100,6 +102,7 @@ Generates a presigned URL for uploading a file to S3. This endpoint handles dedu
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

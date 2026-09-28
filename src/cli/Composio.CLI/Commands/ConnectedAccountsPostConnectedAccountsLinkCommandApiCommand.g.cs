@@ -81,6 +81,8 @@ internal static partial class ConnectedAccountsPostConnectedAccountsLinkCommandA
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"post-connected-accounts-link", @"Create a new auth link session
@@ -142,6 +144,7 @@ Creates a new authentication link session that users can use to connect their ac
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

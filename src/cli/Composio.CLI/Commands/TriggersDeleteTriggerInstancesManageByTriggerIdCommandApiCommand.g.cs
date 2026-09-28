@@ -33,6 +33,8 @@ internal static partial class TriggersDeleteTriggerInstancesManageByTriggerIdCom
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"delete-trigger-instances-manage-by-trigger-id", @"Delete a trigger
@@ -59,6 +61,7 @@ Permanently deletes a trigger instance. This stops the trigger from listening fo
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

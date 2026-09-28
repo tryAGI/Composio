@@ -29,6 +29,8 @@ internal static partial class TriggersGetTriggersTypesListEnumCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-triggers-types-list-enum", @"List trigger type enums
@@ -63,6 +65,7 @@ Retrieves a list of all available trigger type enum values that can be used acro
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

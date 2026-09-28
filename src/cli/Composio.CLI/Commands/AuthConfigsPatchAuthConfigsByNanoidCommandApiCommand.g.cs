@@ -49,6 +49,8 @@ internal static partial class AuthConfigsPatchAuthConfigsByNanoidCommandApiComma
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"patch-auth-configs-by-nanoid", @"Update an authentication configuration
@@ -96,6 +98,7 @@ Modifies an existing authentication configuration with new credentials or other 
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

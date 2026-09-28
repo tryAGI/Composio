@@ -61,6 +61,8 @@ internal static partial class ToolRouterGetToolRouterSessionBySessionIdToolkitsC
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-tool-router-session-by-session-id-toolkits", @"Get toolkits for a tool router session
@@ -110,6 +112,7 @@ Retrieves a cursor-paginated list of toolkits available in the tool router sessi
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

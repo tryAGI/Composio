@@ -34,6 +34,8 @@ internal static partial class CliAuthenticationGetCliGetSessionCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-cli-get-session", @"Get CLI session details by ID or code
@@ -60,6 +62,7 @@ Retrieves the current state of a CLI session using either the session ID (UUID) 
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

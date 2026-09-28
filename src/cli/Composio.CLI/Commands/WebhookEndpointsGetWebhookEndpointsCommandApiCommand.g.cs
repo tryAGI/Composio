@@ -33,6 +33,8 @@ internal static partial class WebhookEndpointsGetWebhookEndpointsCommandApiComma
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-webhook-endpoints", @"List webhook endpoints
@@ -67,6 +69,7 @@ Lists webhook endpoints for the authenticated project, optionally filtered by to
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

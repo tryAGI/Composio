@@ -29,6 +29,8 @@ internal static partial class TriggersGetCliRealtimeCredentialsCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"get-cli-realtime-credentials", @"Get credentials for CLI realtime events
@@ -55,6 +57,7 @@ Get the Pusher key and project nanoId for the CLI realtime trigger channel. The 
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

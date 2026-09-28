@@ -83,6 +83,8 @@ internal static partial class CliPostCliCodactFailuresCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"post-cli-codact-failures", @"Ingest CLI codact failures
@@ -144,6 +146,7 @@ Accepts CLI-reported codact failures authenticated by user API key and records t
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

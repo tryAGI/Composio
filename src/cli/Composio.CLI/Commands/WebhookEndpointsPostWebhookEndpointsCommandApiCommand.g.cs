@@ -41,6 +41,8 @@ internal static partial class WebhookEndpointsPostWebhookEndpointsCommandApiComm
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"post-webhook-endpoints", @"Create webhook endpoint
@@ -70,6 +72,7 @@ Creates a shared webhook endpoint for a toolkit + OAuth app + project. Returns t
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

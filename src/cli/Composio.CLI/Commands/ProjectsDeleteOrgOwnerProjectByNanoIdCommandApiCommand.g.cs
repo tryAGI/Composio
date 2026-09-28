@@ -37,6 +37,8 @@ internal static partial class ProjectsDeleteOrgOwnerProjectByNanoIdCommandApiCom
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"delete-org-owner-project-by-nano-id", @"Delete a project
@@ -66,6 +68,7 @@ Deletes a project within the organization by its unique identifier. This affects
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

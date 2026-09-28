@@ -113,6 +113,8 @@ internal static partial class LogsPostInternalTriggerLogsCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"post-internal-trigger-logs", @"Search and retrieve trigger event logs
@@ -200,6 +202,7 @@ Search and retrieve trigger event logs with advanced filtering capabilities incl
                                     cancellationToken).ConfigureAwait(false);
                                 }
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

@@ -116,6 +116,8 @@ internal static partial class ToolRouterPostToolRouterSessionCommandApiCommand
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"post-tool-router-session", @"Create a new tool router session
@@ -195,6 +197,7 @@ Creates a new session for the tool router feature. This endpoint initializes a n
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }

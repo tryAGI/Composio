@@ -74,6 +74,8 @@ internal static partial class ToolRouterPostToolRouterSessionBySessionIdLinkComm
                     static partial void CustomizeResponseFormatHints(Dictionary<string, CliFormatHint> hints);
 
 
+    static partial void CustomizeCommand(ref Command command);
+
     public static Command Create()
     {
         var command = new Command(@"post-tool-router-session-by-session-id-link", @"Create a link session for a toolkit in a tool router session
@@ -132,6 +134,7 @@ Initiates an authentication link session for a specific toolkit within a tool ro
                                     FormatResponse,
                                     cancellationToken).ConfigureAwait(false);
             }, cancellationToken).ConfigureAwait(false));
+        CustomizeCommand(ref command);
         return command;
     }
 }
