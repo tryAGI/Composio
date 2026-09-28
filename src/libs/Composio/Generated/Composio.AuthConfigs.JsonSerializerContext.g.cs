@@ -1,19 +1,14 @@
 
 #nullable enable
 
-#pragma warning disable CS0618 // Type or member is obsolete
-#pragma warning disable CS3016 // Arrays as attribute arguments is not CLS-compliant
-
 namespace Composio
 {
     /// <summary>
     ///
     /// </summary>
     [global::System.Text.Json.Serialization.JsonSourceGenerationOptions(
-        DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
-        Converters = new global::System.Type[]
-        {
-        })]
+        DefaultIgnoreCondition = global::System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull
+    )]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object>), TypeInfoPropertyName = "DictionaryStringObject_System_Collections_Generic_Dictionary_string_object")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<object>), TypeInfoPropertyName = "SystemCollectionsGeneric_ObjectList")]
@@ -27,7 +22,9 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ComposioManagedAuthConfigCreateType), TypeInfoPropertyName = "ComposioManagedAuthConfigCreateType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ComposioManagedAuthConfigCreateCredentials))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<string, global::System.Collections.Generic.IList<string>>), TypeInfoPropertyName = "AnyOfStringIListString2")]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ComposioManagedAuthConfigCreateToolAccessConfig))]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object?>), TypeInfoPropertyName = "DictionaryStringObject_System_Collections_Generic_Dictionary_string_object_3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(object))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
@@ -36,15 +33,21 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.CustomAuthConfigCreateAuthScheme), TypeInfoPropertyName = "CustomAuthConfigCreateAuthScheme2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.CustomAuthConfigCreateCredentials))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.CustomAuthConfigCreateProxyConfig))]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.CustomAuthConfigCreateToolAccessConfig))]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.CustomAuthConfigUpdate))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.CustomAuthConfigUpdateType), TypeInfoPropertyName = "CustomAuthConfigUpdateType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.CustomAuthConfigUpdateCredentials))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.CustomAuthConfigUpdateProxyConfig))]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.CustomAuthConfigUpdateToolAccessConfig))]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.DefaultAuthConfigUpdate))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.DefaultAuthConfigUpdateType), TypeInfoPropertyName = "DefaultAuthConfigUpdateType2")]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.DefaultAuthConfigUpdateToolAccessConfig))]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostAuthConfigsRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostAuthConfigsRequestToolkit))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AuthConfig), TypeInfoPropertyName = "AuthConfig2")]
@@ -68,7 +71,9 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetAuthConfigsResponseItemStatus), TypeInfoPropertyName = "GetAuthConfigsResponseItemStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.GetAuthConfigsResponseItemExpectedInputField>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetAuthConfigsResponseItemExpectedInputField))]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetAuthConfigsResponseItemToolAccessConfig))]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetAuthConfigsByNanoidResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetAuthConfigsByNanoidResponseType), TypeInfoPropertyName = "GetAuthConfigsByNanoidResponseType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetAuthConfigsByNanoidResponseToolkit))]
@@ -77,7 +82,9 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetAuthConfigsByNanoidResponseStatus), TypeInfoPropertyName = "GetAuthConfigsByNanoidResponseStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.GetAuthConfigsByNanoidResponseExpectedInputField>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetAuthConfigsByNanoidResponseExpectedInputField))]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetAuthConfigsByNanoidResponseToolAccessConfig))]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchAuthConfigsByNanoidResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.DeleteAuthConfigsByNanoidResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchAuthConfigsByNanoidByStatusResponse))]
