@@ -443,7 +443,7 @@ namespace Composio
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // Payment required - Wallet balance is exhausted; add credits to resume premium tool calls or connect your account
+                            // Payment required - Wallet balance is exhausted; add credits to resume Instant tool calls or connect your account
                             if ((int)__response.StatusCode == 402)
                             {
                                 string? __content_402 = null;
@@ -993,7 +993,7 @@ namespace Composio
         /// Example: {"x-custom-header": "value", "authorization": "Bearer token"}
         /// </param>
         /// <param name="connectedAccountId">
-        /// Unique identifier for the connected account to use for authentication. Pass `hosted_account` to run the tool on the Composio hosted account for its toolkit, even when the user has connected the toolkit themselves; the request fails rather than falling back to another credential.<br/>
+        /// Unique identifier for the connected account to use for authentication. Pass `instant_account` to run the tool on the Composio instant account for its toolkit, even when the user has connected the toolkit themselves; the request fails rather than falling back to another credential.<br/>
         /// Example: ca_1a2b3c4d5e6f
         /// </param>
         /// <param name="userId">

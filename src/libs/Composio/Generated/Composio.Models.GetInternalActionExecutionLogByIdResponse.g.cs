@@ -59,10 +59,10 @@ namespace Composio
         public global::Composio.GetInternalActionExecutionLogByIdResponseCredentialSource? CredentialSource { get; set; }
 
         /// <summary>
-        /// Premium charge for using hosted account for this tool.
+        /// Instant charge in USD for this tool, as an exact decimal string.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("premiumUsageCharge")]
-        public string? PremiumUsageCharge { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("instantCharge")]
+        public string? InstantCharge { get; set; }
 
         /// <summary>
         ///
@@ -150,8 +150,8 @@ namespace Composio
         /// <param name="totalDuration"></param>
         /// <param name="error"></param>
         /// <param name="credentialSource"></param>
-        /// <param name="premiumUsageCharge">
-        /// Premium charge for using hosted account for this tool.
+        /// <param name="instantCharge">
+        /// Instant charge in USD for this tool, as an exact decimal string.
         /// </param>
         /// <param name="response"></param>
 #if NET7_0_OR_GREATER
@@ -173,7 +173,7 @@ namespace Composio
             string totalDuration,
             global::System.Collections.Generic.Dictionary<string, object?> error,
             global::Composio.GetInternalActionExecutionLogByIdResponseCredentialSource? credentialSource,
-            string? premiumUsageCharge,
+            string? instantCharge,
             global::System.Collections.Generic.Dictionary<string, object?>? response)
         {
             this.ActionLogId = actionLogId ?? throw new global::System.ArgumentNullException(nameof(actionLogId));
@@ -183,7 +183,7 @@ namespace Composio
             this.Version = version ?? throw new global::System.ArgumentNullException(nameof(version));
             this.Connection = connection ?? throw new global::System.ArgumentNullException(nameof(connection));
             this.CredentialSource = credentialSource;
-            this.PremiumUsageCharge = premiumUsageCharge;
+            this.InstantCharge = instantCharge;
             this.Session = session ?? throw new global::System.ArgumentNullException(nameof(session));
             this.ExecutionMetadata = executionMetadata ?? throw new global::System.ArgumentNullException(nameof(executionMetadata));
             this.Steps = steps ?? throw new global::System.ArgumentNullException(nameof(steps));

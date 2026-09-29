@@ -62,10 +62,10 @@ namespace Composio
         public global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseAccountSelection? AccountSelection { get; set; }
 
         /// <summary>
-        /// Present when the toolkit is connected through the Composio hosted account rather than a connected account of the user.
+        /// Present when the toolkit is connected through the Composio instant account rather than a connected account of the user.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("hosted_account")]
-        public global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseHostedAccount? HostedAccount { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("instant_account")]
+        public global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseInstantAccount? InstantAccount { get; set; }
 
         /// <summary>
         /// Human-readable message about the connection status and next steps
@@ -110,8 +110,8 @@ namespace Composio
         /// <param name="accountSelection">
         /// When "required", the agent must specify which account to use. Present only when multiple accounts exist.
         /// </param>
-        /// <param name="hostedAccount">
-        /// Present when the toolkit is connected through the Composio hosted account rather than a connected account of the user.
+        /// <param name="instantAccount">
+        /// Present when the toolkit is connected through the Composio instant account rather than a connected account of the user.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -126,7 +126,7 @@ namespace Composio
             global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseAccountType? accountType,
             global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseAccount>? accounts,
             global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseAccountSelection? accountSelection,
-            global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseHostedAccount? hostedAccount)
+            global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseInstantAccount? instantAccount)
         {
             this.Toolkit = toolkit ?? throw new global::System.ArgumentNullException(nameof(toolkit));
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
@@ -136,7 +136,7 @@ namespace Composio
             this.AccountType = accountType;
             this.Accounts = accounts;
             this.AccountSelection = accountSelection;
-            this.HostedAccount = hostedAccount;
+            this.InstantAccount = instantAccount;
             this.StatusMessage = statusMessage ?? throw new global::System.ArgumentNullException(nameof(statusMessage));
         }
 

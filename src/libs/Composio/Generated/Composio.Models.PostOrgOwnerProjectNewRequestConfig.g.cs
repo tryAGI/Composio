@@ -4,7 +4,7 @@
 namespace Composio
 {
     /// <summary>
-    /// Configuration for the project
+    /// Configuration for the project. Use zdr_enabled for Zero Data Retention; log_visibility_setting remains supported for existing clients. Do not send both fields.
     /// </summary>
     public sealed partial class PostOrgOwnerProjectNewRequestConfig
     {
@@ -12,8 +12,7 @@ namespace Composio
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_2FA_enabled")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool Is2faEnabled { get; set; }
+        public bool? Is2faEnabled { get; set; }
 
         /// <summary>
         ///
@@ -31,16 +30,14 @@ namespace Composio
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mask_secret_keys_in_connected_account")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool MaskSecretKeysInConnectedAccount { get; set; }
+        public bool? MaskSecretKeysInConnectedAccount { get; set; }
 
         /// <summary>
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("log_visibility_setting")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.PostOrgOwnerProjectNewRequestConfigLogVisibilitySettingJsonConverter))]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Composio.PostOrgOwnerProjectNewRequestConfigLogVisibilitySetting LogVisibilitySetting { get; set; }
+        public global::Composio.PostOrgOwnerProjectNewRequestConfigLogVisibilitySetting? LogVisibilitySetting { get; set; }
 
         /// <summary>
         ///
@@ -73,6 +70,12 @@ namespace Composio
         public global::System.Collections.Generic.Dictionary<string, object?>? Theme { get; set; }
 
         /// <summary>
+        /// Enable Zero Data Retention for the new project. Hobby cannot enable it. Enterprise defaults to enabled; other paid plans default to disabled. An explicit value overrides the default.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("zdr_enabled")]
+        public bool? ZdrEnabled { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -82,10 +85,10 @@ namespace Composio
         /// Initializes a new instance of the <see cref="PostOrgOwnerProjectNewRequestConfig" /> class.
         /// </summary>
         /// <param name="is2faEnabled"></param>
-        /// <param name="maskSecretKeysInConnectedAccount"></param>
-        /// <param name="logVisibilitySetting"></param>
         /// <param name="logoUrl"></param>
         /// <param name="displayName"></param>
+        /// <param name="maskSecretKeysInConnectedAccount"></param>
+        /// <param name="logVisibilitySetting"></param>
         /// <param name="requireMcpApiKey"></param>
         /// <param name="isComposioLinkEnabledForManagedAuth">
         /// Whether to enable composio link for managed authentication. This key will be deprecated in the future. Please don't use this key.
@@ -97,20 +100,24 @@ namespace Composio
         /// <param name="theme">
         /// Link-auth theme for the hosted connect page. Opaque to the API; the dashboard owns the token vocabulary and all value validation.
         /// </param>
+        /// <param name="zdrEnabled">
+        /// Enable Zero Data Retention for the new project. Hobby cannot enable it. Enterprise defaults to enabled; other paid plans default to disabled. An explicit value overrides the default.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PostOrgOwnerProjectNewRequestConfig(
-            bool is2faEnabled,
-            bool maskSecretKeysInConnectedAccount,
-            global::Composio.PostOrgOwnerProjectNewRequestConfigLogVisibilitySetting logVisibilitySetting,
+            bool? is2faEnabled,
             string? logoUrl,
             string? displayName,
+            bool? maskSecretKeysInConnectedAccount,
+            global::Composio.PostOrgOwnerProjectNewRequestConfigLogVisibilitySetting? logVisibilitySetting,
             bool? requireMcpApiKey,
             bool? isComposioLinkEnabledForManagedAuth,
             double? signedUrlFileExpiryInSeconds,
             string? oauthCallbackVerifierUrl,
-            global::System.Collections.Generic.Dictionary<string, object?>? theme)
+            global::System.Collections.Generic.Dictionary<string, object?>? theme,
+            bool? zdrEnabled)
         {
             this.Is2faEnabled = is2faEnabled;
             this.LogoUrl = logoUrl;
@@ -122,6 +129,7 @@ namespace Composio
             this.SignedUrlFileExpiryInSeconds = signedUrlFileExpiryInSeconds;
             this.OauthCallbackVerifierUrl = oauthCallbackVerifierUrl;
             this.Theme = theme;
+            this.ZdrEnabled = zdrEnabled;
         }
 
         /// <summary>

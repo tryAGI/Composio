@@ -726,8 +726,8 @@ namespace Composio
         /// Per-toolkit connected account override (single nano-ID). Each connected account must exist (not deleted or disabled) and belong to the same `user_id` as the session.<br/>
         /// Example: {"github":"ca_3m4n5o6p7q8r"}
         /// </param>
-        /// <param name="premiumUsage">
-        /// Controls premium usage, subject to project permission and session toolkit and tool restrictions. False disables premium usage. Omission on create or an empty object enables it with charges hidden. On PATCH, omitted fields are preserved; an object re-enables a disabled setting.
+        /// <param name="instant">
+        /// Controls instant usage, subject to project permission and session toolkit and tool restrictions. False disables instant usage. Omission on create or an empty object enables it with charges hidden. On PATCH, omitted fields are preserved; an object re-enables a disabled setting.
         /// </param>
         /// <param name="manageConnections"></param>
         /// <param name="tools">
@@ -752,7 +752,7 @@ namespace Composio
             global::Composio.AnyOf<global::Composio.PatchToolRouterSessionBySessionIdRequestToolkitsVariant1, global::Composio.PatchToolRouterSessionBySessionIdRequestToolkitsVariant2>? toolkits = default,
             global::System.Collections.Generic.Dictionary<string, string>? authConfigs = default,
             global::System.Collections.Generic.Dictionary<string, string>? connectedAccounts = default,
-            global::Composio.AnyOf<bool?, global::Composio.PatchToolRouterSessionBySessionIdRequestPremiumUsage>? premiumUsage = default,
+            global::Composio.AnyOf<bool?, global::Composio.PatchToolRouterSessionBySessionIdRequestInstant>? instant = default,
             global::Composio.PatchToolRouterSessionBySessionIdRequestManageConnections? manageConnections = default,
             object? tools = default,
             global::Composio.AnyOf<global::System.Collections.Generic.IList<global::Composio.PatchToolRouterSessionBySessionIdRequestTag>, global::Composio.PatchToolRouterSessionBySessionIdRequestTags>? tags = default,
@@ -768,7 +768,7 @@ namespace Composio
                 Toolkits = toolkits,
                 AuthConfigs = authConfigs,
                 ConnectedAccounts = connectedAccounts,
-                PremiumUsage = premiumUsage,
+                Instant = instant,
                 ManageConnections = manageConnections,
                 Tools = tools,
                 Tags = tags,
