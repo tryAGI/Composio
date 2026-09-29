@@ -35,9 +35,9 @@ internal static partial class LogsGetInternalActionExecutionLogByIdCommandApiCom
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-internal-action-execution-log-by-id", @"Get detailed execution log by ID");
+        var command = new Command(commandName ?? @"get-internal-action-execution-log-by-id", @"Get detailed execution log by ID");
                         command.Arguments.Add(Id);
 
 

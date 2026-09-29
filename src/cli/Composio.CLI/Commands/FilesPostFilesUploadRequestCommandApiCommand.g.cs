@@ -64,9 +64,9 @@ internal static partial class FilesPostFilesUploadRequestCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-files-upload-request", @"Create presigned URL for request file upload to S3
+        var command = new Command(commandName ?? @"post-files-upload-request", @"Create presigned URL for request file upload to S3
 Generates a presigned URL for uploading a file to S3. This endpoint handles deduplication by checking if a file with the same MD5 hash already exists.");
                         command.Options.Add(ToolkitSlug);
                         command.Options.Add(ToolSlug);

@@ -51,9 +51,9 @@ internal static partial class ToolRouterGetToolRouterSessionBySessionIdToolsComm
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-tool-router-session-by-session-id-tools", @"List tools with schemas for a tool router session
+        var command = new Command(commandName ?? @"get-tool-router-session-by-session-id-tools", @"List tools with schemas for a tool router session
 Returns the tools available in a tool router session with their complete schemas. This includes both meta tools and any preloaded app tools exposed by the session. Tools are returned in alphabetical order.");
                         command.Arguments.Add(SessionId);
           command.Options.Add(Input);

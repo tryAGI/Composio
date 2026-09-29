@@ -41,9 +41,9 @@ internal static partial class AuthConfigsPatchAuthConfigsByNanoidByStatusCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"patch-auth-configs-by-nanoid-by-status", @"Enable or disable an authentication configuration
+        var command = new Command(commandName ?? @"patch-auth-configs-by-nanoid-by-status", @"Enable or disable an authentication configuration
 Updates the status of an authentication configuration to either enabled or disabled. Disabled configurations cannot be used for new connections.");
                         command.Arguments.Add(Nanoid);
                         command.Arguments.Add(Status);

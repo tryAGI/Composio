@@ -41,9 +41,9 @@ internal static partial class ToolkitsGetToolkitsBySlugCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-toolkits-by-slug", @"Get toolkit by slug
+        var command = new Command(commandName ?? @"get-toolkits-by-slug", @"Get toolkit by slug
 Retrieves comprehensive information about a specific toolkit using its unique slug identifier. This endpoint provides detailed metadata, authentication configuration options, and feature counts for the requested toolkit.");
                         command.Arguments.Add(Slug);
                         command.Options.Add(Version);

@@ -42,9 +42,9 @@ internal static partial class WebhookEndpointsPostWebhookEndpointsByNanoIdComman
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-webhook-endpoints-by-nano-id", @"Put webhook endpoint configuration
+        var command = new Command(commandName ?? @"post-webhook-endpoints-by-nano-id", @"Put webhook endpoint configuration
 Full replacement of webhook endpoint configuration. All required setup fields must be provided. Use PATCH to update individual fields.");
                         command.Arguments.Add(NanoId);
                         command.Options.Add(Data);

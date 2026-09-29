@@ -79,9 +79,9 @@ internal static partial class LogsPostInternalActionExecutionLogsCommandApiComma
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-internal-action-execution-logs", @"Search and retrieve action execution logs");
+        var command = new Command(commandName ?? @"post-internal-action-execution-logs", @"Search and retrieve action execution logs");
                         command.Options.Add(Cursor);
                         command.Options.Add(Limit);
                         command.Options.Add(CaseSensitive);

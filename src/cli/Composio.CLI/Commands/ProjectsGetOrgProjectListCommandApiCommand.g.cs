@@ -45,9 +45,9 @@ internal static partial class ProjectsGetOrgProjectListCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-org-project-list", @"List all projects
+        var command = new Command(commandName ?? @"get-org-project-list", @"List all projects
 Retrieves projects belonging to the authenticated organization by default, or all organizations the authenticated user belongs to when list_all_org_projects is true. Projects are returned in descending order of creation date (newest first). This endpoint is useful for displaying project selection in dashboards or for integrations that need to list all available projects.");
                         command.Options.Add(ListAllOrgProjects);
                         command.Options.Add(Limit);

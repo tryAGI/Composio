@@ -42,9 +42,9 @@ internal static partial class WebhookEndpointsPatchWebhookEndpointsByNanoIdComma
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"patch-webhook-endpoints-by-nano-id", @"Update webhook endpoint configuration
+        var command = new Command(commandName ?? @"patch-webhook-endpoints-by-nano-id", @"Update webhook endpoint configuration
 Updates app-specific secrets and credentials. Uses merge semantics — only included fields are updated; omitted fields are preserved. Can be called on active endpoints (e.g., to rotate a signing secret).");
                         command.Arguments.Add(NanoId);
                         command.Options.Add(Data);

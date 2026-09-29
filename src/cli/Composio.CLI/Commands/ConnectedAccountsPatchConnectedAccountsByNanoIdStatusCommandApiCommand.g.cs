@@ -42,9 +42,9 @@ internal static partial class ConnectedAccountsPatchConnectedAccountsByNanoIdSta
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"patch-connected-accounts-by-nano-id-status", @"Enable or disable a connected account
+        var command = new Command(commandName ?? @"patch-connected-accounts-by-nano-id-status", @"Enable or disable a connected account
 Updates the status of a connected account to either enabled (active) or disabled (inactive). Disabled accounts cannot be used for API calls but remain in the database.");
                         command.Arguments.Add(NanoId);
                         command.Options.Add(Enabled);

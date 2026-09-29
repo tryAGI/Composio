@@ -53,9 +53,9 @@ internal static partial class TriggersGetTriggersTypesCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-triggers-types", @"List trigger types
+        var command = new Command(commandName ?? @"get-triggers-types", @"List trigger types
 Retrieve a list of available trigger types with optional filtering by toolkit. Results are paginated and can be filtered by toolkit.");
                         command.Options.Add(ToolkitSlugs);
                         command.Options.Add(ToolkitVersions);

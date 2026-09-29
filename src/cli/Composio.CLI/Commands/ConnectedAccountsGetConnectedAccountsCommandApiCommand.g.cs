@@ -89,9 +89,9 @@ internal static partial class ConnectedAccountsGetConnectedAccountsCommandApiCom
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-connected-accounts", @"List connected accounts with optional filters
+        var command = new Command(commandName ?? @"get-connected-accounts", @"List connected accounts with optional filters
 Retrieves all connected accounts for your project. Connected accounts represent authenticated user connections to external services (e.g., a user's Gmail account, Slack workspace). Filter by toolkit, status, user ID, or auth config to find specific connections.");
                         command.Options.Add(ToolkitSlugs);
                         command.Options.Add(Statuses);

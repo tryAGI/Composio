@@ -39,9 +39,9 @@ internal static partial class ConnectedAccountsDeleteConnectedAccountsByNanoidCo
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"delete-connected-accounts-by-nanoid", @"Delete a connected account
+        var command = new Command(commandName ?? @"delete-connected-accounts-by-nanoid", @"Delete a connected account
 Deletes a connected account. The account immediately stops working for API calls and cannot be restored through the API. Pass `?revoke_on_delete=true` to also revoke the account's upstream credentials.");
                         command.Arguments.Add(Nanoid);
                         command.Options.Add(RevokeOnDelete);

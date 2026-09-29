@@ -81,9 +81,9 @@ internal static partial class ToolkitsPostToolkitsMultiCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-toolkits-multi", @"Fetch multiple toolkits
+        var command = new Command(commandName ?? @"post-toolkits-multi", @"Fetch multiple toolkits
 Retrieves a comprehensive list of toolkits of their latest versions that are available to the authenticated project. Toolkits represent integration points with external services and applications, each containing a collection of tools and triggers. This endpoint supports filtering by category and management type, as well as different sorting options. You can optionally specify a list of toolkit slugs to fetch specific toolkits.");
                         command.Options.Add(Toolkits);
                         command.Options.Add(Category);

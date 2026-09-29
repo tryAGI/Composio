@@ -65,9 +65,9 @@ internal static partial class WebhookSubscriptionsPostWebhookSubscriptionsComman
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-webhook-subscriptions", @"Create webhook subscription
+        var command = new Command(commandName ?? @"post-webhook-subscriptions", @"Create webhook subscription
 Creates a webhook subscription for the authenticated project. Only one subscription is allowed per project. The signing secret is returned in subscription responses.");
                         command.Options.Add(WebhookUrl);
                         command.Options.Add(EnabledEvents);

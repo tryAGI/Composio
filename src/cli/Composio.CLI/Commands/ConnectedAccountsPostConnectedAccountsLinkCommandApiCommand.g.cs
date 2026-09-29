@@ -83,9 +83,9 @@ internal static partial class ConnectedAccountsPostConnectedAccountsLinkCommandA
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-connected-accounts-link", @"Create a new auth link session
+        var command = new Command(commandName ?? @"post-connected-accounts-link", @"Create a new auth link session
 Creates a new authentication link session that users can use to connect their accounts");
                         command.Options.Add(AuthConfigId);
                         command.Options.Add(UserId);

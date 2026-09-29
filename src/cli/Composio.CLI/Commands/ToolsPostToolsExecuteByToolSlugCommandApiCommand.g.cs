@@ -99,9 +99,9 @@ internal static partial class ToolsPostToolsExecuteByToolSlugCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-tools-execute-by-tool-slug", @"Execute tool
+        var command = new Command(commandName ?? @"post-tools-execute-by-tool-slug", @"Execute tool
 Execute a specific tool operation with provided arguments and authentication. This is the primary endpoint for integrating with third-party services and executing tools. You can provide structured arguments or use natural language processing by providing a text description of what you want to accomplish.");
                         command.Arguments.Add(ToolSlug);
                         command.Options.Add(XLlmGatewayHeaders);

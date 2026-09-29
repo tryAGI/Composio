@@ -41,9 +41,9 @@ internal static partial class WebhookSubscriptionsGetWebhookSubscriptionsCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-webhook-subscriptions", @"List webhook subscriptions
+        var command = new Command(commandName ?? @"get-webhook-subscriptions", @"List webhook subscriptions
 Lists all webhook subscriptions for the authenticated project with pagination. Currently limited to one subscription per project.");
                         command.Options.Add(Limit);
                         command.Options.Add(Cursor);

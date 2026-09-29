@@ -117,9 +117,9 @@ internal static partial class ToolRouterPatchToolRouterSessionBySessionIdCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"patch-tool-router-session-by-session-id", @"Patch a tool router session config
+        var command = new Command(commandName ?? @"patch-tool-router-session-by-session-id", @"Patch a tool router session config
 Partially updates the configuration of an existing tool router session. Only the fields provided in the request body will be updated. Uses optimistic concurrency control to prevent lost updates. The previous config is stored in config history.");
                         command.Arguments.Add(SessionId);
                         command.Options.Add(Toolkits);

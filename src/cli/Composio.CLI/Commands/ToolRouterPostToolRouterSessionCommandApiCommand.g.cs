@@ -118,9 +118,9 @@ internal static partial class ToolRouterPostToolRouterSessionCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-tool-router-session", @"Create a new tool router session
+        var command = new Command(commandName ?? @"post-tool-router-session", @"Create a new tool router session
 Creates a new session for the tool router feature. This endpoint initializes a new session with specified toolkits and their authentication configurations. The session provides an isolated environment for testing and managing tool routing logic with scoped MCP server access.");
                         command.Options.Add(UserId);
                         command.Options.Add(Toolkits);

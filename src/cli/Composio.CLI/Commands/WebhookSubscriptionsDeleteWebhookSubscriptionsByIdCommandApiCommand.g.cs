@@ -35,9 +35,9 @@ internal static partial class WebhookSubscriptionsDeleteWebhookSubscriptionsById
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"delete-webhook-subscriptions-by-id", @"Delete webhook subscription
+        var command = new Command(commandName ?? @"delete-webhook-subscriptions-by-id", @"Delete webhook subscription
 Permanently deletes a webhook subscription. This action cannot be undone.");
                         command.Arguments.Add(Id);
 

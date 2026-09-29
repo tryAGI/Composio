@@ -57,9 +57,9 @@ internal static partial class ToolkitsPostCustomToolkitsSyncCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-custom-toolkits-sync", @"Sync a custom toolkit
+        var command = new Command(commandName ?? @"post-custom-toolkits-sync", @"Sync a custom toolkit
 Experimental: custom toolkits are in pilot and this contract may change. Re-fetches tool definitions from the remote MCP server for the custom toolkit with the provided slug. Call it when automatic sync fails or the remote tool definitions change.");
                         command.Arguments.Add(Slug);
                         command.Options.Add(ConnectedAccountId);

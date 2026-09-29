@@ -31,9 +31,9 @@ internal static partial class ToolkitsGetToolkitsCategoriesCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-toolkits-categories", @"List toolkit categories
+        var command = new Command(commandName ?? @"get-toolkits-categories", @"List toolkit categories
 Retrieves a comprehensive list of all available toolkit categories from their latest versions. These categories can be used to filter toolkits by type or purpose when using the toolkit listing endpoint. Categories help organize toolkits into logical groups based on their functionality or industry focus.");
 
 

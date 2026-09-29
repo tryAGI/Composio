@@ -90,9 +90,9 @@ internal static partial class ToolRouterPostToolRouterSessionBySessionIdProxyExe
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-tool-router-session-by-session-id-proxy-execute", @"Execute proxy request within a tool router session
+        var command = new Command(commandName ?? @"post-tool-router-session-by-session-id-proxy-execute", @"Execute proxy request within a tool router session
 Execute any native API call on a toolkit with authentication automatically injected from Composio. This endpoint proxies HTTP requests to third-party APIs using connected account credentials resolved from the session context. Provide the toolkit slug, API endpoint, and HTTP method — Composio handles authentication injection, abstracting away credential management. Supports all HTTP methods, custom headers/query parameters, and binary request/response bodies.");
                         command.Arguments.Add(SessionId);
                         command.Options.Add(ToolkitSlug);

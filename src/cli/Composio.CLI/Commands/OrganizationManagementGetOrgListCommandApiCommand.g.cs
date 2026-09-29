@@ -41,9 +41,9 @@ internal static partial class OrganizationManagementGetOrgListCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-org-list", @"List organizations
+        var command = new Command(commandName ?? @"get-org-list", @"List organizations
 Retrieves a list of organizations that the authenticated user has access to. This includes organizations where the user is a member with any role.");
                         command.Options.Add(Limit);
                         command.Options.Add(Cursor);

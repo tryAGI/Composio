@@ -51,9 +51,9 @@ internal static partial class AuthConfigsPatchAuthConfigsByNanoidCommandApiComma
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"patch-auth-configs-by-nanoid", @"Update an authentication configuration
+        var command = new Command(commandName ?? @"patch-auth-configs-by-nanoid", @"Update an authentication configuration
 Modifies an existing authentication configuration with new credentials or other settings. Only specified fields will be updated.");
                         command.Arguments.Add(Nanoid);
           command.Options.Add(Input);

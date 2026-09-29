@@ -69,9 +69,9 @@ internal static partial class WebhookSubscriptionsPatchWebhookSubscriptionsByIdC
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"patch-webhook-subscriptions-by-id", @"Update webhook subscription
+        var command = new Command(commandName ?? @"patch-webhook-subscriptions-by-id", @"Update webhook subscription
 Updates a webhook subscription. At least one field must be provided.");
                         command.Arguments.Add(Id);
                         command.Options.Add(WebhookUrl);

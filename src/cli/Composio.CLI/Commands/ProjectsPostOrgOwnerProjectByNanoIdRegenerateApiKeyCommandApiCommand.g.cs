@@ -35,9 +35,9 @@ internal static partial class ProjectsPostOrgOwnerProjectByNanoIdRegenerateApiKe
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-org-owner-project-by-nano-id-regenerate-api-key", @"Delete and generate new API key for project
+        var command = new Command(commandName ?? @"post-org-owner-project-by-nano-id-regenerate-api-key", @"Delete and generate new API key for project
 Generates a new API key for the specified project, invalidating any existing API keys for that project. This operation creates a fresh API key with a new random name and key value. Every existing API key for the project stops working immediately.");
                         command.Arguments.Add(NanoId);
 

@@ -83,9 +83,9 @@ internal static partial class ToolsPostToolsExecuteProxyCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-tools-execute-proxy", @"Execute proxy request
+        var command = new Command(commandName ?? @"post-tools-execute-proxy", @"Execute proxy request
 Proxy an HTTP request to a third-party API using connected account credentials. This endpoint allows making authenticated API calls to external services while abstracting away authentication details.");
                         command.Options.Add(ConnectedAccountId);
                         command.Options.Add(Endpoint);

@@ -76,9 +76,9 @@ internal static partial class ToolRouterPostToolRouterSessionBySessionIdLinkComm
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-tool-router-session-by-session-id-link", @"Create a link session for a toolkit in a tool router session
+        var command = new Command(commandName ?? @"post-tool-router-session-by-session-id-link", @"Create a link session for a toolkit in a tool router session
 Initiates an authentication link session for a specific toolkit within a tool router session. Returns a link token and redirect URL that users can use to complete the OAuth flow.");
                         command.Arguments.Add(SessionId);
                         command.Options.Add(Toolkit);

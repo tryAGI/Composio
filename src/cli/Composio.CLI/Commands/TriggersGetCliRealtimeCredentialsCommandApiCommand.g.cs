@@ -31,9 +31,9 @@ internal static partial class TriggersGetCliRealtimeCredentialsCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-cli-realtime-credentials", @"Get credentials for CLI realtime events
+        var command = new Command(commandName ?? @"get-cli-realtime-credentials", @"Get credentials for CLI realtime events
 Get the Pusher key and project nanoId for the CLI realtime trigger channel. The CLI subscribes to private-cli-{project_id}.");
 
 

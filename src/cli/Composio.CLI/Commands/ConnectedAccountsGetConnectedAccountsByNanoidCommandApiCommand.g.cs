@@ -35,9 +35,9 @@ internal static partial class ConnectedAccountsGetConnectedAccountsByNanoidComma
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-connected-accounts-by-nanoid", @"Get connected account details by ID
+        var command = new Command(commandName ?? @"get-connected-accounts-by-nanoid", @"Get connected account details by ID
 Retrieves comprehensive details of a connected account, including authentication configuration, connection status, and all parameters needed for API requests.");
                         command.Arguments.Add(Nanoid);
 

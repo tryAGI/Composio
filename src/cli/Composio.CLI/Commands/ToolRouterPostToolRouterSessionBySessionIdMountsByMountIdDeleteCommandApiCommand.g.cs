@@ -48,9 +48,9 @@ internal static partial class ToolRouterPostToolRouterSessionBySessionIdMountsBy
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-tool-router-session-by-session-id-mounts-by-mount-id-delete", @"Delete a file from a session mount
+        var command = new Command(commandName ?? @"post-tool-router-session-by-session-id-mounts-by-mount-id-delete", @"Delete a file from a session mount
 Deletes a file from a workbench session storage mount. Deleting a non-existent file succeeds silently (idempotent).");
                         command.Arguments.Add(SessionId);
                         command.Arguments.Add(MountId);

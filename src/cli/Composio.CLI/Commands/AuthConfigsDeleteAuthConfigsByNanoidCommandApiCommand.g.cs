@@ -39,9 +39,9 @@ internal static partial class AuthConfigsDeleteAuthConfigsByNanoidCommandApiComm
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"delete-auth-configs-by-nanoid", @"Delete an authentication configuration
+        var command = new Command(commandName ?? @"delete-auth-configs-by-nanoid", @"Delete an authentication configuration
 Deletes an authentication configuration. This operation cannot be undone. Pass `?revoke_on_delete=true` to also revoke the upstream credentials of every connection using this auth config.");
                         command.Arguments.Add(Nanoid);
                         command.Options.Add(RevokeOnDelete);

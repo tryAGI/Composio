@@ -47,9 +47,9 @@ internal static partial class ToolsGetToolsByToolSlugCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-tools-by-tool-slug", @"Get tool by slug
+        var command = new Command(commandName ?? @"get-tools-by-tool-slug", @"Get tool by slug
 Retrieve detailed information about a specific tool using its slug identifier. This endpoint returns full metadata about a tool including input/output parameters, versions, and toolkit information.");
                         command.Arguments.Add(ToolSlug);
                         command.Options.Add(Version);

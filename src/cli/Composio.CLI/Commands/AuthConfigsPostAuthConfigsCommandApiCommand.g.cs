@@ -58,9 +58,9 @@ internal static partial class AuthConfigsPostAuthConfigsCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-auth-configs", @"Create new authentication configuration
+        var command = new Command(commandName ?? @"post-auth-configs", @"Create new authentication configuration
 Creates a new auth config for a toolkit, allowing you to use your own OAuth credentials or API keys instead of Composio-managed authentication. This is required when you want to use custom OAuth apps (bring your own client ID/secret) or configure specific authentication parameters for a toolkit.");
                         command.Options.Add(Toolkit);
                         command.Options.Add(AuthConfig);

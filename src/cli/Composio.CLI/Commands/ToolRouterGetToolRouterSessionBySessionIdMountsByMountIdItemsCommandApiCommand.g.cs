@@ -59,9 +59,9 @@ internal static partial class ToolRouterGetToolRouterSessionBySessionIdMountsByM
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-tool-router-session-by-session-id-mounts-by-mount-id-items", @"List files in a session mount
+        var command = new Command(commandName ?? @"get-tool-router-session-by-session-id-mounts-by-mount-id-items", @"List files in a session mount
 Lists files in a workbench session storage mount with cursor-based pagination. Use the download_url endpoint with the returned mount_relative_path to get a presigned download URL.");
                         command.Arguments.Add(SessionId);
                         command.Arguments.Add(MountId);

@@ -35,9 +35,9 @@ internal static partial class ToolRouterGetToolRouterSessionBySessionIdCommandAp
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-tool-router-session-by-session-id", @"Get a tool router session by ID
+        var command = new Command(commandName ?? @"get-tool-router-session-by-session-id", @"Get a tool router session by ID
 Retrieves an existing tool router session by its ID. Returns the session configuration, MCP server URL, and available tools.");
                         command.Arguments.Add(SessionId);
 
