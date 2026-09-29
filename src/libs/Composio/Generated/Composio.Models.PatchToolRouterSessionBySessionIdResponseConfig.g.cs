@@ -41,12 +41,12 @@ namespace Composio
         public global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<string>>? AllConnectedAccounts { get; set; }
 
         /// <summary>
-        /// Premium usage settings. False disables premium usage; an object permits it subject to project permission and session toolkit and tool restrictions.
+        /// Instant usage settings. False disables instant usage; an object permits it subject to project permission and session toolkit and tool restrictions.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("premium_usage")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AnyOfJsonConverter<bool?, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigPremiumUsage>))]
+        [global::System.Text.Json.Serialization.JsonPropertyName("instant")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AnyOfJsonConverter<bool?, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigInstant>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Composio.AnyOf<bool?, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigPremiumUsage> PremiumUsage { get; set; }
+        public required global::Composio.AnyOf<bool?, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigInstant> Instant { get; set; }
 
         /// <summary>
         /// Manage connections configuration
@@ -98,8 +98,8 @@ namespace Composio
         /// <param name="userId">
         /// User identifier for this session
         /// </param>
-        /// <param name="premiumUsage">
-        /// Premium usage settings. False disables premium usage; an object permits it subject to project permission and session toolkit and tool restrictions.
+        /// <param name="instant">
+        /// Instant usage settings. False disables instant usage; an object permits it subject to project permission and session toolkit and tool restrictions.
         /// </param>
         /// <param name="preload">
         /// Preload configuration. Controls which tools appear in `session.tools` and the MCP server tool list, callable directly without going through search. Each preloaded tool adds to the agent context — roughly ≤20 tools is recommended. Always present in the response (empty `tools: []` when the session was created without a preload config).
@@ -137,7 +137,7 @@ namespace Composio
 #endif
         public PatchToolRouterSessionBySessionIdResponseConfig(
             string userId,
-            global::Composio.AnyOf<bool?, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigPremiumUsage> premiumUsage,
+            global::Composio.AnyOf<bool?, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigInstant> instant,
             global::Composio.PatchToolRouterSessionBySessionIdResponseConfigPreload preload,
             global::Composio.AnyOf<global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolkitsVariant1, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolkitsVariant2>? toolkits,
             global::System.Collections.Generic.Dictionary<string, string>? authConfigs,
@@ -154,7 +154,7 @@ namespace Composio
             this.AuthConfigs = authConfigs;
             this.ConnectedAccounts = connectedAccounts;
             this.AllConnectedAccounts = allConnectedAccounts;
-            this.PremiumUsage = premiumUsage;
+            this.Instant = instant;
             this.ManageConnections = manageConnections;
             this.Tools = tools;
             this.Tags = tags;

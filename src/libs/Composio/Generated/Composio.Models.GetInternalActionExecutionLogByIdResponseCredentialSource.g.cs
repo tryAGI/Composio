@@ -19,7 +19,7 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
-        HostedAccount,
+        InstantAccount,
         /// <summary>
         ///
         /// </summary>
@@ -40,7 +40,7 @@ namespace Composio
             {
                 GetInternalActionExecutionLogByIdResponseCredentialSource.ConnectedAccount => "connected_account",
                 GetInternalActionExecutionLogByIdResponseCredentialSource.CustomAuth => "custom_auth",
-                GetInternalActionExecutionLogByIdResponseCredentialSource.HostedAccount => "hosted_account",
+                GetInternalActionExecutionLogByIdResponseCredentialSource.InstantAccount => "instant_account",
                 GetInternalActionExecutionLogByIdResponseCredentialSource.NoAuth => "no_auth",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
@@ -54,7 +54,7 @@ namespace Composio
             {
                 "connected_account" => GetInternalActionExecutionLogByIdResponseCredentialSource.ConnectedAccount,
                 "custom_auth" => GetInternalActionExecutionLogByIdResponseCredentialSource.CustomAuth,
-                "hosted_account" => GetInternalActionExecutionLogByIdResponseCredentialSource.HostedAccount,
+                "instant_account" => GetInternalActionExecutionLogByIdResponseCredentialSource.InstantAccount,
                 "no_auth" => GetInternalActionExecutionLogByIdResponseCredentialSource.NoAuth,
                 _ => null,
             };

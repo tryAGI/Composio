@@ -88,10 +88,10 @@ namespace Composio
         public global::Composio.PostInternalActionExecutionLogsResponseDataItemCredentialSource? CredentialSource { get; set; }
 
         /// <summary>
-        /// Premium charge for using hosted account for this tool.
+        /// Instant charge in USD for this tool, as an exact decimal string.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("premiumUsageCharge")]
-        public string? PremiumUsageCharge { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("instantCharge")]
+        public string? InstantCharge { get; set; }
 
         /// <summary>
         ///
@@ -121,8 +121,8 @@ namespace Composio
         /// <param name="createdAt"></param>
         /// <param name="metadata"></param>
         /// <param name="credentialSource"></param>
-        /// <param name="premiumUsageCharge">
-        /// Premium charge for using hosted account for this tool.
+        /// <param name="instantCharge">
+        /// Instant charge in USD for this tool, as an exact decimal string.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -140,7 +140,7 @@ namespace Composio
             double createdAt,
             global::Composio.PostInternalActionExecutionLogsResponseDataItemMetadata? metadata,
             global::Composio.PostInternalActionExecutionLogsResponseDataItemCredentialSource? credentialSource,
-            string? premiumUsageCharge)
+            string? instantCharge)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.ActionKey = actionKey ?? throw new global::System.ArgumentNullException(nameof(actionKey));
@@ -153,7 +153,7 @@ namespace Composio
             this.MinimalResponse = minimalResponse ?? throw new global::System.ArgumentNullException(nameof(minimalResponse));
             this.Metadata = metadata;
             this.CredentialSource = credentialSource;
-            this.PremiumUsageCharge = premiumUsageCharge;
+            this.InstantCharge = instantCharge;
             this.CreatedAt = createdAt;
         }
 

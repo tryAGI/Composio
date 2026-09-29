@@ -22,7 +22,7 @@ internal static partial class ToolsPostToolsExecuteByToolSlugCommandApiCommand
     private static Option<global::Composio.AnyOf<global::Composio.PostToolsExecuteByToolSlugRequestConnectedAccountId?, string>?> ConnectedAccountId { get; } = new(
         name: @"--connected-account-id")
     {
-        Description = @"Unique identifier for the connected account to use for authentication. Pass `hosted_account` to run the tool on the Composio hosted account for its toolkit, even when the user has connected the toolkit themselves; the request fails rather than falling back to another credential.",
+        Description = @"Unique identifier for the connected account to use for authentication. Pass `instant_account` to run the tool on the Composio instant account for its toolkit, even when the user has connected the toolkit themselves; the request fails rather than falling back to another credential.",
     };
 
     private static Option<string?> UserId { get; } = new(

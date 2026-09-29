@@ -41370,14 +41370,14 @@
                             "type": "string",
                             "enum": [
                               "connected_account",
-                              "hosted_account",
+                              "instant_account",
                               "custom_auth",
                               "no_auth"
                             ]
                           },
-                          "premiumUsageCharge": {
+                          "instantCharge": {
                             "type": "string",
-                            "description": "Premium charge for using hosted account for this tool."
+                            "description": "Instant charge in USD for this tool, as an exact decimal string."
                           },
                           "createdAt": {
                             "type": "number"
@@ -41596,14 +41596,14 @@
                       "type": "string",
                       "enum": [
                         "connected_account",
-                        "hosted_account",
+                        "instant_account",
                         "custom_auth",
                         "no_auth"
                       ]
                     },
-                    "premiumUsageCharge": {
+                    "instantCharge": {
                       "type": "string",
-                      "description": "Premium charge for using hosted account for this tool."
+                      "description": "Instant charge in USD for this tool, as an exact decimal string."
                     },
                     "session": {
                       "type": "object",
@@ -42292,14 +42292,13 @@
                           "nullable": true
                         },
                         "description": "Link-auth theme for the hosted connect page. Opaque to the API; the dashboard owns the token vocabulary and all value validation."
+                      },
+                      "zdr_enabled": {
+                        "type": "boolean",
+                        "description": "Enable Zero Data Retention for the new project. Hobby cannot enable it. Enterprise defaults to enabled; other paid plans default to disabled. An explicit value overrides the default."
                       }
                     },
-                    "required": [
-                      "is_2FA_enabled",
-                      "mask_secret_keys_in_connected_account",
-                      "log_visibility_setting"
-                    ],
-                    "description": "Configuration for the project"
+                    "description": "Configuration for the project. Use zdr_enabled for Zero Data Retention; log_visibility_setting remains supported for existing clients. Do not send both fields."
                   }
                 },
                 "required": [
@@ -42362,6 +42361,16 @@
           },
           "401": {
             "description": "Unauthorized. Authentication is required or the provided credentials are invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Zero Data Retention requires a paid plan.",
             "content": {
               "application/json": {
                 "schema": {
@@ -43165,7 +43174,7 @@
                           "type": "boolean",
                           "description": "Whether enhanced controls are enabled for this consumer project."
                         },
-                        "enable_premium_usage": {
+                        "enable_instant": {
                           "type": "boolean",
                           "description": "Whether Instant Tools are enabled for this consumer project."
                         },
@@ -43177,7 +43186,7 @@
                       "required": [
                         "consumer_experience_enabled",
                         "enhanced_controls",
-                        "enable_premium_usage"
+                        "enable_instant"
                       ],
                       "description": "Consumer project configuration bag (consumer-experience and enhanced-controls flags, plus any provider-specific keys)."
                     },
@@ -47226,7 +47235,7 @@
                       {
                         "type": "string",
                         "enum": [
-                          "hosted_account"
+                          "instant_account"
                         ]
                       },
                       {
@@ -47234,7 +47243,7 @@
                         "format": "connectedAccountId"
                       }
                     ],
-                    "description": "Unique identifier for the connected account to use for authentication. Pass `hosted_account` to run the tool on the Composio hosted account for its toolkit, even when the user has connected the toolkit themselves; the request fails rather than falling back to another credential.",
+                    "description": "Unique identifier for the connected account to use for authentication. Pass `instant_account` to run the tool on the Composio instant account for its toolkit, even when the user has connected the toolkit themselves; the request fails rather than falling back to another credential.",
                     "example": "ca_1a2b3c4d5e6f"
                   },
                   "entity_id": {
@@ -48761,7 +48770,7 @@
             }
           },
           "402": {
-            "description": "Payment required - Wallet balance is exhausted; add credits to resume premium tool calls or connect your account",
+            "description": "Payment required - Wallet balance is exhausted; add credits to resume Instant tool calls or connect your account",
             "content": {
               "application/json": {
                 "schema": {
@@ -55315,7 +55324,7 @@
                       "github": "ca_3m4n5o6p7q8r"
                     }
                   },
-                  "premium_usage": {
+                  "instant": {
                     "anyOf": [
                       {
                         "type": "boolean",
@@ -55419,17 +55428,17 @@
                                 }
                               ]
                             },
-                            "description": "Per-toolkit enable or disable lists that restrict premium usage. Toolkits absent from the map have no additional tool restriction. On PATCH, a supplied map replaces all existing tool filters; an empty map clears them, and omission preserves them."
+                            "description": "Per-toolkit enable or disable lists that restrict instant usage. Toolkits absent from the map have no additional tool restriction. On PATCH, a supplied map replaces all existing tool filters; an empty map clears them, and omission preserves them."
                           },
-                          "return_premium_charge": {
+                          "return_instant_charge": {
                             "type": "boolean",
-                            "description": "Return the top-level premium_charge in session tool responses when a charge is available. Defaults to false on create; omission on PATCH preserves the current value. Controls response visibility only; it does not enable or disable premium usage."
+                            "description": "Return the top-level instant_charge in session tool responses when a charge is available. Defaults to false on create; omission on PATCH preserves the current value. Controls response visibility only; it does not enable or disable instant usage."
                           }
                         },
                         "additionalProperties": false
                       }
                     ],
-                    "description": "Controls premium usage, subject to project permission and session toolkit and tool restrictions. False disables premium usage. Omission on create or an empty object enables it with charges hidden. On PATCH, omitted fields are preserved; an object re-enables a disabled setting."
+                    "description": "Controls instant usage, subject to project permission and session toolkit and tool restrictions. False disables instant usage. Omission on create or an empty object enables it with charges hidden. On PATCH, omitted fields are preserved; an object re-enables a disabled setting."
                   },
                   "manage_connections": {
                     "type": "object",
@@ -56304,7 +56313,7 @@
                           },
                           "description": "Full per-toolkit connected account overrides as arrays. Populated whenever `connected_accounts` is non-empty; carries the complete list when multi-account is enabled."
                         },
-                        "premium_usage": {
+                        "instant": {
                           "anyOf": [
                             {
                               "type": "boolean",
@@ -56348,7 +56357,7 @@
                                       "additionalProperties": false
                                     }
                                   ],
-                                  "description": "Toolkits eligible for premium usage, as an enabled or disabled list. If absent, no additional toolkit restriction applies."
+                                  "description": "Toolkits eligible for instant usage, as an enabled or disabled list. If absent, no additional toolkit restriction applies."
                                 },
                                 "tools": {
                                   "type": "object",
@@ -56386,20 +56395,20 @@
                                       }
                                     ]
                                   },
-                                  "description": "Per-toolkit enabled or disabled lists that restrict premium usage. Toolkits absent from this map have no additional tool restriction."
+                                  "description": "Per-toolkit enabled or disabled lists that restrict instant usage. Toolkits absent from this map have no additional tool restriction."
                                 },
-                                "return_premium_charge": {
+                                "return_instant_charge": {
                                   "type": "boolean",
-                                  "description": "Whether session tool responses return a top-level premium_charge when a charge is available. Defaults to false; controls response visibility only."
+                                  "description": "Whether session tool responses return a top-level instant_charge when a charge is available. Defaults to false; controls response visibility only."
                                 }
                               },
                               "required": [
-                                "return_premium_charge"
+                                "return_instant_charge"
                               ],
                               "additionalProperties": false
                             }
                           ],
-                          "description": "Premium usage settings. False disables premium usage; an object permits it subject to project permission and session toolkit and tool restrictions."
+                          "description": "Instant usage settings. False disables instant usage; an object permits it subject to project permission and session toolkit and tool restrictions."
                         },
                         "manage_connections": {
                           "type": "object",
@@ -56613,7 +56622,7 @@
                       },
                       "required": [
                         "user_id",
-                        "premium_usage",
+                        "instant",
                         "preload"
                       ],
                       "description": "The session configuration including user, toolkits, and overrides"
@@ -56972,27 +56981,27 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "premium_charge": {
+                    "instant_charge": {
                       "type": "object",
                       "properties": {
                         "amount": {
                           "type": "string",
                           "pattern": "^(0|[1-9]\\d*)(\\.\\d{1,12})?$",
-                          "description": "Premium charge in USD as an exact non-negative decimal string, with up to 12 fractional digits."
+                          "description": "Instant charge in USD as an exact non-negative decimal string, with up to 12 fractional digits."
                         },
                         "currency": {
                           "type": "string",
                           "enum": [
                             "USD"
                           ],
-                          "description": "Currency of the premium charge. Always USD."
+                          "description": "Currency of the instant charge. Always USD."
                         },
                         "charged_by": {
                           "type": "string",
                           "enum": [
                             "composio"
                           ],
-                          "description": "Entity charging for premium usage. Always composio."
+                          "description": "Entity charging for instant usage. Always composio."
                         }
                       },
                       "required": [
@@ -57000,7 +57009,7 @@
                         "currency",
                         "charged_by"
                       ],
-                      "description": "Returned only when the session enables premium_usage.return_premium_charge and a charge is available. Failed individual tool calls omit it. Multi-execute returns one aggregate of reported charges from eligible successful calls, even if another call fails."
+                      "description": "Returned only when the session enables instant.return_instant_charge and a charge is available. Failed individual tool calls omit it. Multi-execute returns one aggregate of reported charges from eligible successful calls, even if another call fails."
                     },
                     "data": {
                       "type": "object",
@@ -57214,27 +57223,27 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "premium_charge": {
+                    "instant_charge": {
                       "type": "object",
                       "properties": {
                         "amount": {
                           "type": "string",
                           "pattern": "^(0|[1-9]\\d*)(\\.\\d{1,12})?$",
-                          "description": "Premium charge in USD as an exact non-negative decimal string, with up to 12 fractional digits."
+                          "description": "Instant charge in USD as an exact non-negative decimal string, with up to 12 fractional digits."
                         },
                         "currency": {
                           "type": "string",
                           "enum": [
                             "USD"
                           ],
-                          "description": "Currency of the premium charge. Always USD."
+                          "description": "Currency of the instant charge. Always USD."
                         },
                         "charged_by": {
                           "type": "string",
                           "enum": [
                             "composio"
                           ],
-                          "description": "Entity charging for premium usage. Always composio."
+                          "description": "Entity charging for instant usage. Always composio."
                         }
                       },
                       "required": [
@@ -57242,7 +57251,7 @@
                         "currency",
                         "charged_by"
                       ],
-                      "description": "Returned only when the session enables premium_usage.return_premium_charge and a charge is available. Failed individual tool calls omit it. Multi-execute returns one aggregate of reported charges from eligible successful calls, even if another call fails."
+                      "description": "Returned only when the session enables instant.return_instant_charge and a charge is available. Failed individual tool calls omit it. Multi-execute returns one aggregate of reported charges from eligible successful calls, even if another call fails."
                     },
                     "data": {
                       "type": "object",
@@ -57518,7 +57527,7 @@
                           },
                           "description": "Full per-toolkit connected account overrides as arrays. Populated whenever `connected_accounts` is non-empty; carries the complete list when multi-account is enabled."
                         },
-                        "premium_usage": {
+                        "instant": {
                           "anyOf": [
                             {
                               "type": "boolean",
@@ -57562,7 +57571,7 @@
                                       "additionalProperties": false
                                     }
                                   ],
-                                  "description": "Toolkits eligible for premium usage, as an enabled or disabled list. If absent, no additional toolkit restriction applies."
+                                  "description": "Toolkits eligible for instant usage, as an enabled or disabled list. If absent, no additional toolkit restriction applies."
                                 },
                                 "tools": {
                                   "type": "object",
@@ -57600,20 +57609,20 @@
                                       }
                                     ]
                                   },
-                                  "description": "Per-toolkit enabled or disabled lists that restrict premium usage. Toolkits absent from this map have no additional tool restriction."
+                                  "description": "Per-toolkit enabled or disabled lists that restrict instant usage. Toolkits absent from this map have no additional tool restriction."
                                 },
-                                "return_premium_charge": {
+                                "return_instant_charge": {
                                   "type": "boolean",
-                                  "description": "Whether session tool responses return a top-level premium_charge when a charge is available. Defaults to false; controls response visibility only."
+                                  "description": "Whether session tool responses return a top-level instant_charge when a charge is available. Defaults to false; controls response visibility only."
                                 }
                               },
                               "required": [
-                                "return_premium_charge"
+                                "return_instant_charge"
                               ],
                               "additionalProperties": false
                             }
                           ],
-                          "description": "Premium usage settings. False disables premium usage; an object permits it subject to project permission and session toolkit and tool restrictions."
+                          "description": "Instant usage settings. False disables instant usage; an object permits it subject to project permission and session toolkit and tool restrictions."
                         },
                         "manage_connections": {
                           "type": "object",
@@ -57827,7 +57836,7 @@
                       },
                       "required": [
                         "user_id",
-                        "premium_usage",
+                        "instant",
                         "preload"
                       ],
                       "description": "The session configuration including user, toolkits, and overrides"
@@ -58174,7 +58183,7 @@
                       "github": "ca_3m4n5o6p7q8r"
                     }
                   },
-                  "premium_usage": {
+                  "instant": {
                     "anyOf": [
                       {
                         "type": "boolean",
@@ -58278,17 +58287,17 @@
                                 }
                               ]
                             },
-                            "description": "Per-toolkit enable or disable lists that restrict premium usage. Toolkits absent from the map have no additional tool restriction. On PATCH, a supplied map replaces all existing tool filters; an empty map clears them, and omission preserves them."
+                            "description": "Per-toolkit enable or disable lists that restrict instant usage. Toolkits absent from the map have no additional tool restriction. On PATCH, a supplied map replaces all existing tool filters; an empty map clears them, and omission preserves them."
                           },
-                          "return_premium_charge": {
+                          "return_instant_charge": {
                             "type": "boolean",
-                            "description": "Return the top-level premium_charge in session tool responses when a charge is available. Defaults to false on create; omission on PATCH preserves the current value. Controls response visibility only; it does not enable or disable premium usage."
+                            "description": "Return the top-level instant_charge in session tool responses when a charge is available. Defaults to false on create; omission on PATCH preserves the current value. Controls response visibility only; it does not enable or disable instant usage."
                           }
                         },
                         "additionalProperties": false
                       }
                     ],
-                    "description": "Controls premium usage, subject to project permission and session toolkit and tool restrictions. False disables premium usage. Omission on create or an empty object enables it with charges hidden. On PATCH, omitted fields are preserved; an object re-enables a disabled setting."
+                    "description": "Controls instant usage, subject to project permission and session toolkit and tool restrictions. False disables instant usage. Omission on create or an empty object enables it with charges hidden. On PATCH, omitted fields are preserved; an object re-enables a disabled setting."
                   },
                   "manage_connections": {
                     "type": "object",
@@ -58772,7 +58781,7 @@
                           },
                           "description": "Full per-toolkit connected account overrides as arrays. Populated whenever `connected_accounts` is non-empty; carries the complete list when multi-account is enabled."
                         },
-                        "premium_usage": {
+                        "instant": {
                           "anyOf": [
                             {
                               "type": "boolean",
@@ -58816,7 +58825,7 @@
                                       "additionalProperties": false
                                     }
                                   ],
-                                  "description": "Toolkits eligible for premium usage, as an enabled or disabled list. If absent, no additional toolkit restriction applies."
+                                  "description": "Toolkits eligible for instant usage, as an enabled or disabled list. If absent, no additional toolkit restriction applies."
                                 },
                                 "tools": {
                                   "type": "object",
@@ -58854,20 +58863,20 @@
                                       }
                                     ]
                                   },
-                                  "description": "Per-toolkit enabled or disabled lists that restrict premium usage. Toolkits absent from this map have no additional tool restriction."
+                                  "description": "Per-toolkit enabled or disabled lists that restrict instant usage. Toolkits absent from this map have no additional tool restriction."
                                 },
-                                "return_premium_charge": {
+                                "return_instant_charge": {
                                   "type": "boolean",
-                                  "description": "Whether session tool responses return a top-level premium_charge when a charge is available. Defaults to false; controls response visibility only."
+                                  "description": "Whether session tool responses return a top-level instant_charge when a charge is available. Defaults to false; controls response visibility only."
                                 }
                               },
                               "required": [
-                                "return_premium_charge"
+                                "return_instant_charge"
                               ],
                               "additionalProperties": false
                             }
                           ],
-                          "description": "Premium usage settings. False disables premium usage; an object permits it subject to project permission and session toolkit and tool restrictions."
+                          "description": "Instant usage settings. False disables instant usage; an object permits it subject to project permission and session toolkit and tool restrictions."
                         },
                         "manage_connections": {
                           "type": "object",
@@ -59081,7 +59090,7 @@
                       },
                       "required": [
                         "user_id",
-                        "premium_usage",
+                        "instant",
                         "preload"
                       ],
                       "description": "The session configuration including user, toolkits, and overrides"
@@ -61929,7 +61938,7 @@
                             ],
                             "description": "When \"required\", the agent must specify which account to use. Present only when multiple accounts exist."
                           },
-                          "hosted_account": {
+                          "instant_account": {
                             "type": "object",
                             "properties": {
                               "allowed_tool_slugs": {
@@ -61937,13 +61946,13 @@
                                 "items": {
                                   "type": "string"
                                 },
-                                "description": "Tools of this toolkit that run on the Composio hosted account"
+                                "description": "Tools of this toolkit that run on the Composio instant account"
                               }
                             },
                             "required": [
                               "allowed_tool_slugs"
                             ],
-                            "description": "Present when the toolkit is connected through the Composio hosted account rather than a connected account of the user."
+                            "description": "Present when the toolkit is connected through the Composio instant account rather than a connected account of the user."
                           },
                           "status_message": {
                             "type": "string",

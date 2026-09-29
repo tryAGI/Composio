@@ -25,9 +25,9 @@ namespace Composio
         /// <summary>
         /// Whether Instant Tools are enabled for this consumer project.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("enable_premium_usage")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("enable_instant")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required bool EnablePremiumUsage { get; set; }
+        public required bool EnableInstant { get; set; }
 
         /// <summary>
         /// Whether org members share a single clanker bot identity for connected accounts.
@@ -50,7 +50,7 @@ namespace Composio
         /// <param name="enhancedControls">
         /// Whether enhanced controls are enabled for this consumer project.
         /// </param>
-        /// <param name="enablePremiumUsage">
+        /// <param name="enableInstant">
         /// Whether Instant Tools are enabled for this consumer project.
         /// </param>
         /// <param name="clanker">
@@ -62,12 +62,12 @@ namespace Composio
         public PostOrgConsumerProjectResolveResponseConfig(
             bool consumerExperienceEnabled,
             bool enhancedControls,
-            bool enablePremiumUsage,
+            bool enableInstant,
             bool? clanker)
         {
             this.ConsumerExperienceEnabled = consumerExperienceEnabled;
             this.EnhancedControls = enhancedControls;
-            this.EnablePremiumUsage = enablePremiumUsage;
+            this.EnableInstant = enableInstant;
             this.Clanker = clanker;
         }
 

@@ -11,7 +11,7 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
-        HostedAccount,
+        InstantAccount,
     }
 
     /// <summary>
@@ -26,7 +26,7 @@ namespace Composio
         {
             return value switch
             {
-                PostToolsExecuteByToolSlugRequestConnectedAccountId.HostedAccount => "hosted_account",
+                PostToolsExecuteByToolSlugRequestConnectedAccountId.InstantAccount => "instant_account",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -37,7 +37,7 @@ namespace Composio
         {
             return value switch
             {
-                "hosted_account" => PostToolsExecuteByToolSlugRequestConnectedAccountId.HostedAccount,
+                "instant_account" => PostToolsExecuteByToolSlugRequestConnectedAccountId.InstantAccount,
                 _ => null,
             };
         }

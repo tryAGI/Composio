@@ -41,11 +41,11 @@ namespace Composio
         public global::System.Collections.Generic.Dictionary<string, string>? ConnectedAccounts { get; set; }
 
         /// <summary>
-        /// Controls premium usage, subject to project permission and session toolkit and tool restrictions. False disables premium usage. Omission on create or an empty object enables it with charges hidden. On PATCH, omitted fields are preserved; an object re-enables a disabled setting.
+        /// Controls instant usage, subject to project permission and session toolkit and tool restrictions. False disables instant usage. Omission on create or an empty object enables it with charges hidden. On PATCH, omitted fields are preserved; an object re-enables a disabled setting.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("premium_usage")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AnyOfJsonConverter<bool?, global::Composio.PostToolRouterSessionRequestPremiumUsage>))]
-        public global::Composio.AnyOf<bool?, global::Composio.PostToolRouterSessionRequestPremiumUsage>? PremiumUsage { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("instant")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AnyOfJsonConverter<bool?, global::Composio.PostToolRouterSessionRequestInstant>))]
+        public global::Composio.AnyOf<bool?, global::Composio.PostToolRouterSessionRequestInstant>? Instant { get; set; }
 
         /// <summary>
         /// Configuration for connection management settings<br/>
@@ -120,8 +120,8 @@ namespace Composio
         /// Per-toolkit connected account override (single nano-ID). Each connected account must exist (not deleted or disabled) and belong to the same `user_id` as the session.<br/>
         /// Example: {"github":"ca_3m4n5o6p7q8r"}
         /// </param>
-        /// <param name="premiumUsage">
-        /// Controls premium usage, subject to project permission and session toolkit and tool restrictions. False disables premium usage. Omission on create or an empty object enables it with charges hidden. On PATCH, omitted fields are preserved; an object re-enables a disabled setting.
+        /// <param name="instant">
+        /// Controls instant usage, subject to project permission and session toolkit and tool restrictions. False disables instant usage. Omission on create or an empty object enables it with charges hidden. On PATCH, omitted fields are preserved; an object re-enables a disabled setting.
         /// </param>
         /// <param name="manageConnections">
         /// Configuration for connection management settings<br/>
@@ -156,7 +156,7 @@ namespace Composio
             global::Composio.AnyOf<global::Composio.PostToolRouterSessionRequestToolkitsVariant1, global::Composio.PostToolRouterSessionRequestToolkitsVariant2>? toolkits,
             global::System.Collections.Generic.Dictionary<string, string>? authConfigs,
             global::System.Collections.Generic.Dictionary<string, string>? connectedAccounts,
-            global::Composio.AnyOf<bool?, global::Composio.PostToolRouterSessionRequestPremiumUsage>? premiumUsage,
+            global::Composio.AnyOf<bool?, global::Composio.PostToolRouterSessionRequestInstant>? instant,
             global::Composio.PostToolRouterSessionRequestManageConnections? manageConnections,
             object? tools,
             global::Composio.AnyOf<global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionRequestTag>, global::Composio.PostToolRouterSessionRequestTags>? tags,
@@ -169,7 +169,7 @@ namespace Composio
             this.Toolkits = toolkits;
             this.AuthConfigs = authConfigs;
             this.ConnectedAccounts = connectedAccounts;
-            this.PremiumUsage = premiumUsage;
+            this.Instant = instant;
             this.ManageConnections = manageConnections;
             this.Tools = tools;
             this.Tags = tags;
