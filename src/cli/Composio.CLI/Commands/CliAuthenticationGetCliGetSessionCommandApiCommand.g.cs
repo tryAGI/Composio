@@ -36,9 +36,9 @@ internal static partial class CliAuthenticationGetCliGetSessionCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-cli-get-session", @"Get CLI session details by ID or code
+        var command = new Command(commandName ?? @"get-cli-get-session", @"Get CLI session details by ID or code
 Retrieves the current state of a CLI session using either the session ID (UUID) or the 6-character code. This endpoint is used by both the CLI client to check if the session has been linked, and by the web interface to display session details before linking.");
                         command.Options.Add(Id);
 

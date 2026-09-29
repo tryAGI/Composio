@@ -76,9 +76,9 @@ internal static partial class ToolsPostToolsExecuteByToolSlugInputCommandApiComm
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-tools-execute-by-tool-slug-input", @"Generate tool inputs from natural language
+        var command = new Command(commandName ?? @"post-tools-execute-by-tool-slug-input", @"Generate tool inputs from natural language
 Uses AI to translate a natural language description into structured arguments for a specific tool. This endpoint is useful when you want to let users describe what they want to do in plain language instead of providing structured parameters.");
                         command.Arguments.Add(ToolSlug);
                         command.Options.Add(Text);

@@ -39,9 +39,9 @@ internal static partial class ProjectsDeleteOrgOwnerProjectByNanoIdCommandApiCom
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"delete-org-owner-project-by-nano-id", @"Delete a project
+        var command = new Command(commandName ?? @"delete-org-owner-project-by-nano-id", @"Delete a project
 Deletes a project within the organization by its unique identifier. This affects every resource belonging to the project, including its API keys, webhook configurations, and connected services. The action cannot be undone. Pass `?revoke_on_delete=true` to also revoke the upstream credentials of every connection in the project.");
                         command.Arguments.Add(NanoId);
                         command.Options.Add(RevokeOnDelete);

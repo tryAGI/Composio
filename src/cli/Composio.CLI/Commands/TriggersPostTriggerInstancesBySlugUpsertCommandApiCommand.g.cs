@@ -81,9 +81,9 @@ internal static partial class TriggersPostTriggerInstancesBySlugUpsertCommandApi
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-trigger-instances-by-slug-upsert", @"Create or update a trigger
+        var command = new Command(commandName ?? @"post-trigger-instances-by-slug-upsert", @"Create or update a trigger
 Creates a new trigger instance or updates an existing one with the same configuration. Triggers listen for events from external services (webhooks or polling) and can invoke your workflows. If a matching trigger already exists and is disabled, it will be re-enabled. Provide either a connected_account_id to pin a specific user connection, or a user_id to auto-resolve the first active connection for that user and the trigger's toolkit.");
                         command.Arguments.Add(Slug);
                         command.Options.Add(ConnectedAccountId);

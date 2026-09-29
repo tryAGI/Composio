@@ -43,9 +43,9 @@ internal static partial class TriggersPostCliRealtimeAuthCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-cli-realtime-auth", @"Authenticate CLI Pusher channel access
+        var command = new Command(commandName ?? @"post-cli-realtime-auth", @"Authenticate CLI Pusher channel access
 Authenticate CLI client access to a private-cli-{nanoId} Pusher channel");
                         command.Options.Add(ChannelName);
                         command.Options.Add(SocketId);

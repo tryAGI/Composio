@@ -85,9 +85,9 @@ internal static partial class CliPostCliCodactFailuresCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-cli-codact-failures", @"Ingest CLI codact failures
+        var command = new Command(commandName ?? @"post-cli-codact-failures", @"Ingest CLI codact failures
 Accepts CLI-reported codact failures authenticated by user API key and records them for later analysis.");
                         command.Options.Add(XUserApiKey);
                         command.Options.Add(FailureType);

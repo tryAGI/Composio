@@ -31,9 +31,9 @@ internal static partial class AuthenticationGetAuthSessionInfoCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-auth-session-info", @"Get current user session information
+        var command = new Command(commandName ?? @"get-auth-session-info", @"Get current user session information
 Retrieves detailed information about the current authenticated user session, including project details, organization membership, and API key information if applicable. This endpoint is useful for verifying authentication status and retrieving contextual information about the authenticated user and their access privileges.");
 
 

@@ -75,9 +75,9 @@ internal static partial class AuthConfigsGetAuthConfigsCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-auth-configs", @"List authentication configurations with optional filters
+        var command = new Command(commandName ?? @"get-auth-configs", @"List authentication configurations with optional filters
 Retrieves all auth configs for your project. Auth configs define how users authenticate with external services (OAuth, API keys, etc.). Use filters to find configs for specific toolkits or to distinguish between Composio-managed and custom configurations.");
                         command.Options.Add(IsComposioManaged);
                         command.Options.Add(ToolkitSlug);

@@ -43,9 +43,9 @@ internal static partial class WebhookEndpointsPostWebhookEndpointsCommandApiComm
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-webhook-endpoints", @"Create webhook endpoint
+        var command = new Command(commandName ?? @"post-webhook-endpoints", @"Create webhook endpoint
 Creates a shared webhook endpoint for a toolkit + OAuth app + project. Returns the webhook URL that the customer registers in their app dashboard. Idempotent — returns existing endpoint if one already exists for this toolkit + client_id + project.");
                         command.Options.Add(ToolkitSlug);
                         command.Options.Add(ClientId);

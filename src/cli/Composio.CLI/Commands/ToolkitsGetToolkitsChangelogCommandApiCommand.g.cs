@@ -31,9 +31,9 @@ internal static partial class ToolkitsGetToolkitsChangelogCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-toolkits-changelog", @"Get toolkits changelog
+        var command = new Command(commandName ?? @"get-toolkits-changelog", @"Get toolkits changelog
 Retrieves the last 10 versions changelog for all toolkits. This endpoint provides version history and changelog information for each toolkit.");
 
 

@@ -31,9 +31,9 @@ internal static partial class WebhookSubscriptionsGetWebhookSubscriptionsEventTy
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-webhook-subscriptions-event-types", @"List available event types
+        var command = new Command(commandName ?? @"get-webhook-subscriptions-event-types", @"List available event types
 Returns all event types that can be subscribed to, along with their supported webhook versions.");
 
 

@@ -69,9 +69,9 @@ internal static partial class TriggersPatchTriggerInstancesManageByTriggerIdComm
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"patch-trigger-instances-manage-by-trigger-id", @"Update a trigger
+        var command = new Command(commandName ?? @"patch-trigger-instances-manage-by-trigger-id", @"Update a trigger
 Updates a trigger instance. Pass status to enable or disable it: disabling pauses event listening without deleting the trigger configuration, and re-enabling restores it. Pass egress_url to override where this instance delivers its events (null removes the override); the project webhook subscription is still required and still controls signing, the payload version and which events are enabled. Send either field or both. On a project with 2FA enabled, user_id is required to set egress_url and, whenever sent, must own the connected account behind the trigger.");
                         command.Arguments.Add(TriggerId);
                         command.Options.Add(Status);

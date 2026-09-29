@@ -35,9 +35,9 @@ internal static partial class WebhookEndpointsGetWebhookEndpointsByNanoIdCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-webhook-endpoints-by-nano-id", @"Get webhook endpoint
+        var command = new Command(commandName ?? @"get-webhook-endpoints-by-nano-id", @"Get webhook endpoint
 Retrieves a single webhook endpoint. Secret values are redacted. Use GET /webhook_endpoints/schema to discover field definitions.");
                         command.Arguments.Add(NanoId);
 

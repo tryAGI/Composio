@@ -35,9 +35,9 @@ internal static partial class WebhookSubscriptionsPostWebhookSubscriptionsByIdRo
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-webhook-subscriptions-by-id-rotate-secret", @"Rotate webhook secret
+        var command = new Command(commandName ?? @"post-webhook-subscriptions-by-id-rotate-secret", @"Rotate webhook secret
 Generates a new signing secret for the webhook subscription.");
                         command.Arguments.Add(Id);
 

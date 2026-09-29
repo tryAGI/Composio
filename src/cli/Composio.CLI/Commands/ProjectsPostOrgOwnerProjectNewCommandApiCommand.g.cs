@@ -61,9 +61,9 @@ internal static partial class ProjectsPostOrgOwnerProjectNewCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-org-owner-project-new", @"Create a new project
+        var command = new Command(commandName ?? @"post-org-owner-project-new", @"Create a new project
 Creates a new project within the authenticated user's organization using the specified name. Projects are isolated environments within your organization, each with their own API keys, webhook configurations, and resources. Use this endpoint to create additional projects for different environments (e.g., development, staging, production) or for separate applications.");
                         command.Arguments.Add(NameOption);
                         command.Options.Add(ShouldCreateApiKey);

@@ -43,9 +43,9 @@ internal static partial class ProjectsPostOrgConsumerProjectResolveCommandApiCom
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-org-consumer-project-resolve", @"Resolve the organization consumer project
+        var command = new Command(commandName ?? @"post-org-consumer-project-resolve", @"Resolve the organization consumer project
 Finds the authenticated organization's single CONSUMER project and provisions it if absent. This endpoint is idempotent and never returns consumer API keys.");
                         command.Options.Add(XUserApiKey);
                         command.Options.Add(XOrgId);

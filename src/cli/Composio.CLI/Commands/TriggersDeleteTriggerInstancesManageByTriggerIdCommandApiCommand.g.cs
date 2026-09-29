@@ -35,9 +35,9 @@ internal static partial class TriggersDeleteTriggerInstancesManageByTriggerIdCom
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"delete-trigger-instances-manage-by-trigger-id", @"Delete a trigger
+        var command = new Command(commandName ?? @"delete-trigger-instances-manage-by-trigger-id", @"Delete a trigger
 Permanently deletes a trigger instance. This stops the trigger from listening for events and removes it from your project. Use the PATCH endpoint with status ""disable"" if you want to temporarily pause a trigger instead.");
                         command.Arguments.Add(TriggerId);
 

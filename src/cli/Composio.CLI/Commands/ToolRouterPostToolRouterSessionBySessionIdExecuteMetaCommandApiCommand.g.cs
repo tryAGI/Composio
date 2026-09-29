@@ -64,9 +64,9 @@ internal static partial class ToolRouterPostToolRouterSessionBySessionIdExecuteM
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-tool-router-session-by-session-id-execute-meta", @"Execute a meta tool within a tool router session
+        var command = new Command(commandName ?? @"post-tool-router-session-by-session-id-execute-meta", @"Execute a meta tool within a tool router session
 Executes a Composio meta tool (COMPOSIO_*) within a tool router session. This endpoint is kept for meta-tool compatibility; clients can also use the primary /execute endpoint.");
                         command.Arguments.Add(SessionId);
                         command.Options.Add(Slug);

@@ -75,9 +75,9 @@ internal static partial class TriggersGetTriggerInstancesActiveCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-trigger-instances-active", @"List active triggers
+        var command = new Command(commandName ?? @"get-trigger-instances-active", @"List active triggers
 Retrieves all active trigger instances for your project. Triggers listen for events from connected accounts (e.g., new emails, Slack messages, GitHub commits) and can invoke webhooks or workflows. Use filters to find triggers for specific users, connected accounts, or trigger types.");
                         command.Options.Add(UserIds);
                         command.Options.Add(ConnectedAccountIds);

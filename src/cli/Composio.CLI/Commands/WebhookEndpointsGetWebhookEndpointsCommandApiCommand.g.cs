@@ -35,9 +35,9 @@ internal static partial class WebhookEndpointsGetWebhookEndpointsCommandApiComma
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-webhook-endpoints", @"List webhook endpoints
+        var command = new Command(commandName ?? @"get-webhook-endpoints", @"List webhook endpoints
 Lists webhook endpoints for the authenticated project, optionally filtered by toolkit.");
                         command.Options.Add(ToolkitSlug);
 

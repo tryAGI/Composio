@@ -31,9 +31,9 @@ internal static partial class ToolsGetToolsEnumCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-tools-enum", @"Get tool enum list
+        var command = new Command(commandName ?? @"get-tools-enum", @"Get tool enum list
 Retrieve a list of all available tool enumeration values (tool slugs) from latest version of each toolkit. This endpoint returns a comma-separated string of tool slugs that can be used in other API calls.");
 
 

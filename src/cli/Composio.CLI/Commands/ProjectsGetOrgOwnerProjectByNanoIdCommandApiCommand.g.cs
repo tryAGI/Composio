@@ -35,9 +35,9 @@ internal static partial class ProjectsGetOrgOwnerProjectByNanoIdCommandApiComman
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-org-owner-project-by-nano-id", @"Get project details by ID With Org Api key
+        var command = new Command(commandName ?? @"get-org-owner-project-by-nano-id", @"Get project details by ID With Org Api key
 Retrieves detailed information about a specific project using its unique identifier. This endpoint provides complete project configuration including webhook URLs, creation and update timestamps, and webhook secrets. Use this endpoint to inspect project settings or verify project configuration.");
                         command.Arguments.Add(NanoId);
 

@@ -42,9 +42,9 @@ internal static partial class ToolkitsPostCustomToolkitsUpsertCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-custom-toolkits-upsert", @"Upsert a custom toolkit
+        var command = new Command(commandName ?? @"post-custom-toolkits-upsert", @"Upsert a custom toolkit
 Experimental: custom toolkits are in pilot and this contract may change. Creates a custom toolkit for the project with the provided slug, or updates its display metadata (name, API key field copy) when the project already owns a toolkit with that slug. app_url and auth_schemes cannot be changed on an existing toolkit: re-sending them unchanged is a no-op, changing them returns 409 (delete and re-register the toolkit instead, which revokes its connections).");
                         command.Arguments.Add(Slug);
                         command.Options.Add(ToolkitConfig);

@@ -115,9 +115,9 @@ internal static partial class LogsPostInternalTriggerLogsCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-internal-trigger-logs", @"Search and retrieve trigger event logs
+        var command = new Command(commandName ?? @"post-internal-trigger-logs", @"Search and retrieve trigger event logs
 Search and retrieve trigger event logs with advanced filtering capabilities including search parameters");
                         command.Options.Add(Time);
                         command.Options.Add(From);

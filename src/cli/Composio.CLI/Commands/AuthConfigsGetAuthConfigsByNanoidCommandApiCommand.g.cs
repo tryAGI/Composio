@@ -35,9 +35,9 @@ internal static partial class AuthConfigsGetAuthConfigsByNanoidCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-auth-configs-by-nanoid", @"Get single authentication configuration by ID
+        var command = new Command(commandName ?? @"get-auth-configs-by-nanoid", @"Get single authentication configuration by ID
 Retrieves detailed information about a specific authentication configuration using its unique identifier.");
                         command.Arguments.Add(Nanoid);
 

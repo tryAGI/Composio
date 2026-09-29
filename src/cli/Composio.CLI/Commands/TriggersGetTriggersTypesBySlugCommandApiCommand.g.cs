@@ -41,9 +41,9 @@ internal static partial class TriggersGetTriggersTypesBySlugCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-triggers-types-by-slug", @"Get trigger type by slug
+        var command = new Command(commandName ?? @"get-triggers-types-by-slug", @"Get trigger type by slug
 Retrieve detailed information about a specific trigger type using its slug identifier");
                         command.Arguments.Add(Slug);
                         command.Options.Add(ToolkitVersions);

@@ -70,9 +70,9 @@ internal static partial class ToolRouterPostToolRouterSessionBySessionIdSearchCo
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-tool-router-session-by-session-id-search", @"Search for tools using a query
+        var command = new Command(commandName ?? @"post-tool-router-session-by-session-id-search", @"Search for tools using a query
 Search for tools matching a given use case query within a tool router session. Returns matching tool slugs, full tool schemas, toolkit connection statuses, and workflow guidance in a predictable format.");
                         command.Arguments.Add(SessionId);
                         command.Options.Add(Queries);

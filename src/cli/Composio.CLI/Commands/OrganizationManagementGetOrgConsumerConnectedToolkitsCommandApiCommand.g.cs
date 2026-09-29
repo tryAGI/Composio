@@ -50,9 +50,9 @@ internal static partial class OrganizationManagementGetOrgConsumerConnectedToolk
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-org-consumer-connected-toolkits", @"List active connected toolkits for a consumer user
+        var command = new Command(commandName ?? @"get-org-consumer-connected-toolkits", @"List active connected toolkits for a consumer user
 Resolves the organization's single CONSUMER project and returns the distinct toolkit slugs for which the specified consumer user has an ACTIVE connection.");
                         command.Options.Add(UserId);
                         command.Options.Add(XUserApiKey);

@@ -99,9 +99,9 @@ internal static partial class ToolsGetToolsCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-tools", @"List available tools
+        var command = new Command(commandName ?? @"get-tools", @"List available tools
 Retrieve a paginated list of available tools with comprehensive filtering, sorting and search capabilities. Use query parameters to narrow down results by toolkit, tags, or search terms.");
                         command.Options.Add(ToolkitSlug);
                         command.Options.Add(ToolSlugs);

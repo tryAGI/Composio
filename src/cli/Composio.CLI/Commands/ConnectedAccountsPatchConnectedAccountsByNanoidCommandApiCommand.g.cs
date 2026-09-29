@@ -69,9 +69,9 @@ internal static partial class ConnectedAccountsPatchConnectedAccountsByNanoidCom
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"patch-connected-accounts-by-nanoid", @"Update a connected account
+        var command = new Command(commandName ?? @"patch-connected-accounts-by-nanoid", @"Update a connected account
 Update a connected account. Supports updating the alias and/or credentials. Only specified fields will be updated. Set a credential field to null to remove it. Alias must be unique within the same project, entity, and toolkit scope.");
                         command.Arguments.Add(Nanoid);
                         command.Options.Add(Alias);

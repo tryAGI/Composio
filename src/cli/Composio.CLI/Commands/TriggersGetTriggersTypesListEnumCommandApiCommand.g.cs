@@ -31,9 +31,9 @@ internal static partial class TriggersGetTriggersTypesListEnumCommandApiCommand
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"get-triggers-types-list-enum", @"List trigger type enums
+        var command = new Command(commandName ?? @"get-triggers-types-list-enum", @"List trigger type enums
 Retrieves a list of all available trigger type enum values that can be used across the API from latest versions of the toolkit only");
 
 

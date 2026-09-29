@@ -48,9 +48,9 @@ internal static partial class ToolRouterPostToolRouterSessionBySessionIdMountsBy
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-tool-router-session-by-session-id-mounts-by-mount-id-download-url", @"Create a presigned download URL for a mount file
+        var command = new Command(commandName ?? @"post-tool-router-session-by-session-id-mounts-by-mount-id-download-url", @"Create a presigned download URL for a mount file
 Generates a presigned download URL for a file in a workbench session mount. Accepts a relative path within the mount.");
                         command.Arguments.Add(SessionId);
                         command.Arguments.Add(MountId);

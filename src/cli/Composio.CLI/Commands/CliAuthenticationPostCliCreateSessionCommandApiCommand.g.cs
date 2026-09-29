@@ -57,9 +57,9 @@ internal static partial class CliAuthenticationPostCliCreateSessionCommandApiCom
 
     static partial void CustomizeCommand(ref Command command);
 
-    public static Command Create()
+    public static Command Create(string? commandName = null)
     {
-        var command = new Command(@"post-cli-create-session", @"Create a new CLI session with auth code
+        var command = new Command(commandName ?? @"post-cli-create-session", @"Create a new CLI session with auth code
 Generates a new CLI session with a random 6-character code. This endpoint is the first step in the CLI authentication flow, creating a session that can later be linked to a user account. The generated code is displayed to the user in the CLI and should be entered in the web interface to complete authentication. Optionally accepts a scope ('project' or 'user') and a source string.");
                         command.Options.Add(Scope);
                         command.Options.Add(Source);
