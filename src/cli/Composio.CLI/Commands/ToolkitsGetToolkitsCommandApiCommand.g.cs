@@ -16,7 +16,7 @@ internal static partial class ToolkitsGetToolkitsCommandApiCommand
     private static Option<global::Composio.GetToolkitsManagedBy?> ManagedBy { get; } = new(
         name: @"--managed-by")
     {
-        Description = @"Filter toolkits by who manages them",
+        Description = @"Deprecated: Filter toolkits by who manages them",
     };
 
     private static Option<global::Composio.GetToolkitsType?> Type { get; } = new(

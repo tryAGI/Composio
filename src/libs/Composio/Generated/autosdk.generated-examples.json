@@ -46,17 +46,6 @@
     },
     {
       "Order": 5,
-      "Title": "Enable or disable a connected account",
-      "Slug": "patchconnectedaccountsbynanoidstatus",
-      "Description": "Updates the status of a connected account to either enabled (active) or disabled (inactive). Disabled accounts cannot be used for API calls but remain in the database.",
-      "Language": "csharp",
-      "Code": "using var client = new ComposioClient(apiKey);\n\nvar request = global::System.Text.Json.JsonSerializer.Deserialize\u003Cglobal::Composio.PatchConnectedAccountsByNanoIdStatusRequest\u003E(\n    @\u0022{\n  \u0022\u0022enabled\u0022\u0022: true\n}\u0022)!;\n\nvar response = await client.ConnectedAccounts.PatchConnectedAccountsByNanoIdStatusAsync(\n    nanoId: \u0022ca_1a2b3c4d5e6f\u0022,\n    request: request\n);\n\n// Example response:\n// {\n//   \u0022success\u0022: true\n// }",
-      "Format": "sdk",
-      "OperationId": "patchConnectedAccountsByNanoIdStatus",
-      "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
-    },
-    {
-      "Order": 6,
       "Title": "Update a connected account",
       "Slug": "patchconnectedaccountsbynanoid",
       "Description": "Update a connected account. Supports updating the alias and/or credentials. Only specified fields will be updated. Set a credential field to null to remove it. Alias must be unique within the same project, entity, and toolkit scope.",
@@ -67,7 +56,7 @@
       "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 7,
+      "Order": 6,
       "Title": "Create presigned URL for request file upload to S3",
       "Slug": "postfilesuploadrequest",
       "Description": "Generates a presigned URL for uploading a file to S3. This endpoint handles deduplication by checking if a file with the same MD5 hash already exists.",
@@ -78,7 +67,7 @@
       "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 8,
+      "Order": 7,
       "Title": "Create a new project",
       "Slug": "postorgownerprojectnew",
       "Description": "Creates a new project within the authenticated user\u0027s organization using the specified name. Projects are isolated environments within your organization, each with their own API keys, webhook configurations, and resources. Use this endpoint to create additional projects for different environments (e.g., development, staging, production) or for separate applications.",
@@ -89,7 +78,7 @@
       "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 9,
+      "Order": 8,
       "Title": "Create a new tool router session",
       "Slug": "posttoolroutersession",
       "Description": "Creates a new session for the tool router feature. This endpoint initializes a new session with specified toolkits and their authentication configurations. The session provides an isolated environment for testing and managing tool routing logic with scoped MCP server access.",
@@ -100,7 +89,7 @@
       "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 10,
+      "Order": 9,
       "Title": "List available tools",
       "Slug": "gettools",
       "Description": "Retrieve a paginated list of available tools with comprehensive filtering, sorting and search capabilities. Use query parameters to narrow down results by toolkit, tags, or search terms.",
@@ -111,7 +100,7 @@
       "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 11,
+      "Order": 10,
       "Title": "Get tool by slug",
       "Slug": "gettoolsbytoolslug",
       "Description": "Retrieve detailed information about a specific tool using its slug identifier. This endpoint returns full metadata about a tool including input/output parameters, versions, and toolkit information.",
@@ -122,7 +111,7 @@
       "Setup": null
     },
     {
-      "Order": 12,
+      "Order": 11,
       "Title": "List trigger types",
       "Slug": "gettriggerstypes",
       "Description": "Retrieve a list of available trigger types with optional filtering by toolkit. Results are paginated and can be filtered by toolkit.",
@@ -133,7 +122,7 @@
       "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
     },
     {
-      "Order": 13,
+      "Order": 12,
       "Title": "Get trigger type by slug",
       "Slug": "gettriggerstypesbyslug",
       "Description": "Retrieve detailed information about a specific trigger type using its slug identifier",

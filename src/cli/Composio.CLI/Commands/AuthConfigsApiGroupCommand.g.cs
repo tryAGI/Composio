@@ -15,7 +15,6 @@ internal static partial class AuthConfigsApiGroupCommand
                          command.Subcommands.Add(AuthConfigsGetAuthConfigsCommandApiCommand.Create());
                          command.Subcommands.Add(AuthConfigsGetAuthConfigsByNanoidCommandApiCommand.Create());
                          command.Subcommands.Add(AuthConfigsPatchAuthConfigsByNanoidCommandApiCommand.Create());
-                         command.Subcommands.Add(AuthConfigsPatchAuthConfigsByNanoidByStatusCommandApiCommand.Create());
                          command.Subcommands.Add(AuthConfigsPostAuthConfigsCommandApiCommand.Create());
         CustomizeCommand(ref command);
         return command;

@@ -1,5 +1,7 @@
 #nullable enable
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 namespace Composio
 {
     public partial interface IToolkitsClient
@@ -13,7 +15,7 @@ namespace Composio
         /// Example: productivity
         /// </param>
         /// <param name="managedBy">
-        /// Entity responsible for managing the toolkits
+        /// Deprecated: Entity responsible for managing the toolkits
         /// </param>
         /// <param name="type">
         /// Filter by toolkit provenance: "native" (Composio-managed), "custom" (project-registered custom toolkits), or "all". Takes precedence over managed_by when both are supplied.<br/>
@@ -56,7 +58,7 @@ namespace Composio
         /// Example: productivity
         /// </param>
         /// <param name="managedBy">
-        /// Entity responsible for managing the toolkits
+        /// Deprecated: Entity responsible for managing the toolkits
         /// </param>
         /// <param name="type">
         /// Filter by toolkit provenance: "native" (Composio-managed), "custom" (project-registered custom toolkits), or "all". Takes precedence over managed_by when both are supplied.<br/>

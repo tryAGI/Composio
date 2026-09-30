@@ -4,7 +4,7 @@
 namespace Composio
 {
     /// <summary>
-    /// Entity responsible for managing the toolkits
+    /// Deprecated: Entity responsible for managing the toolkits
     /// </summary>
     public enum GetToolkitsManagedBy
     {
