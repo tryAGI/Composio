@@ -43,7 +43,9 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolkitsMultiRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolkitsMultiRequestManagedBy), TypeInfoPropertyName = "PostToolkitsMultiRequestManagedBy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolkitsMultiRequestSortBy), TypeInfoPropertyName = "PostToolkitsMultiRequestSortBy2")]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsManagedBy), TypeInfoPropertyName = "GetToolkitsManagedBy2")]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsType), TypeInfoPropertyName = "GetToolkitsType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsSortBy), TypeInfoPropertyName = "GetToolkitsSortBy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsResponse))]
@@ -106,7 +108,9 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant3Mode?), TypeInfoPropertyName = "NullablePostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant3Mode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolkitsMultiRequestManagedBy?), TypeInfoPropertyName = "NullablePostToolkitsMultiRequestManagedBy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolkitsMultiRequestSortBy?), TypeInfoPropertyName = "NullablePostToolkitsMultiRequestSortBy2")]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsManagedBy?), TypeInfoPropertyName = "NullableGetToolkitsManagedBy2")]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsType?), TypeInfoPropertyName = "NullableGetToolkitsType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsSortBy?), TypeInfoPropertyName = "NullableGetToolkitsSortBy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsResponseItemType?), TypeInfoPropertyName = "NullableGetToolkitsResponseItemType2")]

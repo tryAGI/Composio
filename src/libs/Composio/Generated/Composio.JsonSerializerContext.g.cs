@@ -978,7 +978,9 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsOrderBy), TypeInfoPropertyName = "GetConnectedAccountsOrderBy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsOrderDirection), TypeInfoPropertyName = "GetConnectedAccountsOrderDirection2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsAccountType), TypeInfoPropertyName = "GetConnectedAccountsAccountType2")]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsManagedBy), TypeInfoPropertyName = "GetToolkitsManagedBy2")]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsType), TypeInfoPropertyName = "GetToolkitsType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsSortBy), TypeInfoPropertyName = "GetToolkitsSortBy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.OneOf<string, global::System.Collections.Generic.IList<string>>), TypeInfoPropertyName = "OneOfStringIListString2")]
@@ -3047,7 +3049,9 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsOrderBy?), TypeInfoPropertyName = "NullableGetConnectedAccountsOrderBy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsOrderDirection?), TypeInfoPropertyName = "NullableGetConnectedAccountsOrderDirection2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetConnectedAccountsAccountType?), TypeInfoPropertyName = "NullableGetConnectedAccountsAccountType2")]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsManagedBy?), TypeInfoPropertyName = "NullableGetToolkitsManagedBy2")]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsType?), TypeInfoPropertyName = "NullableGetToolkitsType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsSortBy?), TypeInfoPropertyName = "NullableGetToolkitsSortBy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.OneOf<string, global::System.Collections.Generic.IList<string>>?), TypeInfoPropertyName = "NullableOneOfStringIListString2")]
