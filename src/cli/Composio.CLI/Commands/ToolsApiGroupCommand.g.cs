@@ -15,7 +15,6 @@ internal static partial class ToolsApiGroupCommand
                          command.Subcommands.Add(ToolsGetToolsByToolSlugCommandApiCommand.Create());
                          command.Subcommands.Add(ToolsGetToolsEnumCommandApiCommand.Create());
                          command.Subcommands.Add(ToolsPostToolsExecuteByToolSlugCommandApiCommand.Create());
-                         command.Subcommands.Add(ToolsPostToolsExecuteByToolSlugInputCommandApiCommand.Create());
                          command.Subcommands.Add(ToolsPostToolsExecuteProxyCommandApiCommand.Create());
         CustomizeCommand(ref command);
         return command;

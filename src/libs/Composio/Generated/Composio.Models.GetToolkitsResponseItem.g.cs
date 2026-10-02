@@ -39,6 +39,15 @@ namespace Composio
         public required global::Composio.GetToolkitsResponseItemType Type { get; set; }
 
         /// <summary>
+        /// Only for custom toolkits: "all" when every user in the project can use the toolkit, otherwise the user_id it is private to<br/>
+        /// Example: all
+        /// </summary>
+        /// <example>all</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("access")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AnyOfJsonConverter<global::Composio.GetToolkitsResponseItemAccess?, string>))]
+        public global::Composio.AnyOf<global::Composio.GetToolkitsResponseItemAccess?, string>? Access { get; set; }
+
+        /// <summary>
         /// List of authentication methods supported by this toolkit<br/>
         /// Example: [oauth2, api_key]
         /// </summary>
@@ -127,6 +136,10 @@ namespace Composio
         /// <param name="meta">
         /// Additional metadata about the toolkit
         /// </param>
+        /// <param name="access">
+        /// Only for custom toolkits: "all" when every user in the project can use the toolkit, otherwise the user_id it is private to<br/>
+        /// Example: all
+        /// </param>
         /// <param name="authSchemes">
         /// List of authentication methods supported by this toolkit<br/>
         /// Example: [oauth2, api_key]
@@ -153,6 +166,7 @@ namespace Composio
             bool isLocalToolkit,
             global::Composio.DeprecatedToolkitInfo deprecated,
             global::Composio.GetToolkitsResponseItemMeta meta,
+            global::Composio.AnyOf<global::Composio.GetToolkitsResponseItemAccess?, string>? access,
             global::System.Collections.Generic.IList<string>? authSchemes,
             global::System.Collections.Generic.IList<string>? composioManagedAuthSchemes,
             bool? noAuth,
@@ -161,6 +175,7 @@ namespace Composio
             this.Slug = slug ?? throw new global::System.ArgumentNullException(nameof(slug));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Type = type;
+            this.Access = access;
             this.AuthSchemes = authSchemes;
             this.ComposioManagedAuthSchemes = composioManagedAuthSchemes;
             this.IsLocalToolkit = isLocalToolkit;

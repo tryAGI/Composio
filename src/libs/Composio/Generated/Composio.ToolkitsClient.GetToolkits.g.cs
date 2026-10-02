@@ -81,7 +81,7 @@ namespace Composio
         /// Example: true
         /// </param>
         /// <param name="search">
-        /// Search query to filter toolkits by name, slug, or description (minimum 3 characters)<br/>
+        /// Search query to filter toolkits by name, slug, or description (minimum 1 character)<br/>
         /// Example: gmail
         /// </param>
         /// <param name="limit"></param>
@@ -140,7 +140,7 @@ namespace Composio
         /// Example: true
         /// </param>
         /// <param name="search">
-        /// Search query to filter toolkits by name, slug, or description (minimum 3 characters)<br/>
+        /// Search query to filter toolkits by name, slug, or description (minimum 1 character)<br/>
         /// Example: gmail
         /// </param>
         /// <param name="limit"></param>

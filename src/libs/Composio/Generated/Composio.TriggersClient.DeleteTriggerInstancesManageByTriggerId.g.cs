@@ -43,7 +43,7 @@ namespace Composio
 
         /// <summary>
         /// Delete a trigger<br/>
-        /// Permanently deletes a trigger instance. This stops the trigger from listening for events and removes it from your project. Use the PATCH endpoint with status "disable" if you want to temporarily pause a trigger instead.
+        /// Permanently deletes a trigger instance. This stops the trigger from listening for events and removes it from your project. When a webhook trigger is deleted, Composio also attempts to remove the webhook it received events through at the provider, once no other active trigger uses it. This runs in the background after the response, with retries if the provider fails. Use the PATCH endpoint with status "disable" if you want to temporarily pause a trigger instead.
         /// </summary>
         /// <param name="triggerId">
         /// The ID of the trigger instance to delete
@@ -66,7 +66,7 @@ namespace Composio
         }
         /// <summary>
         /// Delete a trigger<br/>
-        /// Permanently deletes a trigger instance. This stops the trigger from listening for events and removes it from your project. Use the PATCH endpoint with status "disable" if you want to temporarily pause a trigger instead.
+        /// Permanently deletes a trigger instance. This stops the trigger from listening for events and removes it from your project. When a webhook trigger is deleted, Composio also attempts to remove the webhook it received events through at the provider, once no other active trigger uses it. This runs in the background after the response, with retries if the provider fails. Use the PATCH endpoint with status "disable" if you want to temporarily pause a trigger instead.
         /// </summary>
         /// <param name="triggerId">
         /// The ID of the trigger instance to delete
