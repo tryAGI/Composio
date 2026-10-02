@@ -48,6 +48,15 @@ namespace Composio
         public required bool Enabled { get; set; }
 
         /// <summary>
+        /// Only for custom toolkits: "all" when every user in the project can use the toolkit, otherwise the user_id it is private to<br/>
+        /// Example: all
+        /// </summary>
+        /// <example>all</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("access")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AnyOfJsonConverter<global::Composio.GetToolkitsBySlugResponseAccess?, string>))]
+        public global::Composio.AnyOf<global::Composio.GetToolkitsBySlugResponseAccess?, string>? Access { get; set; }
+
+        /// <summary>
         /// List of authentication methods that Composio manages for this toolkit<br/>
         /// Example: [oauth2]
         /// </summary>
@@ -157,6 +166,10 @@ namespace Composio
         /// Comprehensive metadata for the toolkit including dates, descriptions, and statistics
         /// </param>
         /// <param name="deprecated"></param>
+        /// <param name="access">
+        /// Only for custom toolkits: "all" when every user in the project can use the toolkit, otherwise the user_id it is private to<br/>
+        /// Example: all
+        /// </param>
         /// <param name="composioManagedAuthSchemes">
         /// List of authentication methods that Composio manages for this toolkit<br/>
         /// Example: [oauth2]
@@ -191,6 +204,7 @@ namespace Composio
             bool isLocalToolkit,
             global::Composio.GetToolkitsBySlugResponseMeta meta,
             global::Composio.GetToolkitsBySlugResponseDeprecated deprecated,
+            global::Composio.AnyOf<global::Composio.GetToolkitsBySlugResponseAccess?, string>? access,
             global::System.Collections.Generic.IList<string>? composioManagedAuthSchemes,
             global::System.Collections.Generic.IList<global::Composio.GetToolkitsBySlugResponseAuthConfigDetail>? authConfigDetails,
             string? authGuideUrl,
@@ -202,6 +216,7 @@ namespace Composio
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Type = type;
             this.Enabled = enabled;
+            this.Access = access;
             this.ComposioManagedAuthSchemes = composioManagedAuthSchemes;
             this.ComposioManagedAuth = composioManagedAuth ?? throw new global::System.ArgumentNullException(nameof(composioManagedAuth));
             this.IsLocalToolkit = isLocalToolkit;

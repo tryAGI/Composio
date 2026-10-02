@@ -79,6 +79,12 @@ namespace Composio
         public required string Version { get; set; }
 
         /// <summary>
+        /// Present only when the tool supports an Instant account and its selected toolkit version is the latest. Missing for older toolkit versions or ineligible tools.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("instant")]
+        public global::Composio.InstantAccount? Instant { get; set; }
+
+        /// <summary>
         /// Schema definition of return values from the tool<br/>
         /// Example: {"run_id":{"type":"number","description":"ID of the workflow run that was triggered","example":12345678},"status":{"type":"string","description":"Status of the workflow run","example":"completed","enum":["queued","in_progress","completed","failed"]}}
         /// </summary>
@@ -192,6 +198,9 @@ namespace Composio
         /// Example: false
         /// </param>
         /// <param name="deprecated"></param>
+        /// <param name="instant">
+        /// Present only when the tool supports an Instant account and its selected toolkit version is the latest. Missing for older toolkit versions or ineligible tools.
+        /// </param>
         /// <param name="scopeRequirements">
         /// Structured scope requirements for the tool. Null means the tool is legacy and only exposes flat scopes.<br/>
         /// Example: {"all_of":["read:user",{"any_of":["repo","public_repo"]}]}
@@ -217,6 +226,7 @@ namespace Composio
             global::System.Collections.Generic.IList<string> tags,
             bool isDeprecated,
             global::Composio.ToolDeprecated deprecated,
+            global::Composio.InstantAccount? instant,
             global::Composio.ToolScopeRequirements? scopeRequirements,
             string? humanDescription)
         {
@@ -228,6 +238,7 @@ namespace Composio
             this.NoAuth = noAuth;
             this.AvailableVersions = availableVersions ?? throw new global::System.ArgumentNullException(nameof(availableVersions));
             this.Version = version ?? throw new global::System.ArgumentNullException(nameof(version));
+            this.Instant = instant;
             this.OutputParameters = outputParameters ?? throw new global::System.ArgumentNullException(nameof(outputParameters));
             this.Scopes = scopes ?? throw new global::System.ArgumentNullException(nameof(scopes));
             this.ScopeRequirements = scopeRequirements;

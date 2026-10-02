@@ -4,7 +4,7 @@
 namespace Composio
 {
     /// <summary>
-    /// Current published pricing, independent of the requested tool version. Omitted when unspecified; absence does not mean free.
+    /// Published pricing for the tool; absence does not mean free. Display metadata, not a billing calculation.
     /// </summary>
     public sealed partial class ToolPricing
     {

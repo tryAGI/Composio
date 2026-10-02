@@ -29,6 +29,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object?>), TypeInfoPropertyName = "DictionaryStringObject_System_Collections_Generic_Dictionary_string_object_3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(object))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.InstantAccount))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.Tool))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolToolkit))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolScopeRequirements))]
