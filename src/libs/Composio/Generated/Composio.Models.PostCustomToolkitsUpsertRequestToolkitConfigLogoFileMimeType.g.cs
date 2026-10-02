@@ -4,7 +4,7 @@
 namespace Composio
 {
     /// <summary>
-    /// Image MIME type of the encoded bytes
+    /// Image MIME type
     /// </summary>
     public enum PostCustomToolkitsUpsertRequestToolkitConfigLogoFileMimeType
     {

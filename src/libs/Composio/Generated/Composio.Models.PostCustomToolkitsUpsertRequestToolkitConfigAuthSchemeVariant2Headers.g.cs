@@ -4,7 +4,7 @@
 namespace Composio
 {
     /// <summary>
-    /// Headers to be used for the API key authentication. Please replace your actual api key with {{generic_api_key}}
+    /// Headers sent to the MCP server. Use {{generic_api_key}} where the API key goes.
     /// </summary>
     public sealed partial class PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant2Headers
     {

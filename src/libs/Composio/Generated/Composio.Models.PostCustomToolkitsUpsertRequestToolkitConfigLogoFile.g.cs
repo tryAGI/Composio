@@ -4,19 +4,19 @@
 namespace Composio
 {
     /// <summary>
-    /// Square logo image (PNG or JPEG, 256-1024px, max 3MB) shown for this toolkit in the dashboard and on connect pages. Uploaded to Composio-hosted storage; defaults to the Composio logo when omitted.
+    /// Square PNG or JPEG logo, 256-1024px, max 3MB. Defaults to the Composio logo.
     /// </summary>
     public sealed partial class PostCustomToolkitsUpsertRequestToolkitConfigLogoFile
     {
         /// <summary>
-        /// Base64-encoded image bytes, max 3MB decoded
+        /// Base64-encoded image, max 3MB decoded
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("content")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Content { get; set; }
 
         /// <summary>
-        /// Image MIME type of the encoded bytes
+        /// Image MIME type
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("mime_type")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.PostCustomToolkitsUpsertRequestToolkitConfigLogoFileMimeTypeJsonConverter))]
@@ -33,10 +33,10 @@ namespace Composio
         /// Initializes a new instance of the <see cref="PostCustomToolkitsUpsertRequestToolkitConfigLogoFile" /> class.
         /// </summary>
         /// <param name="content">
-        /// Base64-encoded image bytes, max 3MB decoded
+        /// Base64-encoded image, max 3MB decoded
         /// </param>
         /// <param name="mimeType">
-        /// Image MIME type of the encoded bytes
+        /// Image MIME type
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

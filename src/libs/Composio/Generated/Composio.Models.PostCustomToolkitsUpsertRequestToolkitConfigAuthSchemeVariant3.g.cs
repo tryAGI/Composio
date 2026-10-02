@@ -16,7 +16,7 @@ namespace Composio
         public global::Composio.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant3Mode Mode { get; set; }
 
         /// <summary>
-        /// URL to fetch the full auth scheme from, usually the /.well-known/oauth-authorization-server path of your MCP URL
+        /// OAuth authorization server metadata URL, usually &lt;MCP URL&gt;/.well-known/oauth-authorization-server
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("discovery_url")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -32,7 +32,7 @@ namespace Composio
         /// Initializes a new instance of the <see cref="PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant3" /> class.
         /// </summary>
         /// <param name="discoveryUrl">
-        /// URL to fetch the full auth scheme from, usually the /.well-known/oauth-authorization-server path of your MCP URL
+        /// OAuth authorization server metadata URL, usually &lt;MCP URL&gt;/.well-known/oauth-authorization-server
         /// </param>
         /// <param name="mode"></param>
 #if NET7_0_OR_GREATER
