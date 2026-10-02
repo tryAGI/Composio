@@ -16,14 +16,14 @@ namespace Composio
         public global::Composio.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant2Mode Mode { get; set; }
 
         /// <summary>
-        /// Headers to be used for the API key authentication. Please replace your actual api key with {{generic_api_key}}
+        /// Headers sent to the MCP server. Use {{generic_api_key}} where the API key goes.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("headers")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::System.Collections.Generic.Dictionary<string, string> Headers { get; set; }
 
         /// <summary>
-        /// End-user-facing copy for the API key input on the connect page
+        /// Label and help text for the API key input on the connect page
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("api_key_field")]
         public global::Composio.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant2ApiKeyField? ApiKeyField { get; set; }
@@ -38,11 +38,11 @@ namespace Composio
         /// Initializes a new instance of the <see cref="PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant2" /> class.
         /// </summary>
         /// <param name="headers">
-        /// Headers to be used for the API key authentication. Please replace your actual api key with {{generic_api_key}}
+        /// Headers sent to the MCP server. Use {{generic_api_key}} where the API key goes.
         /// </param>
         /// <param name="mode"></param>
         /// <param name="apiKeyField">
-        /// End-user-facing copy for the API key input on the connect page
+        /// Label and help text for the API key input on the connect page
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

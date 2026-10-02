@@ -4,18 +4,18 @@
 namespace Composio
 {
     /// <summary>
-    /// End-user-facing copy for the API key input on the connect page
+    /// Label and help text for the API key input on the connect page
     /// </summary>
     public sealed partial class PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant2ApiKeyField
     {
         /// <summary>
-        /// Label shown to end users for the API key input on the connect page
+        /// Label for the API key input
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("display_name")]
         public string? DisplayName { get; set; }
 
         /// <summary>
-        /// Help text shown to end users below the API key input on the connect page
+        /// Help text below the API key input
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("description")]
         public string? Description { get; set; }
@@ -30,10 +30,10 @@ namespace Composio
         /// Initializes a new instance of the <see cref="PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant2ApiKeyField" /> class.
         /// </summary>
         /// <param name="displayName">
-        /// Label shown to end users for the API key input on the connect page
+        /// Label for the API key input
         /// </param>
         /// <param name="description">
-        /// Help text shown to end users below the API key input on the connect page
+        /// Help text below the API key input
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

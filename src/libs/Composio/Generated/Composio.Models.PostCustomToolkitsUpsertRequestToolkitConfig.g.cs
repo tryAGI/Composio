@@ -9,27 +9,27 @@ namespace Composio
     public sealed partial class PostCustomToolkitsUpsertRequestToolkitConfig
     {
         /// <summary>
-        /// Human readable name for your application
+        /// Display name of the toolkit
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("name")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Name { get; set; }
 
         /// <summary>
-        /// App URL for the toolkit. For MCP apps, please provide the MCP URL here
+        /// MCP server URL
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("app_url")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string AppUrl { get; set; }
 
         /// <summary>
-        /// Square logo image (PNG or JPEG, 256-1024px, max 3MB) shown for this toolkit in the dashboard and on connect pages. Uploaded to Composio-hosted storage; defaults to the Composio logo when omitted.
+        /// Square PNG or JPEG logo, 256-1024px, max 3MB. Defaults to the Composio logo.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("logo_file")]
         public global::Composio.PostCustomToolkitsUpsertRequestToolkitConfigLogoFile? LogoFile { get; set; }
 
         /// <summary>
-        /// Authentication schemes for the toolkit
+        /// How users authenticate to the MCP server
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("auth_schemes")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -45,16 +45,16 @@ namespace Composio
         /// Initializes a new instance of the <see cref="PostCustomToolkitsUpsertRequestToolkitConfig" /> class.
         /// </summary>
         /// <param name="name">
-        /// Human readable name for your application
+        /// Display name of the toolkit
         /// </param>
         /// <param name="appUrl">
-        /// App URL for the toolkit. For MCP apps, please provide the MCP URL here
+        /// MCP server URL
         /// </param>
         /// <param name="authSchemes">
-        /// Authentication schemes for the toolkit
+        /// How users authenticate to the MCP server
         /// </param>
         /// <param name="logoFile">
-        /// Square logo image (PNG or JPEG, 256-1024px, max 3MB) shown for this toolkit in the dashboard and on connect pages. Uploaded to Composio-hosted storage; defaults to the Composio logo when omitted.
+        /// Square PNG or JPEG logo, 256-1024px, max 3MB. Defaults to the Composio logo.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
