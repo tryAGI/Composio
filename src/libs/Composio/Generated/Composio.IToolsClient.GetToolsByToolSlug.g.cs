@@ -17,7 +17,7 @@ namespace Composio
         global::System.Threading.Tasks.Task<global::Composio.ToolDetails> GetToolsByToolSlugAsync(
             string toolSlug,
             string? version = default,
-            global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
+            global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -33,7 +33,7 @@ namespace Composio
         global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.ToolDetails>> GetToolsByToolSlugAsResponseAsync(
             string toolSlug,
             string? version = default,
-            global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
+            global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

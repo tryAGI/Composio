@@ -23,10 +23,10 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCliRealtimeAuthRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostTriggerInstancesBySlugUpsertRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<string, global::System.Collections.Generic.Dictionary<string, string>, object>), TypeInfoPropertyName = "AnyOfStringDictionaryStringStringObject2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<string, global::System.Collections.Generic.Dictionary<string, string>>), TypeInfoPropertyName = "AnyOfStringDictionaryStringString2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchTriggerInstancesManageByTriggerIdRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchTriggerInstancesManageByTriggerIdRequestStatus), TypeInfoPropertyName = "PatchTriggerInstancesManageByTriggerIdRequestStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>), TypeInfoPropertyName = "OneOfObjectStringDictionaryStringString2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>), TypeInfoPropertyName = "OneOfStringDictionaryStringString2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetCliRealtimeCredentialsResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCliRealtimeAuthResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostTriggerInstancesBySlugUpsertResponse))]
@@ -48,9 +48,9 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetTriggersTypesResponseItemToolkit))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<string, global::System.Collections.Generic.Dictionary<string, string>, object>?), TypeInfoPropertyName = "NullableAnyOfStringDictionaryStringStringObject2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<string, global::System.Collections.Generic.Dictionary<string, string>>?), TypeInfoPropertyName = "NullableAnyOfStringDictionaryStringString2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchTriggerInstancesManageByTriggerIdRequestStatus?), TypeInfoPropertyName = "NullablePatchTriggerInstancesManageByTriggerIdRequestStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>?), TypeInfoPropertyName = "NullableOneOfObjectStringDictionaryStringString2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>?), TypeInfoPropertyName = "NullableOneOfStringDictionaryStringString2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchTriggerInstancesManageByTriggerIdResponseStatus?), TypeInfoPropertyName = "NullablePatchTriggerInstancesManageByTriggerIdResponseStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetTriggersTypesBySlugResponseType?), TypeInfoPropertyName = "NullableGetTriggersTypesBySlugResponseType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetTriggersTypesResponseItemType?), TypeInfoPropertyName = "NullableGetTriggersTypesResponseItemType2")]
@@ -112,97 +112,97 @@ namespace Composio
             options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
             options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
             options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
             options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, double?>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.Dictionary<string, string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.Dictionary<string, string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
             options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, bool?>());
             options.Converters.Add(new global::Composio.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
-            options.Converters.Add(new global::Composio.JsonConverters.OneOfJsonConverter<object, string, global::System.Collections.Generic.Dictionary<string, string>>());
-            options.Converters.Add(new global::Composio.JsonConverters.OneOfJsonConverter<object, string, global::System.Collections.Generic.Dictionary<string, string>>());
-            options.Converters.Add(new global::Composio.JsonConverters.OneOfJsonConverter<object, string, global::System.Collections.Generic.Dictionary<string, string>>());
-            options.Converters.Add(new global::Composio.JsonConverters.OneOfJsonConverter<object, string, global::System.Collections.Generic.Dictionary<string, string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.Dictionary<string, string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.Dictionary<string, string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.Dictionary<string, string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.OneOfJsonConverter<string, global::System.Collections.Generic.Dictionary<string, string>>());
             options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, bool?, double?>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>());
-            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>());
+            options.Converters.Add(new global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>());
             options.Converters.Add(new global::Composio.JsonConverters.UnixTimestampJsonConverter());
             options.Converters.Add(new LazyEnumJsonConverterFactory());
         }

@@ -19,7 +19,7 @@ internal static partial class ToolsGetToolsByToolSlugCommandApiCommand
         Description = @"Optional version of the tool to retrieve. Takes precedence over toolkit_versions; when both are omitted the tool resolves to the pinned version (""00000000_00"").",
     };
 
-    private static Option<global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>?> ToolkitVersions { get; } = new(
+    private static Option<global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>?> ToolkitVersions { get; } = new(
         name: @"--toolkit-versions")
     {
         Description = @"Toolkit version specification. Use ""latest"" for latest versions or bracket notation for specific versions per toolkit. Read only when version is omitted; when neither is supplied the tool resolves to the pinned version (""00000000_00"").",

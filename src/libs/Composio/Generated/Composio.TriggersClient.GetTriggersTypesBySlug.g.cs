@@ -28,12 +28,12 @@ namespace Composio
         partial void PrepareGetTriggersTypesBySlugArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string slug,
-            ref global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions);
+            ref global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions);
         partial void PrepareGetTriggersTypesBySlugRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string slug,
-            global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions);
+            global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions);
         partial void ProcessGetTriggersTypesBySlugResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -57,7 +57,7 @@ namespace Composio
         /// <exception cref="global::Composio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Composio.GetTriggersTypesBySlugResponse> GetTriggersTypesBySlugAsync(
             string slug,
-            global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
+            global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -84,7 +84,7 @@ namespace Composio
         /// <exception cref="global::Composio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.GetTriggersTypesBySlugResponse>> GetTriggersTypesBySlugAsResponseAsync(
             string slug,
-            global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
+            global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

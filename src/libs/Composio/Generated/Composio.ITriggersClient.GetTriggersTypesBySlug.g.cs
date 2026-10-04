@@ -18,7 +18,7 @@ namespace Composio
         /// <exception cref="global::Composio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.GetTriggersTypesBySlugResponse> GetTriggersTypesBySlugAsync(
             string slug,
-            global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
+            global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
@@ -35,7 +35,7 @@ namespace Composio
         /// <exception cref="global::Composio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.GetTriggersTypesBySlugResponse>> GetTriggersTypesBySlugAsResponseAsync(
             string slug,
-            global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
+            global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
     }

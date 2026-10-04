@@ -29,13 +29,13 @@ namespace Composio
             global::System.Net.Http.HttpClient httpClient,
             ref string toolSlug,
             ref string? version,
-            ref global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions);
+            ref global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions);
         partial void PrepareGetToolsByToolSlugRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string toolSlug,
             string? version,
-            global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions);
+            global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions);
         partial void ProcessGetToolsByToolSlugResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -58,7 +58,7 @@ namespace Composio
         public async global::System.Threading.Tasks.Task<global::Composio.ToolDetails> GetToolsByToolSlugAsync(
             string toolSlug,
             string? version = default,
-            global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
+            global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -85,7 +85,7 @@ namespace Composio
         public async global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.ToolDetails>> GetToolsByToolSlugAsResponseAsync(
             string toolSlug,
             string? version = default,
-            global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
+            global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

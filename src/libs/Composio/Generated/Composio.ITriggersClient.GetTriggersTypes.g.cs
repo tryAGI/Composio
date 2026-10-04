@@ -20,7 +20,7 @@ namespace Composio
         /// <exception cref="global::Composio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.GetTriggersTypesResponse> GetTriggersTypesAsync(
             global::System.Collections.Generic.IList<string>? toolkitSlugs = default,
-            global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
+            global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
             double? limit = default,
             string? cursor = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
@@ -41,7 +41,7 @@ namespace Composio
         /// <exception cref="global::Composio.ApiException"></exception>
         global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.GetTriggersTypesResponse>> GetTriggersTypesAsResponseAsync(
             global::System.Collections.Generic.IList<string>? toolkitSlugs = default,
-            global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
+            global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
             double? limit = default,
             string? cursor = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,

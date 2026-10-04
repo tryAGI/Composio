@@ -5,7 +5,7 @@ namespace Composio
 {
     /// <summary>
     /// Configuration for workbench behavior<br/>
-    /// Default Value: {"enable":true,"enable_proxy_execution":true}
+    /// Default Value: {"enable":true}
     /// </summary>
     public sealed partial class PostToolRouterSessionRequestWorkbench
     {

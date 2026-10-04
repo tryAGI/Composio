@@ -63,8 +63,8 @@ namespace Composio
         /// </summary>
         /// <example>latest</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("toolkit_versions")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.Dictionary<string, string>, object>))]
-        public global::Composio.AnyOf<string, global::System.Collections.Generic.Dictionary<string, string>, object>? ToolkitVersions { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.Dictionary<string, string>>))]
+        public global::Composio.AnyOf<string, global::System.Collections.Generic.Dictionary<string, string>>? ToolkitVersions { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -99,7 +99,7 @@ namespace Composio
             string? userId,
             string? egressUrl,
             global::System.Collections.Generic.Dictionary<string, object?>? triggerConfig2,
-            global::Composio.AnyOf<string, global::System.Collections.Generic.Dictionary<string, string>, object>? toolkitVersions)
+            global::Composio.AnyOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions)
         {
             this.ConnectedAccountId = connectedAccountId;
             this.UserId = userId;

@@ -74,6 +74,12 @@ namespace Composio
         public global::Composio.PatchToolRouterSessionBySessionIdRequestMultiAccount? MultiAccount { get; set; }
 
         /// <summary>
+        ///
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("proxy_execute")]
+        public global::Composio.PatchToolRouterSessionBySessionIdRequestProxyExecute? ProxyExecute { get; set; }
+
+        /// <summary>
         /// Preload configuration for Composio tools. Controls which tools appear in `session.tools` and the MCP server tool list so the agent can call them directly without going through search first. Custom tools use `preload` on the custom tool/toolkit definition instead. Not supported when multi-account is enabled. Each preloaded tool adds to the agent context window, so keep the list at or under ~20 tools.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("preload")]
@@ -119,6 +125,7 @@ namespace Composio
         /// </param>
         /// <param name="workbench"></param>
         /// <param name="multiAccount"></param>
+        /// <param name="proxyExecute"></param>
         /// <param name="preload">
         /// Preload configuration for Composio tools. Controls which tools appear in `session.tools` and the MCP server tool list so the agent can call them directly without going through search first. Custom tools use `preload` on the custom tool/toolkit definition instead. Not supported when multi-account is enabled. Each preloaded tool adds to the agent context window, so keep the list at or under ~20 tools.
         /// </param>
@@ -136,6 +143,7 @@ namespace Composio
             global::Composio.AnyOf<global::System.Collections.Generic.IList<global::Composio.PatchToolRouterSessionBySessionIdRequestTag>, global::Composio.PatchToolRouterSessionBySessionIdRequestTags>? tags,
             global::Composio.PatchToolRouterSessionBySessionIdRequestWorkbench? workbench,
             global::Composio.PatchToolRouterSessionBySessionIdRequestMultiAccount? multiAccount,
+            global::Composio.PatchToolRouterSessionBySessionIdRequestProxyExecute? proxyExecute,
             global::Composio.PatchToolRouterSessionBySessionIdRequestPreload? preload,
             global::Composio.PatchToolRouterSessionBySessionIdRequestExperimental? experimental)
         {
@@ -148,6 +156,7 @@ namespace Composio
             this.Tags = tags;
             this.Workbench = workbench;
             this.MultiAccount = multiAccount;
+            this.ProxyExecute = proxyExecute;
             this.Preload = preload;
             this.Experimental = experimental;
         }
