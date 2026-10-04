@@ -740,6 +740,7 @@ namespace Composio
         /// </param>
         /// <param name="workbench"></param>
         /// <param name="multiAccount"></param>
+        /// <param name="proxyExecute"></param>
         /// <param name="preload">
         /// Preload configuration for Composio tools. Controls which tools appear in `session.tools` and the MCP server tool list so the agent can call them directly without going through search first. Custom tools use `preload` on the custom tool/toolkit definition instead. Not supported when multi-account is enabled. Each preloaded tool adds to the agent context window, so keep the list at or under ~20 tools.
         /// </param>
@@ -758,6 +759,7 @@ namespace Composio
             global::Composio.AnyOf<global::System.Collections.Generic.IList<global::Composio.PatchToolRouterSessionBySessionIdRequestTag>, global::Composio.PatchToolRouterSessionBySessionIdRequestTags>? tags = default,
             global::Composio.PatchToolRouterSessionBySessionIdRequestWorkbench? workbench = default,
             global::Composio.PatchToolRouterSessionBySessionIdRequestMultiAccount? multiAccount = default,
+            global::Composio.PatchToolRouterSessionBySessionIdRequestProxyExecute? proxyExecute = default,
             global::Composio.PatchToolRouterSessionBySessionIdRequestPreload? preload = default,
             global::Composio.PatchToolRouterSessionBySessionIdRequestExperimental? experimental = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
@@ -774,6 +776,7 @@ namespace Composio
                 Tags = tags,
                 Workbench = workbench,
                 MultiAccount = multiAccount,
+                ProxyExecute = proxyExecute,
                 Preload = preload,
                 Experimental = experimental,
             };

@@ -28,14 +28,14 @@ namespace Composio
         partial void PrepareGetTriggersTypesArguments(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Collections.Generic.IList<string>? toolkitSlugs,
-            ref global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions,
+            ref global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions,
             ref double? limit,
             ref string? cursor);
         partial void PrepareGetTriggersTypesRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             global::System.Collections.Generic.IList<string>? toolkitSlugs,
-            global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions,
+            global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions,
             double? limit,
             string? cursor);
         partial void ProcessGetTriggersTypesResponse(
@@ -63,7 +63,7 @@ namespace Composio
         /// <exception cref="global::Composio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Composio.GetTriggersTypesResponse> GetTriggersTypesAsync(
             global::System.Collections.Generic.IList<string>? toolkitSlugs = default,
-            global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
+            global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
             double? limit = default,
             string? cursor = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
@@ -96,7 +96,7 @@ namespace Composio
         /// <exception cref="global::Composio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.GetTriggersTypesResponse>> GetTriggersTypesAsResponseAsync(
             global::System.Collections.Generic.IList<string>? toolkitSlugs = default,
-            global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
+            global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
             double? limit = default,
             string? cursor = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,

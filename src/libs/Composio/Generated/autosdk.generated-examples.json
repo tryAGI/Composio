@@ -94,7 +94,7 @@
       "Slug": "gettools",
       "Description": "Retrieve a paginated list of available tools with comprehensive filtering, sorting and search capabilities. Use query parameters to narrow down results by toolkit, tags, or search terms.",
       "Language": "csharp",
-      "Code": "using var client = new ComposioClient(apiKey);\n\nvar response = await client.Tools.GetToolsAsync(\n    toolkitVersions: global::System.Text.Json.JsonSerializer.Deserialize\u003Cglobal::Composio.OneOf\u003Cobject, string, global::System.Collections.Generic.Dictionary\u003Cstring, string\u003E\u003E\u003E(\n    @\u0022\u0022\u0022Use: toolkit_versions[gmail]=20250930_00\\u0026toolkit_versions[slack]=20250929_00\u0022\u0022\u0022)!\n);",
+      "Code": "using var client = new ComposioClient(apiKey);\n\nvar response = await client.Tools.GetToolsAsync(\n    toolkitVersions: global::System.Text.Json.JsonSerializer.Deserialize\u003Cglobal::Composio.OneOf\u003Cstring, global::System.Collections.Generic.Dictionary\u003Cstring, string\u003E\u003E\u003E(\n    @\u0022\u0022\u0022Use: toolkit_versions[gmail]=20250930_00\\u0026toolkit_versions[slack]=20250929_00\u0022\u0022\u0022)!\n);",
       "Format": "sdk",
       "OperationId": "getTools",
       "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
@@ -116,7 +116,7 @@
       "Slug": "gettriggerstypes",
       "Description": "Retrieve a list of available trigger types with optional filtering by toolkit. Results are paginated and can be filtered by toolkit.",
       "Language": "csharp",
-      "Code": "using var client = new ComposioClient(apiKey);\n\nvar response = await client.Triggers.GetTriggersTypesAsync(\n    toolkitVersions: global::System.Text.Json.JsonSerializer.Deserialize\u003Cglobal::Composio.OneOf\u003Cobject, string, global::System.Collections.Generic.Dictionary\u003Cstring, string\u003E\u003E\u003E(\n    @\u0022\u0022\u0022Use: toolkit_versions[gmail]=20250930_00\\u0026toolkit_versions[slack]=20250929_00\u0022\u0022\u0022)!\n);",
+      "Code": "using var client = new ComposioClient(apiKey);\n\nvar response = await client.Triggers.GetTriggersTypesAsync(\n    toolkitVersions: global::System.Text.Json.JsonSerializer.Deserialize\u003Cglobal::Composio.OneOf\u003Cstring, global::System.Collections.Generic.Dictionary\u003Cstring, string\u003E\u003E\u003E(\n    @\u0022\u0022\u0022Use: toolkit_versions[gmail]=20250930_00\\u0026toolkit_versions[slack]=20250929_00\u0022\u0022\u0022)!\n);",
       "Format": "sdk",
       "OperationId": "getTriggersTypes",
       "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."

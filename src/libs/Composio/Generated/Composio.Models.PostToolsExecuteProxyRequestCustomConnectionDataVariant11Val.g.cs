@@ -175,8 +175,8 @@ namespace Composio
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("expires_in")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AnyOfJsonConverter<double?, string, object>))]
-        public global::Composio.AnyOf<double?, string, object>? ExpiresIn { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AnyOfJsonConverter<double?, string>))]
+        public global::Composio.AnyOf<double?, string>? ExpiresIn { get; set; }
 
         /// <summary>
         ///
@@ -188,8 +188,8 @@ namespace Composio
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("scope")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>, object>))]
-        public global::Composio.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? Scope { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AnyOfJsonConverter<string, global::System.Collections.Generic.IList<string>>))]
+        public global::Composio.AnyOf<string, global::System.Collections.Generic.IList<string>>? Scope { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -261,9 +261,9 @@ namespace Composio
             string? tokenType,
             string? clientId,
             string? clientSecret,
-            global::Composio.AnyOf<double?, string, object>? expiresIn,
+            global::Composio.AnyOf<double?, string>? expiresIn,
             string? expiresAt,
-            global::Composio.AnyOf<string, global::System.Collections.Generic.IList<string>, object>? scope)
+            global::Composio.AnyOf<string, global::System.Collections.Generic.IList<string>>? scope)
         {
             this.Subdomain = subdomain;
             this.YourDomain = yourDomain;

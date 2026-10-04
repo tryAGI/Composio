@@ -62,6 +62,12 @@ internal static partial class ToolRouterPostToolRouterSessionCommandApiCommand
         Description = @"Configuration for workbench behavior",
     };
 
+    private static Option<global::Composio.PostToolRouterSessionRequestProxyExecute?> ProxyExecute { get; } = new(
+        name: @"--proxy-execute")
+    {
+        Description = @"Configure proxy execute. Omitted from responses when not set. Session creation fails when enable is false and workbench.enable_proxy_execution is explicitly true.",
+    };
+
     private static Option<global::Composio.PostToolRouterSessionRequestMultiAccount?> MultiAccount { get; } = new(
         name: @"--multi-account")
     {
@@ -131,6 +137,7 @@ Creates a new session for the tool router feature. This endpoint initializes a n
                         command.Options.Add(Tools);
                         command.Options.Add(Tags);
                         command.Options.Add(Workbench);
+                        command.Options.Add(ProxyExecute);
                         command.Options.Add(MultiAccount);
                         command.Options.Add(Experimental);
                         command.Options.Add(Preload);
@@ -168,6 +175,7 @@ Creates a new session for the tool router feature. This endpoint initializes a n
                         var tools = CliRuntime.WasSpecified(parseResult, Tools) ? parseResult.GetValue(Tools) : (__requestBase is { } __ToolsBaseValue ? __ToolsBaseValue.Tools : default);
                         var tags = CliRuntime.WasSpecified(parseResult, Tags) ? parseResult.GetValue(Tags) : (__requestBase is { } __TagsBaseValue ? __TagsBaseValue.Tags : default);
                         var workbench = CliRuntime.WasSpecified(parseResult, Workbench) ? parseResult.GetValue(Workbench) : (__requestBase is { } __WorkbenchBaseValue ? __WorkbenchBaseValue.Workbench : default);
+                        var proxyExecute = CliRuntime.WasSpecified(parseResult, ProxyExecute) ? parseResult.GetValue(ProxyExecute) : (__requestBase is { } __ProxyExecuteBaseValue ? __ProxyExecuteBaseValue.ProxyExecute : default);
                         var multiAccount = CliRuntime.WasSpecified(parseResult, MultiAccount) ? parseResult.GetValue(MultiAccount) : (__requestBase is { } __MultiAccountBaseValue ? __MultiAccountBaseValue.MultiAccount : default);
                         var experimental = CliRuntime.WasSpecified(parseResult, Experimental) ? parseResult.GetValue(Experimental) : (__requestBase is { } __ExperimentalBaseValue ? __ExperimentalBaseValue.Experimental : default);
                         var preload = CliRuntime.WasSpecified(parseResult, Preload) ? parseResult.GetValue(Preload) : (__requestBase is { } __PreloadBaseValue ? __PreloadBaseValue.Preload : default);
@@ -184,6 +192,7 @@ Creates a new session for the tool router feature. This endpoint initializes a n
                                     tools: tools,
                                     tags: tags,
                                     workbench: workbench,
+                                    proxyExecute: proxyExecute,
                                     multiAccount: multiAccount,
                                     experimental: experimental,
                                     preload: preload,

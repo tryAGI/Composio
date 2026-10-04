@@ -36,7 +36,7 @@ namespace Composio
             ref string? query,
             ref string? search,
             ref bool? includeDeprecated,
-            ref global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions,
+            ref global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions,
             ref double? limit,
             ref string? cursor);
         partial void PrepareGetToolsRequest(
@@ -51,7 +51,7 @@ namespace Composio
             string? query,
             string? search,
             bool? includeDeprecated,
-            global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions,
+            global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions,
             double? limit,
             string? cursor);
         partial void ProcessGetToolsResponse(
@@ -96,7 +96,7 @@ namespace Composio
             string? query = default,
             string? search = default,
             bool? includeDeprecated = default,
-            global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
+            global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
             double? limit = default,
             string? cursor = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
@@ -154,7 +154,7 @@ namespace Composio
             string? query = default,
             string? search = default,
             bool? includeDeprecated = default,
-            global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
+            global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
             double? limit = default,
             string? cursor = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,

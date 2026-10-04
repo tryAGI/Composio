@@ -13,7 +13,7 @@ internal static partial class TriggersGetTriggersTypesCommandApiCommand
         Description = @"Array of toolkit slugs to filter triggers by",
     };
 
-    private static Option<global::Composio.OneOf<object, string, global::System.Collections.Generic.Dictionary<string, string>>?> ToolkitVersions { get; } = new(
+    private static Option<global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>?> ToolkitVersions { get; } = new(
         name: @"--toolkit-versions")
     {
         Description = @"Toolkit version specification. Use ""latest"" for latest versions or bracket notation for specific versions per toolkit.",

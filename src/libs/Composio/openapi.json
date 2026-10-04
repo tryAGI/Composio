@@ -55790,11 +55790,25 @@
                       }
                     },
                     "default": {
-                      "enable": true,
-                      "enable_proxy_execution": true
+                      "enable": true
                     },
                     "additionalProperties": false,
                     "description": "Configuration for workbench behavior"
+                  },
+                  "proxy_execute": {
+                    "type": "object",
+                    "properties": {
+                      "enable": {
+                        "type": "boolean",
+                        "description": "When true, the agent can make authenticated HTTP requests to connected app APIs outside the workbench. When false, proxy execution is also disabled inside the workbench, regardless of workbench.enable_proxy_execution. When not set, proxy execute is disabled outside the workbench.",
+                        "example": true
+                      }
+                    },
+                    "required": [
+                      "enable"
+                    ],
+                    "additionalProperties": false,
+                    "description": "Configure proxy execute. Omitted from responses when not set. Session creation fails when enable is false and workbench.enable_proxy_execution is explicitly true."
                   },
                   "multi_account": {
                     "type": "object",
@@ -56685,6 +56699,19 @@
                             }
                           },
                           "description": "Multi-account configuration for this session."
+                        },
+                        "proxy_execute": {
+                          "type": "object",
+                          "properties": {
+                            "enable": {
+                              "type": "boolean",
+                              "description": "When true, enables proxy execute outside the workbench. When false, also disables proxy execution inside the workbench."
+                            }
+                          },
+                          "required": [
+                            "enable"
+                          ],
+                          "description": "Proxy execute configuration for this session. Omitted when not set."
                         },
                         "preload": {
                           "type": "object",
@@ -57900,6 +57927,19 @@
                           },
                           "description": "Multi-account configuration for this session."
                         },
+                        "proxy_execute": {
+                          "type": "object",
+                          "properties": {
+                            "enable": {
+                              "type": "boolean",
+                              "description": "When true, enables proxy execute outside the workbench. When false, also disables proxy execution inside the workbench."
+                            }
+                          },
+                          "required": [
+                            "enable"
+                          ],
+                          "description": "Proxy execute configuration for this session. Omitted when not set."
+                        },
                         "preload": {
                           "type": "object",
                           "properties": {
@@ -58663,6 +58703,21 @@
                     },
                     "additionalProperties": false
                   },
+                  "proxy_execute": {
+                    "type": "object",
+                    "nullable": true,
+                    "properties": {
+                      "enable": {
+                        "type": "boolean",
+                        "description": "When true, the agent can make authenticated HTTP requests to connected app APIs outside the workbench. When false, proxy execution is also disabled inside the workbench, regardless of workbench.enable_proxy_execution. When not set, proxy execute is disabled outside the workbench.",
+                        "example": true
+                      }
+                    },
+                    "required": [
+                      "enable"
+                    ],
+                    "additionalProperties": false
+                  },
                   "preload": {
                     "type": "object",
                     "properties": {
@@ -59153,6 +59208,19 @@
                             }
                           },
                           "description": "Multi-account configuration for this session."
+                        },
+                        "proxy_execute": {
+                          "type": "object",
+                          "properties": {
+                            "enable": {
+                              "type": "boolean",
+                              "description": "When true, enables proxy execute outside the workbench. When false, also disables proxy execution inside the workbench."
+                            }
+                          },
+                          "required": [
+                            "enable"
+                          ],
+                          "description": "Proxy execute configuration for this session. Omitted when not set."
                         },
                         "preload": {
                           "type": "object",

@@ -887,7 +887,7 @@ namespace Composio
             string? userId = default,
             string? egressUrl = default,
             global::System.Collections.Generic.Dictionary<string, object?>? triggerConfig2 = default,
-            global::Composio.AnyOf<string, global::System.Collections.Generic.Dictionary<string, string>, object>? toolkitVersions = default,
+            global::Composio.AnyOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {

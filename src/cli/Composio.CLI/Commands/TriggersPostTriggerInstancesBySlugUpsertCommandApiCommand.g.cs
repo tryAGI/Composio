@@ -37,7 +37,7 @@ internal static partial class TriggersPostTriggerInstancesBySlugUpsertCommandApi
         Description = @"Trigger configuration",
     };
 
-    private static Option<global::Composio.AnyOf<string, global::System.Collections.Generic.Dictionary<string, string>, object>?> ToolkitVersions { get; } = new(
+    private static Option<global::Composio.AnyOf<string, global::System.Collections.Generic.Dictionary<string, string>>?> ToolkitVersions { get; } = new(
         name: @"--toolkit-versions")
     {
         Description = @"Toolkit version specification. Supports ""latest"" string or a record mapping toolkit slugs to specific versions.",

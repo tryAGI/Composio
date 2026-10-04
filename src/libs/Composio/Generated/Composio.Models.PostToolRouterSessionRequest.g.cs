@@ -73,10 +73,16 @@ namespace Composio
 
         /// <summary>
         /// Configuration for workbench behavior<br/>
-        /// Default Value: {"enable":true,"enable_proxy_execution":true}
+        /// Default Value: {"enable":true}
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("workbench")]
         public global::Composio.PostToolRouterSessionRequestWorkbench? Workbench { get; set; }
+
+        /// <summary>
+        /// Configure proxy execute. Omitted from responses when not set. Session creation fails when enable is false and workbench.enable_proxy_execution is explicitly true.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("proxy_execute")]
+        public global::Composio.PostToolRouterSessionRequestProxyExecute? ProxyExecute { get; set; }
 
         /// <summary>
         /// Configure multi-account behavior. When enabled, users can connect multiple accounts per toolkit.
@@ -137,7 +143,10 @@ namespace Composio
         /// </param>
         /// <param name="workbench">
         /// Configuration for workbench behavior<br/>
-        /// Default Value: {"enable":true,"enable_proxy_execution":true}
+        /// Default Value: {"enable":true}
+        /// </param>
+        /// <param name="proxyExecute">
+        /// Configure proxy execute. Omitted from responses when not set. Session creation fails when enable is false and workbench.enable_proxy_execution is explicitly true.
         /// </param>
         /// <param name="multiAccount">
         /// Configure multi-account behavior. When enabled, users can connect multiple accounts per toolkit.
@@ -161,6 +170,7 @@ namespace Composio
             object? tools,
             global::Composio.AnyOf<global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionRequestTag>, global::Composio.PostToolRouterSessionRequestTags>? tags,
             global::Composio.PostToolRouterSessionRequestWorkbench? workbench,
+            global::Composio.PostToolRouterSessionRequestProxyExecute? proxyExecute,
             global::Composio.PostToolRouterSessionRequestMultiAccount? multiAccount,
             global::Composio.PostToolRouterSessionRequestExperimental? experimental,
             global::Composio.PostToolRouterSessionRequestPreload? preload)
@@ -174,6 +184,7 @@ namespace Composio
             this.Tools = tools;
             this.Tags = tags;
             this.Workbench = workbench;
+            this.ProxyExecute = proxyExecute;
             this.MultiAccount = multiAccount;
             this.Experimental = experimental;
             this.Preload = preload;
