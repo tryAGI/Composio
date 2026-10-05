@@ -16,8 +16,10 @@ namespace Composio
         public global::Composio.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant3Mode Mode { get; set; }
 
         /// <summary>
-        /// OAuth authorization server metadata URL, usually &lt;MCP URL&gt;/.well-known/oauth-authorization-server
+        /// OAuth authorization server metadata URL, for example https://&lt;auth server host&gt;/.well-known/oauth-authorization-server. Use the URL your authorization server publishes; it can be on a different host from the MCP server or include a path.<br/>
+        /// Example: https://mcp.example.com/.well-known/oauth-authorization-server
         /// </summary>
+        /// <example>https://mcp.example.com/.well-known/oauth-authorization-server</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("discovery_url")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string DiscoveryUrl { get; set; }
@@ -32,7 +34,8 @@ namespace Composio
         /// Initializes a new instance of the <see cref="PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant3" /> class.
         /// </summary>
         /// <param name="discoveryUrl">
-        /// OAuth authorization server metadata URL, usually &lt;MCP URL&gt;/.well-known/oauth-authorization-server
+        /// OAuth authorization server metadata URL, for example https://&lt;auth server host&gt;/.well-known/oauth-authorization-server. Use the URL your authorization server publishes; it can be on a different host from the MCP server or include a path.<br/>
+        /// Example: https://mcp.example.com/.well-known/oauth-authorization-server
         /// </param>
         /// <param name="mode"></param>
 #if NET7_0_OR_GREATER

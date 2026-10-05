@@ -45467,7 +45467,7 @@
                           "mime_type"
                         ],
                         "additionalProperties": false,
-                        "description": "Square PNG or JPEG logo, 256-1024px, max 3MB. Defaults to the Composio logo."
+                        "description": "Square PNG or JPEG logo, 256-1024px, max 3MB. Defaults to the Model Context Protocol logo."
                       },
                       "auth_schemes": {
                         "type": "array",
@@ -45542,7 +45542,8 @@
                                 "discovery_url": {
                                   "type": "string",
                                   "format": "uri",
-                                  "description": "OAuth authorization server metadata URL, usually <MCP URL>/.well-known/oauth-authorization-server"
+                                  "description": "OAuth authorization server metadata URL, for example https://<auth server host>/.well-known/oauth-authorization-server. Use the URL your authorization server publishes; it can be on a different host from the MCP server or include a path.",
+                                  "example": "https://mcp.example.com/.well-known/oauth-authorization-server"
                                 }
                               },
                               "required": [

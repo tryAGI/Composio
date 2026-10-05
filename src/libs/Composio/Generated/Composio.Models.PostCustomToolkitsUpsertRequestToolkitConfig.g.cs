@@ -23,7 +23,7 @@ namespace Composio
         public required string AppUrl { get; set; }
 
         /// <summary>
-        /// Square PNG or JPEG logo, 256-1024px, max 3MB. Defaults to the Composio logo.
+        /// Square PNG or JPEG logo, 256-1024px, max 3MB. Defaults to the Model Context Protocol logo.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("logo_file")]
         public global::Composio.PostCustomToolkitsUpsertRequestToolkitConfigLogoFile? LogoFile { get; set; }
@@ -54,7 +54,7 @@ namespace Composio
         /// How users authenticate to the MCP server
         /// </param>
         /// <param name="logoFile">
-        /// Square PNG or JPEG logo, 256-1024px, max 3MB. Defaults to the Composio logo.
+        /// Square PNG or JPEG logo, 256-1024px, max 3MB. Defaults to the Model Context Protocol logo.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
