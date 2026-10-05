@@ -4,7 +4,7 @@
 namespace Composio
 {
     /// <summary>
-    /// Square PNG or JPEG logo, 256-1024px, max 3MB. Defaults to the Composio logo.
+    /// Square PNG or JPEG logo, 256-1024px, max 3MB. Defaults to the Model Context Protocol logo.
     /// </summary>
     public sealed partial class PostCustomToolkitsUpsertRequestToolkitConfigLogoFile
     {
