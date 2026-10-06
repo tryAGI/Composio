@@ -16,7 +16,7 @@ namespace Composio
         public required string Name { get; set; }
 
         /// <summary>
-        /// MCP server URL
+        /// MCP server URL. Must use https.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("app_url")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -48,7 +48,7 @@ namespace Composio
         /// Display name of the toolkit
         /// </param>
         /// <param name="appUrl">
-        /// MCP server URL
+        /// MCP server URL. Must use https.
         /// </param>
         /// <param name="authSchemes">
         /// How users authenticate to the MCP server
