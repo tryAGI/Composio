@@ -45441,7 +45441,7 @@
                       "app_url": {
                         "type": "string",
                         "format": "uri",
-                        "description": "MCP server URL"
+                        "description": "MCP server URL. Must use https."
                       },
                       "logo_file": {
                         "type": "object",
@@ -57310,7 +57310,8 @@
                       "COMPOSIO_REMOTE_WORKBENCH",
                       "COMPOSIO_REMOTE_BASH_TOOL",
                       "COMPOSIO_GET_TOOL_SCHEMAS",
-                      "COMPOSIO_SUBMIT_FEEDBACK"
+                      "COMPOSIO_SUBMIT_FEEDBACK",
+                      "COMPOSIO_PROXY_EXECUTE"
                     ],
                     "description": "The unique slug identifier of the meta tool to execute",
                     "example": "COMPOSIO_MANAGE_CONNECTIONS"

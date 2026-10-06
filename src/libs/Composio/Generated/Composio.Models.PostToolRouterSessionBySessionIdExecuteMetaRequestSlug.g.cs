@@ -24,6 +24,10 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
+        ComposioProxyExecute,
+        /// <summary>
+        ///
+        /// </summary>
         ComposioRemoteBashTool,
         /// <summary>
         ///
@@ -58,6 +62,7 @@ namespace Composio
                 PostToolRouterSessionBySessionIdExecuteMetaRequestSlug.ComposioGetToolSchemas => "COMPOSIO_GET_TOOL_SCHEMAS",
                 PostToolRouterSessionBySessionIdExecuteMetaRequestSlug.ComposioManageConnections => "COMPOSIO_MANAGE_CONNECTIONS",
                 PostToolRouterSessionBySessionIdExecuteMetaRequestSlug.ComposioMultiExecuteTool => "COMPOSIO_MULTI_EXECUTE_TOOL",
+                PostToolRouterSessionBySessionIdExecuteMetaRequestSlug.ComposioProxyExecute => "COMPOSIO_PROXY_EXECUTE",
                 PostToolRouterSessionBySessionIdExecuteMetaRequestSlug.ComposioRemoteBashTool => "COMPOSIO_REMOTE_BASH_TOOL",
                 PostToolRouterSessionBySessionIdExecuteMetaRequestSlug.ComposioRemoteWorkbench => "COMPOSIO_REMOTE_WORKBENCH",
                 PostToolRouterSessionBySessionIdExecuteMetaRequestSlug.ComposioSearchTools => "COMPOSIO_SEARCH_TOOLS",
@@ -76,6 +81,7 @@ namespace Composio
                 "COMPOSIO_GET_TOOL_SCHEMAS" => PostToolRouterSessionBySessionIdExecuteMetaRequestSlug.ComposioGetToolSchemas,
                 "COMPOSIO_MANAGE_CONNECTIONS" => PostToolRouterSessionBySessionIdExecuteMetaRequestSlug.ComposioManageConnections,
                 "COMPOSIO_MULTI_EXECUTE_TOOL" => PostToolRouterSessionBySessionIdExecuteMetaRequestSlug.ComposioMultiExecuteTool,
+                "COMPOSIO_PROXY_EXECUTE" => PostToolRouterSessionBySessionIdExecuteMetaRequestSlug.ComposioProxyExecute,
                 "COMPOSIO_REMOTE_BASH_TOOL" => PostToolRouterSessionBySessionIdExecuteMetaRequestSlug.ComposioRemoteBashTool,
                 "COMPOSIO_REMOTE_WORKBENCH" => PostToolRouterSessionBySessionIdExecuteMetaRequestSlug.ComposioRemoteWorkbench,
                 "COMPOSIO_SEARCH_TOOLS" => PostToolRouterSessionBySessionIdExecuteMetaRequestSlug.ComposioSearchTools,
