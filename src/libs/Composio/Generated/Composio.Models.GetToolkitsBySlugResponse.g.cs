@@ -48,13 +48,13 @@ namespace Composio
         public required bool Enabled { get; set; }
 
         /// <summary>
-        /// Only for custom toolkits: "all" when every user in the project can use the toolkit, otherwise the user_id it is private to<br/>
+        /// [EXPERIMENTAL] Custom toolkits only. "all": every user in the project can use it. "user": only the user it was created for can.<br/>
         /// Example: all
         /// </summary>
         /// <example>all</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("access")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AnyOfJsonConverter<global::Composio.GetToolkitsBySlugResponseAccess?, string>))]
-        public global::Composio.AnyOf<global::Composio.GetToolkitsBySlugResponseAccess?, string>? Access { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.GetToolkitsBySlugResponseAccessJsonConverter))]
+        public global::Composio.GetToolkitsBySlugResponseAccess? Access { get; set; }
 
         /// <summary>
         /// List of authentication methods that Composio manages for this toolkit<br/>
@@ -167,7 +167,7 @@ namespace Composio
         /// </param>
         /// <param name="deprecated"></param>
         /// <param name="access">
-        /// Only for custom toolkits: "all" when every user in the project can use the toolkit, otherwise the user_id it is private to<br/>
+        /// [EXPERIMENTAL] Custom toolkits only. "all": every user in the project can use it. "user": only the user it was created for can.<br/>
         /// Example: all
         /// </param>
         /// <param name="composioManagedAuthSchemes">
@@ -204,7 +204,7 @@ namespace Composio
             bool isLocalToolkit,
             global::Composio.GetToolkitsBySlugResponseMeta meta,
             global::Composio.GetToolkitsBySlugResponseDeprecated deprecated,
-            global::Composio.AnyOf<global::Composio.GetToolkitsBySlugResponseAccess?, string>? access,
+            global::Composio.GetToolkitsBySlugResponseAccess? access,
             global::System.Collections.Generic.IList<string>? composioManagedAuthSchemes,
             global::System.Collections.Generic.IList<global::Composio.GetToolkitsBySlugResponseAuthConfigDetail>? authConfigDetails,
             string? authGuideUrl,

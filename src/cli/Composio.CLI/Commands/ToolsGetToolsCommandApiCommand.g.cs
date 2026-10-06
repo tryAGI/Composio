@@ -59,6 +59,10 @@ internal static partial class ToolsGetToolsCommandApiCommand
         name: @"--include-deprecated",
         description: @"Include deprecated tools in the response");
 
+    private static Option<bool?> IncludePricing { get; } = CliRuntime.CreateNullableBoolOption(
+        name: @"--include-pricing",
+        description: @"Whether to include published pricing within instant, when available. Defaults to false.");
+
     private static Option<global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>?> ToolkitVersions { get; } = new(
         name: @"--toolkit-versions")
     {
@@ -112,6 +116,7 @@ Retrieve a paginated list of available tools with comprehensive filtering, sorti
                         command.Options.Add(Query);
                         command.Options.Add(Search);
                         command.Options.Add(IncludeDeprecated);
+                        command.Options.Add(IncludePricing);
                         command.Options.Add(ToolkitVersions);
                         command.Options.Add(Limit);
                         command.Options.Add(Cursor);
@@ -129,6 +134,7 @@ Retrieve a paginated list of available tools with comprehensive filtering, sorti
                         var query = parseResult.GetValue(Query);
                         var search = parseResult.GetValue(Search);
                         var includeDeprecated = parseResult.GetValue(IncludeDeprecated);
+                        var includePricing = parseResult.GetValue(IncludePricing);
                         var toolkitVersions = parseResult.GetValue(ToolkitVersions);
                         var limit = parseResult.GetValue(Limit);
                         var cursor = parseResult.GetValue(Cursor);
@@ -145,6 +151,7 @@ Retrieve a paginated list of available tools with comprehensive filtering, sorti
                                     query: query,
                                     search: search,
                                     includeDeprecated: includeDeprecated,
+                                    includePricing: includePricing,
                                     toolkitVersions: toolkitVersions,
                                     limit: limit,
                                     cursor: cursor,

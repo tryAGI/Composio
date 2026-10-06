@@ -63,6 +63,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, object?>), TypeInfoPropertyName = "DictionaryStringObject_System_Collections_Generic_Dictionary_string_object_3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(object))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolPricing))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.InstantAccount))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.Tool))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolToolkit))]
@@ -512,7 +513,6 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Composio.PostToolRouterSessionResponseConfigToolsVariant3TagsDisabledItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Composio.PostToolRouterSessionResponseConfigTagsEnabledItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Composio.PostToolRouterSessionResponseConfigTagsDisabledItem>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Composio.PostToolRouterSessionResponseExperimentalCustomToolkit>))]
     internal sealed partial class ToolRouterSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -564,6 +564,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<global::Composio.PatchToolRouterSessionBySessionIdResponseConfigInstantToolsVariant1, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigInstantToolsVariant2>?), TypeInfoPropertyName = "PatchToolRouterSessionBySessionIdResponseConfigInstantToolsVariant2_cc51991f10e6bd73")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolsVariant1, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolsVariant2, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolsVariant3>?), TypeInfoPropertyName = "PatchToolRouterSessionBySessionIdResponseConfigToolsVariant3_cacc23460b6994b3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<global::System.Collections.Generic.List<global::Composio.PatchToolRouterSessionBySessionIdRequestToolsVariant3Tag>, global::Composio.PatchToolRouterSessionBySessionIdRequestToolsVariant3Tags>), TypeInfoPropertyName = "PatchToolRouterSessionBySessionIdRequestToolsVariant3Tags_d5bdef055e1131b0")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Composio.PostToolRouterSessionResponseExperimentalCustomToolkit>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Composio.PostToolRouterSessionResponseExperimentalCustomToolkitTool>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Composio.PostToolRouterSessionResponseExperimentalCustomTool>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Composio.PostToolRouterSessionResponseWarning>))]

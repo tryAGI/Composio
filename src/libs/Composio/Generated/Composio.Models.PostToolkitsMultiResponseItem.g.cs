@@ -39,13 +39,13 @@ namespace Composio
         public required global::Composio.PostToolkitsMultiResponseItemType Type { get; set; }
 
         /// <summary>
-        /// Only for custom toolkits: "all" when every user in the project can use the toolkit, otherwise the user_id it is private to<br/>
+        /// [EXPERIMENTAL] Custom toolkits only. "all": every user in the project can use it. "user": only the user it was created for can.<br/>
         /// Example: all
         /// </summary>
         /// <example>all</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("access")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AnyOfJsonConverter<global::Composio.PostToolkitsMultiResponseItemAccess?, string>))]
-        public global::Composio.AnyOf<global::Composio.PostToolkitsMultiResponseItemAccess?, string>? Access { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.PostToolkitsMultiResponseItemAccessJsonConverter))]
+        public global::Composio.PostToolkitsMultiResponseItemAccess? Access { get; set; }
 
         /// <summary>
         /// List of authentication methods supported by this toolkit<br/>
@@ -137,7 +137,7 @@ namespace Composio
         /// Additional metadata about the toolkit
         /// </param>
         /// <param name="access">
-        /// Only for custom toolkits: "all" when every user in the project can use the toolkit, otherwise the user_id it is private to<br/>
+        /// [EXPERIMENTAL] Custom toolkits only. "all": every user in the project can use it. "user": only the user it was created for can.<br/>
         /// Example: all
         /// </param>
         /// <param name="authSchemes">
@@ -166,7 +166,7 @@ namespace Composio
             bool isLocalToolkit,
             global::Composio.DeprecatedToolkitInfo deprecated,
             global::Composio.PostToolkitsMultiResponseItemMeta meta,
-            global::Composio.AnyOf<global::Composio.PostToolkitsMultiResponseItemAccess?, string>? access,
+            global::Composio.PostToolkitsMultiResponseItemAccess? access,
             global::System.Collections.Generic.IList<string>? authSchemes,
             global::System.Collections.Generic.IList<string>? composioManagedAuthSchemes,
             bool? noAuth,

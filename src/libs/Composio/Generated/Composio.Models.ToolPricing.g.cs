@@ -4,7 +4,7 @@
 namespace Composio
 {
     /// <summary>
-    /// Published pricing for the tool; absence does not mean free. Display metadata, not a billing calculation.
+    /// Published pricing for the tool
     /// </summary>
     public sealed partial class ToolPricing
     {
@@ -15,28 +15,10 @@ namespace Composio
         public string? Description { get; set; }
 
         /// <summary>
-        /// Display text for the minimum price.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("min")]
-        public string? Min { get; set; }
-
-        /// <summary>
-        /// Display text for the maximum price.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("max")]
-        public string? Max { get; set; }
-
-        /// <summary>
-        /// Human-readable discount text.
+        /// Discount on top of provider charges.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("discount")]
         public string? Discount { get; set; }
-
-        /// <summary>
-        /// Pricing unit, such as per call or per second.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("item")]
-        public string? Item { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -50,33 +32,18 @@ namespace Composio
         /// <param name="description">
         /// Human-readable pricing description.
         /// </param>
-        /// <param name="min">
-        /// Display text for the minimum price.
-        /// </param>
-        /// <param name="max">
-        /// Display text for the maximum price.
-        /// </param>
         /// <param name="discount">
-        /// Human-readable discount text.
-        /// </param>
-        /// <param name="item">
-        /// Pricing unit, such as per call or per second.
+        /// Discount on top of provider charges.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public ToolPricing(
             string? description,
-            string? min,
-            string? max,
-            string? discount,
-            string? item)
+            string? discount)
         {
             this.Description = description;
-            this.Min = min;
-            this.Max = max;
             this.Discount = discount;
-            this.Item = item;
         }
 
         /// <summary>

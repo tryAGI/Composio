@@ -16,10 +16,10 @@ namespace Composio
         public required bool Supported { get; set; }
 
         /// <summary>
-        /// Published pricing from the selected tool row, unchanged.
+        /// Published pricing for the tool
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("price")]
-        public global::System.Collections.Generic.Dictionary<string, object?>? Price { get; set; }
+        public global::Composio.ToolPricing? Price { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -32,14 +32,14 @@ namespace Composio
         /// </summary>
         /// <param name="supported"></param>
         /// <param name="price">
-        /// Published pricing from the selected tool row, unchanged.
+        /// Published pricing for the tool
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public InstantAccount(
             bool supported,
-            global::System.Collections.Generic.Dictionary<string, object?>? price)
+            global::Composio.ToolPricing? price)
         {
             this.Supported = supported;
             this.Price = price;

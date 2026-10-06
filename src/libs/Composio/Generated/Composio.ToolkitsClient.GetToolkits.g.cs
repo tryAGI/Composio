@@ -35,6 +35,7 @@ namespace Composio
             ref global::Composio.GetToolkitsSortBy? sortBy,
             ref bool? includeDeprecated,
             ref string? search,
+            ref string? userId,
             ref double? limit,
             ref string? cursor);
         partial void PrepareGetToolkitsRequest(
@@ -46,6 +47,7 @@ namespace Composio
             global::Composio.GetToolkitsSortBy? sortBy,
             bool? includeDeprecated,
             string? search,
+            string? userId,
             double? limit,
             string? cursor);
         partial void ProcessGetToolkitsResponse(
@@ -84,6 +86,10 @@ namespace Composio
         /// Search query to filter toolkits by name, slug, or description (minimum 1 character)<br/>
         /// Example: gmail
         /// </param>
+        /// <param name="userId">
+        /// [EXPERIMENTAL] List the custom toolkits this user can use. Without it, only custom toolkits with access "all" are listed.<br/>
+        /// Example: user_123
+        /// </param>
         /// <param name="limit"></param>
         /// <param name="cursor"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -96,6 +102,7 @@ namespace Composio
             global::Composio.GetToolkitsSortBy? sortBy = default,
             bool? includeDeprecated = default,
             string? search = default,
+            string? userId = default,
             double? limit = default,
             string? cursor = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
@@ -108,6 +115,7 @@ namespace Composio
                 sortBy: sortBy,
                 includeDeprecated: includeDeprecated,
                 search: search,
+                userId: userId,
                 limit: limit,
                 cursor: cursor,
                 requestOptions: requestOptions,
@@ -143,6 +151,10 @@ namespace Composio
         /// Search query to filter toolkits by name, slug, or description (minimum 1 character)<br/>
         /// Example: gmail
         /// </param>
+        /// <param name="userId">
+        /// [EXPERIMENTAL] List the custom toolkits this user can use. Without it, only custom toolkits with access "all" are listed.<br/>
+        /// Example: user_123
+        /// </param>
         /// <param name="limit"></param>
         /// <param name="cursor"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -155,6 +167,7 @@ namespace Composio
             global::Composio.GetToolkitsSortBy? sortBy = default,
             bool? includeDeprecated = default,
             string? search = default,
+            string? userId = default,
             double? limit = default,
             string? cursor = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
@@ -170,6 +183,7 @@ namespace Composio
                 sortBy: ref sortBy,
                 includeDeprecated: ref includeDeprecated,
                 search: ref search,
+                userId: ref userId,
                 limit: ref limit,
                 cursor: ref cursor);
 
@@ -206,6 +220,7 @@ namespace Composio
                                 .AddOptionalParameter("sort_by", sortBy?.ToValueString())
                                 .AddOptionalParameter("include_deprecated", includeDeprecated?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("search", search)
+                                .AddOptionalParameter("user_id", userId)
                                 .AddOptionalParameter("limit", limit?.ToString())
                                 .AddOptionalParameter("cursor", cursor)
                                 ;
@@ -255,6 +270,7 @@ namespace Composio
                     sortBy: sortBy,
                     includeDeprecated: includeDeprecated,
                     search: search,
+                    userId: userId,
                     limit: limit,
                     cursor: cursor);
 
