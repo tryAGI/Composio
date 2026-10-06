@@ -41,6 +41,12 @@ internal static partial class ToolkitsGetToolkitsCommandApiCommand
         Description = @"Search query to filter toolkits by name, slug, or description",
     };
 
+    private static Option<string?> UserId { get; } = new(
+        name: @"--user-id")
+    {
+        Description = @"[EXPERIMENTAL] List the custom toolkits this user can use. Without it, only custom toolkits with access ""all"" are listed.",
+    };
+
     private static Option<double?> Limit { get; } = new(
         name: @"--limit")
     {
@@ -85,6 +91,7 @@ Retrieves a comprehensive list of toolkits of their latest versions that are ava
                         command.Options.Add(SortBy);
                         command.Options.Add(IncludeDeprecated);
                         command.Options.Add(Search);
+                        command.Options.Add(UserId);
                         command.Options.Add(Limit);
                         command.Options.Add(Cursor);
 
@@ -98,6 +105,7 @@ Retrieves a comprehensive list of toolkits of their latest versions that are ava
                         var sortBy = parseResult.GetValue(SortBy);
                         var includeDeprecated = parseResult.GetValue(IncludeDeprecated);
                         var search = parseResult.GetValue(Search);
+                        var userId = parseResult.GetValue(UserId);
                         var limit = parseResult.GetValue(Limit);
                         var cursor = parseResult.GetValue(Cursor);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
@@ -110,6 +118,7 @@ Retrieves a comprehensive list of toolkits of their latest versions that are ava
                                     sortBy: sortBy,
                                     includeDeprecated: includeDeprecated,
                                     search: search,
+                                    userId: userId,
                                     limit: limit,
                                     cursor: cursor,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);

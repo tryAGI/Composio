@@ -36,6 +36,7 @@ namespace Composio
             ref string? query,
             ref string? search,
             ref bool? includeDeprecated,
+            ref bool? includePricing,
             ref global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions,
             ref double? limit,
             ref string? cursor);
@@ -51,6 +52,7 @@ namespace Composio
             string? query,
             string? search,
             bool? includeDeprecated,
+            bool? includePricing,
             global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions,
             double? limit,
             string? cursor);
@@ -80,6 +82,9 @@ namespace Composio
         /// <param name="includeDeprecated">
         /// Default Value: true
         /// </param>
+        /// <param name="includePricing">
+        /// Default Value: false
+        /// </param>
         /// <param name="toolkitVersions"></param>
         /// <param name="limit"></param>
         /// <param name="cursor"></param>
@@ -96,6 +101,7 @@ namespace Composio
             string? query = default,
             string? search = default,
             bool? includeDeprecated = default,
+            bool? includePricing = default,
             global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
             double? limit = default,
             string? cursor = default,
@@ -112,6 +118,7 @@ namespace Composio
                 query: query,
                 search: search,
                 includeDeprecated: includeDeprecated,
+                includePricing: includePricing,
                 toolkitVersions: toolkitVersions,
                 limit: limit,
                 cursor: cursor,
@@ -138,6 +145,9 @@ namespace Composio
         /// <param name="includeDeprecated">
         /// Default Value: true
         /// </param>
+        /// <param name="includePricing">
+        /// Default Value: false
+        /// </param>
         /// <param name="toolkitVersions"></param>
         /// <param name="limit"></param>
         /// <param name="cursor"></param>
@@ -154,6 +164,7 @@ namespace Composio
             string? query = default,
             string? search = default,
             bool? includeDeprecated = default,
+            bool? includePricing = default,
             global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
             double? limit = default,
             string? cursor = default,
@@ -173,6 +184,7 @@ namespace Composio
                 query: ref query,
                 search: ref search,
                 includeDeprecated: ref includeDeprecated,
+                includePricing: ref includePricing,
                 toolkitVersions: ref toolkitVersions,
                 limit: ref limit,
                 cursor: ref cursor);
@@ -216,6 +228,7 @@ namespace Composio
                                 .AddOptionalParameter("query", query)
                                 .AddOptionalParameter("search", search)
                                 .AddOptionalParameter("include_deprecated", includeDeprecated?.ToString().ToLowerInvariant())
+                                .AddOptionalParameter("include_pricing", includePricing?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("toolkit_versions", toolkitVersions?.ToString())
                                 .AddOptionalParameter("limit", limit?.ToString())
                                 .AddOptionalParameter("cursor", cursor)
@@ -269,6 +282,7 @@ namespace Composio
                     query: query,
                     search: search,
                     includeDeprecated: includeDeprecated,
+                    includePricing: includePricing,
                     toolkitVersions: toolkitVersions,
                     limit: limit,
                     cursor: cursor);

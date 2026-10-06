@@ -4,14 +4,19 @@
 namespace Composio
 {
     /// <summary>
-    ///
+    /// [EXPERIMENTAL] Custom toolkits only. "all": every user in the project can use it. "user": only the user it was created for can.<br/>
+    /// Example: all
     /// </summary>
     public enum GetToolkitsBySlugResponseAccess
     {
         /// <summary>
-        ///
+        /// every user in the project can use it. "user": only the user it was created for can.
         /// </summary>
         All,
+        /// <summary>
+        /// every user in the project can use it. "user": only the user it was created for can.
+        /// </summary>
+        User,
     }
 
     /// <summary>
@@ -27,6 +32,7 @@ namespace Composio
             return value switch
             {
                 GetToolkitsBySlugResponseAccess.All => "all",
+                GetToolkitsBySlugResponseAccess.User => "user",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -38,6 +44,7 @@ namespace Composio
             return value switch
             {
                 "all" => GetToolkitsBySlugResponseAccess.All,
+                "user" => GetToolkitsBySlugResponseAccess.User,
                 _ => null,
             };
         }

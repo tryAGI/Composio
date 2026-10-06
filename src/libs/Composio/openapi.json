@@ -810,6 +810,22 @@
           "toolkitId": "550e8400-e29b-41d4-a716-446655440000"
         }
       },
+      "ToolPricing": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "description": "Human-readable pricing description."
+          },
+          "discount": {
+            "type": "string",
+            "nullable": true,
+            "description": "Discount on top of provider charges."
+          }
+        },
+        "description": "Published pricing for the tool",
+        "additionalProperties": false
+      },
       "InstantAccount": {
         "type": "object",
         "properties": {
@@ -820,11 +836,7 @@
             ]
           },
           "price": {
-            "type": "object",
-            "additionalProperties": {
-              "nullable": true
-            },
-            "description": "Published pricing from the selected tool row, unchanged."
+            "$ref": "#/components/schemas/ToolPricing"
           }
         },
         "required": [
@@ -1175,38 +1187,6 @@
           "current_page",
           "total_items"
         ]
-      },
-      "ToolPricing": {
-        "type": "object",
-        "properties": {
-          "description": {
-            "type": "string",
-            "nullable": true,
-            "description": "Human-readable pricing description."
-          },
-          "min": {
-            "type": "string",
-            "nullable": true,
-            "description": "Display text for the minimum price."
-          },
-          "max": {
-            "type": "string",
-            "nullable": true,
-            "description": "Display text for the maximum price."
-          },
-          "discount": {
-            "type": "string",
-            "nullable": true,
-            "description": "Human-readable discount text."
-          },
-          "item": {
-            "type": "string",
-            "nullable": true,
-            "description": "Pricing unit, such as per call or per second."
-          }
-        },
-        "description": "Published pricing for the tool; absence does not mean free. Display metadata, not a billing calculation.",
-        "additionalProperties": false
       },
       "ToolDetails": {
         "type": "object",
@@ -44998,6 +44978,20 @@
           },
           {
             "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 256,
+              "description": "[EXPERIMENTAL] List the custom toolkits this user can use. Without it, only custom toolkits with access \"all\" are listed.",
+              "example": "user_123",
+              "x-experimental": true
+            },
+            "required": false,
+            "description": "[EXPERIMENTAL] List the custom toolkits this user can use. Without it, only custom toolkits with access \"all\" are listed.",
+            "name": "user_id",
+            "in": "query"
+          },
+          {
+            "schema": {
               "type": "number",
               "nullable": true
             },
@@ -45049,21 +45043,14 @@
                             "example": "native"
                           },
                           "access": {
-                            "anyOf": [
-                              {
-                                "type": "string",
-                                "enum": [
-                                  "all"
-                                ]
-                              },
-                              {
-                                "type": "string",
-                                "minLength": 1,
-                                "maxLength": 256
-                              }
+                            "type": "string",
+                            "enum": [
+                              "all",
+                              "user"
                             ],
-                            "description": "Only for custom toolkits: \"all\" when every user in the project can use the toolkit, otherwise the user_id it is private to",
-                            "example": "all"
+                            "description": "[EXPERIMENTAL] Custom toolkits only. \"all\": every user in the project can use it. \"user\": only the user it was created for can.",
+                            "example": "all",
+                            "x-experimental": true
                           },
                           "auth_schemes": {
                             "type": "array",
@@ -45896,21 +45883,14 @@
                       "example": true
                     },
                     "access": {
-                      "anyOf": [
-                        {
-                          "type": "string",
-                          "enum": [
-                            "all"
-                          ]
-                        },
-                        {
-                          "type": "string",
-                          "minLength": 1,
-                          "maxLength": 256
-                        }
+                      "type": "string",
+                      "enum": [
+                        "all",
+                        "user"
                       ],
-                      "description": "Only for custom toolkits: \"all\" when every user in the project can use the toolkit, otherwise the user_id it is private to",
-                      "example": "all"
+                      "description": "[EXPERIMENTAL] Custom toolkits only. \"all\": every user in the project can use it. \"user\": only the user it was created for can.",
+                      "example": "all",
+                      "x-experimental": true
                     },
                     "composio_managed_auth_schemes": {
                       "type": "array",
@@ -46604,6 +46584,16 @@
           },
           {
             "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "required": false,
+            "description": "Whether to include published pricing within instant, when available. Defaults to false.",
+            "in": "query",
+            "name": "include_pricing"
+          },
+          {
+            "schema": {
               "oneOf": [
                 {
                   "type": "null"
@@ -47044,21 +47034,14 @@
                             "example": "native"
                           },
                           "access": {
-                            "anyOf": [
-                              {
-                                "type": "string",
-                                "enum": [
-                                  "all"
-                                ]
-                              },
-                              {
-                                "type": "string",
-                                "minLength": 1,
-                                "maxLength": 256
-                              }
+                            "type": "string",
+                            "enum": [
+                              "all",
+                              "user"
                             ],
-                            "description": "Only for custom toolkits: \"all\" when every user in the project can use the toolkit, otherwise the user_id it is private to",
-                            "example": "all"
+                            "description": "[EXPERIMENTAL] Custom toolkits only. \"all\": every user in the project can use it. \"user\": only the user it was created for can.",
+                            "example": "all",
+                            "x-experimental": true
                           },
                           "auth_schemes": {
                             "type": "array",

@@ -144,7 +144,7 @@ namespace Composio
         public required global::Composio.ToolDetailsDeprecated Deprecated { get; set; }
 
         /// <summary>
-        /// Published pricing for the tool; absence does not mean free. Display metadata, not a billing calculation.
+        /// Published pricing for the tool
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("pricing")]
         public global::Composio.ToolPricing? Pricing { get; set; }
@@ -216,7 +216,7 @@ namespace Composio
         /// Example: Create a new issue in a GitHub repository
         /// </param>
         /// <param name="pricing">
-        /// Published pricing for the tool; absence does not mean free. Display metadata, not a billing calculation.
+        /// Published pricing for the tool
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
