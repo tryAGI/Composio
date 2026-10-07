@@ -9,14 +9,22 @@ namespace Composio
     public sealed partial class PatchToolRouterSessionBySessionIdRequestToolsVariant3
     {
         /// <summary>
-        /// MCP tags to filter tools. Array format is treated as enabled list. Object format supports both enabled and disabled lists.<br/>
-        /// Example: {"enable":["openWorldHint"],"disable":["destructiveHint"]}
+        /// MCP tool annotation hints for this toolkit. Array format is treated as enabled list. Object format supports enabled and disabled lists, which replace the global tag filter for this toolkit, and experimentally the tags whose tools in this toolkit need approval.<br/>
+        /// Example: {"disable":["openWorldHint"],"require_approval":["destructiveHint"]}
         /// </summary>
-        /// <example>{"enable":["openWorldHint"],"disable":["destructiveHint"]}</example>
+        /// <example>{"disable":["openWorldHint"],"require_approval":["destructiveHint"]}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("tags")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.IList<global::Composio.PatchToolRouterSessionBySessionIdRequestToolsVariant3Tag>, global::Composio.PatchToolRouterSessionBySessionIdRequestToolsVariant3Tags>))]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::Composio.AnyOf<global::System.Collections.Generic.IList<global::Composio.PatchToolRouterSessionBySessionIdRequestToolsVariant3Tag>, global::Composio.PatchToolRouterSessionBySessionIdRequestToolsVariant3Tags> Tags { get; set; }
+
+        /// <summary>
+        /// Experimental: tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.<br/>
+        /// Example: [GITHUB_DELETE_A_REPOSITORY]
+        /// </summary>
+        /// <example>[GITHUB_DELETE_A_REPOSITORY]</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("require_approval")]
+        public global::System.Collections.Generic.IList<string>? RequireApproval { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -28,16 +36,22 @@ namespace Composio
         /// Initializes a new instance of the <see cref="PatchToolRouterSessionBySessionIdRequestToolsVariant3" /> class.
         /// </summary>
         /// <param name="tags">
-        /// MCP tags to filter tools. Array format is treated as enabled list. Object format supports both enabled and disabled lists.<br/>
-        /// Example: {"enable":["openWorldHint"],"disable":["destructiveHint"]}
+        /// MCP tool annotation hints for this toolkit. Array format is treated as enabled list. Object format supports enabled and disabled lists, which replace the global tag filter for this toolkit, and experimentally the tags whose tools in this toolkit need approval.<br/>
+        /// Example: {"disable":["openWorldHint"],"require_approval":["destructiveHint"]}
+        /// </param>
+        /// <param name="requireApproval">
+        /// Experimental: tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.<br/>
+        /// Example: [GITHUB_DELETE_A_REPOSITORY]
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PatchToolRouterSessionBySessionIdRequestToolsVariant3(
-            global::Composio.AnyOf<global::System.Collections.Generic.IList<global::Composio.PatchToolRouterSessionBySessionIdRequestToolsVariant3Tag>, global::Composio.PatchToolRouterSessionBySessionIdRequestToolsVariant3Tags> tags)
+            global::Composio.AnyOf<global::System.Collections.Generic.IList<global::Composio.PatchToolRouterSessionBySessionIdRequestToolsVariant3Tag>, global::Composio.PatchToolRouterSessionBySessionIdRequestToolsVariant3Tags> tags,
+            global::System.Collections.Generic.IList<string>? requireApproval)
         {
             this.Tags = tags;
+            this.RequireApproval = requireApproval;
         }
 
         /// <summary>

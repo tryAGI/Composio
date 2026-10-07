@@ -43,6 +43,20 @@ namespace Composio
         public bool? EnableAutoWorkbenchOffload { get; set; }
 
         /// <summary>
+        /// Experimental: the user's answers to the questions an earlier response asked, keyed by the same ids. Send them with the same tool call to continue it.<br/>
+        /// Example: {"approval_3f9a1c2b7d4e5f60":{"action":"accept","content":{"decision":"approve"}}}
+        /// </summary>
+        /// <example>{"approval_3f9a1c2b7d4e5f60":{"action":"accept","content":{"decision":"approve"}}}</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("input_responses")]
+        public global::System.Collections.Generic.Dictionary<string, object?>? InputResponses { get; set; }
+
+        /// <summary>
+        /// Experimental: state from an earlier response that asked the user for input, sent back unchanged.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("request_state")]
+        public string? RequestState { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -68,6 +82,13 @@ namespace Composio
         /// When true, direct non-meta tool execution may return a workbench offload preview if the response exceeds the configured threshold and the session workbench is enabled. When omitted or false, direct tool execution returns the normal inline response. Meta/helper tools are unaffected, and COMPOSIO_MULTI_EXECUTE_TOOL uses session.workbench configuration for its own batch-level offload behavior.<br/>
         /// Example: true
         /// </param>
+        /// <param name="inputResponses">
+        /// Experimental: the user's answers to the questions an earlier response asked, keyed by the same ids. Send them with the same tool call to continue it.<br/>
+        /// Example: {"approval_3f9a1c2b7d4e5f60":{"action":"accept","content":{"decision":"approve"}}}
+        /// </param>
+        /// <param name="requestState">
+        /// Experimental: state from an earlier response that asked the user for input, sent back unchanged.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -75,12 +96,16 @@ namespace Composio
             string toolSlug,
             global::System.Collections.Generic.Dictionary<string, object?>? arguments,
             string? account,
-            bool? enableAutoWorkbenchOffload)
+            bool? enableAutoWorkbenchOffload,
+            global::System.Collections.Generic.Dictionary<string, object?>? inputResponses,
+            string? requestState)
         {
             this.ToolSlug = toolSlug ?? throw new global::System.ArgumentNullException(nameof(toolSlug));
             this.Arguments = arguments;
             this.Account = account;
             this.EnableAutoWorkbenchOffload = enableAutoWorkbenchOffload;
+            this.InputResponses = inputResponses;
+            this.RequestState = requestState;
         }
 
         /// <summary>

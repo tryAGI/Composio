@@ -27,6 +27,13 @@ namespace Composio
         public global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionResponseExperimentalCustomTool>? CustomTools { get; set; }
 
         /// <summary>
+        /// What session MCP does with a tool call that needs approval when the MCP client can't ask the user. Omitted when not set, which means deny.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("no_elicitation_support_fallback")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.PostToolRouterSessionResponseExperimentalNoElicitationSupportFallbackJsonConverter))]
+        public global::Composio.PostToolRouterSessionResponseExperimentalNoElicitationSupportFallback? NoElicitationSupportFallback { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -44,17 +51,22 @@ namespace Composio
         /// <param name="customTools">
         /// Custom tools — standalone or extending Composio toolkits
         /// </param>
+        /// <param name="noElicitationSupportFallback">
+        /// What session MCP does with a tool call that needs approval when the MCP client can't ask the user. Omitted when not set, which means deny.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PostToolRouterSessionResponseExperimental(
             string? assistivePrompt,
             global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionResponseExperimentalCustomToolkit>? customToolkits,
-            global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionResponseExperimentalCustomTool>? customTools)
+            global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionResponseExperimentalCustomTool>? customTools,
+            global::Composio.PostToolRouterSessionResponseExperimentalNoElicitationSupportFallback? noElicitationSupportFallback)
         {
             this.AssistivePrompt = assistivePrompt;
             this.CustomToolkits = customToolkits;
             this.CustomTools = customTools;
+            this.NoElicitationSupportFallback = noElicitationSupportFallback;
         }
 
         /// <summary>

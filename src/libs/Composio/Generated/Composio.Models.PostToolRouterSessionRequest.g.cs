@@ -18,11 +18,11 @@ namespace Composio
         public required string UserId { get; set; }
 
         /// <summary>
-        /// Toolkit configuration - specify either enable toolkits (allowlist) or disable toolkits (denylist). Mutually exclusive.
+        /// Toolkit configuration - specify either enable toolkits (allowlist) or disable toolkits (denylist). Mutually exclusive. Experimentally, it can also list toolkits whose tools need approval, with or without a filter.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("toolkits")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AnyOfJsonConverter<global::Composio.PostToolRouterSessionRequestToolkitsVariant1, global::Composio.PostToolRouterSessionRequestToolkitsVariant2>))]
-        public global::Composio.AnyOf<global::Composio.PostToolRouterSessionRequestToolkitsVariant1, global::Composio.PostToolRouterSessionRequestToolkitsVariant2>? Toolkits { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AnyOfJsonConverter<global::Composio.PostToolRouterSessionRequestToolkitsVariant1, global::Composio.PostToolRouterSessionRequestToolkitsVariant2, global::Composio.PostToolRouterSessionRequestToolkitsVariant3>))]
+        public global::Composio.AnyOf<global::Composio.PostToolRouterSessionRequestToolkitsVariant1, global::Composio.PostToolRouterSessionRequestToolkitsVariant2, global::Composio.PostToolRouterSessionRequestToolkitsVariant3>? Toolkits { get; set; }
 
         /// <summary>
         /// The auth configs to use for the session. This will override the default behavior and use the given auth config when specific toolkits are being executed<br/>
@@ -55,18 +55,16 @@ namespace Composio
         public global::Composio.PostToolRouterSessionRequestManageConnections? ManageConnections { get; set; }
 
         /// <summary>
-        /// Tool-level configuration per toolkit. Allows you to enable, disable, or filter by tags for specific tools within each toolkit. Every slug passed in `enable` / `disable` must be a valid Composio tool slug for that toolkit — invalid or typo'd slugs fail session creation with a clear error listing which ones didn't match.<br/>
-        /// Example: {"gmail":{"enable":["GMAIL_SEND_EMAIL","GMAIL_FETCH_EMAILS"]},"slack":{"disable":["SLACK_ADD_EMOJI"]},"slackbot":{"tags":{"enable":["destructiveHint"],"disable":["openWorldHint"]}}}
+        /// Tool-level configuration per toolkit. Allows you to enable, disable, or filter by tags for specific tools within each toolkit, and experimentally to list tools that need approval. Every tool slug must be a valid Composio tool slug for that toolkit — invalid or typo'd slugs fail session creation with a clear error listing which ones didn't match.
         /// </summary>
-        /// <example>{"gmail":{"enable":["GMAIL_SEND_EMAIL","GMAIL_FETCH_EMAILS"]},"slack":{"disable":["SLACK_ADD_EMOJI"]},"slackbot":{"tags":{"enable":["destructiveHint"],"disable":["openWorldHint"]}}}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
         public object? Tools { get; set; }
 
         /// <summary>
-        /// Global MCP tool annotation hints for filtering. Array format is treated as enabled list. Object format supports both enabled (tool must have at least one) and disabled (tool must NOT have any) lists. Toolkit-level tags override this. Toolkit enabled/disabled lists take precedence over tag filtering.<br/>
-        /// Example: {"enable":["openWorldHint"],"disable":["destructiveHint"]}
+        /// Global MCP tool annotation hints for filtering. Array format is treated as enabled list. Object format supports enabled (tool must have at least one) and disabled (tool must NOT have any) lists, and experimentally the tags whose tools need approval. Toolkit-level tags override the enabled/disabled filter.<br/>
+        /// Example: {"disable":["openWorldHint"],"require_approval":["destructiveHint"]}
         /// </summary>
-        /// <example>{"enable":["openWorldHint"],"disable":["destructiveHint"]}</example>
+        /// <example>{"disable":["openWorldHint"],"require_approval":["destructiveHint"]}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("tags")]
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AnyOfJsonConverter<global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionRequestTag>, global::Composio.PostToolRouterSessionRequestTags>))]
         public global::Composio.AnyOf<global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionRequestTag>, global::Composio.PostToolRouterSessionRequestTags>? Tags { get; set; }
@@ -116,7 +114,7 @@ namespace Composio
         /// Example: user_123456789
         /// </param>
         /// <param name="toolkits">
-        /// Toolkit configuration - specify either enable toolkits (allowlist) or disable toolkits (denylist). Mutually exclusive.
+        /// Toolkit configuration - specify either enable toolkits (allowlist) or disable toolkits (denylist). Mutually exclusive. Experimentally, it can also list toolkits whose tools need approval, with or without a filter.
         /// </param>
         /// <param name="authConfigs">
         /// The auth configs to use for the session. This will override the default behavior and use the given auth config when specific toolkits are being executed<br/>
@@ -134,12 +132,11 @@ namespace Composio
         /// Default Value: {"enable":true,"enable_wait_for_connections":false,"enable_connection_removal":true}
         /// </param>
         /// <param name="tools">
-        /// Tool-level configuration per toolkit. Allows you to enable, disable, or filter by tags for specific tools within each toolkit. Every slug passed in `enable` / `disable` must be a valid Composio tool slug for that toolkit — invalid or typo'd slugs fail session creation with a clear error listing which ones didn't match.<br/>
-        /// Example: {"gmail":{"enable":["GMAIL_SEND_EMAIL","GMAIL_FETCH_EMAILS"]},"slack":{"disable":["SLACK_ADD_EMOJI"]},"slackbot":{"tags":{"enable":["destructiveHint"],"disable":["openWorldHint"]}}}
+        /// Tool-level configuration per toolkit. Allows you to enable, disable, or filter by tags for specific tools within each toolkit, and experimentally to list tools that need approval. Every tool slug must be a valid Composio tool slug for that toolkit — invalid or typo'd slugs fail session creation with a clear error listing which ones didn't match.
         /// </param>
         /// <param name="tags">
-        /// Global MCP tool annotation hints for filtering. Array format is treated as enabled list. Object format supports both enabled (tool must have at least one) and disabled (tool must NOT have any) lists. Toolkit-level tags override this. Toolkit enabled/disabled lists take precedence over tag filtering.<br/>
-        /// Example: {"enable":["openWorldHint"],"disable":["destructiveHint"]}
+        /// Global MCP tool annotation hints for filtering. Array format is treated as enabled list. Object format supports enabled (tool must have at least one) and disabled (tool must NOT have any) lists, and experimentally the tags whose tools need approval. Toolkit-level tags override the enabled/disabled filter.<br/>
+        /// Example: {"disable":["openWorldHint"],"require_approval":["destructiveHint"]}
         /// </param>
         /// <param name="workbench">
         /// Configuration for workbench behavior<br/>
@@ -162,7 +159,7 @@ namespace Composio
 #endif
         public PostToolRouterSessionRequest(
             string userId,
-            global::Composio.AnyOf<global::Composio.PostToolRouterSessionRequestToolkitsVariant1, global::Composio.PostToolRouterSessionRequestToolkitsVariant2>? toolkits,
+            global::Composio.AnyOf<global::Composio.PostToolRouterSessionRequestToolkitsVariant1, global::Composio.PostToolRouterSessionRequestToolkitsVariant2, global::Composio.PostToolRouterSessionRequestToolkitsVariant3>? toolkits,
             global::System.Collections.Generic.Dictionary<string, string>? authConfigs,
             global::System.Collections.Generic.Dictionary<string, string>? connectedAccounts,
             global::Composio.AnyOf<bool?, global::Composio.PostToolRouterSessionRequestInstant>? instant,

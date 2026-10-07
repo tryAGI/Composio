@@ -21,6 +21,12 @@ namespace Composio
         public global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionResponseConfigToolsVariant3TagsDisabledItem>? Disabled { get; set; }
 
         /// <summary>
+        /// Experimental: tool calls matched here pause until the user approves them.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("require_approval")]
+        public global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionResponseConfigToolsVariant3TagsRequireApprovalItem>? RequireApproval { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -35,15 +41,20 @@ namespace Composio
         /// <param name="disabled">
         /// Tags that the tool must NOT have any of
         /// </param>
+        /// <param name="requireApproval">
+        /// Experimental: tool calls matched here pause until the user approves them.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PostToolRouterSessionResponseConfigToolsVariant3Tags(
             global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionResponseConfigToolsVariant3TagsEnabledItem>? enabled,
-            global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionResponseConfigToolsVariant3TagsDisabledItem>? disabled)
+            global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionResponseConfigToolsVariant3TagsDisabledItem>? disabled,
+            global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionResponseConfigToolsVariant3TagsRequireApprovalItem>? requireApproval)
         {
             this.Enabled = enabled;
             this.Disabled = disabled;
+            this.RequireApproval = requireApproval;
         }
 
         /// <summary>

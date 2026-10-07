@@ -13,10 +13,10 @@ internal static partial class ToolRouterPatchToolRouterSessionBySessionIdCommand
         Description = @"The unique identifier of the tool router session",
     };
 
-    private static Option<global::Composio.AnyOf<global::Composio.PatchToolRouterSessionBySessionIdRequestToolkitsVariant1, global::Composio.PatchToolRouterSessionBySessionIdRequestToolkitsVariant2>?> Toolkits { get; } = new(
+    private static Option<global::Composio.AnyOf<global::Composio.PatchToolRouterSessionBySessionIdRequestToolkitsVariant1, global::Composio.PatchToolRouterSessionBySessionIdRequestToolkitsVariant2, global::Composio.PatchToolRouterSessionBySessionIdRequestToolkitsVariant3>?> Toolkits { get; } = new(
         name: @"--toolkits")
     {
-        Description = @"Toolkit configuration - specify either enable toolkits (allowlist) or disable toolkits (denylist). Mutually exclusive.",
+        Description = @"Toolkit configuration - specify either enable toolkits (allowlist) or disable toolkits (denylist). Mutually exclusive. Experimentally, it can also list toolkits whose tools need approval, with or without a filter.",
     };
 
     private static Option<global::System.Collections.Generic.Dictionary<string, string>?> AuthConfigs { get; } = new(
@@ -46,13 +46,13 @@ internal static partial class ToolRouterPatchToolRouterSessionBySessionIdCommand
     private static Option<object?> Tools { get; } = new(
         name: @"--tools")
     {
-        Description = @"Tool-level configuration per toolkit. Allows you to enable, disable, or filter by tags for specific tools within each toolkit. Every slug passed in `enable` / `disable` must be a valid Composio tool slug for that toolkit — invalid or typo'd slugs fail session creation with a clear error listing which ones didn't match.",
+        Description = @"Tool-level configuration per toolkit. Allows you to enable, disable, or filter by tags for specific tools within each toolkit, and experimentally to list tools that need approval. Every tool slug must be a valid Composio tool slug for that toolkit — invalid or typo'd slugs fail session creation with a clear error listing which ones didn't match.",
     };
 
     private static Option<global::Composio.AnyOf<global::System.Collections.Generic.IList<global::Composio.PatchToolRouterSessionBySessionIdRequestTag>, global::Composio.PatchToolRouterSessionBySessionIdRequestTags>?> Tags { get; } = new(
         name: @"--tags")
     {
-        Description = @"Global MCP tool annotation hints for filtering. Array format is treated as enabled list. Object format supports both enabled (tool must have at least one) and disabled (tool must NOT have any) lists. Toolkit-level tags override this. Toolkit enabled/disabled lists take precedence over tag filtering.",
+        Description = @"Global MCP tool annotation hints for filtering. Array format is treated as enabled list. Object format supports enabled (tool must have at least one) and disabled (tool must NOT have any) lists, and experimentally the tags whose tools need approval. Toolkit-level tags override the enabled/disabled filter.",
     };
 
     private static Option<global::Composio.PatchToolRouterSessionBySessionIdRequestWorkbench?> Workbench { get; } = new(

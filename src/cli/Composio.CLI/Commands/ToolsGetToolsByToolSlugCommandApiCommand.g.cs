@@ -13,6 +13,10 @@ internal static partial class ToolsGetToolsByToolSlugCommandApiCommand
         Description = @"The unique slug identifier of the tool",
     };
 
+    private static Option<bool?> IncludePricing { get; } = CliRuntime.CreateNullableBoolOption(
+        name: @"--include-pricing",
+        description: @"Whether to include published pricing within instant, when available. Defaults to false.");
+
     private static Option<string?> Version { get; } = new(
         name: @"--version")
     {
@@ -52,6 +56,7 @@ internal static partial class ToolsGetToolsByToolSlugCommandApiCommand
         var command = new Command(commandName ?? @"get-tools-by-tool-slug", @"Get tool by slug
 Retrieve detailed information about a specific tool using its slug identifier. This endpoint returns full metadata about a tool including input/output parameters, versions, and toolkit information.");
                         command.Arguments.Add(ToolSlug);
+                        command.Options.Add(IncludePricing);
                         command.Options.Add(Version);
                         command.Options.Add(ToolkitVersions);
 
@@ -60,6 +65,7 @@ Retrieve detailed information about a specific tool using its slug identifier. T
             await CliRuntime.RunAsync(async () =>
             {
                         var toolSlug = parseResult.GetRequiredValue(ToolSlug);
+                        var includePricing = parseResult.GetValue(IncludePricing);
                         var version = parseResult.GetValue(Version);
                         var toolkitVersions = parseResult.GetValue(ToolkitVersions);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
@@ -67,6 +73,7 @@ Retrieve detailed information about a specific tool using its slug identifier. T
 
                                 var response = await client.Tools.GetToolsByToolSlugAsync(
                                     toolSlug: toolSlug,
+                                    includePricing: includePricing,
                                     version: version,
                                     toolkitVersions: toolkitVersions,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);

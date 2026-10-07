@@ -35,6 +35,18 @@ internal static partial class ToolRouterPostToolRouterSessionBySessionIdExecuteC
     private static Option<bool?> EnableAutoWorkbenchOffload { get; } = CliRuntime.CreateNullableBoolOption(
         name: @"--enable-auto-workbench-offload",
         description: @"When true, direct non-meta tool execution may return a workbench offload preview if the response exceeds the configured threshold and the session workbench is enabled. When omitted or false, direct tool execution returns the normal inline response. Meta/helper tools are unaffected, and COMPOSIO_MULTI_EXECUTE_TOOL uses session.workbench configuration for its own batch-level offload behavior.");
+
+    private static Option<global::System.Collections.Generic.Dictionary<string, object?>?> InputResponses { get; } = new(
+        name: @"--input-responses")
+    {
+        Description = @"Experimental: the user's answers to the questions an earlier response asked, keyed by the same ids. Send them with the same tool call to continue it.",
+    };
+
+    private static Option<string?> RequestState { get; } = new(
+        name: @"--request-state")
+    {
+        Description = @"Experimental: state from an earlier response that asked the user for input, sent back unchanged.",
+    };
       private static Option<string?> Input { get; } = new(@"--input")
       {
           Description = "Load request JSON from a file path, '-' for stdin, or an inline JSON object/array string.",
@@ -83,6 +95,8 @@ Executes a specific tool within a tool router session. This is the primary execu
                         command.Options.Add(ArgumentsOption);
                         command.Options.Add(Account);
                         command.Options.Add(EnableAutoWorkbenchOffload);
+                        command.Options.Add(InputResponses);
+                        command.Options.Add(RequestState);
           command.Options.Add(Input);
           command.Options.Add(RequestJson);
           command.Options.Add(RequestFile);
@@ -113,6 +127,8 @@ Executes a specific tool within a tool router session. This is the primary execu
                         var arguments = CliRuntime.WasSpecified(parseResult, ArgumentsOption) ? parseResult.GetValue(ArgumentsOption) : (__requestBase is { } __ArgumentsBaseValue ? __ArgumentsBaseValue.Arguments : default);
                         var account = CliRuntime.WasSpecified(parseResult, Account) ? parseResult.GetValue(Account) : (__requestBase is { } __AccountBaseValue ? __AccountBaseValue.Account : default);
                         var enableAutoWorkbenchOffload = CliRuntime.WasSpecified(parseResult, EnableAutoWorkbenchOffload) ? parseResult.GetValue(EnableAutoWorkbenchOffload) : (__requestBase is { } __EnableAutoWorkbenchOffloadBaseValue ? __EnableAutoWorkbenchOffloadBaseValue.EnableAutoWorkbenchOffload : default);
+                        var inputResponses = CliRuntime.WasSpecified(parseResult, InputResponses) ? parseResult.GetValue(InputResponses) : (__requestBase is { } __InputResponsesBaseValue ? __InputResponsesBaseValue.InputResponses : default);
+                        var requestState = CliRuntime.WasSpecified(parseResult, RequestState) ? parseResult.GetValue(RequestState) : (__requestBase is { } __RequestStateBaseValue ? __RequestStateBaseValue.RequestState : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
@@ -122,6 +138,8 @@ Executes a specific tool within a tool router session. This is the primary execu
                                     arguments: arguments,
                                     account: account,
                                     enableAutoWorkbenchOffload: enableAutoWorkbenchOffload,
+                                    inputResponses: inputResponses,
+                                    requestState: requestState,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
 
