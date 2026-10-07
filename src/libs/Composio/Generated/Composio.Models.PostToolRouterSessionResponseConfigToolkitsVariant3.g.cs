@@ -9,7 +9,7 @@ namespace Composio
     public sealed partial class PostToolRouterSessionResponseConfigToolkitsVariant3
     {
         /// <summary>
-        /// Experimental: tool calls matched here pause until the user approves them.
+        /// Tool calls matched here pause until the user approves them.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("require_approval")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -25,7 +25,7 @@ namespace Composio
         /// Initializes a new instance of the <see cref="PostToolRouterSessionResponseConfigToolkitsVariant3" /> class.
         /// </summary>
         /// <param name="requireApproval">
-        /// Experimental: tool calls matched here pause until the user approves them.
+        /// Tool calls matched here pause until the user approves them.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

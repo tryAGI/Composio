@@ -83,25 +83,27 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolDeprecated))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolDeprecatedToolkit))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.Tool>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolRouterSessionExecuteCompleted))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolRouterSessionExecuteCompletedInstantCharge))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolRouterSessionExecuteCompletedInstantChargeCurrency), TypeInfoPropertyName = "ToolRouterSessionExecuteCompletedInstantChargeCurrency2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolRouterSessionExecuteCompletedInstantChargeChargedBy), TypeInfoPropertyName = "ToolRouterSessionExecuteCompletedInstantChargeChargedBy2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolRouterSessionExecuteCompletedResultType), TypeInfoPropertyName = "ToolRouterSessionExecuteCompletedResultType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolRouterSessionExecuteFailed))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolRouterSessionExecuteFailedInstantCharge))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolRouterSessionExecuteFailedInstantChargeCurrency), TypeInfoPropertyName = "ToolRouterSessionExecuteFailedInstantChargeCurrency2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolRouterSessionExecuteFailedInstantChargeChargedBy), TypeInfoPropertyName = "ToolRouterSessionExecuteFailedInstantChargeChargedBy2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolRouterSessionExecuteFailedResultType), TypeInfoPropertyName = "ToolRouterSessionExecuteFailedResultType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolRouterInputRequest))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolRouterInputRequestType), TypeInfoPropertyName = "ToolRouterInputRequestType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolRouterInputRequestMode), TypeInfoPropertyName = "ToolRouterInputRequestMode2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolRouterInputRequiredResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolRouterInputRequiredResponseResultType), TypeInfoPropertyName = "ToolRouterInputRequiredResponseResultType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::Composio.ToolRouterInputRequest>))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ProxyExecuteForSessionCompleted))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ProxyExecuteForSessionCompletedBinaryData))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ProxyExecuteForSessionCompletedResultType), TypeInfoPropertyName = "ProxyExecuteForSessionCompletedResultType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ExecuteCompleted))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ExecuteCompletedResultType), TypeInfoPropertyName = "ExecuteCompletedResultType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ExecuteCompletedInstantCharge))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ExecuteCompletedInstantChargeCurrency), TypeInfoPropertyName = "ExecuteCompletedInstantChargeCurrency2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ExecuteCompletedInstantChargeChargedBy), TypeInfoPropertyName = "ExecuteCompletedInstantChargeChargedBy2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ExecuteFailed))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ExecuteFailedResultType), TypeInfoPropertyName = "ExecuteFailedResultType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ExecuteFailedInstantCharge))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ExecuteFailedInstantChargeCurrency), TypeInfoPropertyName = "ExecuteFailedInstantChargeCurrency2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ExecuteFailedInstantChargeChargedBy), TypeInfoPropertyName = "ExecuteFailedInstantChargeChargedBy2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.UserInputRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.UserInputRequestType), TypeInfoPropertyName = "UserInputRequestType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.UserInputRequestMode), TypeInfoPropertyName = "UserInputRequestMode2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ExecuteRequiresUserInput))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ExecuteRequiresUserInputResultType), TypeInfoPropertyName = "ExecuteRequiresUserInputResultType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::Composio.UserInputRequest>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.UserInputResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.UserInputResponseAction), TypeInfoPropertyName = "UserInputResponseAction2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ProxyExecuteCompleted))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ProxyExecuteCompletedResultType), TypeInfoPropertyName = "ProxyExecuteCompletedResultType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ProxyExecuteCompletedBinaryData))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolRouterToolkitsListResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.ToolRouterToolkitsListResponseItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolRouterToolkitsListResponseItem))]
@@ -168,6 +170,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionRequestExperimentalNoElicitationSupportFallback), TypeInfoPropertyName = "PostToolRouterSessionRequestExperimentalNoElicitationSupportFallback2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionRequestPreload))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionBySessionIdExecuteRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.Dictionary<string, global::Composio.UserInputResponse>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionBySessionIdExecuteMetaRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionBySessionIdExecuteMetaRequestSlug), TypeInfoPropertyName = "PostToolRouterSessionBySessionIdExecuteMetaRequestSlug2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchToolRouterSessionBySessionIdRequest))]
@@ -458,16 +461,17 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<string, global::Composio.ToolScopeRequirementsAllOfItem>?), TypeInfoPropertyName = "NullableAnyOfStringToolScopeRequirementsAllOfItem2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<string, global::Composio.ToolScopeRequirementsAllOfItemAnyOfItem>?), TypeInfoPropertyName = "NullableAnyOfStringToolScopeRequirementsAllOfItemAnyOfItem2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolRouterSessionExecuteCompletedInstantChargeCurrency?), TypeInfoPropertyName = "NullableToolRouterSessionExecuteCompletedInstantChargeCurrency2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolRouterSessionExecuteCompletedInstantChargeChargedBy?), TypeInfoPropertyName = "NullableToolRouterSessionExecuteCompletedInstantChargeChargedBy2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolRouterSessionExecuteCompletedResultType?), TypeInfoPropertyName = "NullableToolRouterSessionExecuteCompletedResultType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolRouterSessionExecuteFailedInstantChargeCurrency?), TypeInfoPropertyName = "NullableToolRouterSessionExecuteFailedInstantChargeCurrency2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolRouterSessionExecuteFailedInstantChargeChargedBy?), TypeInfoPropertyName = "NullableToolRouterSessionExecuteFailedInstantChargeChargedBy2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolRouterSessionExecuteFailedResultType?), TypeInfoPropertyName = "NullableToolRouterSessionExecuteFailedResultType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolRouterInputRequestType?), TypeInfoPropertyName = "NullableToolRouterInputRequestType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolRouterInputRequestMode?), TypeInfoPropertyName = "NullableToolRouterInputRequestMode2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ToolRouterInputRequiredResponseResultType?), TypeInfoPropertyName = "NullableToolRouterInputRequiredResponseResultType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ProxyExecuteForSessionCompletedResultType?), TypeInfoPropertyName = "NullableProxyExecuteForSessionCompletedResultType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ExecuteCompletedResultType?), TypeInfoPropertyName = "NullableExecuteCompletedResultType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ExecuteCompletedInstantChargeCurrency?), TypeInfoPropertyName = "NullableExecuteCompletedInstantChargeCurrency2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ExecuteCompletedInstantChargeChargedBy?), TypeInfoPropertyName = "NullableExecuteCompletedInstantChargeChargedBy2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ExecuteFailedResultType?), TypeInfoPropertyName = "NullableExecuteFailedResultType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ExecuteFailedInstantChargeCurrency?), TypeInfoPropertyName = "NullableExecuteFailedInstantChargeCurrency2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ExecuteFailedInstantChargeChargedBy?), TypeInfoPropertyName = "NullableExecuteFailedInstantChargeChargedBy2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.UserInputRequestType?), TypeInfoPropertyName = "NullableUserInputRequestType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.UserInputRequestMode?), TypeInfoPropertyName = "NullableUserInputRequestMode2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ExecuteRequiresUserInputResultType?), TypeInfoPropertyName = "NullableExecuteRequiresUserInputResultType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.UserInputResponseAction?), TypeInfoPropertyName = "NullableUserInputResponseAction2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.ProxyExecuteCompletedResultType?), TypeInfoPropertyName = "NullableProxyExecuteCompletedResultType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<double?, string>?), TypeInfoPropertyName = "NullableAnyOfDoubleString2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<bool?, global::Composio.PostToolRouterSessionRequestInstant>?), TypeInfoPropertyName = "NullableAnyOfBooleanPostToolRouterSessionRequestInstant2")]
@@ -509,10 +513,6 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant1AuthScheme?), TypeInfoPropertyName = "NullablePostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant1AuthScheme2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant2AuthScheme?), TypeInfoPropertyName = "NullablePostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant2AuthScheme2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant3AuthScheme?), TypeInfoPropertyName = "NullablePostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant3AuthScheme2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant4AuthScheme?), TypeInfoPropertyName = "NullablePostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant4AuthScheme2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant5AuthScheme?), TypeInfoPropertyName = "NullablePostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant5AuthScheme2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant6AuthScheme?), TypeInfoPropertyName = "NullablePostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant6AuthScheme2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant7AuthScheme?), TypeInfoPropertyName = "NullablePostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant7AuthScheme2")]
     internal sealed partial class ToolRouterSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -569,6 +569,10 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<global::Composio.PatchToolRouterSessionBySessionIdResponseConfigInstantToolsVariant1, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigInstantToolsVariant2>?), TypeInfoPropertyName = "PatchToolRouterSessionBySessionIdResponseConfigInstantToolsVariant2_cc51991f10e6bd73")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolsVariant1, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolsVariant2, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolsVariant3, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolsVariant4>?), TypeInfoPropertyName = "PatchToolRouterSessionBySessionIdResponseConfigToolsVariant4_af8f08188bf07311")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<global::System.Collections.Generic.List<global::Composio.PatchToolRouterSessionBySessionIdRequestToolsVariant3Tag>, global::Composio.PatchToolRouterSessionBySessionIdRequestToolsVariant3Tags>), TypeInfoPropertyName = "PatchToolRouterSessionBySessionIdRequestToolsVariant3Tags_d5bdef055e1131b0")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant4AuthScheme?), TypeInfoPropertyName = "NullablePostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant4AuthScheme2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant5AuthScheme?), TypeInfoPropertyName = "NullablePostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant5AuthScheme2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant6AuthScheme?), TypeInfoPropertyName = "NullablePostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant6AuthScheme2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant7AuthScheme?), TypeInfoPropertyName = "NullablePostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant7AuthScheme2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant8AuthScheme?), TypeInfoPropertyName = "NullablePostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant8AuthScheme2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant9AuthScheme?), TypeInfoPropertyName = "NullablePostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant9AuthScheme2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant10AuthScheme?), TypeInfoPropertyName = "NullablePostToolRouterSessionBySessionIdProxyExecuteRequestCustomConnectionDataVariant10AuthScheme2")]
@@ -888,45 +892,49 @@ namespace Composio
             public override bool CanConvert(global::System.Type typeToConvert)
             {
                 return
-                    typeToConvert == typeof(global::Composio.ToolRouterSessionExecuteCompletedInstantChargeCurrency)
+                    typeToConvert == typeof(global::Composio.ExecuteCompletedResultType)
 
-                    || typeToConvert == typeof(global::Composio.ToolRouterSessionExecuteCompletedInstantChargeCurrency?)
+                    || typeToConvert == typeof(global::Composio.ExecuteCompletedResultType?)
 
-                    || typeToConvert == typeof(global::Composio.ToolRouterSessionExecuteCompletedInstantChargeChargedBy)
+                    || typeToConvert == typeof(global::Composio.ExecuteCompletedInstantChargeCurrency)
 
-                    || typeToConvert == typeof(global::Composio.ToolRouterSessionExecuteCompletedInstantChargeChargedBy?)
+                    || typeToConvert == typeof(global::Composio.ExecuteCompletedInstantChargeCurrency?)
 
-                    || typeToConvert == typeof(global::Composio.ToolRouterSessionExecuteCompletedResultType)
+                    || typeToConvert == typeof(global::Composio.ExecuteCompletedInstantChargeChargedBy)
 
-                    || typeToConvert == typeof(global::Composio.ToolRouterSessionExecuteCompletedResultType?)
+                    || typeToConvert == typeof(global::Composio.ExecuteCompletedInstantChargeChargedBy?)
 
-                    || typeToConvert == typeof(global::Composio.ToolRouterSessionExecuteFailedInstantChargeCurrency)
+                    || typeToConvert == typeof(global::Composio.ExecuteFailedResultType)
 
-                    || typeToConvert == typeof(global::Composio.ToolRouterSessionExecuteFailedInstantChargeCurrency?)
+                    || typeToConvert == typeof(global::Composio.ExecuteFailedResultType?)
 
-                    || typeToConvert == typeof(global::Composio.ToolRouterSessionExecuteFailedInstantChargeChargedBy)
+                    || typeToConvert == typeof(global::Composio.ExecuteFailedInstantChargeCurrency)
 
-                    || typeToConvert == typeof(global::Composio.ToolRouterSessionExecuteFailedInstantChargeChargedBy?)
+                    || typeToConvert == typeof(global::Composio.ExecuteFailedInstantChargeCurrency?)
 
-                    || typeToConvert == typeof(global::Composio.ToolRouterSessionExecuteFailedResultType)
+                    || typeToConvert == typeof(global::Composio.ExecuteFailedInstantChargeChargedBy)
 
-                    || typeToConvert == typeof(global::Composio.ToolRouterSessionExecuteFailedResultType?)
+                    || typeToConvert == typeof(global::Composio.ExecuteFailedInstantChargeChargedBy?)
 
-                    || typeToConvert == typeof(global::Composio.ToolRouterInputRequestType)
+                    || typeToConvert == typeof(global::Composio.UserInputRequestType)
 
-                    || typeToConvert == typeof(global::Composio.ToolRouterInputRequestType?)
+                    || typeToConvert == typeof(global::Composio.UserInputRequestType?)
 
-                    || typeToConvert == typeof(global::Composio.ToolRouterInputRequestMode)
+                    || typeToConvert == typeof(global::Composio.UserInputRequestMode)
 
-                    || typeToConvert == typeof(global::Composio.ToolRouterInputRequestMode?)
+                    || typeToConvert == typeof(global::Composio.UserInputRequestMode?)
 
-                    || typeToConvert == typeof(global::Composio.ToolRouterInputRequiredResponseResultType)
+                    || typeToConvert == typeof(global::Composio.ExecuteRequiresUserInputResultType)
 
-                    || typeToConvert == typeof(global::Composio.ToolRouterInputRequiredResponseResultType?)
+                    || typeToConvert == typeof(global::Composio.ExecuteRequiresUserInputResultType?)
 
-                    || typeToConvert == typeof(global::Composio.ProxyExecuteForSessionCompletedResultType)
+                    || typeToConvert == typeof(global::Composio.UserInputResponseAction)
 
-                    || typeToConvert == typeof(global::Composio.ProxyExecuteForSessionCompletedResultType?)
+                    || typeToConvert == typeof(global::Composio.UserInputResponseAction?)
+
+                    || typeToConvert == typeof(global::Composio.ProxyExecuteCompletedResultType)
+
+                    || typeToConvert == typeof(global::Composio.ProxyExecuteCompletedResultType?)
 
                     || typeToConvert == typeof(global::Composio.PostToolRouterSessionRequestToolsVariant3Tag)
 
@@ -1245,104 +1253,114 @@ namespace Composio
                 global::System.Type typeToConvert,
                 global::System.Text.Json.JsonSerializerOptions options)
             {
-                if (typeToConvert == typeof(global::Composio.ToolRouterSessionExecuteCompletedInstantChargeCurrency))
+                if (typeToConvert == typeof(global::Composio.ExecuteCompletedResultType))
                 {
-                    return new global::Composio.JsonConverters.ToolRouterSessionExecuteCompletedInstantChargeCurrencyJsonConverter();
+                    return new global::Composio.JsonConverters.ExecuteCompletedResultTypeJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Composio.ToolRouterSessionExecuteCompletedInstantChargeCurrency?))
+                if (typeToConvert == typeof(global::Composio.ExecuteCompletedResultType?))
                 {
-                    return new global::Composio.JsonConverters.ToolRouterSessionExecuteCompletedInstantChargeCurrencyNullableJsonConverter();
+                    return new global::Composio.JsonConverters.ExecuteCompletedResultTypeNullableJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Composio.ToolRouterSessionExecuteCompletedInstantChargeChargedBy))
+                if (typeToConvert == typeof(global::Composio.ExecuteCompletedInstantChargeCurrency))
                 {
-                    return new global::Composio.JsonConverters.ToolRouterSessionExecuteCompletedInstantChargeChargedByJsonConverter();
+                    return new global::Composio.JsonConverters.ExecuteCompletedInstantChargeCurrencyJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Composio.ToolRouterSessionExecuteCompletedInstantChargeChargedBy?))
+                if (typeToConvert == typeof(global::Composio.ExecuteCompletedInstantChargeCurrency?))
                 {
-                    return new global::Composio.JsonConverters.ToolRouterSessionExecuteCompletedInstantChargeChargedByNullableJsonConverter();
+                    return new global::Composio.JsonConverters.ExecuteCompletedInstantChargeCurrencyNullableJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Composio.ToolRouterSessionExecuteCompletedResultType))
+                if (typeToConvert == typeof(global::Composio.ExecuteCompletedInstantChargeChargedBy))
                 {
-                    return new global::Composio.JsonConverters.ToolRouterSessionExecuteCompletedResultTypeJsonConverter();
+                    return new global::Composio.JsonConverters.ExecuteCompletedInstantChargeChargedByJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Composio.ToolRouterSessionExecuteCompletedResultType?))
+                if (typeToConvert == typeof(global::Composio.ExecuteCompletedInstantChargeChargedBy?))
                 {
-                    return new global::Composio.JsonConverters.ToolRouterSessionExecuteCompletedResultTypeNullableJsonConverter();
+                    return new global::Composio.JsonConverters.ExecuteCompletedInstantChargeChargedByNullableJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Composio.ToolRouterSessionExecuteFailedInstantChargeCurrency))
+                if (typeToConvert == typeof(global::Composio.ExecuteFailedResultType))
                 {
-                    return new global::Composio.JsonConverters.ToolRouterSessionExecuteFailedInstantChargeCurrencyJsonConverter();
+                    return new global::Composio.JsonConverters.ExecuteFailedResultTypeJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Composio.ToolRouterSessionExecuteFailedInstantChargeCurrency?))
+                if (typeToConvert == typeof(global::Composio.ExecuteFailedResultType?))
                 {
-                    return new global::Composio.JsonConverters.ToolRouterSessionExecuteFailedInstantChargeCurrencyNullableJsonConverter();
+                    return new global::Composio.JsonConverters.ExecuteFailedResultTypeNullableJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Composio.ToolRouterSessionExecuteFailedInstantChargeChargedBy))
+                if (typeToConvert == typeof(global::Composio.ExecuteFailedInstantChargeCurrency))
                 {
-                    return new global::Composio.JsonConverters.ToolRouterSessionExecuteFailedInstantChargeChargedByJsonConverter();
+                    return new global::Composio.JsonConverters.ExecuteFailedInstantChargeCurrencyJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Composio.ToolRouterSessionExecuteFailedInstantChargeChargedBy?))
+                if (typeToConvert == typeof(global::Composio.ExecuteFailedInstantChargeCurrency?))
                 {
-                    return new global::Composio.JsonConverters.ToolRouterSessionExecuteFailedInstantChargeChargedByNullableJsonConverter();
+                    return new global::Composio.JsonConverters.ExecuteFailedInstantChargeCurrencyNullableJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Composio.ToolRouterSessionExecuteFailedResultType))
+                if (typeToConvert == typeof(global::Composio.ExecuteFailedInstantChargeChargedBy))
                 {
-                    return new global::Composio.JsonConverters.ToolRouterSessionExecuteFailedResultTypeJsonConverter();
+                    return new global::Composio.JsonConverters.ExecuteFailedInstantChargeChargedByJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Composio.ToolRouterSessionExecuteFailedResultType?))
+                if (typeToConvert == typeof(global::Composio.ExecuteFailedInstantChargeChargedBy?))
                 {
-                    return new global::Composio.JsonConverters.ToolRouterSessionExecuteFailedResultTypeNullableJsonConverter();
+                    return new global::Composio.JsonConverters.ExecuteFailedInstantChargeChargedByNullableJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Composio.ToolRouterInputRequestType))
+                if (typeToConvert == typeof(global::Composio.UserInputRequestType))
                 {
-                    return new global::Composio.JsonConverters.ToolRouterInputRequestTypeJsonConverter();
+                    return new global::Composio.JsonConverters.UserInputRequestTypeJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Composio.ToolRouterInputRequestType?))
+                if (typeToConvert == typeof(global::Composio.UserInputRequestType?))
                 {
-                    return new global::Composio.JsonConverters.ToolRouterInputRequestTypeNullableJsonConverter();
+                    return new global::Composio.JsonConverters.UserInputRequestTypeNullableJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Composio.ToolRouterInputRequestMode))
+                if (typeToConvert == typeof(global::Composio.UserInputRequestMode))
                 {
-                    return new global::Composio.JsonConverters.ToolRouterInputRequestModeJsonConverter();
+                    return new global::Composio.JsonConverters.UserInputRequestModeJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Composio.ToolRouterInputRequestMode?))
+                if (typeToConvert == typeof(global::Composio.UserInputRequestMode?))
                 {
-                    return new global::Composio.JsonConverters.ToolRouterInputRequestModeNullableJsonConverter();
+                    return new global::Composio.JsonConverters.UserInputRequestModeNullableJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Composio.ToolRouterInputRequiredResponseResultType))
+                if (typeToConvert == typeof(global::Composio.ExecuteRequiresUserInputResultType))
                 {
-                    return new global::Composio.JsonConverters.ToolRouterInputRequiredResponseResultTypeJsonConverter();
+                    return new global::Composio.JsonConverters.ExecuteRequiresUserInputResultTypeJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Composio.ToolRouterInputRequiredResponseResultType?))
+                if (typeToConvert == typeof(global::Composio.ExecuteRequiresUserInputResultType?))
                 {
-                    return new global::Composio.JsonConverters.ToolRouterInputRequiredResponseResultTypeNullableJsonConverter();
+                    return new global::Composio.JsonConverters.ExecuteRequiresUserInputResultTypeNullableJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Composio.ProxyExecuteForSessionCompletedResultType))
+                if (typeToConvert == typeof(global::Composio.UserInputResponseAction))
                 {
-                    return new global::Composio.JsonConverters.ProxyExecuteForSessionCompletedResultTypeJsonConverter();
+                    return new global::Composio.JsonConverters.UserInputResponseActionJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Composio.ProxyExecuteForSessionCompletedResultType?))
+                if (typeToConvert == typeof(global::Composio.UserInputResponseAction?))
                 {
-                    return new global::Composio.JsonConverters.ProxyExecuteForSessionCompletedResultTypeNullableJsonConverter();
+                    return new global::Composio.JsonConverters.UserInputResponseActionNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Composio.ProxyExecuteCompletedResultType))
+                {
+                    return new global::Composio.JsonConverters.ProxyExecuteCompletedResultTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Composio.ProxyExecuteCompletedResultType?))
+                {
+                    return new global::Composio.JsonConverters.ProxyExecuteCompletedResultTypeNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::Composio.PostToolRouterSessionRequestToolsVariant3Tag))

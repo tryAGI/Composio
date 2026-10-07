@@ -4,16 +4,16 @@
 namespace Composio
 {
     /// <summary>
-    /// Experimental: what session MCP does with a tool call that needs approval when the MCP client can't ask the user. deny (default) rejects the call; allow runs it without approval.
+    /// What session MCP does with a tool call that needs approval when the MCP client can't ask the user. deny (default) rejects the call; allow runs it without approval.
     /// </summary>
     public enum PatchToolRouterSessionBySessionIdRequestExperimentalNoElicitationSupportFallback
     {
         /// <summary>
-        /// what session MCP does with a tool call that needs approval when the MCP client can't ask the user. deny (default) rejects the call; allow runs it without approval.
+        ///
         /// </summary>
         Allow,
         /// <summary>
-        /// what session MCP does with a tool call that needs approval when the MCP client can't ask the user. deny (default) rejects the call; allow runs it without approval.
+        ///
         /// </summary>
         Deny,
     }

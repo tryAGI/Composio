@@ -51,7 +51,7 @@ namespace Composio
         public global::Composio.PostToolRouterSessionRequestExperimentalSubmitFeedback? SubmitFeedback { get; set; }
 
         /// <summary>
-        /// Experimental: what session MCP does with a tool call that needs approval when the MCP client can't ask the user. deny (default) rejects the call; allow runs it without approval.<br/>
+        /// What session MCP does with a tool call that needs approval when the MCP client can't ask the user. deny (default) rejects the call; allow runs it without approval.<br/>
         /// Default Value: deny
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("no_elicitation_support_fallback")]
@@ -89,7 +89,7 @@ namespace Composio
         /// Exposes the COMPOSIO_SUBMIT_FEEDBACK helper tool in this session so the agent can report tool executions with empty, incorrect, or failed results. Defaults to false.
         /// </param>
         /// <param name="noElicitationSupportFallback">
-        /// Experimental: what session MCP does with a tool call that needs approval when the MCP client can't ask the user. deny (default) rejects the call; allow runs it without approval.<br/>
+        /// What session MCP does with a tool call that needs approval when the MCP client can't ask the user. deny (default) rejects the call; allow runs it without approval.<br/>
         /// Default Value: deny
         /// </param>
 #if NET7_0_OR_GREATER
