@@ -21,18 +21,18 @@ namespace Composio.JsonConverters
                             throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Composio.PostToolRouterSessionBySessionIdProxyExecuteResponseDiscriminator)}");
             var discriminator = global::System.Text.Json.JsonSerializer.Deserialize(ref readerCopy, discriminatorTypeInfo);
 
-            global::Composio.ProxyExecuteForSessionCompleted? completed = default;
+            global::Composio.ProxyExecuteCompleted? completed = default;
             if (discriminator?.ResultType == global::Composio.PostToolRouterSessionBySessionIdProxyExecuteResponseDiscriminatorResultType.Completed)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Composio.ProxyExecuteForSessionCompleted), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Composio.ProxyExecuteForSessionCompleted> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Composio.ProxyExecuteForSessionCompleted)}");
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Composio.ProxyExecuteCompleted), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Composio.ProxyExecuteCompleted> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Composio.ProxyExecuteCompleted)}");
                 completed = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
-            global::Composio.ToolRouterInputRequiredResponse? inputRequired = default;
+            global::Composio.ExecuteRequiresUserInput? inputRequired = default;
             if (discriminator?.ResultType == global::Composio.PostToolRouterSessionBySessionIdProxyExecuteResponseDiscriminatorResultType.InputRequired)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Composio.ToolRouterInputRequiredResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Composio.ToolRouterInputRequiredResponse> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Composio.ToolRouterInputRequiredResponse)}");
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Composio.ExecuteRequiresUserInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Composio.ExecuteRequiresUserInput> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Composio.ExecuteRequiresUserInput)}");
                 inputRequired = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
 
@@ -57,14 +57,14 @@ namespace Composio.JsonConverters
 
             if (value.IsCompleted)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Composio.ProxyExecuteForSessionCompleted), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Composio.ProxyExecuteForSessionCompleted?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Composio.ProxyExecuteForSessionCompleted).Name}");
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Composio.ProxyExecuteCompleted), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Composio.ProxyExecuteCompleted?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Composio.ProxyExecuteCompleted).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickCompleted(), typeInfo);
             }
             else if (value.IsInputRequired)
             {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Composio.ToolRouterInputRequiredResponse), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Composio.ToolRouterInputRequiredResponse?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Composio.ToolRouterInputRequiredResponse).Name}");
+                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Composio.ExecuteRequiresUserInput), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Composio.ExecuteRequiresUserInput?> ??
+                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Composio.ExecuteRequiresUserInput).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickInputRequired(), typeInfo);
             }
         }

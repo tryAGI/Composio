@@ -576,6 +576,43 @@ namespace Composio
                                         h => h.Key,
                                         h => h.Value));
                             }
+                            // Gone
+                            if ((int)__response.StatusCode == 410)
+                            {
+                                string? __content_410 = null;
+                                global::System.Exception? __exception_410 = null;
+                                global::Composio.Error? __value_410 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_410 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_410 = global::Composio.Error.FromJson(__content_410, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_410 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_410 = global::Composio.Error.FromJson(__content_410, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_410 = __ex;
+                                }
+
+
+                                throw global::Composio.ApiException<global::Composio.Error>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_410 ?? __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_410,
+                                    responseBody: __content_410,
+                                    responseObject: __value_410,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
                             // Payload too large
                             if ((int)__response.StatusCode == 413)
                             {

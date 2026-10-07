@@ -18,7 +18,7 @@ namespace Composio
         public required global::System.Collections.Generic.IList<string> Enable { get; set; }
 
         /// <summary>
-        /// Experimental: tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.<br/>
+        /// Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.<br/>
         /// Example: [github]
         /// </summary>
         /// <example>[github]</example>
@@ -39,7 +39,7 @@ namespace Composio
         /// Example: [gmail, slack, github]
         /// </param>
         /// <param name="requireApproval">
-        /// Experimental: tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.<br/>
+        /// Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.<br/>
         /// Example: [github]
         /// </param>
 #if NET7_0_OR_GREATER

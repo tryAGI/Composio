@@ -9,7 +9,7 @@ namespace Composio
     public sealed partial class PostToolRouterSessionRequestToolsVariant4
     {
         /// <summary>
-        /// Experimental: tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.<br/>
+        /// Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.<br/>
         /// Example: [GITHUB_DELETE_A_REPOSITORY]
         /// </summary>
         /// <example>[GITHUB_DELETE_A_REPOSITORY]</example>
@@ -27,7 +27,7 @@ namespace Composio
         /// Initializes a new instance of the <see cref="PostToolRouterSessionRequestToolsVariant4" /> class.
         /// </summary>
         /// <param name="requireApproval">
-        /// Experimental: tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.<br/>
+        /// Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.<br/>
         /// Example: [GITHUB_DELETE_A_REPOSITORY]
         /// </param>
 #if NET7_0_OR_GREATER

@@ -36,16 +36,16 @@ internal static partial class ToolRouterPostToolRouterSessionBySessionIdExecuteC
         name: @"--enable-auto-workbench-offload",
         description: @"When true, direct non-meta tool execution may return a workbench offload preview if the response exceeds the configured threshold and the session workbench is enabled. When omitted or false, direct tool execution returns the normal inline response. Meta/helper tools are unaffected, and COMPOSIO_MULTI_EXECUTE_TOOL uses session.workbench configuration for its own batch-level offload behavior.");
 
-    private static Option<global::System.Collections.Generic.Dictionary<string, object?>?> InputResponses { get; } = new(
+    private static Option<global::System.Collections.Generic.Dictionary<string, global::Composio.UserInputResponse>?> InputResponses { get; } = new(
         name: @"--input-responses")
     {
-        Description = @"Experimental: the user's answers to the questions an earlier response asked, keyed by the same ids. Send them with the same tool call to continue it.",
+        Description = @"The user's answers to an `input_required` response, keyed by the ids in its `input_requests`. Send them by repeating the same call (same tool and arguments) with this field added, along with the response's `request_state` if present. An approved call runs; a denied or declined one returns `failed`.",
     };
 
     private static Option<string?> RequestState { get; } = new(
         name: @"--request-state")
     {
-        Description = @"Experimental: state from an earlier response that asked the user for input, sent back unchanged.",
+        Description = @"The `request_state` from the `input_required` response, sent back unchanged with `input_responses`.",
     };
       private static Option<string?> Input { get; } = new(@"--input")
       {

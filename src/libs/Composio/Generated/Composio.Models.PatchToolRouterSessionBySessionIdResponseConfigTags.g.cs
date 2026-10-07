@@ -21,7 +21,7 @@ namespace Composio
         public global::System.Collections.Generic.IList<global::Composio.PatchToolRouterSessionBySessionIdResponseConfigTagsDisabledItem>? Disabled { get; set; }
 
         /// <summary>
-        /// Experimental: tool calls matched here pause until the user approves them.
+        /// Tool calls matched here pause until the user approves them.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("require_approval")]
         public global::System.Collections.Generic.IList<global::Composio.PatchToolRouterSessionBySessionIdResponseConfigTagsRequireApprovalItem>? RequireApproval { get; set; }
@@ -42,7 +42,7 @@ namespace Composio
         /// Tags that the tool must NOT have any of
         /// </param>
         /// <param name="requireApproval">
-        /// Experimental: tool calls matched here pause until the user approves them.
+        /// Tool calls matched here pause until the user approves them.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

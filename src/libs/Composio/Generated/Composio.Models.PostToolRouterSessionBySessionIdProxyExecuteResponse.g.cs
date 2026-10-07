@@ -18,9 +18,9 @@ namespace Composio
         ///
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::Composio.ProxyExecuteForSessionCompleted? Completed { get; init; }
+        public global::Composio.ProxyExecuteCompleted? Completed { get; init; }
 #else
-        public global::Composio.ProxyExecuteForSessionCompleted? Completed { get; }
+        public global::Composio.ProxyExecuteCompleted? Completed { get; }
 #endif
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace Composio
 #if NET6_0_OR_GREATER
             [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
 #endif
-            out global::Composio.ProxyExecuteForSessionCompleted? value)
+            out global::Composio.ProxyExecuteCompleted? value)
         {
             value = Completed;
             return IsCompleted;
@@ -47,17 +47,17 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
-        public global::Composio.ProxyExecuteForSessionCompleted PickCompleted() => Completed is { } value
+        public global::Composio.ProxyExecuteCompleted PickCompleted() => Completed is { } value
             ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'Completed' but the value was {ToString()}.");
 
         /// <summary>
-        ///
+        /// The call needs the user's input before it runs. Returned only when the session is configured to ask for user approval before tool execution. Show each question in `input_requests` to the user, then repeat the same call with their answers in `input_responses`, along with this `request_state` if present.
         /// </summary>
 #if NET6_0_OR_GREATER
-        public global::Composio.ToolRouterInputRequiredResponse? InputRequired { get; init; }
+        public global::Composio.ExecuteRequiresUserInput? InputRequired { get; init; }
 #else
-        public global::Composio.ToolRouterInputRequiredResponse? InputRequired { get; }
+        public global::Composio.ExecuteRequiresUserInput? InputRequired { get; }
 #endif
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace Composio
 #if NET6_0_OR_GREATER
             [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
 #endif
-            out global::Composio.ToolRouterInputRequiredResponse? value)
+            out global::Composio.ExecuteRequiresUserInput? value)
         {
             value = InputRequired;
             return IsInputRequired;
@@ -84,23 +84,23 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
-        public global::Composio.ToolRouterInputRequiredResponse PickInputRequired() => InputRequired is { } value
+        public global::Composio.ExecuteRequiresUserInput PickInputRequired() => InputRequired is { } value
             ? value
             : throw new global::System.InvalidOperationException($"Expected union variant 'InputRequired' but the value was {ToString()}.");
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator PostToolRouterSessionBySessionIdProxyExecuteResponse(global::Composio.ProxyExecuteForSessionCompleted value) => new PostToolRouterSessionBySessionIdProxyExecuteResponse((global::Composio.ProxyExecuteForSessionCompleted?)value);
+        public static implicit operator PostToolRouterSessionBySessionIdProxyExecuteResponse(global::Composio.ProxyExecuteCompleted value) => new PostToolRouterSessionBySessionIdProxyExecuteResponse((global::Composio.ProxyExecuteCompleted?)value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator global::Composio.ProxyExecuteForSessionCompleted?(PostToolRouterSessionBySessionIdProxyExecuteResponse @this) => @this.Completed;
+        public static implicit operator global::Composio.ProxyExecuteCompleted?(PostToolRouterSessionBySessionIdProxyExecuteResponse @this) => @this.Completed;
 
         /// <summary>
         ///
         /// </summary>
-        public PostToolRouterSessionBySessionIdProxyExecuteResponse(global::Composio.ProxyExecuteForSessionCompleted? value)
+        public PostToolRouterSessionBySessionIdProxyExecuteResponse(global::Composio.ProxyExecuteCompleted? value)
         {
             Completed = value;
         }
@@ -108,22 +108,22 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
-        public static PostToolRouterSessionBySessionIdProxyExecuteResponse FromCompleted(global::Composio.ProxyExecuteForSessionCompleted? value) => new PostToolRouterSessionBySessionIdProxyExecuteResponse(value);
+        public static PostToolRouterSessionBySessionIdProxyExecuteResponse FromCompleted(global::Composio.ProxyExecuteCompleted? value) => new PostToolRouterSessionBySessionIdProxyExecuteResponse(value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator PostToolRouterSessionBySessionIdProxyExecuteResponse(global::Composio.ToolRouterInputRequiredResponse value) => new PostToolRouterSessionBySessionIdProxyExecuteResponse((global::Composio.ToolRouterInputRequiredResponse?)value);
+        public static implicit operator PostToolRouterSessionBySessionIdProxyExecuteResponse(global::Composio.ExecuteRequiresUserInput value) => new PostToolRouterSessionBySessionIdProxyExecuteResponse((global::Composio.ExecuteRequiresUserInput?)value);
 
         /// <summary>
         ///
         /// </summary>
-        public static implicit operator global::Composio.ToolRouterInputRequiredResponse?(PostToolRouterSessionBySessionIdProxyExecuteResponse @this) => @this.InputRequired;
+        public static implicit operator global::Composio.ExecuteRequiresUserInput?(PostToolRouterSessionBySessionIdProxyExecuteResponse @this) => @this.InputRequired;
 
         /// <summary>
         ///
         /// </summary>
-        public PostToolRouterSessionBySessionIdProxyExecuteResponse(global::Composio.ToolRouterInputRequiredResponse? value)
+        public PostToolRouterSessionBySessionIdProxyExecuteResponse(global::Composio.ExecuteRequiresUserInput? value)
         {
             InputRequired = value;
         }
@@ -131,15 +131,15 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
-        public static PostToolRouterSessionBySessionIdProxyExecuteResponse FromInputRequired(global::Composio.ToolRouterInputRequiredResponse? value) => new PostToolRouterSessionBySessionIdProxyExecuteResponse(value);
+        public static PostToolRouterSessionBySessionIdProxyExecuteResponse FromInputRequired(global::Composio.ExecuteRequiresUserInput? value) => new PostToolRouterSessionBySessionIdProxyExecuteResponse(value);
 
         /// <summary>
         ///
         /// </summary>
         public PostToolRouterSessionBySessionIdProxyExecuteResponse(
             global::Composio.PostToolRouterSessionBySessionIdProxyExecuteResponseDiscriminatorResultType? resultType,
-            global::Composio.ProxyExecuteForSessionCompleted? completed,
-            global::Composio.ToolRouterInputRequiredResponse? inputRequired
+            global::Composio.ProxyExecuteCompleted? completed,
+            global::Composio.ExecuteRequiresUserInput? inputRequired
             )
         {
             ResultType = resultType;
@@ -176,8 +176,8 @@ namespace Composio
         ///
         /// </summary>
         public TResult? Match<TResult>(
-            global::System.Func<global::Composio.ProxyExecuteForSessionCompleted, TResult>? completed = null,
-            global::System.Func<global::Composio.ToolRouterInputRequiredResponse, TResult>? inputRequired = null,
+            global::System.Func<global::Composio.ProxyExecuteCompleted, TResult>? completed = null,
+            global::System.Func<global::Composio.ExecuteRequiresUserInput, TResult>? inputRequired = null,
             bool validate = true)
         {
             if (validate)
@@ -201,9 +201,9 @@ namespace Composio
         ///
         /// </summary>
         public void Match(
-            global::System.Action<global::Composio.ProxyExecuteForSessionCompleted>? completed = null,
+            global::System.Action<global::Composio.ProxyExecuteCompleted>? completed = null,
 
-            global::System.Action<global::Composio.ToolRouterInputRequiredResponse>? inputRequired = null,
+            global::System.Action<global::Composio.ExecuteRequiresUserInput>? inputRequired = null,
             bool validate = true)
         {
             if (validate)
@@ -225,8 +225,8 @@ namespace Composio
         ///
         /// </summary>
         public void Switch(
-            global::System.Action<global::Composio.ProxyExecuteForSessionCompleted>? completed = null,
-            global::System.Action<global::Composio.ToolRouterInputRequiredResponse>? inputRequired = null,
+            global::System.Action<global::Composio.ProxyExecuteCompleted>? completed = null,
+            global::System.Action<global::Composio.ExecuteRequiresUserInput>? inputRequired = null,
             bool validate = true)
         {
             if (validate)
@@ -252,9 +252,9 @@ namespace Composio
             var fields = new object?[]
             {
                 Completed,
-                typeof(global::Composio.ProxyExecuteForSessionCompleted),
+                typeof(global::Composio.ProxyExecuteCompleted),
                 InputRequired,
-                typeof(global::Composio.ToolRouterInputRequiredResponse),
+                typeof(global::Composio.ExecuteRequiresUserInput),
             };
             const int offset = unchecked((int)2166136261);
             const int prime = 16777619;
@@ -271,8 +271,8 @@ namespace Composio
         public bool Equals(PostToolRouterSessionBySessionIdProxyExecuteResponse other)
         {
             return
-                global::System.Collections.Generic.EqualityComparer<global::Composio.ProxyExecuteForSessionCompleted?>.Default.Equals(Completed, other.Completed) &&
-                global::System.Collections.Generic.EqualityComparer<global::Composio.ToolRouterInputRequiredResponse?>.Default.Equals(InputRequired, other.InputRequired)
+                global::System.Collections.Generic.EqualityComparer<global::Composio.ProxyExecuteCompleted?>.Default.Equals(Completed, other.Completed) &&
+                global::System.Collections.Generic.EqualityComparer<global::Composio.ExecuteRequiresUserInput?>.Default.Equals(InputRequired, other.InputRequired)
                 ;
         }
 

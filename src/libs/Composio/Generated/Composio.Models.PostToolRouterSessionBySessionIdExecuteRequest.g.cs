@@ -43,15 +43,15 @@ namespace Composio
         public bool? EnableAutoWorkbenchOffload { get; set; }
 
         /// <summary>
-        /// Experimental: the user's answers to the questions an earlier response asked, keyed by the same ids. Send them with the same tool call to continue it.<br/>
+        /// The user's answers to an `input_required` response, keyed by the ids in its `input_requests`. Send them by repeating the same call (same tool and arguments) with this field added, along with the response's `request_state` if present. An approved call runs; a denied or declined one returns `failed`.<br/>
         /// Example: {"approval_3f9a1c2b7d4e5f60":{"action":"accept","content":{"decision":"approve"}}}
         /// </summary>
         /// <example>{"approval_3f9a1c2b7d4e5f60":{"action":"accept","content":{"decision":"approve"}}}</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("input_responses")]
-        public global::System.Collections.Generic.Dictionary<string, object?>? InputResponses { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::Composio.UserInputResponse>? InputResponses { get; set; }
 
         /// <summary>
-        /// Experimental: state from an earlier response that asked the user for input, sent back unchanged.
+        /// The `request_state` from the `input_required` response, sent back unchanged with `input_responses`.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("request_state")]
         public string? RequestState { get; set; }
@@ -83,11 +83,11 @@ namespace Composio
         /// Example: true
         /// </param>
         /// <param name="inputResponses">
-        /// Experimental: the user's answers to the questions an earlier response asked, keyed by the same ids. Send them with the same tool call to continue it.<br/>
+        /// The user's answers to an `input_required` response, keyed by the ids in its `input_requests`. Send them by repeating the same call (same tool and arguments) with this field added, along with the response's `request_state` if present. An approved call runs; a denied or declined one returns `failed`.<br/>
         /// Example: {"approval_3f9a1c2b7d4e5f60":{"action":"accept","content":{"decision":"approve"}}}
         /// </param>
         /// <param name="requestState">
-        /// Experimental: state from an earlier response that asked the user for input, sent back unchanged.
+        /// The `request_state` from the `input_required` response, sent back unchanged with `input_responses`.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
@@ -97,7 +97,7 @@ namespace Composio
             global::System.Collections.Generic.Dictionary<string, object?>? arguments,
             string? account,
             bool? enableAutoWorkbenchOffload,
-            global::System.Collections.Generic.Dictionary<string, object?>? inputResponses,
+            global::System.Collections.Generic.Dictionary<string, global::Composio.UserInputResponse>? inputResponses,
             string? requestState)
         {
             this.ToolSlug = toolSlug ?? throw new global::System.ArgumentNullException(nameof(toolSlug));

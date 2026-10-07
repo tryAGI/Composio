@@ -39,6 +39,12 @@ namespace Composio
         public required global::Composio.GetToolkitsResponseItemType Type { get; set; }
 
         /// <summary>
+        /// Present when the latest version of this toolkit supports Instant accounts. See the tools endpoint for support on individual tools.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("instant")]
+        public global::Composio.GetToolkitsResponseItemInstant? Instant { get; set; }
+
+        /// <summary>
         /// [EXPERIMENTAL] Custom toolkits only. "all": every user in the project can use it. "user": only the user it was created for can.<br/>
         /// Example: all
         /// </summary>
@@ -136,6 +142,9 @@ namespace Composio
         /// <param name="meta">
         /// Additional metadata about the toolkit
         /// </param>
+        /// <param name="instant">
+        /// Present when the latest version of this toolkit supports Instant accounts. See the tools endpoint for support on individual tools.
+        /// </param>
         /// <param name="access">
         /// [EXPERIMENTAL] Custom toolkits only. "all": every user in the project can use it. "user": only the user it was created for can.<br/>
         /// Example: all
@@ -166,6 +175,7 @@ namespace Composio
             bool isLocalToolkit,
             global::Composio.DeprecatedToolkitInfo deprecated,
             global::Composio.GetToolkitsResponseItemMeta meta,
+            global::Composio.GetToolkitsResponseItemInstant? instant,
             global::Composio.GetToolkitsResponseItemAccess? access,
             global::System.Collections.Generic.IList<string>? authSchemes,
             global::System.Collections.Generic.IList<string>? composioManagedAuthSchemes,
@@ -175,6 +185,7 @@ namespace Composio
             this.Slug = slug ?? throw new global::System.ArgumentNullException(nameof(slug));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Type = type;
+            this.Instant = instant;
             this.Access = access;
             this.AuthSchemes = authSchemes;
             this.ComposioManagedAuthSchemes = composioManagedAuthSchemes;
