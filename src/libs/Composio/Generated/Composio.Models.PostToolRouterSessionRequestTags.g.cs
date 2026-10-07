@@ -21,6 +21,14 @@ namespace Composio
         public global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionRequestTagsDisableItem>? Disable { get; set; }
 
         /// <summary>
+        /// Experimental: tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.<br/>
+        /// Example: [destructiveHint]
+        /// </summary>
+        /// <example>[destructiveHint]</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("require_approval")]
+        public global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionRequestTagsRequireApprovalItem>? RequireApproval { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -31,15 +39,21 @@ namespace Composio
         /// </summary>
         /// <param name="enable"></param>
         /// <param name="disable"></param>
+        /// <param name="requireApproval">
+        /// Experimental: tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.<br/>
+        /// Example: [destructiveHint]
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PostToolRouterSessionRequestTags(
             global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionRequestTagsEnableItem>? enable,
-            global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionRequestTagsDisableItem>? disable)
+            global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionRequestTagsDisableItem>? disable,
+            global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionRequestTagsRequireApprovalItem>? requireApproval)
         {
             this.Enable = enable;
             this.Disable = disable;
+            this.RequireApproval = requireApproval;
         }
 
         /// <summary>

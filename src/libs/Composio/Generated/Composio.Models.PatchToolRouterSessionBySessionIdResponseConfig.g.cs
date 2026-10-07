@@ -16,11 +16,11 @@ namespace Composio
         public required string UserId { get; set; }
 
         /// <summary>
-        /// Toolkit configuration - either enabled list or disabled list
+        /// Toolkit configuration - either enabled list or disabled list, or toolkits whose tools need approval
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("toolkits")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AnyOfJsonConverter<global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolkitsVariant1, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolkitsVariant2>))]
-        public global::Composio.AnyOf<global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolkitsVariant1, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolkitsVariant2>? Toolkits { get; set; }
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AnyOfJsonConverter<global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolkitsVariant1, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolkitsVariant2, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolkitsVariant3>))]
+        public global::Composio.AnyOf<global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolkitsVariant1, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolkitsVariant2, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolkitsVariant3>? Toolkits { get; set; }
 
         /// <summary>
         /// Auth config overrides per toolkit
@@ -55,13 +55,13 @@ namespace Composio
         public global::Composio.PatchToolRouterSessionBySessionIdResponseConfigManageConnections? ManageConnections { get; set; }
 
         /// <summary>
-        /// Tool-level configuration per toolkit
+        /// Tool-level configuration per toolkit: tools to enable or disable, or tools that need approval
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tools")]
         public object? Tools { get; set; }
 
         /// <summary>
-        /// MCP tool annotation hints for filtering tools with enabled/disabled support. enabled: tags that the tool must have at least one of. disabled: tags that the tool must NOT have any of. Both conditions must be satisfied.
+        /// MCP tool annotation hints for filtering tools with enabled/disabled support, and experimentally the tags whose tools need approval. enabled: tags that the tool must have at least one of. disabled: tags that the tool must NOT have any of. Both conditions must be satisfied.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("tags")]
         public global::Composio.PatchToolRouterSessionBySessionIdResponseConfigTags? Tags { get; set; }
@@ -111,7 +111,7 @@ namespace Composio
         /// Preload configuration. Controls which tools appear in `session.tools` and the MCP server tool list, callable directly without going through search. Each preloaded tool adds to the agent context — roughly ≤20 tools is recommended. Always present in the response (empty `tools: []` when the session was created without a preload config).
         /// </param>
         /// <param name="toolkits">
-        /// Toolkit configuration - either enabled list or disabled list
+        /// Toolkit configuration - either enabled list or disabled list, or toolkits whose tools need approval
         /// </param>
         /// <param name="authConfigs">
         /// Auth config overrides per toolkit
@@ -126,10 +126,10 @@ namespace Composio
         /// Manage connections configuration
         /// </param>
         /// <param name="tools">
-        /// Tool-level configuration per toolkit
+        /// Tool-level configuration per toolkit: tools to enable or disable, or tools that need approval
         /// </param>
         /// <param name="tags">
-        /// MCP tool annotation hints for filtering tools with enabled/disabled support. enabled: tags that the tool must have at least one of. disabled: tags that the tool must NOT have any of. Both conditions must be satisfied.
+        /// MCP tool annotation hints for filtering tools with enabled/disabled support, and experimentally the tags whose tools need approval. enabled: tags that the tool must have at least one of. disabled: tags that the tool must NOT have any of. Both conditions must be satisfied.
         /// </param>
         /// <param name="workbench">
         /// Workbench configuration<br/>
@@ -148,7 +148,7 @@ namespace Composio
             string userId,
             global::Composio.AnyOf<bool?, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigInstant> instant,
             global::Composio.PatchToolRouterSessionBySessionIdResponseConfigPreload preload,
-            global::Composio.AnyOf<global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolkitsVariant1, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolkitsVariant2>? toolkits,
+            global::Composio.AnyOf<global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolkitsVariant1, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolkitsVariant2, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigToolkitsVariant3>? toolkits,
             global::System.Collections.Generic.Dictionary<string, string>? authConfigs,
             global::System.Collections.Generic.Dictionary<string, string>? connectedAccounts,
             global::System.Collections.Generic.Dictionary<string, global::System.Collections.Generic.IList<string>>? allConnectedAccounts,

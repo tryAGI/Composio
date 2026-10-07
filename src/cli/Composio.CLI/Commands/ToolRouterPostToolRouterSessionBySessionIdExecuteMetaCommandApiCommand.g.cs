@@ -25,6 +25,18 @@ internal static partial class ToolRouterPostToolRouterSessionBySessionIdExecuteM
     {
         Description = @"The arguments required by the meta tool",
     };
+
+    private static Option<global::System.Collections.Generic.Dictionary<string, object?>?> InputResponses { get; } = new(
+        name: @"--input-responses")
+    {
+        Description = @"Experimental: the user's answers to the questions an earlier response asked, keyed by the same ids. Send them with the same tool call to continue it.",
+    };
+
+    private static Option<string?> RequestState { get; } = new(
+        name: @"--request-state")
+    {
+        Description = @"Experimental: state from an earlier response that asked the user for input, sent back unchanged.",
+    };
       private static Option<string?> Input { get; } = new(@"--input")
       {
           Description = "Load request JSON from a file path, '-' for stdin, or an inline JSON object/array string.",
@@ -71,6 +83,8 @@ Executes a Composio meta tool (COMPOSIO_*) within a tool router session. This en
                         command.Arguments.Add(SessionId);
                         command.Options.Add(Slug);
                         command.Options.Add(ArgumentsOption);
+                        command.Options.Add(InputResponses);
+                        command.Options.Add(RequestState);
           command.Options.Add(Input);
           command.Options.Add(RequestJson);
           command.Options.Add(RequestFile);
@@ -99,6 +113,8 @@ Executes a Composio meta tool (COMPOSIO_*) within a tool router session. This en
                         var sessionId = parseResult.GetRequiredValue(SessionId);
                         var slug = parseResult.GetRequiredValue(Slug);
                         var arguments = CliRuntime.WasSpecified(parseResult, ArgumentsOption) ? parseResult.GetValue(ArgumentsOption) : (__requestBase is { } __ArgumentsBaseValue ? __ArgumentsBaseValue.Arguments : default);
+                        var inputResponses = CliRuntime.WasSpecified(parseResult, InputResponses) ? parseResult.GetValue(InputResponses) : (__requestBase is { } __InputResponsesBaseValue ? __InputResponsesBaseValue.InputResponses : default);
+                        var requestState = CliRuntime.WasSpecified(parseResult, RequestState) ? parseResult.GetValue(RequestState) : (__requestBase is { } __RequestStateBaseValue ? __RequestStateBaseValue.RequestState : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
@@ -106,6 +122,8 @@ Executes a Composio meta tool (COMPOSIO_*) within a tool router session. This en
                                     sessionId: sessionId,
                                     slug: slug,
                                     arguments: arguments,
+                                    inputResponses: inputResponses,
+                                    requestState: requestState,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
 

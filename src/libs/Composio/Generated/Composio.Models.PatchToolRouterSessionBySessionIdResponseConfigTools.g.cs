@@ -4,7 +4,7 @@
 namespace Composio
 {
     /// <summary>
-    /// Tool-level configuration per toolkit
+    /// Tool-level configuration per toolkit: tools to enable or disable, or tools that need approval
     /// </summary>
     public sealed partial class PatchToolRouterSessionBySessionIdResponseConfigTools
     {

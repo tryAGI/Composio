@@ -51,6 +51,14 @@ namespace Composio
         public global::Composio.PostToolRouterSessionRequestExperimentalSubmitFeedback? SubmitFeedback { get; set; }
 
         /// <summary>
+        /// Experimental: what session MCP does with a tool call that needs approval when the MCP client can't ask the user. deny (default) rejects the call; allow runs it without approval.<br/>
+        /// Default Value: deny
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("no_elicitation_support_fallback")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.PostToolRouterSessionRequestExperimentalNoElicitationSupportFallbackJsonConverter))]
+        public global::Composio.PostToolRouterSessionRequestExperimentalNoElicitationSupportFallback? NoElicitationSupportFallback { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -80,6 +88,10 @@ namespace Composio
         /// <param name="submitFeedback">
         /// Exposes the COMPOSIO_SUBMIT_FEEDBACK helper tool in this session so the agent can report tool executions with empty, incorrect, or failed results. Defaults to false.
         /// </param>
+        /// <param name="noElicitationSupportFallback">
+        /// Experimental: what session MCP does with a tool call that needs approval when the MCP client can't ask the user. deny (default) rejects the call; allow runs it without approval.<br/>
+        /// Default Value: deny
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -90,7 +102,8 @@ namespace Composio
             global::Composio.PostToolRouterSessionRequestExperimentalPermissions? permissions,
             string? linkUrlOverwrite,
             bool? fastMode,
-            global::Composio.PostToolRouterSessionRequestExperimentalSubmitFeedback? submitFeedback)
+            global::Composio.PostToolRouterSessionRequestExperimentalSubmitFeedback? submitFeedback,
+            global::Composio.PostToolRouterSessionRequestExperimentalNoElicitationSupportFallback? noElicitationSupportFallback)
         {
             this.AssistivePromptConfig = assistivePromptConfig;
             this.CustomToolkits = customToolkits;
@@ -99,6 +112,7 @@ namespace Composio
             this.LinkUrlOverwrite = linkUrlOverwrite;
             this.FastMode = fastMode;
             this.SubmitFeedback = submitFeedback;
+            this.NoElicitationSupportFallback = noElicitationSupportFallback;
         }
 
         /// <summary>

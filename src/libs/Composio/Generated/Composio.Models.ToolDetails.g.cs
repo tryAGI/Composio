@@ -144,12 +144,6 @@ namespace Composio
         public required global::Composio.ToolDetailsDeprecated Deprecated { get; set; }
 
         /// <summary>
-        /// Published pricing for the tool
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("pricing")]
-        public global::Composio.ToolPricing? Pricing { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -215,9 +209,6 @@ namespace Composio
         /// Human-friendly description of the tool, if available<br/>
         /// Example: Create a new issue in a GitHub repository
         /// </param>
-        /// <param name="pricing">
-        /// Published pricing for the tool
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -237,8 +228,7 @@ namespace Composio
             global::Composio.ToolDetailsDeprecated deprecated,
             global::Composio.InstantAccount? instant,
             global::Composio.ToolDetailsScopeRequirements? scopeRequirements,
-            string? humanDescription,
-            global::Composio.ToolPricing? pricing)
+            string? humanDescription)
         {
             this.Slug = slug ?? throw new global::System.ArgumentNullException(nameof(slug));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
@@ -256,7 +246,6 @@ namespace Composio
             this.HumanDescription = humanDescription;
             this.IsDeprecated = isDeprecated;
             this.Deprecated = deprecated ?? throw new global::System.ArgumentNullException(nameof(deprecated));
-            this.Pricing = pricing;
         }
 
         /// <summary>

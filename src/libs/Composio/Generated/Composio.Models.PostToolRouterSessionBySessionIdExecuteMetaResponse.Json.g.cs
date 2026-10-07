@@ -2,7 +2,7 @@
 
 namespace Composio
 {
-    public sealed partial class PostToolRouterSessionBySessionIdExecuteMetaResponse
+    public readonly partial struct PostToolRouterSessionBySessionIdExecuteMetaResponse
     {
         /// <summary>
         /// Serializes the current instance to a JSON string using the provided JsonSerializerContext.
@@ -54,7 +54,7 @@ namespace Composio
             return global::System.Text.Json.JsonSerializer.Deserialize(
                 json,
                 typeof(global::Composio.PostToolRouterSessionBySessionIdExecuteMetaResponse),
-                jsonSerializerContext) as global::Composio.PostToolRouterSessionBySessionIdExecuteMetaResponse;
+                jsonSerializerContext) as global::Composio.PostToolRouterSessionBySessionIdExecuteMetaResponse?;
         }
 
         /// <summary>
@@ -101,7 +101,7 @@ namespace Composio
             return (await global::System.Text.Json.JsonSerializer.DeserializeAsync(
                 jsonStream,
                 typeof(global::Composio.PostToolRouterSessionBySessionIdExecuteMetaResponse),
-                jsonSerializerContext).ConfigureAwait(false)) as global::Composio.PostToolRouterSessionBySessionIdExecuteMetaResponse;
+                jsonSerializerContext).ConfigureAwait(false)) as global::Composio.PostToolRouterSessionBySessionIdExecuteMetaResponse?;
         }
 
         /// <summary>

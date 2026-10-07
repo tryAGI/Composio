@@ -835,6 +835,13 @@ namespace Composio
         /// Default Value: {}<br/>
         /// Example: {"toolkits":["github"],"reinitiate_all":false}
         /// </param>
+        /// <param name="inputResponses">
+        /// Experimental: the user's answers to the questions an earlier response asked, keyed by the same ids. Send them with the same tool call to continue it.<br/>
+        /// Example: {"approval_3f9a1c2b7d4e5f60":{"action":"accept","content":{"decision":"approve"}}}
+        /// </param>
+        /// <param name="requestState">
+        /// Experimental: state from an earlier response that asked the user for input, sent back unchanged.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
@@ -842,6 +849,8 @@ namespace Composio
             string? sessionId,
             global::Composio.PostToolRouterSessionBySessionIdExecuteMetaRequestSlug slug,
             global::System.Collections.Generic.Dictionary<string, object?>? arguments = default,
+            global::System.Collections.Generic.Dictionary<string, object?>? inputResponses = default,
+            string? requestState = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -849,6 +858,8 @@ namespace Composio
             {
                 Slug = slug,
                 Arguments = arguments,
+                InputResponses = inputResponses,
+                RequestState = requestState,
             };
 
             return await PostToolRouterSessionBySessionIdExecuteMetaAsync(

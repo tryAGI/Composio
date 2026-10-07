@@ -28,12 +28,14 @@ namespace Composio
         partial void PrepareGetToolsByToolSlugArguments(
             global::System.Net.Http.HttpClient httpClient,
             ref string toolSlug,
+            ref bool? includePricing,
             ref string? version,
             ref global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions);
         partial void PrepareGetToolsByToolSlugRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
             string toolSlug,
+            bool? includePricing,
             string? version,
             global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions);
         partial void ProcessGetToolsByToolSlugResponse(
@@ -50,6 +52,9 @@ namespace Composio
         /// Retrieve detailed information about a specific tool using its slug identifier. This endpoint returns full metadata about a tool including input/output parameters, versions, and toolkit information.
         /// </summary>
         /// <param name="toolSlug"></param>
+        /// <param name="includePricing">
+        /// Default Value: false
+        /// </param>
         /// <param name="version"></param>
         /// <param name="toolkitVersions"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -57,6 +62,7 @@ namespace Composio
         /// <exception cref="global::Composio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Composio.ToolDetails> GetToolsByToolSlugAsync(
             string toolSlug,
+            bool? includePricing = default,
             string? version = default,
             global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
@@ -64,6 +70,7 @@ namespace Composio
         {
             var __response = await GetToolsByToolSlugAsResponseAsync(
                 toolSlug: toolSlug,
+                includePricing: includePricing,
                 version: version,
                 toolkitVersions: toolkitVersions,
                 requestOptions: requestOptions,
@@ -77,6 +84,9 @@ namespace Composio
         /// Retrieve detailed information about a specific tool using its slug identifier. This endpoint returns full metadata about a tool including input/output parameters, versions, and toolkit information.
         /// </summary>
         /// <param name="toolSlug"></param>
+        /// <param name="includePricing">
+        /// Default Value: false
+        /// </param>
         /// <param name="version"></param>
         /// <param name="toolkitVersions"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -84,6 +94,7 @@ namespace Composio
         /// <exception cref="global::Composio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.ToolDetails>> GetToolsByToolSlugAsResponseAsync(
             string toolSlug,
+            bool? includePricing = default,
             string? version = default,
             global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
@@ -94,6 +105,7 @@ namespace Composio
             PrepareGetToolsByToolSlugArguments(
                 httpClient: HttpClient,
                 toolSlug: ref toolSlug,
+                includePricing: ref includePricing,
                 version: ref version,
                 toolkitVersions: ref toolkitVersions);
 
@@ -124,6 +136,7 @@ namespace Composio
                                 path: $"/api/v3/tools/{toolSlug}",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
+                                .AddOptionalParameter("include_pricing", includePricing?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("version", version)
                                 .AddOptionalParameter("toolkit_versions", toolkitVersions?.ToString())
                                 ;
@@ -168,6 +181,7 @@ namespace Composio
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
                     toolSlug: toolSlug,
+                    includePricing: includePricing,
                     version: version,
                     toolkitVersions: toolkitVersions);
 
