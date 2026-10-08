@@ -27,6 +27,22 @@ namespace Composio
         public bool? ShouldCreateApiKey { get; set; }
 
         /// <summary>
+        /// IPv4 or IPv6 addresses allowed to use the project API key. Requires should_create_api_key to be true. Omit to allow requests from any IP address.<br/>
+        /// Example: [203.0.113.10]
+        /// </summary>
+        /// <example>[203.0.113.10]</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("api_key_allowed_ips")]
+        public global::System.Collections.Generic.IList<string>? ApiKeyAllowedIps { get; set; }
+
+        /// <summary>
+        /// Permission levels for the project API key. Requires should_create_api_key to be true. Omit to create a full-access API key.<br/>
+        /// Example: [{"preset":"tool_execution","access":"write"}]
+        /// </summary>
+        /// <example>[{"preset":"tool_execution","access":"write"}]</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("api_key_permissions")]
+        public global::System.Collections.Generic.IList<global::Composio.PostOrgOwnerProjectNewRequestApiKeyPermission>? ApiKeyPermissions { get; set; }
+
+        /// <summary>
         /// Configuration for the project. Use zdr_enabled for Zero Data Retention; log_visibility_setting remains supported for existing clients. Do not send both fields.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("config")]
@@ -50,6 +66,14 @@ namespace Composio
         /// Default Value: false<br/>
         /// Example: false
         /// </param>
+        /// <param name="apiKeyAllowedIps">
+        /// IPv4 or IPv6 addresses allowed to use the project API key. Requires should_create_api_key to be true. Omit to allow requests from any IP address.<br/>
+        /// Example: [203.0.113.10]
+        /// </param>
+        /// <param name="apiKeyPermissions">
+        /// Permission levels for the project API key. Requires should_create_api_key to be true. Omit to create a full-access API key.<br/>
+        /// Example: [{"preset":"tool_execution","access":"write"}]
+        /// </param>
         /// <param name="config">
         /// Configuration for the project. Use zdr_enabled for Zero Data Retention; log_visibility_setting remains supported for existing clients. Do not send both fields.
         /// </param>
@@ -59,10 +83,14 @@ namespace Composio
         public PostOrgOwnerProjectNewRequest(
             string name,
             bool? shouldCreateApiKey,
+            global::System.Collections.Generic.IList<string>? apiKeyAllowedIps,
+            global::System.Collections.Generic.IList<global::Composio.PostOrgOwnerProjectNewRequestApiKeyPermission>? apiKeyPermissions,
             global::Composio.PostOrgOwnerProjectNewRequestConfig? config)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.ShouldCreateApiKey = shouldCreateApiKey;
+            this.ApiKeyAllowedIps = apiKeyAllowedIps;
+            this.ApiKeyPermissions = apiKeyPermissions;
             this.Config = config;
         }
 

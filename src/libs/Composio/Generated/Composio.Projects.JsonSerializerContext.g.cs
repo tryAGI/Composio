@@ -24,6 +24,10 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Guid))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostOrgOwnerProjectNewRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.PostOrgOwnerProjectNewRequestApiKeyPermission>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostOrgOwnerProjectNewRequestApiKeyPermission))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostOrgOwnerProjectNewRequestApiKeyPermissionPreset), TypeInfoPropertyName = "PostOrgOwnerProjectNewRequestApiKeyPermissionPreset2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostOrgOwnerProjectNewRequestApiKeyPermissionAccess), TypeInfoPropertyName = "PostOrgOwnerProjectNewRequestApiKeyPermissionAccess2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostOrgOwnerProjectNewRequestConfig))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostOrgOwnerProjectNewRequestConfigLogVisibilitySetting), TypeInfoPropertyName = "PostOrgOwnerProjectNewRequestConfigLogVisibilitySetting2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(int))]
@@ -51,6 +55,8 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.DateTime?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Guid?))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostOrgOwnerProjectNewRequestApiKeyPermissionPreset?), TypeInfoPropertyName = "NullablePostOrgOwnerProjectNewRequestApiKeyPermissionPreset2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostOrgOwnerProjectNewRequestApiKeyPermissionAccess?), TypeInfoPropertyName = "NullablePostOrgOwnerProjectNewRequestApiKeyPermissionAccess2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostOrgOwnerProjectNewRequestConfigLogVisibilitySetting?), TypeInfoPropertyName = "NullablePostOrgOwnerProjectNewRequestConfigLogVisibilitySetting2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetOrgProjectListResponseDataItemWebhookVersion?), TypeInfoPropertyName = "NullableGetOrgProjectListResponseDataItemWebhookVersion2")]
@@ -59,6 +65,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.DeleteOrgOwnerProjectByNanoIdResponseStatus?), TypeInfoPropertyName = "NullableDeleteOrgOwnerProjectByNanoIdResponseStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostOrgConsumerProjectResolveResponseProjectType?), TypeInfoPropertyName = "NullablePostOrgConsumerProjectResolveResponseProjectType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Composio.PostOrgOwnerProjectNewRequestApiKeyPermission>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Composio.GetOrgProjectListResponseDataItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Composio.GetOrgOwnerProjectListResponseDataItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Composio.GetOrgOwnerProjectByNanoIdResponseApiKey>))]
@@ -230,7 +237,15 @@ namespace Composio
             public override bool CanConvert(global::System.Type typeToConvert)
             {
                 return
-                    typeToConvert == typeof(global::Composio.PostOrgOwnerProjectNewRequestConfigLogVisibilitySetting)
+                    typeToConvert == typeof(global::Composio.PostOrgOwnerProjectNewRequestApiKeyPermissionPreset)
+
+                    || typeToConvert == typeof(global::Composio.PostOrgOwnerProjectNewRequestApiKeyPermissionPreset?)
+
+                    || typeToConvert == typeof(global::Composio.PostOrgOwnerProjectNewRequestApiKeyPermissionAccess)
+
+                    || typeToConvert == typeof(global::Composio.PostOrgOwnerProjectNewRequestApiKeyPermissionAccess?)
+
+                    || typeToConvert == typeof(global::Composio.PostOrgOwnerProjectNewRequestConfigLogVisibilitySetting)
 
                     || typeToConvert == typeof(global::Composio.PostOrgOwnerProjectNewRequestConfigLogVisibilitySetting?)
 
@@ -259,6 +274,26 @@ namespace Composio
                 global::System.Type typeToConvert,
                 global::System.Text.Json.JsonSerializerOptions options)
             {
+                if (typeToConvert == typeof(global::Composio.PostOrgOwnerProjectNewRequestApiKeyPermissionPreset))
+                {
+                    return new global::Composio.JsonConverters.PostOrgOwnerProjectNewRequestApiKeyPermissionPresetJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Composio.PostOrgOwnerProjectNewRequestApiKeyPermissionPreset?))
+                {
+                    return new global::Composio.JsonConverters.PostOrgOwnerProjectNewRequestApiKeyPermissionPresetNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Composio.PostOrgOwnerProjectNewRequestApiKeyPermissionAccess))
+                {
+                    return new global::Composio.JsonConverters.PostOrgOwnerProjectNewRequestApiKeyPermissionAccessJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Composio.PostOrgOwnerProjectNewRequestApiKeyPermissionAccess?))
+                {
+                    return new global::Composio.JsonConverters.PostOrgOwnerProjectNewRequestApiKeyPermissionAccessNullableJsonConverter();
+                }
+
                 if (typeToConvert == typeof(global::Composio.PostOrgOwnerProjectNewRequestConfigLogVisibilitySetting))
                 {
                     return new global::Composio.JsonConverters.PostOrgOwnerProjectNewRequestConfigLogVisibilitySettingJsonConverter();

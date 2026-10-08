@@ -42557,6 +42557,63 @@
                     "description": "Whether to create an API key for the project. If true, the API key will be created and returned in the response.",
                     "example": false
                   },
+                  "api_key_allowed_ips": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "ip"
+                    },
+                    "description": "IPv4 or IPv6 addresses allowed to use the project API key. Requires should_create_api_key to be true. Omit to allow requests from any IP address.",
+                    "example": [
+                      "203.0.113.10"
+                    ]
+                  },
+                  "api_key_permissions": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "preset": {
+                          "type": "string",
+                          "enum": [
+                            "tools",
+                            "tool_execution",
+                            "proxy_execute",
+                            "session_management",
+                            "session_tool_execution",
+                            "legacy_mcp",
+                            "connected_accounts",
+                            "auth_configs",
+                            "toolkits",
+                            "triggers",
+                            "webhooks",
+                            "observability",
+                            "sessions"
+                          ]
+                        },
+                        "access": {
+                          "type": "string",
+                          "enum": [
+                            "none",
+                            "read",
+                            "write",
+                            "read_write"
+                          ]
+                        }
+                      },
+                      "required": [
+                        "preset",
+                        "access"
+                      ]
+                    },
+                    "description": "Permission levels for the project API key. Requires should_create_api_key to be true. Omit to create a full-access API key.",
+                    "example": [
+                      {
+                        "preset": "tool_execution",
+                        "access": "write"
+                      }
+                    ]
+                  },
                   "config": {
                     "type": "object",
                     "properties": {
