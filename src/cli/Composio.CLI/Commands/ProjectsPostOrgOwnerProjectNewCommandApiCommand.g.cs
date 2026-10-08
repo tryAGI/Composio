@@ -17,6 +17,18 @@ internal static partial class ProjectsPostOrgOwnerProjectNewCommandApiCommand
         name: @"--should-create-api-key",
         description: @"Whether to create an API key for the project. If true, the API key will be created and returned in the response.");
 
+    private static Option<global::System.Collections.Generic.IList<string>?> ApiKeyAllowedIps { get; } = new(
+        name: @"--api-key-allowed-ips")
+    {
+        Description = @"IPv4 or IPv6 addresses allowed to use the project API key. Requires should_create_api_key to be true. Omit to allow requests from any IP address.",
+    };
+
+    private static Option<global::System.Collections.Generic.IList<global::Composio.PostOrgOwnerProjectNewRequestApiKeyPermission>?> ApiKeyPermissions { get; } = new(
+        name: @"--api-key-permissions")
+    {
+        Description = @"Permission levels for the project API key. Requires should_create_api_key to be true. Omit to create a full-access API key.",
+    };
+
     private static Option<global::Composio.PostOrgOwnerProjectNewRequestConfig?> Config { get; } = new(
         name: @"--config")
     {
@@ -67,6 +79,8 @@ internal static partial class ProjectsPostOrgOwnerProjectNewCommandApiCommand
 Creates a new project within the authenticated user's organization using the specified name. Projects are isolated environments within your organization, each with their own API keys, webhook configurations, and resources. Use this endpoint to create additional projects for different environments (e.g., development, staging, production) or for separate applications.");
                         command.Arguments.Add(NameOption);
                         command.Options.Add(ShouldCreateApiKey);
+                        command.Options.Add(ApiKeyAllowedIps);
+                        command.Options.Add(ApiKeyPermissions);
                         command.Options.Add(Config);
           command.Options.Add(Input);
           command.Options.Add(RequestJson);
@@ -95,6 +109,8 @@ Creates a new project within the authenticated user's organization using the spe
                             cancellationToken).ConfigureAwait(false);
                         var name = parseResult.GetRequiredValue(NameOption);
                         var shouldCreateApiKey = CliRuntime.WasSpecified(parseResult, ShouldCreateApiKey) ? parseResult.GetValue(ShouldCreateApiKey) : (__requestBase is { } __ShouldCreateApiKeyBaseValue ? __ShouldCreateApiKeyBaseValue.ShouldCreateApiKey : default);
+                        var apiKeyAllowedIps = CliRuntime.WasSpecified(parseResult, ApiKeyAllowedIps) ? parseResult.GetValue(ApiKeyAllowedIps) : (__requestBase is { } __ApiKeyAllowedIpsBaseValue ? __ApiKeyAllowedIpsBaseValue.ApiKeyAllowedIps : default);
+                        var apiKeyPermissions = CliRuntime.WasSpecified(parseResult, ApiKeyPermissions) ? parseResult.GetValue(ApiKeyPermissions) : (__requestBase is { } __ApiKeyPermissionsBaseValue ? __ApiKeyPermissionsBaseValue.ApiKeyPermissions : default);
                         var config = CliRuntime.WasSpecified(parseResult, Config) ? parseResult.GetValue(Config) : (__requestBase is { } __ConfigBaseValue ? __ConfigBaseValue.Config : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
@@ -102,6 +118,8 @@ Creates a new project within the authenticated user's organization using the spe
                                 var response = await client.Projects.PostOrgOwnerProjectNewAsync(
                                     name: name,
                                     shouldCreateApiKey: shouldCreateApiKey,
+                                    apiKeyAllowedIps: apiKeyAllowedIps,
+                                    apiKeyPermissions: apiKeyPermissions,
                                     config: config,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 

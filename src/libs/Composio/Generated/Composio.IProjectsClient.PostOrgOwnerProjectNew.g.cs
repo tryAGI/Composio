@@ -43,6 +43,14 @@ namespace Composio
         /// Default Value: false<br/>
         /// Example: false
         /// </param>
+        /// <param name="apiKeyAllowedIps">
+        /// IPv4 or IPv6 addresses allowed to use the project API key. Requires should_create_api_key to be true. Omit to allow requests from any IP address.<br/>
+        /// Example: [203.0.113.10]
+        /// </param>
+        /// <param name="apiKeyPermissions">
+        /// Permission levels for the project API key. Requires should_create_api_key to be true. Omit to create a full-access API key.<br/>
+        /// Example: [{"preset":"tool_execution","access":"write"}]
+        /// </param>
         /// <param name="config">
         /// Configuration for the project. Use zdr_enabled for Zero Data Retention; log_visibility_setting remains supported for existing clients. Do not send both fields.
         /// </param>
@@ -52,6 +60,8 @@ namespace Composio
         global::System.Threading.Tasks.Task<global::Composio.PostOrgOwnerProjectNewResponse> PostOrgOwnerProjectNewAsync(
             string name,
             bool? shouldCreateApiKey = default,
+            global::System.Collections.Generic.IList<string>? apiKeyAllowedIps = default,
+            global::System.Collections.Generic.IList<global::Composio.PostOrgOwnerProjectNewRequestApiKeyPermission>? apiKeyPermissions = default,
             global::Composio.PostOrgOwnerProjectNewRequestConfig? config = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);
