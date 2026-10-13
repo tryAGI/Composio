@@ -19,6 +19,14 @@ namespace Composio
         public string? ConnectedAccountId { get; set; }
 
         /// <summary>
+        /// The user id (entity id) that owns connected_account_id. When the project has 2FA enabled, it is validated against the owner of that connection. Also selects which custom toolkits the request may use.<br/>
+        /// Example: user_4567
+        /// </summary>
+        /// <example>user_4567</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_id")]
+        public string? UserId { get; set; }
+
+        /// <summary>
         /// The API endpoint to call (absolute URL or path relative to base URL of the connected account)<br/>
         /// Example: /api/v1/resources
         /// </summary>
@@ -88,6 +96,10 @@ namespace Composio
         /// The ID of the connected account to use for authentication (if not provided, will use the default account for the project)<br/>
         /// Example: ca_1a2b3c4d5e6f
         /// </param>
+        /// <param name="userId">
+        /// The user id (entity id) that owns connected_account_id. When the project has 2FA enabled, it is validated against the owner of that connection. Also selects which custom toolkits the request may use.<br/>
+        /// Example: user_4567
+        /// </param>
         /// <param name="body">
         /// The request body (for POST, PUT, and PATCH requests)<br/>
         /// Example: {"name":"New Resource","description":"This is a new resource"}
@@ -106,11 +118,13 @@ namespace Composio
             string endpoint,
             global::Composio.PostToolsExecuteProxyRequestMethod method,
             string? connectedAccountId,
+            string? userId,
             object? body,
             global::Composio.AnyOf<global::Composio.PostToolsExecuteProxyRequestBinaryBodyVariant1, global::Composio.PostToolsExecuteProxyRequestBinaryBodyVariant2>? binaryBody,
             global::System.Collections.Generic.IList<global::Composio.PostToolsExecuteProxyRequestParameter>? parameters)
         {
             this.ConnectedAccountId = connectedAccountId;
+            this.UserId = userId;
             this.Endpoint = endpoint ?? throw new global::System.ArgumentNullException(nameof(endpoint));
             this.Method = method;
             this.Body = body;

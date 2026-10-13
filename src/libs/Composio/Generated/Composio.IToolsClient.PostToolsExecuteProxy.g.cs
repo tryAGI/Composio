@@ -40,6 +40,10 @@ namespace Composio
         /// The ID of the connected account to use for authentication (if not provided, will use the default account for the project)<br/>
         /// Example: ca_1a2b3c4d5e6f
         /// </param>
+        /// <param name="userId">
+        /// The user id (entity id) that owns connected_account_id. When the project has 2FA enabled, it is validated against the owner of that connection. Also selects which custom toolkits the request may use.<br/>
+        /// Example: user_4567
+        /// </param>
         /// <param name="endpoint">
         /// The API endpoint to call (absolute URL or path relative to base URL of the connected account)<br/>
         /// Example: /api/v1/resources
@@ -66,6 +70,7 @@ namespace Composio
             string endpoint,
             global::Composio.PostToolsExecuteProxyRequestMethod method,
             string? connectedAccountId = default,
+            string? userId = default,
             object? body = default,
             global::Composio.AnyOf<global::Composio.PostToolsExecuteProxyRequestBinaryBodyVariant1, global::Composio.PostToolsExecuteProxyRequestBinaryBodyVariant2>? binaryBody = default,
             global::System.Collections.Generic.IList<global::Composio.PostToolsExecuteProxyRequestParameter>? parameters = default,
