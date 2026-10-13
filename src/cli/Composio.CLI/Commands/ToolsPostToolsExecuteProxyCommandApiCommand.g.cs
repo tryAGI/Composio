@@ -13,6 +13,12 @@ internal static partial class ToolsPostToolsExecuteProxyCommandApiCommand
         Description = @"The ID of the connected account to use for authentication (if not provided, will use the default account for the project)",
     };
 
+    private static Option<string?> UserId { get; } = new(
+        name: @"--user-id")
+    {
+        Description = @"The user id (entity id) that owns connected_account_id. When the project has 2FA enabled, it is validated against the owner of that connection. Also selects which custom toolkits the request may use.",
+    };
+
     private static Option<string> Endpoint { get; } = new(
         name: @"--endpoint")
     {
@@ -88,6 +94,7 @@ internal static partial class ToolsPostToolsExecuteProxyCommandApiCommand
         var command = new Command(commandName ?? @"post-tools-execute-proxy", @"Execute proxy request
 Proxy an HTTP request to a third-party API using connected account credentials. This endpoint allows making authenticated API calls to external services while abstracting away authentication details.");
                         command.Options.Add(ConnectedAccountId);
+                        command.Options.Add(UserId);
                         command.Options.Add(Endpoint);
                         command.Options.Add(Method);
                         command.Options.Add(Body);
@@ -119,6 +126,7 @@ Proxy an HTTP request to a third-party API using connected account credentials. 
                             global::Composio.SourceGenerationContext.Default,
                             cancellationToken).ConfigureAwait(false);
                         var connectedAccountId = CliRuntime.WasSpecified(parseResult, ConnectedAccountId) ? parseResult.GetValue(ConnectedAccountId) : (__requestBase is { } __ConnectedAccountIdBaseValue ? __ConnectedAccountIdBaseValue.ConnectedAccountId : default);
+                        var userId = CliRuntime.WasSpecified(parseResult, UserId) ? parseResult.GetValue(UserId) : (__requestBase is { } __UserIdBaseValue ? __UserIdBaseValue.UserId : default);
                         var endpoint = parseResult.GetRequiredValue(Endpoint);
                         var method = parseResult.GetRequiredValue(Method);
                         var body = CliRuntime.WasSpecified(parseResult, Body) ? parseResult.GetValue(Body) : (__requestBase is { } __BodyBaseValue ? __BodyBaseValue.Body : default);
@@ -129,6 +137,7 @@ Proxy an HTTP request to a third-party API using connected account credentials. 
 
                                 var response = await client.Tools.PostToolsExecuteProxyAsync(
                                     connectedAccountId: connectedAccountId,
+                                    userId: userId,
                                     endpoint: endpoint,
                                     method: method,
                                     body: body,
