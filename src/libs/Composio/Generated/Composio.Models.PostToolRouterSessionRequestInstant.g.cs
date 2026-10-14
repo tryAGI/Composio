@@ -28,6 +28,12 @@ namespace Composio
         public bool? ReturnInstantCharge { get; set; }
 
         /// <summary>
+        /// Experimental. Show each instant tool's price in tool search results, under instant_account.prices. Defaults to false on create; omit on PATCH to keep the current value. Does not turn instant usage on or off.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("return_prices_in_search")]
+        public bool? ReturnPricesInSearch { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -45,17 +51,22 @@ namespace Composio
         /// <param name="returnInstantCharge">
         /// Return the top-level instant_charge in session tool responses when a charge is available. Defaults to false on create; omission on PATCH preserves the current value. Controls response visibility only; it does not enable or disable instant usage.
         /// </param>
+        /// <param name="returnPricesInSearch">
+        /// Experimental. Show each instant tool's price in tool search results, under instant_account.prices. Defaults to false on create; omit on PATCH to keep the current value. Does not turn instant usage on or off.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PostToolRouterSessionRequestInstant(
             global::Composio.AnyOf<global::Composio.PostToolRouterSessionRequestInstantToolkitsVariant1, global::Composio.PostToolRouterSessionRequestInstantToolkitsVariant2>? toolkits,
             object? tools,
-            bool? returnInstantCharge)
+            bool? returnInstantCharge,
+            bool? returnPricesInSearch)
         {
             this.Toolkits = toolkits;
             this.Tools = tools;
             this.ReturnInstantCharge = returnInstantCharge;
+            this.ReturnPricesInSearch = returnPricesInSearch;
         }
 
         /// <summary>
