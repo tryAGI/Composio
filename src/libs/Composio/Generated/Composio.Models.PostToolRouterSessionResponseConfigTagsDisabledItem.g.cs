@@ -11,6 +11,10 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
+        CreateHint,
+        /// <summary>
+        ///
+        /// </summary>
         DestructiveHint,
         /// <summary>
         ///
@@ -24,6 +28,10 @@ namespace Composio
         ///
         /// </summary>
         ReadOnlyHint,
+        /// <summary>
+        ///
+        /// </summary>
+        UpdateHint,
     }
 
     /// <summary>
@@ -38,10 +46,12 @@ namespace Composio
         {
             return value switch
             {
+                PostToolRouterSessionResponseConfigTagsDisabledItem.CreateHint => "createHint",
                 PostToolRouterSessionResponseConfigTagsDisabledItem.DestructiveHint => "destructiveHint",
                 PostToolRouterSessionResponseConfigTagsDisabledItem.IdempotentHint => "idempotentHint",
                 PostToolRouterSessionResponseConfigTagsDisabledItem.OpenWorldHint => "openWorldHint",
                 PostToolRouterSessionResponseConfigTagsDisabledItem.ReadOnlyHint => "readOnlyHint",
+                PostToolRouterSessionResponseConfigTagsDisabledItem.UpdateHint => "updateHint",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +62,12 @@ namespace Composio
         {
             return value switch
             {
+                "createHint" => PostToolRouterSessionResponseConfigTagsDisabledItem.CreateHint,
                 "destructiveHint" => PostToolRouterSessionResponseConfigTagsDisabledItem.DestructiveHint,
                 "idempotentHint" => PostToolRouterSessionResponseConfigTagsDisabledItem.IdempotentHint,
                 "openWorldHint" => PostToolRouterSessionResponseConfigTagsDisabledItem.OpenWorldHint,
                 "readOnlyHint" => PostToolRouterSessionResponseConfigTagsDisabledItem.ReadOnlyHint,
+                "updateHint" => PostToolRouterSessionResponseConfigTagsDisabledItem.UpdateHint,
                 _ => null,
             };
         }

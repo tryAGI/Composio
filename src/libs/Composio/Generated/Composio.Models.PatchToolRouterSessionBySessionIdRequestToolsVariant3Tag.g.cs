@@ -11,6 +11,10 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
+        CreateHint,
+        /// <summary>
+        ///
+        /// </summary>
         DestructiveHint,
         /// <summary>
         ///
@@ -24,6 +28,10 @@ namespace Composio
         ///
         /// </summary>
         ReadOnlyHint,
+        /// <summary>
+        ///
+        /// </summary>
+        UpdateHint,
     }
 
     /// <summary>
@@ -38,10 +46,12 @@ namespace Composio
         {
             return value switch
             {
+                PatchToolRouterSessionBySessionIdRequestToolsVariant3Tag.CreateHint => "createHint",
                 PatchToolRouterSessionBySessionIdRequestToolsVariant3Tag.DestructiveHint => "destructiveHint",
                 PatchToolRouterSessionBySessionIdRequestToolsVariant3Tag.IdempotentHint => "idempotentHint",
                 PatchToolRouterSessionBySessionIdRequestToolsVariant3Tag.OpenWorldHint => "openWorldHint",
                 PatchToolRouterSessionBySessionIdRequestToolsVariant3Tag.ReadOnlyHint => "readOnlyHint",
+                PatchToolRouterSessionBySessionIdRequestToolsVariant3Tag.UpdateHint => "updateHint",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +62,12 @@ namespace Composio
         {
             return value switch
             {
+                "createHint" => PatchToolRouterSessionBySessionIdRequestToolsVariant3Tag.CreateHint,
                 "destructiveHint" => PatchToolRouterSessionBySessionIdRequestToolsVariant3Tag.DestructiveHint,
                 "idempotentHint" => PatchToolRouterSessionBySessionIdRequestToolsVariant3Tag.IdempotentHint,
                 "openWorldHint" => PatchToolRouterSessionBySessionIdRequestToolsVariant3Tag.OpenWorldHint,
                 "readOnlyHint" => PatchToolRouterSessionBySessionIdRequestToolsVariant3Tag.ReadOnlyHint,
+                "updateHint" => PatchToolRouterSessionBySessionIdRequestToolsVariant3Tag.UpdateHint,
                 _ => null,
             };
         }

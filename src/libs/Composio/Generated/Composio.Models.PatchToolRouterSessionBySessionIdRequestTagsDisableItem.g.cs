@@ -11,6 +11,10 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
+        CreateHint,
+        /// <summary>
+        ///
+        /// </summary>
         DestructiveHint,
         /// <summary>
         ///
@@ -24,6 +28,10 @@ namespace Composio
         ///
         /// </summary>
         ReadOnlyHint,
+        /// <summary>
+        ///
+        /// </summary>
+        UpdateHint,
     }
 
     /// <summary>
@@ -38,10 +46,12 @@ namespace Composio
         {
             return value switch
             {
+                PatchToolRouterSessionBySessionIdRequestTagsDisableItem.CreateHint => "createHint",
                 PatchToolRouterSessionBySessionIdRequestTagsDisableItem.DestructiveHint => "destructiveHint",
                 PatchToolRouterSessionBySessionIdRequestTagsDisableItem.IdempotentHint => "idempotentHint",
                 PatchToolRouterSessionBySessionIdRequestTagsDisableItem.OpenWorldHint => "openWorldHint",
                 PatchToolRouterSessionBySessionIdRequestTagsDisableItem.ReadOnlyHint => "readOnlyHint",
+                PatchToolRouterSessionBySessionIdRequestTagsDisableItem.UpdateHint => "updateHint",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +62,12 @@ namespace Composio
         {
             return value switch
             {
+                "createHint" => PatchToolRouterSessionBySessionIdRequestTagsDisableItem.CreateHint,
                 "destructiveHint" => PatchToolRouterSessionBySessionIdRequestTagsDisableItem.DestructiveHint,
                 "idempotentHint" => PatchToolRouterSessionBySessionIdRequestTagsDisableItem.IdempotentHint,
                 "openWorldHint" => PatchToolRouterSessionBySessionIdRequestTagsDisableItem.OpenWorldHint,
                 "readOnlyHint" => PatchToolRouterSessionBySessionIdRequestTagsDisableItem.ReadOnlyHint,
+                "updateHint" => PatchToolRouterSessionBySessionIdRequestTagsDisableItem.UpdateHint,
                 _ => null,
             };
         }

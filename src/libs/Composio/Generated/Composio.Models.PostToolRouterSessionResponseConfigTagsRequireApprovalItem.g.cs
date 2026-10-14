@@ -11,6 +11,10 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
+        CreateHint,
+        /// <summary>
+        ///
+        /// </summary>
         DestructiveHint,
         /// <summary>
         ///
@@ -24,6 +28,10 @@ namespace Composio
         ///
         /// </summary>
         ReadOnlyHint,
+        /// <summary>
+        ///
+        /// </summary>
+        UpdateHint,
     }
 
     /// <summary>
@@ -38,10 +46,12 @@ namespace Composio
         {
             return value switch
             {
+                PostToolRouterSessionResponseConfigTagsRequireApprovalItem.CreateHint => "createHint",
                 PostToolRouterSessionResponseConfigTagsRequireApprovalItem.DestructiveHint => "destructiveHint",
                 PostToolRouterSessionResponseConfigTagsRequireApprovalItem.IdempotentHint => "idempotentHint",
                 PostToolRouterSessionResponseConfigTagsRequireApprovalItem.OpenWorldHint => "openWorldHint",
                 PostToolRouterSessionResponseConfigTagsRequireApprovalItem.ReadOnlyHint => "readOnlyHint",
+                PostToolRouterSessionResponseConfigTagsRequireApprovalItem.UpdateHint => "updateHint",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +62,12 @@ namespace Composio
         {
             return value switch
             {
+                "createHint" => PostToolRouterSessionResponseConfigTagsRequireApprovalItem.CreateHint,
                 "destructiveHint" => PostToolRouterSessionResponseConfigTagsRequireApprovalItem.DestructiveHint,
                 "idempotentHint" => PostToolRouterSessionResponseConfigTagsRequireApprovalItem.IdempotentHint,
                 "openWorldHint" => PostToolRouterSessionResponseConfigTagsRequireApprovalItem.OpenWorldHint,
                 "readOnlyHint" => PostToolRouterSessionResponseConfigTagsRequireApprovalItem.ReadOnlyHint,
+                "updateHint" => PostToolRouterSessionResponseConfigTagsRequireApprovalItem.UpdateHint,
                 _ => null,
             };
         }

@@ -11,6 +11,10 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
+        CreateHint,
+        /// <summary>
+        ///
+        /// </summary>
         DestructiveHint,
         /// <summary>
         ///
@@ -24,6 +28,10 @@ namespace Composio
         ///
         /// </summary>
         ReadOnlyHint,
+        /// <summary>
+        ///
+        /// </summary>
+        UpdateHint,
     }
 
     /// <summary>
@@ -38,10 +46,12 @@ namespace Composio
         {
             return value switch
             {
+                GetToolRouterSessionBySessionIdResponseConfigToolsVariant3TagsEnabledItem.CreateHint => "createHint",
                 GetToolRouterSessionBySessionIdResponseConfigToolsVariant3TagsEnabledItem.DestructiveHint => "destructiveHint",
                 GetToolRouterSessionBySessionIdResponseConfigToolsVariant3TagsEnabledItem.IdempotentHint => "idempotentHint",
                 GetToolRouterSessionBySessionIdResponseConfigToolsVariant3TagsEnabledItem.OpenWorldHint => "openWorldHint",
                 GetToolRouterSessionBySessionIdResponseConfigToolsVariant3TagsEnabledItem.ReadOnlyHint => "readOnlyHint",
+                GetToolRouterSessionBySessionIdResponseConfigToolsVariant3TagsEnabledItem.UpdateHint => "updateHint",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +62,12 @@ namespace Composio
         {
             return value switch
             {
+                "createHint" => GetToolRouterSessionBySessionIdResponseConfigToolsVariant3TagsEnabledItem.CreateHint,
                 "destructiveHint" => GetToolRouterSessionBySessionIdResponseConfigToolsVariant3TagsEnabledItem.DestructiveHint,
                 "idempotentHint" => GetToolRouterSessionBySessionIdResponseConfigToolsVariant3TagsEnabledItem.IdempotentHint,
                 "openWorldHint" => GetToolRouterSessionBySessionIdResponseConfigToolsVariant3TagsEnabledItem.OpenWorldHint,
                 "readOnlyHint" => GetToolRouterSessionBySessionIdResponseConfigToolsVariant3TagsEnabledItem.ReadOnlyHint,
+                "updateHint" => GetToolRouterSessionBySessionIdResponseConfigToolsVariant3TagsEnabledItem.UpdateHint,
                 _ => null,
             };
         }

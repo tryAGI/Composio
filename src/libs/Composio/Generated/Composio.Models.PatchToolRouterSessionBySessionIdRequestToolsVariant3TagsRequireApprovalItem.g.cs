@@ -11,6 +11,10 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
+        CreateHint,
+        /// <summary>
+        ///
+        /// </summary>
         DestructiveHint,
         /// <summary>
         ///
@@ -24,6 +28,10 @@ namespace Composio
         ///
         /// </summary>
         ReadOnlyHint,
+        /// <summary>
+        ///
+        /// </summary>
+        UpdateHint,
     }
 
     /// <summary>
@@ -38,10 +46,12 @@ namespace Composio
         {
             return value switch
             {
+                PatchToolRouterSessionBySessionIdRequestToolsVariant3TagsRequireApprovalItem.CreateHint => "createHint",
                 PatchToolRouterSessionBySessionIdRequestToolsVariant3TagsRequireApprovalItem.DestructiveHint => "destructiveHint",
                 PatchToolRouterSessionBySessionIdRequestToolsVariant3TagsRequireApprovalItem.IdempotentHint => "idempotentHint",
                 PatchToolRouterSessionBySessionIdRequestToolsVariant3TagsRequireApprovalItem.OpenWorldHint => "openWorldHint",
                 PatchToolRouterSessionBySessionIdRequestToolsVariant3TagsRequireApprovalItem.ReadOnlyHint => "readOnlyHint",
+                PatchToolRouterSessionBySessionIdRequestToolsVariant3TagsRequireApprovalItem.UpdateHint => "updateHint",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +62,12 @@ namespace Composio
         {
             return value switch
             {
+                "createHint" => PatchToolRouterSessionBySessionIdRequestToolsVariant3TagsRequireApprovalItem.CreateHint,
                 "destructiveHint" => PatchToolRouterSessionBySessionIdRequestToolsVariant3TagsRequireApprovalItem.DestructiveHint,
                 "idempotentHint" => PatchToolRouterSessionBySessionIdRequestToolsVariant3TagsRequireApprovalItem.IdempotentHint,
                 "openWorldHint" => PatchToolRouterSessionBySessionIdRequestToolsVariant3TagsRequireApprovalItem.OpenWorldHint,
                 "readOnlyHint" => PatchToolRouterSessionBySessionIdRequestToolsVariant3TagsRequireApprovalItem.ReadOnlyHint,
+                "updateHint" => PatchToolRouterSessionBySessionIdRequestToolsVariant3TagsRequireApprovalItem.UpdateHint,
                 _ => null,
             };
         }

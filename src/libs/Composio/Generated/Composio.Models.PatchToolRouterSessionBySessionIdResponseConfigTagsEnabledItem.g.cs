@@ -11,6 +11,10 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
+        CreateHint,
+        /// <summary>
+        ///
+        /// </summary>
         DestructiveHint,
         /// <summary>
         ///
@@ -24,6 +28,10 @@ namespace Composio
         ///
         /// </summary>
         ReadOnlyHint,
+        /// <summary>
+        ///
+        /// </summary>
+        UpdateHint,
     }
 
     /// <summary>
@@ -38,10 +46,12 @@ namespace Composio
         {
             return value switch
             {
+                PatchToolRouterSessionBySessionIdResponseConfigTagsEnabledItem.CreateHint => "createHint",
                 PatchToolRouterSessionBySessionIdResponseConfigTagsEnabledItem.DestructiveHint => "destructiveHint",
                 PatchToolRouterSessionBySessionIdResponseConfigTagsEnabledItem.IdempotentHint => "idempotentHint",
                 PatchToolRouterSessionBySessionIdResponseConfigTagsEnabledItem.OpenWorldHint => "openWorldHint",
                 PatchToolRouterSessionBySessionIdResponseConfigTagsEnabledItem.ReadOnlyHint => "readOnlyHint",
+                PatchToolRouterSessionBySessionIdResponseConfigTagsEnabledItem.UpdateHint => "updateHint",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +62,12 @@ namespace Composio
         {
             return value switch
             {
+                "createHint" => PatchToolRouterSessionBySessionIdResponseConfigTagsEnabledItem.CreateHint,
                 "destructiveHint" => PatchToolRouterSessionBySessionIdResponseConfigTagsEnabledItem.DestructiveHint,
                 "idempotentHint" => PatchToolRouterSessionBySessionIdResponseConfigTagsEnabledItem.IdempotentHint,
                 "openWorldHint" => PatchToolRouterSessionBySessionIdResponseConfigTagsEnabledItem.OpenWorldHint,
                 "readOnlyHint" => PatchToolRouterSessionBySessionIdResponseConfigTagsEnabledItem.ReadOnlyHint,
+                "updateHint" => PatchToolRouterSessionBySessionIdResponseConfigTagsEnabledItem.UpdateHint,
                 _ => null,
             };
         }

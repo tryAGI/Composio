@@ -56116,6 +56116,8 @@
                                     "type": "string",
                                     "enum": [
                                       "readOnlyHint",
+                                      "createHint",
+                                      "updateHint",
                                       "destructiveHint",
                                       "idempotentHint",
                                       "openWorldHint"
@@ -56131,6 +56133,8 @@
                                         "type": "string",
                                         "enum": [
                                           "readOnlyHint",
+                                          "createHint",
+                                          "updateHint",
                                           "destructiveHint",
                                           "idempotentHint",
                                           "openWorldHint"
@@ -56143,6 +56147,8 @@
                                         "type": "string",
                                         "enum": [
                                           "readOnlyHint",
+                                          "createHint",
+                                          "updateHint",
                                           "destructiveHint",
                                           "idempotentHint",
                                           "openWorldHint"
@@ -56155,6 +56161,8 @@
                                         "type": "string",
                                         "enum": [
                                           "readOnlyHint",
+                                          "createHint",
+                                          "updateHint",
                                           "destructiveHint",
                                           "idempotentHint",
                                           "openWorldHint"
@@ -56231,6 +56239,8 @@
                           "type": "string",
                           "enum": [
                             "readOnlyHint",
+                            "createHint",
+                            "updateHint",
                             "destructiveHint",
                             "idempotentHint",
                             "openWorldHint"
@@ -56246,6 +56256,8 @@
                               "type": "string",
                               "enum": [
                                 "readOnlyHint",
+                                "createHint",
+                                "updateHint",
                                 "destructiveHint",
                                 "idempotentHint",
                                 "openWorldHint"
@@ -56258,6 +56270,8 @@
                               "type": "string",
                               "enum": [
                                 "readOnlyHint",
+                                "createHint",
+                                "updateHint",
                                 "destructiveHint",
                                 "idempotentHint",
                                 "openWorldHint"
@@ -56270,6 +56284,8 @@
                               "type": "string",
                               "enum": [
                                 "readOnlyHint",
+                                "createHint",
+                                "updateHint",
                                 "destructiveHint",
                                 "idempotentHint",
                                 "openWorldHint"
@@ -57191,6 +57207,8 @@
                                           "type": "string",
                                           "enum": [
                                             "readOnlyHint",
+                                            "createHint",
+                                            "updateHint",
                                             "destructiveHint",
                                             "idempotentHint",
                                             "openWorldHint"
@@ -57204,6 +57222,8 @@
                                           "type": "string",
                                           "enum": [
                                             "readOnlyHint",
+                                            "createHint",
+                                            "updateHint",
                                             "destructiveHint",
                                             "idempotentHint",
                                             "openWorldHint"
@@ -57217,6 +57237,8 @@
                                           "type": "string",
                                           "enum": [
                                             "readOnlyHint",
+                                            "createHint",
+                                            "updateHint",
                                             "destructiveHint",
                                             "idempotentHint",
                                             "openWorldHint"
@@ -57271,6 +57293,8 @@
                                 "type": "string",
                                 "enum": [
                                   "readOnlyHint",
+                                  "createHint",
+                                  "updateHint",
                                   "destructiveHint",
                                   "idempotentHint",
                                   "openWorldHint"
@@ -57284,6 +57308,8 @@
                                 "type": "string",
                                 "enum": [
                                   "readOnlyHint",
+                                  "createHint",
+                                  "updateHint",
                                   "destructiveHint",
                                   "idempotentHint",
                                   "openWorldHint"
@@ -57297,6 +57323,8 @@
                                 "type": "string",
                                 "enum": [
                                   "readOnlyHint",
+                                  "createHint",
+                                  "updateHint",
                                   "destructiveHint",
                                   "idempotentHint",
                                   "openWorldHint"
@@ -58518,6 +58546,8 @@
                                           "type": "string",
                                           "enum": [
                                             "readOnlyHint",
+                                            "createHint",
+                                            "updateHint",
                                             "destructiveHint",
                                             "idempotentHint",
                                             "openWorldHint"
@@ -58531,6 +58561,8 @@
                                           "type": "string",
                                           "enum": [
                                             "readOnlyHint",
+                                            "createHint",
+                                            "updateHint",
                                             "destructiveHint",
                                             "idempotentHint",
                                             "openWorldHint"
@@ -58544,6 +58576,8 @@
                                           "type": "string",
                                           "enum": [
                                             "readOnlyHint",
+                                            "createHint",
+                                            "updateHint",
                                             "destructiveHint",
                                             "idempotentHint",
                                             "openWorldHint"
@@ -58598,6 +58632,8 @@
                                 "type": "string",
                                 "enum": [
                                   "readOnlyHint",
+                                  "createHint",
+                                  "updateHint",
                                   "destructiveHint",
                                   "idempotentHint",
                                   "openWorldHint"
@@ -58611,6 +58647,8 @@
                                 "type": "string",
                                 "enum": [
                                   "readOnlyHint",
+                                  "createHint",
+                                  "updateHint",
                                   "destructiveHint",
                                   "idempotentHint",
                                   "openWorldHint"
@@ -58624,6 +58662,8 @@
                                 "type": "string",
                                 "enum": [
                                   "readOnlyHint",
+                                  "createHint",
+                                  "updateHint",
                                   "destructiveHint",
                                   "idempotentHint",
                                   "openWorldHint"
@@ -59354,6 +59394,8 @@
                                     "type": "string",
                                     "enum": [
                                       "readOnlyHint",
+                                      "createHint",
+                                      "updateHint",
                                       "destructiveHint",
                                       "idempotentHint",
                                       "openWorldHint"
@@ -59369,6 +59411,8 @@
                                         "type": "string",
                                         "enum": [
                                           "readOnlyHint",
+                                          "createHint",
+                                          "updateHint",
                                           "destructiveHint",
                                           "idempotentHint",
                                           "openWorldHint"
@@ -59381,6 +59425,8 @@
                                         "type": "string",
                                         "enum": [
                                           "readOnlyHint",
+                                          "createHint",
+                                          "updateHint",
                                           "destructiveHint",
                                           "idempotentHint",
                                           "openWorldHint"
@@ -59393,6 +59439,8 @@
                                         "type": "string",
                                         "enum": [
                                           "readOnlyHint",
+                                          "createHint",
+                                          "updateHint",
                                           "destructiveHint",
                                           "idempotentHint",
                                           "openWorldHint"
@@ -59469,6 +59517,8 @@
                           "type": "string",
                           "enum": [
                             "readOnlyHint",
+                            "createHint",
+                            "updateHint",
                             "destructiveHint",
                             "idempotentHint",
                             "openWorldHint"
@@ -59484,6 +59534,8 @@
                               "type": "string",
                               "enum": [
                                 "readOnlyHint",
+                                "createHint",
+                                "updateHint",
                                 "destructiveHint",
                                 "idempotentHint",
                                 "openWorldHint"
@@ -59496,6 +59548,8 @@
                               "type": "string",
                               "enum": [
                                 "readOnlyHint",
+                                "createHint",
+                                "updateHint",
                                 "destructiveHint",
                                 "idempotentHint",
                                 "openWorldHint"
@@ -59508,6 +59562,8 @@
                               "type": "string",
                               "enum": [
                                 "readOnlyHint",
+                                "createHint",
+                                "updateHint",
                                 "destructiveHint",
                                 "idempotentHint",
                                 "openWorldHint"
@@ -60046,6 +60102,8 @@
                                           "type": "string",
                                           "enum": [
                                             "readOnlyHint",
+                                            "createHint",
+                                            "updateHint",
                                             "destructiveHint",
                                             "idempotentHint",
                                             "openWorldHint"
@@ -60059,6 +60117,8 @@
                                           "type": "string",
                                           "enum": [
                                             "readOnlyHint",
+                                            "createHint",
+                                            "updateHint",
                                             "destructiveHint",
                                             "idempotentHint",
                                             "openWorldHint"
@@ -60072,6 +60132,8 @@
                                           "type": "string",
                                           "enum": [
                                             "readOnlyHint",
+                                            "createHint",
+                                            "updateHint",
                                             "destructiveHint",
                                             "idempotentHint",
                                             "openWorldHint"
@@ -60126,6 +60188,8 @@
                                 "type": "string",
                                 "enum": [
                                   "readOnlyHint",
+                                  "createHint",
+                                  "updateHint",
                                   "destructiveHint",
                                   "idempotentHint",
                                   "openWorldHint"
@@ -60139,6 +60203,8 @@
                                 "type": "string",
                                 "enum": [
                                   "readOnlyHint",
+                                  "createHint",
+                                  "updateHint",
                                   "destructiveHint",
                                   "idempotentHint",
                                   "openWorldHint"
@@ -60152,6 +60218,8 @@
                                 "type": "string",
                                 "enum": [
                                   "readOnlyHint",
+                                  "createHint",
+                                  "updateHint",
                                   "destructiveHint",
                                   "idempotentHint",
                                   "openWorldHint"

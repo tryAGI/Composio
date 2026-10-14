@@ -11,6 +11,10 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
+        CreateHint,
+        /// <summary>
+        ///
+        /// </summary>
         DestructiveHint,
         /// <summary>
         ///
@@ -24,6 +28,10 @@ namespace Composio
         ///
         /// </summary>
         ReadOnlyHint,
+        /// <summary>
+        ///
+        /// </summary>
+        UpdateHint,
     }
 
     /// <summary>
@@ -38,10 +46,12 @@ namespace Composio
         {
             return value switch
             {
+                GetToolRouterSessionBySessionIdResponseConfigTagsRequireApprovalItem.CreateHint => "createHint",
                 GetToolRouterSessionBySessionIdResponseConfigTagsRequireApprovalItem.DestructiveHint => "destructiveHint",
                 GetToolRouterSessionBySessionIdResponseConfigTagsRequireApprovalItem.IdempotentHint => "idempotentHint",
                 GetToolRouterSessionBySessionIdResponseConfigTagsRequireApprovalItem.OpenWorldHint => "openWorldHint",
                 GetToolRouterSessionBySessionIdResponseConfigTagsRequireApprovalItem.ReadOnlyHint => "readOnlyHint",
+                GetToolRouterSessionBySessionIdResponseConfigTagsRequireApprovalItem.UpdateHint => "updateHint",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +62,12 @@ namespace Composio
         {
             return value switch
             {
+                "createHint" => GetToolRouterSessionBySessionIdResponseConfigTagsRequireApprovalItem.CreateHint,
                 "destructiveHint" => GetToolRouterSessionBySessionIdResponseConfigTagsRequireApprovalItem.DestructiveHint,
                 "idempotentHint" => GetToolRouterSessionBySessionIdResponseConfigTagsRequireApprovalItem.IdempotentHint,
                 "openWorldHint" => GetToolRouterSessionBySessionIdResponseConfigTagsRequireApprovalItem.OpenWorldHint,
                 "readOnlyHint" => GetToolRouterSessionBySessionIdResponseConfigTagsRequireApprovalItem.ReadOnlyHint,
+                "updateHint" => GetToolRouterSessionBySessionIdResponseConfigTagsRequireApprovalItem.UpdateHint,
                 _ => null,
             };
         }

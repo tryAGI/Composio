@@ -11,6 +11,10 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
+        CreateHint,
+        /// <summary>
+        ///
+        /// </summary>
         DestructiveHint,
         /// <summary>
         ///
@@ -24,6 +28,10 @@ namespace Composio
         ///
         /// </summary>
         ReadOnlyHint,
+        /// <summary>
+        ///
+        /// </summary>
+        UpdateHint,
     }
 
     /// <summary>
@@ -38,10 +46,12 @@ namespace Composio
         {
             return value switch
             {
+                PostToolRouterSessionResponseConfigToolsVariant3TagsDisabledItem.CreateHint => "createHint",
                 PostToolRouterSessionResponseConfigToolsVariant3TagsDisabledItem.DestructiveHint => "destructiveHint",
                 PostToolRouterSessionResponseConfigToolsVariant3TagsDisabledItem.IdempotentHint => "idempotentHint",
                 PostToolRouterSessionResponseConfigToolsVariant3TagsDisabledItem.OpenWorldHint => "openWorldHint",
                 PostToolRouterSessionResponseConfigToolsVariant3TagsDisabledItem.ReadOnlyHint => "readOnlyHint",
+                PostToolRouterSessionResponseConfigToolsVariant3TagsDisabledItem.UpdateHint => "updateHint",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +62,12 @@ namespace Composio
         {
             return value switch
             {
+                "createHint" => PostToolRouterSessionResponseConfigToolsVariant3TagsDisabledItem.CreateHint,
                 "destructiveHint" => PostToolRouterSessionResponseConfigToolsVariant3TagsDisabledItem.DestructiveHint,
                 "idempotentHint" => PostToolRouterSessionResponseConfigToolsVariant3TagsDisabledItem.IdempotentHint,
                 "openWorldHint" => PostToolRouterSessionResponseConfigToolsVariant3TagsDisabledItem.OpenWorldHint,
                 "readOnlyHint" => PostToolRouterSessionResponseConfigToolsVariant3TagsDisabledItem.ReadOnlyHint,
+                "updateHint" => PostToolRouterSessionResponseConfigToolsVariant3TagsDisabledItem.UpdateHint,
                 _ => null,
             };
         }

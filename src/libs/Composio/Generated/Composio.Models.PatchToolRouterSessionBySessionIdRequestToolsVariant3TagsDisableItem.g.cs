@@ -11,6 +11,10 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
+        CreateHint,
+        /// <summary>
+        ///
+        /// </summary>
         DestructiveHint,
         /// <summary>
         ///
@@ -24,6 +28,10 @@ namespace Composio
         ///
         /// </summary>
         ReadOnlyHint,
+        /// <summary>
+        ///
+        /// </summary>
+        UpdateHint,
     }
 
     /// <summary>
@@ -38,10 +46,12 @@ namespace Composio
         {
             return value switch
             {
+                PatchToolRouterSessionBySessionIdRequestToolsVariant3TagsDisableItem.CreateHint => "createHint",
                 PatchToolRouterSessionBySessionIdRequestToolsVariant3TagsDisableItem.DestructiveHint => "destructiveHint",
                 PatchToolRouterSessionBySessionIdRequestToolsVariant3TagsDisableItem.IdempotentHint => "idempotentHint",
                 PatchToolRouterSessionBySessionIdRequestToolsVariant3TagsDisableItem.OpenWorldHint => "openWorldHint",
                 PatchToolRouterSessionBySessionIdRequestToolsVariant3TagsDisableItem.ReadOnlyHint => "readOnlyHint",
+                PatchToolRouterSessionBySessionIdRequestToolsVariant3TagsDisableItem.UpdateHint => "updateHint",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +62,12 @@ namespace Composio
         {
             return value switch
             {
+                "createHint" => PatchToolRouterSessionBySessionIdRequestToolsVariant3TagsDisableItem.CreateHint,
                 "destructiveHint" => PatchToolRouterSessionBySessionIdRequestToolsVariant3TagsDisableItem.DestructiveHint,
                 "idempotentHint" => PatchToolRouterSessionBySessionIdRequestToolsVariant3TagsDisableItem.IdempotentHint,
                 "openWorldHint" => PatchToolRouterSessionBySessionIdRequestToolsVariant3TagsDisableItem.OpenWorldHint,
                 "readOnlyHint" => PatchToolRouterSessionBySessionIdRequestToolsVariant3TagsDisableItem.ReadOnlyHint,
+                "updateHint" => PatchToolRouterSessionBySessionIdRequestToolsVariant3TagsDisableItem.UpdateHint,
                 _ => null,
             };
         }
