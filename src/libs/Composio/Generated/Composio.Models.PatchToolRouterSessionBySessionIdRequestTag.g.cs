@@ -11,6 +11,10 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
+        CreateHint,
+        /// <summary>
+        ///
+        /// </summary>
         DestructiveHint,
         /// <summary>
         ///
@@ -24,6 +28,10 @@ namespace Composio
         ///
         /// </summary>
         ReadOnlyHint,
+        /// <summary>
+        ///
+        /// </summary>
+        UpdateHint,
     }
 
     /// <summary>
@@ -38,10 +46,12 @@ namespace Composio
         {
             return value switch
             {
+                PatchToolRouterSessionBySessionIdRequestTag.CreateHint => "createHint",
                 PatchToolRouterSessionBySessionIdRequestTag.DestructiveHint => "destructiveHint",
                 PatchToolRouterSessionBySessionIdRequestTag.IdempotentHint => "idempotentHint",
                 PatchToolRouterSessionBySessionIdRequestTag.OpenWorldHint => "openWorldHint",
                 PatchToolRouterSessionBySessionIdRequestTag.ReadOnlyHint => "readOnlyHint",
+                PatchToolRouterSessionBySessionIdRequestTag.UpdateHint => "updateHint",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +62,12 @@ namespace Composio
         {
             return value switch
             {
+                "createHint" => PatchToolRouterSessionBySessionIdRequestTag.CreateHint,
                 "destructiveHint" => PatchToolRouterSessionBySessionIdRequestTag.DestructiveHint,
                 "idempotentHint" => PatchToolRouterSessionBySessionIdRequestTag.IdempotentHint,
                 "openWorldHint" => PatchToolRouterSessionBySessionIdRequestTag.OpenWorldHint,
                 "readOnlyHint" => PatchToolRouterSessionBySessionIdRequestTag.ReadOnlyHint,
+                "updateHint" => PatchToolRouterSessionBySessionIdRequestTag.UpdateHint,
                 _ => null,
             };
         }

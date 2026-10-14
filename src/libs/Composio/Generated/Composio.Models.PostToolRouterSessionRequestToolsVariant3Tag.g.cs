@@ -11,6 +11,10 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
+        CreateHint,
+        /// <summary>
+        ///
+        /// </summary>
         DestructiveHint,
         /// <summary>
         ///
@@ -24,6 +28,10 @@ namespace Composio
         ///
         /// </summary>
         ReadOnlyHint,
+        /// <summary>
+        ///
+        /// </summary>
+        UpdateHint,
     }
 
     /// <summary>
@@ -38,10 +46,12 @@ namespace Composio
         {
             return value switch
             {
+                PostToolRouterSessionRequestToolsVariant3Tag.CreateHint => "createHint",
                 PostToolRouterSessionRequestToolsVariant3Tag.DestructiveHint => "destructiveHint",
                 PostToolRouterSessionRequestToolsVariant3Tag.IdempotentHint => "idempotentHint",
                 PostToolRouterSessionRequestToolsVariant3Tag.OpenWorldHint => "openWorldHint",
                 PostToolRouterSessionRequestToolsVariant3Tag.ReadOnlyHint => "readOnlyHint",
+                PostToolRouterSessionRequestToolsVariant3Tag.UpdateHint => "updateHint",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +62,12 @@ namespace Composio
         {
             return value switch
             {
+                "createHint" => PostToolRouterSessionRequestToolsVariant3Tag.CreateHint,
                 "destructiveHint" => PostToolRouterSessionRequestToolsVariant3Tag.DestructiveHint,
                 "idempotentHint" => PostToolRouterSessionRequestToolsVariant3Tag.IdempotentHint,
                 "openWorldHint" => PostToolRouterSessionRequestToolsVariant3Tag.OpenWorldHint,
                 "readOnlyHint" => PostToolRouterSessionRequestToolsVariant3Tag.ReadOnlyHint,
+                "updateHint" => PostToolRouterSessionRequestToolsVariant3Tag.UpdateHint,
                 _ => null,
             };
         }

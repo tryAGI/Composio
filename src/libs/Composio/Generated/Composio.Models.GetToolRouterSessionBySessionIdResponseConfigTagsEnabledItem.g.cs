@@ -11,6 +11,10 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
+        CreateHint,
+        /// <summary>
+        ///
+        /// </summary>
         DestructiveHint,
         /// <summary>
         ///
@@ -24,6 +28,10 @@ namespace Composio
         ///
         /// </summary>
         ReadOnlyHint,
+        /// <summary>
+        ///
+        /// </summary>
+        UpdateHint,
     }
 
     /// <summary>
@@ -38,10 +46,12 @@ namespace Composio
         {
             return value switch
             {
+                GetToolRouterSessionBySessionIdResponseConfigTagsEnabledItem.CreateHint => "createHint",
                 GetToolRouterSessionBySessionIdResponseConfigTagsEnabledItem.DestructiveHint => "destructiveHint",
                 GetToolRouterSessionBySessionIdResponseConfigTagsEnabledItem.IdempotentHint => "idempotentHint",
                 GetToolRouterSessionBySessionIdResponseConfigTagsEnabledItem.OpenWorldHint => "openWorldHint",
                 GetToolRouterSessionBySessionIdResponseConfigTagsEnabledItem.ReadOnlyHint => "readOnlyHint",
+                GetToolRouterSessionBySessionIdResponseConfigTagsEnabledItem.UpdateHint => "updateHint",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +62,12 @@ namespace Composio
         {
             return value switch
             {
+                "createHint" => GetToolRouterSessionBySessionIdResponseConfigTagsEnabledItem.CreateHint,
                 "destructiveHint" => GetToolRouterSessionBySessionIdResponseConfigTagsEnabledItem.DestructiveHint,
                 "idempotentHint" => GetToolRouterSessionBySessionIdResponseConfigTagsEnabledItem.IdempotentHint,
                 "openWorldHint" => GetToolRouterSessionBySessionIdResponseConfigTagsEnabledItem.OpenWorldHint,
                 "readOnlyHint" => GetToolRouterSessionBySessionIdResponseConfigTagsEnabledItem.ReadOnlyHint,
+                "updateHint" => GetToolRouterSessionBySessionIdResponseConfigTagsEnabledItem.UpdateHint,
                 _ => null,
             };
         }

@@ -11,6 +11,10 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
+        CreateHint,
+        /// <summary>
+        ///
+        /// </summary>
         DestructiveHint,
         /// <summary>
         ///
@@ -24,6 +28,10 @@ namespace Composio
         ///
         /// </summary>
         ReadOnlyHint,
+        /// <summary>
+        ///
+        /// </summary>
+        UpdateHint,
     }
 
     /// <summary>
@@ -38,10 +46,12 @@ namespace Composio
         {
             return value switch
             {
+                PostToolRouterSessionRequestToolsVariant3TagsRequireApprovalItem.CreateHint => "createHint",
                 PostToolRouterSessionRequestToolsVariant3TagsRequireApprovalItem.DestructiveHint => "destructiveHint",
                 PostToolRouterSessionRequestToolsVariant3TagsRequireApprovalItem.IdempotentHint => "idempotentHint",
                 PostToolRouterSessionRequestToolsVariant3TagsRequireApprovalItem.OpenWorldHint => "openWorldHint",
                 PostToolRouterSessionRequestToolsVariant3TagsRequireApprovalItem.ReadOnlyHint => "readOnlyHint",
+                PostToolRouterSessionRequestToolsVariant3TagsRequireApprovalItem.UpdateHint => "updateHint",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +62,12 @@ namespace Composio
         {
             return value switch
             {
+                "createHint" => PostToolRouterSessionRequestToolsVariant3TagsRequireApprovalItem.CreateHint,
                 "destructiveHint" => PostToolRouterSessionRequestToolsVariant3TagsRequireApprovalItem.DestructiveHint,
                 "idempotentHint" => PostToolRouterSessionRequestToolsVariant3TagsRequireApprovalItem.IdempotentHint,
                 "openWorldHint" => PostToolRouterSessionRequestToolsVariant3TagsRequireApprovalItem.OpenWorldHint,
                 "readOnlyHint" => PostToolRouterSessionRequestToolsVariant3TagsRequireApprovalItem.ReadOnlyHint,
+                "updateHint" => PostToolRouterSessionRequestToolsVariant3TagsRequireApprovalItem.UpdateHint,
                 _ => null,
             };
         }

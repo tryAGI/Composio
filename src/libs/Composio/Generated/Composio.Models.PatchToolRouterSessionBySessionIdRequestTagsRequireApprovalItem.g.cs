@@ -11,6 +11,10 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
+        CreateHint,
+        /// <summary>
+        ///
+        /// </summary>
         DestructiveHint,
         /// <summary>
         ///
@@ -24,6 +28,10 @@ namespace Composio
         ///
         /// </summary>
         ReadOnlyHint,
+        /// <summary>
+        ///
+        /// </summary>
+        UpdateHint,
     }
 
     /// <summary>
@@ -38,10 +46,12 @@ namespace Composio
         {
             return value switch
             {
+                PatchToolRouterSessionBySessionIdRequestTagsRequireApprovalItem.CreateHint => "createHint",
                 PatchToolRouterSessionBySessionIdRequestTagsRequireApprovalItem.DestructiveHint => "destructiveHint",
                 PatchToolRouterSessionBySessionIdRequestTagsRequireApprovalItem.IdempotentHint => "idempotentHint",
                 PatchToolRouterSessionBySessionIdRequestTagsRequireApprovalItem.OpenWorldHint => "openWorldHint",
                 PatchToolRouterSessionBySessionIdRequestTagsRequireApprovalItem.ReadOnlyHint => "readOnlyHint",
+                PatchToolRouterSessionBySessionIdRequestTagsRequireApprovalItem.UpdateHint => "updateHint",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -52,10 +62,12 @@ namespace Composio
         {
             return value switch
             {
+                "createHint" => PatchToolRouterSessionBySessionIdRequestTagsRequireApprovalItem.CreateHint,
                 "destructiveHint" => PatchToolRouterSessionBySessionIdRequestTagsRequireApprovalItem.DestructiveHint,
                 "idempotentHint" => PatchToolRouterSessionBySessionIdRequestTagsRequireApprovalItem.IdempotentHint,
                 "openWorldHint" => PatchToolRouterSessionBySessionIdRequestTagsRequireApprovalItem.OpenWorldHint,
                 "readOnlyHint" => PatchToolRouterSessionBySessionIdRequestTagsRequireApprovalItem.ReadOnlyHint,
+                "updateHint" => PatchToolRouterSessionBySessionIdRequestTagsRequireApprovalItem.UpdateHint,
                 _ => null,
             };
         }
