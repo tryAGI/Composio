@@ -29,6 +29,13 @@ namespace Composio
         public required bool ReturnInstantCharge { get; set; }
 
         /// <summary>
+        /// Experimental. Whether tool search results show each instant tool's price, under instant_account.prices. Defaults to false.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("return_prices_in_search")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required bool ReturnPricesInSearch { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -39,6 +46,9 @@ namespace Composio
         /// </summary>
         /// <param name="returnInstantCharge">
         /// Whether session tool responses return a top-level instant_charge when a charge is available. Defaults to false; controls response visibility only.
+        /// </param>
+        /// <param name="returnPricesInSearch">
+        /// Experimental. Whether tool search results show each instant tool's price, under instant_account.prices. Defaults to false.
         /// </param>
         /// <param name="toolkits">
         /// Toolkits eligible for instant usage, as an enabled or disabled list. If absent, no additional toolkit restriction applies.
@@ -51,12 +61,14 @@ namespace Composio
 #endif
         public GetToolRouterSessionBySessionIdResponseConfigInstant(
             bool returnInstantCharge,
+            bool returnPricesInSearch,
             global::Composio.AnyOf<global::Composio.GetToolRouterSessionBySessionIdResponseConfigInstantToolkitsVariant1, global::Composio.GetToolRouterSessionBySessionIdResponseConfigInstantToolkitsVariant2>? toolkits,
             object? tools)
         {
             this.Toolkits = toolkits;
             this.Tools = tools;
             this.ReturnInstantCharge = returnInstantCharge;
+            this.ReturnPricesInSearch = returnPricesInSearch;
         }
 
         /// <summary>

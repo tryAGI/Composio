@@ -6797,75 +6797,79 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.Dictionary<string, global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolSchemas2>? Type1691 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::Composio.ToolPricing>? Type1691 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolSchemas2? Type1692 { get; set; }
+        public global::System.Collections.Generic.Dictionary<string, global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolSchemas2>? Type1692 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolSchemasSchemaRef? Type1693 { get; set; }
+        public global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolSchemas2? Type1693 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolSchemasSchemaRefTool? Type1694 { get; set; }
+        public global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolSchemasSchemaRef? Type1694 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolSchemasSchemaRefArgs? Type1695 { get; set; }
+        public global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolSchemasSchemaRefTool? Type1695 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Composio.PostToolRouterSessionBySessionIdSearchResponseTimeInfo? Type1696 { get; set; }
+        public global::Composio.PostToolRouterSessionBySessionIdSearchResponseToolSchemasSchemaRefArgs? Type1696 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Composio.PostToolRouterSessionBySessionIdSearchResponseSession? Type1697 { get; set; }
+        public global::Composio.PostToolRouterSessionBySessionIdSearchResponseTimeInfo? Type1697 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Composio.GetToolRouterSessionBySessionIdMountsByMountIdItemsResponse? Type1698 { get; set; }
+        public global::Composio.PostToolRouterSessionBySessionIdSearchResponseSession? Type1698 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Composio.GetToolRouterSessionBySessionIdMountsByMountIdItemsResponseItem>? Type1699 { get; set; }
+        public global::Composio.GetToolRouterSessionBySessionIdMountsByMountIdItemsResponse? Type1699 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Composio.GetToolRouterSessionBySessionIdMountsByMountIdItemsResponseItem? Type1700 { get; set; }
+        public global::System.Collections.Generic.IList<global::Composio.GetToolRouterSessionBySessionIdMountsByMountIdItemsResponseItem>? Type1700 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Composio.PostToolRouterSessionBySessionIdMountsByMountIdDownloadUrlResponse? Type1701 { get; set; }
+        public global::Composio.GetToolRouterSessionBySessionIdMountsByMountIdItemsResponseItem? Type1701 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Composio.PostToolRouterSessionBySessionIdMountsByMountIdUploadUrlResponse? Type1702 { get; set; }
+        public global::Composio.PostToolRouterSessionBySessionIdMountsByMountIdDownloadUrlResponse? Type1702 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Composio.PostToolRouterSessionBySessionIdMountsByMountIdDeleteResponse? Type1703 { get; set; }
+        public global::Composio.PostToolRouterSessionBySessionIdMountsByMountIdUploadUrlResponse? Type1703 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Composio.GetToolkitsChangelogResponse? Type1704 { get; set; }
+        public global::Composio.PostToolRouterSessionBySessionIdMountsByMountIdDeleteResponse? Type1704 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Composio.GetToolkitsChangelogResponseItem>? Type1705 { get; set; }
+        public global::Composio.GetToolkitsChangelogResponse? Type1705 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Composio.GetToolkitsChangelogResponseItem? Type1706 { get; set; }
+        public global::System.Collections.Generic.IList<global::Composio.GetToolkitsChangelogResponseItem>? Type1706 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::System.Collections.Generic.IList<global::Composio.GetToolkitsChangelogResponseItemVersion>? Type1707 { get; set; }
+        public global::Composio.GetToolkitsChangelogResponseItem? Type1707 { get; set; }
         /// <summary>
         ///
         /// </summary>
-        public global::Composio.GetToolkitsChangelogResponseItemVersion? Type1708 { get; set; }
+        public global::System.Collections.Generic.IList<global::Composio.GetToolkitsChangelogResponseItemVersion>? Type1708 { get; set; }
+        /// <summary>
+        ///
+        /// </summary>
+        public global::Composio.GetToolkitsChangelogResponseItemVersion? Type1709 { get; set; }
 
         /// <summary>
         ///

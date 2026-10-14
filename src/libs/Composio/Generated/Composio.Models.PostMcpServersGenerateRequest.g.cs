@@ -1,4 +1,6 @@
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 #nullable enable
 
 namespace Composio
@@ -18,12 +20,13 @@ namespace Composio
         public required string McpServerId { get; set; }
 
         /// <summary>
-        /// Flag indicating if Composio manages authentication<br/>
+        /// Flag indicating if Composio manages authentication. When true, the generated URLs include the include_composio_helper_actions query parameter. DEPRECATED: The include_composio_helper_actions query parameter will be removed in a future version. Switch to Composio Sessions (POST /api/v3/tool_router/session), whose MCP URL includes connection-management tools.<br/>
         /// Default Value: false<br/>
         /// Example: true
         /// </summary>
         /// <example>true</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("managed_auth_by_composio")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public bool? ManagedAuthByComposio { get; set; }
 
         /// <summary>
@@ -55,11 +58,6 @@ namespace Composio
         /// Unique identifier of the MCP server to generate URL for<br/>
         /// Example: 550e8400-e29b-41d4-a716-446655440000
         /// </param>
-        /// <param name="managedAuthByComposio">
-        /// Flag indicating if Composio manages authentication<br/>
-        /// Default Value: false<br/>
-        /// Example: true
-        /// </param>
         /// <param name="userIds">
         /// List of user identifiers for whom the URL is generated<br/>
         /// Example: [user_123456, user_789012]
@@ -73,12 +71,10 @@ namespace Composio
 #endif
         public PostMcpServersGenerateRequest(
             string mcpServerId,
-            bool? managedAuthByComposio,
             global::System.Collections.Generic.IList<string>? userIds,
             global::System.Collections.Generic.IList<string>? connectedAccountIds)
         {
             this.McpServerId = mcpServerId ?? throw new global::System.ArgumentNullException(nameof(mcpServerId));
-            this.ManagedAuthByComposio = managedAuthByComposio;
             this.UserIds = userIds;
             this.ConnectedAccountIds = connectedAccountIds;
         }

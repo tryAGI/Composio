@@ -16,6 +16,12 @@ namespace Composio
         public required global::System.Collections.Generic.IList<string> AllowedToolSlugs { get; set; }
 
         /// <summary>
+        /// Price of each tool, keyed by tool slug.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("prices")]
+        public global::System.Collections.Generic.Dictionary<string, global::Composio.ToolPricing>? Prices { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -27,13 +33,18 @@ namespace Composio
         /// <param name="allowedToolSlugs">
         /// Tools of this toolkit that run on the Composio instant account
         /// </param>
+        /// <param name="prices">
+        /// Price of each tool, keyed by tool slug.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PostToolRouterSessionBySessionIdSearchResponseToolkitConnectionStatuseInstantAccount(
-            global::System.Collections.Generic.IList<string> allowedToolSlugs)
+            global::System.Collections.Generic.IList<string> allowedToolSlugs,
+            global::System.Collections.Generic.Dictionary<string, global::Composio.ToolPricing>? prices)
         {
             this.AllowedToolSlugs = allowedToolSlugs ?? throw new global::System.ArgumentNullException(nameof(allowedToolSlugs));
+            this.Prices = prices;
         }
 
         /// <summary>
