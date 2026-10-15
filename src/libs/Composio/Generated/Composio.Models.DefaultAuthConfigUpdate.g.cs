@@ -52,10 +52,17 @@ namespace Composio
         public global::Composio.DefaultAuthConfigUpdateToolAccessConfig? ToolAccessConfig { get; set; }
 
         /// <summary>
-        /// Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged.
+        /// Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged. DEPRECATED: use `shared_connection_fields` instead. It takes the same value and behaves the same way.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("shared_credentials")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public global::System.Collections.Generic.Dictionary<string, object?>? SharedCredentials { get; set; }
+
+        /// <summary>
+        /// Connection field values inherited by every connected account created under this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("shared_connection_fields")]
+        public global::System.Collections.Generic.Dictionary<string, object?>? SharedConnectionFields { get; set; }
 
         /// <summary>
         /// Whether this auth config is enabled for tool router
@@ -82,8 +89,8 @@ namespace Composio
         /// <param name="userScopes">
         /// OAuth user-token scopes requested for the auth config. This is primarily used by Slack OAuth v2.
         /// </param>
-        /// <param name="sharedCredentials">
-        /// Shared credentials inherited by all connected accounts using this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged.
+        /// <param name="sharedConnectionFields">
+        /// Connection field values inherited by every connected account created under this auth config. Secret values are redacted in responses, so provide the real values when updating; omit this field to leave them unchanged.
         /// </param>
         /// <param name="isEnabledForToolRouter">
         /// Whether this auth config is enabled for tool router
@@ -96,14 +103,14 @@ namespace Composio
             string? name,
             global::Composio.AnyOf<string, global::System.Collections.Generic.IList<string>>? scopes,
             global::Composio.AnyOf<string, global::System.Collections.Generic.IList<string>>? userScopes,
-            global::System.Collections.Generic.Dictionary<string, object?>? sharedCredentials,
+            global::System.Collections.Generic.Dictionary<string, object?>? sharedConnectionFields,
             bool? isEnabledForToolRouter)
         {
             this.Type = type;
             this.Name = name;
             this.Scopes = scopes;
             this.UserScopes = userScopes;
-            this.SharedCredentials = sharedCredentials;
+            this.SharedConnectionFields = sharedConnectionFields;
             this.IsEnabledForToolRouter = isEnabledForToolRouter;
         }
 
