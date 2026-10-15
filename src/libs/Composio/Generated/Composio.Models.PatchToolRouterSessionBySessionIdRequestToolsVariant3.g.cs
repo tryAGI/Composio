@@ -9,7 +9,7 @@ namespace Composio
     public sealed partial class PatchToolRouterSessionBySessionIdRequestToolsVariant3
     {
         /// <summary>
-        /// MCP tool annotation hints for this toolkit. Array format is treated as enabled list. Object format supports enabled and disabled lists, which replace the global tag filter for this toolkit, and experimentally the tags whose tools in this toolkit need approval.<br/>
+        /// Tags for this toolkit. Any `tags` object here fully replaces the session-wide `tags` for this toolkit, including one that only sets `require_approval`. Array format is treated as an enabled list.<br/>
         /// Example: {"disable":["openWorldHint"],"require_approval":["destructiveHint"]}
         /// </summary>
         /// <example>{"disable":["openWorldHint"],"require_approval":["destructiveHint"]}</example>
@@ -19,7 +19,7 @@ namespace Composio
         public required global::Composio.AnyOf<global::System.Collections.Generic.IList<global::Composio.PatchToolRouterSessionBySessionIdRequestToolsVariant3Tag>, global::Composio.PatchToolRouterSessionBySessionIdRequestToolsVariant3Tags> Tags { get; set; }
 
         /// <summary>
-        /// Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.<br/>
+        /// Tool calls matched here pause until the user approves them. Setting this toolkit's own list, even an empty one, replaces the session-wide `tags.require_approval` for its tools.<br/>
         /// Example: [GITHUB_DELETE_A_REPOSITORY]
         /// </summary>
         /// <example>[GITHUB_DELETE_A_REPOSITORY]</example>
@@ -36,11 +36,11 @@ namespace Composio
         /// Initializes a new instance of the <see cref="PatchToolRouterSessionBySessionIdRequestToolsVariant3" /> class.
         /// </summary>
         /// <param name="tags">
-        /// MCP tool annotation hints for this toolkit. Array format is treated as enabled list. Object format supports enabled and disabled lists, which replace the global tag filter for this toolkit, and experimentally the tags whose tools in this toolkit need approval.<br/>
+        /// Tags for this toolkit. Any `tags` object here fully replaces the session-wide `tags` for this toolkit, including one that only sets `require_approval`. Array format is treated as an enabled list.<br/>
         /// Example: {"disable":["openWorldHint"],"require_approval":["destructiveHint"]}
         /// </param>
         /// <param name="requireApproval">
-        /// Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.<br/>
+        /// Tool calls matched here pause until the user approves them. Setting this toolkit's own list, even an empty one, replaces the session-wide `tags.require_approval` for its tools.<br/>
         /// Example: [GITHUB_DELETE_A_REPOSITORY]
         /// </param>
 #if NET7_0_OR_GREATER

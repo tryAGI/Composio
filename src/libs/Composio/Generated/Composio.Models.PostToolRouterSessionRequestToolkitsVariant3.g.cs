@@ -9,7 +9,7 @@ namespace Composio
     public sealed partial class PostToolRouterSessionRequestToolkitsVariant3
     {
         /// <summary>
-        /// Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.<br/>
+        /// Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed. A toolkit's own lists in `tools` replace the session-wide tag list for that toolkit.<br/>
         /// Example: [github]
         /// </summary>
         /// <example>[github]</example>
@@ -27,7 +27,7 @@ namespace Composio
         /// Initializes a new instance of the <see cref="PostToolRouterSessionRequestToolkitsVariant3" /> class.
         /// </summary>
         /// <param name="requireApproval">
-        /// Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.<br/>
+        /// Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed. A toolkit's own lists in `tools` replace the session-wide tag list for that toolkit.<br/>
         /// Example: [github]
         /// </param>
 #if NET7_0_OR_GREATER

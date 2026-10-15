@@ -722,7 +722,7 @@ namespace Composio
         /// Tool-level configuration per toolkit. Allows you to enable, disable, or filter by tags for specific tools within each toolkit, and experimentally to list tools that need approval. Every tool slug must be a valid Composio tool slug for that toolkit — invalid or typo'd slugs fail session creation with a clear error listing which ones didn't match.
         /// </param>
         /// <param name="tags">
-        /// Global MCP tool annotation hints for filtering. Array format is treated as enabled list. Object format supports enabled (tool must have at least one) and disabled (tool must NOT have any) lists, and experimentally the tags whose tools need approval. Toolkit-level tags override the enabled/disabled filter.<br/>
+        /// Session-wide tags for filtering tools. Array format is treated as an enabled list. Object format supports `enable` (a tool must have at least one) and `disable` (a tool must have none), and experimentally the tags whose tools need approval. If a toolkit sets `tools.&lt;toolkit&gt;.tags`, its tools use that object instead of this one.<br/>
         /// Example: {"disable":["openWorldHint"],"require_approval":["destructiveHint"]}
         /// </param>
         /// <param name="workbench">
