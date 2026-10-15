@@ -55786,7 +55786,7 @@
                               "type": "string"
                             },
                             "minItems": 1,
-                            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+                            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed. A toolkit's own lists in `tools` replace the session-wide tag list for that toolkit.",
                             "x-experimental": true,
                             "example": [
                               "github"
@@ -55819,7 +55819,7 @@
                               "type": "string"
                             },
                             "minItems": 1,
-                            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+                            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed. A toolkit's own lists in `tools` replace the session-wide tag list for that toolkit.",
                             "x-experimental": true,
                             "example": [
                               "github"
@@ -55841,7 +55841,7 @@
                               "type": "string"
                             },
                             "minItems": 1,
-                            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+                            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed. A toolkit's own lists in `tools` replace the session-wide tag list for that toolkit.",
                             "x-experimental": true,
                             "example": [
                               "github"
@@ -56061,8 +56061,7 @@
                               "items": {
                                 "type": "string"
                               },
-                              "minItems": 1,
-                              "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+                              "description": "Tool calls matched here pause until the user approves them. Setting this toolkit's own list, even an empty one, replaces the session-wide `tags.require_approval` for its tools.",
                               "x-experimental": true,
                               "example": [
                                 "GITHUB_DELETE_A_REPOSITORY"
@@ -56092,8 +56091,7 @@
                               "items": {
                                 "type": "string"
                               },
-                              "minItems": 1,
-                              "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+                              "description": "Tool calls matched here pause until the user approves them. Setting this toolkit's own list, even an empty one, replaces the session-wide `tags.require_approval` for its tools.",
                               "x-experimental": true,
                               "example": [
                                 "GITHUB_DELETE_A_REPOSITORY"
@@ -56168,8 +56166,7 @@
                                           "openWorldHint"
                                         ]
                                       },
-                                      "minItems": 1,
-                                      "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+                                      "description": "Tool calls matched here pause until the user approves them. Setting this toolkit's own list, even an empty one, replaces the session-wide `tags.require_approval` for its tools.",
                                       "x-experimental": true,
                                       "example": [
                                         "destructiveHint"
@@ -56178,7 +56175,7 @@
                                   }
                                 }
                               ],
-                              "description": "MCP tool annotation hints for this toolkit. Array format is treated as enabled list. Object format supports enabled and disabled lists, which replace the global tag filter for this toolkit, and experimentally the tags whose tools in this toolkit need approval.",
+                              "description": "Tags for this toolkit. Any `tags` object here fully replaces the session-wide `tags` for this toolkit, including one that only sets `require_approval`. Array format is treated as an enabled list.",
                               "example": {
                                 "disable": [
                                   "openWorldHint"
@@ -56193,8 +56190,7 @@
                               "items": {
                                 "type": "string"
                               },
-                              "minItems": 1,
-                              "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+                              "description": "Tool calls matched here pause until the user approves them. Setting this toolkit's own list, even an empty one, replaces the session-wide `tags.require_approval` for its tools.",
                               "x-experimental": true,
                               "example": [
                                 "GITHUB_DELETE_A_REPOSITORY"
@@ -56214,8 +56210,7 @@
                               "items": {
                                 "type": "string"
                               },
-                              "minItems": 1,
-                              "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+                              "description": "Tool calls matched here pause until the user approves them. Setting this toolkit's own list, even an empty one, replaces the session-wide `tags.require_approval` for its tools.",
                               "x-experimental": true,
                               "example": [
                                 "GITHUB_DELETE_A_REPOSITORY"
@@ -56292,7 +56287,7 @@
                               ]
                             },
                             "minItems": 1,
-                            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+                            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed. A toolkit's own lists in `tools` replace the session-wide tag list for that toolkit.",
                             "x-experimental": true,
                             "example": [
                               "destructiveHint"
@@ -56301,7 +56296,7 @@
                         }
                       }
                     ],
-                    "description": "Global MCP tool annotation hints for filtering. Array format is treated as enabled list. Object format supports enabled (tool must have at least one) and disabled (tool must NOT have any) lists, and experimentally the tags whose tools need approval. Toolkit-level tags override the enabled/disabled filter.",
+                    "description": "Session-wide tags for filtering tools. Array format is treated as an enabled list. Object format supports `enable` (a tool must have at least one) and `disable` (a tool must have none), and experimentally the tags whose tools need approval. If a toolkit sets `tools.<toolkit>.tags`, its tools use that object instead of this one.",
                     "example": {
                       "disable": [
                         "openWorldHint"
@@ -59072,7 +59067,7 @@
                               "type": "string"
                             },
                             "minItems": 1,
-                            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+                            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed. A toolkit's own lists in `tools` replace the session-wide tag list for that toolkit.",
                             "x-experimental": true,
                             "example": [
                               "github"
@@ -59105,7 +59100,7 @@
                               "type": "string"
                             },
                             "minItems": 1,
-                            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+                            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed. A toolkit's own lists in `tools` replace the session-wide tag list for that toolkit.",
                             "x-experimental": true,
                             "example": [
                               "github"
@@ -59127,7 +59122,7 @@
                               "type": "string"
                             },
                             "minItems": 1,
-                            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+                            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed. A toolkit's own lists in `tools` replace the session-wide tag list for that toolkit.",
                             "x-experimental": true,
                             "example": [
                               "github"
@@ -59339,8 +59334,7 @@
                               "items": {
                                 "type": "string"
                               },
-                              "minItems": 1,
-                              "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+                              "description": "Tool calls matched here pause until the user approves them. Setting this toolkit's own list, even an empty one, replaces the session-wide `tags.require_approval` for its tools.",
                               "x-experimental": true,
                               "example": [
                                 "GITHUB_DELETE_A_REPOSITORY"
@@ -59370,8 +59364,7 @@
                               "items": {
                                 "type": "string"
                               },
-                              "minItems": 1,
-                              "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+                              "description": "Tool calls matched here pause until the user approves them. Setting this toolkit's own list, even an empty one, replaces the session-wide `tags.require_approval` for its tools.",
                               "x-experimental": true,
                               "example": [
                                 "GITHUB_DELETE_A_REPOSITORY"
@@ -59446,8 +59439,7 @@
                                           "openWorldHint"
                                         ]
                                       },
-                                      "minItems": 1,
-                                      "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+                                      "description": "Tool calls matched here pause until the user approves them. Setting this toolkit's own list, even an empty one, replaces the session-wide `tags.require_approval` for its tools.",
                                       "x-experimental": true,
                                       "example": [
                                         "destructiveHint"
@@ -59456,7 +59448,7 @@
                                   }
                                 }
                               ],
-                              "description": "MCP tool annotation hints for this toolkit. Array format is treated as enabled list. Object format supports enabled and disabled lists, which replace the global tag filter for this toolkit, and experimentally the tags whose tools in this toolkit need approval.",
+                              "description": "Tags for this toolkit. Any `tags` object here fully replaces the session-wide `tags` for this toolkit, including one that only sets `require_approval`. Array format is treated as an enabled list.",
                               "example": {
                                 "disable": [
                                   "openWorldHint"
@@ -59471,8 +59463,7 @@
                               "items": {
                                 "type": "string"
                               },
-                              "minItems": 1,
-                              "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+                              "description": "Tool calls matched here pause until the user approves them. Setting this toolkit's own list, even an empty one, replaces the session-wide `tags.require_approval` for its tools.",
                               "x-experimental": true,
                               "example": [
                                 "GITHUB_DELETE_A_REPOSITORY"
@@ -59492,8 +59483,7 @@
                               "items": {
                                 "type": "string"
                               },
-                              "minItems": 1,
-                              "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+                              "description": "Tool calls matched here pause until the user approves them. Setting this toolkit's own list, even an empty one, replaces the session-wide `tags.require_approval` for its tools.",
                               "x-experimental": true,
                               "example": [
                                 "GITHUB_DELETE_A_REPOSITORY"
@@ -59570,7 +59560,7 @@
                               ]
                             },
                             "minItems": 1,
-                            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.",
+                            "description": "Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed. A toolkit's own lists in `tools` replace the session-wide tag list for that toolkit.",
                             "x-experimental": true,
                             "example": [
                               "destructiveHint"
@@ -59579,7 +59569,7 @@
                         }
                       }
                     ],
-                    "description": "Global MCP tool annotation hints for filtering. Array format is treated as enabled list. Object format supports enabled (tool must have at least one) and disabled (tool must NOT have any) lists, and experimentally the tags whose tools need approval. Toolkit-level tags override the enabled/disabled filter.",
+                    "description": "Session-wide tags for filtering tools. Array format is treated as an enabled list. Object format supports `enable` (a tool must have at least one) and `disable` (a tool must have none), and experimentally the tags whose tools need approval. If a toolkit sets `tools.<toolkit>.tags`, its tools use that object instead of this one.",
                     "example": {
                       "disable": [
                         "openWorldHint"

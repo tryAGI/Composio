@@ -21,7 +21,7 @@ namespace Composio
         public global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionRequestToolsVariant3TagsDisableItem>? Disable { get; set; }
 
         /// <summary>
-        /// Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.<br/>
+        /// Tool calls matched here pause until the user approves them. Setting this toolkit's own list, even an empty one, replaces the session-wide `tags.require_approval` for its tools.<br/>
         /// Example: [destructiveHint]
         /// </summary>
         /// <example>[destructiveHint]</example>
@@ -40,7 +40,7 @@ namespace Composio
         /// <param name="enable"></param>
         /// <param name="disable"></param>
         /// <param name="requireApproval">
-        /// Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.<br/>
+        /// Tool calls matched here pause until the user approves them. Setting this toolkit's own list, even an empty one, replaces the session-wide `tags.require_approval` for its tools.<br/>
         /// Example: [destructiveHint]
         /// </param>
 #if NET7_0_OR_GREATER

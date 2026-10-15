@@ -18,7 +18,7 @@ namespace Composio
         public required global::System.Collections.Generic.IList<string> Disable { get; set; }
 
         /// <summary>
-        /// Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.<br/>
+        /// Tool calls matched here pause until the user approves them. Setting this toolkit's own list, even an empty one, replaces the session-wide `tags.require_approval` for its tools.<br/>
         /// Example: [GITHUB_DELETE_A_REPOSITORY]
         /// </summary>
         /// <example>[GITHUB_DELETE_A_REPOSITORY]</example>
@@ -39,7 +39,7 @@ namespace Composio
         /// Example: [SLACK_ADD_EMOJI]
         /// </param>
         /// <param name="requireApproval">
-        /// Tool calls matched here pause until the user approves them. A tool needs approval if its toolkit, the tool itself or any of its tags is listed.<br/>
+        /// Tool calls matched here pause until the user approves them. Setting this toolkit's own list, even an empty one, replaces the session-wide `tags.require_approval` for its tools.<br/>
         /// Example: [GITHUB_DELETE_A_REPOSITORY]
         /// </param>
 #if NET7_0_OR_GREATER

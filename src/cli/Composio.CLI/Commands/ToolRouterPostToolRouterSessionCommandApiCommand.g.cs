@@ -53,7 +53,7 @@ internal static partial class ToolRouterPostToolRouterSessionCommandApiCommand
     private static Option<global::Composio.AnyOf<global::System.Collections.Generic.IList<global::Composio.PostToolRouterSessionRequestTag>, global::Composio.PostToolRouterSessionRequestTags>?> Tags { get; } = new(
         name: @"--tags")
     {
-        Description = @"Global MCP tool annotation hints for filtering. Array format is treated as enabled list. Object format supports enabled (tool must have at least one) and disabled (tool must NOT have any) lists, and experimentally the tags whose tools need approval. Toolkit-level tags override the enabled/disabled filter.",
+        Description = @"Session-wide tags for filtering tools. Array format is treated as an enabled list. Object format supports `enable` (a tool must have at least one) and `disable` (a tool must have none), and experimentally the tags whose tools need approval. If a toolkit sets `tools.<toolkit>.tags`, its tools use that object instead of this one.",
     };
 
     private static Option<global::Composio.PostToolRouterSessionRequestWorkbench?> Workbench { get; } = new(
