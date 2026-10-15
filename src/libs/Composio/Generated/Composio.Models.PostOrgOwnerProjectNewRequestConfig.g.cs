@@ -40,12 +40,6 @@ namespace Composio
         public global::Composio.PostOrgOwnerProjectNewRequestConfigLogVisibilitySetting? LogVisibilitySetting { get; set; }
 
         /// <summary>
-        ///
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("require_mcp_api_key")]
-        public bool? RequireMcpApiKey { get; set; }
-
-        /// <summary>
         /// Whether to enable composio link for managed authentication. This key will be deprecated in the future. Please don't use this key.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("is_composio_link_enabled_for_managed_auth")]
@@ -89,7 +83,6 @@ namespace Composio
         /// <param name="displayName"></param>
         /// <param name="maskSecretKeysInConnectedAccount"></param>
         /// <param name="logVisibilitySetting"></param>
-        /// <param name="requireMcpApiKey"></param>
         /// <param name="isComposioLinkEnabledForManagedAuth">
         /// Whether to enable composio link for managed authentication. This key will be deprecated in the future. Please don't use this key.
         /// </param>
@@ -112,7 +105,6 @@ namespace Composio
             string? displayName,
             bool? maskSecretKeysInConnectedAccount,
             global::Composio.PostOrgOwnerProjectNewRequestConfigLogVisibilitySetting? logVisibilitySetting,
-            bool? requireMcpApiKey,
             bool? isComposioLinkEnabledForManagedAuth,
             double? signedUrlFileExpiryInSeconds,
             string? oauthCallbackVerifierUrl,
@@ -124,7 +116,6 @@ namespace Composio
             this.DisplayName = displayName;
             this.MaskSecretKeysInConnectedAccount = maskSecretKeysInConnectedAccount;
             this.LogVisibilitySetting = logVisibilitySetting;
-            this.RequireMcpApiKey = requireMcpApiKey;
             this.IsComposioLinkEnabledForManagedAuth = isComposioLinkEnabledForManagedAuth;
             this.SignedUrlFileExpiryInSeconds = signedUrlFileExpiryInSeconds;
             this.OauthCallbackVerifierUrl = oauthCallbackVerifierUrl;
