@@ -125,10 +125,17 @@ namespace Composio
         public required global::Composio.GetAuthConfigsResponseItemToolAccessConfig ToolAccessConfig { get; set; }
 
         /// <summary>
-        /// [EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config
+        /// Shared credentials that will be inherited by all connected accounts using this auth config. DEPRECATED: use `shared_connection_fields` instead. It takes the same value and behaves the same way.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("shared_credentials")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public global::System.Collections.Generic.Dictionary<string, object?>? SharedCredentials { get; set; }
+
+        /// <summary>
+        /// Connection field values inherited by every connected account created under this auth config. Same value as shared_credentials; secret values are redacted.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("shared_connection_fields")]
+        public global::System.Collections.Generic.Dictionary<string, object?>? SharedConnectionFields { get; set; }
 
         /// <summary>
         /// Whether this auth config is enabled for tool router
@@ -191,8 +198,8 @@ namespace Composio
         /// <param name="expectedInputFields">
         /// Fields expected during connection initialization
         /// </param>
-        /// <param name="sharedCredentials">
-        /// [EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config
+        /// <param name="sharedConnectionFields">
+        /// Connection field values inherited by every connected account created under this auth config. Same value as shared_credentials; secret values are redacted.
         /// </param>
         /// <param name="isEnabledForToolRouter">
         /// Whether this auth config is enabled for tool router
@@ -217,7 +224,7 @@ namespace Composio
             string? createdAt,
             string? lastUpdatedAt,
             global::System.Collections.Generic.IList<global::Composio.GetAuthConfigsResponseItemExpectedInputField>? expectedInputFields,
-            global::System.Collections.Generic.Dictionary<string, object?>? sharedCredentials,
+            global::System.Collections.Generic.Dictionary<string, object?>? sharedConnectionFields,
             bool? isEnabledForToolRouter)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
@@ -236,7 +243,7 @@ namespace Composio
             this.NoOfConnections = noOfConnections;
             this.ExpectedInputFields = expectedInputFields;
             this.ToolAccessConfig = toolAccessConfig ?? throw new global::System.ArgumentNullException(nameof(toolAccessConfig));
-            this.SharedCredentials = sharedCredentials;
+            this.SharedConnectionFields = sharedConnectionFields;
             this.IsEnabledForToolRouter = isEnabledForToolRouter;
         }
 

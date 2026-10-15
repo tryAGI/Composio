@@ -4,8 +4,9 @@
 namespace Composio
 {
     /// <summary>
-    /// [EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config
+    /// Shared credentials that will be inherited by all connected accounts using this auth config. DEPRECATED: use `shared_connection_fields` instead. It takes the same value and behaves the same way.
     /// </summary>
+    [global::System.Obsolete("This model marked as deprecated.")]
     public sealed partial class CustomAuthConfigCreateSharedCredentials
     {
 

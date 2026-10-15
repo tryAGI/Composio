@@ -45,10 +45,17 @@ namespace Composio
         public global::System.Collections.Generic.IList<string>? RestrictToFollowingTools { get; set; }
 
         /// <summary>
-        /// [EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config
+        /// Shared credentials that will be inherited by all connected accounts using this auth config. DEPRECATED: use `shared_connection_fields` instead. It takes the same value and behaves the same way.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("shared_credentials")]
+        [global::System.Obsolete("This property marked as deprecated.")]
         public global::System.Collections.Generic.Dictionary<string, object?>? SharedCredentials { get; set; }
+
+        /// <summary>
+        /// Connection field values inherited by every connected account created under this auth config (for example a region or subdomain). Non-secret values pre-fill the hosted Connect Link form; secret values are redacted in responses and never sent to the end user.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("shared_connection_fields")]
+        public global::System.Collections.Generic.Dictionary<string, object?>? SharedConnectionFields { get; set; }
 
         /// <summary>
         /// Whether this auth config is enabled for tool router
@@ -72,8 +79,8 @@ namespace Composio
         /// <param name="credentials">
         /// Default Value: {}
         /// </param>
-        /// <param name="sharedCredentials">
-        /// [EXPERIMENTAL] Shared credentials that will be inherited by all connected accounts using this auth config
+        /// <param name="sharedConnectionFields">
+        /// Connection field values inherited by every connected account created under this auth config (for example a region or subdomain). Non-secret values pre-fill the hosted Connect Link form; secret values are redacted in responses and never sent to the end user.
         /// </param>
         /// <param name="isEnabledForToolRouter">
         /// Whether this auth config is enabled for tool router
@@ -85,13 +92,13 @@ namespace Composio
             global::Composio.ComposioManagedAuthConfigCreateType type,
             string? name,
             global::Composio.ComposioManagedAuthConfigCreateCredentials? credentials,
-            global::System.Collections.Generic.Dictionary<string, object?>? sharedCredentials,
+            global::System.Collections.Generic.Dictionary<string, object?>? sharedConnectionFields,
             bool? isEnabledForToolRouter)
         {
             this.Type = type;
             this.Name = name;
             this.Credentials = credentials;
-            this.SharedCredentials = sharedCredentials;
+            this.SharedConnectionFields = sharedConnectionFields;
             this.IsEnabledForToolRouter = isEnabledForToolRouter;
         }
 

@@ -58,6 +58,13 @@ namespace Composio
         public required string ConsumerUserId { get; set; }
 
         /// <summary>
+        /// ID of the authenticated user the request was made as.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("user_id")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string UserId { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -84,6 +91,9 @@ namespace Composio
         /// <param name="consumerUserId">
         /// Derived internal Composio user ID for the authenticated user in this consumer org context.
         /// </param>
+        /// <param name="userId">
+        /// ID of the authenticated user the request was made as.
+        /// </param>
         /// <param name="projectType">
         /// Resolved project type.
         /// </param>
@@ -97,6 +107,7 @@ namespace Composio
             string orgId,
             global::Composio.PostOrgConsumerProjectResolveResponseConfig config,
             string consumerUserId,
+            string userId,
             global::Composio.PostOrgConsumerProjectResolveResponseProjectType projectType)
         {
             this.ProjectId = projectId;
@@ -106,6 +117,7 @@ namespace Composio
             this.ProjectType = projectType;
             this.Config = config ?? throw new global::System.ArgumentNullException(nameof(config));
             this.ConsumerUserId = consumerUserId ?? throw new global::System.ArgumentNullException(nameof(consumerUserId));
+            this.UserId = userId ?? throw new global::System.ArgumentNullException(nameof(userId));
         }
 
         /// <summary>
