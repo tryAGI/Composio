@@ -37,6 +37,8 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant2Mode), TypeInfoPropertyName = "PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant2Mode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant2ApiKeyField))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant2AdditionalFields))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant2AdditionalFieldsGenericId))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant3))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant3Mode), TypeInfoPropertyName = "PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant3Mode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCustomToolkitsSyncRequest))]

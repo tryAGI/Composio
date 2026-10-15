@@ -29,6 +29,12 @@ namespace Composio
         public global::Composio.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant2ApiKeyField? ApiKeyField { get; set; }
 
         /// <summary>
+        /// Additional values each user enters when connecting. Reference each field in a header, for example X-Org-Id: {{generic_id}}. Use display_name for the user-facing label. Every user must supply each declared field. Values are not secret.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("additional_fields")]
+        public global::Composio.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant2AdditionalFields? AdditionalFields { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -44,17 +50,22 @@ namespace Composio
         /// <param name="apiKeyField">
         /// Label and help text for the API key input on the connect page
         /// </param>
+        /// <param name="additionalFields">
+        /// Additional values each user enters when connecting. Reference each field in a header, for example X-Org-Id: {{generic_id}}. Use display_name for the user-facing label. Every user must supply each declared field. Values are not secret.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant2(
             global::System.Collections.Generic.Dictionary<string, string> headers,
             global::Composio.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant2Mode mode,
-            global::Composio.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant2ApiKeyField? apiKeyField)
+            global::Composio.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant2ApiKeyField? apiKeyField,
+            global::Composio.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant2AdditionalFields? additionalFields)
         {
             this.Mode = mode;
             this.Headers = headers ?? throw new global::System.ArgumentNullException(nameof(headers));
             this.ApiKeyField = apiKeyField;
+            this.AdditionalFields = additionalFields;
         }
 
         /// <summary>

@@ -42660,9 +42660,6 @@
                           "dont_store_data"
                         ]
                       },
-                      "require_mcp_api_key": {
-                        "type": "boolean"
-                      },
                       "is_composio_link_enabled_for_managed_auth": {
                         "type": "boolean",
                         "description": "Whether to enable composio link for managed authentication. This key will be deprecated in the future. Please don't use this key."
@@ -45906,6 +45903,37 @@
                                   },
                                   "additionalProperties": false,
                                   "description": "Label and help text for the API key input on the connect page"
+                                },
+                                "additional_fields": {
+                                  "type": "object",
+                                  "properties": {
+                                    "generic_id": {
+                                      "type": "object",
+                                      "properties": {
+                                        "display_name": {
+                                          "type": "string",
+                                          "minLength": 1,
+                                          "maxLength": 100,
+                                          "description": "Label shown to the user connecting their account"
+                                        },
+                                        "description": {
+                                          "type": "string",
+                                          "minLength": 1,
+                                          "maxLength": 500,
+                                          "description": "Help text below the input"
+                                        }
+                                      },
+                                      "required": [
+                                        "display_name"
+                                      ],
+                                      "additionalProperties": false
+                                    }
+                                  },
+                                  "required": [
+                                    "generic_id"
+                                  ],
+                                  "additionalProperties": false,
+                                  "description": "Additional values each user enters when connecting. Reference each field in a header, for example X-Org-Id: {{generic_id}}. Use display_name for the user-facing label. Every user must supply each declared field. Values are not secret."
                                 }
                               },
                               "required": [
