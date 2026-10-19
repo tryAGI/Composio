@@ -89,6 +89,43 @@ namespace Composio
             : throw new global::System.InvalidOperationException($"Expected union variant 'Failed' but the value was {ToString()}.");
 
         /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        public global::Composio.ExecuteBlocked? Blocked { get; init; }
+#else
+        public global::Composio.ExecuteBlocked? Blocked { get; }
+#endif
+
+        /// <summary>
+        ///
+        /// </summary>
+#if NET6_0_OR_GREATER
+        [global::System.Diagnostics.CodeAnalysis.MemberNotNullWhen(true, nameof(Blocked))]
+#endif
+        public bool IsBlocked => Blocked != null;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public bool TryPickBlocked(
+#if NET6_0_OR_GREATER
+            [global::System.Diagnostics.CodeAnalysis.NotNullWhen(true)]
+#endif
+            out global::Composio.ExecuteBlocked? value)
+        {
+            value = Blocked;
+            return IsBlocked;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public global::Composio.ExecuteBlocked PickBlocked() => Blocked is { } value
+            ? value
+            : throw new global::System.InvalidOperationException($"Expected union variant 'Blocked' but the value was {ToString()}.");
+
+        /// <summary>
         /// The call needs the user's input before it runs. Returned only when the session is configured to ask for user approval before tool execution. Show each question in `input_requests` to the user, then repeat the same call with their answers in `input_responses`, along with this `request_state` if present.
         /// </summary>
 #if NET6_0_OR_GREATER
@@ -173,6 +210,29 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
+        public static implicit operator PostToolRouterSessionBySessionIdExecuteMetaResponse(global::Composio.ExecuteBlocked value) => new PostToolRouterSessionBySessionIdExecuteMetaResponse((global::Composio.ExecuteBlocked?)value);
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static implicit operator global::Composio.ExecuteBlocked?(PostToolRouterSessionBySessionIdExecuteMetaResponse @this) => @this.Blocked;
+
+        /// <summary>
+        ///
+        /// </summary>
+        public PostToolRouterSessionBySessionIdExecuteMetaResponse(global::Composio.ExecuteBlocked? value)
+        {
+            Blocked = value;
+        }
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static PostToolRouterSessionBySessionIdExecuteMetaResponse FromBlocked(global::Composio.ExecuteBlocked? value) => new PostToolRouterSessionBySessionIdExecuteMetaResponse(value);
+
+        /// <summary>
+        ///
+        /// </summary>
         public static implicit operator PostToolRouterSessionBySessionIdExecuteMetaResponse(global::Composio.ExecuteRequiresUserInput value) => new PostToolRouterSessionBySessionIdExecuteMetaResponse((global::Composio.ExecuteRequiresUserInput?)value);
 
         /// <summary>
@@ -200,6 +260,7 @@ namespace Composio
             global::Composio.PostToolRouterSessionBySessionIdExecuteMetaResponseDiscriminatorResultType? resultType,
             global::Composio.ExecuteCompleted? completed,
             global::Composio.ExecuteFailed? failed,
+            global::Composio.ExecuteBlocked? blocked,
             global::Composio.ExecuteRequiresUserInput? inputRequired
             )
         {
@@ -207,6 +268,7 @@ namespace Composio
 
             Completed = completed;
             Failed = failed;
+            Blocked = blocked;
             InputRequired = inputRequired;
         }
 
@@ -215,6 +277,7 @@ namespace Composio
         /// </summary>
         public object? Object =>
             InputRequired as object ??
+            Blocked as object ??
             Failed as object ??
             Completed as object
             ;
@@ -225,6 +288,7 @@ namespace Composio
         public override string? ToString() =>
             Completed?.ToString() ??
             Failed?.ToString() ??
+            Blocked?.ToString() ??
             InputRequired?.ToString()
             ;
 
@@ -233,7 +297,7 @@ namespace Composio
         /// </summary>
         public bool Validate()
         {
-            return IsCompleted && !IsFailed && !IsInputRequired || !IsCompleted && IsFailed && !IsInputRequired || !IsCompleted && !IsFailed && IsInputRequired;
+            return IsCompleted && !IsFailed && !IsBlocked && !IsInputRequired || !IsCompleted && IsFailed && !IsBlocked && !IsInputRequired || !IsCompleted && !IsFailed && IsBlocked && !IsInputRequired || !IsCompleted && !IsFailed && !IsBlocked && IsInputRequired;
         }
 
         /// <summary>
@@ -242,6 +306,7 @@ namespace Composio
         public TResult? Match<TResult>(
             global::System.Func<global::Composio.ExecuteCompleted, TResult>? completed = null,
             global::System.Func<global::Composio.ExecuteFailed, TResult>? failed = null,
+            global::System.Func<global::Composio.ExecuteBlocked, TResult>? blocked = null,
             global::System.Func<global::Composio.ExecuteRequiresUserInput, TResult>? inputRequired = null,
             bool validate = true)
         {
@@ -258,9 +323,13 @@ namespace Composio
             {
                 return failed(__value1);
             }
-            else if (InputRequired is { } __value2 && inputRequired != null)
+            else if (Blocked is { } __value2 && blocked != null)
             {
-                return inputRequired(__value2);
+                return blocked(__value2);
+            }
+            else if (InputRequired is { } __value3 && inputRequired != null)
+            {
+                return inputRequired(__value3);
             }
 
             return default(TResult);
@@ -274,6 +343,8 @@ namespace Composio
 
             global::System.Action<global::Composio.ExecuteFailed>? failed = null,
 
+            global::System.Action<global::Composio.ExecuteBlocked>? blocked = null,
+
             global::System.Action<global::Composio.ExecuteRequiresUserInput>? inputRequired = null,
             bool validate = true)
         {
@@ -290,9 +361,13 @@ namespace Composio
             {
                 failed?.Invoke(__value1);
             }
-            else if (InputRequired is { } __value2)
+            else if (Blocked is { } __value2)
             {
-                inputRequired?.Invoke(__value2);
+                blocked?.Invoke(__value2);
+            }
+            else if (InputRequired is { } __value3)
+            {
+                inputRequired?.Invoke(__value3);
             }
         }
 
@@ -302,6 +377,7 @@ namespace Composio
         public void Switch(
             global::System.Action<global::Composio.ExecuteCompleted>? completed = null,
             global::System.Action<global::Composio.ExecuteFailed>? failed = null,
+            global::System.Action<global::Composio.ExecuteBlocked>? blocked = null,
             global::System.Action<global::Composio.ExecuteRequiresUserInput>? inputRequired = null,
             bool validate = true)
         {
@@ -318,9 +394,13 @@ namespace Composio
             {
                 failed?.Invoke(__value1);
             }
-            else if (InputRequired is { } __value2)
+            else if (Blocked is { } __value2)
             {
-                inputRequired?.Invoke(__value2);
+                blocked?.Invoke(__value2);
+            }
+            else if (InputRequired is { } __value3)
+            {
+                inputRequired?.Invoke(__value3);
             }
         }
 
@@ -335,6 +415,8 @@ namespace Composio
                 typeof(global::Composio.ExecuteCompleted),
                 Failed,
                 typeof(global::Composio.ExecuteFailed),
+                Blocked,
+                typeof(global::Composio.ExecuteBlocked),
                 InputRequired,
                 typeof(global::Composio.ExecuteRequiresUserInput),
             };
@@ -355,6 +437,7 @@ namespace Composio
             return
                 global::System.Collections.Generic.EqualityComparer<global::Composio.ExecuteCompleted?>.Default.Equals(Completed, other.Completed) &&
                 global::System.Collections.Generic.EqualityComparer<global::Composio.ExecuteFailed?>.Default.Equals(Failed, other.Failed) &&
+                global::System.Collections.Generic.EqualityComparer<global::Composio.ExecuteBlocked?>.Default.Equals(Blocked, other.Blocked) &&
                 global::System.Collections.Generic.EqualityComparer<global::Composio.ExecuteRequiresUserInput?>.Default.Equals(InputRequired, other.InputRequired)
                 ;
         }

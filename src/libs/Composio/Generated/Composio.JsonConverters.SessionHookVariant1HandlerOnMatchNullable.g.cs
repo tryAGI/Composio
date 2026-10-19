@@ -1,0 +1,60 @@
+#nullable enable
+
+namespace Composio.JsonConverters
+{
+    /// <inheritdoc />
+    public sealed class SessionHookVariant1HandlerOnMatchNullableJsonConverter : global::System.Text.Json.Serialization.JsonConverter<global::Composio.SessionHookVariant1HandlerOnMatch?>
+    {
+        /// <inheritdoc />
+        public override global::Composio.SessionHookVariant1HandlerOnMatch? Read(
+            ref global::System.Text.Json.Utf8JsonReader reader,
+            global::System.Type typeToConvert,
+            global::System.Text.Json.JsonSerializerOptions options)
+        {
+            switch (reader.TokenType)
+            {
+                case global::System.Text.Json.JsonTokenType.String:
+                {
+                    var stringValue = reader.GetString();
+                    if (stringValue != null)
+                    {
+                        return global::Composio.SessionHookVariant1HandlerOnMatchExtensions.ToEnum(stringValue);
+                    }
+
+                    break;
+                }
+                case global::System.Text.Json.JsonTokenType.Number:
+                {
+                    var numValue = reader.GetInt32();
+                    return (global::Composio.SessionHookVariant1HandlerOnMatch)numValue;
+                }
+                case global::System.Text.Json.JsonTokenType.Null:
+                {
+                    return default(global::Composio.SessionHookVariant1HandlerOnMatch?);
+                }
+                default:
+                    throw new global::System.ArgumentOutOfRangeException(nameof(reader));
+            }
+
+            return default;
+        }
+
+        /// <inheritdoc />
+        public override void Write(
+            global::System.Text.Json.Utf8JsonWriter writer,
+            global::Composio.SessionHookVariant1HandlerOnMatch? value,
+            global::System.Text.Json.JsonSerializerOptions options)
+        {
+            writer = writer ?? throw new global::System.ArgumentNullException(nameof(writer));
+
+            if (value == null)
+            {
+                writer.WriteNullValue();
+            }
+            else
+            {
+                writer.WriteStringValue(global::Composio.SessionHookVariant1HandlerOnMatchExtensions.ToValueString(value.Value));
+            }
+        }
+    }
+}
