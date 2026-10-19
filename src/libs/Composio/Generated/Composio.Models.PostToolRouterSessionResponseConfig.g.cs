@@ -86,6 +86,12 @@ namespace Composio
         public global::Composio.PostToolRouterSessionResponseConfigProxyExecute? ProxyExecute { get; set; }
 
         /// <summary>
+        /// Hooks that run on this session's tool calls.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("hooks")]
+        public global::System.Collections.Generic.IList<global::Composio.OneOf<global::Composio.SessionHookVariant1, global::Composio.SessionHookVariant2>>? Hooks { get; set; }
+
+        /// <summary>
         /// Preload configuration. Controls which tools appear in `session.tools` and the MCP server tool list, callable directly without going through search. Each preloaded tool adds to the agent context — roughly ≤20 tools is recommended. Always present in the response (empty `tools: []` when the session was created without a preload config).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("preload")]
@@ -141,6 +147,9 @@ namespace Composio
         /// <param name="proxyExecute">
         /// Proxy execute configuration for this session. Omitted when not set.
         /// </param>
+        /// <param name="hooks">
+        /// Hooks that run on this session's tool calls.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -157,7 +166,8 @@ namespace Composio
             global::Composio.PostToolRouterSessionResponseConfigTags? tags,
             global::Composio.PostToolRouterSessionResponseConfigWorkbench? workbench,
             global::Composio.PostToolRouterSessionResponseConfigMultiAccount? multiAccount,
-            global::Composio.PostToolRouterSessionResponseConfigProxyExecute? proxyExecute)
+            global::Composio.PostToolRouterSessionResponseConfigProxyExecute? proxyExecute,
+            global::System.Collections.Generic.IList<global::Composio.OneOf<global::Composio.SessionHookVariant1, global::Composio.SessionHookVariant2>>? hooks)
         {
             this.UserId = userId ?? throw new global::System.ArgumentNullException(nameof(userId));
             this.Toolkits = toolkits;
@@ -171,6 +181,7 @@ namespace Composio
             this.Workbench = workbench;
             this.MultiAccount = multiAccount;
             this.ProxyExecute = proxyExecute;
+            this.Hooks = hooks;
             this.Preload = preload ?? throw new global::System.ArgumentNullException(nameof(preload));
         }
 

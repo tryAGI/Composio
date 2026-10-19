@@ -47,6 +47,12 @@ namespace Composio
         public global::System.Collections.Generic.Dictionary<string, string>? Headers { get; set; }
 
         /// <summary>
+        /// Every session hook that applied to this request. Omitted when none applied.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("hook_results")]
+        public global::System.Collections.Generic.IList<global::Composio.HookResult>? HookResults { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -73,6 +79,9 @@ namespace Composio
         /// The HTTP headers returned from the proxied API<br/>
         /// Example: {"content-type":"application/json","cache-control":"no-cache"}
         /// </param>
+        /// <param name="hookResults">
+        /// Every session hook that applied to this request. Omitted when none applied.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -81,13 +90,15 @@ namespace Composio
             global::Composio.ProxyExecuteCompletedResultType resultType,
             object? data,
             global::Composio.ProxyExecuteCompletedBinaryData? binaryData,
-            global::System.Collections.Generic.Dictionary<string, string>? headers)
+            global::System.Collections.Generic.Dictionary<string, string>? headers,
+            global::System.Collections.Generic.IList<global::Composio.HookResult>? hookResults)
         {
             this.ResultType = resultType;
             this.Data = data;
             this.BinaryData = binaryData;
             this.Status = status;
             this.Headers = headers;
+            this.HookResults = hookResults;
         }
 
         /// <summary>

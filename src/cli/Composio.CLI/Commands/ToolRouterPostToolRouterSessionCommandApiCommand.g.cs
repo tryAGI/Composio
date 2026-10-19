@@ -85,6 +85,12 @@ internal static partial class ToolRouterPostToolRouterSessionCommandApiCommand
     {
         Description = @"Preload configuration for Composio tools. Controls which tools appear in `session.tools` and the MCP server tool list so the agent can call them directly without going through search first. Custom tools use `preload` on the custom tool/toolkit definition instead. Not supported when multi-account is enabled. Each preloaded tool adds to the agent context window, so keep the list at or under ~20 tools.",
     };
+
+    private static Option<global::Composio.AllOf<global::System.Collections.Generic.IList<global::Composio.OneOf<global::Composio.SessionHookVariant1, global::Composio.SessionHookVariant2>>, object>?> Hooks { get; } = new(
+        name: @"--hooks")
+    {
+        Description = @"",
+    };
       private static Option<string?> Input { get; } = new(@"--input")
       {
           Description = "Load request JSON from a file path, '-' for stdin, or an inline JSON object/array string.",
@@ -141,6 +147,7 @@ Creates a new session for the tool router feature. This endpoint initializes a n
                         command.Options.Add(MultiAccount);
                         command.Options.Add(Experimental);
                         command.Options.Add(Preload);
+                        command.Options.Add(Hooks);
           command.Options.Add(Input);
           command.Options.Add(RequestJson);
           command.Options.Add(RequestFile);
@@ -179,6 +186,7 @@ Creates a new session for the tool router feature. This endpoint initializes a n
                         var multiAccount = CliRuntime.WasSpecified(parseResult, MultiAccount) ? parseResult.GetValue(MultiAccount) : (__requestBase is { } __MultiAccountBaseValue ? __MultiAccountBaseValue.MultiAccount : default);
                         var experimental = CliRuntime.WasSpecified(parseResult, Experimental) ? parseResult.GetValue(Experimental) : (__requestBase is { } __ExperimentalBaseValue ? __ExperimentalBaseValue.Experimental : default);
                         var preload = CliRuntime.WasSpecified(parseResult, Preload) ? parseResult.GetValue(Preload) : (__requestBase is { } __PreloadBaseValue ? __PreloadBaseValue.Preload : default);
+                        var hooks = CliRuntime.WasSpecified(parseResult, Hooks) ? parseResult.GetValue(Hooks) : (__requestBase is { } __HooksBaseValue ? __HooksBaseValue.Hooks : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
@@ -196,6 +204,7 @@ Creates a new session for the tool router feature. This endpoint initializes a n
                                     multiAccount: multiAccount,
                                     experimental: experimental,
                                     preload: preload,
+                                    hooks: hooks,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
 
