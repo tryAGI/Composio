@@ -4,17 +4,17 @@
 namespace Composio
 {
     /// <summary>
-    /// The trigger mechanism - either webhook (event-based) or poll (scheduled check)<br/>
+    /// Deprecated: use types. poll for any trigger that polls, even one a webhook wakes; otherwise webhook.<br/>
     /// Example: webhook
     /// </summary>
     public enum GetTriggersTypesBySlugResponseType
     {
         /// <summary>
-        ///
+        /// use types. poll for any trigger that polls, even one a webhook wakes; otherwise webhook.
         /// </summary>
         Poll,
         /// <summary>
-        ///
+        /// use types. poll for any trigger that polls, even one a webhook wakes; otherwise webhook.
         /// </summary>
         Webhook,
     }

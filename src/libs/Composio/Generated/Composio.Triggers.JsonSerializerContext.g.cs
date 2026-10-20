@@ -41,12 +41,28 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchTriggerInstancesManageByTriggerIdResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchTriggerInstancesManageByTriggerIdResponseStatus), TypeInfoPropertyName = "PatchTriggerInstancesManageByTriggerIdResponseStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetTriggersTypesBySlugResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetTriggersTypesBySlugResponseType), TypeInfoPropertyName = "GetTriggersTypesBySlugResponseType2")]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetTriggersTypesBySlugResponseType), TypeInfoPropertyName = "GetTriggersTypesBySlugResponseType2_3")]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.GetTriggersTypesBySlugResponseType2>))]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetTriggersTypesBySlugResponseType2), TypeInfoPropertyName = "GetTriggersTypesBySlugResponseType22")]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetTriggersTypesBySlugResponseToolkit))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetTriggersTypesResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.GetTriggersTypesResponseItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetTriggersTypesResponseItem))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetTriggersTypesResponseItemType), TypeInfoPropertyName = "GetTriggersTypesResponseItemType2")]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetTriggersTypesResponseItemType), TypeInfoPropertyName = "GetTriggersTypesResponseItemType2_3")]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.GetTriggersTypesResponseItemType2>))]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetTriggersTypesResponseItemType2), TypeInfoPropertyName = "GetTriggersTypesResponseItemType22")]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetTriggersTypesResponseItemToolkit))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
@@ -54,11 +70,27 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchTriggerInstancesManageByTriggerIdRequestStatus?), TypeInfoPropertyName = "NullablePatchTriggerInstancesManageByTriggerIdRequestStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>?), TypeInfoPropertyName = "NullableOneOfStringDictionaryStringString2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchTriggerInstancesManageByTriggerIdResponseStatus?), TypeInfoPropertyName = "NullablePatchTriggerInstancesManageByTriggerIdResponseStatus2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetTriggersTypesBySlugResponseType?), TypeInfoPropertyName = "NullableGetTriggersTypesBySlugResponseType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetTriggersTypesResponseItemType?), TypeInfoPropertyName = "NullableGetTriggersTypesResponseItemType2")]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetTriggersTypesBySlugResponseType?), TypeInfoPropertyName = "NullableGetTriggersTypesBySlugResponseType2_3")]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetTriggersTypesBySlugResponseType2?), TypeInfoPropertyName = "NullableGetTriggersTypesBySlugResponseType22")]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetTriggersTypesResponseItemType?), TypeInfoPropertyName = "NullableGetTriggersTypesResponseItemType2_3")]
+    #pragma warning restore CS0618
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetTriggersTypesResponseItemType2?), TypeInfoPropertyName = "NullableGetTriggersTypesResponseItemType22")]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Composio.GetTriggerInstancesActiveResponseItem>))]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Composio.GetTriggersTypesBySlugResponseType2>))]
+    #pragma warning restore CS0618
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Composio.GetTriggersTypesResponseItem>))]
+    #pragma warning disable CS0618 // This registration names a deprecated API model.
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Composio.GetTriggersTypesResponseItemType2>))]
+    #pragma warning restore CS0618
     internal sealed partial class TriggersSourceGenerationContextChunk0 : global::System.Text.Json.Serialization.JsonSerializerContext
     {
     }
@@ -239,9 +271,17 @@ namespace Composio
 
                     || typeToConvert == typeof(global::Composio.GetTriggersTypesBySlugResponseType?)
 
+                    || typeToConvert == typeof(global::Composio.GetTriggersTypesBySlugResponseType2)
+
+                    || typeToConvert == typeof(global::Composio.GetTriggersTypesBySlugResponseType2?)
+
                     || typeToConvert == typeof(global::Composio.GetTriggersTypesResponseItemType)
 
-                    || typeToConvert == typeof(global::Composio.GetTriggersTypesResponseItemType?);
+                    || typeToConvert == typeof(global::Composio.GetTriggersTypesResponseItemType?)
+
+                    || typeToConvert == typeof(global::Composio.GetTriggersTypesResponseItemType2)
+
+                    || typeToConvert == typeof(global::Composio.GetTriggersTypesResponseItemType2?);
             }
 
             public override global::System.Text.Json.Serialization.JsonConverter CreateConverter(
@@ -278,6 +318,16 @@ namespace Composio
                     return new global::Composio.JsonConverters.GetTriggersTypesBySlugResponseTypeNullableJsonConverter();
                 }
 
+                if (typeToConvert == typeof(global::Composio.GetTriggersTypesBySlugResponseType2))
+                {
+                    return new global::Composio.JsonConverters.GetTriggersTypesBySlugResponseType2JsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Composio.GetTriggersTypesBySlugResponseType2?))
+                {
+                    return new global::Composio.JsonConverters.GetTriggersTypesBySlugResponseType2NullableJsonConverter();
+                }
+
                 if (typeToConvert == typeof(global::Composio.GetTriggersTypesResponseItemType))
                 {
                     return new global::Composio.JsonConverters.GetTriggersTypesResponseItemTypeJsonConverter();
@@ -286,6 +336,16 @@ namespace Composio
                 if (typeToConvert == typeof(global::Composio.GetTriggersTypesResponseItemType?))
                 {
                     return new global::Composio.JsonConverters.GetTriggersTypesResponseItemTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Composio.GetTriggersTypesResponseItemType2))
+                {
+                    return new global::Composio.JsonConverters.GetTriggersTypesResponseItemType2JsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Composio.GetTriggersTypesResponseItemType2?))
+                {
+                    return new global::Composio.JsonConverters.GetTriggersTypesResponseItemType2NullableJsonConverter();
                 }
                 throw new global::System.NotSupportedException($"No generated enum converter is registered for '{typeToConvert}'.");
             }
