@@ -4371,7 +4371,7 @@
     "/api/v3/cli/get-session": {
       "get": {
         "summary": "Get CLI session details by ID or code",
-        "description": "Retrieves the current state of a CLI session using either the session ID (UUID) or the 6-character code. This endpoint is used by both the CLI client to check if the session has been linked, and by the web interface to display session details before linking.",
+        "description": "Retrieves the current state of a CLI session using either the session ID (UUID) or the 6-character code. The first UUID lookup after the session is linked returns its API key; each session issues one key. A code lookup reports status only and never returns a key.",
         "tags": [
           "CLI Authentication",
           "x-internal"
@@ -4405,7 +4405,7 @@
                   "properties": {
                     "id": {
                       "type": "string",
-                      "description": "The unique identifier for the CLI session",
+                      "description": "The CLI session ID, or the code for a lookup by code",
                       "example": "123e4567-e89b-12d3-a456-426614174000"
                     },
                     "code": {
@@ -4496,7 +4496,17 @@
             }
           },
           "404": {
-            "description": "CLI session not found or expired, or the linked user API key has been revoked. Sessions expire after 10 minutes from creation. Re-run the CLI login flow to create a new session.",
+            "description": "CLI session not found or expired. Sessions expire after 10 minutes from creation. Re-run the CLI login flow to create a new session.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "This CLI session already issued its API key. Each session issues one key; re-run the CLI login flow to get another.",
             "content": {
               "application/json": {
                 "schema": {
@@ -4506,7 +4516,7 @@
             }
           },
           "429": {
-            "description": "Rate limited: too many lookups for this IP or session code, or too many key retrievals for this session. Re-run the CLI login flow.",
+            "description": "Rate limited: too many lookups for this IP or session code. Re-run the CLI login flow.",
             "content": {
               "application/json": {
                 "schema": {
