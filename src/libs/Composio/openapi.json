@@ -52727,8 +52727,25 @@
                         "webhook",
                         "poll"
                       ],
-                      "description": "The trigger mechanism - either webhook (event-based) or poll (scheduled check)",
-                      "example": "webhook"
+                      "description": "Deprecated: use types. poll for any trigger that polls, even one a webhook wakes; otherwise webhook.",
+                      "example": "webhook",
+                      "deprecated": true
+                    },
+                    "types": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "enum": [
+                          "webhook",
+                          "poll"
+                        ]
+                      },
+                      "minItems": 1,
+                      "description": "The trigger mechanisms this trigger supports, in order of preference: webhook (event-based) before poll (scheduled check).",
+                      "example": [
+                        "webhook",
+                        "poll"
+                      ]
                     },
                     "toolkit": {
                       "type": "object",
@@ -52817,6 +52834,7 @@
                     "description",
                     "instructions",
                     "type",
+                    "types",
                     "toolkit",
                     "config",
                     "payload",
@@ -52999,8 +53017,25 @@
                               "webhook",
                               "poll"
                             ],
-                            "description": "The trigger mechanism - either webhook (event-based) or poll (scheduled check)",
-                            "example": "webhook"
+                            "description": "Deprecated: use types. poll for any trigger that polls, even one a webhook wakes; otherwise webhook.",
+                            "example": "webhook",
+                            "deprecated": true
+                          },
+                          "types": {
+                            "type": "array",
+                            "items": {
+                              "type": "string",
+                              "enum": [
+                                "webhook",
+                                "poll"
+                              ]
+                            },
+                            "minItems": 1,
+                            "description": "The trigger mechanisms this trigger supports, in order of preference: webhook (event-based) before poll (scheduled check).",
+                            "example": [
+                              "webhook",
+                              "poll"
+                            ]
                           },
                           "toolkit": {
                             "type": "object",
@@ -53089,6 +53124,7 @@
                           "description",
                           "instructions",
                           "type",
+                          "types",
                           "toolkit",
                           "config",
                           "payload",
