@@ -18,9 +18,9 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("on_match")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.SessionHookVariant2HandlerVariant2OnMatchJsonConverter))]
-        public global::Composio.SessionHookVariant2HandlerVariant2OnMatch OnMatch { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("action")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.SessionHookVariant2HandlerVariant2ActionJsonConverter))]
+        public global::Composio.SessionHookVariant2HandlerVariant2Action Action { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -32,16 +32,16 @@ namespace Composio
         /// Initializes a new instance of the <see cref="SessionHookVariant2HandlerVariant2" /> class.
         /// </summary>
         /// <param name="type"></param>
-        /// <param name="onMatch"></param>
+        /// <param name="action"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public SessionHookVariant2HandlerVariant2(
             global::Composio.SessionHookVariant2HandlerVariant2Type type,
-            global::Composio.SessionHookVariant2HandlerVariant2OnMatch onMatch)
+            global::Composio.SessionHookVariant2HandlerVariant2Action action)
         {
             this.Type = type;
-            this.OnMatch = onMatch;
+            this.Action = action;
         }
 
         /// <summary>

@@ -1591,16 +1591,16 @@
                     "type": {
                       "type": "string",
                       "enum": [
-                        "prompt"
+                        "condition_check"
                       ]
                     },
-                    "prompt": {
+                    "condition": {
                       "type": "string",
                       "minLength": 1,
                       "maxLength": 2000,
                       "description": "What to block, written as a plain sentence. For example: \"Sending email to anyone outside example.org\"."
                     },
-                    "on_match": {
+                    "action": {
                       "type": "string",
                       "enum": [
                         "block"
@@ -1609,8 +1609,8 @@
                   },
                   "required": [
                     "type",
-                    "prompt",
-                    "on_match"
+                    "condition",
+                    "action"
                   ],
                   "additionalProperties": false
                 }
@@ -1680,16 +1680,16 @@
                         "type": {
                           "type": "string",
                           "enum": [
-                            "prompt"
+                            "condition_check"
                           ]
                         },
-                        "prompt": {
+                        "condition": {
                           "type": "string",
                           "minLength": 1,
                           "maxLength": 2000,
                           "description": "What to block, written as a plain sentence. For example: \"Sending email to anyone outside example.org\"."
                         },
-                        "on_match": {
+                        "action": {
                           "type": "string",
                           "enum": [
                             "block"
@@ -1698,8 +1698,8 @@
                       },
                       "required": [
                         "type",
-                        "prompt",
-                        "on_match"
+                        "condition",
+                        "action"
                       ],
                       "additionalProperties": false
                     },
@@ -1709,10 +1709,10 @@
                         "type": {
                           "type": "string",
                           "enum": [
-                            "prompt_injection"
+                            "prompt_injection_check"
                           ]
                         },
-                        "on_match": {
+                        "action": {
                           "type": "string",
                           "enum": [
                             "block"
@@ -1721,7 +1721,7 @@
                       },
                       "required": [
                         "type",
-                        "on_match"
+                        "action"
                       ],
                       "additionalProperties": false,
                       "description": "Blocks a tool response that tries to manipulate the agent: override its instructions, change its role, or make it take actions the user didn't ask for."

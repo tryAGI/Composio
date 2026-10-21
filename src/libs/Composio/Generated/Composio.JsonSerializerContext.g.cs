@@ -282,7 +282,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.SessionHookVariant1AppliesToEnum2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.SessionHookVariant1Handler))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.SessionHookVariant1HandlerType), TypeInfoPropertyName = "SessionHookVariant1HandlerType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.SessionHookVariant1HandlerOnMatch), TypeInfoPropertyName = "SessionHookVariant1HandlerOnMatch2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.SessionHookVariant1HandlerAction), TypeInfoPropertyName = "SessionHookVariant1HandlerAction2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.SessionHookVariant2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.SessionHookVariant2Type), TypeInfoPropertyName = "SessionHookVariant2Type2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<global::Composio.SessionHookVariant2AppliesToEnum?, global::Composio.SessionHookVariant2AppliesToEnum2>), TypeInfoPropertyName = "AnyOfSessionHookVariant2AppliesToEnumSessionHookVariant2AppliesToEnum22")]
@@ -291,10 +291,10 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.OneOf<global::Composio.SessionHookVariant2HandlerVariant1, global::Composio.SessionHookVariant2HandlerVariant2>), TypeInfoPropertyName = "OneOfSessionHookVariant2HandlerVariant1SessionHookVariant2HandlerVariant22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.SessionHookVariant2HandlerVariant1))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.SessionHookVariant2HandlerVariant1Type), TypeInfoPropertyName = "SessionHookVariant2HandlerVariant1Type2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.SessionHookVariant2HandlerVariant1OnMatch), TypeInfoPropertyName = "SessionHookVariant2HandlerVariant1OnMatch2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.SessionHookVariant2HandlerVariant1Action), TypeInfoPropertyName = "SessionHookVariant2HandlerVariant1Action2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.SessionHookVariant2HandlerVariant2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.SessionHookVariant2HandlerVariant2Type), TypeInfoPropertyName = "SessionHookVariant2HandlerVariant2Type2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.SessionHookVariant2HandlerVariant2OnMatch), TypeInfoPropertyName = "SessionHookVariant2HandlerVariant2OnMatch2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.SessionHookVariant2HandlerVariant2Action), TypeInfoPropertyName = "SessionHookVariant2HandlerVariant2Action2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.HookResult), TypeInfoPropertyName = "HookResult2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.HookResultVariant1))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.HookResultVariant1Status), TypeInfoPropertyName = "HookResultVariant1Status2")]
@@ -3011,15 +3011,15 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<global::Composio.SessionHookVariant1AppliesToEnum?, global::Composio.SessionHookVariant1AppliesToEnum2>?), TypeInfoPropertyName = "NullableAnyOfSessionHookVariant1AppliesToEnumSessionHookVariant1AppliesToEnum22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.SessionHookVariant1AppliesToEnum?), TypeInfoPropertyName = "NullableSessionHookVariant1AppliesToEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.SessionHookVariant1HandlerType?), TypeInfoPropertyName = "NullableSessionHookVariant1HandlerType2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.SessionHookVariant1HandlerOnMatch?), TypeInfoPropertyName = "NullableSessionHookVariant1HandlerOnMatch2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.SessionHookVariant1HandlerAction?), TypeInfoPropertyName = "NullableSessionHookVariant1HandlerAction2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.SessionHookVariant2Type?), TypeInfoPropertyName = "NullableSessionHookVariant2Type2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<global::Composio.SessionHookVariant2AppliesToEnum?, global::Composio.SessionHookVariant2AppliesToEnum2>?), TypeInfoPropertyName = "NullableAnyOfSessionHookVariant2AppliesToEnumSessionHookVariant2AppliesToEnum22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.SessionHookVariant2AppliesToEnum?), TypeInfoPropertyName = "NullableSessionHookVariant2AppliesToEnum2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.OneOf<global::Composio.SessionHookVariant2HandlerVariant1, global::Composio.SessionHookVariant2HandlerVariant2>?), TypeInfoPropertyName = "NullableOneOfSessionHookVariant2HandlerVariant1SessionHookVariant2HandlerVariant22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.SessionHookVariant2HandlerVariant1Type?), TypeInfoPropertyName = "NullableSessionHookVariant2HandlerVariant1Type2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.SessionHookVariant2HandlerVariant1OnMatch?), TypeInfoPropertyName = "NullableSessionHookVariant2HandlerVariant1OnMatch2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.SessionHookVariant2HandlerVariant1Action?), TypeInfoPropertyName = "NullableSessionHookVariant2HandlerVariant1Action2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.SessionHookVariant2HandlerVariant2Type?), TypeInfoPropertyName = "NullableSessionHookVariant2HandlerVariant2Type2")]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.SessionHookVariant2HandlerVariant2OnMatch?), TypeInfoPropertyName = "NullableSessionHookVariant2HandlerVariant2OnMatch2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.SessionHookVariant2HandlerVariant2Action?), TypeInfoPropertyName = "NullableSessionHookVariant2HandlerVariant2Action2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.HookResult?), TypeInfoPropertyName = "NullableHookResult2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.HookResultVariant1Status?), TypeInfoPropertyName = "NullableHookResultVariant1Status2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.HookResultVariant1Outcome?), TypeInfoPropertyName = "NullableHookResultVariant1Outcome2")]
@@ -4525,9 +4525,9 @@ namespace Composio
 
                     || typeToConvert == typeof(global::Composio.SessionHookVariant1HandlerType?)
 
-                    || typeToConvert == typeof(global::Composio.SessionHookVariant1HandlerOnMatch)
+                    || typeToConvert == typeof(global::Composio.SessionHookVariant1HandlerAction)
 
-                    || typeToConvert == typeof(global::Composio.SessionHookVariant1HandlerOnMatch?)
+                    || typeToConvert == typeof(global::Composio.SessionHookVariant1HandlerAction?)
 
                     || typeToConvert == typeof(global::Composio.SessionHookVariant2Type)
 
@@ -4541,17 +4541,17 @@ namespace Composio
 
                     || typeToConvert == typeof(global::Composio.SessionHookVariant2HandlerVariant1Type?)
 
-                    || typeToConvert == typeof(global::Composio.SessionHookVariant2HandlerVariant1OnMatch)
+                    || typeToConvert == typeof(global::Composio.SessionHookVariant2HandlerVariant1Action)
 
-                    || typeToConvert == typeof(global::Composio.SessionHookVariant2HandlerVariant1OnMatch?)
+                    || typeToConvert == typeof(global::Composio.SessionHookVariant2HandlerVariant1Action?)
 
                     || typeToConvert == typeof(global::Composio.SessionHookVariant2HandlerVariant2Type)
 
                     || typeToConvert == typeof(global::Composio.SessionHookVariant2HandlerVariant2Type?)
 
-                    || typeToConvert == typeof(global::Composio.SessionHookVariant2HandlerVariant2OnMatch)
+                    || typeToConvert == typeof(global::Composio.SessionHookVariant2HandlerVariant2Action)
 
-                    || typeToConvert == typeof(global::Composio.SessionHookVariant2HandlerVariant2OnMatch?)
+                    || typeToConvert == typeof(global::Composio.SessionHookVariant2HandlerVariant2Action?)
 
                     || typeToConvert == typeof(global::Composio.HookResultVariant1Status)
 
@@ -7148,14 +7148,14 @@ namespace Composio
                     return new global::Composio.JsonConverters.SessionHookVariant1HandlerTypeNullableJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Composio.SessionHookVariant1HandlerOnMatch))
+                if (typeToConvert == typeof(global::Composio.SessionHookVariant1HandlerAction))
                 {
-                    return new global::Composio.JsonConverters.SessionHookVariant1HandlerOnMatchJsonConverter();
+                    return new global::Composio.JsonConverters.SessionHookVariant1HandlerActionJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Composio.SessionHookVariant1HandlerOnMatch?))
+                if (typeToConvert == typeof(global::Composio.SessionHookVariant1HandlerAction?))
                 {
-                    return new global::Composio.JsonConverters.SessionHookVariant1HandlerOnMatchNullableJsonConverter();
+                    return new global::Composio.JsonConverters.SessionHookVariant1HandlerActionNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::Composio.SessionHookVariant2Type))
@@ -7188,14 +7188,14 @@ namespace Composio
                     return new global::Composio.JsonConverters.SessionHookVariant2HandlerVariant1TypeNullableJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Composio.SessionHookVariant2HandlerVariant1OnMatch))
+                if (typeToConvert == typeof(global::Composio.SessionHookVariant2HandlerVariant1Action))
                 {
-                    return new global::Composio.JsonConverters.SessionHookVariant2HandlerVariant1OnMatchJsonConverter();
+                    return new global::Composio.JsonConverters.SessionHookVariant2HandlerVariant1ActionJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Composio.SessionHookVariant2HandlerVariant1OnMatch?))
+                if (typeToConvert == typeof(global::Composio.SessionHookVariant2HandlerVariant1Action?))
                 {
-                    return new global::Composio.JsonConverters.SessionHookVariant2HandlerVariant1OnMatchNullableJsonConverter();
+                    return new global::Composio.JsonConverters.SessionHookVariant2HandlerVariant1ActionNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::Composio.SessionHookVariant2HandlerVariant2Type))
@@ -7208,14 +7208,14 @@ namespace Composio
                     return new global::Composio.JsonConverters.SessionHookVariant2HandlerVariant2TypeNullableJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Composio.SessionHookVariant2HandlerVariant2OnMatch))
+                if (typeToConvert == typeof(global::Composio.SessionHookVariant2HandlerVariant2Action))
                 {
-                    return new global::Composio.JsonConverters.SessionHookVariant2HandlerVariant2OnMatchJsonConverter();
+                    return new global::Composio.JsonConverters.SessionHookVariant2HandlerVariant2ActionJsonConverter();
                 }
 
-                if (typeToConvert == typeof(global::Composio.SessionHookVariant2HandlerVariant2OnMatch?))
+                if (typeToConvert == typeof(global::Composio.SessionHookVariant2HandlerVariant2Action?))
                 {
-                    return new global::Composio.JsonConverters.SessionHookVariant2HandlerVariant2OnMatchNullableJsonConverter();
+                    return new global::Composio.JsonConverters.SessionHookVariant2HandlerVariant2ActionNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::Composio.HookResultVariant1Status))

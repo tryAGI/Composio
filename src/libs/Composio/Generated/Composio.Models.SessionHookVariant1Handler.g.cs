@@ -18,16 +18,16 @@ namespace Composio
         /// <summary>
         /// What to block, written as a plain sentence. For example: "Sending email to anyone outside example.org".
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("condition")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Prompt { get; set; }
+        public required string Condition { get; set; }
 
         /// <summary>
         ///
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("on_match")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.SessionHookVariant1HandlerOnMatchJsonConverter))]
-        public global::Composio.SessionHookVariant1HandlerOnMatch OnMatch { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("action")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.SessionHookVariant1HandlerActionJsonConverter))]
+        public global::Composio.SessionHookVariant1HandlerAction Action { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -38,22 +38,22 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="SessionHookVariant1Handler" /> class.
         /// </summary>
-        /// <param name="prompt">
+        /// <param name="condition">
         /// What to block, written as a plain sentence. For example: "Sending email to anyone outside example.org".
         /// </param>
         /// <param name="type"></param>
-        /// <param name="onMatch"></param>
+        /// <param name="action"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public SessionHookVariant1Handler(
-            string prompt,
+            string condition,
             global::Composio.SessionHookVariant1HandlerType type,
-            global::Composio.SessionHookVariant1HandlerOnMatch onMatch)
+            global::Composio.SessionHookVariant1HandlerAction action)
         {
             this.Type = type;
-            this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
-            this.OnMatch = onMatch;
+            this.Condition = condition ?? throw new global::System.ArgumentNullException(nameof(condition));
+            this.Action = action;
         }
 
         /// <summary>

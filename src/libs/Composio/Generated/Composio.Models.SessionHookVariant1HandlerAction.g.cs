@@ -6,7 +6,7 @@ namespace Composio
     /// <summary>
     ///
     /// </summary>
-    public enum SessionHookVariant2HandlerVariant1OnMatch
+    public enum SessionHookVariant1HandlerAction
     {
         /// <summary>
         ///
@@ -17,27 +17,27 @@ namespace Composio
     /// <summary>
     /// Enum extensions to do fast conversions without the reflection.
     /// </summary>
-    public static class SessionHookVariant2HandlerVariant1OnMatchExtensions
+    public static class SessionHookVariant1HandlerActionExtensions
     {
         /// <summary>
         /// Converts an enum to a string.
         /// </summary>
-        public static string ToValueString(this SessionHookVariant2HandlerVariant1OnMatch value)
+        public static string ToValueString(this SessionHookVariant1HandlerAction value)
         {
             return value switch
             {
-                SessionHookVariant2HandlerVariant1OnMatch.Block => "block",
+                SessionHookVariant1HandlerAction.Block => "block",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
         /// <summary>
         /// Converts an string to a enum.
         /// </summary>
-        public static SessionHookVariant2HandlerVariant1OnMatch? ToEnum(string value)
+        public static SessionHookVariant1HandlerAction? ToEnum(string value)
         {
             return value switch
             {
-                "block" => SessionHookVariant2HandlerVariant1OnMatch.Block,
+                "block" => SessionHookVariant1HandlerAction.Block,
                 _ => null,
             };
         }
