@@ -18,16 +18,16 @@ namespace Composio
         /// <summary>
         /// What to block, written as a plain sentence. For example: "Sending email to anyone outside example.org".
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("prompt")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("condition")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Prompt { get; set; }
+        public required string Condition { get; set; }
 
         /// <summary>
         ///
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("on_match")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.SessionHookVariant2HandlerVariant1OnMatchJsonConverter))]
-        public global::Composio.SessionHookVariant2HandlerVariant1OnMatch OnMatch { get; set; }
+        [global::System.Text.Json.Serialization.JsonPropertyName("action")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.SessionHookVariant2HandlerVariant1ActionJsonConverter))]
+        public global::Composio.SessionHookVariant2HandlerVariant1Action Action { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -38,22 +38,22 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="SessionHookVariant2HandlerVariant1" /> class.
         /// </summary>
-        /// <param name="prompt">
+        /// <param name="condition">
         /// What to block, written as a plain sentence. For example: "Sending email to anyone outside example.org".
         /// </param>
         /// <param name="type"></param>
-        /// <param name="onMatch"></param>
+        /// <param name="action"></param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public SessionHookVariant2HandlerVariant1(
-            string prompt,
+            string condition,
             global::Composio.SessionHookVariant2HandlerVariant1Type type,
-            global::Composio.SessionHookVariant2HandlerVariant1OnMatch onMatch)
+            global::Composio.SessionHookVariant2HandlerVariant1Action action)
         {
             this.Type = type;
-            this.Prompt = prompt ?? throw new global::System.ArgumentNullException(nameof(prompt));
-            this.OnMatch = onMatch;
+            this.Condition = condition ?? throw new global::System.ArgumentNullException(nameof(condition));
+            this.Action = action;
         }
 
         /// <summary>

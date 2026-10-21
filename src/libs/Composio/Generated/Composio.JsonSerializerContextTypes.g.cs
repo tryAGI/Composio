@@ -321,7 +321,7 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
-        public global::Composio.SessionHookVariant1HandlerOnMatch? Type72 { get; set; }
+        public global::Composio.SessionHookVariant1HandlerAction? Type72 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -357,7 +357,7 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
-        public global::Composio.SessionHookVariant2HandlerVariant1OnMatch? Type81 { get; set; }
+        public global::Composio.SessionHookVariant2HandlerVariant1Action? Type81 { get; set; }
         /// <summary>
         ///
         /// </summary>
@@ -369,7 +369,7 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
-        public global::Composio.SessionHookVariant2HandlerVariant2OnMatch? Type84 { get; set; }
+        public global::Composio.SessionHookVariant2HandlerVariant2Action? Type84 { get; set; }
         /// <summary>
         ///
         /// </summary>

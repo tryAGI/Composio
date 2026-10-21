@@ -11,7 +11,7 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
-        PromptInjection,
+        PromptInjectionCheck,
     }
 
     /// <summary>
@@ -26,7 +26,7 @@ namespace Composio
         {
             return value switch
             {
-                SessionHookVariant2HandlerVariant2Type.PromptInjection => "prompt_injection",
+                SessionHookVariant2HandlerVariant2Type.PromptInjectionCheck => "prompt_injection_check",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -37,7 +37,7 @@ namespace Composio
         {
             return value switch
             {
-                "prompt_injection" => SessionHookVariant2HandlerVariant2Type.PromptInjection,
+                "prompt_injection_check" => SessionHookVariant2HandlerVariant2Type.PromptInjectionCheck,
                 _ => null,
             };
         }

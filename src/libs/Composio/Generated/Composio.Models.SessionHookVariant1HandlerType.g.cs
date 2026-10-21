@@ -11,7 +11,7 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
-        Prompt,
+        ConditionCheck,
     }
 
     /// <summary>
@@ -26,7 +26,7 @@ namespace Composio
         {
             return value switch
             {
-                SessionHookVariant1HandlerType.Prompt => "prompt",
+                SessionHookVariant1HandlerType.ConditionCheck => "condition_check",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
             };
         }
@@ -37,7 +37,7 @@ namespace Composio
         {
             return value switch
             {
-                "prompt" => SessionHookVariant1HandlerType.Prompt,
+                "condition_check" => SessionHookVariant1HandlerType.ConditionCheck,
                 _ => null,
             };
         }
