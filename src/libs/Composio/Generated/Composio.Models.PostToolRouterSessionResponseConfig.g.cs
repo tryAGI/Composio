@@ -89,7 +89,7 @@ namespace Composio
         /// Hooks that run on this session's tool calls.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hooks")]
-        public global::System.Collections.Generic.IList<global::Composio.OneOf<global::Composio.SessionHookVariant1, global::Composio.SessionHookVariant2>>? Hooks { get; set; }
+        public global::System.Collections.Generic.IList<global::Composio.OneOf<global::Composio.PostToolRouterSessionResponseConfigHookVariant1, global::Composio.PostToolRouterSessionResponseConfigHookVariant2>>? Hooks { get; set; }
 
         /// <summary>
         /// Preload configuration. Controls which tools appear in `session.tools` and the MCP server tool list, callable directly without going through search. Each preloaded tool adds to the agent context — roughly ≤20 tools is recommended. Always present in the response (empty `tools: []` when the session was created without a preload config).
@@ -167,7 +167,7 @@ namespace Composio
             global::Composio.PostToolRouterSessionResponseConfigWorkbench? workbench,
             global::Composio.PostToolRouterSessionResponseConfigMultiAccount? multiAccount,
             global::Composio.PostToolRouterSessionResponseConfigProxyExecute? proxyExecute,
-            global::System.Collections.Generic.IList<global::Composio.OneOf<global::Composio.SessionHookVariant1, global::Composio.SessionHookVariant2>>? hooks)
+            global::System.Collections.Generic.IList<global::Composio.OneOf<global::Composio.PostToolRouterSessionResponseConfigHookVariant1, global::Composio.PostToolRouterSessionResponseConfigHookVariant2>>? hooks)
         {
             this.UserId = userId ?? throw new global::System.ArgumentNullException(nameof(userId));
             this.Toolkits = toolkits;

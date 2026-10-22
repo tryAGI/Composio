@@ -101,11 +101,10 @@ namespace Composio
         public global::Composio.PostToolRouterSessionRequestPreload? Preload { get; set; }
 
         /// <summary>
-        ///
+        /// Hooks that run on this session's tool calls. A hook can block a call before it runs, or block its result before the agent sees it.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hooks")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.AllOfJsonConverter<global::System.Collections.Generic.IList<global::Composio.OneOf<global::Composio.SessionHookVariant1, global::Composio.SessionHookVariant2>>, object>))]
-        public global::Composio.AllOf<global::System.Collections.Generic.IList<global::Composio.OneOf<global::Composio.SessionHookVariant1, global::Composio.SessionHookVariant2>>, object>? Hooks { get; set; }
+        public global::System.Collections.Generic.IList<global::Composio.OneOf<global::Composio.PostToolRouterSessionRequestHookVariant1, global::Composio.PostToolRouterSessionRequestHookVariant2>>? Hooks { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -161,7 +160,9 @@ namespace Composio
         /// <param name="preload">
         /// Preload configuration for Composio tools. Controls which tools appear in `session.tools` and the MCP server tool list so the agent can call them directly without going through search first. Custom tools use `preload` on the custom tool/toolkit definition instead. Not supported when multi-account is enabled. Each preloaded tool adds to the agent context window, so keep the list at or under ~20 tools.
         /// </param>
-        /// <param name="hooks"></param>
+        /// <param name="hooks">
+        /// Hooks that run on this session's tool calls. A hook can block a call before it runs, or block its result before the agent sees it.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -179,7 +180,7 @@ namespace Composio
             global::Composio.PostToolRouterSessionRequestMultiAccount? multiAccount,
             global::Composio.PostToolRouterSessionRequestExperimental? experimental,
             global::Composio.PostToolRouterSessionRequestPreload? preload,
-            global::Composio.AllOf<global::System.Collections.Generic.IList<global::Composio.OneOf<global::Composio.SessionHookVariant1, global::Composio.SessionHookVariant2>>, object>? hooks)
+            global::System.Collections.Generic.IList<global::Composio.OneOf<global::Composio.PostToolRouterSessionRequestHookVariant1, global::Composio.PostToolRouterSessionRequestHookVariant2>>? hooks)
         {
             this.UserId = userId ?? throw new global::System.ArgumentNullException(nameof(userId));
             this.Toolkits = toolkits;

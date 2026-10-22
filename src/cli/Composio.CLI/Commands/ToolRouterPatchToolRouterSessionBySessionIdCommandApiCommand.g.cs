@@ -79,10 +79,10 @@ internal static partial class ToolRouterPatchToolRouterSessionBySessionIdCommand
         Description = @"Preload configuration for Composio tools. Controls which tools appear in `session.tools` and the MCP server tool list so the agent can call them directly without going through search first. Custom tools use `preload` on the custom tool/toolkit definition instead. Not supported when multi-account is enabled. Each preloaded tool adds to the agent context window, so keep the list at or under ~20 tools.",
     };
 
-    private static Option<global::Composio.AllOf<global::System.Collections.Generic.IList<global::Composio.OneOf<global::Composio.SessionHookVariant1, global::Composio.SessionHookVariant2>>, object>?> Hooks { get; } = new(
+    private static Option<global::System.Collections.Generic.IList<global::Composio.OneOf<global::Composio.PatchToolRouterSessionBySessionIdRequestHookVariant1, global::Composio.PatchToolRouterSessionBySessionIdRequestHookVariant2>>?> Hooks { get; } = new(
         name: @"--hooks")
     {
-        Description = @"",
+        Description = @"Hooks that run on this session's tool calls. A hook can block a call before it runs, or block its result before the agent sees it.",
     };
 
     private static Option<global::Composio.PatchToolRouterSessionBySessionIdRequestExperimental?> Experimental { get; } = new(
