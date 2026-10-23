@@ -31,7 +31,7 @@ namespace Composio
         public string? ConnectedAccountId { get; set; }
 
         /// <summary>
-        /// The user id (entity id) that owns the connection. When connected_account_id is omitted, the first active connection for this user and the trigger's toolkit is auto-resolved (same as tool execution). When connected_account_id is also provided and the project has 2FA enabled, user_id is validated against the owner of that connection.
+        /// The user id (entity id) that owns the connection. When connected_account_id is omitted, the first active connection for this user and the trigger's toolkit is auto-resolved (same as tool execution). When connected_account_id is also provided, user_id is checked against that connection: always against a SHARED connection's ACL (user_id is then required), and against a PRIVATE connection's owner when the project has 2FA enabled.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_id")]
         public string? UserId { get; set; }
@@ -79,7 +79,7 @@ namespace Composio
         /// Connected account nanoid. Optional when user_id is provided — the first active connection for that user and the trigger's toolkit is auto-resolved.
         /// </param>
         /// <param name="userId">
-        /// The user id (entity id) that owns the connection. When connected_account_id is omitted, the first active connection for this user and the trigger's toolkit is auto-resolved (same as tool execution). When connected_account_id is also provided and the project has 2FA enabled, user_id is validated against the owner of that connection.
+        /// The user id (entity id) that owns the connection. When connected_account_id is omitted, the first active connection for this user and the trigger's toolkit is auto-resolved (same as tool execution). When connected_account_id is also provided, user_id is checked against that connection: always against a SHARED connection's ACL (user_id is then required), and against a PRIVATE connection's owner when the project has 2FA enabled.
         /// </param>
         /// <param name="egressUrl">
         /// Overrides the delivery URL for this trigger instance only: its events are sent to this HTTPS URL instead of the project webhook URL. Your project webhook subscription is still required and still controls signing (the webhook secret), the payload version and which events are enabled; only the destination changes for this instance. Omit to leave the current value unchanged; pass null to remove the override and deliver to the project webhook URL again.

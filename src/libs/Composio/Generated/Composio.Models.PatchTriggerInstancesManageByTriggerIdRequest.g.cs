@@ -16,7 +16,7 @@ namespace Composio
         public global::Composio.PatchTriggerInstancesManageByTriggerIdRequestStatus? Status { get; set; }
 
         /// <summary>
-        /// The user id that owns the connected account behind this trigger. Optional: when sent on a project with 2FA enabled it must be the owner of a private connection or allowed on a shared one, whatever is being updated. Required to set egress_url when 2FA is enabled. Ignored when 2FA is disabled.
+        /// The user id acting on the connected account behind this trigger. On a shared connection it must be allowed by the connection ACL, and it is required to enable the trigger or set egress_url. On a private connection it must be the owner when the project has 2FA enabled, and is ignored when 2FA is disabled. Required to set egress_url when 2FA is enabled.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("user_id")]
         public string? UserId { get; set; }
@@ -40,7 +40,7 @@ namespace Composio
         /// Enable or disable the trigger instance.
         /// </param>
         /// <param name="userId">
-        /// The user id that owns the connected account behind this trigger. Optional: when sent on a project with 2FA enabled it must be the owner of a private connection or allowed on a shared one, whatever is being updated. Required to set egress_url when 2FA is enabled. Ignored when 2FA is disabled.
+        /// The user id acting on the connected account behind this trigger. On a shared connection it must be allowed by the connection ACL, and it is required to enable the trigger or set egress_url. On a private connection it must be the owner when the project has 2FA enabled, and is ignored when 2FA is disabled. Required to set egress_url when 2FA is enabled.
         /// </param>
         /// <param name="egressUrl">
         /// Overrides the delivery URL for this trigger instance only: its events are sent to this HTTPS URL instead of the project webhook URL. Your project webhook subscription is still required and still controls signing (the webhook secret), the payload version and which events are enabled; only the destination changes for this instance. Omit to leave the current value unchanged; pass null to remove the override and deliver to the project webhook URL again.
