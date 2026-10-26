@@ -22,7 +22,7 @@ internal static partial class TriggersPatchTriggerInstancesManageByTriggerIdComm
     private static Option<string?> UserId { get; } = new(
         name: @"--user-id")
     {
-        Description = @"The user id that owns the connected account behind this trigger. Optional: when sent on a project with 2FA enabled it must be the owner of a private connection or allowed on a shared one, whatever is being updated. Required to set egress_url when 2FA is enabled. Ignored when 2FA is disabled.",
+        Description = @"The user id acting on the connected account behind this trigger. On a shared connection it must be allowed by the connection ACL, and it is required to enable the trigger or set egress_url. On a private connection it must be the owner when the project has 2FA enabled, and is ignored when 2FA is disabled. Required to set egress_url when 2FA is enabled.",
     };
 
     private static Option<string?> EgressUrl { get; } = new(
@@ -72,7 +72,7 @@ internal static partial class TriggersPatchTriggerInstancesManageByTriggerIdComm
     public static Command Create(string? commandName = null)
     {
         var command = new Command(commandName ?? @"patch-trigger-instances-manage-by-trigger-id", @"Update a trigger
-Updates a trigger instance. Pass status to enable or disable it: disabling pauses event listening without deleting the trigger configuration, and re-enabling restores it. When a webhook trigger is disabled, Composio also attempts to remove the webhook it received events through at the provider, once no other active trigger uses it. This runs in the background after the response, with retries if the provider fails. Re-enabling a webhook trigger sets it up with the provider again. Pass egress_url to override where this instance delivers its events (null removes the override); the project webhook subscription is still required and still controls signing, the payload version and which events are enabled. Send either field or both. On a project with 2FA enabled, user_id is required to set egress_url and, whenever sent, must own the connected account behind the trigger.");
+Updates a trigger instance. Pass status to enable or disable it: disabling pauses event listening without deleting the trigger configuration, and re-enabling restores it. When a webhook trigger is disabled, Composio also attempts to remove the webhook it received events through at the provider, once no other active trigger uses it. This runs in the background after the response, with retries if the provider fails. Re-enabling a webhook trigger sets it up with the provider again. Pass egress_url to override where this instance delivers its events (null removes the override); the project webhook subscription is still required and still controls signing, the payload version and which events are enabled. Send either field or both. On a project with 2FA enabled, user_id is required to set egress_url and, whenever sent, must own the connected account behind the trigger. On a shared connected account, user_id is required to enable the trigger or set egress_url, and is checked against the connection's ACL.");
                         command.Arguments.Add(TriggerId);
                         command.Options.Add(Status);
                         command.Options.Add(UserId);

@@ -11,6 +11,10 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
+        Blocked,
+        /// <summary>
+        ///
+        /// </summary>
         Completed,
         /// <summary>
         ///
@@ -34,6 +38,7 @@ namespace Composio
         {
             return value switch
             {
+                PostToolRouterSessionBySessionIdExecuteMetaResponseDiscriminatorResultType.Blocked => "blocked",
                 PostToolRouterSessionBySessionIdExecuteMetaResponseDiscriminatorResultType.Completed => "completed",
                 PostToolRouterSessionBySessionIdExecuteMetaResponseDiscriminatorResultType.Failed => "failed",
                 PostToolRouterSessionBySessionIdExecuteMetaResponseDiscriminatorResultType.InputRequired => "input_required",
@@ -47,6 +52,7 @@ namespace Composio
         {
             return value switch
             {
+                "blocked" => PostToolRouterSessionBySessionIdExecuteMetaResponseDiscriminatorResultType.Blocked,
                 "completed" => PostToolRouterSessionBySessionIdExecuteMetaResponseDiscriminatorResultType.Completed,
                 "failed" => PostToolRouterSessionBySessionIdExecuteMetaResponseDiscriminatorResultType.Failed,
                 "input_required" => PostToolRouterSessionBySessionIdExecuteMetaResponseDiscriminatorResultType.InputRequired,

@@ -11,6 +11,10 @@ namespace Composio
         /// <summary>
         ///
         /// </summary>
+        Blocked,
+        /// <summary>
+        ///
+        /// </summary>
         Completed,
         /// <summary>
         ///
@@ -30,6 +34,7 @@ namespace Composio
         {
             return value switch
             {
+                PostToolRouterSessionBySessionIdProxyExecuteResponseDiscriminatorResultType.Blocked => "blocked",
                 PostToolRouterSessionBySessionIdProxyExecuteResponseDiscriminatorResultType.Completed => "completed",
                 PostToolRouterSessionBySessionIdProxyExecuteResponseDiscriminatorResultType.InputRequired => "input_required",
                 _ => throw new global::System.ArgumentOutOfRangeException(nameof(value), value, null),
@@ -42,6 +47,7 @@ namespace Composio
         {
             return value switch
             {
+                "blocked" => PostToolRouterSessionBySessionIdProxyExecuteResponseDiscriminatorResultType.Blocked,
                 "completed" => PostToolRouterSessionBySessionIdProxyExecuteResponseDiscriminatorResultType.Completed,
                 "input_required" => PostToolRouterSessionBySessionIdProxyExecuteResponseDiscriminatorResultType.InputRequired,
                 _ => null,

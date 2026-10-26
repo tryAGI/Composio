@@ -79,6 +79,12 @@ internal static partial class ToolRouterPatchToolRouterSessionBySessionIdCommand
         Description = @"Preload configuration for Composio tools. Controls which tools appear in `session.tools` and the MCP server tool list so the agent can call them directly without going through search first. Custom tools use `preload` on the custom tool/toolkit definition instead. Not supported when multi-account is enabled. Each preloaded tool adds to the agent context window, so keep the list at or under ~20 tools.",
     };
 
+    private static Option<global::System.Collections.Generic.IList<global::Composio.OneOf<global::Composio.PatchToolRouterSessionBySessionIdRequestHookVariant1, global::Composio.PatchToolRouterSessionBySessionIdRequestHookVariant2>>?> Hooks { get; } = new(
+        name: @"--hooks")
+    {
+        Description = @"Hooks that run on this session's tool calls. A hook can block a call before it runs, or block its result before the agent sees it.",
+    };
+
     private static Option<global::Composio.PatchToolRouterSessionBySessionIdRequestExperimental?> Experimental { get; } = new(
         name: @"--experimental")
     {
@@ -139,6 +145,7 @@ Partially updates the configuration of an existing tool router session. Only the
                         command.Options.Add(MultiAccount);
                         command.Options.Add(ProxyExecute);
                         command.Options.Add(Preload);
+                        command.Options.Add(Hooks);
                         command.Options.Add(Experimental);
           command.Options.Add(Input);
           command.Options.Add(RequestJson);
@@ -177,6 +184,7 @@ Partially updates the configuration of an existing tool router session. Only the
                         var multiAccount = CliRuntime.WasSpecified(parseResult, MultiAccount) ? parseResult.GetValue(MultiAccount) : (__requestBase is { } __MultiAccountBaseValue ? __MultiAccountBaseValue.MultiAccount : default);
                         var proxyExecute = CliRuntime.WasSpecified(parseResult, ProxyExecute) ? parseResult.GetValue(ProxyExecute) : (__requestBase is { } __ProxyExecuteBaseValue ? __ProxyExecuteBaseValue.ProxyExecute : default);
                         var preload = CliRuntime.WasSpecified(parseResult, Preload) ? parseResult.GetValue(Preload) : (__requestBase is { } __PreloadBaseValue ? __PreloadBaseValue.Preload : default);
+                        var hooks = CliRuntime.WasSpecified(parseResult, Hooks) ? parseResult.GetValue(Hooks) : (__requestBase is { } __HooksBaseValue ? __HooksBaseValue.Hooks : default);
                         var experimental = CliRuntime.WasSpecified(parseResult, Experimental) ? parseResult.GetValue(Experimental) : (__requestBase is { } __ExperimentalBaseValue ? __ExperimentalBaseValue.Experimental : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
@@ -194,6 +202,7 @@ Partially updates the configuration of an existing tool router session. Only the
                                     multiAccount: multiAccount,
                                     proxyExecute: proxyExecute,
                                     preload: preload,
+                                    hooks: hooks,
                                     experimental: experimental,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
