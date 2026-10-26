@@ -1,6 +1,4 @@
 
-#pragma warning disable CS0618 // Type or member is obsolete
-
 #nullable enable
 
 namespace Composio
@@ -45,7 +43,7 @@ namespace Composio
         public required string Instructions { get; set; }
 
         /// <summary>
-        /// Deprecated: use types. poll for any trigger that polls, even one a webhook wakes; otherwise webhook.<br/>
+        /// The trigger mechanism - either webhook (event-based) or poll (scheduled check)<br/>
         /// Example: webhook
         /// </summary>
         /// <example>webhook</example>
@@ -53,15 +51,6 @@ namespace Composio
         [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.GetTriggersTypesResponseItemTypeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required global::Composio.GetTriggersTypesResponseItemType Type { get; set; }
-
-        /// <summary>
-        /// The trigger mechanisms this trigger supports, in order of preference: webhook (event-based) before poll (scheduled check).<br/>
-        /// Example: [webhook, poll]
-        /// </summary>
-        /// <example>[webhook, poll]</example>
-        [global::System.Text.Json.Serialization.JsonPropertyName("types")]
-        [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Composio.GetTriggersTypesResponseItemType2> Types { get; set; }
 
         /// <summary>
         /// Information about the toolkit that provides this trigger
@@ -131,12 +120,8 @@ namespace Composio
         /// Step-by-step instructions on how to set up and use this trigger
         /// </param>
         /// <param name="type">
-        /// Deprecated: use types. poll for any trigger that polls, even one a webhook wakes; otherwise webhook.<br/>
+        /// The trigger mechanism - either webhook (event-based) or poll (scheduled check)<br/>
         /// Example: webhook
-        /// </param>
-        /// <param name="types">
-        /// The trigger mechanisms this trigger supports, in order of preference: webhook (event-based) before poll (scheduled check).<br/>
-        /// Example: [webhook, poll]
         /// </param>
         /// <param name="toolkit">
         /// Information about the toolkit that provides this trigger
@@ -167,7 +152,6 @@ namespace Composio
             string description,
             string instructions,
             global::Composio.GetTriggersTypesResponseItemType type,
-            global::System.Collections.Generic.IList<global::Composio.GetTriggersTypesResponseItemType2> types,
             global::Composio.GetTriggersTypesResponseItemToolkit toolkit,
             global::System.Collections.Generic.Dictionary<string, object?> config,
             global::System.Collections.Generic.Dictionary<string, object?> payload,
@@ -179,7 +163,6 @@ namespace Composio
             this.Description = description ?? throw new global::System.ArgumentNullException(nameof(description));
             this.Instructions = instructions ?? throw new global::System.ArgumentNullException(nameof(instructions));
             this.Type = type;
-            this.Types = types ?? throw new global::System.ArgumentNullException(nameof(types));
             this.Toolkit = toolkit ?? throw new global::System.ArgumentNullException(nameof(toolkit));
             this.Config = config ?? throw new global::System.ArgumentNullException(nameof(config));
             this.Payload = payload ?? throw new global::System.ArgumentNullException(nameof(payload));

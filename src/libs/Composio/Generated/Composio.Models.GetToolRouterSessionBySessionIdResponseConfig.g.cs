@@ -86,12 +86,6 @@ namespace Composio
         public global::Composio.GetToolRouterSessionBySessionIdResponseConfigProxyExecute? ProxyExecute { get; set; }
 
         /// <summary>
-        /// Hooks that run on this session's tool calls.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("hooks")]
-        public global::System.Collections.Generic.IList<global::Composio.OneOf<global::Composio.GetToolRouterSessionBySessionIdResponseConfigHookVariant1, global::Composio.GetToolRouterSessionBySessionIdResponseConfigHookVariant2>>? Hooks { get; set; }
-
-        /// <summary>
         /// Preload configuration. Controls which tools appear in `session.tools` and the MCP server tool list, callable directly without going through search. Each preloaded tool adds to the agent context — roughly ≤20 tools is recommended. Always present in the response (empty `tools: []` when the session was created without a preload config).
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("preload")]
@@ -147,9 +141,6 @@ namespace Composio
         /// <param name="proxyExecute">
         /// Proxy execute configuration for this session. Omitted when not set.
         /// </param>
-        /// <param name="hooks">
-        /// Hooks that run on this session's tool calls.
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -166,8 +157,7 @@ namespace Composio
             global::Composio.GetToolRouterSessionBySessionIdResponseConfigTags? tags,
             global::Composio.GetToolRouterSessionBySessionIdResponseConfigWorkbench? workbench,
             global::Composio.GetToolRouterSessionBySessionIdResponseConfigMultiAccount? multiAccount,
-            global::Composio.GetToolRouterSessionBySessionIdResponseConfigProxyExecute? proxyExecute,
-            global::System.Collections.Generic.IList<global::Composio.OneOf<global::Composio.GetToolRouterSessionBySessionIdResponseConfigHookVariant1, global::Composio.GetToolRouterSessionBySessionIdResponseConfigHookVariant2>>? hooks)
+            global::Composio.GetToolRouterSessionBySessionIdResponseConfigProxyExecute? proxyExecute)
         {
             this.UserId = userId ?? throw new global::System.ArgumentNullException(nameof(userId));
             this.Toolkits = toolkits;
@@ -181,7 +171,6 @@ namespace Composio
             this.Workbench = workbench;
             this.MultiAccount = multiAccount;
             this.ProxyExecute = proxyExecute;
-            this.Hooks = hooks;
             this.Preload = preload ?? throw new global::System.ArgumentNullException(nameof(preload));
         }
 

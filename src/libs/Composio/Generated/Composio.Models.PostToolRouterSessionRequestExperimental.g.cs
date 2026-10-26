@@ -51,13 +51,6 @@ namespace Composio
         public global::Composio.PostToolRouterSessionRequestExperimentalSubmitFeedback? SubmitFeedback { get; set; }
 
         /// <summary>
-        /// Set to true to confine the workbench sandbox to Composio: code running in it can reach the Composio API and its own storage volume, and no other network destination. Defaults to false. Set at session creation only.<br/>
-        /// Default Value: false
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("restrict_egress_to_composio")]
-        public bool? RestrictEgressToComposio { get; set; }
-
-        /// <summary>
         /// What session MCP does with a tool call that needs approval when the MCP client can't ask the user. deny (default) rejects the call; allow runs it without approval.<br/>
         /// Default Value: deny
         /// </summary>
@@ -95,10 +88,6 @@ namespace Composio
         /// <param name="submitFeedback">
         /// Exposes the COMPOSIO_SUBMIT_FEEDBACK helper tool in this session so the agent can report tool executions with empty, incorrect, or failed results. Defaults to false.
         /// </param>
-        /// <param name="restrictEgressToComposio">
-        /// Set to true to confine the workbench sandbox to Composio: code running in it can reach the Composio API and its own storage volume, and no other network destination. Defaults to false. Set at session creation only.<br/>
-        /// Default Value: false
-        /// </param>
         /// <param name="noElicitationSupportFallback">
         /// What session MCP does with a tool call that needs approval when the MCP client can't ask the user. deny (default) rejects the call; allow runs it without approval.<br/>
         /// Default Value: deny
@@ -114,7 +103,6 @@ namespace Composio
             string? linkUrlOverwrite,
             bool? fastMode,
             global::Composio.PostToolRouterSessionRequestExperimentalSubmitFeedback? submitFeedback,
-            bool? restrictEgressToComposio,
             global::Composio.PostToolRouterSessionRequestExperimentalNoElicitationSupportFallback? noElicitationSupportFallback)
         {
             this.AssistivePromptConfig = assistivePromptConfig;
@@ -124,7 +112,6 @@ namespace Composio
             this.LinkUrlOverwrite = linkUrlOverwrite;
             this.FastMode = fastMode;
             this.SubmitFeedback = submitFeedback;
-            this.RestrictEgressToComposio = restrictEgressToComposio;
             this.NoElicitationSupportFallback = noElicitationSupportFallback;
         }
 

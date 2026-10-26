@@ -19,7 +19,7 @@ namespace Composio
         public string? ConnectedAccountId { get; set; }
 
         /// <summary>
-        /// The user id (entity id) acting on connected_account_id. Required for a SHARED connection, where it is checked against the connection's ACL. When the project has 2FA enabled, it is also validated against the owner of a PRIVATE connection. Also selects which custom toolkits the request may use.<br/>
+        /// The user id (entity id) that owns connected_account_id. When the project has 2FA enabled, it is validated against the owner of that connection. Also selects which custom toolkits the request may use.<br/>
         /// Example: user_4567
         /// </summary>
         /// <example>user_4567</example>
@@ -97,7 +97,7 @@ namespace Composio
         /// Example: ca_1a2b3c4d5e6f
         /// </param>
         /// <param name="userId">
-        /// The user id (entity id) acting on connected_account_id. Required for a SHARED connection, where it is checked against the connection's ACL. When the project has 2FA enabled, it is also validated against the owner of a PRIVATE connection. Also selects which custom toolkits the request may use.<br/>
+        /// The user id (entity id) that owns connected_account_id. When the project has 2FA enabled, it is validated against the owner of that connection. Also selects which custom toolkits the request may use.<br/>
         /// Example: user_4567
         /// </param>
         /// <param name="body">

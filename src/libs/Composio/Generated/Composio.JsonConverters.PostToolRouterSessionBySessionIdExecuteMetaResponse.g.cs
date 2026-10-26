@@ -35,13 +35,6 @@ namespace Composio.JsonConverters
                                throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Composio.ExecuteFailed)}");
                 failed = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
             }
-            global::Composio.ExecuteBlocked? blocked = default;
-            if (discriminator?.ResultType == global::Composio.PostToolRouterSessionBySessionIdExecuteMetaResponseDiscriminatorResultType.Blocked)
-            {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Composio.ExecuteBlocked), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Composio.ExecuteBlocked> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {nameof(global::Composio.ExecuteBlocked)}");
-                blocked = global::System.Text.Json.JsonSerializer.Deserialize(ref reader, typeInfo);
-            }
             global::Composio.ExecuteRequiresUserInput? inputRequired = default;
             if (discriminator?.ResultType == global::Composio.PostToolRouterSessionBySessionIdExecuteMetaResponseDiscriminatorResultType.InputRequired)
             {
@@ -55,8 +48,6 @@ namespace Composio.JsonConverters
                 completed,
 
                 failed,
-
-                blocked,
 
                 inputRequired
                 );
@@ -84,12 +75,6 @@ namespace Composio.JsonConverters
                 var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Composio.ExecuteFailed), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Composio.ExecuteFailed?> ??
                                throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Composio.ExecuteFailed).Name}");
                 global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickFailed(), typeInfo);
-            }
-            else if (value.IsBlocked)
-            {
-                var typeInfo = typeInfoResolver.GetTypeInfo(typeof(global::Composio.ExecuteBlocked), options) as global::System.Text.Json.Serialization.Metadata.JsonTypeInfo<global::Composio.ExecuteBlocked?> ??
-                               throw new global::System.InvalidOperationException($"Cannot get type info for {typeof(global::Composio.ExecuteBlocked).Name}");
-                global::System.Text.Json.JsonSerializer.Serialize(writer, value.PickBlocked(), typeInfo);
             }
             else if (value.IsInputRequired)
             {
