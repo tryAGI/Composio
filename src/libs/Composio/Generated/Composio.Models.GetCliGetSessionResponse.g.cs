@@ -9,7 +9,7 @@ namespace Composio
     public sealed partial class GetCliGetSessionResponse
     {
         /// <summary>
-        /// The CLI session ID, or the code for a lookup by code<br/>
+        /// The unique identifier for the CLI session<br/>
         /// Example: 123e4567-e89b-12d3-a456-426614174000
         /// </summary>
         /// <example>123e4567-e89b-12d3-a456-426614174000</example>
@@ -78,7 +78,7 @@ namespace Composio
         /// Initializes a new instance of the <see cref="GetCliGetSessionResponse" /> class.
         /// </summary>
         /// <param name="id">
-        /// The CLI session ID, or the code for a lookup by code<br/>
+        /// The unique identifier for the CLI session<br/>
         /// Example: 123e4567-e89b-12d3-a456-426614174000
         /// </param>
         /// <param name="code">

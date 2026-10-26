@@ -43,7 +43,7 @@ namespace Composio
 
         /// <summary>
         /// Get CLI session details by ID or code<br/>
-        /// Retrieves the current state of a CLI session using either the session ID (UUID) or the 6-character code. The first UUID lookup after the session is linked returns its API key; each session issues one key. A code lookup reports status only and never returns a key.
+        /// Retrieves the current state of a CLI session using either the session ID (UUID) or the 6-character code. This endpoint is used by both the CLI client to check if the session has been linked, and by the web interface to display session details before linking.
         /// </summary>
         /// <param name="id">
         /// The CLI session ID or code to check<br/>
@@ -67,7 +67,7 @@ namespace Composio
         }
         /// <summary>
         /// Get CLI session details by ID or code<br/>
-        /// Retrieves the current state of a CLI session using either the session ID (UUID) or the 6-character code. The first UUID lookup after the session is linked returns its API key; each session issues one key. A code lookup reports status only and never returns a key.
+        /// Retrieves the current state of a CLI session using either the session ID (UUID) or the 6-character code. This endpoint is used by both the CLI client to check if the session has been linked, and by the web interface to display session details before linking.
         /// </summary>
         /// <param name="id">
         /// The CLI session ID or code to check<br/>
@@ -372,7 +372,7 @@ namespace Composio
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // CLI session not found or expired. Sessions expire after 10 minutes from creation. Re-run the CLI login flow to create a new session.
+                            // CLI session not found or expired, or the linked user API key has been revoked. Sessions expire after 10 minutes from creation. Re-run the CLI login flow to create a new session.
                             if ((int)__response.StatusCode == 404)
                             {
                                 string? __content_404 = null;
@@ -409,44 +409,7 @@ namespace Composio
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // This CLI session already issued its API key. Each session issues one key; re-run the CLI login flow to get another.
-                            if ((int)__response.StatusCode == 409)
-                            {
-                                string? __content_409 = null;
-                                global::System.Exception? __exception_409 = null;
-                                global::Composio.Error? __value_409 = null;
-                                try
-                                {
-                                    if (__effectiveReadResponseAsString)
-                                    {
-                                        __content_409 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-                                        __value_409 = global::Composio.Error.FromJson(__content_409, JsonSerializerContext);
-                                    }
-                                    else
-                                    {
-                                        __content_409 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
-
-                                        __value_409 = global::Composio.Error.FromJson(__content_409, JsonSerializerContext);
-                                    }
-                                }
-                                catch (global::System.Exception __ex)
-                                {
-                                    __exception_409 = __ex;
-                                }
-
-
-                                throw global::Composio.ApiException<global::Composio.Error>.Create(
-                                    statusCode: __response.StatusCode,
-                                    message: __content_409 ?? __response.ReasonPhrase ?? string.Empty,
-                                    innerException: __exception_409,
-                                    responseBody: __content_409,
-                                    responseObject: __value_409,
-                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
-                                        __response.Headers,
-                                        h => h.Key,
-                                        h => h.Value));
-                            }
-                            // Rate limited: too many lookups for this IP or session code. Re-run the CLI login flow.
+                            // Rate limited: too many lookups for this IP or session code, or too many key retrievals for this session. Re-run the CLI login flow.
                             if ((int)__response.StatusCode == 429)
                             {
                                 string? __content_429 = null;

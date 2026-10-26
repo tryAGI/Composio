@@ -64,12 +64,6 @@ namespace Composio
         public global::System.Collections.Generic.Dictionary<string, object?>? Theme { get; set; }
 
         /// <summary>
-        /// Enable Instant Toolkits for this project.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("enable_instant")]
-        public bool? EnableInstant { get; set; }
-
-        /// <summary>
         /// Enable Zero Data Retention for the new project. Hobby cannot enable it. Enterprise defaults to enabled; other paid plans default to disabled. An explicit value overrides the default.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("zdr_enabled")]
@@ -99,9 +93,6 @@ namespace Composio
         /// <param name="theme">
         /// Link-auth theme for the hosted connect page. Opaque to the API; the dashboard owns the token vocabulary and all value validation.
         /// </param>
-        /// <param name="enableInstant">
-        /// Enable Instant Toolkits for this project.
-        /// </param>
         /// <param name="zdrEnabled">
         /// Enable Zero Data Retention for the new project. Hobby cannot enable it. Enterprise defaults to enabled; other paid plans default to disabled. An explicit value overrides the default.
         /// </param>
@@ -118,7 +109,6 @@ namespace Composio
             double? signedUrlFileExpiryInSeconds,
             string? oauthCallbackVerifierUrl,
             global::System.Collections.Generic.Dictionary<string, object?>? theme,
-            bool? enableInstant,
             bool? zdrEnabled)
         {
             this.Is2faEnabled = is2faEnabled;
@@ -130,7 +120,6 @@ namespace Composio
             this.SignedUrlFileExpiryInSeconds = signedUrlFileExpiryInSeconds;
             this.OauthCallbackVerifierUrl = oauthCallbackVerifierUrl;
             this.Theme = theme;
-            this.EnableInstant = enableInstant;
             this.ZdrEnabled = zdrEnabled;
         }
 

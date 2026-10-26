@@ -46,12 +46,6 @@ namespace Composio
         public required string LogId { get; set; }
 
         /// <summary>
-        /// Every session hook that applied to this call. Omitted when none applied.
-        /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("hook_results")]
-        public global::System.Collections.Generic.IList<global::Composio.HookResult>? HookResults { get; set; }
-
-        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -77,9 +71,6 @@ namespace Composio
         /// <param name="error">
         /// Error message if the execution failed, null otherwise
         /// </param>
-        /// <param name="hookResults">
-        /// Every session hook that applied to this call. Omitted when none applied.
-        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -88,15 +79,13 @@ namespace Composio
             string logId,
             global::Composio.ExecuteCompletedResultType resultType,
             global::Composio.ExecuteCompletedInstantCharge? instantCharge,
-            string? error,
-            global::System.Collections.Generic.IList<global::Composio.HookResult>? hookResults)
+            string? error)
         {
             this.ResultType = resultType;
             this.InstantCharge = instantCharge;
             this.Data = data ?? throw new global::System.ArgumentNullException(nameof(data));
             this.Error = error;
             this.LogId = logId ?? throw new global::System.ArgumentNullException(nameof(logId));
-            this.HookResults = hookResults;
         }
 
         /// <summary>

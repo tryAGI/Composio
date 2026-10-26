@@ -4,7 +4,7 @@
 namespace Composio
 {
     /// <summary>
-    /// Sharing model for this connected account. PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned in the session config — at most one SHARED connection per toolkit per session. Sessions never use a SHARED connection implicitly. Every use of a SHARED connection must pass the acting user_id, which is checked against its ACL.
+    /// Sharing model for this connected account. PRIVATE (default) is usable only by the owning user_id. SHARED is reachable from a tool-router session ONLY when explicitly pinned in the session config — at most one SHARED connection per toolkit per session. Sessions never use a SHARED connection implicitly.
     /// </summary>
     public enum PostConnectedAccountsRequestConnectionExperimentalAccountType
     {
