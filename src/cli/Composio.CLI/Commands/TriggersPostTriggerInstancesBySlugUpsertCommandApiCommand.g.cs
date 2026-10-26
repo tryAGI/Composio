@@ -22,7 +22,7 @@ internal static partial class TriggersPostTriggerInstancesBySlugUpsertCommandApi
     private static Option<string?> UserId { get; } = new(
         name: @"--user-id")
     {
-        Description = @"The user id (entity id) that owns the connection. When connected_account_id is omitted, the first active connection for this user and the trigger's toolkit is auto-resolved (same as tool execution). When connected_account_id is also provided and the project has 2FA enabled, user_id is validated against the owner of that connection.",
+        Description = @"The user id (entity id) that owns the connection. When connected_account_id is omitted, the first active connection for this user and the trigger's toolkit is auto-resolved (same as tool execution). When connected_account_id is also provided, user_id is checked against that connection: always against a SHARED connection's ACL (user_id is then required), and against a PRIVATE connection's owner when the project has 2FA enabled.",
     };
 
     private static Option<string?> EgressUrl { get; } = new(
