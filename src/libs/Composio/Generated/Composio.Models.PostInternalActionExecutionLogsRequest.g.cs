@@ -15,7 +15,8 @@ namespace Composio
         public double? Cursor { get; set; }
 
         /// <summary>
-        /// number_of_logs_to_return
+        /// number_of_logs_to_return<br/>
+        /// Default Value: 10
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("limit")]
         public double? Limit { get; set; }
@@ -57,7 +58,8 @@ namespace Composio
         /// cursor_that_can_be_used_to_paginate_through_the_logs
         /// </param>
         /// <param name="limit">
-        /// number_of_logs_to_return
+        /// number_of_logs_to_return<br/>
+        /// Default Value: 10
         /// </param>
         /// <param name="caseSensitive">
         /// whether_the_search_is_case_sensitive_or_not
