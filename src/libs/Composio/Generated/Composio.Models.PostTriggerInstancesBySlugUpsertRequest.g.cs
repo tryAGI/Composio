@@ -49,6 +49,19 @@ namespace Composio
         public global::System.Collections.Generic.Dictionary<string, object?>? TriggerConfig2 { get; set; }
 
         /// <summary>
+        /// Whether this instance receives events by webhook or by polling, for a trigger that supports both. Omit it to let Composio choose the best one.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.PostTriggerInstancesBySlugUpsertRequestTypeJsonConverter))]
+        public global::Composio.PostTriggerInstancesBySlugUpsertRequestType? Type { get; set; }
+
+        /// <summary>
+        /// Minutes between polls, for an instance that polls for its events. It is checked whenever the instance could poll, even when Composio tries a webhook first, so an interval outside the toolkit's allowed range fails the request.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("polling_interval")]
+        public int? PollingInterval { get; set; }
+
+        /// <summary>
         /// DEPRECATED: This parameter will be removed in a future version. Please use toolkit_versions instead.<br/>
         /// Example: latest
         /// </summary>
@@ -87,6 +100,12 @@ namespace Composio
         /// <param name="triggerConfig2">
         /// Trigger configuration
         /// </param>
+        /// <param name="type">
+        /// Whether this instance receives events by webhook or by polling, for a trigger that supports both. Omit it to let Composio choose the best one.
+        /// </param>
+        /// <param name="pollingInterval">
+        /// Minutes between polls, for an instance that polls for its events. It is checked whenever the instance could poll, even when Composio tries a webhook first, so an interval outside the toolkit's allowed range fails the request.
+        /// </param>
         /// <param name="toolkitVersions">
         /// Toolkit version specification. Supports "latest" string or a record mapping toolkit slugs to specific versions.<br/>
         /// Example: latest
@@ -99,12 +118,16 @@ namespace Composio
             string? userId,
             string? egressUrl,
             global::System.Collections.Generic.Dictionary<string, object?>? triggerConfig2,
+            global::Composio.PostTriggerInstancesBySlugUpsertRequestType? type,
+            int? pollingInterval,
             global::Composio.AnyOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions)
         {
             this.ConnectedAccountId = connectedAccountId;
             this.UserId = userId;
             this.EgressUrl = egressUrl;
             this.TriggerConfig2 = triggerConfig2;
+            this.Type = type;
+            this.PollingInterval = pollingInterval;
             this.ToolkitVersions = toolkitVersions;
         }
 

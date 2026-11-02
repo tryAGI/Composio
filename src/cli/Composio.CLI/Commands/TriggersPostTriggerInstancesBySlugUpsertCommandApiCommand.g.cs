@@ -37,6 +37,18 @@ internal static partial class TriggersPostTriggerInstancesBySlugUpsertCommandApi
         Description = @"Trigger configuration",
     };
 
+    private static Option<global::Composio.PostTriggerInstancesBySlugUpsertRequestType?> Type { get; } = new(
+        name: @"--type")
+    {
+        Description = @"Whether this instance receives events by webhook or by polling, for a trigger that supports both. Omit it to let Composio choose the best one.",
+    };
+
+    private static Option<int?> PollingInterval { get; } = new(
+        name: @"--polling-interval")
+    {
+        Description = @"Minutes between polls, for an instance that polls for its events. It is checked whenever the instance could poll, even when Composio tries a webhook first, so an interval outside the toolkit's allowed range fails the request.",
+    };
+
     private static Option<global::Composio.AnyOf<string, global::System.Collections.Generic.Dictionary<string, string>>?> ToolkitVersions { get; } = new(
         name: @"--toolkit-versions")
     {
@@ -84,12 +96,14 @@ internal static partial class TriggersPostTriggerInstancesBySlugUpsertCommandApi
     public static Command Create(string? commandName = null)
     {
         var command = new Command(commandName ?? @"post-trigger-instances-by-slug-upsert", @"Create or update a trigger
-Creates a new trigger instance or updates an existing one with the same configuration. Triggers listen for events from external services (webhooks or polling) and can invoke your workflows. If a matching trigger already exists and is disabled, it will be re-enabled. Provide either a connected_account_id to pin a specific user connection, or a user_id to auto-resolve the first active connection for that user and the trigger's toolkit.");
+Creates a new trigger instance or updates an existing one with the same configuration. Triggers listen for events from external services (webhooks or polling) and can invoke your workflows. If a matching trigger already exists and is disabled, it will be re-enabled. Provide either a connected_account_id to pin a specific user connection, or a user_id to auto-resolve the first active connection for that user and the trigger's toolkit. For a trigger that supports both webhooks and polling, Composio chooses the best way for the instance to receive events unless type sets one. When the instance polls because a webhook could not be set up, fallback_reason says why. An existing instance keeps its type, so an upsert asking for the other type returns 409.");
                         command.Arguments.Add(Slug);
                         command.Options.Add(ConnectedAccountId);
                         command.Options.Add(UserId);
                         command.Options.Add(EgressUrl);
                         command.Options.Add(TriggerConfig2);
+                        command.Options.Add(Type);
+                        command.Options.Add(PollingInterval);
                         command.Options.Add(ToolkitVersions);
           command.Options.Add(Input);
           command.Options.Add(RequestJson);
@@ -121,6 +135,8 @@ Creates a new trigger instance or updates an existing one with the same configur
                         var userId = CliRuntime.WasSpecified(parseResult, UserId) ? parseResult.GetValue(UserId) : (__requestBase is { } __UserIdBaseValue ? __UserIdBaseValue.UserId : default);
                         var egressUrl = CliRuntime.WasSpecified(parseResult, EgressUrl) ? parseResult.GetValue(EgressUrl) : (__requestBase is { } __EgressUrlBaseValue ? __EgressUrlBaseValue.EgressUrl : default);
                         var triggerConfig2 = CliRuntime.WasSpecified(parseResult, TriggerConfig2) ? parseResult.GetValue(TriggerConfig2) : (__requestBase is { } __TriggerConfig2BaseValue ? __TriggerConfig2BaseValue.TriggerConfig2 : default);
+                        var type = CliRuntime.WasSpecified(parseResult, Type) ? parseResult.GetValue(Type) : (__requestBase is { } __TypeBaseValue ? __TypeBaseValue.Type : default);
+                        var pollingInterval = CliRuntime.WasSpecified(parseResult, PollingInterval) ? parseResult.GetValue(PollingInterval) : (__requestBase is { } __PollingIntervalBaseValue ? __PollingIntervalBaseValue.PollingInterval : default);
                         var toolkitVersions = CliRuntime.WasSpecified(parseResult, ToolkitVersions) ? parseResult.GetValue(ToolkitVersions) : (__requestBase is { } __ToolkitVersionsBaseValue ? __ToolkitVersionsBaseValue.ToolkitVersions : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
@@ -131,6 +147,8 @@ Creates a new trigger instance or updates an existing one with the same configur
                                     userId: userId,
                                     egressUrl: egressUrl,
                                     triggerConfig2: triggerConfig2,
+                                    type: type,
+                                    pollingInterval: pollingInterval,
                                     toolkitVersions: toolkitVersions,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 

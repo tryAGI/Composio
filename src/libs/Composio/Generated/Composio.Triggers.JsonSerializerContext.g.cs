@@ -26,6 +26,8 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCliRealtimeAuthRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostTriggerInstancesBySlugUpsertRequest))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostTriggerInstancesBySlugUpsertRequestType), TypeInfoPropertyName = "PostTriggerInstancesBySlugUpsertRequestType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<string, global::System.Collections.Generic.Dictionary<string, string>>), TypeInfoPropertyName = "AnyOfStringDictionaryStringString2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchTriggerInstancesManageByTriggerIdRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchTriggerInstancesManageByTriggerIdRequestStatus), TypeInfoPropertyName = "PatchTriggerInstancesManageByTriggerIdRequestStatus2")]
@@ -33,10 +35,13 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetCliRealtimeCredentialsResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCliRealtimeAuthResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostTriggerInstancesBySlugUpsertResponse))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostTriggerInstancesBySlugUpsertResponseType), TypeInfoPropertyName = "PostTriggerInstancesBySlugUpsertResponseType2_3")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostTriggerInstancesBySlugUpsertResponse2))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostTriggerInstancesBySlugUpsertResponseType2), TypeInfoPropertyName = "PostTriggerInstancesBySlugUpsertResponseType22")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetTriggerInstancesActiveResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.GetTriggerInstancesActiveResponseItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetTriggerInstancesActiveResponseItem))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetTriggerInstancesActiveResponseItemType), TypeInfoPropertyName = "GetTriggerInstancesActiveResponseItemType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetTriggerInstancesActiveResponseItemDeprecated))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.DeleteTriggerInstancesManageByTriggerIdResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchTriggerInstancesManageByTriggerIdResponse))]
@@ -67,9 +72,14 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetTriggersTypesResponseItemToolkit))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(bool?))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostTriggerInstancesBySlugUpsertRequestType?), TypeInfoPropertyName = "NullablePostTriggerInstancesBySlugUpsertRequestType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(int?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.AnyOf<string, global::System.Collections.Generic.Dictionary<string, string>>?), TypeInfoPropertyName = "NullableAnyOfStringDictionaryStringString2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchTriggerInstancesManageByTriggerIdRequestStatus?), TypeInfoPropertyName = "NullablePatchTriggerInstancesManageByTriggerIdRequestStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>?), TypeInfoPropertyName = "NullableOneOfStringDictionaryStringString2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostTriggerInstancesBySlugUpsertResponseType?), TypeInfoPropertyName = "NullablePostTriggerInstancesBySlugUpsertResponseType2_3")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostTriggerInstancesBySlugUpsertResponseType2?), TypeInfoPropertyName = "NullablePostTriggerInstancesBySlugUpsertResponseType22")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetTriggerInstancesActiveResponseItemType?), TypeInfoPropertyName = "NullableGetTriggerInstancesActiveResponseItemType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchTriggerInstancesManageByTriggerIdResponseStatus?), TypeInfoPropertyName = "NullablePatchTriggerInstancesManageByTriggerIdResponseStatus2")]
     #pragma warning disable CS0618 // This registration names a deprecated API model.
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetTriggersTypesBySlugResponseType?), TypeInfoPropertyName = "NullableGetTriggersTypesBySlugResponseType2_3")]
@@ -260,9 +270,25 @@ namespace Composio
             public override bool CanConvert(global::System.Type typeToConvert)
             {
                 return
-                    typeToConvert == typeof(global::Composio.PatchTriggerInstancesManageByTriggerIdRequestStatus)
+                    typeToConvert == typeof(global::Composio.PostTriggerInstancesBySlugUpsertRequestType)
+
+                    || typeToConvert == typeof(global::Composio.PostTriggerInstancesBySlugUpsertRequestType?)
+
+                    || typeToConvert == typeof(global::Composio.PatchTriggerInstancesManageByTriggerIdRequestStatus)
 
                     || typeToConvert == typeof(global::Composio.PatchTriggerInstancesManageByTriggerIdRequestStatus?)
+
+                    || typeToConvert == typeof(global::Composio.PostTriggerInstancesBySlugUpsertResponseType)
+
+                    || typeToConvert == typeof(global::Composio.PostTriggerInstancesBySlugUpsertResponseType?)
+
+                    || typeToConvert == typeof(global::Composio.PostTriggerInstancesBySlugUpsertResponseType2)
+
+                    || typeToConvert == typeof(global::Composio.PostTriggerInstancesBySlugUpsertResponseType2?)
+
+                    || typeToConvert == typeof(global::Composio.GetTriggerInstancesActiveResponseItemType)
+
+                    || typeToConvert == typeof(global::Composio.GetTriggerInstancesActiveResponseItemType?)
 
                     || typeToConvert == typeof(global::Composio.PatchTriggerInstancesManageByTriggerIdResponseStatus)
 
@@ -289,6 +315,16 @@ namespace Composio
                 global::System.Type typeToConvert,
                 global::System.Text.Json.JsonSerializerOptions options)
             {
+                if (typeToConvert == typeof(global::Composio.PostTriggerInstancesBySlugUpsertRequestType))
+                {
+                    return new global::Composio.JsonConverters.PostTriggerInstancesBySlugUpsertRequestTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Composio.PostTriggerInstancesBySlugUpsertRequestType?))
+                {
+                    return new global::Composio.JsonConverters.PostTriggerInstancesBySlugUpsertRequestTypeNullableJsonConverter();
+                }
+
                 if (typeToConvert == typeof(global::Composio.PatchTriggerInstancesManageByTriggerIdRequestStatus))
                 {
                     return new global::Composio.JsonConverters.PatchTriggerInstancesManageByTriggerIdRequestStatusJsonConverter();
@@ -297,6 +333,36 @@ namespace Composio
                 if (typeToConvert == typeof(global::Composio.PatchTriggerInstancesManageByTriggerIdRequestStatus?))
                 {
                     return new global::Composio.JsonConverters.PatchTriggerInstancesManageByTriggerIdRequestStatusNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Composio.PostTriggerInstancesBySlugUpsertResponseType))
+                {
+                    return new global::Composio.JsonConverters.PostTriggerInstancesBySlugUpsertResponseTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Composio.PostTriggerInstancesBySlugUpsertResponseType?))
+                {
+                    return new global::Composio.JsonConverters.PostTriggerInstancesBySlugUpsertResponseTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Composio.PostTriggerInstancesBySlugUpsertResponseType2))
+                {
+                    return new global::Composio.JsonConverters.PostTriggerInstancesBySlugUpsertResponseType2JsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Composio.PostTriggerInstancesBySlugUpsertResponseType2?))
+                {
+                    return new global::Composio.JsonConverters.PostTriggerInstancesBySlugUpsertResponseType2NullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Composio.GetTriggerInstancesActiveResponseItemType))
+                {
+                    return new global::Composio.JsonConverters.GetTriggerInstancesActiveResponseItemTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Composio.GetTriggerInstancesActiveResponseItemType?))
+                {
+                    return new global::Composio.JsonConverters.GetTriggerInstancesActiveResponseItemTypeNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::Composio.PatchTriggerInstancesManageByTriggerIdResponseStatus))
