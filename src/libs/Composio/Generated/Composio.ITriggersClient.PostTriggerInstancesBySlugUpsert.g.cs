@@ -8,7 +8,7 @@ namespace Composio
     {
         /// <summary>
         /// Create or update a trigger<br/>
-        /// Creates a new trigger instance or updates an existing one with the same configuration. Triggers listen for events from external services (webhooks or polling) and can invoke your workflows. If a matching trigger already exists and is disabled, it will be re-enabled. Provide either a connected_account_id to pin a specific user connection, or a user_id to auto-resolve the first active connection for that user and the trigger's toolkit.
+        /// Creates a new trigger instance or updates an existing one with the same configuration. Triggers listen for events from external services (webhooks or polling) and can invoke your workflows. If a matching trigger already exists and is disabled, it will be re-enabled. Provide either a connected_account_id to pin a specific user connection, or a user_id to auto-resolve the first active connection for that user and the trigger's toolkit. For a trigger that supports both webhooks and polling, Composio chooses the best way for the instance to receive events unless type sets one. When the instance polls because a webhook could not be set up, fallback_reason says why. An existing instance keeps its type, so an upsert asking for the other type returns 409.
         /// </summary>
         /// <param name="slug">
         /// The slug of the trigger instance. Case-insensitive (internally normalized to uppercase).
@@ -25,7 +25,7 @@ namespace Composio
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create or update a trigger<br/>
-        /// Creates a new trigger instance or updates an existing one with the same configuration. Triggers listen for events from external services (webhooks or polling) and can invoke your workflows. If a matching trigger already exists and is disabled, it will be re-enabled. Provide either a connected_account_id to pin a specific user connection, or a user_id to auto-resolve the first active connection for that user and the trigger's toolkit.
+        /// Creates a new trigger instance or updates an existing one with the same configuration. Triggers listen for events from external services (webhooks or polling) and can invoke your workflows. If a matching trigger already exists and is disabled, it will be re-enabled. Provide either a connected_account_id to pin a specific user connection, or a user_id to auto-resolve the first active connection for that user and the trigger's toolkit. For a trigger that supports both webhooks and polling, Composio chooses the best way for the instance to receive events unless type sets one. When the instance polls because a webhook could not be set up, fallback_reason says why. An existing instance keeps its type, so an upsert asking for the other type returns 409.
         /// </summary>
         /// <param name="slug">
         /// The slug of the trigger instance. Case-insensitive (internally normalized to uppercase).
@@ -42,7 +42,7 @@ namespace Composio
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Create or update a trigger<br/>
-        /// Creates a new trigger instance or updates an existing one with the same configuration. Triggers listen for events from external services (webhooks or polling) and can invoke your workflows. If a matching trigger already exists and is disabled, it will be re-enabled. Provide either a connected_account_id to pin a specific user connection, or a user_id to auto-resolve the first active connection for that user and the trigger's toolkit.
+        /// Creates a new trigger instance or updates an existing one with the same configuration. Triggers listen for events from external services (webhooks or polling) and can invoke your workflows. If a matching trigger already exists and is disabled, it will be re-enabled. Provide either a connected_account_id to pin a specific user connection, or a user_id to auto-resolve the first active connection for that user and the trigger's toolkit. For a trigger that supports both webhooks and polling, Composio chooses the best way for the instance to receive events unless type sets one. When the instance polls because a webhook could not be set up, fallback_reason says why. An existing instance keeps its type, so an upsert asking for the other type returns 409.
         /// </summary>
         /// <param name="slug">
         /// The slug of the trigger instance. Case-insensitive (internally normalized to uppercase).
@@ -59,6 +59,12 @@ namespace Composio
         /// <param name="triggerConfig2">
         /// Trigger configuration
         /// </param>
+        /// <param name="type">
+        /// Whether this instance receives events by webhook or by polling, for a trigger that supports both. Omit it to let Composio choose the best one.
+        /// </param>
+        /// <param name="pollingInterval">
+        /// Minutes between polls, for an instance that polls for its events. It is checked whenever the instance could poll, even when Composio tries a webhook first, so an interval outside the toolkit's allowed range fails the request.
+        /// </param>
         /// <param name="toolkitVersions">
         /// Toolkit version specification. Supports "latest" string or a record mapping toolkit slugs to specific versions.<br/>
         /// Example: latest
@@ -72,6 +78,8 @@ namespace Composio
             string? userId = default,
             string? egressUrl = default,
             global::System.Collections.Generic.Dictionary<string, object?>? triggerConfig2 = default,
+            global::Composio.PostTriggerInstancesBySlugUpsertRequestType? type = default,
+            int? pollingInterval = default,
             global::Composio.AnyOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default);

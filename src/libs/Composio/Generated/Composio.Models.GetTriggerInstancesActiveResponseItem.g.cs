@@ -72,6 +72,32 @@ namespace Composio
         public required global::System.Collections.Generic.Dictionary<string, object?> TriggerConfig { get; set; }
 
         /// <summary>
+        /// How this trigger instance gets events: webhook (the provider notifies) or poll (a scheduled check).<br/>
+        /// Example: webhook
+        /// </summary>
+        /// <example>webhook</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.GetTriggerInstancesActiveResponseItemTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Composio.GetTriggerInstancesActiveResponseItemType Type { get; set; }
+
+        /// <summary>
+        /// Set when Composio downgraded to a poll-based mechanism instead of webhooks for this trigger.<br/>
+        /// Example: No webhook endpoint found for toolkit "gmail". Create a webhook endpoint before setting up triggers.
+        /// </summary>
+        /// <example>No webhook endpoint found for toolkit "gmail". Create a webhook endpoint before setting up triggers.</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("fallback_reason")]
+        public string? FallbackReason { get; set; }
+
+        /// <summary>
+        /// Minutes between scheduled polls for a poll instance.<br/>
+        /// Example: 15
+        /// </summary>
+        /// <example>15</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("polling_interval")]
+        public int? PollingInterval { get; set; }
+
+        /// <summary>
         /// Delivery URL override for this trigger instance: its events are sent here instead of the project webhook URL, while signing, the payload version and enabled events still come from the project webhook subscription. Null means no override.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("egress_url")]
@@ -168,6 +194,10 @@ namespace Composio
         /// <param name="triggerConfig">
         /// Configuration for the trigger
         /// </param>
+        /// <param name="type">
+        /// How this trigger instance gets events: webhook (the provider notifies) or poll (a scheduled check).<br/>
+        /// Example: webhook
+        /// </param>
         /// <param name="updatedAt">
         /// ISO 8601 timestamp when the trigger instance was updated
         /// </param>
@@ -189,6 +219,14 @@ namespace Composio
         /// <param name="triggerData">
         /// Additional data associated with the trigger instance
         /// </param>
+        /// <param name="fallbackReason">
+        /// Set when Composio downgraded to a poll-based mechanism instead of webhooks for this trigger.<br/>
+        /// Example: No webhook endpoint found for toolkit "gmail". Create a webhook endpoint before setting up triggers.
+        /// </param>
+        /// <param name="pollingInterval">
+        /// Minutes between scheduled polls for a poll instance.<br/>
+        /// Example: 15
+        /// </param>
         /// <param name="egressUrl">
         /// Delivery URL override for this trigger instance: its events are sent here instead of the project webhook URL, while signing, the payload version and enabled events still come from the project webhook subscription. Null means no override.
         /// </param>
@@ -209,6 +247,7 @@ namespace Composio
             string userId,
             string version,
             global::System.Collections.Generic.Dictionary<string, object?> triggerConfig,
+            global::Composio.GetTriggerInstancesActiveResponseItemType type,
             string updatedAt,
             string connectedAccountId2,
             string triggerName2,
@@ -216,6 +255,8 @@ namespace Composio
             global::System.Collections.Generic.Dictionary<string, object?> triggerConfig2,
             string? uuid,
             string? triggerData,
+            string? fallbackReason,
+            int? pollingInterval,
             string? egressUrl,
             string? disabledAt,
             global::Composio.GetTriggerInstancesActiveResponseItemDeprecated? deprecated)
@@ -229,6 +270,9 @@ namespace Composio
             this.TriggerData = triggerData;
             this.Version = version ?? throw new global::System.ArgumentNullException(nameof(version));
             this.TriggerConfig = triggerConfig ?? throw new global::System.ArgumentNullException(nameof(triggerConfig));
+            this.Type = type;
+            this.FallbackReason = fallbackReason;
+            this.PollingInterval = pollingInterval;
             this.EgressUrl = egressUrl;
             this.UpdatedAt = updatedAt ?? throw new global::System.ArgumentNullException(nameof(updatedAt));
             this.DisabledAt = disabledAt;
