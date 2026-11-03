@@ -6,7 +6,7 @@ namespace Composio
     {
         /// <summary>
         /// Get tool enum list<br/>
-        /// Retrieve a list of all available tool enumeration values (tool slugs) from latest version of each toolkit. This endpoint returns a comma-separated string of tool slugs that can be used in other API calls.
+        /// Lists the slug of every tool in the latest version of each Composio-managed toolkit, such as GMAIL_SEND_EMAIL. Tools of custom toolkits are not included.
         /// </summary>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
@@ -16,7 +16,7 @@ namespace Composio
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get tool enum list<br/>
-        /// Retrieve a list of all available tool enumeration values (tool slugs) from latest version of each toolkit. This endpoint returns a comma-separated string of tool slugs that can be used in other API calls.
+        /// Lists the slug of every tool in the latest version of each Composio-managed toolkit, such as GMAIL_SEND_EMAIL. Tools of custom toolkits are not included.
         /// </summary>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

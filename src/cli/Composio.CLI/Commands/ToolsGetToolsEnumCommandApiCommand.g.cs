@@ -34,7 +34,7 @@ internal static partial class ToolsGetToolsEnumCommandApiCommand
     public static Command Create(string? commandName = null)
     {
         var command = new Command(commandName ?? @"get-tools-enum", @"Get tool enum list
-Retrieve a list of all available tool enumeration values (tool slugs) from latest version of each toolkit. This endpoint returns a comma-separated string of tool slugs that can be used in other API calls.");
+Lists the slug of every tool in the latest version of each Composio-managed toolkit, such as GMAIL_SEND_EMAIL. Tools of custom toolkits are not included.");
 
 
 

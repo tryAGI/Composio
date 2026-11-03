@@ -26,10 +26,12 @@ namespace Composio
             {                s_GetToolkitsChangelogSecurityRequirement0,
             };
         partial void PrepareGetToolkitsChangelogArguments(
-            global::System.Net.Http.HttpClient httpClient);
+            global::System.Net.Http.HttpClient httpClient,
+            ref string? userId);
         partial void PrepareGetToolkitsChangelogRequest(
             global::System.Net.Http.HttpClient httpClient,
-            global::System.Net.Http.HttpRequestMessage httpRequestMessage);
+            global::System.Net.Http.HttpRequestMessage httpRequestMessage,
+            string? userId);
         partial void ProcessGetToolkitsChangelogResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -43,14 +45,20 @@ namespace Composio
         /// Get toolkits changelog<br/>
         /// Retrieves the last 10 versions changelog for all toolkits. This endpoint provides version history and changelog information for each toolkit.
         /// </summary>
+        /// <param name="userId">
+        /// [EXPERIMENTAL] Include the custom toolkits this user can use. Without it, only custom toolkits with access "all" are included.<br/>
+        /// Example: user_123
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Composio.GetToolkitsChangelogResponse> GetToolkitsChangelogAsync(
+            string? userId = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await GetToolkitsChangelogAsResponseAsync(
+                userId: userId,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -61,17 +69,23 @@ namespace Composio
         /// Get toolkits changelog<br/>
         /// Retrieves the last 10 versions changelog for all toolkits. This endpoint provides version history and changelog information for each toolkit.
         /// </summary>
+        /// <param name="userId">
+        /// [EXPERIMENTAL] Include the custom toolkits this user can use. Without it, only custom toolkits with access "all" are included.<br/>
+        /// Example: user_123
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.GetToolkitsChangelogResponse>> GetToolkitsChangelogAsResponseAsync(
+            string? userId = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             PrepareArguments(
                 client: HttpClient);
             PrepareGetToolkitsChangelogArguments(
-                httpClient: HttpClient);
+                httpClient: HttpClient,
+                userId: ref userId);
 
 
             var __authorizations = global::Composio.EndPointSecurityResolver.ResolveAuthorizations(
@@ -99,6 +113,9 @@ namespace Composio
                             var __pathBuilder = new global::Composio.PathBuilder(
                                 path: "/api/v3/toolkits/changelog",
                                 baseUri: HttpClient.BaseAddress);
+                            __pathBuilder
+                                .AddOptionalParameter("user_id", userId)
+                                ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Composio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
                     path: __path,
@@ -138,7 +155,8 @@ namespace Composio
                     request: __httpRequest);
                 PrepareGetToolkitsChangelogRequest(
                     httpClient: HttpClient,
-                    httpRequestMessage: __httpRequest);
+                    httpRequestMessage: __httpRequest,
+                    userId: userId);
 
                 return __httpRequest;
             }
