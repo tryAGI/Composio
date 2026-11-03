@@ -7,7 +7,11 @@ namespace Composio.CLI.Commands;
 
 internal static partial class ToolkitsGetToolkitsChangelogCommandApiCommand
 {
-
+    private static Option<string?> UserId { get; } = new(
+        name: @"--user-id")
+    {
+        Description = @"[EXPERIMENTAL] Include the custom toolkits this user can use. Without it, only custom toolkits with access ""all"" are included.",
+    };
 
                     private static string FormatResponse(ParseResult parseResult, global::Composio.GetToolkitsChangelogResponse value, global::System.Text.Json.Serialization.JsonSerializerContext context, bool truncateLongStrings)
                     {
@@ -35,18 +39,18 @@ internal static partial class ToolkitsGetToolkitsChangelogCommandApiCommand
     {
         var command = new Command(commandName ?? @"get-toolkits-changelog", @"Get toolkits changelog
 Retrieves the last 10 versions changelog for all toolkits. This endpoint provides version history and changelog information for each toolkit.");
-
+                        command.Options.Add(UserId);
 
 
         command.SetAction(async (ParseResult parseResult, CancellationToken cancellationToken) =>
             await CliRuntime.RunAsync(async () =>
             {
-
+                        var userId = parseResult.GetValue(UserId);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
                                 var response = await client.Toolkits.GetToolkitsChangelogAsync(
-
+                                    userId: userId,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
 
