@@ -18,9 +18,9 @@ namespace Composio
         /// <summary>
         /// MCP server URL. Must use https.
         /// </summary>
-        [global::System.Text.Json.Serialization.JsonPropertyName("app_url")]
+        [global::System.Text.Json.Serialization.JsonPropertyName("mcp_url")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string AppUrl { get; set; }
+        public required string McpUrl { get; set; }
 
         /// <summary>
         /// Square PNG or JPEG logo, 256-1024px, max 3MB. Defaults to the Model Context Protocol logo.
@@ -47,7 +47,7 @@ namespace Composio
         /// <param name="name">
         /// Display name of the toolkit
         /// </param>
-        /// <param name="appUrl">
+        /// <param name="mcpUrl">
         /// MCP server URL. Must use https.
         /// </param>
         /// <param name="authSchemes">
@@ -61,12 +61,12 @@ namespace Composio
 #endif
         public PostCustomToolkitsUpsertRequestToolkitConfig(
             string name,
-            string appUrl,
+            string mcpUrl,
             global::System.Collections.Generic.IList<global::Composio.OneOf<global::Composio.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant1, global::Composio.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant2, global::Composio.PostCustomToolkitsUpsertRequestToolkitConfigAuthSchemeVariant3>> authSchemes,
             global::Composio.PostCustomToolkitsUpsertRequestToolkitConfigLogoFile? logoFile)
         {
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
-            this.AppUrl = appUrl ?? throw new global::System.ArgumentNullException(nameof(appUrl));
+            this.McpUrl = mcpUrl ?? throw new global::System.ArgumentNullException(nameof(mcpUrl));
             this.LogoFile = logoFile;
             this.AuthSchemes = authSchemes ?? throw new global::System.ArgumentNullException(nameof(authSchemes));
         }
