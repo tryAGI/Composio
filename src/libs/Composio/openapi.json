@@ -3612,6 +3612,16 @@
               }
             }
           },
+          "403": {
+            "description": "Forbidden - Your role does not allow modifying auth configs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Not found - Auth configuration does not exist",
             "content": {
@@ -3724,6 +3734,16 @@
               }
             }
           },
+          "403": {
+            "description": "Forbidden - Your role does not allow modifying auth configs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Auth config not found - The specified configuration does not exist or was already deleted",
             "content": {
@@ -3825,6 +3845,16 @@
           },
           "401": {
             "description": "Unauthorized - Authentication required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Your role does not allow modifying auth configs",
             "content": {
               "application/json": {
                 "schema": {
@@ -44188,6 +44218,16 @@
               }
             }
           },
+          "403": {
+            "description": "Your role does not allow modifying webhook subscriptions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "409": {
             "description": "Subscription already exists",
             "content": {
@@ -44617,6 +44657,16 @@
               }
             }
           },
+          "403": {
+            "description": "Your role does not allow modifying webhook subscriptions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Subscription not found",
             "content": {
@@ -44685,6 +44735,16 @@
           },
           "401": {
             "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Your role does not allow modifying webhook subscriptions",
             "content": {
               "application/json": {
                 "schema": {
@@ -44770,6 +44830,16 @@
           },
           "401": {
             "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Your role does not allow modifying webhook subscriptions",
             "content": {
               "application/json": {
                 "schema": {
@@ -46072,7 +46142,7 @@
     "/api/v3/custom/toolkits/upsert": {
       "post": {
         "summary": "Upsert a custom toolkit",
-        "description": "Experimental: custom toolkits are in pilot and this contract may change. Creates a custom toolkit for the project with the provided slug, or updates its display metadata (name, API key field copy) when the project already owns a toolkit with that slug. A toolkit created here is shared with every user in the project; an existing toolkit keeps its access. app_url and auth_schemes cannot be changed on an existing toolkit: re-sending them unchanged is a no-op, changing them returns 409 (delete and re-register the toolkit instead, which revokes its connections).",
+        "description": "Experimental: custom toolkits are in pilot and this contract may change. Creates a custom toolkit for the project with the provided slug, or updates its display metadata (name, API key field copy) when the project already owns a toolkit with that slug. A toolkit created here is shared with every user in the project; an existing toolkit keeps its access. mcp_url and auth_schemes cannot be changed on an existing toolkit: re-sending them unchanged is a no-op, changing them returns 409 (delete and re-register the toolkit instead, which revokes its connections).",
         "tags": [
           "Toolkits"
         ],
@@ -46110,7 +46180,7 @@
                         "maxLength": 200,
                         "description": "Display name of the toolkit"
                       },
-                      "app_url": {
+                      "mcp_url": {
                         "type": "string",
                         "format": "uri",
                         "description": "MCP server URL. Must use https."
@@ -46263,7 +46333,7 @@
                     },
                     "required": [
                       "name",
-                      "app_url",
+                      "mcp_url",
                       "auth_schemes"
                     ],
                     "additionalProperties": false
@@ -46340,7 +46410,7 @@
             }
           },
           "409": {
-            "description": "Conflict - app_url or auth_schemes differ from the registered toolkit; delete and re-register to change them",
+            "description": "Conflict - mcp_url or auth_schemes differ from the registered toolkit; delete and re-register to change them",
             "content": {
               "application/json": {
                 "schema": {
@@ -52233,6 +52303,16 @@
           },
           "401": {
             "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
             "content": {
               "application/json": {
                 "schema": {
