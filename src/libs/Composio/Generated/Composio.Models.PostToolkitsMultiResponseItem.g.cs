@@ -39,6 +39,25 @@ namespace Composio
         public required global::Composio.PostToolkitsMultiResponseItemType Type { get; set; }
 
         /// <summary>
+        /// Name used to group related toolkits. Falls back to the toolkit name.<br/>
+        /// Example: GitHub
+        /// </summary>
+        /// <example>GitHub</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("app")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string App { get; set; }
+
+        /// <summary>
+        /// How the toolkit is implemented: "api" for an API integration, "mcp" for an MCP server<br/>
+        /// Example: api
+        /// </summary>
+        /// <example>api</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("toolkit_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.PostToolkitsMultiResponseItemToolkitTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Composio.PostToolkitsMultiResponseItemToolkitType ToolkitType { get; set; }
+
+        /// <summary>
         /// Present when the latest version of this toolkit supports Instant accounts. See the tools endpoint for support on individual tools.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("instant")]
@@ -131,6 +150,14 @@ namespace Composio
         /// Toolkit provenance: "native" for Composio-managed toolkits, "custom" for a project-registered custom (MCP) toolkit<br/>
         /// Example: native
         /// </param>
+        /// <param name="app">
+        /// Name used to group related toolkits. Falls back to the toolkit name.<br/>
+        /// Example: GitHub
+        /// </param>
+        /// <param name="toolkitType">
+        /// How the toolkit is implemented: "api" for an API integration, "mcp" for an MCP server<br/>
+        /// Example: api
+        /// </param>
         /// <param name="isLocalToolkit">
         /// DEPRECATED: This field is no longer meaningful and will always return false. It was previously used to indicate if a toolkit is specific to the current project.<br/>
         /// Example: false
@@ -172,6 +199,8 @@ namespace Composio
             string slug,
             string name,
             global::Composio.PostToolkitsMultiResponseItemType type,
+            string app,
+            global::Composio.PostToolkitsMultiResponseItemToolkitType toolkitType,
             bool isLocalToolkit,
             global::Composio.DeprecatedToolkitInfo deprecated,
             global::Composio.PostToolkitsMultiResponseItemMeta meta,
@@ -185,6 +214,8 @@ namespace Composio
             this.Slug = slug ?? throw new global::System.ArgumentNullException(nameof(slug));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Type = type;
+            this.App = app ?? throw new global::System.ArgumentNullException(nameof(app));
+            this.ToolkitType = toolkitType;
             this.Instant = instant;
             this.Access = access;
             this.AuthSchemes = authSchemes;

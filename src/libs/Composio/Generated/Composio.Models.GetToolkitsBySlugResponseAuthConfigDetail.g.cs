@@ -11,13 +11,14 @@ namespace Composio
     public sealed partial class GetToolkitsBySlugResponseAuthConfigDetail
     {
         /// <summary>
-        /// The type of authentication mode (e.g., oauth2, basic_auth, api_key)<br/>
-        /// Example: oauth2
+        /// The type of authentication mode (e.g., OAUTH2, BASIC, API_KEY)<br/>
+        /// Example: OAUTH2
         /// </summary>
-        /// <example>oauth2</example>
+        /// <example>OAUTH2</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("mode")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.GetToolkitsBySlugResponseAuthConfigDetailModeJsonConverter))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required string Mode { get; set; }
+        public required global::Composio.GetToolkitsBySlugResponseAuthConfigDetailMode Mode { get; set; }
 
         /// <summary>
         /// OAuth scopes that are always requested for this authentication method regardless of the tool-specific scopes selected, such as token-refresh (e.g. offline_access) and identity/whoami scopes. Consumers handling authentication themselves should union these with per-tool scopes.<br/>
@@ -75,8 +76,8 @@ namespace Composio
         /// Initializes a new instance of the <see cref="GetToolkitsBySlugResponseAuthConfigDetail" /> class.
         /// </summary>
         /// <param name="mode">
-        /// The type of authentication mode (e.g., oauth2, basic_auth, api_key)<br/>
-        /// Example: oauth2
+        /// The type of authentication mode (e.g., OAUTH2, BASIC, API_KEY)<br/>
+        /// Example: OAUTH2
         /// </param>
         /// <param name="requiredScopes">
         /// OAuth scopes that are always requested for this authentication method regardless of the tool-specific scopes selected, such as token-refresh (e.g. offline_access) and identity/whoami scopes. Consumers handling authentication themselves should union these with per-tool scopes.<br/>
@@ -100,14 +101,14 @@ namespace Composio
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public GetToolkitsBySlugResponseAuthConfigDetail(
-            string mode,
+            global::Composio.GetToolkitsBySlugResponseAuthConfigDetailMode mode,
             global::System.Collections.Generic.IList<string> requiredScopes,
             global::Composio.GetToolkitsBySlugResponseAuthConfigDetailFields fields,
             string name,
             global::Composio.GetToolkitsBySlugResponseAuthConfigDetailProxy? proxy,
             string? authHintUrl)
         {
-            this.Mode = mode ?? throw new global::System.ArgumentNullException(nameof(mode));
+            this.Mode = mode;
             this.RequiredScopes = requiredScopes ?? throw new global::System.ArgumentNullException(nameof(requiredScopes));
             this.Fields = fields ?? throw new global::System.ArgumentNullException(nameof(fields));
             this.Proxy = proxy;

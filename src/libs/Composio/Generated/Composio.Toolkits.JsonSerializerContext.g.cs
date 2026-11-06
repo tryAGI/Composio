@@ -57,6 +57,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.GetToolkitsResponseItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsResponseItem))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsResponseItemType), TypeInfoPropertyName = "GetToolkitsResponseItemType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsResponseItemToolkitType), TypeInfoPropertyName = "GetToolkitsResponseItemToolkitType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsResponseItemInstant))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsResponseItemAccess), TypeInfoPropertyName = "GetToolkitsResponseItemAccess2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsResponseItemMeta))]
@@ -76,6 +77,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsBySlugResponseComposioManagedAuthItemUserScopes))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.GetToolkitsBySlugResponseAuthConfigDetail>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsBySlugResponseAuthConfigDetail))]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsBySlugResponseAuthConfigDetailMode), TypeInfoPropertyName = "GetToolkitsBySlugResponseAuthConfigDetailMode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsBySlugResponseAuthConfigDetailFields))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsBySlugResponseAuthConfigDetailFieldsAuthConfigCreation))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.GetToolkitsBySlugResponseAuthConfigDetailFieldsAuthConfigCreationRequiredItem>))]
@@ -102,6 +104,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.PostToolkitsMultiResponseItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolkitsMultiResponseItem))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolkitsMultiResponseItemType), TypeInfoPropertyName = "PostToolkitsMultiResponseItemType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolkitsMultiResponseItemToolkitType), TypeInfoPropertyName = "PostToolkitsMultiResponseItemToolkitType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolkitsMultiResponseItemInstant))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolkitsMultiResponseItemAccess), TypeInfoPropertyName = "PostToolkitsMultiResponseItemAccess2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolkitsMultiResponseItemMeta))]
@@ -126,10 +129,13 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsType?), TypeInfoPropertyName = "NullableGetToolkitsType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsSortBy?), TypeInfoPropertyName = "NullableGetToolkitsSortBy2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsResponseItemType?), TypeInfoPropertyName = "NullableGetToolkitsResponseItemType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsResponseItemToolkitType?), TypeInfoPropertyName = "NullableGetToolkitsResponseItemToolkitType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsResponseItemAccess?), TypeInfoPropertyName = "NullableGetToolkitsResponseItemAccess2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsBySlugResponseType?), TypeInfoPropertyName = "NullableGetToolkitsBySlugResponseType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsBySlugResponseAccess?), TypeInfoPropertyName = "NullableGetToolkitsBySlugResponseAccess2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsBySlugResponseAuthConfigDetailMode?), TypeInfoPropertyName = "NullableGetToolkitsBySlugResponseAuthConfigDetailMode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolkitsMultiResponseItemType?), TypeInfoPropertyName = "NullablePostToolkitsMultiResponseItemType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolkitsMultiResponseItemToolkitType?), TypeInfoPropertyName = "NullablePostToolkitsMultiResponseItemToolkitType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolkitsMultiResponseItemAccess?), TypeInfoPropertyName = "NullablePostToolkitsMultiResponseItemAccess2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<global::Composio.GetToolkitsResponseItem>))]
@@ -358,6 +364,10 @@ namespace Composio
 
                     || typeToConvert == typeof(global::Composio.GetToolkitsResponseItemType?)
 
+                    || typeToConvert == typeof(global::Composio.GetToolkitsResponseItemToolkitType)
+
+                    || typeToConvert == typeof(global::Composio.GetToolkitsResponseItemToolkitType?)
+
                     || typeToConvert == typeof(global::Composio.GetToolkitsResponseItemAccess)
 
                     || typeToConvert == typeof(global::Composio.GetToolkitsResponseItemAccess?)
@@ -370,9 +380,17 @@ namespace Composio
 
                     || typeToConvert == typeof(global::Composio.GetToolkitsBySlugResponseAccess?)
 
+                    || typeToConvert == typeof(global::Composio.GetToolkitsBySlugResponseAuthConfigDetailMode)
+
+                    || typeToConvert == typeof(global::Composio.GetToolkitsBySlugResponseAuthConfigDetailMode?)
+
                     || typeToConvert == typeof(global::Composio.PostToolkitsMultiResponseItemType)
 
                     || typeToConvert == typeof(global::Composio.PostToolkitsMultiResponseItemType?)
+
+                    || typeToConvert == typeof(global::Composio.PostToolkitsMultiResponseItemToolkitType)
+
+                    || typeToConvert == typeof(global::Composio.PostToolkitsMultiResponseItemToolkitType?)
 
                     || typeToConvert == typeof(global::Composio.PostToolkitsMultiResponseItemAccess)
 
@@ -483,6 +501,16 @@ namespace Composio
                     return new global::Composio.JsonConverters.GetToolkitsResponseItemTypeNullableJsonConverter();
                 }
 
+                if (typeToConvert == typeof(global::Composio.GetToolkitsResponseItemToolkitType))
+                {
+                    return new global::Composio.JsonConverters.GetToolkitsResponseItemToolkitTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Composio.GetToolkitsResponseItemToolkitType?))
+                {
+                    return new global::Composio.JsonConverters.GetToolkitsResponseItemToolkitTypeNullableJsonConverter();
+                }
+
                 if (typeToConvert == typeof(global::Composio.GetToolkitsResponseItemAccess))
                 {
                     return new global::Composio.JsonConverters.GetToolkitsResponseItemAccessJsonConverter();
@@ -513,6 +541,16 @@ namespace Composio
                     return new global::Composio.JsonConverters.GetToolkitsBySlugResponseAccessNullableJsonConverter();
                 }
 
+                if (typeToConvert == typeof(global::Composio.GetToolkitsBySlugResponseAuthConfigDetailMode))
+                {
+                    return new global::Composio.JsonConverters.GetToolkitsBySlugResponseAuthConfigDetailModeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Composio.GetToolkitsBySlugResponseAuthConfigDetailMode?))
+                {
+                    return new global::Composio.JsonConverters.GetToolkitsBySlugResponseAuthConfigDetailModeNullableJsonConverter();
+                }
+
                 if (typeToConvert == typeof(global::Composio.PostToolkitsMultiResponseItemType))
                 {
                     return new global::Composio.JsonConverters.PostToolkitsMultiResponseItemTypeJsonConverter();
@@ -521,6 +559,16 @@ namespace Composio
                 if (typeToConvert == typeof(global::Composio.PostToolkitsMultiResponseItemType?))
                 {
                     return new global::Composio.JsonConverters.PostToolkitsMultiResponseItemTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Composio.PostToolkitsMultiResponseItemToolkitType))
+                {
+                    return new global::Composio.JsonConverters.PostToolkitsMultiResponseItemToolkitTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Composio.PostToolkitsMultiResponseItemToolkitType?))
+                {
+                    return new global::Composio.JsonConverters.PostToolkitsMultiResponseItemToolkitTypeNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::Composio.PostToolkitsMultiResponseItemAccess))

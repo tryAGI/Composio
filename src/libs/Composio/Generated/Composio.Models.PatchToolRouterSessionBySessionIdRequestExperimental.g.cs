@@ -27,6 +27,12 @@ namespace Composio
         public bool? FastMode { get; set; }
 
         /// <summary>
+        /// Set to true to stop tool search from returning cached plans (recommended_plan_steps, known_pitfalls, reference_workbench_snippets) in this session, false to return them again. Unlike fast_mode, tool search quality is unaffected.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("disable_plan_search")]
+        public bool? DisablePlanSearch { get; set; }
+
+        /// <summary>
         /// Exposes the COMPOSIO_SUBMIT_FEEDBACK helper tool in this session so the agent can report tool executions with empty, incorrect, or failed results. Replaces the stored block when provided; `enable` is required when the block is sent.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("submit_feedback")]
@@ -57,6 +63,9 @@ namespace Composio
         /// <param name="fastMode">
         /// Fast mode reduces search latency. It is experimental, so tool search quality may be affected.
         /// </param>
+        /// <param name="disablePlanSearch">
+        /// Set to true to stop tool search from returning cached plans (recommended_plan_steps, known_pitfalls, reference_workbench_snippets) in this session, false to return them again. Unlike fast_mode, tool search quality is unaffected.
+        /// </param>
         /// <param name="submitFeedback">
         /// Exposes the COMPOSIO_SUBMIT_FEEDBACK helper tool in this session so the agent can report tool executions with empty, incorrect, or failed results. Replaces the stored block when provided; `enable` is required when the block is sent.
         /// </param>
@@ -70,12 +79,14 @@ namespace Composio
             global::Composio.PatchToolRouterSessionBySessionIdRequestExperimentalPermissions? permissions,
             string? linkUrlOverwrite,
             bool? fastMode,
+            bool? disablePlanSearch,
             global::Composio.PatchToolRouterSessionBySessionIdRequestExperimentalSubmitFeedback? submitFeedback,
             global::Composio.PatchToolRouterSessionBySessionIdRequestExperimentalNoElicitationSupportFallback? noElicitationSupportFallback)
         {
             this.Permissions = permissions;
             this.LinkUrlOverwrite = linkUrlOverwrite;
             this.FastMode = fastMode;
+            this.DisablePlanSearch = disablePlanSearch;
             this.SubmitFeedback = submitFeedback;
             this.NoElicitationSupportFallback = noElicitationSupportFallback;
         }

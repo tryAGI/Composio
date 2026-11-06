@@ -45,6 +45,12 @@ namespace Composio
         public bool? FastMode { get; set; }
 
         /// <summary>
+        /// Set to true to stop tool search from returning cached plans (recommended_plan_steps, known_pitfalls, reference_workbench_snippets) in this session. Unlike fast_mode, tool search quality is unaffected. Defaults to false.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("disable_plan_search")]
+        public bool? DisablePlanSearch { get; set; }
+
+        /// <summary>
         /// Exposes the COMPOSIO_SUBMIT_FEEDBACK helper tool in this session so the agent can report tool executions with empty, incorrect, or failed results. Defaults to false.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("submit_feedback")]
@@ -92,6 +98,9 @@ namespace Composio
         /// <param name="fastMode">
         /// Fast mode reduces search latency. It is experimental, so tool search quality may be affected.
         /// </param>
+        /// <param name="disablePlanSearch">
+        /// Set to true to stop tool search from returning cached plans (recommended_plan_steps, known_pitfalls, reference_workbench_snippets) in this session. Unlike fast_mode, tool search quality is unaffected. Defaults to false.
+        /// </param>
         /// <param name="submitFeedback">
         /// Exposes the COMPOSIO_SUBMIT_FEEDBACK helper tool in this session so the agent can report tool executions with empty, incorrect, or failed results. Defaults to false.
         /// </param>
@@ -113,6 +122,7 @@ namespace Composio
             global::Composio.PostToolRouterSessionRequestExperimentalPermissions? permissions,
             string? linkUrlOverwrite,
             bool? fastMode,
+            bool? disablePlanSearch,
             global::Composio.PostToolRouterSessionRequestExperimentalSubmitFeedback? submitFeedback,
             bool? restrictEgressToComposio,
             global::Composio.PostToolRouterSessionRequestExperimentalNoElicitationSupportFallback? noElicitationSupportFallback)
@@ -123,6 +133,7 @@ namespace Composio
             this.Permissions = permissions;
             this.LinkUrlOverwrite = linkUrlOverwrite;
             this.FastMode = fastMode;
+            this.DisablePlanSearch = disablePlanSearch;
             this.SubmitFeedback = submitFeedback;
             this.RestrictEgressToComposio = restrictEgressToComposio;
             this.NoElicitationSupportFallback = noElicitationSupportFallback;
