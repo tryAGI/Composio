@@ -18,7 +18,7 @@ namespace Composio.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::Composio.PostToolRouterSessionRequestHookVariant2AppliesToEnumExtensions.ToEnum(stringValue) ?? default;
+                        return global::Composio.PostToolRouterSessionRequestHookVariant2AppliesToEnumExtensions.ToEnum(stringValue) ?? throw new global::System.Text.Json.JsonException($"Unknown value '{stringValue}' for global::Composio.PostToolRouterSessionRequestHookVariant2AppliesToEnum.");
                     }
 
                     break;

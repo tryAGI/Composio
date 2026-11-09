@@ -18,7 +18,7 @@ namespace Composio.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::Composio.PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant9AuthSchemeExtensions.ToEnum(stringValue) ?? default;
+                        return global::Composio.PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant9AuthSchemeExtensions.ToEnum(stringValue) ?? throw new global::System.Text.Json.JsonException($"Unknown value '{stringValue}' for global::Composio.PostToolsExecuteByToolSlugRequestCustomConnectionDataVariant9AuthScheme.");
                     }
 
                     break;

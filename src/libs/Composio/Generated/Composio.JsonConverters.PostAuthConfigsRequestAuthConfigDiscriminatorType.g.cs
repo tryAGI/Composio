@@ -18,7 +18,7 @@ namespace Composio.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::Composio.PostAuthConfigsRequestAuthConfigDiscriminatorTypeExtensions.ToEnum(stringValue) ?? default;
+                        return global::Composio.PostAuthConfigsRequestAuthConfigDiscriminatorTypeExtensions.ToEnum(stringValue) ?? throw new global::System.Text.Json.JsonException($"Unknown value '{stringValue}' for global::Composio.PostAuthConfigsRequestAuthConfigDiscriminatorType.");
                     }
 
                     break;

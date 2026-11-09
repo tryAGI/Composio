@@ -18,7 +18,7 @@ namespace Composio.JsonConverters
                     var stringValue = reader.GetString();
                     if (stringValue != null)
                     {
-                        return global::Composio.GetConnectedAccountsStatuseExtensions.ToEnum(stringValue) ?? default;
+                        return global::Composio.GetConnectedAccountsStatuseExtensions.ToEnum(stringValue) ?? throw new global::System.Text.Json.JsonException($"Unknown value '{stringValue}' for global::Composio.GetConnectedAccountsStatuse.");
                     }
 
                     break;
