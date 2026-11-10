@@ -48,7 +48,7 @@ namespace Composio
         public required bool Enabled { get; set; }
 
         /// <summary>
-        /// [EXPERIMENTAL] Custom toolkits only. "all": every user in the project can use it. "user": only the user it was created for can.<br/>
+        /// Custom toolkits only. "all": every user in the project can use it. "user": only the user it was created for can.<br/>
         /// Example: all
         /// </summary>
         /// <example>all</example>
@@ -167,7 +167,7 @@ namespace Composio
         /// </param>
         /// <param name="deprecated"></param>
         /// <param name="access">
-        /// [EXPERIMENTAL] Custom toolkits only. "all": every user in the project can use it. "user": only the user it was created for can.<br/>
+        /// Custom toolkits only. "all": every user in the project can use it. "user": only the user it was created for can.<br/>
         /// Example: all
         /// </param>
         /// <param name="composioManagedAuthSchemes">

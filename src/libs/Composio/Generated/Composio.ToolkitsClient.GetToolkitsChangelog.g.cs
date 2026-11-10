@@ -46,7 +46,7 @@ namespace Composio
         /// Retrieves the last 10 versions changelog for all toolkits. This endpoint provides version history and changelog information for each toolkit.
         /// </summary>
         /// <param name="userId">
-        /// [EXPERIMENTAL] Include the custom toolkits this user can use. Without it, only custom toolkits with access "all" are included.<br/>
+        /// Include the custom toolkits this user can use. Without it, only custom toolkits with access "all" are included.<br/>
         /// Example: user_123
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -70,7 +70,7 @@ namespace Composio
         /// Retrieves the last 10 versions changelog for all toolkits. This endpoint provides version history and changelog information for each toolkit.
         /// </summary>
         /// <param name="userId">
-        /// [EXPERIMENTAL] Include the custom toolkits this user can use. Without it, only custom toolkits with access "all" are included.<br/>
+        /// Include the custom toolkits this user can use. Without it, only custom toolkits with access "all" are included.<br/>
         /// Example: user_123
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>

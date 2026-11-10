@@ -4,7 +4,7 @@
 namespace Composio
 {
     /// <summary>
-    /// [EXPERIMENTAL] Custom toolkits only. "all": every user in the project can use it. "user": only the user it was created for can.<br/>
+    /// Custom toolkits only. "all": every user in the project can use it. "user": only the user it was created for can.<br/>
     /// Example: all
     /// </summary>
     public enum GetToolkitsResponseItemAccess

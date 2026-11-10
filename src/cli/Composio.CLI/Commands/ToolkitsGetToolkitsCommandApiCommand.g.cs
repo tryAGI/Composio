@@ -44,7 +44,7 @@ internal static partial class ToolkitsGetToolkitsCommandApiCommand
     private static Option<string?> UserId { get; } = new(
         name: @"--user-id")
     {
-        Description = @"[EXPERIMENTAL] List the custom toolkits this user can use. Without it, only custom toolkits with access ""all"" are listed.",
+        Description = @"List the custom toolkits this user can use. Without it, only custom toolkits with access ""all"" are listed.",
     };
 
     private static Option<double?> Limit { get; } = new(
