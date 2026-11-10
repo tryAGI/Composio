@@ -87,7 +87,7 @@ namespace Composio
         /// Example: gmail
         /// </param>
         /// <param name="userId">
-        /// [EXPERIMENTAL] List the custom toolkits this user can use. Without it, only custom toolkits with access "all" are listed.<br/>
+        /// List the custom toolkits this user can use. Without it, only custom toolkits with access "all" are listed.<br/>
         /// Example: user_123
         /// </param>
         /// <param name="limit"></param>
@@ -152,7 +152,7 @@ namespace Composio
         /// Example: gmail
         /// </param>
         /// <param name="userId">
-        /// [EXPERIMENTAL] List the custom toolkits this user can use. Without it, only custom toolkits with access "all" are listed.<br/>
+        /// List the custom toolkits this user can use. Without it, only custom toolkits with access "all" are listed.<br/>
         /// Example: user_123
         /// </param>
         /// <param name="limit"></param>

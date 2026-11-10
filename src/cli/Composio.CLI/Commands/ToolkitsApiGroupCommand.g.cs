@@ -16,7 +16,6 @@ internal static partial class ToolkitsApiGroupCommand
                          command.Subcommands.Add(ToolkitsGetToolkitsCategoriesCommandApiCommand.Create());
                          command.Subcommands.Add(ToolkitsGetToolkitsChangelogCommandApiCommand.Create());
                          command.Subcommands.Add(ToolkitsPostCustomToolkitsSyncCommandApiCommand.Create());
-                         command.Subcommands.Add(ToolkitsPostCustomToolkitsUpsertCommandApiCommand.Create());
                          command.Subcommands.Add(ToolkitsPostToolkitsMultiCommandApiCommand.Create());
         CustomizeCommand(ref command);
         return command;

@@ -10,7 +10,7 @@ internal static partial class ToolkitsGetToolkitsChangelogCommandApiCommand
     private static Option<string?> UserId { get; } = new(
         name: @"--user-id")
     {
-        Description = @"[EXPERIMENTAL] Include the custom toolkits this user can use. Without it, only custom toolkits with access ""all"" are included.",
+        Description = @"Include the custom toolkits this user can use. Without it, only custom toolkits with access ""all"" are included.",
     };
 
                     private static string FormatResponse(ParseResult parseResult, global::Composio.GetToolkitsChangelogResponse value, global::System.Text.Json.Serialization.JsonSerializerContext context, bool truncateLongStrings)
