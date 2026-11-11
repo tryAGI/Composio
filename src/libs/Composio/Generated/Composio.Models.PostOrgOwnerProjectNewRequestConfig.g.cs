@@ -4,7 +4,7 @@
 namespace Composio
 {
     /// <summary>
-    /// Configuration for the project. Use zdr_enabled for Zero Data Retention; log_visibility_setting remains supported for existing clients. Do not send both fields.
+    /// Configuration for the project. Use display_name and logo_url to brand the hosted Connect Link page. Use zdr_enabled for Zero Data Retention; log_visibility_setting remains supported for existing clients. Do not send both fields.
     /// </summary>
     public sealed partial class PostOrgOwnerProjectNewRequestConfig
     {
@@ -15,14 +15,18 @@ namespace Composio
         public bool? Is2faEnabled { get; set; }
 
         /// <summary>
-        ///
+        /// URL of the logo shown to end users on the hosted Connect Link page. Use a publicly reachable https image URL. The Composio logo is shown when omitted.<br/>
+        /// Example: https://example.com/logo.png
         /// </summary>
+        /// <example>https://example.com/logo.png</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("logo_url")]
         public string? LogoUrl { get; set; }
 
         /// <summary>
-        ///
+        /// App name shown to end users on the hosted Connect Link page, up to 75 characters. The page shows Composio when omitted.<br/>
+        /// Example: Acme Assistant
         /// </summary>
+        /// <example>Acme Assistant</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("display_name")]
         public string? DisplayName { get; set; }
 
@@ -85,8 +89,14 @@ namespace Composio
         /// Initializes a new instance of the <see cref="PostOrgOwnerProjectNewRequestConfig" /> class.
         /// </summary>
         /// <param name="is2faEnabled"></param>
-        /// <param name="logoUrl"></param>
-        /// <param name="displayName"></param>
+        /// <param name="logoUrl">
+        /// URL of the logo shown to end users on the hosted Connect Link page. Use a publicly reachable https image URL. The Composio logo is shown when omitted.<br/>
+        /// Example: https://example.com/logo.png
+        /// </param>
+        /// <param name="displayName">
+        /// App name shown to end users on the hosted Connect Link page, up to 75 characters. The page shows Composio when omitted.<br/>
+        /// Example: Acme Assistant
+        /// </param>
         /// <param name="maskSecretKeysInConnectedAccount"></param>
         /// <param name="logVisibilitySetting"></param>
         /// <param name="isComposioLinkEnabledForManagedAuth">

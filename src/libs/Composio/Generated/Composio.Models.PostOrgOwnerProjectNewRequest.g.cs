@@ -43,7 +43,7 @@ namespace Composio
         public global::System.Collections.Generic.IList<global::Composio.PostOrgOwnerProjectNewRequestApiKeyPermission>? ApiKeyPermissions { get; set; }
 
         /// <summary>
-        /// Configuration for the project. Use zdr_enabled for Zero Data Retention; log_visibility_setting remains supported for existing clients. Do not send both fields.
+        /// Configuration for the project. Use display_name and logo_url to brand the hosted Connect Link page. Use zdr_enabled for Zero Data Retention; log_visibility_setting remains supported for existing clients. Do not send both fields.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("config")]
         public global::Composio.PostOrgOwnerProjectNewRequestConfig? Config { get; set; }
@@ -75,7 +75,7 @@ namespace Composio
         /// Example: [{"preset":"tool_execution","access":"write"}]
         /// </param>
         /// <param name="config">
-        /// Configuration for the project. Use zdr_enabled for Zero Data Retention; log_visibility_setting remains supported for existing clients. Do not send both fields.
+        /// Configuration for the project. Use display_name and logo_url to brand the hosted Connect Link page. Use zdr_enabled for Zero Data Retention; log_visibility_setting remains supported for existing clients. Do not send both fields.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

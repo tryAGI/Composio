@@ -52,7 +52,7 @@ namespace Composio
         /// Example: [{"preset":"tool_execution","access":"write"}]
         /// </param>
         /// <param name="config">
-        /// Configuration for the project. Use zdr_enabled for Zero Data Retention; log_visibility_setting remains supported for existing clients. Do not send both fields.
+        /// Configuration for the project. Use display_name and logo_url to brand the hosted Connect Link page. Use zdr_enabled for Zero Data Retention; log_visibility_setting remains supported for existing clients. Do not send both fields.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

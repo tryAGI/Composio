@@ -59,7 +59,7 @@
       "Order": 6,
       "Title": "Create presigned URL for request file upload to S3",
       "Slug": "postfilesuploadrequest",
-      "Description": "Generates a presigned URL for uploading a file to S3. This endpoint handles deduplication by checking if a file with the same MD5 hash already exists.",
+      "Description": "Generates a presigned URL for uploading a file to S3. Every request returns a new file ID and storage key, including repeat uploads of the same file.",
       "Language": "csharp",
       "Code": "using var client = new ComposioClient(apiKey);\n\nvar request = global::System.Text.Json.JsonSerializer.Deserialize\u003Cglobal::Composio.PostFilesUploadRequestRequest\u003E(\n    @\u0022{\n  \u0022\u0022toolkit_slug\u0022\u0022: \u0022\u0022github\u0022\u0022,\n  \u0022\u0022tool_slug\u0022\u0022: \u0022\u0022GITHUB_CREATE_AN_ISSUE\u0022\u0022,\n  \u0022\u0022filename\u0022\u0022: \u0022\u0022bug_screenshot.png\u0022\u0022,\n  \u0022\u0022mimetype\u0022\u0022: \u0022\u0022image/png\u0022\u0022,\n  \u0022\u0022md5\u0022\u0022: \u0022\u0022c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8\u0022\u0022\n}\u0022)!;\n\nvar response = await client.Files.PostFilesUploadRequestAsync(\n    request: request\n);",
       "Format": "sdk",
@@ -72,7 +72,7 @@
       "Slug": "postorgownerprojectnew",
       "Description": "Creates a new project within the authenticated user\u0027s organization using the specified name. Projects are isolated environments within your organization, each with their own API keys, webhook configurations, and resources. Use this endpoint to create additional projects for different environments (e.g., development, staging, production) or for separate applications.",
       "Language": "csharp",
-      "Code": "using var client = new ComposioClient(apiKey);\n\nvar request = global::System.Text.Json.JsonSerializer.Deserialize\u003Cglobal::Composio.PostOrgOwnerProjectNewRequest\u003E(\n    @\u0022{\n  \u0022\u0022name\u0022\u0022: \u0022\u0022my_production_api\u0022\u0022\n}\u0022)!;\n\nvar response = await client.Projects.PostOrgOwnerProjectNewAsync(\n    request: request\n);",
+      "Code": "using var client = new ComposioClient(apiKey);\n\nvar request = global::System.Text.Json.JsonSerializer.Deserialize\u003Cglobal::Composio.PostOrgOwnerProjectNewRequest\u003E(\n    @\u0022{\n  \u0022\u0022name\u0022\u0022: \u0022\u0022acme_production\u0022\u0022,\n  \u0022\u0022config\u0022\u0022: {\n    \u0022\u0022display_name\u0022\u0022: \u0022\u0022Acme Assistant\u0022\u0022,\n    \u0022\u0022logo_url\u0022\u0022: \u0022\u0022https://example.com/logo.png\u0022\u0022\n  }\n}\u0022)!;\n\nvar response = await client.Projects.PostOrgOwnerProjectNewAsync(\n    request: request\n);",
       "Format": "sdk",
       "OperationId": "postOrgOwnerProjectNew",
       "Setup": "This example assumes \u0060using Composio;\u0060 is in scope and \u0060apiKey\u0060 contains the required credential."
