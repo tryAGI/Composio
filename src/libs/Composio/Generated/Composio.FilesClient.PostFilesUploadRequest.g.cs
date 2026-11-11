@@ -43,7 +43,7 @@ namespace Composio
 
         /// <summary>
         /// Create presigned URL for request file upload to S3<br/>
-        /// Generates a presigned URL for uploading a file to S3. This endpoint handles deduplication by checking if a file with the same MD5 hash already exists.
+        /// Generates a presigned URL for uploading a file to S3. Every request returns a new file ID and storage key, including repeat uploads of the same file.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -66,7 +66,7 @@ namespace Composio
         }
         /// <summary>
         /// Create presigned URL for request file upload to S3<br/>
-        /// Generates a presigned URL for uploading a file to S3. This endpoint handles deduplication by checking if a file with the same MD5 hash already exists.
+        /// Generates a presigned URL for uploading a file to S3. Every request returns a new file ID and storage key, including repeat uploads of the same file.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -731,7 +731,7 @@ namespace Composio
         }
         /// <summary>
         /// Create presigned URL for request file upload to S3<br/>
-        /// Generates a presigned URL for uploading a file to S3. This endpoint handles deduplication by checking if a file with the same MD5 hash already exists.
+        /// Generates a presigned URL for uploading a file to S3. Every request returns a new file ID and storage key, including repeat uploads of the same file.
         /// </summary>
         /// <param name="toolkitSlug">
         /// Slug of the app where this file belongs to. Example: "gmail", "slack", "github"
@@ -746,7 +746,7 @@ namespace Composio
         /// Mime type of the original file. Example: "application/pdf", "image/png"
         /// </param>
         /// <param name="md5">
-        /// MD5 hash of the file for deduplication and integrity verification. Example: "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6"
+        /// MD5 hash of the file for integrity verification. Example: "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6"
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>

@@ -37,7 +37,7 @@ namespace Composio
         public required string Mimetype { get; set; }
 
         /// <summary>
-        /// MD5 hash of the file for deduplication and integrity verification. Example: "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6"
+        /// MD5 hash of the file for integrity verification. Example: "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6"
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("md5")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -65,7 +65,7 @@ namespace Composio
         /// Mime type of the original file. Example: "application/pdf", "image/png"
         /// </param>
         /// <param name="md5">
-        /// MD5 hash of the file for deduplication and integrity verification. Example: "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6"
+        /// MD5 hash of the file for integrity verification. Example: "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6"
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

@@ -32,7 +32,7 @@ internal static partial class ProjectsPostOrgOwnerProjectNewCommandApiCommand
     private static Option<global::Composio.PostOrgOwnerProjectNewRequestConfig?> Config { get; } = new(
         name: @"--config")
     {
-        Description = @"Configuration for the project. Use zdr_enabled for Zero Data Retention; log_visibility_setting remains supported for existing clients. Do not send both fields.",
+        Description = @"Configuration for the project. Use display_name and logo_url to brand the hosted Connect Link page. Use zdr_enabled for Zero Data Retention; log_visibility_setting remains supported for existing clients. Do not send both fields.",
     };
       private static Option<string?> Input { get; } = new(@"--input")
       {

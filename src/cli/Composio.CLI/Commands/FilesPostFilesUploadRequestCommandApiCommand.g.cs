@@ -38,7 +38,7 @@ internal static partial class FilesPostFilesUploadRequestCommandApiCommand
     private static Option<string> Md5 { get; } = new(
         name: @"--md5")
     {
-        Description = @"MD5 hash of the file for deduplication and integrity verification. Example: ""a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6""",
+        Description = @"MD5 hash of the file for integrity verification. Example: ""a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6""",
         Required = true,
     };
 
@@ -67,7 +67,7 @@ internal static partial class FilesPostFilesUploadRequestCommandApiCommand
     public static Command Create(string? commandName = null)
     {
         var command = new Command(commandName ?? @"post-files-upload-request", @"Create presigned URL for request file upload to S3
-Generates a presigned URL for uploading a file to S3. This endpoint handles deduplication by checking if a file with the same MD5 hash already exists.");
+Generates a presigned URL for uploading a file to S3. Every request returns a new file ID and storage key, including repeat uploads of the same file.");
                         command.Options.Add(ToolkitSlug);
                         command.Options.Add(ToolSlug);
                         command.Options.Add(Filename);
