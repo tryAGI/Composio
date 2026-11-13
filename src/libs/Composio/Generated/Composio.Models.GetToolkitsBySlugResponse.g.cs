@@ -65,7 +65,7 @@ namespace Composio
         public global::System.Collections.Generic.IList<string>? ComposioManagedAuthSchemes { get; set; }
 
         /// <summary>
-        /// Managed-auth-only metadata, including the supported OAuth scope ceiling.
+        /// One entry per Composio-managed app, the default first, each with its supported OAuth scope ceiling.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("composio_managed_auth")]
         [global::System.Text.Json.Serialization.JsonRequired]
@@ -156,7 +156,7 @@ namespace Composio
         /// Example: true
         /// </param>
         /// <param name="composioManagedAuth">
-        /// Managed-auth-only metadata, including the supported OAuth scope ceiling.
+        /// One entry per Composio-managed app, the default first, each with its supported OAuth scope ceiling.
         /// </param>
         /// <param name="isLocalToolkit">
         /// DEPRECATED: This field is no longer meaningful and will always return false. It was previously used to indicate if a toolkit is specific to the current project.<br/>

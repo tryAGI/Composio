@@ -9,6 +9,24 @@ namespace Composio
     public sealed partial class GetToolkitsBySlugResponseComposioManagedAuthItem
     {
         /// <summary>
+        /// Unique id of this Composio-managed app.<br/>
+        /// Example: ma_V1StGXR8_Z5j
+        /// </summary>
+        /// <example>ma_V1StGXR8_Z5j</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("managed_app_id")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required string ManagedAppId { get; set; }
+
+        /// <summary>
+        /// Whether this is the toolkit's default Composio-managed app.<br/>
+        /// Example: true
+        /// </summary>
+        /// <example>true</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_default")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required bool IsDefault { get; set; }
+
+        /// <summary>
         /// Authentication mode for the Composio-managed auth config<br/>
         /// Example: OAUTH2
         /// </summary>
@@ -43,6 +61,14 @@ namespace Composio
         /// <summary>
         /// Initializes a new instance of the <see cref="GetToolkitsBySlugResponseComposioManagedAuthItem" /> class.
         /// </summary>
+        /// <param name="managedAppId">
+        /// Unique id of this Composio-managed app.<br/>
+        /// Example: ma_V1StGXR8_Z5j
+        /// </param>
+        /// <param name="isDefault">
+        /// Whether this is the toolkit's default Composio-managed app.<br/>
+        /// Example: true
+        /// </param>
         /// <param name="mode">
         /// Authentication mode for the Composio-managed auth config<br/>
         /// Example: OAUTH2
@@ -59,10 +85,14 @@ namespace Composio
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public GetToolkitsBySlugResponseComposioManagedAuthItem(
+            string managedAppId,
+            bool isDefault,
             string mode,
             global::Composio.GetToolkitsBySlugResponseComposioManagedAuthItemScopes scopes,
             global::Composio.GetToolkitsBySlugResponseComposioManagedAuthItemUserScopes? userScopes)
         {
+            this.ManagedAppId = managedAppId ?? throw new global::System.ArgumentNullException(nameof(managedAppId));
+            this.IsDefault = isDefault;
             this.Mode = mode ?? throw new global::System.ArgumentNullException(nameof(mode));
             this.Scopes = scopes ?? throw new global::System.ArgumentNullException(nameof(scopes));
             this.UserScopes = userScopes;
