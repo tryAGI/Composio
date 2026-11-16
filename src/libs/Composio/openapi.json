@@ -223,6 +223,11 @@
             "maxLength": 255,
             "description": "The name of the integration"
           },
+          "managed_app_id": {
+            "type": "string",
+            "format": "managedAppId",
+            "description": "The Composio-managed app to use, as composio_managed_auth[].managed_app_id from GET /api/v3/toolkits/{toolkit_slug}. Omit to use the toolkit's default app."
+          },
           "credentials": {
             "type": "object",
             "properties": {
@@ -2692,6 +2697,11 @@
                           "type": "boolean",
                           "description": "Whether the auth config is managed by Composio"
                         },
+                        "managed_app_id": {
+                          "type": "string",
+                          "nullable": true,
+                          "description": "The Composio-managed app this auth config uses, as composio_managed_auth[].managed_app_id from GET /api/v3/toolkits/{toolkit_slug}. Null when the auth config is not linked to a managed app. Use is_composio_managed to tell managed from custom."
+                        },
                         "restrict_to_following_tools": {
                           "type": "array",
                           "items": {
@@ -2705,7 +2715,8 @@
                       "required": [
                         "id",
                         "auth_scheme",
-                        "is_composio_managed"
+                        "is_composio_managed",
+                        "managed_app_id"
                       ]
                     }
                   },
@@ -2952,6 +2963,11 @@
                             "type": "boolean",
                             "description": "Whether this authentication configuration is managed by Composio or the user"
                           },
+                          "managed_app_id": {
+                            "type": "string",
+                            "nullable": true,
+                            "description": "The Composio-managed app this auth config uses, as composio_managed_auth[].managed_app_id from GET /api/v3/toolkits/{toolkit_slug}. Null when the auth config is not linked to a managed app. Use is_composio_managed to tell managed from custom."
+                          },
                           "credentials": {
                             "type": "object",
                             "additionalProperties": {
@@ -3110,6 +3126,7 @@
                           "type",
                           "toolkit",
                           "name",
+                          "managed_app_id",
                           "status",
                           "no_of_connections",
                           "tool_access_config"
@@ -3295,6 +3312,11 @@
                       "type": "boolean",
                       "description": "Whether this authentication configuration is managed by Composio or the user"
                     },
+                    "managed_app_id": {
+                      "type": "string",
+                      "nullable": true,
+                      "description": "The Composio-managed app this auth config uses, as composio_managed_auth[].managed_app_id from GET /api/v3/toolkits/{toolkit_slug}. Null when the auth config is not linked to a managed app. Use is_composio_managed to tell managed from custom."
+                    },
                     "credentials": {
                       "type": "object",
                       "additionalProperties": {
@@ -3453,6 +3475,7 @@
                     "type",
                     "toolkit",
                     "name",
+                    "managed_app_id",
                     "status",
                     "no_of_connections",
                     "tool_access_config"
@@ -58745,11 +58768,11 @@
             "schema": {
               "type": "string",
               "format": "toolRouterSessionId",
-              "description": "The unique identifier of the tool router session. Required for public API endpoints, optional for internal endpoints where it is injected by middleware.",
+              "description": "The unique identifier of the tool router session.",
               "example": "trs_LX9uJKBinWWr"
             },
             "required": false,
-            "description": "Tool router session ID (required for public API, optional for internal - injected by middleware)",
+            "description": "Tool router session ID",
             "name": "session_id",
             "in": "path"
           }
@@ -58985,11 +59008,11 @@
             "schema": {
               "type": "string",
               "format": "toolRouterSessionId",
-              "description": "The unique identifier of the tool router session. Required for public API endpoints, optional for internal endpoints where it is injected by middleware.",
+              "description": "The unique identifier of the tool router session.",
               "example": "trs_LX9uJKBinWWr"
             },
             "required": false,
-            "description": "Tool router session ID (required for public API, optional for internal - injected by middleware)",
+            "description": "Tool router session ID",
             "name": "session_id",
             "in": "path"
           }
@@ -62568,11 +62591,11 @@
             "schema": {
               "type": "string",
               "format": "toolRouterSessionId",
-              "description": "The unique identifier of the tool router session. Required for public API endpoints, optional for internal endpoints where it is injected by middleware.",
+              "description": "The unique identifier of the tool router session.",
               "example": "trs_LX9uJKBinWWr"
             },
             "required": false,
-            "description": "Tool router session ID (required for public API, optional for internal - injected by middleware)",
+            "description": "Tool router session ID",
             "name": "session_id",
             "in": "path"
           }

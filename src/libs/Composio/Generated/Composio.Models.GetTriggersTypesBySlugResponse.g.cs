@@ -61,7 +61,7 @@ namespace Composio
         /// <example>[webhook, poll]</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("types")]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::System.Collections.Generic.IList<global::Composio.GetTriggersTypesBySlugResponseType2> Types { get; set; }
+        public required global::System.Collections.Generic.IList<global::Composio.GetTriggersTypesBySlugResponseType> Types { get; set; }
 
         /// <summary>
         /// Information about the toolkit that provides this trigger
@@ -167,7 +167,7 @@ namespace Composio
             string description,
             string instructions,
             global::Composio.GetTriggersTypesBySlugResponseType type,
-            global::System.Collections.Generic.IList<global::Composio.GetTriggersTypesBySlugResponseType2> types,
+            global::System.Collections.Generic.IList<global::Composio.GetTriggersTypesBySlugResponseType> types,
             global::Composio.GetTriggersTypesBySlugResponseToolkit toolkit,
             global::System.Collections.Generic.Dictionary<string, object?> config,
             global::System.Collections.Generic.Dictionary<string, object?> payload,

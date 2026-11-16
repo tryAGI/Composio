@@ -32,6 +32,12 @@ namespace Composio
         public required bool IsComposioManaged { get; set; }
 
         /// <summary>
+        /// The Composio-managed app this auth config uses, as composio_managed_auth[].managed_app_id from GET /api/v3/toolkits/{toolkit_slug}. Null when the auth config is not linked to a managed app. Use is_composio_managed to tell managed from custom.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("managed_app_id")]
+        public string? ManagedAppId { get; set; }
+
+        /// <summary>
         /// The tools that the user can use with the auth config. DEPRECATED: use [Get required scopes](https://docs.composio.dev/reference/api-reference/toolkits/recommendToolkitScopes) to resolve the scopes for the tools you need, then pass those scopes in `credentials.scopes`.<br/>
         /// Default Value: []
         /// </summary>
@@ -57,17 +63,22 @@ namespace Composio
         /// <param name="isComposioManaged">
         /// Whether the auth config is managed by Composio
         /// </param>
+        /// <param name="managedAppId">
+        /// The Composio-managed app this auth config uses, as composio_managed_auth[].managed_app_id from GET /api/v3/toolkits/{toolkit_slug}. Null when the auth config is not linked to a managed app. Use is_composio_managed to tell managed from custom.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PostAuthConfigsResponseAuthConfig(
             string id,
             string authScheme,
-            bool isComposioManaged)
+            bool isComposioManaged,
+            string? managedAppId)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.AuthScheme = authScheme ?? throw new global::System.ArgumentNullException(nameof(authScheme));
             this.IsComposioManaged = isComposioManaged;
+            this.ManagedAppId = managedAppId;
         }
 
         /// <summary>

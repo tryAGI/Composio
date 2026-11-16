@@ -11,7 +11,7 @@ namespace Composio
         /// Execute any native API call on a toolkit with authentication automatically injected from Composio. This endpoint proxies HTTP requests to third-party APIs using connected account credentials resolved from the session context. Provide the toolkit slug, API endpoint, and HTTP method — Composio handles authentication injection, abstracting away credential management. Supports all HTTP methods, custom headers/query parameters, and binary request/response bodies.
         /// </summary>
         /// <param name="sessionId">
-        /// The unique identifier of the tool router session. Required for public API endpoints, optional for internal endpoints where it is injected by middleware.<br/>
+        /// The unique identifier of the tool router session.<br/>
         /// Example: trs_LX9uJKBinWWr
         /// </param>
         /// <param name="request"></param>
@@ -29,7 +29,7 @@ namespace Composio
         /// Execute any native API call on a toolkit with authentication automatically injected from Composio. This endpoint proxies HTTP requests to third-party APIs using connected account credentials resolved from the session context. Provide the toolkit slug, API endpoint, and HTTP method — Composio handles authentication injection, abstracting away credential management. Supports all HTTP methods, custom headers/query parameters, and binary request/response bodies.
         /// </summary>
         /// <param name="sessionId">
-        /// The unique identifier of the tool router session. Required for public API endpoints, optional for internal endpoints where it is injected by middleware.<br/>
+        /// The unique identifier of the tool router session.<br/>
         /// Example: trs_LX9uJKBinWWr
         /// </param>
         /// <param name="request"></param>
@@ -47,7 +47,7 @@ namespace Composio
         /// Execute any native API call on a toolkit with authentication automatically injected from Composio. This endpoint proxies HTTP requests to third-party APIs using connected account credentials resolved from the session context. Provide the toolkit slug, API endpoint, and HTTP method — Composio handles authentication injection, abstracting away credential management. Supports all HTTP methods, custom headers/query parameters, and binary request/response bodies.
         /// </summary>
         /// <param name="sessionId">
-        /// The unique identifier of the tool router session. Required for public API endpoints, optional for internal endpoints where it is injected by middleware.<br/>
+        /// The unique identifier of the tool router session.<br/>
         /// Example: trs_LX9uJKBinWWr
         /// </param>
         /// <param name="toolkitSlug">

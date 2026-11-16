@@ -60,6 +60,12 @@ namespace Composio
         public bool? IsComposioManaged { get; set; }
 
         /// <summary>
+        /// The Composio-managed app this auth config uses, as composio_managed_auth[].managed_app_id from GET /api/v3/toolkits/{toolkit_slug}. Null when the auth config is not linked to a managed app. Use is_composio_managed to tell managed from custom.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("managed_app_id")]
+        public string? ManagedAppId { get; set; }
+
+        /// <summary>
         /// The authentication credentials (tokens, keys, etc.) - may be partially hidden for security
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("credentials")]
@@ -182,6 +188,9 @@ namespace Composio
         /// <param name="isComposioManaged">
         /// Whether this authentication configuration is managed by Composio or the user
         /// </param>
+        /// <param name="managedAppId">
+        /// The Composio-managed app this auth config uses, as composio_managed_auth[].managed_app_id from GET /api/v3/toolkits/{toolkit_slug}. Null when the auth config is not linked to a managed app. Use is_composio_managed to tell managed from custom.
+        /// </param>
         /// <param name="credentials">
         /// The authentication credentials (tokens, keys, etc.) - may be partially hidden for security
         /// </param>
@@ -218,6 +227,7 @@ namespace Composio
             global::Composio.GetAuthConfigsResponseItemToolAccessConfig toolAccessConfig,
             global::Composio.GetAuthConfigsResponseItemAuthScheme? authScheme,
             bool? isComposioManaged,
+            string? managedAppId,
             global::System.Collections.Generic.Dictionary<string, object?>? credentials,
             global::Composio.GetAuthConfigsResponseItemProxyConfig? proxyConfig,
             string? createdBy,
@@ -234,6 +244,7 @@ namespace Composio
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.AuthScheme = authScheme;
             this.IsComposioManaged = isComposioManaged;
+            this.ManagedAppId = managedAppId;
             this.Credentials = credentials;
             this.ProxyConfig = proxyConfig;
             this.Status = status;
