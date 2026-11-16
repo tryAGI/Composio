@@ -23,7 +23,6 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostWebhookEndpointsByNanoIdRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PatchWebhookEndpointsByNanoIdRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostWebhookEndpointsResponse))]
-    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostWebhookEndpointsResponse2))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetWebhookEndpointsResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.GetWebhookEndpointsResponseItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetWebhookEndpointsResponseItem))]

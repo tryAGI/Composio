@@ -48,7 +48,7 @@ namespace Composio
         /// Executes a specific tool within a tool router session. This is the primary execution endpoint for both meta tools and app tools exposed by the session. The toolkit is automatically inferred from the tool slug. For app tools, the tool must belong to an allowed toolkit and must not be disabled in the session configuration. The endpoint validates permissions, resolves connected accounts when needed, and executes the tool with the session context. The top-level account field applies only to direct app tool execution in multi-account sessions. Meta/helper tools either ignore it or define their own account-selection fields, for example COMPOSIO_MULTI_EXECUTE_TOOL.tools[].account.
         /// </summary>
         /// <param name="sessionId">
-        /// The unique identifier of the tool router session. Required for public API endpoints, optional for internal endpoints where it is injected by middleware.<br/>
+        /// The unique identifier of the tool router session.<br/>
         /// Example: trs_LX9uJKBinWWr
         /// </param>
         /// <param name="request"></param>
@@ -77,7 +77,7 @@ namespace Composio
         /// Executes a specific tool within a tool router session. This is the primary execution endpoint for both meta tools and app tools exposed by the session. The toolkit is automatically inferred from the tool slug. For app tools, the tool must belong to an allowed toolkit and must not be disabled in the session configuration. The endpoint validates permissions, resolves connected accounts when needed, and executes the tool with the session context. The top-level account field applies only to direct app tool execution in multi-account sessions. Meta/helper tools either ignore it or define their own account-selection fields, for example COMPOSIO_MULTI_EXECUTE_TOOL.tools[].account.
         /// </summary>
         /// <param name="sessionId">
-        /// The unique identifier of the tool router session. Required for public API endpoints, optional for internal endpoints where it is injected by middleware.<br/>
+        /// The unique identifier of the tool router session.<br/>
         /// Example: trs_LX9uJKBinWWr
         /// </param>
         /// <param name="request"></param>
@@ -860,7 +860,7 @@ namespace Composio
         /// Executes a specific tool within a tool router session. This is the primary execution endpoint for both meta tools and app tools exposed by the session. The toolkit is automatically inferred from the tool slug. For app tools, the tool must belong to an allowed toolkit and must not be disabled in the session configuration. The endpoint validates permissions, resolves connected accounts when needed, and executes the tool with the session context. The top-level account field applies only to direct app tool execution in multi-account sessions. Meta/helper tools either ignore it or define their own account-selection fields, for example COMPOSIO_MULTI_EXECUTE_TOOL.tools[].account.
         /// </summary>
         /// <param name="sessionId">
-        /// The unique identifier of the tool router session. Required for public API endpoints, optional for internal endpoints where it is injected by middleware.<br/>
+        /// The unique identifier of the tool router session.<br/>
         /// Example: trs_LX9uJKBinWWr
         /// </param>
         /// <param name="toolSlug">

@@ -10,7 +10,7 @@ internal static partial class ToolRouterPostToolRouterSessionBySessionIdProxyExe
     private static Argument<string?> SessionId { get; } = new(
         name: @"session-id")
     {
-        Description = @"Tool router session ID (required for public API, optional for internal - injected by middleware)",
+        Description = @"Tool router session ID",
     };
 
     private static Option<string> ToolkitSlug { get; } = new(

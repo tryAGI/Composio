@@ -4,8 +4,9 @@
 namespace Composio
 {
     /// <summary>
-    /// Configuration for the trigger
+    /// DEPRECATED: This parameter will be removed in a future version. Please use trigger_config instead.
     /// </summary>
+    [global::System.Obsolete("This model marked as deprecated.")]
     public sealed partial class GetTriggerInstancesActiveResponseItemTriggerConfig
     {
 

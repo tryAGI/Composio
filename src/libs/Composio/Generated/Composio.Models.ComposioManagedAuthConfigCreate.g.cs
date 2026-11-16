@@ -24,6 +24,12 @@ namespace Composio
         public string? Name { get; set; }
 
         /// <summary>
+        /// The Composio-managed app to use, as composio_managed_auth[].managed_app_id from GET /api/v3/toolkits/{toolkit_slug}. Omit to use the toolkit's default app.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("managed_app_id")]
+        public string? ManagedAppId { get; set; }
+
+        /// <summary>
         /// Default Value: {}
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("credentials")]
@@ -76,6 +82,9 @@ namespace Composio
         /// <param name="name">
         /// The name of the integration
         /// </param>
+        /// <param name="managedAppId">
+        /// The Composio-managed app to use, as composio_managed_auth[].managed_app_id from GET /api/v3/toolkits/{toolkit_slug}. Omit to use the toolkit's default app.
+        /// </param>
         /// <param name="credentials">
         /// Default Value: {}
         /// </param>
@@ -91,12 +100,14 @@ namespace Composio
         public ComposioManagedAuthConfigCreate(
             global::Composio.ComposioManagedAuthConfigCreateType type,
             string? name,
+            string? managedAppId,
             global::Composio.ComposioManagedAuthConfigCreateCredentials? credentials,
             global::System.Collections.Generic.Dictionary<string, object?>? sharedConnectionFields,
             bool? isEnabledForToolRouter)
         {
             this.Type = type;
             this.Name = name;
+            this.ManagedAppId = managedAppId;
             this.Credentials = credentials;
             this.SharedConnectionFields = sharedConnectionFields;
             this.IsEnabledForToolRouter = isEnabledForToolRouter;
