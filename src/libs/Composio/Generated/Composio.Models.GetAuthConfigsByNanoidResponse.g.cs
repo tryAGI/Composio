@@ -150,6 +150,13 @@ namespace Composio
         public bool? IsEnabledForToolRouter { get; set; }
 
         /// <summary>
+        /// [EXPERIMENTAL] Whether the auth config is bound to a keyring encryption key, customer-hosted or Composio-operated.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("keyring_routed")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required bool KeyringRouted { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -181,6 +188,9 @@ namespace Composio
         /// </param>
         /// <param name="toolAccessConfig">
         /// DEPRECATED: use [Get required scopes](https://docs.composio.dev/reference/api-reference/toolkits/recommendToolkitScopes) to resolve the scopes for the tools you need, then pass those scopes in `credentials.scopes`.
+        /// </param>
+        /// <param name="keyringRouted">
+        /// [EXPERIMENTAL] Whether the auth config is bound to a keyring encryption key, customer-hosted or Composio-operated.
         /// </param>
         /// <param name="authScheme">
         /// The authentication scheme used (e.g., OAuth2, API Key, etc.)
@@ -225,6 +235,7 @@ namespace Composio
             global::Composio.GetAuthConfigsByNanoidResponseStatus status,
             double noOfConnections,
             global::Composio.GetAuthConfigsByNanoidResponseToolAccessConfig toolAccessConfig,
+            bool keyringRouted,
             global::Composio.GetAuthConfigsByNanoidResponseAuthScheme? authScheme,
             bool? isComposioManaged,
             string? managedAppId,
@@ -256,6 +267,7 @@ namespace Composio
             this.ToolAccessConfig = toolAccessConfig ?? throw new global::System.ArgumentNullException(nameof(toolAccessConfig));
             this.SharedConnectionFields = sharedConnectionFields;
             this.IsEnabledForToolRouter = isEnabledForToolRouter;
+            this.KeyringRouted = keyringRouted;
         }
 
         /// <summary>
