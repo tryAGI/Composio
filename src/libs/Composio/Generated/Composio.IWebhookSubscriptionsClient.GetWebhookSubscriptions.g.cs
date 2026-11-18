@@ -6,7 +6,7 @@ namespace Composio
     {
         /// <summary>
         /// List webhook subscriptions<br/>
-        /// Lists all webhook subscriptions for the authenticated project with pagination. Currently limited to one subscription per project.
+        /// Lists all webhook subscriptions for the authenticated project with pagination. Currently limited to one subscription per project. Viewers get a 403.
         /// </summary>
         /// <param name="limit"></param>
         /// <param name="cursor"></param>
@@ -20,7 +20,7 @@ namespace Composio
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// List webhook subscriptions<br/>
-        /// Lists all webhook subscriptions for the authenticated project with pagination. Currently limited to one subscription per project.
+        /// Lists all webhook subscriptions for the authenticated project with pagination. Currently limited to one subscription per project. Viewers get a 403.
         /// </summary>
         /// <param name="limit"></param>
         /// <param name="cursor"></param>

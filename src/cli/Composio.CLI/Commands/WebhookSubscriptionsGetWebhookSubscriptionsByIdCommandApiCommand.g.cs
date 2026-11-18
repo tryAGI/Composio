@@ -38,7 +38,7 @@ internal static partial class WebhookSubscriptionsGetWebhookSubscriptionsByIdCom
     public static Command Create(string? commandName = null)
     {
         var command = new Command(commandName ?? @"get-webhook-subscriptions-by-id", @"Get webhook subscription
-Retrieves a webhook subscription by ID.");
+Retrieves a webhook subscription by ID. Viewers get a 403.");
                         command.Arguments.Add(Id);
 
 
