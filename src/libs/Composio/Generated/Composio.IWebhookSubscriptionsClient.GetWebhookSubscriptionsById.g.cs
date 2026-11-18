@@ -6,7 +6,7 @@ namespace Composio
     {
         /// <summary>
         /// Get webhook subscription<br/>
-        /// Retrieves a webhook subscription by ID.
+        /// Retrieves a webhook subscription by ID. Viewers get a 403.
         /// </summary>
         /// <param name="id">
         /// Webhook subscription ID
@@ -20,7 +20,7 @@ namespace Composio
             global::System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
         /// Get webhook subscription<br/>
-        /// Retrieves a webhook subscription by ID.
+        /// Retrieves a webhook subscription by ID. Viewers get a 403.
         /// </summary>
         /// <param name="id">
         /// Webhook subscription ID

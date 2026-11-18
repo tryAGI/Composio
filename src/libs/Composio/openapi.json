@@ -44324,7 +44324,7 @@
       },
       "get": {
         "summary": "List webhook subscriptions",
-        "description": "Lists all webhook subscriptions for the authenticated project with pagination. Currently limited to one subscription per project.",
+        "description": "Lists all webhook subscriptions for the authenticated project with pagination. Currently limited to one subscription per project. Viewers get a 403.",
         "tags": [
           "Webhook Subscriptions"
         ],
@@ -44461,6 +44461,16 @@
               }
             }
           },
+          "403": {
+            "description": "Your role does not allow viewing webhook subscriptions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
           "500": {
             "description": "Internal server error",
             "content": {
@@ -44477,7 +44487,7 @@
     "/api/v3/webhook_subscriptions/{id}": {
       "get": {
         "summary": "Get webhook subscription",
-        "description": "Retrieves a webhook subscription by ID.",
+        "description": "Retrieves a webhook subscription by ID. Viewers get a 403.",
         "tags": [
           "Webhook Subscriptions"
         ],
@@ -44561,6 +44571,16 @@
           },
           "401": {
             "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Your role does not allow viewing webhook subscriptions",
             "content": {
               "application/json": {
                 "schema": {
