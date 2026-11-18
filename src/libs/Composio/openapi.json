@@ -43147,7 +43147,7 @@
             }
           },
           "403": {
-            "description": "Zero Data Retention requires a paid plan.",
+            "description": "Forbidden. The org API key's owner is not an org admin, or Zero Data Retention requires a paid plan.",
             "content": {
               "application/json": {
                 "schema": {
@@ -43835,7 +43835,7 @@
             }
           },
           "403": {
-            "description": "Forbidden. API key regeneration is not enabled for this organization.",
+            "description": "Forbidden. API key regeneration is not enabled for this organization, or the org API key's owner is not an org admin.",
             "content": {
               "application/json": {
                 "schema": {
@@ -51653,6 +51653,16 @@
           },
           "404": {
             "description": "Not found - Resource not found or connected account not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "410": {
+            "description": "Gone - The toolkit is retired and can no longer be proxied to",
             "content": {
               "application/json": {
                 "schema": {
