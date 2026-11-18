@@ -406,7 +406,7 @@ namespace Composio
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // Forbidden. API key regeneration is not enabled for this organization.
+                            // Forbidden. API key regeneration is not enabled for this organization, or the org API key's owner is not an org admin.
                             if ((int)__response.StatusCode == 403)
                             {
                                 string? __content_403 = null;

@@ -411,7 +411,7 @@ namespace Composio
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // Zero Data Retention requires a paid plan.
+                            // Forbidden. The org API key's owner is not an org admin, or Zero Data Retention requires a paid plan.
                             if ((int)__response.StatusCode == 403)
                             {
                                 string? __content_403 = null;

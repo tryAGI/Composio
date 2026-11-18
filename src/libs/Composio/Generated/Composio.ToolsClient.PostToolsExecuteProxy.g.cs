@@ -487,6 +487,43 @@ namespace Composio
                                         h => h.Key,
                                         h => h.Value));
                             }
+                            // Gone - The toolkit is retired and can no longer be proxied to
+                            if ((int)__response.StatusCode == 410)
+                            {
+                                string? __content_410 = null;
+                                global::System.Exception? __exception_410 = null;
+                                global::Composio.Error? __value_410 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_410 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_410 = __content_410 is not { Length: > 0 } ? null : global::Composio.Error.FromJson(__content_410, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_410 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_410 = __content_410 is not { Length: > 0 } ? null : global::Composio.Error.FromJson(__content_410, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_410 = __ex;
+                                }
+
+
+                                throw global::Composio.ApiException<global::Composio.Error>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_410 is { Length: > 0 } ? __content_410 : __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_410,
+                                    responseBody: __content_410,
+                                    responseObject: __value_410,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
                             // Unprocessable entity - Invalid state of the connected account
                             if ((int)__response.StatusCode == 422)
                             {
