@@ -9,16 +9,16 @@ namespace Composio
     public sealed partial class GetCliGetSessionResponse
     {
         /// <summary>
-        /// The CLI session ID, or the code for a lookup by code<br/>
-        /// Example: 123e4567-e89b-12d3-a456-426614174000
+        /// The CLI session ID<br/>
+        /// Example: 123e4567-e89b-42d3-a456-426614174000
         /// </summary>
-        /// <example>123e4567-e89b-12d3-a456-426614174000</example>
+        /// <example>123e4567-e89b-42d3-a456-426614174000</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("id")]
         [global::System.Text.Json.Serialization.JsonRequired]
         public required string Id { get; set; }
 
         /// <summary>
-        /// The 6-character hexadecimal code used for CLI login<br/>
+        /// The 6-character hexadecimal display code<br/>
         /// Example: ABC123
         /// </summary>
         /// <example>ABC123</example>
@@ -78,11 +78,11 @@ namespace Composio
         /// Initializes a new instance of the <see cref="GetCliGetSessionResponse" /> class.
         /// </summary>
         /// <param name="id">
-        /// The CLI session ID, or the code for a lookup by code<br/>
-        /// Example: 123e4567-e89b-12d3-a456-426614174000
+        /// The CLI session ID<br/>
+        /// Example: 123e4567-e89b-42d3-a456-426614174000
         /// </param>
         /// <param name="code">
-        /// The 6-character hexadecimal code used for CLI login<br/>
+        /// The 6-character hexadecimal display code<br/>
         /// Example: ABC123
         /// </param>
         /// <param name="status">

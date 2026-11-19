@@ -27,11 +27,11 @@ namespace Composio
             };
         partial void PrepareGetCliGetSessionArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref string id);
+            ref global::System.Guid id);
         partial void PrepareGetCliGetSessionRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            string id);
+            global::System.Guid id);
         partial void ProcessGetCliGetSessionResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -42,18 +42,18 @@ namespace Composio
             ref string content);
 
         /// <summary>
-        /// Get CLI session details by ID or code<br/>
-        /// Retrieves the current state of a CLI session using either the session ID (UUID) or the 6-character code. The first UUID lookup after the session is linked returns its API key; each session issues one key. A code lookup reports status only and never returns a key.
+        /// Get CLI session details by ID<br/>
+        /// Retrieves the current state of a CLI session using its session ID (UUID v4). The first lookup after the session is linked returns its API key; each session issues one key. Display codes are not accepted.
         /// </summary>
         /// <param name="id">
-        /// The CLI session ID or code to check<br/>
-        /// Example: ABC123
+        /// The CLI session ID (UUID) to check<br/>
+        /// Example: 123e4567-e89b-42d3-a456-426614174000
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Composio.GetCliGetSessionResponse> GetCliGetSessionAsync(
-            string id,
+            global::System.Guid id,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -66,18 +66,18 @@ namespace Composio
             return __response.Body;
         }
         /// <summary>
-        /// Get CLI session details by ID or code<br/>
-        /// Retrieves the current state of a CLI session using either the session ID (UUID) or the 6-character code. The first UUID lookup after the session is linked returns its API key; each session issues one key. A code lookup reports status only and never returns a key.
+        /// Get CLI session details by ID<br/>
+        /// Retrieves the current state of a CLI session using its session ID (UUID v4). The first lookup after the session is linked returns its API key; each session issues one key. Display codes are not accepted.
         /// </summary>
         /// <param name="id">
-        /// The CLI session ID or code to check<br/>
-        /// Example: ABC123
+        /// The CLI session ID (UUID) to check<br/>
+        /// Example: 123e4567-e89b-42d3-a456-426614174000
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.GetCliGetSessionResponse>> GetCliGetSessionAsResponseAsync(
-            string id,
+            global::System.Guid id,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -114,7 +114,7 @@ namespace Composio
                                 path: "/api/v3/cli/get-session",
                                 baseUri: HttpClient.BaseAddress);
                             __pathBuilder
-                                .AddRequiredParameter("id", id)
+                                .AddRequiredParameter("id", id.ToString() ?? throw new global::System.InvalidOperationException("A required query parameter returned null from ToString()."))
                                 ;
                             var __path = __pathBuilder.ToString();
                 __path = global::Composio.AutoSDKRequestOptionsSupport.AppendQueryParameters(
@@ -335,7 +335,7 @@ namespace Composio
                                 retryReason: global::System.String.Empty,
                                 cancellationToken: __effectiveCancellationToken)).ConfigureAwait(false);
                 }
-                            // Invalid session ID or code format. The ID must be either a valid UUID or a 6-character hexadecimal code.
+                            // Invalid session ID format. The ID must be a valid UUID.
                             if ((int)__response.StatusCode == 400)
                             {
                                 string? __content_400 = null;
@@ -446,7 +446,7 @@ namespace Composio
                                         h => h.Key,
                                         h => h.Value));
                             }
-                            // Rate limited: too many lookups for this IP or session code. Re-run the CLI login flow.
+                            // Rate limited: too many lookups for this IP or session ID. Re-run the CLI login flow.
                             if ((int)__response.StatusCode == 429)
                             {
                                 string? __content_429 = null;
