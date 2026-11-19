@@ -16,7 +16,7 @@ namespace Composio
         public required string Id { get; set; }
 
         /// <summary>
-        /// The 6-character hexadecimal code used for CLI login<br/>
+        /// The 6-character hexadecimal display code<br/>
         /// Example: ABC123
         /// </summary>
         /// <example>ABC123</example>
@@ -66,7 +66,7 @@ namespace Composio
         /// Unique identifier for the CLI session. UUID v4 format used for tracking and retrieval.
         /// </param>
         /// <param name="code">
-        /// The 6-character hexadecimal code used for CLI login<br/>
+        /// The 6-character hexadecimal display code<br/>
         /// Example: ABC123
         /// </param>
         /// <param name="expiresAt">

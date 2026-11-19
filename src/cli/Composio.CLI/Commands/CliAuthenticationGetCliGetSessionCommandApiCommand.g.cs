@@ -7,10 +7,10 @@ namespace Composio.CLI.Commands;
 
 internal static partial class CliAuthenticationGetCliGetSessionCommandApiCommand
 {
-    private static Option<string> Id { get; } = new(
+    private static Option<global::System.Guid> Id { get; } = new(
         name: @"--id")
     {
-        Description = @"CLI session ID (UUID format) or 6-character code to check. Both formats are supported for flexibility in client implementations.",
+        Description = @"CLI session ID (UUID format) to check.",
         Required = true,
     };
 
@@ -38,8 +38,8 @@ internal static partial class CliAuthenticationGetCliGetSessionCommandApiCommand
 
     public static Command Create(string? commandName = null)
     {
-        var command = new Command(commandName ?? @"get-cli-get-session", @"Get CLI session details by ID or code
-Retrieves the current state of a CLI session using either the session ID (UUID) or the 6-character code. The first UUID lookup after the session is linked returns its API key; each session issues one key. A code lookup reports status only and never returns a key.");
+        var command = new Command(commandName ?? @"get-cli-get-session", @"Get CLI session details by ID
+Retrieves the current state of a CLI session using its session ID (UUID v4). The first lookup after the session is linked returns its API key; each session issues one key. Display codes are not accepted.");
                         command.Options.Add(Id);
 
 
