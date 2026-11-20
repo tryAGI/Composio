@@ -18,6 +18,18 @@ internal static partial class CliAuthenticationPostCliCreateSessionCommandApiCom
     {
         Description = @"Free-form string describing the source, e.g. 'Johns MacBook (darwin, v1.2.3)'",
     };
+
+    private static Option<string?> CodeChallenge { get; } = new(
+        name: @"--code-challenge")
+    {
+        Description = @"PKCE-style S256 challenge: the base64url encoding, without padding, of the SHA-256 digest of a random verifier the client keeps. Send together with code_challenge_method.",
+    };
+
+    private static Option<global::Composio.PostCliCreateSessionRequestCodeChallengeMethod?> CodeChallengeMethod { get; } = new(
+        name: @"--code-challenge-method")
+    {
+        Description = @"Method used to derive code_challenge from the verifier. Only S256 is supported. Send together with code_challenge.",
+    };
       private static Option<string?> Input { get; } = new(@"--input")
       {
           Description = "Load request JSON from a file path, '-' for stdin, or an inline JSON object/array string.",
@@ -63,6 +75,8 @@ internal static partial class CliAuthenticationPostCliCreateSessionCommandApiCom
 Generates a new CLI session with a UUID v4 ID and a random 6-character display code. Use the session ID in the web interface to approve the login and when polling for its API key. The display code cannot approve or retrieve a session. Optionally accepts a scope ('project' or 'user') and a source string.");
                         command.Options.Add(Scope);
                         command.Options.Add(Source);
+                        command.Options.Add(CodeChallenge);
+                        command.Options.Add(CodeChallengeMethod);
           command.Options.Add(Input);
           command.Options.Add(RequestJson);
           command.Options.Add(RequestFile);
@@ -90,12 +104,16 @@ Generates a new CLI session with a UUID v4 ID and a random 6-character display c
                             cancellationToken).ConfigureAwait(false);
                         var scope = CliRuntime.WasSpecified(parseResult, Scope) ? parseResult.GetValue(Scope) : (__requestBase is { } __ScopeBaseValue ? __ScopeBaseValue.Scope : default);
                         var source = CliRuntime.WasSpecified(parseResult, Source) ? parseResult.GetValue(Source) : (__requestBase is { } __SourceBaseValue ? __SourceBaseValue.Source : default);
+                        var codeChallenge = CliRuntime.WasSpecified(parseResult, CodeChallenge) ? parseResult.GetValue(CodeChallenge) : (__requestBase is { } __CodeChallengeBaseValue ? __CodeChallengeBaseValue.CodeChallenge : default);
+                        var codeChallengeMethod = CliRuntime.WasSpecified(parseResult, CodeChallengeMethod) ? parseResult.GetValue(CodeChallengeMethod) : (__requestBase is { } __CodeChallengeMethodBaseValue ? __CodeChallengeMethodBaseValue.CodeChallengeMethod : default);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
 
 
                                 var response = await client.CliAuthentication.PostCliCreateSessionAsync(
                                     scope: scope,
                                     source: source,
+                                    codeChallenge: codeChallenge,
+                                    codeChallengeMethod: codeChallengeMethod,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);
 
 

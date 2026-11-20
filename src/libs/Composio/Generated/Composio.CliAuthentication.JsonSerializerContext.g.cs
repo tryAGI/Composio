@@ -21,19 +21,23 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<string>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCliCreateSessionRequest))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCliCreateSessionRequestScope), TypeInfoPropertyName = "PostCliCreateSessionRequestScope2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCliCreateSessionRequestCodeChallengeMethod), TypeInfoPropertyName = "PostCliCreateSessionRequestCodeChallengeMethod2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Guid))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCliCreateSessionResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCliCreateSessionResponseStatus), TypeInfoPropertyName = "PostCliCreateSessionResponseStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCliCreateSessionResponseScope), TypeInfoPropertyName = "PostCliCreateSessionResponseScope2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCliCreateSessionResponseCodeChallengeMethod), TypeInfoPropertyName = "PostCliCreateSessionResponseCodeChallengeMethod2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetCliGetSessionResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetCliGetSessionResponseStatus), TypeInfoPropertyName = "GetCliGetSessionResponseStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetCliGetSessionResponseAccount))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetCliGetSessionResponseScope), TypeInfoPropertyName = "GetCliGetSessionResponseScope2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(double?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCliCreateSessionRequestScope?), TypeInfoPropertyName = "NullablePostCliCreateSessionRequestScope2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCliCreateSessionRequestCodeChallengeMethod?), TypeInfoPropertyName = "NullablePostCliCreateSessionRequestCodeChallengeMethod2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Guid?))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCliCreateSessionResponseStatus?), TypeInfoPropertyName = "NullablePostCliCreateSessionResponseStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCliCreateSessionResponseScope?), TypeInfoPropertyName = "NullablePostCliCreateSessionResponseScope2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCliCreateSessionResponseCodeChallengeMethod?), TypeInfoPropertyName = "NullablePostCliCreateSessionResponseCodeChallengeMethod2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetCliGetSessionResponseStatus?), TypeInfoPropertyName = "NullableGetCliGetSessionResponseStatus2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetCliGetSessionResponseScope?), TypeInfoPropertyName = "NullableGetCliGetSessionResponseScope2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.List<string>))]
@@ -209,6 +213,10 @@ namespace Composio
 
                     || typeToConvert == typeof(global::Composio.PostCliCreateSessionRequestScope?)
 
+                    || typeToConvert == typeof(global::Composio.PostCliCreateSessionRequestCodeChallengeMethod)
+
+                    || typeToConvert == typeof(global::Composio.PostCliCreateSessionRequestCodeChallengeMethod?)
+
                     || typeToConvert == typeof(global::Composio.PostCliCreateSessionResponseStatus)
 
                     || typeToConvert == typeof(global::Composio.PostCliCreateSessionResponseStatus?)
@@ -216,6 +224,10 @@ namespace Composio
                     || typeToConvert == typeof(global::Composio.PostCliCreateSessionResponseScope)
 
                     || typeToConvert == typeof(global::Composio.PostCliCreateSessionResponseScope?)
+
+                    || typeToConvert == typeof(global::Composio.PostCliCreateSessionResponseCodeChallengeMethod)
+
+                    || typeToConvert == typeof(global::Composio.PostCliCreateSessionResponseCodeChallengeMethod?)
 
                     || typeToConvert == typeof(global::Composio.GetCliGetSessionResponseStatus)
 
@@ -240,6 +252,16 @@ namespace Composio
                     return new global::Composio.JsonConverters.PostCliCreateSessionRequestScopeNullableJsonConverter();
                 }
 
+                if (typeToConvert == typeof(global::Composio.PostCliCreateSessionRequestCodeChallengeMethod))
+                {
+                    return new global::Composio.JsonConverters.PostCliCreateSessionRequestCodeChallengeMethodJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Composio.PostCliCreateSessionRequestCodeChallengeMethod?))
+                {
+                    return new global::Composio.JsonConverters.PostCliCreateSessionRequestCodeChallengeMethodNullableJsonConverter();
+                }
+
                 if (typeToConvert == typeof(global::Composio.PostCliCreateSessionResponseStatus))
                 {
                     return new global::Composio.JsonConverters.PostCliCreateSessionResponseStatusJsonConverter();
@@ -258,6 +280,16 @@ namespace Composio
                 if (typeToConvert == typeof(global::Composio.PostCliCreateSessionResponseScope?))
                 {
                     return new global::Composio.JsonConverters.PostCliCreateSessionResponseScopeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Composio.PostCliCreateSessionResponseCodeChallengeMethod))
+                {
+                    return new global::Composio.JsonConverters.PostCliCreateSessionResponseCodeChallengeMethodJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Composio.PostCliCreateSessionResponseCodeChallengeMethod?))
+                {
+                    return new global::Composio.JsonConverters.PostCliCreateSessionResponseCodeChallengeMethodNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::Composio.GetCliGetSessionResponseStatus))

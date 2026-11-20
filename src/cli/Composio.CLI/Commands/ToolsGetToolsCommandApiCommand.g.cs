@@ -69,6 +69,12 @@ internal static partial class ToolsGetToolsCommandApiCommand
         Description = @"Toolkit version specification. Use ""latest"" for latest versions or bracket notation for specific versions per toolkit. Defaults to the pinned version (""00000000_00"") when omitted.",
     };
 
+    private static Option<string?> UserId { get; } = new(
+        name: @"--user-id")
+    {
+        Description = @"Include the tools of the custom toolkits this user can use. Without it, only tools of custom toolkits with access ""all"" are listed.",
+    };
+
     private static Option<double?> Limit { get; } = new(
         name: @"--limit")
     {
@@ -118,6 +124,7 @@ Retrieve a paginated list of available tools with comprehensive filtering, sorti
                         command.Options.Add(IncludeDeprecated);
                         command.Options.Add(IncludePricing);
                         command.Options.Add(ToolkitVersions);
+                        command.Options.Add(UserId);
                         command.Options.Add(Limit);
                         command.Options.Add(Cursor);
 
@@ -136,6 +143,7 @@ Retrieve a paginated list of available tools with comprehensive filtering, sorti
                         var includeDeprecated = parseResult.GetValue(IncludeDeprecated);
                         var includePricing = parseResult.GetValue(IncludePricing);
                         var toolkitVersions = parseResult.GetValue(ToolkitVersions);
+                        var userId = parseResult.GetValue(UserId);
                         var limit = parseResult.GetValue(Limit);
                         var cursor = parseResult.GetValue(Cursor);
                 using var client = await CliRuntime.CreateClientAsync(parseResult, cancellationToken).ConfigureAwait(false);
@@ -153,6 +161,7 @@ Retrieve a paginated list of available tools with comprehensive filtering, sorti
                                     includeDeprecated: includeDeprecated,
                                     includePricing: includePricing,
                                     toolkitVersions: toolkitVersions,
+                                    userId: userId,
                                     limit: limit,
                                     cursor: cursor,
                                     cancellationToken: cancellationToken).ConfigureAwait(false);

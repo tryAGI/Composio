@@ -518,12 +518,20 @@ namespace Composio
         /// <param name="source">
         /// Free-form string describing the source, e.g. 'Johns MacBook (darwin, v1.2.3)'
         /// </param>
+        /// <param name="codeChallenge">
+        /// PKCE-style S256 challenge: the base64url encoding, without padding, of the SHA-256 digest of a random verifier the client keeps. Send together with code_challenge_method.
+        /// </param>
+        /// <param name="codeChallengeMethod">
+        /// Method used to derive code_challenge from the verifier. Only S256 is supported. Send together with code_challenge.
+        /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::System.InvalidOperationException"></exception>
         public async global::System.Threading.Tasks.Task<global::Composio.PostCliCreateSessionResponse> PostCliCreateSessionAsync(
             global::Composio.PostCliCreateSessionRequestScope? scope = default,
             string? source = default,
+            string? codeChallenge = default,
+            global::Composio.PostCliCreateSessionRequestCodeChallengeMethod? codeChallengeMethod = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -531,6 +539,8 @@ namespace Composio
             {
                 Scope = scope,
                 Source = source,
+                CodeChallenge = codeChallenge,
+                CodeChallengeMethod = codeChallengeMethod,
             };
 
             return await PostCliCreateSessionAsync(

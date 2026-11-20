@@ -23,6 +23,19 @@ namespace Composio
         public string? Source { get; set; }
 
         /// <summary>
+        /// PKCE-style S256 challenge: the base64url encoding, without padding, of the SHA-256 digest of a random verifier the client keeps. Send together with code_challenge_method.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("code_challenge")]
+        public string? CodeChallenge { get; set; }
+
+        /// <summary>
+        /// Method used to derive code_challenge from the verifier. Only S256 is supported. Send together with code_challenge.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("code_challenge_method")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.PostCliCreateSessionRequestCodeChallengeMethodJsonConverter))]
+        public global::Composio.PostCliCreateSessionRequestCodeChallengeMethod? CodeChallengeMethod { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -38,15 +51,25 @@ namespace Composio
         /// <param name="source">
         /// Free-form string describing the source, e.g. 'Johns MacBook (darwin, v1.2.3)'
         /// </param>
+        /// <param name="codeChallenge">
+        /// PKCE-style S256 challenge: the base64url encoding, without padding, of the SHA-256 digest of a random verifier the client keeps. Send together with code_challenge_method.
+        /// </param>
+        /// <param name="codeChallengeMethod">
+        /// Method used to derive code_challenge from the verifier. Only S256 is supported. Send together with code_challenge.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public PostCliCreateSessionRequest(
             global::Composio.PostCliCreateSessionRequestScope? scope,
-            string? source)
+            string? source,
+            string? codeChallenge,
+            global::Composio.PostCliCreateSessionRequestCodeChallengeMethod? codeChallengeMethod)
         {
             this.Scope = scope;
             this.Source = source;
+            this.CodeChallenge = codeChallenge;
+            this.CodeChallengeMethod = codeChallengeMethod;
         }
 
         /// <summary>
