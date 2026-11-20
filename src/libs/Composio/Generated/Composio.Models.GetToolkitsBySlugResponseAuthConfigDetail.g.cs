@@ -60,6 +60,13 @@ namespace Composio
         public string? AuthHintUrl { get; set; }
 
         /// <summary>
+        /// Whether a connection made with this authentication method can be revoked at the provider
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("is_connection_revoke_supported")]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required bool IsConnectionRevokeSupported { get; set; }
+
+        /// <summary>
         /// Authentication URL fields for OAuth 2.0 and OAuth 1.0. We don't recommend using this field for authentication and might break post Aug 31 2025.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("deprecated_auth_provider_details")]
@@ -90,6 +97,9 @@ namespace Composio
         /// Display name for this authentication method<br/>
         /// Example: OAuth 2.0
         /// </param>
+        /// <param name="isConnectionRevokeSupported">
+        /// Whether a connection made with this authentication method can be revoked at the provider
+        /// </param>
         /// <param name="proxy">
         /// Configuration for proxying authentication requests to external services
         /// </param>
@@ -105,6 +115,7 @@ namespace Composio
             global::System.Collections.Generic.IList<string> requiredScopes,
             global::Composio.GetToolkitsBySlugResponseAuthConfigDetailFields fields,
             string name,
+            bool isConnectionRevokeSupported,
             global::Composio.GetToolkitsBySlugResponseAuthConfigDetailProxy? proxy,
             string? authHintUrl)
         {
@@ -114,6 +125,7 @@ namespace Composio
             this.Proxy = proxy;
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.AuthHintUrl = authHintUrl;
+            this.IsConnectionRevokeSupported = isConnectionRevokeSupported;
         }
 
         /// <summary>

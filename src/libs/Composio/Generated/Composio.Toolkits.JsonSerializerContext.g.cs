@@ -70,6 +70,8 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostCustomToolkitsSyncResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsBySlugResponse))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsBySlugResponseType), TypeInfoPropertyName = "GetToolkitsBySlugResponseType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsBySlugResponseToolkitType), TypeInfoPropertyName = "GetToolkitsBySlugResponseToolkitType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsBySlugResponseInstant))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsBySlugResponseAccess), TypeInfoPropertyName = "GetToolkitsBySlugResponseAccess2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::System.Collections.Generic.IList<global::Composio.GetToolkitsBySlugResponseComposioManagedAuthItem>))]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsBySlugResponseComposioManagedAuthItem))]
@@ -132,6 +134,7 @@ namespace Composio
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsResponseItemToolkitType?), TypeInfoPropertyName = "NullableGetToolkitsResponseItemToolkitType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsResponseItemAccess?), TypeInfoPropertyName = "NullableGetToolkitsResponseItemAccess2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsBySlugResponseType?), TypeInfoPropertyName = "NullableGetToolkitsBySlugResponseType2")]
+    [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsBySlugResponseToolkitType?), TypeInfoPropertyName = "NullableGetToolkitsBySlugResponseToolkitType2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsBySlugResponseAccess?), TypeInfoPropertyName = "NullableGetToolkitsBySlugResponseAccess2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.GetToolkitsBySlugResponseAuthConfigDetailMode?), TypeInfoPropertyName = "NullableGetToolkitsBySlugResponseAuthConfigDetailMode2")]
     [global::System.Text.Json.Serialization.JsonSerializable(typeof(global::Composio.PostToolkitsMultiResponseItemType?), TypeInfoPropertyName = "NullablePostToolkitsMultiResponseItemType2")]
@@ -376,6 +379,10 @@ namespace Composio
 
                     || typeToConvert == typeof(global::Composio.GetToolkitsBySlugResponseType?)
 
+                    || typeToConvert == typeof(global::Composio.GetToolkitsBySlugResponseToolkitType)
+
+                    || typeToConvert == typeof(global::Composio.GetToolkitsBySlugResponseToolkitType?)
+
                     || typeToConvert == typeof(global::Composio.GetToolkitsBySlugResponseAccess)
 
                     || typeToConvert == typeof(global::Composio.GetToolkitsBySlugResponseAccess?)
@@ -529,6 +536,16 @@ namespace Composio
                 if (typeToConvert == typeof(global::Composio.GetToolkitsBySlugResponseType?))
                 {
                     return new global::Composio.JsonConverters.GetToolkitsBySlugResponseTypeNullableJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Composio.GetToolkitsBySlugResponseToolkitType))
+                {
+                    return new global::Composio.JsonConverters.GetToolkitsBySlugResponseToolkitTypeJsonConverter();
+                }
+
+                if (typeToConvert == typeof(global::Composio.GetToolkitsBySlugResponseToolkitType?))
+                {
+                    return new global::Composio.JsonConverters.GetToolkitsBySlugResponseToolkitTypeNullableJsonConverter();
                 }
 
                 if (typeToConvert == typeof(global::Composio.GetToolkitsBySlugResponseAccess))

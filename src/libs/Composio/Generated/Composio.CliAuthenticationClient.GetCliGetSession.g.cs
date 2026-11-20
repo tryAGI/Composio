@@ -27,11 +27,13 @@ namespace Composio
             };
         partial void PrepareGetCliGetSessionArguments(
             global::System.Net.Http.HttpClient httpClient,
-            ref global::System.Guid id);
+            ref global::System.Guid id,
+            ref string? xCliSessionSecret);
         partial void PrepareGetCliGetSessionRequest(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpRequestMessage httpRequestMessage,
-            global::System.Guid id);
+            global::System.Guid id,
+            string? xCliSessionSecret);
         partial void ProcessGetCliGetSessionResponse(
             global::System.Net.Http.HttpClient httpClient,
             global::System.Net.Http.HttpResponseMessage httpResponseMessage);
@@ -43,22 +45,27 @@ namespace Composio
 
         /// <summary>
         /// Get CLI session details by ID<br/>
-        /// Retrieves the current state of a CLI session using its session ID (UUID v4). The first lookup after the session is linked returns its API key; each session issues one key. Display codes are not accepted.
+        /// Retrieves the current state of a CLI session using its session ID (UUID v4). The first lookup after the session is linked returns its API key; each session issues one key. Display codes are not accepted. For a session created with a code_challenge, every lookup must send the verifier in the x-cli-session-secret header; a session created without one rejects any lookup that sends the header.
         /// </summary>
         /// <param name="id">
         /// The CLI session ID (UUID) to check<br/>
         /// Example: 123e4567-e89b-42d3-a456-426614174000
+        /// </param>
+        /// <param name="xCliSessionSecret">
+        /// The code_verifier whose S256 hash is the session's code_challenge. Required on every UUID lookup of a session created with a code_challenge; omit it for a session created without one.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Composio.GetCliGetSessionResponse> GetCliGetSessionAsync(
             global::System.Guid id,
+            string? xCliSessionSecret = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
             var __response = await GetCliGetSessionAsResponseAsync(
                 id: id,
+                xCliSessionSecret: xCliSessionSecret,
                 requestOptions: requestOptions,
                 cancellationToken: cancellationToken
             ).ConfigureAwait(false);
@@ -67,17 +74,21 @@ namespace Composio
         }
         /// <summary>
         /// Get CLI session details by ID<br/>
-        /// Retrieves the current state of a CLI session using its session ID (UUID v4). The first lookup after the session is linked returns its API key; each session issues one key. Display codes are not accepted.
+        /// Retrieves the current state of a CLI session using its session ID (UUID v4). The first lookup after the session is linked returns its API key; each session issues one key. Display codes are not accepted. For a session created with a code_challenge, every lookup must send the verifier in the x-cli-session-secret header; a session created without one rejects any lookup that sends the header.
         /// </summary>
         /// <param name="id">
         /// The CLI session ID (UUID) to check<br/>
         /// Example: 123e4567-e89b-42d3-a456-426614174000
+        /// </param>
+        /// <param name="xCliSessionSecret">
+        /// The code_verifier whose S256 hash is the session's code_challenge. Required on every UUID lookup of a session created with a code_challenge; omit it for a session created without one.
         /// </param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
         /// <param name="cancellationToken">The token to cancel the operation with</param>
         /// <exception cref="global::Composio.ApiException"></exception>
         public async global::System.Threading.Tasks.Task<global::Composio.AutoSDKHttpResponse<global::Composio.GetCliGetSessionResponse>> GetCliGetSessionAsResponseAsync(
             global::System.Guid id,
+            string? xCliSessionSecret = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
             global::System.Threading.CancellationToken cancellationToken = default)
         {
@@ -85,7 +96,8 @@ namespace Composio
                 client: HttpClient);
             PrepareGetCliGetSessionArguments(
                 httpClient: HttpClient,
-                id: ref id);
+                id: ref id,
+                xCliSessionSecret: ref xCliSessionSecret);
 
 
             var __authorizations = global::Composio.EndPointSecurityResolver.ResolveAuthorizations(
@@ -145,6 +157,12 @@ namespace Composio
                     __httpRequest.Headers.Add(__authorization.Name, __authorization.Value);
                 }
             }
+
+            if (xCliSessionSecret != default)
+            {
+                __httpRequest.Headers.TryAddWithoutValidation("x-cli-session-secret", xCliSessionSecret.ToString());
+            }
+
                 global::Composio.AutoSDKRequestOptionsSupport.ApplyHeaders(
                     request: __httpRequest,
                     clientHeaders: Options.Headers,
@@ -156,7 +174,8 @@ namespace Composio
                 PrepareGetCliGetSessionRequest(
                     httpClient: HttpClient,
                     httpRequestMessage: __httpRequest,
-                    id: id);
+                    id: id,
+                    xCliSessionSecret: xCliSessionSecret);
 
                 return __httpRequest;
             }
@@ -367,6 +386,43 @@ namespace Composio
                                     innerException: __exception_400,
                                     responseBody: __content_400,
                                     responseObject: __value_400,
+                                    responseHeaders: global::System.Linq.Enumerable.ToDictionary(
+                                        __response.Headers,
+                                        h => h.Key,
+                                        h => h.Value));
+                            }
+                            // The x-cli-session-secret header is missing, malformed or does not match the session. Re-run the CLI login flow.
+                            if ((int)__response.StatusCode == 401)
+                            {
+                                string? __content_401 = null;
+                                global::System.Exception? __exception_401 = null;
+                                global::Composio.Error? __value_401 = null;
+                                try
+                                {
+                                    if (__effectiveReadResponseAsString)
+                                    {
+                                        __content_401 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+                                        __value_401 = __content_401 is not { Length: > 0 } ? null : global::Composio.Error.FromJson(__content_401, JsonSerializerContext);
+                                    }
+                                    else
+                                    {
+                                        __content_401 = await __response.Content.ReadAsStringAsync(__effectiveCancellationToken).ConfigureAwait(false);
+
+                                        __value_401 = __content_401 is not { Length: > 0 } ? null : global::Composio.Error.FromJson(__content_401, JsonSerializerContext);
+                                    }
+                                }
+                                catch (global::System.Exception __ex)
+                                {
+                                    __exception_401 = __ex;
+                                }
+
+
+                                throw global::Composio.ApiException<global::Composio.Error>.Create(
+                                    statusCode: __response.StatusCode,
+                                    message: __content_401 is { Length: > 0 } ? __content_401 : __response.ReasonPhrase ?? string.Empty,
+                                    innerException: __exception_401,
+                                    responseBody: __content_401,
+                                    responseObject: __value_401,
                                     responseHeaders: global::System.Linq.Enumerable.ToDictionary(
                                         __response.Headers,
                                         h => h.Key,

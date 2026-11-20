@@ -38,6 +38,7 @@ namespace Composio
             ref bool? includeDeprecated,
             ref bool? includePricing,
             ref global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions,
+            ref string? userId,
             ref double? limit,
             ref string? cursor);
         partial void PrepareGetToolsRequest(
@@ -54,6 +55,7 @@ namespace Composio
             bool? includeDeprecated,
             bool? includePricing,
             global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions,
+            string? userId,
             double? limit,
             string? cursor);
         partial void ProcessGetToolsResponse(
@@ -86,6 +88,10 @@ namespace Composio
         /// Default Value: false
         /// </param>
         /// <param name="toolkitVersions"></param>
+        /// <param name="userId">
+        /// Include the tools of the custom toolkits this user can use. Without it, only tools of custom toolkits with access "all" are listed.<br/>
+        /// Example: user_123
+        /// </param>
         /// <param name="limit"></param>
         /// <param name="cursor"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -103,6 +109,7 @@ namespace Composio
             bool? includeDeprecated = default,
             bool? includePricing = default,
             global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
+            string? userId = default,
             double? limit = default,
             string? cursor = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
@@ -120,6 +127,7 @@ namespace Composio
                 includeDeprecated: includeDeprecated,
                 includePricing: includePricing,
                 toolkitVersions: toolkitVersions,
+                userId: userId,
                 limit: limit,
                 cursor: cursor,
                 requestOptions: requestOptions,
@@ -149,6 +157,10 @@ namespace Composio
         /// Default Value: false
         /// </param>
         /// <param name="toolkitVersions"></param>
+        /// <param name="userId">
+        /// Include the tools of the custom toolkits this user can use. Without it, only tools of custom toolkits with access "all" are listed.<br/>
+        /// Example: user_123
+        /// </param>
         /// <param name="limit"></param>
         /// <param name="cursor"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -166,6 +178,7 @@ namespace Composio
             bool? includeDeprecated = default,
             bool? includePricing = default,
             global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
+            string? userId = default,
             double? limit = default,
             string? cursor = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
@@ -186,6 +199,7 @@ namespace Composio
                 includeDeprecated: ref includeDeprecated,
                 includePricing: ref includePricing,
                 toolkitVersions: ref toolkitVersions,
+                userId: ref userId,
                 limit: ref limit,
                 cursor: ref cursor);
 
@@ -230,6 +244,7 @@ namespace Composio
                                 .AddOptionalParameter("include_deprecated", includeDeprecated?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("include_pricing", includePricing?.ToString().ToLowerInvariant())
                                 .AddOptionalParameter("toolkit_versions", toolkitVersions?.ToString())
+                                .AddOptionalParameter("user_id", userId)
                                 .AddOptionalParameter("limit", limit?.ToString())
                                 .AddOptionalParameter("cursor", cursor)
                                 ;
@@ -284,6 +299,7 @@ namespace Composio
                     includeDeprecated: includeDeprecated,
                     includePricing: includePricing,
                     toolkitVersions: toolkitVersions,
+                    userId: userId,
                     limit: limit,
                     cursor: cursor);
 

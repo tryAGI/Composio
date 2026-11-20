@@ -25,6 +25,10 @@ namespace Composio
         /// Default Value: false
         /// </param>
         /// <param name="toolkitVersions"></param>
+        /// <param name="userId">
+        /// Include the tools of the custom toolkits this user can use. Without it, only tools of custom toolkits with access "all" are listed.<br/>
+        /// Example: user_123
+        /// </param>
         /// <param name="limit"></param>
         /// <param name="cursor"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -42,6 +46,7 @@ namespace Composio
             bool? includeDeprecated = default,
             bool? includePricing = default,
             global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
+            string? userId = default,
             double? limit = default,
             string? cursor = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,
@@ -67,6 +72,10 @@ namespace Composio
         /// Default Value: false
         /// </param>
         /// <param name="toolkitVersions"></param>
+        /// <param name="userId">
+        /// Include the tools of the custom toolkits this user can use. Without it, only tools of custom toolkits with access "all" are listed.<br/>
+        /// Example: user_123
+        /// </param>
         /// <param name="limit"></param>
         /// <param name="cursor"></param>
         /// <param name="requestOptions">Per-request overrides such as headers, query parameters, timeout, retries, and response buffering.</param>
@@ -84,6 +93,7 @@ namespace Composio
             bool? includeDeprecated = default,
             bool? includePricing = default,
             global::Composio.OneOf<string, global::System.Collections.Generic.Dictionary<string, string>>? toolkitVersions = default,
+            string? userId = default,
             double? limit = default,
             string? cursor = default,
             global::Composio.AutoSDKRequestOptions? requestOptions = default,

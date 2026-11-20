@@ -39,6 +39,22 @@ namespace Composio
         public required global::Composio.GetToolkitsBySlugResponseType Type { get; set; }
 
         /// <summary>
+        /// How the toolkit is implemented: "api" for an API integration, "mcp" for an MCP server<br/>
+        /// Example: api
+        /// </summary>
+        /// <example>api</example>
+        [global::System.Text.Json.Serialization.JsonPropertyName("toolkit_type")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.GetToolkitsBySlugResponseToolkitTypeJsonConverter))]
+        [global::System.Text.Json.Serialization.JsonRequired]
+        public required global::Composio.GetToolkitsBySlugResponseToolkitType ToolkitType { get; set; }
+
+        /// <summary>
+        /// Present when the latest version of this toolkit supports Instant accounts. See the tools endpoint for support on individual tools.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("instant")]
+        public global::Composio.GetToolkitsBySlugResponseInstant? Instant { get; set; }
+
+        /// <summary>
         /// Indicates if this toolkit is currently enabled and available for use<br/>
         /// Example: true
         /// </summary>
@@ -93,6 +109,12 @@ namespace Composio
         /// <example>https://composio.dev/auth/github</example>
         [global::System.Text.Json.Serialization.JsonPropertyName("auth_guide_url")]
         public string? AuthGuideUrl { get; set; }
+
+        /// <summary>
+        /// The provider's own documentation URL for this toolkit, or null when it has none
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("docs_url")]
+        public string? DocsUrl { get; set; }
 
         /// <summary>
         /// If evaluation of base URL needs some connection info (like shopify), please create the connection and get the base URL from there<br/>
@@ -151,6 +173,10 @@ namespace Composio
         /// Toolkit provenance: "native" for Composio-managed toolkits, "custom" for a project-registered custom (MCP) toolkit<br/>
         /// Example: native
         /// </param>
+        /// <param name="toolkitType">
+        /// How the toolkit is implemented: "api" for an API integration, "mcp" for an MCP server<br/>
+        /// Example: api
+        /// </param>
         /// <param name="enabled">
         /// Indicates if this toolkit is currently enabled and available for use<br/>
         /// Example: true
@@ -166,6 +192,9 @@ namespace Composio
         /// Comprehensive metadata for the toolkit including dates, descriptions, and statistics
         /// </param>
         /// <param name="deprecated"></param>
+        /// <param name="instant">
+        /// Present when the latest version of this toolkit supports Instant accounts. See the tools endpoint for support on individual tools.
+        /// </param>
         /// <param name="access">
         /// Custom toolkits only. "all": every user in the project can use it. "user": only the user it was created for can.<br/>
         /// Example: all
@@ -180,6 +209,9 @@ namespace Composio
         /// <param name="authGuideUrl">
         /// URL to a guide page with authentication setup instructions for this toolkit<br/>
         /// Example: https://composio.dev/auth/github
+        /// </param>
+        /// <param name="docsUrl">
+        /// The provider's own documentation URL for this toolkit, or null when it has none
         /// </param>
         /// <param name="baseUrl">
         /// If evaluation of base URL needs some connection info (like shopify), please create the connection and get the base URL from there<br/>
@@ -199,15 +231,18 @@ namespace Composio
             string slug,
             string name,
             global::Composio.GetToolkitsBySlugResponseType type,
+            global::Composio.GetToolkitsBySlugResponseToolkitType toolkitType,
             bool enabled,
             global::System.Collections.Generic.IList<global::Composio.GetToolkitsBySlugResponseComposioManagedAuthItem> composioManagedAuth,
             bool isLocalToolkit,
             global::Composio.GetToolkitsBySlugResponseMeta meta,
             global::Composio.GetToolkitsBySlugResponseDeprecated deprecated,
+            global::Composio.GetToolkitsBySlugResponseInstant? instant,
             global::Composio.GetToolkitsBySlugResponseAccess? access,
             global::System.Collections.Generic.IList<string>? composioManagedAuthSchemes,
             global::System.Collections.Generic.IList<global::Composio.GetToolkitsBySlugResponseAuthConfigDetail>? authConfigDetails,
             string? authGuideUrl,
+            string? docsUrl,
             string? baseUrl,
             string? getCurrentUserEndpoint,
             string? getCurrentUserEndpointMethod)
@@ -215,6 +250,8 @@ namespace Composio
             this.Slug = slug ?? throw new global::System.ArgumentNullException(nameof(slug));
             this.Name = name ?? throw new global::System.ArgumentNullException(nameof(name));
             this.Type = type;
+            this.ToolkitType = toolkitType;
+            this.Instant = instant;
             this.Enabled = enabled;
             this.Access = access;
             this.ComposioManagedAuthSchemes = composioManagedAuthSchemes;
@@ -222,6 +259,7 @@ namespace Composio
             this.IsLocalToolkit = isLocalToolkit;
             this.AuthConfigDetails = authConfigDetails;
             this.AuthGuideUrl = authGuideUrl;
+            this.DocsUrl = docsUrl;
             this.BaseUrl = baseUrl;
             this.Meta = meta ?? throw new global::System.ArgumentNullException(nameof(meta));
             this.GetCurrentUserEndpoint = getCurrentUserEndpoint;

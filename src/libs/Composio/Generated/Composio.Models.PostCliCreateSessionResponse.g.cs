@@ -54,6 +54,13 @@ namespace Composio
         public required global::Composio.PostCliCreateSessionResponseScope Scope { get; set; }
 
         /// <summary>
+        /// Present only when the session stored the code_challenge sent with this request, and every lookup of the session by ID then requires its verifier. A client that sent a challenge should not continue the login without it.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("code_challenge_method")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.PostCliCreateSessionResponseCodeChallengeMethodJsonConverter))]
+        public global::Composio.PostCliCreateSessionResponseCodeChallengeMethod? CodeChallengeMethod { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -81,6 +88,9 @@ namespace Composio
         /// The key scope for this session<br/>
         /// Example: project
         /// </param>
+        /// <param name="codeChallengeMethod">
+        /// Present only when the session stored the code_challenge sent with this request, and every lookup of the session by ID then requires its verifier. A client that sent a challenge should not continue the login without it.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
@@ -89,13 +99,15 @@ namespace Composio
             string code,
             string expiresAt,
             global::Composio.PostCliCreateSessionResponseStatus status,
-            global::Composio.PostCliCreateSessionResponseScope scope)
+            global::Composio.PostCliCreateSessionResponseScope scope,
+            global::Composio.PostCliCreateSessionResponseCodeChallengeMethod? codeChallengeMethod)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Code = code ?? throw new global::System.ArgumentNullException(nameof(code));
             this.ExpiresAt = expiresAt ?? throw new global::System.ArgumentNullException(nameof(expiresAt));
             this.Status = status;
             this.Scope = scope;
+            this.CodeChallengeMethod = codeChallengeMethod;
         }
 
         /// <summary>
