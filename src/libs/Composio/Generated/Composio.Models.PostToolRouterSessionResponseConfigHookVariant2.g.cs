@@ -40,9 +40,9 @@ namespace Composio
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("handler")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.PostToolRouterSessionResponseConfigHookVariant2HandlerVariant1, global::Composio.PostToolRouterSessionResponseConfigHookVariant2HandlerVariant2>))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.PostToolRouterSessionResponseConfigHookVariant2HandlerVariant1, global::Composio.PostToolRouterSessionResponseConfigHookVariant2HandlerVariant2, global::Composio.PostToolRouterSessionResponseConfigHookVariant2HandlerVariant3>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Composio.OneOf<global::Composio.PostToolRouterSessionResponseConfigHookVariant2HandlerVariant1, global::Composio.PostToolRouterSessionResponseConfigHookVariant2HandlerVariant2> Handler { get; set; }
+        public required global::Composio.OneOf<global::Composio.PostToolRouterSessionResponseConfigHookVariant2HandlerVariant1, global::Composio.PostToolRouterSessionResponseConfigHookVariant2HandlerVariant2, global::Composio.PostToolRouterSessionResponseConfigHookVariant2HandlerVariant3> Handler { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -70,7 +70,7 @@ namespace Composio
         public PostToolRouterSessionResponseConfigHookVariant2(
             string id,
             global::Composio.AnyOf<global::Composio.PostToolRouterSessionResponseConfigHookVariant2AppliesToEnum?, global::Composio.PostToolRouterSessionResponseConfigHookVariant2AppliesToEnum2> appliesTo,
-            global::Composio.OneOf<global::Composio.PostToolRouterSessionResponseConfigHookVariant2HandlerVariant1, global::Composio.PostToolRouterSessionResponseConfigHookVariant2HandlerVariant2> handler,
+            global::Composio.OneOf<global::Composio.PostToolRouterSessionResponseConfigHookVariant2HandlerVariant1, global::Composio.PostToolRouterSessionResponseConfigHookVariant2HandlerVariant2, global::Composio.PostToolRouterSessionResponseConfigHookVariant2HandlerVariant3> handler,
             global::Composio.PostToolRouterSessionResponseConfigHookVariant2Type type,
             string? name)
         {

@@ -23,6 +23,12 @@ namespace Composio
         public global::Composio.HookResultVariant2Status Status { get; set; }
 
         /// <summary>
+        /// The reason the hook is unavailable, for example `The webhook endpoint timed out`.
+        /// </summary>
+        [global::System.Text.Json.Serialization.JsonPropertyName("detail")]
+        public string? Detail { get; set; }
+
+        /// <summary>
         /// Additional properties that are not explicitly defined in the schema
         /// </summary>
         [global::System.Text.Json.Serialization.JsonExtensionData]
@@ -37,15 +43,20 @@ namespace Composio
         /// <param name="status">
         /// The hook could not be evaluated
         /// </param>
+        /// <param name="detail">
+        /// The reason the hook is unavailable, for example `The webhook endpoint timed out`.
+        /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
 #endif
         public HookResultVariant2(
             string id,
-            global::Composio.HookResultVariant2Status status)
+            global::Composio.HookResultVariant2Status status,
+            string? detail)
         {
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Status = status;
+            this.Detail = detail;
         }
 
         /// <summary>

@@ -40,9 +40,9 @@ namespace Composio
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("handler")]
-        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.PatchToolRouterSessionBySessionIdResponseConfigHookVariant2HandlerVariant1, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigHookVariant2HandlerVariant2>))]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.PatchToolRouterSessionBySessionIdResponseConfigHookVariant2HandlerVariant1, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigHookVariant2HandlerVariant2, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigHookVariant2HandlerVariant3>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Composio.OneOf<global::Composio.PatchToolRouterSessionBySessionIdResponseConfigHookVariant2HandlerVariant1, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigHookVariant2HandlerVariant2> Handler { get; set; }
+        public required global::Composio.OneOf<global::Composio.PatchToolRouterSessionBySessionIdResponseConfigHookVariant2HandlerVariant1, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigHookVariant2HandlerVariant2, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigHookVariant2HandlerVariant3> Handler { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -70,7 +70,7 @@ namespace Composio
         public PatchToolRouterSessionBySessionIdResponseConfigHookVariant2(
             string id,
             global::Composio.AnyOf<global::Composio.PatchToolRouterSessionBySessionIdResponseConfigHookVariant2AppliesToEnum?, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigHookVariant2AppliesToEnum2> appliesTo,
-            global::Composio.OneOf<global::Composio.PatchToolRouterSessionBySessionIdResponseConfigHookVariant2HandlerVariant1, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigHookVariant2HandlerVariant2> handler,
+            global::Composio.OneOf<global::Composio.PatchToolRouterSessionBySessionIdResponseConfigHookVariant2HandlerVariant1, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigHookVariant2HandlerVariant2, global::Composio.PatchToolRouterSessionBySessionIdResponseConfigHookVariant2HandlerVariant3> handler,
             global::Composio.PatchToolRouterSessionBySessionIdResponseConfigHookVariant2Type type,
             string? name)
         {

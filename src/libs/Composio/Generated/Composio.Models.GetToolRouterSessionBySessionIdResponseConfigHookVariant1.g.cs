@@ -40,8 +40,9 @@ namespace Composio
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("handler")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.GetToolRouterSessionBySessionIdResponseConfigHookVariant1HandlerVariant1, global::Composio.GetToolRouterSessionBySessionIdResponseConfigHookVariant1HandlerVariant2>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Composio.GetToolRouterSessionBySessionIdResponseConfigHookVariant1Handler Handler { get; set; }
+        public required global::Composio.OneOf<global::Composio.GetToolRouterSessionBySessionIdResponseConfigHookVariant1HandlerVariant1, global::Composio.GetToolRouterSessionBySessionIdResponseConfigHookVariant1HandlerVariant2> Handler { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -69,7 +70,7 @@ namespace Composio
         public GetToolRouterSessionBySessionIdResponseConfigHookVariant1(
             string id,
             global::Composio.AnyOf<global::Composio.GetToolRouterSessionBySessionIdResponseConfigHookVariant1AppliesToEnum?, global::Composio.GetToolRouterSessionBySessionIdResponseConfigHookVariant1AppliesToEnum2> appliesTo,
-            global::Composio.GetToolRouterSessionBySessionIdResponseConfigHookVariant1Handler handler,
+            global::Composio.OneOf<global::Composio.GetToolRouterSessionBySessionIdResponseConfigHookVariant1HandlerVariant1, global::Composio.GetToolRouterSessionBySessionIdResponseConfigHookVariant1HandlerVariant2> handler,
             global::Composio.GetToolRouterSessionBySessionIdResponseConfigHookVariant1Type type,
             string? name)
         {
@@ -77,7 +78,7 @@ namespace Composio
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Name = name;
             this.AppliesTo = appliesTo;
-            this.Handler = handler ?? throw new global::System.ArgumentNullException(nameof(handler));
+            this.Handler = handler;
         }
 
         /// <summary>

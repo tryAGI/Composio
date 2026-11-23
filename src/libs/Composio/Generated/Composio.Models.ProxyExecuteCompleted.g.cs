@@ -47,7 +47,7 @@ namespace Composio
         public global::System.Collections.Generic.Dictionary<string, string>? Headers { get; set; }
 
         /// <summary>
-        /// Every session hook that applied to this request. Omitted when none applied.
+        /// The session hooks that ran on this request, each with its result. Omitted when none applied.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hook_results")]
         public global::System.Collections.Generic.IList<global::Composio.HookResult>? HookResults { get; set; }
@@ -80,7 +80,7 @@ namespace Composio
         /// Example: {"content-type":"application/json","cache-control":"no-cache"}
         /// </param>
         /// <param name="hookResults">
-        /// Every session hook that applied to this request. Omitted when none applied.
+        /// The session hooks that ran on this request, each with its result. Omitted when none applied.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]
