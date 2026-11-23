@@ -33,7 +33,7 @@ namespace Composio
         public required string Message { get; set; }
 
         /// <summary>
-        /// Every session hook that applied to this call. Omitted when none applied.
+        /// The session hooks that ran on this call, each with its result. Omitted when none applied.
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("hook_results")]
         public global::System.Collections.Generic.IList<global::Composio.HookResult>? HookResults { get; set; }
@@ -56,7 +56,7 @@ namespace Composio
         /// A session hook stopped the call
         /// </param>
         /// <param name="hookResults">
-        /// Every session hook that applied to this call. Omitted when none applied.
+        /// The session hooks that ran on this call, each with its result. Omitted when none applied.
         /// </param>
 #if NET7_0_OR_GREATER
         [global::System.Diagnostics.CodeAnalysis.SetsRequiredMembers]

@@ -40,8 +40,9 @@ namespace Composio
         ///
         /// </summary>
         [global::System.Text.Json.Serialization.JsonPropertyName("handler")]
+        [global::System.Text.Json.Serialization.JsonConverter(typeof(global::Composio.JsonConverters.OneOfJsonConverter<global::Composio.PostToolRouterSessionRequestHookVariant1HandlerVariant1, global::Composio.PostToolRouterSessionRequestHookVariant1HandlerVariant2>))]
         [global::System.Text.Json.Serialization.JsonRequired]
-        public required global::Composio.PostToolRouterSessionRequestHookVariant1Handler Handler { get; set; }
+        public required global::Composio.OneOf<global::Composio.PostToolRouterSessionRequestHookVariant1HandlerVariant1, global::Composio.PostToolRouterSessionRequestHookVariant1HandlerVariant2> Handler { get; set; }
 
         /// <summary>
         /// Additional properties that are not explicitly defined in the schema
@@ -69,7 +70,7 @@ namespace Composio
         public PostToolRouterSessionRequestHookVariant1(
             string id,
             global::Composio.AnyOf<global::Composio.PostToolRouterSessionRequestHookVariant1AppliesToEnum?, global::Composio.PostToolRouterSessionRequestHookVariant1AppliesToEnum2> appliesTo,
-            global::Composio.PostToolRouterSessionRequestHookVariant1Handler handler,
+            global::Composio.OneOf<global::Composio.PostToolRouterSessionRequestHookVariant1HandlerVariant1, global::Composio.PostToolRouterSessionRequestHookVariant1HandlerVariant2> handler,
             global::Composio.PostToolRouterSessionRequestHookVariant1Type type,
             string? name)
         {
@@ -77,7 +78,7 @@ namespace Composio
             this.Id = id ?? throw new global::System.ArgumentNullException(nameof(id));
             this.Name = name;
             this.AppliesTo = appliesTo;
-            this.Handler = handler ?? throw new global::System.ArgumentNullException(nameof(handler));
+            this.Handler = handler;
         }
 
         /// <summary>
